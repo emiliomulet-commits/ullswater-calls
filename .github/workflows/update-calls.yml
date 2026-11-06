@@ -48,6 +48,17 @@ jobs:
       - name: Match calls with organisations (CORDIS)
         run: python scripts/partners.py
 
+      - name: Cache BDNS call details
+        uses: actions/cache@v4
+        with:
+          path: .cache/bdns
+          key: bdns-${{ github.run_id }}
+          restore-keys: bdns-
+
+      - name: Spanish national and regional calls (BDNS)
+        run: python scripts/bdns.py
+        continue-on-error: true
+
       - name: Fund Finder index
         run: python scripts/finder_index.py
 

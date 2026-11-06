@@ -7,3 +7,10 @@ site/index.html
 site/404.html
 site/sitemap.xml
 __pycache__/
+site/partners/
+site/finder/
+site/tools/
+site/data/finder.json
+site/alerts/
+site/directory/
+site/spain/

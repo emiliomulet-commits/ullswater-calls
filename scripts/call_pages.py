@@ -150,7 +150,7 @@ def archetype(a):
             f'<p class="note" style="margin-top:8px">Based on the {a["based_on"]} funded projects closest to this call. Use it as a benchmark, not a rule: always check the call conditions for the minimum consortium.</p>')
 
 
-def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN, board=None):
+def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN, board=None, directory=None):
     name = label(c["programme"], c["programmeName"])
     st = '<span class="tag open">Open</span>' if c["status"] == "open" else '<span class="tag fc">Forthcoming</span>'
     facts = []
@@ -177,6 +177,9 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
     reqs = (board or {}).get(c["id"].upper(), [])
     if reqs:
         body.append(f'<section class="sec"><h2>Partner requests for this call ({len(reqs)})</h2><p class="note">Published on the Ullswater partner board after review. Contact goes through Ullswater Investments, which introduces both parties.</p><div class="grid3">{board_cards(reqs)}</div></section>')
+    if directory:
+        import extra_pages
+        body.append(f'<section class="sec"><h2>Organisations in the Ullswater directory that match this call</h2><p class="note">Reviewed profiles of organisations open to EU consortia. Ask us for an introduction.</p><div class="grid3">{"".join(extra_pages.profile_card(x) for x in directory)}</div></section>')
     show = partners_enabled(c, p)
     comp = []
     if c.get("grants"):
