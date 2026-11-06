@@ -29,9 +29,24 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install dependencies
+        run: pip install --quiet pandas numpy scikit-learn
+
       - name: Fetch calls from the EU Funding & Tenders Portal API
-        if: github.event_name != 'push'
         run: python scripts/fetch_calls.py
+
+      - name: Month key for the CORDIS cache
+        id: month
+        run: echo "key=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache CORDIS open data (refreshed monthly by the Commission)
+        uses: actions/cache@v4
+        with:
+          path: .cache/cordis
+          key: cordis-${{ steps.month.outputs.key }}
+
+      - name: Match calls with organisations (CORDIS)
+        run: python scripts/partners.py
 
       - name: Build static site
         run: python scripts/build_site.py
@@ -41,7 +56,7 @@ jobs:
         run: |
           git config user.name "ullswater-calls-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add site
+          git add site/data
           git diff --cached --quiet || git commit -m "Weekly calls update $(date -u +%F)"
           git push
 

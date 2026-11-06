@@ -19,6 +19,7 @@ from pathlib import Path
 API = "https://api.tech.ec.europa.eu/search-api/prod/rest"
 KEY = "SEDIA"
 OUT = Path(__file__).resolve().parent.parent / "site" / "data"
+ROOT_DATA = Path(__file__).resolve().parent.parent / "data"  # build-only data, not published
 STATUS = {"31094501": "forthcoming", "31094502": "open"}
 PAGE_SIZE = 100
 UA = "UllswaterCallsBot/1.0 (+https://calls.ullswaterinvestments.com)"
@@ -136,7 +137,7 @@ def main():
     print("Fetching EU topics and cascade-funding calls…")
     raw = fetch_all(["1"], list(STATUS)) + fetch_all(["8"], list(STATUS))
 
-    calls, seen = [], set()
+    calls, seen, texts = [], set(), {}
     for r in raw:
         m = r.get("metadata", {})
         kind = "cascade" if first(m, "type") == "8" else "topic"
@@ -175,8 +176,11 @@ def main():
             budget = topic_budget(m, ident)
             call_id = first(m, "callIdentifier")
 
+        cid = ident if kind == "topic" else f"{call_id}-{first(m, 'ccm2Id')}"
+        texts[cid] = " ".join([title, first(m, "callTitle"), " ".join(m.get("tags") or []), " ".join(m.get("keywords") or []),
+                               strip_html(first(m, "descriptionByte") or first(m, "furtherInformation") or first(m, "description"), 8000)])
         calls.append({
-            "id": ident if kind == "topic" else f"{call_id}-{first(m, 'ccm2Id')}",
+            "id": cid,
             "title": title.strip(),
             "call": call_id,
             "callTitle": first(m, "callTitle"),
@@ -210,6 +214,8 @@ def main():
         "source": "European Commission – Funding & Tenders Portal (SEDIA search API)",
     }
     (OUT / "calls.json").write_text(json.dumps({"stats": stats, "calls": calls}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    (ROOT_DATA).mkdir(parents=True, exist_ok=True)
+    (ROOT_DATA / "topic_text.json").write_text(json.dumps({c["id"]: texts.get(c["id"], "") for c in calls}, ensure_ascii=False), encoding="utf-8")
     (OUT / "stats.json").write_text(json.dumps(stats, ensure_ascii=False, indent=1), encoding="utf-8")
     print(json.dumps(stats, indent=1))
 

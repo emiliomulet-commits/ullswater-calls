@@ -6,6 +6,9 @@ sitemap.xml, robots.txt, 404.html, CNAME, assets/app.js
 """
 import json
 import re
+import sys
+sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
+import call_pages
 from datetime import date, datetime
 from html import escape
 from pathlib import Path
@@ -64,6 +67,18 @@ h1{font-size:36px;line-height:1.2;margin:0 0 12px;color:var(--navy)}
 .cta strong{font-size:18px}.cta p{margin:4px 0 0;color:#dbe2f5;font-size:15px}
 .about{border-top:1px solid var(--line);margin-top:24px;padding:24px 0 8px;color:var(--muted);font-size:15px}.about h2{font-size:20px;color:var(--navy);margin:0 0 8px}
 .crumbs{font-size:13px;color:var(--muted);margin-bottom:14px}.crumbs a{color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:4px 18px}.more.ext{font-weight:500;color:var(--muted)}
+.callhead .facts{font-size:15px;margin-top:14px}.sec{padding:28px 0 4px}.sec h2{font-size:24px;color:var(--navy);margin:0 0 6px}.sec>p.note{color:var(--muted);font-size:14px;margin:0 0 14px;max-width:820px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.tbl th{background:var(--bg);text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:9px 12px;border-bottom:1px solid var(--line)}
+.tbl td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}.tbl tr:last-child td{border-bottom:0}.tbl td.n{text-align:center;font-weight:700;color:var(--navy)}
+.tbl small{color:var(--muted)}.scroll{overflow-x:auto}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.box{border:1px solid var(--line);border-radius:10px;padding:16px 18px;background:#fff}
+.box h3{font-size:16px;margin:0 0 6px;color:var(--navy)}.box p{margin:0;color:var(--muted);font-size:14px}.box a.go{display:inline-block;margin-top:8px;font-weight:600;font-size:14px}
+.kpi{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 12px;padding:0;list-style:none}.kpi li{background:var(--bg);border-radius:8px;padding:10px 16px;font-size:14px;color:var(--muted)}.kpi strong{display:block;font-size:22px;color:var(--navy);line-height:1.2}
+.bar{display:flex;height:14px;border-radius:7px;overflow:hidden;margin:6px 0 6px}.bar span{display:block}.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--muted)}.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.disc{font-size:13px;color:var(--muted);background:var(--bg);border-radius:8px;padding:12px 16px;margin-top:14px}
+@media(max-width:860px){.grid3{grid-template-columns:1fr}}
 footer.site{background:var(--navy);color:#dbe2f5;font-size:14px;margin-top:40px}footer.site .wrap{padding:28px 20px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between}footer.site a{color:#fff}
 @media(max-width:860px){.filters .wrap{grid-template-columns:1fr 1fr}.filters .q{grid-column:1/-1}.filters{position:static}}
 @media(max-width:640px){h1{font-size:28px}.top-links{display:none}.call{grid-template-columns:72px 1fr;gap:12px;padding:14px}.date b{font-size:18px}}
@@ -152,10 +167,10 @@ def card(c):
         f'<div class="meta">{st_tag}<span class="tag left" hidden></span><a class="tag" href="/programme/{slug(c["programme"])}/">{escape(label(c["programme"], c["programmeName"]))}</a>'
         + (f'<span class="tag cas">{kind}</span>' if c["kind"] == "cascade" else "")
         + f'<span class="code">{escape(ident)}</span></div>'
-        f'<h3><a href="{escape(c["url"])}" target="_blank" rel="noopener">{escape(c["title"])}</a></h3>'
+        f'<h3><a href="/call/{slug(c["id"])}/">{escape(c["title"])}</a></h3>'
         + (f"<p>{escape(c['summary'][:300] + ('…' if len(c['summary']) > 300 and not c['summary'].endswith('…') else ''))}</p>" if c.get("summary") else "")
         + (f'<div class="facts">{"".join(facts)}</div>' if facts else "")
-        + f'<a class="more" href="{escape(c["url"])}" target="_blank" rel="noopener">View on the EU Funding &amp; Tenders Portal ↗</a>'
+        + f'<div class="links"><a class="more" href="/call/{slug(c["id"])}/">Details &amp; potential partners →</a><a class="more ext" href="{escape(c["url"])}" target="_blank" rel="noopener">EU portal ↗</a></div>'
         + (f'<span hidden>{escape(" ".join(c.get("tags") or []) + " " + (c.get("callTitle") or ""))}</span>')
         + "</div></article>"
     )
@@ -227,6 +242,9 @@ def main():
     for c in calls:
         counts[c["programme"]] = counts.get(c["programme"], 0) + 1
     progs = sorted(counts.items(), key=lambda kv: -kv[1])
+    import shutil
+    for old in ("call", "programme", "closing-soon"):  # drop pages of calls that have closed
+        shutil.rmtree(SITE / old, ignore_errors=True)
     (SITE / "assets").mkdir(parents=True, exist_ok=True)
     (SITE / "assets" / "app.js").write_text(JS, encoding="utf-8")
 
@@ -269,6 +287,18 @@ def main():
             nav(progs, code) + h + filters(progs, show_prog=False, default_status="all" if po == 0 else "open") + listing(pc) + about,
             itemlist(pc, f"{name} calls")), encoding="utf-8")
         urls.append(path)
+
+    # Per-call pages with "Find partners"
+    pfile = ROOT / "data" / "partners.json"
+    partners = json.loads(pfile.read_text(encoding="utf-8")) if pfile.exists() else {}
+    events = call_pages.load_events()
+    for c in calls:
+        path, html_ = call_pages.render_call(c, partners.get(c["id"]), events, page, nav(progs), fmt_date, money, label, slug, MAIN)
+        d = SITE / path.strip("/")
+        d.mkdir(parents=True, exist_ok=True)
+        (d / "index.html").write_text(html_, encoding="utf-8")
+        urls.append(path)
+    print(f"  call pages: {len(calls)} ({sum(1 for c in calls if call_pages.partners_enabled(c, partners.get(c['id'])))} with track-record partners), events: {len(events)}")
 
     (SITE / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
         + "".join(f"<url><loc>{BASE}{u}</loc><lastmod>{upd.isoformat()}</lastmod><changefreq>weekly</changefreq></url>" for u in urls) + "</urlset>\n", encoding="utf-8")
