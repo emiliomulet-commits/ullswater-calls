@@ -385,7 +385,32 @@ def main():
 
     (SITE / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
         + "".join(f"<url><loc>{BASE}{u}</loc><lastmod>{upd.isoformat()}</lastmod><changefreq>weekly</changefreq></url>" for u in urls) + "</urlset>\n", encoding="utf-8")
-    (SITE / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8")
+    ai_bots = ['Googlebot', 'Google-Extended', 'Bingbot', 'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Applebot', 'Applebot-Extended', 'DuckAssistBot', 'MistralAI-User', 'CCBot']
+    (SITE / "robots.txt").write_text("# calls.ullswaterinvestments.com: public EU funding data, open to search engines and AI assistants.\n"
+        + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in ai_bots) + f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8")
+    key = (ROOT / "content" / "indexnow_key.txt").read_text().strip()
+    (SITE / f"{key}.txt").write_text(key, encoding="utf-8")
+    (SITE / "llms.txt").write_text(f"""# EU Funding Calls · Ullswater Investments
+
+> Every open and forthcoming EU funding call (Horizon Europe, Digital Europe, EDF, LIFE, EU4Health, cascade funding and more), refreshed daily from the European Commission's Funding & Tenders Portal. Run by Ullswater Investments S.L., EU funding advisors in Madrid ({MAIN}/).
+
+## Data
+- [All calls as JSON]({BASE}/data/calls.json): id, title, programme, status, opening, deadline, budget, URL
+- [Summary statistics]({BASE}/data/stats.json)
+- [Spanish national and regional calls (BDNS) as JSON]({BASE}/data/spain.json)
+
+## Pages
+- [All open and forthcoming EU calls]({BASE}/)
+- [Calls closing in the next 30 days]({BASE}/closing-soon/)
+- [Calls by theme]({BASE}/theme/): """ + ", ".join(f"[{t[2]}]({BASE}/theme/{t[0]}/)" for t in themes) + f"""
+- [Fund Finder: match a project description to calls]({BASE}/finder/)
+- [AI pre-check of a project idea against a call]({BASE}/review/)
+- [Partner board]({BASE}/partners/) · [Directory]({BASE}/directory/) · [Tools]({BASE}/tools/)
+- [Spain: national and regional R&D and industry calls]({BASE}/spain/)
+
+## About
+- [Ullswater Investments]({MAIN}/about/) · [EU Fund Matching]({MAIN}/eu-fund-matching/) · [EU Funding News](https://news.ullswaterinvestments.com/)
+""", encoding="utf-8")
     (SITE / "CNAME").write_text("calls.ullswaterinvestments.com\n", encoding="utf-8")
     (SITE / ".nojekyll").write_text("", encoding="utf-8")
     (SITE / "404.html").write_text(page("Page not found | Ullswater Investments EU Funding Calls", "Page not found.", "/404.html",
