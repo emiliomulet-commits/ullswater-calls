@@ -57,7 +57,7 @@ def load(fp):
         member = next(n for n in z.namelist() if n.endswith(name))
         return pd.read_csv(io.BytesIO(z.read(member)), sep=";", dtype=str, on_bad_lines="skip", quotechar='"')
 
-    proj = read("project.csv")[["id", "acronym", "title", "startDate", "topics", "fundingScheme", "objective", "keywords"]]
+    proj = read("project.csv")[["id", "acronym", "title", "startDate", "topics", "fundingScheme", "objective", "keywords", "ecMaxContribution"]]
     org = read("organization.csv")[["projectID", "organisationID", "name", "shortName", "SME", "activityType", "city", "country", "organizationURL", "role"]]
     proj["fp"] = fp
     return proj, org
@@ -81,6 +81,7 @@ def main():
     proj = proj[proj["id"].map(sizes).fillna(0) >= 3].reset_index(drop=True)  # consortia only
     print(f"Corpus: {len(proj)} collaborative projects, {org['organisationID'].nunique()} organisations")
 
+    proj["eu"] = pd.to_numeric(proj["ecMaxContribution"].fillna("").str.replace(",", ".", regex=False), errors="coerce")
     proj["year"] = pd.to_numeric(proj["startDate"].str[:4], errors="coerce").fillna(2015)
     recency = np.clip(1 - (2026 - proj["year"].to_numpy()) * 0.06, 0.4, 1.0)
     fam = [family(t) for t in proj["topics"].fillna("")]
@@ -145,6 +146,11 @@ def main():
             "max_sim": round(float(sim[idx[0]]), 3),
             "similar": [{"id": proj.iloc[i]["id"], "acronym": proj.iloc[i]["acronym"], "title": proj.iloc[i]["title"], "fp": proj.iloc[i]["fp"],
                          "year": int(proj.iloc[i]["year"]), "topic": proj.iloc[i]["topics"]} for i in idx[:6]],
+            "funding": {
+                "median_eu": int(np.nanmedian(proj.iloc[idx[:ARCH_PROJECTS]]["eu"].to_numpy())) if proj.iloc[idx[:ARCH_PROJECTS]]["eu"].notna().any() else None,
+                "family_projects": int(sum(1 for i in range(len(fam)) if len(cf) >= 2 and fam[i] and len(cf & fam[i]) / len(cf | fam[i]) >= 0.66)),
+                "family": "-".join(sorted(cf)) if len(cf) >= 2 else None,
+            },
             "archetype": {
                 "partners": int(np.median([len(g) for g in cons])),
                 "countries": int(np.median([g["country"].nunique() for g in cons])),

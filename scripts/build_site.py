@@ -9,6 +9,8 @@ import re
 import sys
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
 import call_pages
+import finder_page
+import tools_pages
 from datetime import date, datetime
 from html import escape
 from pathlib import Path
@@ -199,7 +201,9 @@ def page(title, desc, path, body, jsonld=None):
 def nav(progs, current=None):
     links = [f'<a href="/"{" aria-current=page" if current == "all" else ""}>All calls</a>',
              f'<a href="/closing-soon/"{" aria-current=page" if current == "soon" else ""}>Closing soon</a>',
-             f'<a href="/partners/"{" aria-current=page" if current == "board" else ""}>Partner board</a>']
+             f'<a href="/finder/"{" aria-current=page" if current == "finder" else ""}>Fund Finder</a>',
+             f'<a href="/partners/"{" aria-current=page" if current == "board" else ""}>Partner board</a>',
+             f'<a href="/tools/"{" aria-current=page" if current == "tools" else ""}>Tools</a>']
     for code, n in progs[:9]:
         links.append(f'<a href="/programme/{slug(code)}/"{" aria-current=page" if current == code else ""}>{escape(label(code, ""))}</a>')
     return f'<nav class="cats" aria-label="Programmes"><div class="wrap">{"".join(links)}</div></nav>'
@@ -244,7 +248,7 @@ def main():
         counts[c["programme"]] = counts.get(c["programme"], 0) + 1
     progs = sorted(counts.items(), key=lambda kv: -kv[1])
     import shutil
-    for old in ("call", "programme", "closing-soon", "partners"):  # drop pages of calls that have closed
+    for old in ("call", "programme", "closing-soon", "partners", "finder", "tools"):  # drop pages of calls that have closed
         shutil.rmtree(SITE / old, ignore_errors=True)
     (SITE / "assets").mkdir(parents=True, exist_ok=True)
     (SITE / "assets" / "app.js").write_text(JS, encoding="utf-8")
@@ -295,10 +299,12 @@ def main():
     events = call_pages.load_events()
     board = call_pages.load_board()
     for c in calls:
-        path, html_ = call_pages.render_call(c, partners.get(c["id"]), events, page, nav(progs), fmt_date, money, label, slug, MAIN, board)
+        path, ics, html_ = call_pages.render_call(c, partners.get(c["id"]), events, page, nav(progs), fmt_date, money, label, slug, MAIN, board)
         d = SITE / path.strip("/")
         d.mkdir(parents=True, exist_ok=True)
         (d / "index.html").write_text(html_, encoding="utf-8")
+        if ics:
+            (d / "deadline.ics").write_text(ics, encoding="utf-8")
         urls.append(path)
     # Partner board page
     by_id = {c["id"].upper(): c for c in calls}
@@ -312,6 +318,14 @@ def main():
     (SITE / "partners" / "index.html").write_text(page(f"EU call partner board: find consortium partners ({len(live_reqs)} requests) | Ullswater Investments",
         "Partner requests and offers for open EU funding calls, reviewed by Ullswater Investments.", "/partners/", nav(progs, "board") + pb), encoding="utf-8")
     urls.append("/partners/")
+    for sub, cur, ttl, dsc, body in [
+        ("finder", "finder", "Fund Finder: which EU call fits your project? | Ullswater Investments",
+         "Describe your project and get a ranked shortlist of matching open EU calls, with the reasons for each match.", finder_page.finder_html(MAIN)),
+        ("tools", "tools", "Horizon Europe budget calculator and consortium checker | Ullswater Investments",
+         "Free tools: estimate your Horizon Europe budget and EU grant, and check consortium eligibility with the official list of associated countries.", tools_pages.tools_html(MAIN))]:
+        (SITE / sub).mkdir(exist_ok=True)
+        (SITE / sub / "index.html").write_text(page(ttl, dsc, f"/{sub}/", nav(progs, cur) + body), encoding="utf-8")
+        urls.append(f"/{sub}/")
     print(f"  partner board: {len(live_reqs)} approved requests")
     print(f"  call pages: {len(calls)} ({sum(1 for c in calls if call_pages.partners_enabled(c, partners.get(c['id'])))} with track-record partners), events: {len(events)}")
 

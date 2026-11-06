@@ -157,6 +157,10 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
     if c.get("deadline"): facts.append(f"<span>Deadline <b>{fmt_date(c['deadline'])}</b></span>")
     if c.get("opening") and c["status"] == "forthcoming": facts.append(f"<span>Opens <b>{fmt_date(c['opening'])}</b></span>")
     if c.get("budget"): facts.append(f"<span>Budget <b>{money(c['budget'])}</b></span>")
+    if c.get("grants"): facts.append(f"<span>Indicative grants <b>{c['grants']}</b></span>")
+    if c.get("minEU") and c.get("maxEU"):
+        rng = money(c["minEU"]) if c["minEU"] == c["maxEU"] else f"{money(c['minEU'])}–{money(c['maxEU'])}"
+        facts.append(f"<span>EU contribution per project <b>{rng}</b></span>")
     if c.get("deadlineModel"): facts.append(f"<span>{escape(c['deadlineModel'].replace('-', ' ').capitalize())}</span>")
     if c.get("actions"): facts.append(f"<span>{escape(', '.join(c['actions'][:2]))}</span>")
     ident = c["id"] if c["kind"] == "topic" else c.get("call", "")
@@ -166,7 +170,7 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
 <div class="meta">{st}<span class="tag">{escape(name)}</span>{'<span class="tag cas">Cascade funding</span>' if c['kind'] == 'cascade' else ''}</div>
 <h1 style="margin-top:10px">{escape(c['title'])}</h1>{f'<p class="lead">{escape(c["summary"])}</p>' if c.get('summary') else ''}
 <div class="facts">{''.join(facts)}</div>
-<div class="actions"><a class="btn" href="{escape(c['url'])}" target="_blank" rel="noopener">Official call page ↗</a><a class="btn ghost" href="#partners">Find partners ↓</a></div></div></section>
+<div class="actions"><a class="btn" href="{escape(c['url'])}" target="_blank" rel="noopener">Official call page ↗</a><a class="btn ghost" href="#partners">Find partners ↓</a>{'<a class="btn ghost" href="deadline.ics">📅 Add deadline to calendar</a>' if c.get('deadline') else ''}<a class="btn ghost" href="/alerts/?call={escape(ident)}">🔔 Alerts for this call</a></div></div></section>
 <div class="wrap" id="partners">"""
 
     body = []
@@ -174,6 +178,21 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
     if reqs:
         body.append(f'<section class="sec"><h2>Partner requests for this call ({len(reqs)})</h2><p class="note">Published on the Ullswater partner board after review. Contact goes through Ullswater Investments, which introduces both parties.</p><div class="grid3">{board_cards(reqs)}</div></section>')
     show = partners_enabled(c, p)
+    comp = []
+    if c.get("grants"):
+        comp.append(f"<li><strong>{c['grants']}</strong>grant{'s' if c['grants'] != 1 else ''} expected (official)</li>")
+    if c.get("minEU") and c.get("maxEU"):
+        comp.append(f"<li><strong>{money(c['minEU']) if c['minEU'] == c['maxEU'] else money(c['minEU']) + '–' + money(c['maxEU'])}</strong>EU contribution per project</li>")
+    fnd = (p or {}).get("funding") or {}
+    if show and fnd.get("median_eu"):
+        comp.append(f"<li><strong>{money(fnd['median_eu'])}</strong>median EU grant of the most similar funded projects</li>")
+    if show and fnd.get("family_projects"):
+        comp.append(f"<li><strong>{fnd['family_projects']}</strong>projects funded in earlier topics of this programme line</li>")
+    if comp:
+        tip = ""
+        if c.get("grants") and c["grants"] <= 2:
+            tip = "<p class=\"note\">Very few grants: expect strong competition. Only proposals well above threshold are funded, so a clearly differentiated idea and a complete consortium are essential.</p>"
+        body.append(f'<section class="sec"><h2>Funding and competition</h2><ul class="kpi">{"".join(comp)}</ul>{tip}<p class="note">Success rates vary widely between topics (often from below 5% to above 30%). Ask us for the success-rate history of this topic before you commit to a proposal.</p></section>')
     if show:
         body.append(f"""<section class="sec"><h2>Organisations with a track record in this topic</h2>
 <p class="note">Organisations that took part in the EU-funded projects most similar to this call (Horizon Europe and Horizon 2020), ranked by how close those projects are to the call, how recent they are and whether the organisation coordinated them. Being listed does not mean an organisation is looking for partners: use the list to target your outreach.</p>
@@ -215,4 +234,13 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
     ld = {"@context": "https://schema.org", "@type": "WebPage", "name": c["title"], "url": "https://calls.ullswaterinvestments.com" + path,
           "about": {"@type": "Thing", "name": f"{ident} – {c['title']}", "url": c["url"]},
           "publisher": {"@type": "Organization", "name": "Ullswater Investments S.L.", "url": MAIN}}
-    return path, page(title[:150], desc[:300], path, nav_html + head + "".join(body), ld)
+    ics = None
+    if c.get("deadline"):
+        d = c["deadline"].replace("-", "")
+        ics = ("BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Ullswater Investments//EU Funding Calls//EN\r\nBEGIN:VEVENT\r\n"
+               f"UID:{slug(c['id'])}@calls.ullswaterinvestments.com\r\nDTSTAMP:{date.today().strftime('%Y%m%d')}T000000Z\r\n"
+               f"DTSTART;VALUE=DATE:{d}\r\nSUMMARY:Deadline: {ident} – {c['title'][:120].replace(',', ' ')}\r\n"
+               f"DESCRIPTION:EU call deadline (check the exact time on the official page). Details and partners: https://calls.ullswaterinvestments.com{path}\r\n"
+               f"URL:{c['url']}\r\nBEGIN:VALARM\r\nTRIGGER:-P14D\r\nACTION:DISPLAY\r\nDESCRIPTION:Deadline in 14 days\r\nEND:VALARM\r\n"
+               "BEGIN:VALARM\r\nTRIGGER:-P3D\r\nACTION:DISPLAY\r\nDESCRIPTION:Deadline in 3 days\r\nEND:VALARM\r\nEND:VEVENT\r\nEND:VCALENDAR\r\n")
+    return path, ics, page(title[:150], desc[:300], path, nav_html + head + "".join(body), ld)

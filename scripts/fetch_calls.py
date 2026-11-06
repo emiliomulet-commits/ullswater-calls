@@ -81,24 +81,31 @@ def parse_date(s):
 
 
 def topic_budget(m, identifier):
+    """Budget, indicative number of grants and contribution range for this topic (from budgetOverview)."""
     raw = first(m, "budgetOverview")
+    res = {"budget": None, "grants": None, "minEU": None, "maxEU": None}
     if not raw:
-        return None
+        return res
     try:
         bo = json.loads(raw)
     except ValueError:
-        return None
-    total = 0
+        return res
+    total, grants, mins, maxs = 0, 0, [], []
     for actions in (bo.get("budgetTopicActionMap") or {}).values():
         for a in actions:
-            if identifier and not str(a.get("action", "")).startswith(identifier):
+            if identifier and str(a.get("action", "")).split(" - ")[0].strip() != identifier:
                 continue
             for v in (a.get("budgetYearMap") or {}).values():
                 try:
                     total += float(v)
                 except (TypeError, ValueError):
                     pass
-    return int(total) or None
+            grants += int(a.get("expectedGrants") or 0)
+            if a.get("minContribution"): mins.append(float(a["minContribution"]))
+            if a.get("maxContribution"): maxs.append(float(a["maxContribution"]))
+    res.update(budget=int(total) or None, grants=grants or None,
+               minEU=int(min(mins)) if mins else None, maxEU=int(max(maxs)) if maxs else None)
+    return res
 
 
 def programme_names():
@@ -162,6 +169,7 @@ def main():
         if kind == "cascade":
             title = first(m, "caName") or first(m, "callTitle") or r.get("summary", "")
             summary = strip_html(first(m, "furtherInformation") or first(m, "description"))
+            tb = {}
             budget = None
             try:
                 budget = int(float(first(m, "budget"))) or None
@@ -173,7 +181,8 @@ def main():
         else:
             title = first(m, "title") or r.get("summary", "")
             summary = strip_html(first(m, "descriptionByte"))
-            budget = topic_budget(m, ident)
+            tb = topic_budget(m, ident)
+            budget = tb["budget"]
             call_id = first(m, "callIdentifier")
 
         cid = ident if kind == "topic" else f"{call_id}-{first(m, 'ccm2Id')}"
@@ -192,6 +201,9 @@ def main():
             "deadline": deadline.date().isoformat() if deadline else None,
             "deadlineModel": first(m, "deadlineModel"),
             "budget": budget,
+            "grants": tb.get("grants"),
+            "minEU": tb.get("minEU"),
+            "maxEU": tb.get("maxEU"),
             "actions": m.get("typesOfAction", [])[:3],
             "tags": (m.get("tags") or [])[:8],
             "summary": summary,

@@ -48,6 +48,9 @@ jobs:
       - name: Match calls with organisations (CORDIS)
         run: python scripts/partners.py
 
+      - name: Fund Finder index
+        run: python scripts/finder_index.py
+
       - name: Build static site
         run: python scripts/build_site.py
 
