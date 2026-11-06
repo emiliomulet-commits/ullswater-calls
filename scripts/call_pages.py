@@ -5,6 +5,63 @@ import urllib.request
 from datetime import date
 from html import escape
 
+import csv
+import io
+
+BOARD_CSV = ("https://docs.google.com/spreadsheets/d/e/2PACX-1vQFlSKgfShj44obux_LhMrxiJ0KpxLOkAqqxsyEwBDv0_R2Ojf-v3dT0K4cn-Z-T1bI8V_xz1XH001c"
+             "/pub?gid=0&single=true&output=csv")
+FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdIi27JIDNU6-KVL4J_vJ_6rjGrtIoUJi1QDX01XgOlg-uqHw/viewform"
+FORM_CALL_FIELD = "entry.301116469"
+CONTACT = "emilio.mulet@ullswaterinvestments.com"
+
+
+def form_link(call_id=""):
+    from urllib.parse import quote
+    return f"{FORM_URL}?usp=pp_url&{FORM_CALL_FIELD}={quote(call_id)}" if call_id else FORM_URL
+
+
+def load_board():
+    """Approved partner requests (public fields only) from the moderation sheet's Published tab."""
+    try:
+        import time
+        req = urllib.request.Request(f"{BOARD_CSV}&t={int(time.time())}", headers={"User-Agent": "UllswaterCallsBot/1.0"})
+        text = urllib.request.urlopen(req, timeout=30).read().decode("utf-8")
+        rows = [r for r in csv.DictReader(io.StringIO(text)) if (r.get("id") and r.get("call") and r.get("organisation"))]
+    except Exception as e:
+        print(f"  partner board unavailable: {e}")
+        return {}
+    board = {}
+    for r in rows:
+        board.setdefault(r["call"].strip().upper(), []).append({k: (v or "").strip() for k, v in r.items()})
+    return board
+
+
+def board_cards(reqs, show_call=False, calls_by_id=None):
+    out = []
+    for r in reqs:
+        seeking = r["kind"].lower().startswith("we are looking")
+        tag = '<span class="tag open">Looking for partners</span>' if seeking else '<span class="tag fc">Wants to join a consortium</span>'
+        web = r.get("website") or ""
+        if web and not web.startswith("http"):
+            web = "https://" + web
+        org = f'<a href="{escape(web)}" target="_blank" rel="noopener nofollow">{escape(r["organisation"])}</a>' if web else escape(r["organisation"])
+        call = ""
+        if show_call:
+            c = (calls_by_id or {}).get(r["call"].upper())
+            call = (f'<p style="margin-top:4px;font-size:14px">Call: <a href="/call/{slugify(c["id"])}/">{escape(c["title"])}</a> <span class="code">{escape(c["id"])}</span></p>' if c
+                    else f'<p class="code" style="margin-top:4px">Call: {escape(r["call"])}</p>')
+        mail = f'mailto:{CONTACT}?subject={escape("Partner request " + r["id"] + " – " + r["call"])}'
+        out.append(f'<div class="box req"><div class="meta">{tag}<span class="code">{escape(r["id"])}</span></div>'
+                   f'<h3 style="margin-top:8px">{org}</h3><p><strong>{escape(r["country"])}</strong> · {escape(r["type"])} · Role: {escape(r["role"])}</p>'
+                   f'{call}<p style="margin-top:8px;color:var(--ink)">{escape(r["description"])}</p>'
+                   f'<a class="go" href="{mail}">Contact via Ullswater →</a></div>')
+    return "".join(out)
+
+
+def slugify(s):
+    return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
+
+
 TYPE_LABEL = {"HES": "University", "REC": "Research organisation", "PRC": "Company", "PUB": "Public body", "OTH": "Other"}
 MIX_COLOURS = {"Company": "#233567", "Research organisation": "#c9a646", "University": "#3b6fb6", "Public body": "#067647", "Other": "#9aa3b2"}
 COUNTRY = {"AT": "Austria", "BE": "Belgium", "BG": "Bulgaria", "CH": "Switzerland", "CY": "Cyprus", "CZ": "Czechia", "DE": "Germany", "DK": "Denmark",
@@ -93,7 +150,7 @@ def archetype(a):
             f'<p class="note" style="margin-top:8px">Based on the {a["based_on"]} funded projects closest to this call. Use it as a benchmark, not a rule: always check the call conditions for the minimum consortium.</p>')
 
 
-def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN):
+def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN, board=None):
     name = label(c["programme"], c["programmeName"])
     st = '<span class="tag open">Open</span>' if c["status"] == "open" else '<span class="tag fc">Forthcoming</span>'
     facts = []
@@ -113,6 +170,9 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
 <div class="wrap" id="partners">"""
 
     body = []
+    reqs = (board or {}).get(c["id"].upper(), [])
+    if reqs:
+        body.append(f'<section class="sec"><h2>Partner requests for this call ({len(reqs)})</h2><p class="note">Published on the Ullswater partner board after review. Contact goes through Ullswater Investments, which introduces both parties.</p><div class="grid3">{board_cards(reqs)}</div></section>')
     show = partners_enabled(c, p)
     if show:
         body.append(f"""<section class="sec"><h2>Organisations with a track record in this topic</h2>
@@ -144,10 +204,8 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
         li = "".join(f'<li><strong>{fmt_date(e["start"])}</strong> · <a href="{escape(e["url"])}">{escape(e["title"])}</a> <small>({escape(e.get("location") or "")})</small></li>' for e in evs)
         body.append(f'<section class="sec"><h2>Upcoming info days and brokerage events</h2><p class="note">Brokerage events are where most consortia are built.</p><ul>{li}</ul><p><a href="https://events.ullswaterinvestments.com/">All EU funding events →</a></p></section>')
 
-    subj = f"Partner search – {ident}"
-    bodytxt = f"Call: {c['title']} ({ident})%0D%0A%0D%0AWe are looking for / we offer:%0D%0A%0D%0AOrganisation and country:%0D%0A"
-    body.append(f"""<div class="cta"><div><strong>Building a consortium for this call?</strong><p>Tell us what you are looking for or what you can offer. Ullswater Investments checks the fit, introduces you to suitable partners and can help you shape the proposal.</p></div>
-<a class="btn" href="mailto:emilio.mulet@ullswaterinvestments.com?subject={escape(subj)}&amp;body={bodytxt}">Post a partner request</a></div>""")
+    body.append(f"""<div class="cta"><div><strong>Building a consortium for this call?</strong><p>Publish what you are looking for or what you can offer on the Ullswater partner board. We review each request, publish it on this page and introduce you to suitable partners.</p></div>
+<a class="btn" href="{escape(form_link(ident if c['kind'] == 'topic' else c['id']))}" target="_blank" rel="noopener">Post a partner request</a></div>""")
     if show:
         body.append('<p class="disc">Track-record data: CORDIS open data (European Commission), organisation level only, refreshed weekly. Rankings are calculated automatically by Ullswater Investments from text similarity between the call and funded projects; they are indicative.</p>')
     body.append("</div></main>")

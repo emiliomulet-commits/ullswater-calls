@@ -19,3 +19,16 @@ so the home-page counter can show the same figures as this site.
 python3 scripts/fetch_calls.py && python3 scripts/build_site.py
 python3 -m http.server -d site 8000
 ```
+
+## Partner matching
+- `scripts/partners.py` — ranks organisations with a track record for each call from CORDIS open data
+  (Horizon Europe + H2020, organisation level only) and derives a typical consortium. CORDIS is cached per month.
+- `scripts/call_pages.py` — one page per call (`/call/<id>/`) with track-record organisations, Spanish organisations,
+  typical consortium, similar projects, live partner-search links (topic page, NCP network, F&T, EEN), events
+  (from events.ullswaterinvestments.com/events.json) and approved partner-board requests.
+
+## Partner board
+- Form: https://docs.google.com/forms/d/e/1FAIpQLSdIi27JIDNU6-KVL4J_vJ_6rjGrtIoUJi1QDX01XgOlg-uqHw/viewform
+- Moderation sheet: "Ullswater · Partner board (moderation)" (Google Drive). Set **Status = Approved** to publish a request.
+  Only the "Published" tab (no emails) is published to the web as CSV and read by the daily build.
+- Setup script kept in `tools/partner_board_setup.gs` (Apps Script project "Ullswater Partner Board").

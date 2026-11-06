@@ -198,7 +198,8 @@ def page(title, desc, path, body, jsonld=None):
 
 def nav(progs, current=None):
     links = [f'<a href="/"{" aria-current=page" if current == "all" else ""}>All calls</a>',
-             f'<a href="/closing-soon/"{" aria-current=page" if current == "soon" else ""}>Closing soon</a>']
+             f'<a href="/closing-soon/"{" aria-current=page" if current == "soon" else ""}>Closing soon</a>',
+             f'<a href="/partners/"{" aria-current=page" if current == "board" else ""}>Partner board</a>']
     for code, n in progs[:9]:
         links.append(f'<a href="/programme/{slug(code)}/"{" aria-current=page" if current == code else ""}>{escape(label(code, ""))}</a>')
     return f'<nav class="cats" aria-label="Programmes"><div class="wrap">{"".join(links)}</div></nav>'
@@ -243,7 +244,7 @@ def main():
         counts[c["programme"]] = counts.get(c["programme"], 0) + 1
     progs = sorted(counts.items(), key=lambda kv: -kv[1])
     import shutil
-    for old in ("call", "programme", "closing-soon"):  # drop pages of calls that have closed
+    for old in ("call", "programme", "closing-soon", "partners"):  # drop pages of calls that have closed
         shutil.rmtree(SITE / old, ignore_errors=True)
     (SITE / "assets").mkdir(parents=True, exist_ok=True)
     (SITE / "assets" / "app.js").write_text(JS, encoding="utf-8")
@@ -292,12 +293,26 @@ def main():
     pfile = ROOT / "data" / "partners.json"
     partners = json.loads(pfile.read_text(encoding="utf-8")) if pfile.exists() else {}
     events = call_pages.load_events()
+    board = call_pages.load_board()
     for c in calls:
-        path, html_ = call_pages.render_call(c, partners.get(c["id"]), events, page, nav(progs), fmt_date, money, label, slug, MAIN)
+        path, html_ = call_pages.render_call(c, partners.get(c["id"]), events, page, nav(progs), fmt_date, money, label, slug, MAIN, board)
         d = SITE / path.strip("/")
         d.mkdir(parents=True, exist_ok=True)
         (d / "index.html").write_text(html_, encoding="utf-8")
         urls.append(path)
+    # Partner board page
+    by_id = {c["id"].upper(): c for c in calls}
+    live_reqs = [r for k, rs in board.items() if k in by_id for r in rs]
+    cards = call_pages.board_cards(sorted(live_reqs, key=lambda r: r.get("submitted", ""), reverse=True), True, by_id)
+    pb = f"""<main><section class="hero"><div class="wrap"><div class="crumbs"><a href="/">All calls</a> › Partner board</div><p class="kicker">Partner board · updated {upd_s}</p>
+<h1>EU call partner board</h1><p class="lead">Organisations looking for partners, or offering to join a consortium, for open EU calls. Every request is reviewed by Ullswater Investments before it is published, and contact goes through us.</p>
+<div class="actions"><a class="btn" href="{call_pages.form_link()}" target="_blank" rel="noopener">Post a partner request</a></div></div></section>
+<div class="wrap"><section class="sec">{f'<div class="grid3">{cards}</div>' if cards else '<div class="empty">No partner requests published yet. Be the first: post what you are looking for and we will match you with organisations from our network and from EU project data.</div>'}</section></div></main>"""
+    (SITE / "partners").mkdir(exist_ok=True)
+    (SITE / "partners" / "index.html").write_text(page(f"EU call partner board: find consortium partners ({len(live_reqs)} requests) | Ullswater Investments",
+        "Partner requests and offers for open EU funding calls, reviewed by Ullswater Investments.", "/partners/", nav(progs, "board") + pb), encoding="utf-8")
+    urls.append("/partners/")
+    print(f"  partner board: {len(live_reqs)} approved requests")
     print(f"  call pages: {len(calls)} ({sum(1 for c in calls if call_pages.partners_enabled(c, partners.get(c['id'])))} with track-record partners), events: {len(events)}")
 
     (SITE / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'

@@ -1,8 +1,8 @@
-name: Weekly update of EU funding calls
+name: Daily update of EU funding calls
 
 on:
   schedule:
-    - cron: "0 5 * * 1"   # every Monday 05:00 UTC (06:00 Madrid in winter)
+    - cron: "0 5 * * *"   # every day 05:00 UTC (06:00 Madrid in winter): calls, partner matches and approved partner requests
   workflow_dispatch:       # "Run workflow" button for a manual refresh
   push:
     branches: [main]
