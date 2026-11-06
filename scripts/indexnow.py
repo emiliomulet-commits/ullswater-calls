@@ -12,12 +12,15 @@ if len(sys.argv) > 3:  # optional file with URLs already notified: send only new
     seen_f = Path(sys.argv[3])
     seen = set(seen_f.read_text().split()) if seen_f.exists() else set()
     new = [u for u in urls if u not in seen]
-    seen_f.write_text("\n".join(urls))
-    urls = new or urls[:1]
+    all_urls, urls = urls, (new or urls[:1])
+else:
+    seen_f = None
 body = json.dumps({"host": host, "key": key, "keyLocation": f"https://{host}/{key}.txt", "urlList": urls[:10000]}).encode()
 req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body, headers={"Content-Type": "application/json; charset=utf-8"})
 try:
     with urllib.request.urlopen(req, timeout=60) as r:
         print("IndexNow", r.status, len(urls), "URLs")
+        if seen_f is not None:  # record only after a successful notification
+            seen_f.write_text("\n".join(all_urls))
 except Exception as e:
     print("IndexNow failed:", e)
