@@ -13,6 +13,7 @@ import finder_page
 import extra_pages
 import ai_pages
 import tools_pages
+import theme_pages
 from datetime import date, datetime
 from html import escape
 from pathlib import Path
@@ -72,6 +73,7 @@ h1{font-size:36px;line-height:1.2;margin:0 0 12px;color:var(--navy)}
 .about{border-top:1px solid var(--line);margin-top:24px;padding:24px 0 8px;color:var(--muted);font-size:15px}.about h2{font-size:20px;color:var(--navy);margin:0 0 8px}
 .crumbs{font-size:13px;color:var(--muted);margin-bottom:14px}.crumbs a{color:var(--muted)}
 .links{display:flex;flex-wrap:wrap;gap:4px 18px}.more.ext{font-weight:500;color:var(--muted)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}.tile{display:block;border:1px solid var(--line);border-radius:10px;padding:16px;text-decoration:none;background:#fff}.tile:hover{border-color:var(--gold);box-shadow:0 4px 14px rgba(35,53,103,.08)}.tile b{display:block;color:var(--navy);font-size:17px}.tile span{display:block;color:#8a6a1c;font-weight:600;font-size:13px;margin:2px 0 6px}.tile small{color:var(--muted);font-size:13px;line-height:1.5}
 .callhead .facts{font-size:15px;margin-top:14px}.sec{padding:28px 0 4px}.sec h2{font-size:24px;color:var(--navy);margin:0 0 6px}.sec>p.note{color:var(--muted);font-size:14px;margin:0 0 14px;max-width:820px}
 .tbl{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .tbl th{background:var(--bg);text-align:left;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:9px 12px;border-bottom:1px solid var(--line)}
@@ -203,6 +205,7 @@ def page(title, desc, path, body, jsonld=None):
 def nav(progs, current=None):
     links = [f'<a href="/"{" aria-current=page" if current == "all" else ""}>All calls</a>',
              f'<a href="/closing-soon/"{" aria-current=page" if current == "soon" else ""}>Closing soon</a>',
+             f'<a href="/theme/"{" aria-current=page" if current == "theme" else ""}>Themes</a>',
              f'<a href="/finder/"{" aria-current=page" if current == "finder" else ""}>Fund Finder</a>',
              f'<a href="/review/"{" aria-current=page" if current == "review" else ""}>AI pre-check</a>',
              f'<a href="/spain/"{" aria-current=page" if current == "spain" else ""}>Spain</a>',
@@ -254,7 +257,7 @@ def main():
         counts[c["programme"]] = counts.get(c["programme"], 0) + 1
     progs = sorted(counts.items(), key=lambda kv: -kv[1])
     import shutil
-    for old in ("call", "programme", "closing-soon", "partners", "finder", "tools", "alerts", "directory", "spain", "review", "data/t"):  # drop pages of calls that have closed
+    for old in ("call", "programme", "closing-soon", "partners", "finder", "tools", "alerts", "directory", "spain", "review", "theme", "data/t"):  # drop pages of calls that have closed
         shutil.rmtree(SITE / old, ignore_errors=True)
     (SITE / "assets").mkdir(parents=True, exist_ok=True)
     (SITE / "assets" / "app.js").write_text(JS, encoding="utf-8")
@@ -298,6 +301,30 @@ def main():
             nav(progs, code) + h + filters(progs, show_prog=False, default_status="all" if po == 0 else "open") + listing(pc) + about,
             itemlist(pc, f"{name} calls")), encoding="utf-8")
         urls.append(path)
+
+    # Thematic pages (replace the old www.ullswaterinvestments.com/calls/* pages)
+    themes = theme_pages.build(calls, upd.year)
+    tiles = ""
+    for tslug, ttitle, short, intro, old, tc in themes:
+        to = sum(1 for c in tc if c["status"] == "open")
+        tiles += f'<a class="tile" href="/theme/{tslug}/"><b>{escape(short)}</b><span>{len(tc)} calls · {to} open</span><small>{escape(intro)}</small></a>'
+        h = f"""<main><section class="hero"><div class="wrap"><div class="crumbs"><a href="/">All calls</a> › <a href="/theme/">Themes</a> › {escape(short)}</div><p class="kicker">Theme · updated {upd_s}</p>
+<h1>{escape(ttitle)}</h1><p class="lead">{escape(intro)} {to} open and {len(tc) - to} forthcoming, from the EU Funding &amp; Tenders Portal.</p></div></section>"""
+        d = SITE / "theme" / tslug
+        d.mkdir(parents=True, exist_ok=True)
+        (d / "index.html").write_text(page(f"{ttitle}: {to} open, {len(tc) - to} forthcoming | Ullswater Investments",
+            f"{intro} Deadlines and budgets, updated {upd_s}.", f"/theme/{tslug}/",
+            nav(progs, "theme") + h + filters(progs, default_status="all" if to == 0 else "open") + listing(tc) + about, itemlist(tc, ttitle)), encoding="utf-8")
+        urls.append(f"/theme/{tslug}/")
+    th = f"""<main><section class="hero"><div class="wrap"><div class="crumbs"><a href="/">All calls</a> › Themes</div><p class="kicker">Themes · updated {upd_s}</p>
+<h1>EU funding calls by theme</h1><p class="lead">Browse open and forthcoming EU calls by Horizon Europe cluster, technology or instrument.</p></div></section>
+<div class="wrap"><section class="sec"><div class="tiles">{tiles}</div></section></div></main>"""
+    (SITE / "theme" / "index.html").write_text(page("EU funding calls by theme | Ullswater Investments",
+        "Open EU calls grouped by theme: AI, EIC, health, security, digital, climate and energy, food, missions, science, defence, cascade funding.", "/theme/",
+        nav(progs, "theme") + th), encoding="utf-8")
+    urls.append("/theme/")
+    (SITE / "data" / "themes.json").write_text(json.dumps([{"slug": t[0], "title": t[1], "short": t[2], "old": t[4], "count": len(t[5]),
+        "open": sum(1 for c in t[5] if c["status"] == "open")} for t in themes], ensure_ascii=False), encoding="utf-8")
 
     # Per-call topic text for the AI Worker
     ttext = json.loads((ROOT / "data" / "topic_text.json").read_text(encoding="utf-8")) if (ROOT / "data" / "topic_text.json").exists() else {}
