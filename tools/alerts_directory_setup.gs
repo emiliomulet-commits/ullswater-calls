@@ -157,7 +157,7 @@ function weeklyDigest() {
     var wantCascade = progs.indexOf('Cascade') > -1, wantSpain = progs.indexOf('Spain') > -1;
     function match(text) { var t = norm_(text); return kws.some(function (k) { return t.indexOf(k) > -1; }); }
     var fresh = calls.filter(function (c) {
-      if (!firstRun && seenSet[c.id]) return false;
+      if (!firstRun && seenSet[c.id] && r[col_(h, 'Last sent') - 1]) return false;
       var progOk = (c.kind === 'cascade') ? wantCascade : codes.indexOf(c.programme) > -1;
       return progOk && match(c.title + ' ' + (c.summary || '') + ' ' + (c.tags || []).join(' '));
     }).slice(0, 15);

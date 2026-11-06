@@ -32,3 +32,18 @@ python3 -m http.server -d site 8000
 - Moderation sheet: "Ullswater · Partner board (moderation)" (Google Drive). Set **Status = Approved** to publish a request.
   Only the "Published" tab (no emails) is published to the web as CSV and read by the daily build.
 - Setup script kept in `tools/partner_board_setup.gs` (Apps Script project "Ullswater Partner Board").
+
+## Services (Nov 2026)
+| Page | What it does | Data / engine |
+|---|---|---|
+| `/call/<id>/` | Funding & competition facts, deadline .ics, track-record partners, directory matches, partner requests | F&T API, CORDIS |
+| `/finder/` | Fund Finder: ranked calls for a project description (runs in the browser) | `site/data/finder.json` |
+| `/review/` | AI pre-check of an idea against a call | Worker `ullswater-ai` (Workers AI, Llama 3.3 70B) |
+| chat widget | "Ask EU Funding" assistant on every page | Worker `/ask` |
+| `/spain/` | Spanish State/regional competitive R&D&I and industry calls | BDNS public API (`scripts/bdns.py`) |
+| `/alerts/` | Weekly email alerts, double opt-in | Google Form + Apps Script `weeklyDigest` (Mondays 07:00) |
+| `/directory/` | Reviewed organisation profiles matched with calls | Google Form + moderation sheet (Status = Approved) |
+| `/partners/` | Partner board | Google Form + moderation sheet |
+| `/tools/` | Horizon Europe budget calculator, consortium checker (official country list V4.2, 07.10.2026) | static JS |
+
+Worker source: `worker/ullswater-ai.js` (deploy: paste in the Cloudflare dashboard editor, or `npx wrangler deploy` from `worker/`).
