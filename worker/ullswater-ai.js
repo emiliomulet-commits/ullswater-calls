@@ -69,11 +69,19 @@ async function ask(req, env) {
   if (q.length < 5) return json({ error: "Please write a question." }, req, 400);
   const [finder, spain, events] = await Promise.all([
     getJSON(`${SITE}/data/finder.json`), getJSON(`${SITE}/data/spain.json`).catch(() => ({ calls: [] })), getJSON(EVENTS).catch(() => ({ events: [] }))]);
-  const words = norm(q).match(/[a-z0-9][a-z0-9\-]{2,}/g) || [];
-  const score = (text, w) => words.reduce((s, x) => s + (norm(text).includes(x) ? 1 : 0) + (w && w[x] ? w[x] * 3 : 0), 0);
-  const calls = finder.map(c => ({ c, s: score(c.t + " " + c.id + " " + Object.keys(c.w).join(" "), c.w) })).filter(x => x.s > 0).sort((a, b) => b.s - a.s).slice(0, 8);
-  const es = (spain.calls || []).map(c => ({ c, s: score(c.title + " " + c.body + " " + c.region) })).filter(x => x.s > 1).sort((a, b) => b.s - a.s).slice(0, 4);
-  const ev = (events.events || []).map(e => ({ e, s: score(e.title + " " + e.summary + " " + e.programme) })).filter(x => x.s > 0).sort((a, b) => b.s - a.s).slice(0, 3);
+  const STOP = new Set("the and for with that this from are which what when where who how calls call open opened closing close funding fund funds grant grants eu europe european project projects any can our your there some about into over more most than also have has does deadline deadlines programme programmes topic topics que los las del por para con una unos convocatoria convocatorias ayudas abiertas".split(" "));
+  const words = (norm(q).match(/[a-z0-9][a-z0-9\-]{2,}/g) || []).filter(x => !STOP.has(x));
+  const stem = x => x.replace(/(ies)$/, "y").replace(/(ing|ed|es|s)$/, "");
+  const score = (title, terms, w) => words.reduce((s, x) => {
+    const st = stem(x); let v = 0;
+    if (norm(title).includes(st)) v += 2;
+    if (w) for (const k in w) if (k.split(" ").some(t => stem(t) === st)) v += w[k] * 4;
+    else if (terms && norm(terms).includes(st)) v += 1;
+    return s + v;
+  }, 0);
+  const calls = finder.map(c => ({ c, s: score(c.t, null, c.w) * (c.s === "open" ? 1.1 : 1) })).filter(x => x.s > 1).sort((a, b) => b.s - a.s).slice(0, 8);
+  const es = (spain.calls || []).map(c => ({ c, s: score(c.title + " " + c.body + " " + c.region) })).filter(x => x.s >= 4).sort((a, b) => b.s - a.s).slice(0, 4);
+  const ev = (events.events || []).map(e => ({ e, s: score(e.title + " " + e.summary + " " + e.programme) })).filter(x => x.s >= 2).sort((a, b) => b.s - a.s).slice(0, 3);
   let ctx = "EU CALLS (open or forthcoming):\n" + (calls.map(({ c }) =>
     `- ${c.id} | ${c.t} | ${c.s === "open" ? "open" : "forthcoming"} | deadline ${c.d || "n/a"} | ${SITE}/call/${slug(c.id)}/`).join("\n") || "- none matched");
   if (es.length) ctx += "\n\nSPANISH NATIONAL/REGIONAL CALLS:\n" + es.map(({ c }) => `- ${c.title.slice(0, 160)} | ${c.body} | until ${c.end || "n/a"} | ${c.bdns}`).join("\n");
