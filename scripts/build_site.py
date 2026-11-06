@@ -11,6 +11,7 @@ sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
 import call_pages
 import finder_page
 import extra_pages
+import ai_pages
 import tools_pages
 from datetime import date, datetime
 from html import escape
@@ -196,13 +197,14 @@ def page(title, desc, path, body, jsonld=None):
 <footer class="site"><div class="wrap"><div><strong>Ullswater Investments · EU Funding Advisors</strong><br>Calle Ramírez de Arellano 17, 28043 Madrid</div>
 <div>Data: <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home" rel="noopener">EU Funding &amp; Tenders Portal</a> (European Commission), refreshed weekly.<br>Always check the official call page before applying.</div>
 <div><a href="{MAIN}">ullswaterinvestments.com</a> · <a href="/data/calls.json">JSON</a> · © {date.today().year}</div></div></footer>
-<script src="/assets/app.js" defer></script></body></html>"""
+<script src="/assets/app.js" defer></script>{ai_pages.CHAT}</body></html>"""
 
 
 def nav(progs, current=None):
     links = [f'<a href="/"{" aria-current=page" if current == "all" else ""}>All calls</a>',
              f'<a href="/closing-soon/"{" aria-current=page" if current == "soon" else ""}>Closing soon</a>',
              f'<a href="/finder/"{" aria-current=page" if current == "finder" else ""}>Fund Finder</a>',
+             f'<a href="/review/"{" aria-current=page" if current == "review" else ""}>AI pre-check</a>',
              f'<a href="/spain/"{" aria-current=page" if current == "spain" else ""}>Spain</a>',
              f'<a href="/partners/"{" aria-current=page" if current == "board" else ""}>Partner board</a>',
              f'<a href="/directory/"{" aria-current=page" if current == "directory" else ""}>Directory</a>',
@@ -252,7 +254,7 @@ def main():
         counts[c["programme"]] = counts.get(c["programme"], 0) + 1
     progs = sorted(counts.items(), key=lambda kv: -kv[1])
     import shutil
-    for old in ("call", "programme", "closing-soon", "partners", "finder", "tools", "alerts", "directory", "spain"):  # drop pages of calls that have closed
+    for old in ("call", "programme", "closing-soon", "partners", "finder", "tools", "alerts", "directory", "spain", "review", "data/t"):  # drop pages of calls that have closed
         shutil.rmtree(SITE / old, ignore_errors=True)
     (SITE / "assets").mkdir(parents=True, exist_ok=True)
     (SITE / "assets" / "app.js").write_text(JS, encoding="utf-8")
@@ -297,6 +299,12 @@ def main():
             itemlist(pc, f"{name} calls")), encoding="utf-8")
         urls.append(path)
 
+    # Per-call topic text for the AI Worker
+    ttext = json.loads((ROOT / "data" / "topic_text.json").read_text(encoding="utf-8")) if (ROOT / "data" / "topic_text.json").exists() else {}
+    (SITE / "data" / "t").mkdir(parents=True, exist_ok=True)
+    for c in calls:
+        (SITE / "data" / "t" / f"{slug(c['id'])}.json").write_text(json.dumps({"id": c["id"], "title": c["title"], "url": c["url"], "deadline": c.get("deadline"),
+            "actions": c.get("actions"), "text": ttext.get(c["id"], c.get("summary", ""))}, ensure_ascii=False), encoding="utf-8")
     # Per-call pages with "Find partners"
     pfile = ROOT / "data" / "partners.json"
     partners = json.loads(pfile.read_text(encoding="utf-8")) if pfile.exists() else {}
@@ -335,6 +343,8 @@ def main():
     spain_file = SITE / "data" / "spain.json"
     spain = json.loads(spain_file.read_text(encoding="utf-8")) if spain_file.exists() else {"calls": [], "updated": upd.isoformat()}
     for sub, cur, ttl, dsc, body in [
+        ("review", "review", "AI pre-check: test your project idea against an EU call | Ullswater Investments",
+         "Free AI pre-check of your project idea against an EU call: fit, indicative scores, gaps and partners needed.", ai_pages.review_html(calls)),
         ("alerts", "alerts", "Free EU funding alerts by email | Ullswater Investments", "Weekly email with new EU calls for your keywords, upcoming deadlines and partner requests.", extra_pages.alerts_html()),
         ("directory", "directory", f"Directory of organisations open to EU consortia ({len(directory)}) | Ullswater Investments",
          "Organisations looking to join or lead EU projects, matched with open calls by Ullswater Investments.", extra_pages.directory_html(directory, dir_by_profile, slug)),
