@@ -1,0 +1,20 @@
+# EU Funding Calls · Ullswater Investments
+
+> Every open and forthcoming EU funding call (Horizon Europe, Digital Europe, EDF, LIFE, EU4Health, cascade funding and more), refreshed daily from the European Commission's Funding & Tenders Portal. Run by Ullswater Investments S.L., EU funding advisors in Madrid (https://www.ullswaterinvestments.com/).
+
+## Data
+- [All calls as JSON](https://calls.ullswaterinvestments.com/data/calls.json): id, title, programme, status, opening, deadline, budget, URL
+- [Summary statistics](https://calls.ullswaterinvestments.com/data/stats.json)
+- [Spanish national and regional calls (BDNS) as JSON](https://calls.ullswaterinvestments.com/data/spain.json)
+
+## Pages
+- [All open and forthcoming EU calls](https://calls.ullswaterinvestments.com/)
+- [Calls closing in the next 30 days](https://calls.ullswaterinvestments.com/closing-soon/)
+- [Calls by theme](https://calls.ullswaterinvestments.com/theme/): [AI & GenAI](https://calls.ullswaterinvestments.com/theme/generative-ai/), [EIC](https://calls.ullswaterinvestments.com/theme/eic/), [Closing this year](https://calls.ullswaterinvestments.com/theme/closing-this-year/), [Cascade funding](https://calls.ullswaterinvestments.com/theme/cascade-funding/), [Health](https://calls.ullswaterinvestments.com/theme/health/), [Culture & Society](https://calls.ullswaterinvestments.com/theme/culture-society/), [Civil Security](https://calls.ullswaterinvestments.com/theme/civil-security/), [Digital, Industry & Space](https://calls.ullswaterinvestments.com/theme/digital-industry-space/), [Climate, Energy & Mobility](https://calls.ullswaterinvestments.com/theme/climate-energy-mobility/), [Food & Environment](https://calls.ullswaterinvestments.com/theme/food-environment/), [Missions & Bridging](https://calls.ullswaterinvestments.com/theme/missions-bridging/), [Science & Widening](https://calls.ullswaterinvestments.com/theme/science-widening/), [Digital Europe & Defence](https://calls.ullswaterinvestments.com/theme/digital-europe-defence/), [Other EU programmes](https://calls.ullswaterinvestments.com/theme/other-eu-programmes/), [International cooperation](https://calls.ullswaterinvestments.com/theme/international-cooperation/)
+- [Fund Finder: match a project description to calls](https://calls.ullswaterinvestments.com/finder/)
+- [AI pre-check of a project idea against a call](https://calls.ullswaterinvestments.com/review/)
+- [Partner board](https://calls.ullswaterinvestments.com/partners/) · [Directory](https://calls.ullswaterinvestments.com/directory/) · [Tools](https://calls.ullswaterinvestments.com/tools/)
+- [Spain: national and regional R&D and industry calls](https://calls.ullswaterinvestments.com/spain/)
+
+## About
+- [Ullswater Investments](https://www.ullswaterinvestments.com/about/) · [EU Fund Matching](https://www.ullswaterinvestments.com/eu-fund-matching/) · [EU Funding News](https://news.ullswaterinvestments.com/)
