@@ -72,7 +72,7 @@ def profile_card(p, matches=None, slugify=None):
     if matches:
         m = '<p style="margin-top:8px;font-size:14px"><strong>Matching open calls:</strong> ' + ", ".join(
             f'<a href="/call/{slugify(c["id"])}/">{escape(c["id"])}</a>' for c in matches[:3]) + "</p>"
-    mail = f'mailto:emilio.mulet@ullswaterinvestments.com?subject={escape("Directory introduction " + p["id"] + " – " + p["organisation"])}'
+    mail = f'mailto:eufunding@ullswaterinvestments.com?subject={escape("Directory introduction " + p["id"] + " – " + p["organisation"])}'
     return (f'<div class="box"><div class="meta"><span class="tag">{escape(p["type"])}</span><span class="code">{escape(p["id"])}</span></div>'
             f'<h3 style="margin-top:8px">{name}</h3><p><strong>{escape(p["country"])}</strong> · Preferred role: {escape(p["role"])}</p>'
             f'<p style="margin-top:8px;color:var(--ink)">{escape(p["expertise"])}</p><div class="tags" style="margin-top:8px">{kws}</div>{m}'

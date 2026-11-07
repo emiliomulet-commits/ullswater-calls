@@ -12,7 +12,7 @@ BOARD_CSV = ("https://docs.google.com/spreadsheets/d/e/2PACX-1vQFlSKgfShj44obux_
              "/pub?gid=0&single=true&output=csv")
 FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdIi27JIDNU6-KVL4J_vJ_6rjGrtIoUJi1QDX01XgOlg-uqHw/viewform"
 FORM_CALL_FIELD = "entry.301116469"
-CONTACT = "emilio.mulet@ullswaterinvestments.com"
+CONTACT = "eufunding@ullswaterinvestments.com"
 
 
 def form_link(call_id=""):

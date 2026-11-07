@@ -62,7 +62,7 @@ html+='<article class="hit"><div class="meta"><span class="score">'+pct+'%</span
 '<p class="why"><b>Why it matches:</b> '+r.hits.join(', ')+(r.why.length?' · '+r.why.join(' · '):'')+'</p></article>'}});
 $('#ff-out').innerHTML=html;$('#ff-cta').hidden=false;
 var list=res.slice(0,6).map(function(r){{return '- '+r.c.id+' – '+r.c.t}}).join('\\n');
-$('#ff-mail').href='mailto:emilio.mulet@ullswaterinvestments.com?subject='+encodeURIComponent('Fund Finder – expert review request')+'&body='+encodeURIComponent('Project:\\n'+q+'\\n\\nShortlist from the Fund Finder:\\n'+list+'\\n\\nOrganisation and contact:\\n');
+$('#ff-mail').href='mailto:eufunding@ullswaterinvestments.com?subject='+encodeURIComponent('Fund Finder – expert review request')+'&body='+encodeURIComponent('Project:\\n'+q+'\\n\\nShortlist from the Fund Finder:\\n'+list+'\\n\\nOrganisation and contact:\\n');
 $('#ff-alert').href='/alerts/?q='+encodeURIComponent(Object.keys(T).filter(function(k){{return k.indexOf(' ')<0}}).slice(0,8).join(' '));
 $('#ff-out').scrollIntoView({{behavior:'smooth'}})}})}}
 $('#ff-go').onclick=run;
