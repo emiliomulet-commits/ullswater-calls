@@ -2,7 +2,8 @@ name: Daily update of EU funding calls
 
 on:
   schedule:
-    - cron: "0 5 * * *"   # every day 05:00 UTC (06:00 Madrid in winter): calls, partner matches and approved partner requests
+    - cron: "7 5 * * *"    # every day 05:07 UTC (06:07 Madrid in winter): calls, partner matches and approved partner requests
+    - cron: "37 12 * * *"  # backup run in case GitHub drops the morning schedule
   workflow_dispatch:       # "Run workflow" button for a manual refresh
   push:
     branches: [main]
