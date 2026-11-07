@@ -8,13 +8,16 @@ ROOT = Path(__file__).resolve().parent.parent
 key = (ROOT / "content" / "indexnow_key.txt").read_text().strip()
 sitemap, host = sys.argv[1], sys.argv[2]
 urls = re.findall(r"<loc>([^<]+)</loc>", Path(sitemap).read_text(encoding="utf-8"))
+MAX = 50  # Bing accepts few URLs per day from sites it does not know yet; send in daily batches
 if len(sys.argv) > 3:  # optional file with URLs already notified: send only new ones (plus home)
     seen_f = Path(sys.argv[3])
     seen = set(seen_f.read_text().split()) if seen_f.exists() else set()
     new = [u for u in urls if u not in seen]
-    all_urls, urls = urls, (new or urls[:1])
+    urls = (new or urls[:1])[:MAX]
+    all_urls = sorted(seen | set(urls))
 else:
     seen_f = None
+    urls = urls[:MAX]
 body = json.dumps({"host": host, "key": key, "keyLocation": f"https://{host}/{key}.txt", "urlList": urls[:10000]}).encode()
 req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body, headers={"Content-Type": "application/json; charset=utf-8"})
 try:
