@@ -196,7 +196,7 @@ def page(title, desc, path, body, jsonld=None):
 <header class="site"><div class="wrap"><a class="brand" href="/">Ullswater Investments <span>· EU Funding Calls</span></a>
 <div class="top-links"><a href="https://news.ullswaterinvestments.com/">News</a><a href="https://events.ullswaterinvestments.com/">Events</a><a href="{MAIN}/eu-fund-matching">EU Fund Matching</a><a href="{MAIN}">Main site</a></div></div></header>
 {body}
-<footer class="site"><div class="wrap"><div><strong>Ullswater Investments · EU Funding Advisors</strong><br>Calle Ramírez de Arellano 17, 28043 Madrid</div>
+<footer class="site"><div class="wrap"><div><strong>Ullswater Investments · EU Funding Advisors</strong><br>Madrid: Calle Ramírez de Arellano 17, 28043 Madrid · Brussels: Square de Meeûs 37, 1000 Brussels</div>
 <div>Data: <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home" rel="noopener">EU Funding &amp; Tenders Portal</a> (European Commission), refreshed weekly.<br>Always check the official call page before applying.</div>
 <div><a href="{MAIN}">ullswaterinvestments.com</a> · <a href="/data/calls.json">JSON</a> · © {date.today().year}</div></div></footer>
 <script src="/assets/app.js" defer></script>{ai_pages.CHAT}</body></html>"""
@@ -392,7 +392,7 @@ def main():
     (SITE / f"{key}.txt").write_text(key, encoding="utf-8")
     (SITE / "llms.txt").write_text(f"""# EU Funding Calls · Ullswater Investments
 
-> Every open and forthcoming EU funding call (Horizon Europe, Digital Europe, EDF, LIFE, EU4Health, cascade funding and more), refreshed daily from the European Commission's Funding & Tenders Portal. Run by Ullswater Investments S.L., EU funding advisors in Madrid ({MAIN}/).
+> Every open and forthcoming EU funding call (Horizon Europe, Digital Europe, EDF, LIFE, EU4Health, cascade funding and more), refreshed daily from the European Commission's Funding & Tenders Portal. Run by Ullswater Investments S.L., EU funding advisors with offices in Madrid and Brussels ({MAIN}/).
 
 ## Data
 - [All calls as JSON]({BASE}/data/calls.json): id, title, programme, status, opening, deadline, budget, URL
