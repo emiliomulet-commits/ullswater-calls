@@ -84,7 +84,10 @@ jobs:
 
       - name: Notify IndexNow of new pages (Bing and others)
         if: github.event_name != 'push'
+        continue-on-error: true
         run: |
           python scripts/indexnow.py site/sitemap.xml calls.ullswaterinvestments.com site/data/indexnow_seen.txt
-          git add site/data/indexnow_seen.txt
-          git diff --cached --quiet || (git commit -m "IndexNow: record notified URLs" && git pull --rebase -X theirs && git push)
+          if [ -f site/data/indexnow_seen.txt ]; then
+            git add -f site/data/indexnow_seen.txt
+            git diff --cached --quiet || (git commit -m "IndexNow: record notified URLs" && git pull --rebase -X theirs && git push)
+          fi
