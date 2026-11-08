@@ -419,7 +419,7 @@ async function runAgent(env, b, emit) {
   let answer = "", resp, pendingBreak = false;
   const onText = t => {
     if (pendingBreak && answer && t.trim()) { // text resumed after tool calls: new paragraph only if the sentence had ended
-      const sep = /[.:!?)\]]\s*$/.test(answer) ? "\n\n" : /\s$/.test(answer) || /^\s/.test(t) ? "" : " ";
+      const sep = /[.:!?)\]]\s*$/.test(answer) && !/^\s/.test(t) ? "\n\n" : ""; // mid-sentence or mid-word: join as streamed
       if (sep) { answer += sep; emit({ type: "delta", text: sep }); }
       pendingBreak = false;
     }
