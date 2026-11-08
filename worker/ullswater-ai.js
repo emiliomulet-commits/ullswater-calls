@@ -2,7 +2,7 @@
  * Ullswater AI — Cloudflare Worker (Workers AI binding "AI").
  *   POST /review  {call, idea, org, trl}  -> preliminary assessment of a project idea against an EU call
  *   POST /search  {q, filters?}           -> hybrid (semantic + keyword) ranking of the open/forthcoming EU calls
- *   POST /ask     {q, history?, page?}    -> "Ask EU Funding" assistant. With the secret ANTHROPIC_API_KEY it is a
+ *   POST /ask     {q, history?, page?, stream?} -> "Ask EU Funding" assistant (stream:true = server-sent events). With the secret ANTHROPIC_API_KEY it is a
  *                                            Claude agent with tools over the calls data (filter, search, read, compare);
  *                                            without it, it falls back to the Workers AI keyword assistant.
  * Data comes from the public JSON files of calls.ullswaterinvestments.com.
@@ -66,10 +66,13 @@ async function review(req, env) {
   return json({ call: { id: t.id, title: t.title, url: t.url, deadline: t.deadline }, result: data }, req);
 }
 
-async function askLegacy(req, env) {
-  const b = await req.json().catch(() => ({}));
+async function askLegacy(req, env, b) {
+  const r = await legacyAnswer(env, b);
+  return json(r, req, r.error ? 400 : 200);
+}
+async function legacyAnswer(env, b) {
   const q = String(b.q || "").slice(0, 600).trim();
-  if (q.length < 5) return json({ error: "Please write a question." }, req, 400);
+  if (q.length < 5) return { error: "Please write a question." };
   const [finder, spain, events] = await Promise.all([
     getJSON(`${SITE}/data/finder.json`), getJSON(`${SITE}/data/spain.json`).catch(() => ({ calls: [] })), getJSON(EVENTS).catch(() => ({ events: [] }))]);
   const STOP = new Set("the and for with that this from are which what when where who how calls call open opened closing close funding fund funds grant grants eu europe european project projects any can our your there some about into over more most than also have has does deadline deadlines programme programmes topic topics que los las del por para con una unos convocatoria convocatorias ayudas abiertas".split(" "));
@@ -95,7 +98,7 @@ async function askLegacy(req, env) {
     "Mention the 1–4 most relevant items with their links. If the context does not answer the question, say so and point to the Fund Finder or to an expert consultation. " +
     "General explanations of how EU funding works are fine if you are sure. Use plain text, with short bullet lines starting with '- '.\n\nCONTEXT:\n" + ctx;
   const answer = await llm(env, system, q, 500);
-  return json({ answer, sources: calls.slice(0, 4).map(({ c }) => ({ id: c.id, title: c.t, url: `${SITE}/call/${slug(c.id)}/` })) }, req);
+  return { answer, sources: calls.slice(0, 4).map(({ c }) => ({ id: c.id, title: c.t, url: `${SITE}/call/${slug(c.id)}/` })), engine: "workers-ai" };
 }
 
 // ───────────────────────── "Ask EU Funding" agent (Claude API + tools) ─────────────────────────
@@ -344,16 +347,59 @@ function cleanHistory(h) {
   return out;
 }
 
-async function claude(env, body) {
-  const r = await fetch(CLAUDE_URL, { method: "POST", headers: { "x-api-key": env.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" }, body: JSON.stringify(body) });
+async function* sseEvents(resp) {
+  // parse a server-sent-events body into JSON objects
+  const rd = resp.body.getReader(), dec = new TextDecoder();
+  let buf = "";
+  for (;;) {
+    const { value, done } = await rd.read();
+    if (done) break;
+    buf += dec.decode(value, { stream: true }).replace(/\r/g, "");
+    let i;
+    while ((i = buf.indexOf("\n\n")) >= 0) {
+      const chunk = buf.slice(0, i); buf = buf.slice(i + 2);
+      const data = chunk.split("\n").filter(l => l.startsWith("data:")).map(l => l.slice(5).trim()).join("");
+      if (data && data !== "[DONE]") yield JSON.parse(data);
+    }
+  }
+}
+async function claudeStream(env, body, onText, onTool) {
+  // one Messages API call with stream:true; returns the assembled message
+  const r = await fetch(CLAUDE_URL, { method: "POST", headers: { "x-api-key": env.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json" },
+    body: JSON.stringify({ ...body, stream: true }) });
   if (!r.ok) throw new Error("Claude API " + r.status + ": " + (await r.text()).slice(0, 300));
-  return r.json();
+  const blocks = [], usage = {}; let stop = null;
+  for await (const ev of sseEvents(r)) {
+    if (ev.type === "message_start") Object.assign(usage, ev.message && ev.message.usage);
+    else if (ev.type === "content_block_start") {
+      const b = ev.content_block;
+      blocks[ev.index] = b.type === "text" ? { type: "text", text: "" } : b.type === "tool_use" ? { type: "tool_use", id: b.id, name: b.name, input: {}, _json: "" } : { ...b };
+    } else if (ev.type === "content_block_delta") {
+      const b = blocks[ev.index], d = ev.delta;
+      if (d.type === "text_delta") { b.text += d.text; onText(d.text); }
+      else if (d.type === "input_json_delta") b._json += d.partial_json;
+    } else if (ev.type === "content_block_stop") {
+      const b = blocks[ev.index];
+      if (b && b.type === "tool_use") { try { b.input = b._json ? JSON.parse(b._json) : {}; } catch (e) { b.input = {}; } delete b._json; onTool(b); }
+    } else if (ev.type === "message_delta") { stop = ev.delta && ev.delta.stop_reason; Object.assign(usage, ev.usage); }
+    else if (ev.type === "error") throw new Error("Claude stream error: " + JSON.stringify(ev.error).slice(0, 200));
+  }
+  return { content: blocks.filter(Boolean), stop_reason: stop, usage };
+}
+function toolStatus(t) {
+  const a = t.input || {};
+  if (t.name === "search_calls") return `Searching calls: ${String(a.query || "").slice(0, 80)}`;
+  if (t.name === "filter_calls") return "Filtering calls" + (a.id_prefix || a.programme ? ` (${a.id_prefix || a.programme})` : "");
+  if (t.name === "get_call") return `Reading ${a.id || "the call"}`;
+  if (t.name === "compare_calls") return `Comparing ${(a.ids || []).join(", ")}`;
+  if (t.name === "search_spain_calls") return "Checking Spanish calls";
+  if (t.name === "search_events") return "Checking events";
+  return "Working";
 }
 
-async function askAgent(req, env) {
-  const b = await req.json().catch(() => ({}));
+async function runAgent(env, b, emit) {
+  // Claude agent loop; emit({type:"status"|"delta", ...}) as it goes; returns {answer, sources}
   const q = String(b.q || "").slice(0, 1500).trim();
-  if (q.length < 3) return json({ error: "Please write a question." }, req, 400);
   const d = await loadData();
   const page = b.page || {};
   const m = String(page.path || "").match(/\/call\/([^/]+)\/?/);
@@ -365,11 +411,17 @@ async function askAgent(req, env) {
   const system = [{ type: "text", text: AGENT_SYSTEM, cache_control: { type: "ephemeral" } }, { type: "text", text: ctx }];
   const messages = [...cleanHistory(b.history), { role: "user", content: q }];
   const model = env.CLAUDE_MODEL || CLAUDE_MODEL, seen = new Set(), used = [];
-  let resp;
+  let answer = "", resp, pendingBreak = false;
+  const onText = t => {
+    if (pendingBreak && answer && t.trim()) { answer += "\n\n"; emit({ type: "delta", text: "\n\n" }); pendingBreak = false; }
+    answer += t; emit({ type: "delta", text: t });
+  };
+  const onTool = t => emit({ type: "status", text: toolStatus(t) });
   for (let step = 0; step <= MAX_STEPS; step++) {
     const last = step === MAX_STEPS;
-    resp = await claude(env, { model, max_tokens: 1500, system, tools: TOOLS, tool_choice: last ? { type: "none" } : { type: "auto" }, messages });
+    resp = await claudeStream(env, { model, max_tokens: 1500, system, tools: TOOLS, tool_choice: last ? { type: "none" } : { type: "auto" }, messages }, onText, onTool);
     if (resp.stop_reason !== "tool_use" || last) break;
+    pendingBreak = true;
     messages.push({ role: "assistant", content: resp.content });
     const calls = resp.content.filter(x => x.type === "tool_use");
     const results = await Promise.all(calls.map(async t => {
@@ -379,13 +431,44 @@ async function askAgent(req, env) {
       return { type: "tool_result", tool_use_id: t.id, content: JSON.stringify(out) };
     }));
     messages.push({ role: "user", content: results });
+    emit({ type: "status", text: "Writing the answer" });
   }
-  const answer = resp.content.filter(x => x.type === "text").map(x => x.text).join("\n").trim() || "Sorry, I could not find an answer. Please try rephrasing the question.";
+  answer = answer.trim() || "Sorry, I could not find an answer. Please try rephrasing the question.";
   for (const id of answer.match(/[A-Z0-9][A-Z0-9_]*(?:-[A-Z0-9_]+){2,}/g) || []) { const c = findCall(d, id); if (c) seen.add(c.id); }
-  for (const s of answer.match(/\/call\/([a-z0-9-]+)\//g) || []) { const c = findCall(d, s.split("/")[2]); if (c) seen.add(c.id); }
-  console.log(JSON.stringify({ ask: q.slice(0, 200), page: page.path, tools: used, usage: resp.usage }));
+  for (const s2 of answer.match(/\/call\/([a-z0-9-]+)\//g) || []) { const c = findCall(d, s2.split("/")[2]); if (c) seen.add(c.id); }
+  console.log(JSON.stringify({ ask: q.slice(0, 200), page: page.path, tools: used, usage: resp && resp.usage }));
   const sources = [...seen].slice(0, 6).map(id => { const c = findCall(d, id); return { id: c.id, title: c.title, url: pageUrl(c), deadline: c.deadline }; });
-  return json({ answer, sources, engine: "claude" }, req);
+  return { answer, sources, engine: "claude" };
+}
+
+async function askAgent(req, env, b) {
+  // JSON response (older widget)
+  try { return json(await runAgent(env, b, () => {}), req); }
+  catch (e) { console.log("agent failed, falling back: " + (e.message || e)); return askLegacy(req, env, b); }
+}
+
+function askStream(req, env, b, ctx) {
+  // Server-sent events: {type:"status"|"delta"|"done"|"error"}
+  const { readable, writable } = new TransformStream();
+  const w = writable.getWriter(), enc = new TextEncoder();
+  let sent = false;
+  const send = o => { if (o.type === "delta") sent = true; return w.write(enc.encode("data: " + JSON.stringify(o) + "\n\n")).catch(() => {}); };
+  const work = (async () => {
+    try {
+      send({ type: "status", text: "Thinking" });
+      const r = await runAgent(env, b, send);
+      await send({ type: "done", sources: r.sources, engine: r.engine });
+    } catch (e) {
+      console.log("agent stream failed: " + (e.message || e));
+      if (!sent) { // nothing shown yet: answer with the Workers AI assistant instead
+        try { const r = await legacyAnswer(env, b); if (r.error) throw new Error(r.error);
+          await send({ type: "delta", text: r.answer }); await send({ type: "done", sources: r.sources, engine: r.engine }); }
+        catch (e2) { await send({ type: "error", text: "The assistant is busy. Please try again." }); }
+      } else await send({ type: "error", text: "The answer was interrupted. Please try again." });
+    } finally { try { await w.close(); } catch (e) {} }
+  })();
+  if (ctx && ctx.waitUntil) ctx.waitUntil(work);
+  return new Response(readable, { headers: { "Content-Type": "text/event-stream; charset=utf-8", "Cache-Control": "no-cache, no-transform", ...cors(req) } });
 }
 
 async function search(req, env) {
@@ -401,7 +484,7 @@ async function search(req, env) {
 }
 
 export default {
-  async fetch(req, env) {
+  async fetch(req, env, ctx) {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors(req) });
     const path = new URL(req.url).pathname;
     if (req.method === "GET" && path === "/") return json({ service: "Ullswater AI", endpoints: ["/review", "/ask", "/search"] }, req);
@@ -411,10 +494,10 @@ export default {
       if (path === "/review") return await review(req, env);
       if (path === "/search") return await search(req, env);
       if (path === "/ask") {
-        if (!env.ANTHROPIC_API_KEY) return await askLegacy(req, env);
-        const copy = req.clone();
-        try { return await askAgent(req, env); }
-        catch (e) { console.log("agent failed, falling back: " + (e.message || e)); return await askLegacy(copy, env); }
+        const b = await req.json().catch(() => ({}));
+        if (String(b.q || "").trim().length < 3) return json({ error: "Please write a question." }, req, 400);
+        if (!env.ANTHROPIC_API_KEY) return await askLegacy(req, env, b);
+        return b.stream ? askStream(req, env, b, ctx) : await askAgent(req, env, b);
       }
     } catch (e) {
       return json({ error: "Service temporarily unavailable." }, req, 500);

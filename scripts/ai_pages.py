@@ -58,6 +58,19 @@ function add(h,me){var d=document.createElement('div');d.style.cssText='margin-t
 function src(a){if(!a||!a.length)return'';return'<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px">'+a.map(function(x){return'<a href="'+esc(x.url)+'" title="'+esc(x.title)+'" style="font-size:11px;background:#fff;border:1px solid #e5e7eb;border-radius:999px;padding:2px 8px;color:#233567;text-decoration:none">'+esc(x.id)+'</a>'}).join('')+'</div>'}
 H.forEach(function(x){add(x.role==='user'?esc(x.content):fmt(x.content),x.role==='user')});
 if(H.length){var c=document.createElement('button');c.type='button';c.textContent='New conversation';c.style.cssText='margin-top:8px;background:none;border:0;color:#6b7280;font-size:12px;text-decoration:underline;cursor:pointer';c.onclick=function(){H=[];save();location.reload()};m.appendChild(c)}
-f.onsubmit=function(e){e.preventDefault();var q=i.value.trim();if(!q||busy)return;busy=1;i.value='';add(esc(q),1);var w=add('<em style="color:#6b7280">Searching the calls…</em>');
+f.onsubmit=function(e){e.preventDefault();var q=i.value.trim();if(!q||busy)return;busy=1;i.value='';add(esc(q),1);
+var w=add(''),body=document.createElement('div'),st=document.createElement('div'),txt='',raf=0;st.style.cssText='color:#6b7280;font-style:italic;font-size:13px';st.textContent='Thinking…';w.appendChild(body);w.appendChild(st);
+function paint(){raf=0;body.innerHTML=fmt(txt);m.scrollTop=m.scrollHeight}
+function status(s){st.textContent=s?s+'…':'';st.style.display=s?'':'none';m.scrollTop=m.scrollHeight}
+function fin(d){busy=0;status('');if(raf)cancelAnimationFrame(raf);paint();if(d&&d.sources)w.insertAdjacentHTML('beforeend',src(d.sources));H.push({role:'assistant',content:txt});save();m.scrollTop=m.scrollHeight}
+function fail(msg){busy=0;H.pop();status('');if(txt){paint();w.insertAdjacentHTML('beforeend','<div style="color:#b91c1c;font-size:12px;margin-top:6px">'+esc(msg)+'</div>')}else w.textContent=msg}
 var hist=H.slice(-10);H.push({role:'user',content:q});
-fetch('AI_API/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({q:q,history:hist,page:{path:location.pathname}})}).then(function(r){return r.json()}).then(function(d){busy=0;if(d.error){H.pop();w.innerHTML=esc(d.error);return}w.innerHTML=fmt(d.answer)+src(d.sources);H.push({role:'assistant',content:d.answer});save();m.scrollTop=m.scrollHeight}).catch(function(){busy=0;H.pop();w.textContent='The assistant is busy. Please try again.'})}})();</script>""".replace("AI_API", AI_API)
+fetch('AI_API/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({q:q,history:hist,page:{path:location.pathname},stream:true})}).then(function(r){
+var ct=r.headers.get('Content-Type')||'';
+if(ct.indexOf('event-stream')<0||!r.body||!window.TextDecoder){return r.json().then(function(d){if(d.error)return fail(d.error);txt=d.answer||'';fin(d)})}
+var rd=r.body.getReader(),dec=new TextDecoder(),buf='',ended=0;
+function pump(){return rd.read().then(function(x){if(x.done){if(!ended){txt?fin(null):fail('The assistant is busy. Please try again.')}return}
+buf+=dec.decode(x.value,{stream:true}).replace(/\r/g,'');var k;while((k=buf.indexOf('\n\n'))>=0){var line=buf.slice(0,k);buf=buf.slice(k+2);if(line.indexOf('data:')!==0)continue;var ev;try{ev=JSON.parse(line.slice(5))}catch(_){continue}
+if(ev.type==='delta'){txt+=ev.text;status('');if(!raf)raf=requestAnimationFrame(paint)}else if(ev.type==='status'){status(ev.text)}else if(ev.type==='done'){ended=1;fin(ev)}else if(ev.type==='error'){ended=1;fail(ev.text)}}
+return pump()})}
+return pump()}).catch(function(){fail('The assistant is busy. Please try again.')})}})();</script>""".replace("AI_API", AI_API)
