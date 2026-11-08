@@ -418,7 +418,11 @@ async function runAgent(env, b, emit) {
   const model = env.CLAUDE_MODEL || CLAUDE_MODEL, seen = new Set(), used = [];
   let answer = "", resp, pendingBreak = false;
   const onText = t => {
-    if (pendingBreak && answer && t.trim()) { answer += "\n\n"; emit({ type: "delta", text: "\n\n" }); pendingBreak = false; }
+    if (pendingBreak && answer && t.trim()) { // text resumed after tool calls: new paragraph only if the sentence had ended
+      const sep = /[.:!?)\]]\s*$/.test(answer) ? "\n\n" : /\s$/.test(answer) || /^\s/.test(t) ? "" : " ";
+      if (sep) { answer += sep; emit({ type: "delta", text: sep }); }
+      pendingBreak = false;
+    }
     answer += t; emit({ type: "delta", text: t });
   };
   const onTool = t => emit({ type: "status", text: toolStatus(t) });
