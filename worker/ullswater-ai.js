@@ -1,6 +1,7 @@
 /**
  * Ullswater AI — Cloudflare Worker (Workers AI binding "AI").
  *   POST /review  {call, idea, org, trl}  -> preliminary assessment of a project idea against an EU call
+ *   POST /search  {q, filters?}           -> hybrid (semantic + keyword) ranking of the open/forthcoming EU calls
  *   POST /ask     {q, history?, page?}    -> "Ask EU Funding" assistant. With the secret ANTHROPIC_API_KEY it is a
  *                                            Claude agent with tools over the calls data (filter, search, read, compare);
  *                                            without it, it falls back to the Workers AI keyword assistant.
@@ -102,6 +103,8 @@ const CLAUDE_URL = "https://api.anthropic.com/v1/messages";
 const CLAUDE_MODEL = "claude-sonnet-5-5"; // override with the CLAUDE_MODEL variable
 const MAX_STEPS = 6;                       // tool rounds per question
 const DATA = { at: 0 };                    // per-isolate cache of the site data
+const EMBED_MODEL = "@cf/baai/bge-small-en-v1.5"; // same model as scripts/embed_calls.py (BAAI/bge-small-en-v1.5)
+const EMBED_PREFIX = "Represent this sentence for searching relevant passages: ";
 
 const STOPWORDS = new Set(("the and for with that this from are which what when where who how any can our your there some about into over more most than also have has does " +
   "call calls open funding fund grant grants project projects programme topic topics eu europe european " +
@@ -112,20 +115,29 @@ const tokens = q => [...new Set((norm(q).match(/[a-z0-9][a-z0-9\-]{1,}/g) || [])
 
 async function loadData() {
   if (DATA.calls && Date.now() - DATA.at < 1800e3) return DATA;
-  const [cj, finder, spain, events] = await Promise.all([
+  const [cj, finder, words, spain, events] = await Promise.all([
     getJSON(`${SITE}/data/calls.json`, 1800), getJSON(`${SITE}/data/finder.json`, 1800).catch(() => []),
+    getJSON(`${SITE}/data/words.json`, 1800).catch(() => ({})),
     getJSON(`${SITE}/data/spain.json`, 1800).catch(() => ({ calls: [] })), getJSON(EVENTS, 1800).catch(() => ({ events: [] }))]);
   const fx = new Map(finder.map(f => [f.id, f]));
   DATA.calls = cj.calls.map(c => {
     const f = fx.get(c.id) || {};
     return { ...c, slug: slug(c.id), atype: f.a || (c.kind === "cascade" ? "cascade" : null), w: f.w || {},
-      hayTitle: norm(c.title + " " + (c.callTitle || "")), hay: norm([c.id, c.programmeName, (c.tags || []).join(" "), c.summary].join(" ")) };
+      hayTitle: norm(c.title + " " + (c.callTitle || "")), hay: norm([c.id, c.programmeName, (c.tags || []).join(" "), c.summary].join(" ")),
+      words: " " + (words[c.id] || "") + " " };
   });
   DATA.byKey = new Map();
   for (const c of DATA.calls) { DATA.byKey.set(c.id.toLowerCase(), c); DATA.byKey.set(c.slug, c); }
   DATA.spain = spain.calls || [];
   DATA.events = events.events || [];
   DATA.stats = cj.stats || {};
+  DATA.vec = null;
+  try { // semantic index built daily by scripts/embed_calls.py; keyword search still works without it
+    const [vm, vb] = await Promise.all([getJSON(`${SITE}/data/vec.json`, 1800),
+      fetch(`${SITE}/data/vec.bin`, { cf: { cacheTtl: 1800, cacheEverything: true } }).then(r => { if (!r.ok) throw new Error("vec.bin " + r.status); return r.arrayBuffer(); })]);
+    const v = new Int8Array(vb);
+    if (v.length === vm.rows.length * vm.dim) DATA.vec = { dim: vm.dim, rows: vm.rows, cidx: vm.ids.map(id => DATA.byKey.get(id.toLowerCase())), v };
+  } catch (e) { console.log("semantic index unavailable: " + (e.message || e)); }
   DATA.at = Date.now();
   return DATA;
 }
@@ -137,6 +149,47 @@ const brief = c => ({
   eu_contribution_per_project_eur: (c.minEU || c.maxEU) ? { min: c.minEU, max: c.maxEU } : null, page: pageUrl(c),
 });
 
+async function semanticScores(env, d, query) {
+  // best cosine similarity per call and the passage that produced it
+  if (!d.vec || !env.AI || !query) return null;
+  const r = await env.AI.run(EMBED_MODEL, { text: [EMBED_PREFIX + query] });
+  const q = r && r.data && r.data[0];
+  if (!q || q.length !== d.vec.dim) return null;
+  const { dim, rows, cidx, v } = d.vec, best = new Map();
+  for (let i = 0; i < rows.length; i++) {
+    let dot = 0;
+    for (let k = 0, o = i * dim; k < dim; k++) dot += v[o + k] * q[k];
+    const c = cidx[rows[i][0]];
+    if (!c) continue;
+    const sim = dot / 127, b = best.get(c);
+    if (!b || sim > b.sim) best.set(c, { sim, start: rows[i][1] });
+  }
+  return best;
+}
+async function passage(c, start) {
+  if (start == null || start < 0) return null;
+  try {
+    const t = await getJSON(`${SITE}/data/t/${c.slug}.json`, 1800);
+    const txt = String(t.text || "").replace(/\s+/g, " ").trim();
+    return txt.slice(start, start + 450).trim() + (txt.length > start + 450 ? "…" : "");
+  } catch (e) { return null; }
+}
+async function rankCalls(env, d, a) {
+  // hybrid ranking: 60% semantic (meaning, any wording) + 40% keyword (exact technical terms)
+  const terms = tokens(a.query || "");
+  const pool = applyFilters(d.calls, a);
+  let sem = null;
+  try { sem = await semanticScores(env, d, a.query); } catch (e) { console.log("embedding failed: " + (e.message || e)); }
+  const kw = pool.map(c => relevance(c, terms)), kmax = Math.max(1, ...kw);
+  const ws = terms.length <= 2 ? 0.35 : 0.6; // short keyword queries: exact terms matter more than meaning
+  const scored = pool.map((c, i) => {
+    const k = kw[i] / kmax, s = sem && sem.get(c);
+    const sv = s ? Math.min(1, Math.max(0, (s.sim - 0.62) / 0.16)) : 0;
+    return { c, score: sem ? ws * sv + (1 - ws) * k : k, sim: s ? s.sim : null, start: s ? s.start : null, kw: kw[i], sv };
+  }).filter(x => sem ? (x.kw > 0 || x.sv >= 0.3) && x.score > 0.05 : x.kw > 0.5).sort((x, y) => y.score - x.score);
+  return { terms, semantic: !!sem, scored };
+}
+
 function relevance(c, terms) {
   let s = 0;
   for (const t of terms) {
@@ -145,6 +198,7 @@ function relevance(c, terms) {
     for (const k in c.w) if (k.split(" ").some(x => stem(x) === t) || (t.length > 4 && k.includes(t))) tw = Math.max(tw, c.w[k]);
     s += tw * 8;
     if (c.hay.includes(t)) s += 1;
+    else if (c.words.includes(" " + t)) s += 1.5; // term appears in the full topic text
   }
   return s;
 }
@@ -191,7 +245,7 @@ const FILTER_PROPS = {
   min_eu_per_project: { type: "number", description: "Minimum EU contribution per project in EUR." }, max_eu_per_project: { type: "number", description: "Maximum EU contribution per project in EUR." },
 };
 const TOOLS = [
-  { name: "search_calls", description: "Rank open and forthcoming EU calls by relevance to a thematic query (keyword matching over titles, the most characteristic terms of each topic text, tags and summaries). The data is in English: always write the query in English, with several synonyms and technical terms (e.g. 'hydrogen electrolyser fuel cell'). Optional filters narrow the result. Run several searches with different wordings for broad or multi-part questions.",
+  { name: "search_calls", description: "Rank open and forthcoming EU calls by relevance to a need or theme. Hybrid search: semantic similarity over the full topic texts plus keyword matching, so a plain-English description works (e.g. 'run AI models on edge devices close to where data is produced'); add key technical terms. Always write the query in English. Returns the best matching passage of each call as evidence. Optional filters narrow the result. Run several searches with different wordings for broad or multi-part questions.",
     input_schema: { type: "object", properties: { query: { type: "string" }, ...FILTER_PROPS, limit: { type: "integer", description: "Default 10, max 25." } }, required: ["query"] } },
   { name: "filter_calls", description: "Structured query over all open and forthcoming EU calls: filter by programme, ID prefix, status, type of action, dates and money, sort, and get counts and totals. Use it for questions like 'how many', 'which close before', 'the largest budgets', 'all CL4 RIAs in 2027'.",
     input_schema: { type: "object", properties: { ...FILTER_PROPS, sort_by: { type: "string", enum: ["deadline", "opening", "budget", "eu_per_project"], description: "Default deadline." }, limit: { type: "integer", description: "Default 15, max 40." } } } },
@@ -205,14 +259,16 @@ const TOOLS = [
     input_schema: { type: "object", properties: { query: { type: "string" }, limit: { type: "integer" } } } },
 ];
 
-async function runTool(name, a, d, seen) {
+async function runTool(name, a, d, seen, env) {
   a = a || {};
   if (name === "search_calls") {
-    const terms = tokens(a.query || "");
     const lim = Math.min(Math.max(a.limit || 10, 1), 25);
-    const hits = applyFilters(d.calls, a).map(c => ({ c, s: relevance(c, terms) })).filter(x => x.s > 0.5).sort((x, y) => y.s - x.s);
-    return { query_terms: terms, total_matches: hits.length, calls: hits.slice(0, lim).map(({ c, s }) => ({ ...brief(c), relevance: Math.round(s * 10) / 10,
-      key_terms: Object.keys(c.w).slice(0, 8), summary: String(c.summary || "").slice(0, 280) })) };
+    const { terms, semantic, scored } = await rankCalls(env, d, a);
+    const top = scored.slice(0, lim);
+    const ev = await Promise.all(top.map((x, i) => i < 6 ? passage(x.c, x.start) : null));
+    return { search_mode: semantic ? "hybrid (semantic + keyword)" : "keyword only", query_terms: terms, total_matches: scored.length,
+      calls: top.map((x, i) => ({ ...brief(x.c), relevance: Math.round(x.score * 100) / 100,
+        key_terms: Object.keys(x.c.w).slice(0, 8), best_matching_passage: ev[i] || String(x.c.summary || "").slice(0, 280) })) };
   }
   if (name === "filter_calls") {
     const lim = Math.min(Math.max(a.limit || 15, 1), 40);
@@ -261,7 +317,7 @@ const AGENT_SYSTEM = `You are "Ask EU Funding", the AI assistant of Ullswater In
 
 How to work:
 - Use the tools for every fact about specific calls: IDs, titles, dates, budgets, eligibility, scope, links. Never invent or guess them. If the tools do not give the answer, say so plainly.
-- The call data is in English: write search queries in English with synonyms, whatever the user's language. For broad or multi-part questions run several searches or filters before answering.
+- The call data is in English: write search queries in English, whatever the user's language. search_calls understands meaning (semantic search), so describe the need in a natural English sentence and include key technical terms. For broad or multi-part questions run several searches or filters before answering.
 - To say what a call funds, who can apply, TRL, expected outcomes or conditions, read it with get_call (or compare_calls for several). Do not rely on titles alone.
 - "This call", "esta convocatoria" and similar refer to the call on the page the user is viewing (given below), if any.
 - Money is in EUR. "Budget" is the total topic budget; "EU contribution per project" is what one project can receive.
@@ -319,7 +375,7 @@ async function askAgent(req, env) {
     const results = await Promise.all(calls.map(async t => {
       used.push(t.name);
       let out;
-      try { out = await runTool(t.name, t.input, d, seen); } catch (e) { out = { error: String(e.message || e) }; }
+      try { out = await runTool(t.name, t.input, d, seen, env); } catch (e) { out = { error: String(e.message || e) }; }
       return { type: "tool_result", tool_use_id: t.id, content: JSON.stringify(out) };
     }));
     messages.push({ role: "user", content: results });
@@ -332,15 +388,28 @@ async function askAgent(req, env) {
   return json({ answer, sources, engine: "claude" }, req);
 }
 
+async function search(req, env) {
+  const b = await req.json().catch(() => ({}));
+  const query = String(b.q || "").slice(0, 500).trim();
+  if (query.length < 3) return json({ error: "Please write what you are looking for." }, req, 400);
+  const d = await loadData();
+  const f = {}; for (const k of Object.keys(FILTER_PROPS)) if (b[k] != null && b[k] !== "") f[k] = b[k];
+  const { semantic, scored } = await rankCalls(env, d, { ...f, query });
+  const lim = Math.min(Math.max(+b.limit || 10, 1), 30);
+  return json({ mode: semantic ? "hybrid" : "keyword", total: scored.length,
+    calls: scored.slice(0, lim).map(x => ({ ...brief(x.c), score: Math.round(x.score * 100) / 100, similarity: x.sim == null ? null : Math.round(x.sim * 1000) / 1000 })) }, req);
+}
+
 export default {
   async fetch(req, env) {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors(req) });
     const path = new URL(req.url).pathname;
-    if (req.method === "GET" && path === "/") return json({ service: "Ullswater AI", endpoints: ["/review", "/ask"] }, req);
+    if (req.method === "GET" && path === "/") return json({ service: "Ullswater AI", endpoints: ["/review", "/ask", "/search"] }, req);
     if (req.method !== "POST") return json({ error: "Not found" }, req, 404);
-    if (limited(req, path === "/review" ? 10 : 25)) return json({ error: "Too many requests. Please try again later." }, req, 429);
+    if (limited(req, path === "/review" ? 10 : path === "/search" ? 60 : 25)) return json({ error: "Too many requests. Please try again later." }, req, 429);
     try {
       if (path === "/review") return await review(req, env);
+      if (path === "/search") return await search(req, env);
       if (path === "/ask") {
         if (!env.ANTHROPIC_API_KEY) return await askLegacy(req, env);
         const copy = req.clone();

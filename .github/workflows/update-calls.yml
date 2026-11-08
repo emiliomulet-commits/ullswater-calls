@@ -63,6 +63,22 @@ jobs:
       - name: Fund Finder index
         run: python scripts/finder_index.py
 
+      - name: Cache embedding model and passage vectors
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/huggingface
+            .cache/embed
+          key: embed-${{ github.run_id }}
+          restore-keys: embed-
+
+      - name: Semantic index for the Ask EU Funding agent (bge-small-en-v1.5)
+        continue-on-error: true   # the Worker falls back to keyword search if this step fails
+        run: |
+          pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu
+          pip install --quiet sentence-transformers
+          python scripts/embed_calls.py
+
       - name: Build static site
         run: python scripts/build_site.py
 
