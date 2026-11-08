@@ -152,7 +152,7 @@ const brief = c => ({
 async function semanticScores(env, d, query) {
   // best cosine similarity per call and the passage that produced it
   if (!d.vec || !env.AI || !query) return null;
-  const r = await env.AI.run(EMBED_MODEL, { text: [EMBED_PREFIX + query] });
+  const r = await env.AI.run(EMBED_MODEL, { text: [EMBED_PREFIX + query], pooling: "cls" }); // cls = same pooling as sentence-transformers
   const q = r && r.data && r.data[0];
   if (!q || q.length !== d.vec.dim) return null;
   const { dim, rows, cidx, v } = d.vec, best = new Map();
