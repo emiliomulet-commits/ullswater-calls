@@ -39,7 +39,7 @@ python3 -m http.server -d site 8000
 | `/call/<id>/` | Funding & competition facts, deadline .ics, track-record partners, directory matches, partner requests | F&T API, CORDIS |
 | `/finder/` | Fund Finder: ranked calls for a project description (runs in the browser) | `site/data/finder.json` |
 | `/review/` | AI pre-check of an idea against a call | Worker `ullswater-ai` (Workers AI, Llama 3.3 70B) |
-| chat widget | "Ask EU Funding" assistant on every page | Worker `/ask` |
+| chat widget | "Ask EU Funding" assistant on every page: keeps the conversation (per browser session) and knows which call page the user is on | Worker `/ask`: Claude agent with tools (`search_calls`, `filter_calls`, `get_call`, `compare_calls`, `search_spain_calls`, `search_events`) over `calls.json`, `finder.json`, `data/t/*.json`, `spain.json`, `events.json`. Needs the Worker secret `ANTHROPIC_API_KEY` (optional variable `CLAUDE_MODEL`, default `claude-sonnet-5-5`); without the secret, or if the Claude API fails, it falls back to the Workers AI keyword assistant |
 | `/spain/` | Spanish State/regional competitive R&D&I and industry calls | BDNS public API (`scripts/bdns.py`) |
 | `/alerts/` | Weekly email alerts, double opt-in | Google Form + Apps Script `weeklyDigest` (Mondays 07:00) |
 | `/directory/` | Reviewed organisation profiles matched with calls | Google Form + moderation sheet (Status = Approved) |
