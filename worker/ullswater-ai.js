@@ -214,6 +214,7 @@ async function passage(c, start) {
   try {
     const t = await getJSON(`${SITE}/data/t/${c.slug}.json`, 1800);
     const txt = String(t.text || "").replace(/\s+/g, " ").trim();
+    if (start > 0) { const sp = txt.indexOf(" ", start); if (sp > 0 && sp - start < 40) start = sp + 1; } // passages overlap from an arbitrary offset: start at a word
     return txt.slice(start, start + 450).trim() + (txt.length > start + 450 ? "…" : "");
   } catch (e) { return null; }
 }
