@@ -373,11 +373,16 @@ async function claudeStream(env, body, onText, onTool) {
     if (ev.type === "message_start") Object.assign(usage, ev.message && ev.message.usage);
     else if (ev.type === "content_block_start") {
       const b = ev.content_block;
-      blocks[ev.index] = b.type === "text" ? { type: "text", text: "" } : b.type === "tool_use" ? { type: "tool_use", id: b.id, name: b.name, input: {}, _json: "" } : { ...b };
+      blocks[ev.index] = b.type === "text" ? { type: "text", text: "" }
+        : b.type === "tool_use" ? { type: "tool_use", id: b.id, name: b.name, input: {}, _json: "" }
+        : b.type === "thinking" ? { type: "thinking", thinking: b.thinking || "", signature: b.signature || "" } // must be sent back intact
+        : { ...b }; // e.g. redacted_thinking (complete in the start event)
     } else if (ev.type === "content_block_delta") {
       const b = blocks[ev.index], d = ev.delta;
       if (d.type === "text_delta") { b.text += d.text; onText(d.text); }
       else if (d.type === "input_json_delta") b._json += d.partial_json;
+      else if (d.type === "thinking_delta") b.thinking += d.thinking;
+      else if (d.type === "signature_delta") b.signature += d.signature;
     } else if (ev.type === "content_block_stop") {
       const b = blocks[ev.index];
       if (b && b.type === "tool_use") { try { b.input = b._json ? JSON.parse(b._json) : {}; } catch (e) { b.input = {}; } delete b._json; onTool(b); }
