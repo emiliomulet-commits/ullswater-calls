@@ -4,3 +4,11 @@ compatibility_date = "2026-11-01"
 
 [ai]
 binding = "AI"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ullswater-ai"
+database_id = "5d2c792c-7fb2-4f6a-91ef-5b717e216266"
+
+# Secret (set in the dashboard or with `wrangler secret put`): ANTHROPIC_API_KEY
+# Optional vars: DAILY_CLAUDE_LIMIT (default 400 Claude answers per day), CLAUDE_MODEL

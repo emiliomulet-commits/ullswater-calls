@@ -6,6 +6,8 @@
  *                                            Claude agent with tools over the calls data (filter, search, read, compare);
  *                                            without it, it falls back to the Workers AI keyword assistant.
  * Data comes from the public JSON files of calls.ullswaterinvestments.com.
+ * D1 binding DB (database ullswater-ai): table questions (anonymous log of chat questions) and table hits (rate limiting,
+ * keyed by a daily hash of the IP, purged after 2 days). Optional variables: DAILY_CLAUDE_LIMIT (default 400), CLAUDE_MODEL.
  */
 const SITE = "https://calls.ullswaterinvestments.com";
 const EVENTS = "https://events.ullswaterinvestments.com/events.json";
@@ -37,6 +39,48 @@ function limited(req, max) {
   h.push(now); HITS.set(ip, h);
   return h.length > max;
 }
+const LIMITS = { ask: { hour: 20, day: 60 }, search: { hour: 120, day: 600 }, review: { hour: 10, day: 30 } };
+async function ipKey(req, kind) {
+  // pseudonymous key: hash of IP + day, never the IP itself
+  const ip = req.headers.get("CF-Connecting-IP") || "x", day = new Date().toISOString().slice(0, 10);
+  const h = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("ullswater|" + ip + "|" + day));
+  return kind + ":" + [...new Uint8Array(h)].slice(0, 12).map(b => b.toString(16).padStart(2, "0")).join("");
+}
+async function overLimit(req, env, ctx, kind) {
+  // durable per-visitor limits in D1 (all isolates), with the in-memory limiter as fallback
+  const lim = LIMITS[kind] || LIMITS.search;
+  if (!env.DB) return limited(req, lim.hour);
+  try {
+    const k = await ipKey(req, kind), now = Math.floor(Date.now() / 1000);
+    const r = await env.DB.prepare("SELECT SUM(ts > ?1) AS h, COUNT(*) AS d FROM hits WHERE k = ?2 AND ts > ?3").bind(now - 3600, k, now - 86400).first();
+    if ((r && r.h || 0) >= lim.hour || (r && r.d || 0) >= lim.day) return true;
+    const w = env.DB.prepare("INSERT INTO hits (k, ts) VALUES (?1, ?2)").bind(k, now).run();
+    const purge = Math.random() < 0.02 ? env.DB.prepare("DELETE FROM hits WHERE ts < ?1").bind(now - 2 * 86400).run() : null;
+    if (ctx && ctx.waitUntil) { ctx.waitUntil(w); if (purge) ctx.waitUntil(purge); } else await w;
+    return false;
+  } catch (e) { console.log("rate limit db: " + (e.message || e)); return limited(req, lim.hour); }
+}
+async function claudeBudgetLeft(env) {
+  // global daily cap on Claude answers (cost guard); above it the chat answers with Workers AI
+  if (!env.DB) return true;
+  try {
+    const r = await env.DB.prepare("SELECT COUNT(*) AS n FROM questions WHERE engine = 'claude' AND ts >= date('now')").first();
+    return (r && r.n || 0) < (+env.DAILY_CLAUDE_LIMIT || 400);
+  } catch (e) { return true; }
+}
+function logQuestion(req, env, ctx, b, r, t0) {
+  // anonymous log: question, page, language, country, engine, tools, sources, size, time, tokens. No IP, no history.
+  if (!env.DB) return;
+  const u = (r && r.usage) || {};
+  const p = env.DB.prepare("INSERT INTO questions (q, page, lang, country, engine, tools, sources, answer_chars, ms, input_tokens, output_tokens, turn, error) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11,?12,?13)")
+    .bind(String(b.q || "").slice(0, 1000), String((b.page && b.page.path) || "").slice(0, 200), String(req.headers.get("Accept-Language") || "").slice(0, 5),
+      (req.cf && req.cf.country) || null, (r && r.engine) || null, ((r && r.tools) || []).join(",") || null,
+      ((r && r.sources) || []).map(x => x.id).join(",") || null, r && r.answer ? r.answer.length : 0, Date.now() - t0,
+      u.input_tokens || null, u.output_tokens || null, Math.floor((Array.isArray(b.history) ? b.history.length : 0) / 2) + 1, (r && r.error) || null)
+    .run().catch(e => console.log("log db: " + (e.message || e)));
+  if (ctx && ctx.waitUntil) ctx.waitUntil(p);
+}
+
 async function llm(env, system, user, maxTokens) {
   const r = await env.AI.run(MODEL, { messages: [{ role: "system", content: system }, { role: "user", content: user }], max_tokens: maxTokens, temperature: 0.2 });
   return (r && (r.response || r.result || "")).toString();
@@ -66,10 +110,6 @@ async function review(req, env) {
   return json({ call: { id: t.id, title: t.title, url: t.url, deadline: t.deadline }, result: data }, req);
 }
 
-async function askLegacy(req, env, b) {
-  const r = await legacyAnswer(env, b);
-  return json(r, req, r.error ? 400 : 200);
-}
 async function legacyAnswer(env, b) {
   const q = String(b.q || "").slice(0, 600).trim();
   if (q.length < 5) return { error: "Please write a question." };
@@ -417,6 +457,7 @@ async function runAgent(env, b, emit) {
   const messages = [...cleanHistory(b.history), { role: "user", content: q }];
   const model = env.CLAUDE_MODEL || CLAUDE_MODEL, seen = new Set(), used = [];
   let answer = "", resp, pendingBreak = false;
+  const total = { input_tokens: 0, output_tokens: 0, cache_read_input_tokens: 0 };
   const onText = t => {
     if (pendingBreak && answer && t.trim()) { // text resumed after tool calls: new paragraph only if the sentence had ended
       const sep = /[.:!?)\]]\s*$/.test(answer) && !/^\s/.test(t) ? "\n\n" : ""; // mid-sentence or mid-word: join as streamed
@@ -429,6 +470,7 @@ async function runAgent(env, b, emit) {
   for (let step = 0; step <= MAX_STEPS; step++) {
     const last = step === MAX_STEPS;
     resp = await claudeStream(env, { model, max_tokens: 1500, system, tools: TOOLS, tool_choice: last ? { type: "none" } : { type: "auto" }, messages }, onText, onTool);
+    for (const k in total) total[k] += +(resp.usage && resp.usage[k]) || 0;
     if (resp.stop_reason !== "tool_use" || last) break;
     pendingBreak = true;
     messages.push({ role: "assistant", content: resp.content });
@@ -445,15 +487,20 @@ async function runAgent(env, b, emit) {
   answer = answer.trim() || "Sorry, I could not find an answer. Please try rephrasing the question.";
   for (const id of answer.match(/[A-Z0-9][A-Z0-9_]*(?:-[A-Z0-9_]+){2,}/g) || []) { const c = findCall(d, id); if (c) seen.add(c.id); }
   for (const s2 of answer.match(/\/call\/([a-z0-9-]+)\//g) || []) { const c = findCall(d, s2.split("/")[2]); if (c) seen.add(c.id); }
-  console.log(JSON.stringify({ ask: q.slice(0, 200), page: page.path, tools: used, usage: resp && resp.usage }));
+  console.log(JSON.stringify({ ask: q.slice(0, 200), page: page.path, tools: used, usage: total }));
   const sources = [...seen].slice(0, 6).map(id => { const c = findCall(d, id); return { id: c.id, title: c.title, url: pageUrl(c), deadline: c.deadline }; });
-  return { answer, sources, engine: "claude" };
+  return { answer, sources, engine: "claude", tools: used, usage: total };
 }
 
-async function askAgent(req, env, b) {
+async function askAgent(req, env, b, ctx) {
   // JSON response (older widget)
-  try { return json(await runAgent(env, b, () => {}), req); }
-  catch (e) { console.log("agent failed, falling back: " + (e.message || e)); return askLegacy(req, env, b); }
+  const t0 = Date.now();
+  try { const r = await runAgent(env, b, () => {}); logQuestion(req, env, ctx, b, r, t0); return json({ answer: r.answer, sources: r.sources, engine: r.engine }, req); }
+  catch (e) {
+    console.log("agent failed, falling back: " + (e.message || e));
+    const r = await legacyAnswer(env, b); logQuestion(req, env, ctx, b, { ...r, error: String(e.message || e).slice(0, 200) }, t0);
+    return json(r, req, r.error ? 400 : 200);
+  }
 }
 
 function askStream(req, env, b, ctx) {
@@ -462,18 +509,22 @@ function askStream(req, env, b, ctx) {
   const w = writable.getWriter(), enc = new TextEncoder();
   let sent = false;
   const send = o => { if (o.type === "delta") sent = true; return w.write(enc.encode("data: " + JSON.stringify(o) + "\n\n")).catch(() => {}); };
+  const t0 = Date.now();
   const work = (async () => {
     try {
       send({ type: "status", text: "Thinking" });
       const r = await runAgent(env, b, send);
       await send({ type: "done", sources: r.sources, engine: r.engine });
+      logQuestion(req, env, ctx, b, r, t0);
     } catch (e) {
       console.log("agent stream failed: " + (e.message || e));
+      const err = String(e.message || e).slice(0, 200);
       if (!sent) { // nothing shown yet: answer with the Workers AI assistant instead
         try { const r = await legacyAnswer(env, b); if (r.error) throw new Error(r.error);
-          await send({ type: "delta", text: r.answer }); await send({ type: "done", sources: r.sources, engine: r.engine }); }
-        catch (e2) { await send({ type: "error", text: "The assistant is busy. Please try again." }); }
-      } else await send({ type: "error", text: "The answer was interrupted. Please try again." });
+          await send({ type: "delta", text: r.answer }); await send({ type: "done", sources: r.sources, engine: r.engine });
+          logQuestion(req, env, ctx, b, { ...r, error: err }, t0); }
+        catch (e2) { await send({ type: "error", text: "The assistant is busy. Please try again." }); logQuestion(req, env, ctx, b, { engine: "none", error: err }, t0); }
+      } else { await send({ type: "error", text: "The answer was interrupted. Please try again." }); logQuestion(req, env, ctx, b, { engine: "claude", error: err }, t0); }
     } finally { try { await w.close(); } catch (e) {} }
   })();
   if (ctx && ctx.waitUntil) ctx.waitUntil(work);
@@ -487,9 +538,12 @@ async function search(req, env) {
   const d = await loadData();
   const f = {}; for (const k of Object.keys(FILTER_PROPS)) if (b[k] != null && b[k] !== "") f[k] = b[k];
   const { semantic, scored } = await rankCalls(env, d, { ...f, query });
-  const lim = Math.min(Math.max(+b.limit || 10, 1), 30);
+  const lim = Math.min(Math.max(+b.limit || 10, 1), 40), top = scored.slice(0, lim);
+  const np = b.passages ? Math.min(+b.passages || 0, 12) : 0;
+  const ev = await Promise.all(top.map((x, i) => i < np ? passage(x.c, x.start) : null));
   return json({ mode: semantic ? "hybrid" : "keyword", total: scored.length,
-    calls: scored.slice(0, lim).map(x => ({ ...brief(x.c), score: Math.round(x.score * 100) / 100, similarity: x.sim == null ? null : Math.round(x.sim * 1000) / 1000 })) }, req);
+    calls: top.map((x, i) => ({ ...brief(x.c), score: Math.round(x.score * 100) / 100, similarity: x.sim == null ? null : Math.round(x.sim * 1000) / 1000,
+      passage: i < np ? (ev[i] || String(x.c.summary || "").slice(0, 300) || undefined) : undefined })) }, req);
 }
 
 export default {
@@ -498,15 +552,24 @@ export default {
     const path = new URL(req.url).pathname;
     if (req.method === "GET" && path === "/") return json({ service: "Ullswater AI", endpoints: ["/review", "/ask", "/search"] }, req);
     if (req.method !== "POST") return json({ error: "Not found" }, req, 404);
-    if (limited(req, path === "/review" ? 10 : path === "/search" ? 60 : 25)) return json({ error: "Too many requests. Please try again later." }, req, 429);
+    if (!ORIGINS.includes(req.headers.get("Origin") || "")) return json({ error: "Not allowed" }, req, 403); // only our own pages
+    const kind = path === "/review" ? "review" : path === "/search" ? "search" : "ask";
+    if (await overLimit(req, env, ctx, kind)) return json({ error: kind === "ask" ? "You have reached the question limit for now. Please try again later or contact our experts: https://www.ullswaterinvestments.com/eu-fund-matching" : "Too many requests. Please try again later." }, req, 429);
     try {
       if (path === "/review") return await review(req, env);
       if (path === "/search") return await search(req, env);
       if (path === "/ask") {
         const b = await req.json().catch(() => ({}));
         if (String(b.q || "").trim().length < 3) return json({ error: "Please write a question." }, req, 400);
-        if (!env.ANTHROPIC_API_KEY) return await askLegacy(req, env, b);
-        return b.stream ? askStream(req, env, b, ctx) : await askAgent(req, env, b);
+        if (!env.ANTHROPIC_API_KEY || !(await claudeBudgetLeft(env))) {
+          const t0 = Date.now(), r = await legacyAnswer(env, b); logQuestion(req, env, ctx, b, r, t0);
+          if (b.stream && !r.error) {
+            const body = "data: " + JSON.stringify({ type: "delta", text: r.answer }) + "\n\n" + "data: " + JSON.stringify({ type: "done", sources: r.sources, engine: r.engine }) + "\n\n";
+            return new Response(body, { headers: { "Content-Type": "text/event-stream; charset=utf-8", ...cors(req) } });
+          }
+          return json(r, req, r.error ? 400 : 200);
+        }
+        return b.stream ? askStream(req, env, b, ctx) : await askAgent(req, env, b, ctx);
       }
     } catch (e) {
       return json({ error: "Service temporarily unavailable." }, req, 500);

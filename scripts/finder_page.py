@@ -1,9 +1,11 @@
-"""Fund Finder page (client-side matching on site/data/finder.json)."""
+"""Fund Finder page: semantic + keyword ranking from the ullswater-ai Worker (/search),
+with the original client-side matching on site/data/finder.json as fallback."""
+from ai_pages import AI_API
 
 
 def finder_html(MAIN, form_alerts="/alerts/"):
     return f"""<main><section class="hero"><div class="wrap"><div class="crumbs"><a href="/">All calls</a> › Fund Finder</div><p class="kicker">Fund Finder</p>
-<h1>Which EU call fits your project?</h1><p class="lead">Describe your project and your organisation. The Fund Finder compares it with every open and forthcoming EU call and returns a ranked shortlist with the reasons for each match. Nothing you type leaves your browser.</p></div></section>
+<h1>Which EU call fits your project?</h1><p class="lead">Describe your project and your organisation. The Fund Finder compares it with every open and forthcoming EU call and returns a ranked shortlist with the reasons for each match. It understands meaning, not just keywords, so describe it in your own words (English works best). Your description is used only to rank the calls and is not stored.</p></div></section>
 <div class="wrap"><style>
 .ff{{border:1px solid var(--line);border-radius:12px;padding:22px;background:#fff;margin:22px 0}}.ffg{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}}
 .ff label{{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);display:flex;flex-direction:column;gap:4px}}
@@ -37,10 +39,23 @@ function toks(s){{var w=norm(s).match(/[a-z][a-z0-9\\-]{{2,}}/g)||[];w=w.filter(
 function load(cb){{if(IDX)return cb();$('#ff-msg').textContent='Loading calls…';fetch('/data/finder.json').then(function(r){{return r.json()}}).then(function(d){{IDX=d.map(function(c){{var ws={{}};for(var k in c.w)ws[k.split(' ').map(stem).join(' ')]=c.w[k];c.ws=ws;return c}});$('#ff-msg').textContent='';cb()}})}}
 function days(d){{return d?Math.round((new Date(d+'T00:00:00')-new Date())/864e5):null}}
 function money(v){{return v>=1e6?'€'+(v/1e6).toFixed(1).replace('.0','')+'M':'€'+Math.round(v/1e3)+'k'}}
+function kwHits(c,T){{var s=0,h=[];for(var k in T)if(c.ws[k]){{s+=c.ws[k]*(k.indexOf(' ')>0?1.6:1);h.push([k,c.ws[k]])}}h.sort(function(a,b){{return b[1]-a[1]}});return {{s:s,hits:h.slice(0,5).map(function(x){{return x[0]}})}}}}
+function candidates(q,T,dl,cb){{
+  // semantic + keyword ranking from the Worker; falls back to keyword matching in the browser
+  var byId={{}};IDX.forEach(function(c){{byId[c.id]=c}});
+  var body={{q:q,limit:40,passages:12}};if(dl){{var d=new Date(Date.now()+dl*864e5);body.deadline_to=d.toISOString().slice(0,10)}}
+  var done=0,timer=setTimeout(function(){{if(!done){{done=1;local()}}}},12000);
+  function local(){{cb(IDX.map(function(c){{var k=kwHits(c,T);return k.s?{{c:c,base:k.s,hits:k.hits}}:null}}).filter(Boolean),false)}}
+  fetch('{AI_API}/search',{{method:'POST',headers:{{'Content-Type':'application/json'}},body:JSON.stringify(body)}}).then(function(r){{return r.json()}}).then(function(d){{
+    if(done)return;done=1;clearTimeout(timer);if(!d||!d.calls||d.mode!=='hybrid')return local();
+    cb(d.calls.map(function(x){{var c=byId[x.id];if(!c)return null;var k=kwHits(c,T);return {{c:c,base:x.score,hits:k.hits,passage:x.passage}}}}).filter(Boolean),true)
+  }}).catch(function(){{if(!done){{done=1;clearTimeout(timer);local()}}}})
+}}
 function run(){{var q=$('#ff-q').value.trim();if(q.split(/\\s+/).length<6){{$('#ff-msg').textContent='Please describe your project in at least a couple of sentences.';return}}
 load(function(){{var T=toks(q),org=$('#ff-org').value,trl=$('#ff-trl').value,cons=$('#ff-cons').value,dl=+$('#ff-dl').value||0;
-var res=IDX.map(function(c){{var s=0,hits=[];for(var k in T)if(c.ws[k]){{s+=c.ws[k]*(k.indexOf(' ')>0?1.6:1);hits.push([k,c.ws[k]])}}
-if(!s)return null;var f=1,why=[];
+$('#ff-msg').textContent='Comparing your project with every call…';$('#ff-go').disabled=true;
+candidates(q,T,dl,function(cands,sem){{$('#ff-msg').textContent='';$('#ff-go').disabled=false;
+var res=cands.map(function(r){{var c=r.c,f=1,why=[];
 if(trl==='low'&&(c.a==='RIA'||c.a==='MSCA'))f*=1.25,why.push('research-oriented action');
 if(trl==='mid'&&(c.a==='IA'||c.a==='RIA'))f*=1.15,why.push(c.a==='IA'?'innovation action for pilots and demonstration':'research and innovation action');
 if(trl==='high'&&(c.a==='IA'||c.a==='EIC'||c.k==='cascade'))f*=1.3,why.push('close-to-market support');
@@ -52,19 +67,21 @@ if(org==='sme'&&c.k==='cascade')f*=1.15,why.push('cascade funding usually target
 if((org==='uni'||org==='rto')&&c.a==='CSA')f*=1.05;
 var dd=days(c.d);if(dl&&(dd===null||dd>dl))return null;if(dd!==null&&dd<10)f*=0.6;
 if(c.s==='open')f*=1.05;
-hits.sort(function(a,b){{return b[1]-a[1]}});return {{c:c,s:s*f,hits:hits.slice(0,5).map(function(h){{return h[0]}}),why:why}}}}).filter(Boolean).sort(function(a,b){{return b.s-a.s}}).slice(0,12);
+return {{c:c,s:r.base*f,hits:r.hits,why:why,passage:r.passage}}}}).filter(Boolean).sort(function(a,b){{return b.s-a.s}}).slice(0,12);
 if(!res.length){{$('#ff-out').innerHTML='<div class="empty">No close match. Try describing the technology, the sector and the expected results in more detail.</div>';$('#ff-cta').hidden=false;return}}
-var top=res[0].s,html='<h2>Your best-matching calls</h2>';
+var top=res[0].s,html='<h2>Your best-matching calls</h2><p class="note">'+(sem?'Ranked by meaning and keywords against the full text of each call.':'Ranked by keywords (the semantic search is not available right now).')+'</p>';
+function e(t){{return String(t||'').replace(/[<>&"]/g,function(x){{return{{'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}}[x]}})}}
 res.forEach(function(r){{var c=r.c,pct=Math.max(35,Math.round(100*r.s/top)),dd=days(c.d);
 html+='<article class="hit"><div class="meta"><span class="score">'+pct+'%</span><span class="tag '+(c.s==='open'?'open':'fc')+'">'+(c.s==='open'?'Open':'Forthcoming')+'</span><span class="tag">'+c.p+'</span><span class="code">'+c.id+'</span></div>'+
-'<h3><a href="/call/'+c.id.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')+'/">'+c.t.replace(/[<>&]/g,'')+'</a></h3>'+
+'<h3><a href="/call/'+c.id.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')+'/">'+e(c.t)+'</a></h3>'+
 '<p class="why"><b>Deadline:</b> '+(c.d||'TBC')+(dd!==null?' ('+dd+' days)':'')+(c.lo&&c.hi?' · <b>EU contribution per project:</b> '+(c.lo===c.hi?money(c.lo):money(c.lo)+'–'+money(c.hi)):'')+'</p>'+
-'<p class="why"><b>Why it matches:</b> '+r.hits.join(', ')+(r.why.length?' · '+r.why.join(' · '):'')+'</p></article>'}});
+(r.passage?'<p class="why"><b>Closest passage:</b> “'+e(r.passage.slice(0,260))+(r.passage.length>260?'…':'')+'”</p>':'')+
+'<p class="why"><b>Why it matches:</b> '+(r.hits.length?r.hits.join(', '):'similar meaning to your description')+(r.why.length?' · '+r.why.join(' · '):'')+'</p></article>'}});
 $('#ff-out').innerHTML=html;$('#ff-cta').hidden=false;
 var list=res.slice(0,6).map(function(r){{return '- '+r.c.id+' – '+r.c.t}}).join('\\n');
 $('#ff-mail').href='mailto:eufunding@ullswaterinvestments.com?subject='+encodeURIComponent('Fund Finder – expert review request')+'&body='+encodeURIComponent('Project:\\n'+q+'\\n\\nShortlist from the Fund Finder:\\n'+list+'\\n\\nOrganisation and contact:\\n');
 $('#ff-alert').href='/alerts/?q='+encodeURIComponent(Object.keys(T).filter(function(k){{return k.indexOf(' ')<0}}).slice(0,8).join(' '));
-$('#ff-out').scrollIntoView({{behavior:'smooth'}})}})}}
+$('#ff-out').scrollIntoView({{behavior:'smooth'}})}})}})}}
 $('#ff-go').onclick=run;
 }})();
 </script>"""

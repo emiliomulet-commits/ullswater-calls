@@ -37,7 +37,7 @@ python3 -m http.server -d site 8000
 | Page | What it does | Data / engine |
 |---|---|---|
 | `/call/<id>/` | Funding & competition facts, deadline .ics, track-record partners, directory matches, partner requests | F&T API, CORDIS |
-| `/finder/` | Fund Finder: ranked calls for a project description (runs in the browser) | `site/data/finder.json` |
+| `/finder/` | Fund Finder: ranked calls for a project description, by meaning and keywords, with the closest passage of each call | Worker `/search` (hybrid); falls back to `site/data/finder.json` in the browser |
 | `/review/` | AI pre-check of an idea against a call | Worker `ullswater-ai` (Workers AI, Llama 3.3 70B) |
 | chat widget | "Ask EU Funding" assistant on every page: keeps the conversation (per browser session) and knows which call page the user is on | Worker `/ask`: Claude agent with tools (`search_calls`, `filter_calls`, `get_call`, `compare_calls`, `search_spain_calls`, `search_events`) over `calls.json`, `finder.json`, `data/t/*.json`, `spain.json`, `events.json`. `search_calls` is hybrid: semantic similarity over passages of every topic text (`site/data/vec.bin` + `vec.json`, built daily by `scripts/embed_calls.py` with BAAI/bge-small-en-v1.5; the Worker embeds the query with the same model on Workers AI) plus keyword matching (`words.json`). Also `POST /search {q, filters}`. With `stream: true` the widget receives server-sent events (`status` while tools run, `delta` text chunks, `done` with sources), so the answer appears as it is written. Needs the Worker secret `ANTHROPIC_API_KEY` (optional variable `CLAUDE_MODEL`, default `claude-sonnet-5-5`); without the secret, or if the Claude API fails, it falls back to the Workers AI keyword assistant |
 | `/spain/` | Spanish State/regional competitive R&D&I and industry calls | BDNS public API (`scripts/bdns.py`) |
@@ -47,3 +47,9 @@ python3 -m http.server -d site 8000
 | `/tools/` | Horizon Europe budget calculator, consortium checker (official country list V4.2, 07.10.2026) | static JS |
 
 Worker source: `worker/ullswater-ai.js` (deploy: paste in the Cloudflare dashboard editor, or `npx wrangler deploy` from `worker/`).
+
+## Ask EU Funding: logging and limits (Nov 2026)
+- D1 database `ullswater-ai` (binding `DB`): `questions` = anonymous log of chat questions (question, page, language, country, engine, tools, sources, answer size, time, tokens; no IP, no history); `hits` = rate-limit counters keyed by a daily hash of the IP, purged after 2 days.
+- Limits per visitor: chat 20/hour and 60/day, search 120/hour, AI pre-check 10/hour. Global cap: `DAILY_CLAUDE_LIMIT` Claude answers per day (default 400), then the chat answers with Workers AI.
+- Only requests from the Ullswater sites (Origin header) are accepted.
+- Useful query (D1 console): `SELECT date(ts) d, COUNT(*) n, SUM(engine='claude') claude, SUM(input_tokens) tin, SUM(output_tokens) tout FROM questions GROUP BY d ORDER BY d DESC;`
