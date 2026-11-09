@@ -88,7 +88,7 @@ h1{font-size:36px;line-height:1.2;margin:0 0 12px;color:var(--navy)}
 @media(max-width:860px){.grid3{grid-template-columns:1fr}}
 footer.site{background:var(--navy);color:#dbe2f5;font-size:14px;margin-top:40px}footer.site .wrap{padding:28px 20px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between}footer.site a{color:#fff}
 @media(max-width:860px){.filters .wrap{grid-template-columns:1fr 1fr}.filters .q{grid-column:1/-1}.filters{position:static}}
-@media(max-width:640px){h1{font-size:28px}.top-links{display:none}.call{grid-template-columns:72px 1fr;gap:12px;padding:14px}.date b{font-size:18px}}
+@media(max-width:640px){h1{font-size:28px}.top-links{display:flex;overflow-x:auto;width:100%;padding-bottom:6px}.top-links a{margin:0 14px 0 0;white-space:nowrap}.call{grid-template-columns:72px 1fr;gap:12px;padding:14px}.date b{font-size:18px}}
 """
 
 JS = r"""(function(){

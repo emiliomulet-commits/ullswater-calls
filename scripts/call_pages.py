@@ -217,7 +217,8 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
         when = f' Deadline: <strong>{escape(x["deadline_time"])}</strong>.' if x.get("deadline_time") else ""
         body.append(f'<section class="sec"><h2>Key conditions</h2><ul>{li}</ul><p class="note">Summary by Ullswater Investments, checked on {fmt_date(x.get("source_checked", ""))} against the <a href="{escape(x.get("official_url", c["url"]))}" target="_blank" rel="noopener">official call page</a>.{when} The call text always prevails.</p></section>')
     today_ = date.today().isoformat()
-    sess = [s_ for s_ in x.get("sessions", []) if s_[0] >= today_]
+    linked = any(c["id"] in (e.get("calls") or []) for e in events)
+    sess = [] if linked else [s_ for s_ in x.get("sessions", []) if s_[0] >= today_]
     if sess:
         li = "".join(f'<li><strong>{fmt_date(d_)}</strong> · {escape(t_)} <small>({escape(h_)}, online)</small> – <a href="{escape(u_)}" target="_blank" rel="noopener">register ↗</a></li>' for d_, t_, h_, u_ in sess)
         body.append(f'<section class="sec"><h2>Official info sessions</h2><ul>{li}</ul></section>')
@@ -239,7 +240,12 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
 
     ev_key = EVENT_PROG.get(k)
     today = date.today().isoformat()
-    evs = [e for e in events if (e.get("end") or e.get("start") or "") >= today and (e.get("programme") == ev_key or (c["programme"] == "HORIZON" and e.get("programme") == "horizon-europe"))][:5]
+    upcoming = [e for e in events if (e.get("end") or e.get("start") or "") >= today]
+    own = [e for e in upcoming if c["id"] in (e.get("calls") or [])]  # events linked to this exact call
+    if own:
+        li = "".join(f'<li><strong>{fmt_date(e["start"])}</strong> · <a href="{escape(e["url"])}">{escape(e["title"])}</a> <small>({escape(e.get("location") or "")})</small></li>' for e in own)
+        body.append(f'<section class="sec"><h2>Events about this call</h2><ul>{li}</ul></section>')
+    evs = [e for e in upcoming if e not in own and (e.get("programme") == ev_key or (c["programme"] == "HORIZON" and e.get("programme") == "horizon-europe"))][:5]
     if evs:
         li = "".join(f'<li><strong>{fmt_date(e["start"])}</strong> · <a href="{escape(e["url"])}">{escape(e["title"])}</a> <small>({escape(e.get("location") or "")})</small></li>' for e in evs)
         body.append(f'<section class="sec"><h2>Upcoming info days and brokerage events</h2><p class="note">Brokerage events are where most consortia are built.</p><ul>{li}</ul><p><a href="https://events.ullswaterinvestments.com/">All EU funding events →</a></p></section>')
