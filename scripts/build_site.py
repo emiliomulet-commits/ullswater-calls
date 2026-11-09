@@ -35,7 +35,7 @@ header.site .wrap{display:flex;align-items:center;justify-content:space-between;
 nav.cats{background:var(--navy2)}nav.cats .wrap{display:flex;gap:4px;overflow-x:auto;padding-top:6px;padding-bottom:6px}
 nav.cats a{color:#dbe2f5;text-decoration:none;font-size:14px;padding:6px 10px;border-radius:6px;white-space:nowrap}
 nav.cats a:hover,nav.cats a[aria-current]{background:rgba(255,255,255,.12);color:#fff}
-.top-links a{color:#fff;font-size:14px;text-decoration:none;margin-left:16px;opacity:.9}
+.btn.gold{background:#c9a646;color:#1a2850;border-color:#c9a646}.top-links a{color:#fff;font-size:14px;text-decoration:none;margin-left:16px;opacity:.9}
 .hero{background:var(--bg);border-bottom:1px solid var(--line)}.hero .wrap{padding:40px 20px 32px}
 .kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:#8a6a1c;margin:0 0 8px}
 h1{font-size:36px;line-height:1.2;margin:0 0 12px;color:var(--navy)}

@@ -13,6 +13,15 @@ BOARD_CSV = ("https://docs.google.com/spreadsheets/d/e/2PACX-1vQFlSKgfShj44obux_
 FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdIi27JIDNU6-KVL4J_vJ_6rjGrtIoUJi1QDX01XgOlg-uqHw/viewform"
 FORM_CALL_FIELD = "entry.301116469"
 CONTACT = "eufunding@ullswaterinvestments.com"
+# "Apply with our support" form (Google Form, tools/support_request_setup.gs). CALL and PAGE are replaced per page.
+SUPPORT_FORM = ""
+
+
+def support_link(call, page_url):
+    from urllib.parse import quote
+    if SUPPORT_FORM:
+        return SUPPORT_FORM.replace("CALL", quote(call)).replace("PAGE", quote(page_url))
+    return f"mailto:{CONTACT}?subject={quote('Support request: ' + call)}&body={quote('Call: ' + call + chr(10) + 'Page: ' + page_url + chr(10) + chr(10) + 'Organisation, country and what you need:' + chr(10))}"
 
 
 def form_link(call_id=""):
@@ -172,7 +181,7 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
 <div class="meta">{st}<span class="tag">{escape(name)}</span>{'<span class="tag cas">Cascade funding</span>' if c['kind'] == 'cascade' else ''}</div>
 <h1 style="margin-top:10px">{escape(c['title'])}</h1>{f'<p class="lead">{escape(c["summary"])}</p>' if c.get('summary') else ''}
 <div class="facts">{''.join(facts)}</div>
-<div class="actions"><a class="btn" href="{escape((c.get('extra') or {}).get('official_url') or c['url'])}" target="_blank" rel="noopener">Official call page ↗</a><a class="btn ghost" href="#partners">Find partners ↓</a>{'<a class="btn ghost" href="deadline.ics">📅 Add deadline to calendar</a>' if c.get('deadline') else ''}<a class="btn ghost" href="/review/?call={escape(c['id'])}">🤖 AI pre-check of my idea</a><a class="btn ghost" href="/alerts/?call={escape(ident)}">🔔 Alerts for this call</a></div></div></section>
+<div class="actions"><a class="btn" href="{escape((c.get('extra') or {}).get('official_url') or c['url'])}" target="_blank" rel="noopener">Official call page ↗</a><a class="btn gold" href="{escape(support_link(ident + ' – ' + c['title'], 'https://calls.ullswaterinvestments.com' + path))}" target="_blank" rel="noopener">Apply with our support</a><a class="btn ghost" href="#partners">Find partners ↓</a>{'<a class="btn ghost" href="deadline.ics">📅 Add deadline to calendar</a>' if c.get('deadline') else ''}<a class="btn ghost" href="/review/?call={escape(c['id'])}">🤖 AI pre-check of my idea</a><a class="btn ghost" href="/alerts/?call={escape(ident)}">🔔 Alerts for this call</a></div></div></section>
 <div class="wrap" id="partners">"""
 
     body = []
@@ -250,6 +259,8 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
         li = "".join(f'<li><strong>{fmt_date(e["start"])}</strong> · <a href="{escape(e["url"])}">{escape(e["title"])}</a> <small>({escape(e.get("location") or "")})</small></li>' for e in evs)
         body.append(f'<section class="sec"><h2>Upcoming info days and brokerage events</h2><p class="note">Brokerage events are where most consortia are built.</p><ul>{li}</ul><p><a href="https://events.ullswaterinvestments.com/">All EU funding events →</a></p></section>')
 
+    body.append(f"""<div class="cta"><div><strong>Thinking of applying to this call?</strong><p>Tell us about your organisation and idea. A senior EU funding advisor in Madrid or Brussels replies within 2 working days with a first view of fit, consortium and next steps. Free and without commitment.</p></div>
+<a class="btn" href="{escape(support_link(ident + ' – ' + c['title'], 'https://calls.ullswaterinvestments.com' + path))}" target="_blank" rel="noopener">Apply with our support</a></div>""")
     body.append(f"""<div class="cta"><div><strong>Building a consortium for this call?</strong><p>Publish what you are looking for or what you can offer on the Ullswater partner board. We review each request, publish it on this page and introduce you to suitable partners.</p></div>
 <a class="btn" href="{escape(form_link(ident if c['kind'] == 'topic' else c['id']))}" target="_blank" rel="noopener">Post a partner request</a></div>""")
     if show:
