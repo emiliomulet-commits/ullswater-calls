@@ -1,0 +1,30 @@
+{
+  "about": "Shared programme taxonomy of the Ullswater Investments sites (Nov 2026). The calls site is the single source for call pages; each theme lists the matching keys used by events.ullswaterinvestments.com (events.programme) and news.ullswaterinvestments.com (news.category).",
+  "network": [
+    ["Home", "https://www.ullswaterinvestments.com/"],
+    ["EU calls", "https://calls.ullswaterinvestments.com/"],
+    ["News", "https://news.ullswaterinvestments.com/"],
+    ["Events", "https://events.ullswaterinvestments.com/"],
+    ["Projects", "https://www.ullswaterinvestments.com/projects/"],
+    ["About", "https://www.ullswaterinvestments.com/about/"]
+  ],
+  "themes": {
+    "health": {"events": ["cluster-1"], "news": ["health"]},
+    "culture-society": {"events": ["cluster-2"], "news": []},
+    "civil-security": {"events": ["cluster-3"], "news": []},
+    "digital-industry-space": {"events": ["cluster-4"], "news": ["digital-ai"]},
+    "climate-energy-mobility": {"events": ["cluster-5"], "news": ["climate-energy"]},
+    "food-environment": {"events": ["cluster-6"], "news": []},
+    "science-widening": {"events": ["widera"], "news": []},
+    "eic": {"events": ["eic"], "news": ["eic-defence"]},
+    "digital-europe-defence": {"events": ["digital-europe"], "news": []},
+    "other-eu-programmes": {"events": ["other"], "news": []},
+    "generative-ai": {"events": [], "news": []},
+    "missions-bridging": {"events": [], "news": []},
+    "cascade-funding": {"events": [], "news": []},
+    "closing-this-year": {"events": [], "news": []},
+    "international-cooperation": {"events": [], "news": []}
+  },
+  "general": {"events": ["horizon-europe"], "news": ["horizon-europe", "research-policy", "budget-policy"]},
+  "spain": {"calls_page": "/spain/", "news": ["spain"]}
+}

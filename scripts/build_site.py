@@ -5,6 +5,7 @@ Output (in site/): index.html, programme/<slug>/index.html, closing-soon/index.h
 sitemap.xml, robots.txt, 404.html, CNAME, assets/app.js
 """
 import json
+from pathlib import Path
 import re
 import sys
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent))
@@ -127,6 +128,38 @@ PROG_LABELS = {
 }
 
 
+TAXONOMY = json.loads((Path(__file__).resolve().parent.parent / "content" / "taxonomy.json").read_text(encoding="utf-8"))
+NETWORK_HTML = "".join(f'<a href="{u}"{" aria-current=page" if t == "EU calls" else ""}>{t}</a>' for t, u in TAXONOMY["network"])
+EVENTS_URL, NEWS_URL = "https://events.ullswaterinvestments.com", "https://news.ullswaterinvestments.com"
+
+
+_LIVE = {}
+
+
+def _live_sections():
+    """Programme keys with upcoming events and news categories that have a page (only link to pages that exist)."""
+    if not _LIVE:
+        import urllib.request
+        _LIVE["events"], _LIVE["news"] = set(), set()
+        try:
+            req = urllib.request.Request(EVENTS_URL + "/events.json", headers={"User-Agent": "UllswaterCallsBot/1.0"})
+            _LIVE["events"] = {e.get("programme") for e in json.load(urllib.request.urlopen(req, timeout=30)).get("events", [])}
+            req = urllib.request.Request(NEWS_URL + "/sitemap.xml", headers={"User-Agent": "UllswaterCallsBot/1.0"})
+            sm = urllib.request.urlopen(req, timeout=30).read().decode("utf-8")
+            _LIVE["news"] = set(re.findall(re.escape(NEWS_URL) + r"/([a-z-]+)/</loc>", sm))
+        except Exception as e:
+            print(f"  events/news sections unavailable: {e}")
+    return _LIVE
+
+
+def theme_links(tslug):
+    """Links from a theme page to the matching events and news sections (shared taxonomy)."""
+    t, live = TAXONOMY["themes"].get(tslug, {}), _live_sections()
+    li = [f'<a class="btn ghost" href="{EVENTS_URL}/programme/{k}/">Events for this area →</a>' for k in t.get("events", []) if k in live["events"]][:1]
+    li += [f'<a class="btn ghost" href="{NEWS_URL}/{k}/">News for this area →</a>' for k in t.get("news", []) if k in live["news"]][:1]
+    return f'<div class="actions">{"".join(li)}</div>' if li else ""
+
+
 def slug(s):
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
 
@@ -194,7 +227,7 @@ def page(title, desc, path, body, jsonld=None):
 <link rel="alternate" type="application/json" href="/data/calls.json" title="EU funding calls (JSON)">
 <style>{CSS}</style>{ld}</head><body>
 <header class="site"><div class="wrap"><a class="brand" href="/">Ullswater Investments <span>· EU Funding Calls</span></a>
-<div class="top-links"><a href="https://news.ullswaterinvestments.com/">News</a><a href="https://events.ullswaterinvestments.com/">Events</a><a href="{MAIN}/eu-fund-matching">EU Fund Matching</a><a href="{MAIN}">Main site</a></div></div></header>
+<nav class="top-links" aria-label="Ullswater Investments sites">{NETWORK_HTML}</nav></div></header>
 {body}
 <footer class="site"><div class="wrap"><div><strong>Ullswater Investments · EU Funding Advisors</strong><br>Madrid: Calle Ramírez de Arellano 17, 28043 Madrid · Brussels: Square de Meeûs 37, 1000 Brussels</div>
 <div>Data: <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home" rel="noopener">EU Funding &amp; Tenders Portal</a> (European Commission), refreshed weekly.<br>Always check the official call page before applying.</div>
@@ -311,7 +344,7 @@ def main():
         to = sum(1 for c in tc if c["status"] == "open")
         tiles += f'<a class="tile" href="/theme/{tslug}/"><b>{escape(short)}</b><span>{len(tc)} calls · {to} open</span><small>{escape(intro)}</small></a>'
         h = f"""<main><section class="hero"><div class="wrap"><div class="crumbs"><a href="/">All calls</a> › <a href="/theme/">Themes</a> › {escape(short)}</div><p class="kicker">Theme · updated {upd_s}</p>
-<h1>{escape(ttitle)}</h1><p class="lead">{escape(intro)} {to} open and {len(tc) - to} forthcoming, from the EU Funding &amp; Tenders Portal.</p></div></section>"""
+<h1>{escape(ttitle)}</h1><p class="lead">{escape(intro)} {to} open and {len(tc) - to} forthcoming, from the EU Funding &amp; Tenders Portal.</p>{theme_links(tslug)}</div></section>"""
         d = SITE / "theme" / tslug
         d.mkdir(parents=True, exist_ok=True)
         (d / "index.html").write_text(page(f"{ttitle}: {to} open, {len(tc) - to} forthcoming | Ullswater Investments",
@@ -325,6 +358,7 @@ def main():
         "Open EU calls grouped by theme: AI, EIC, health, security, digital, climate and energy, food, missions, science, defence, cascade funding.", "/theme/",
         nav(progs, "theme") + th), encoding="utf-8")
     urls.append("/theme/")
+    (SITE / "data" / "taxonomy.json").write_text(json.dumps(TAXONOMY, ensure_ascii=False, indent=1), encoding="utf-8")
     (SITE / "data" / "themes.json").write_text(json.dumps([{"slug": t[0], "title": t[1], "short": t[2], "old": t[4], "count": len(t[5]),
         "open": sum(1 for c in t[5] if c["status"] == "open")} for t in themes], ensure_ascii=False), encoding="utf-8")
 

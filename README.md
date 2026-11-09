@@ -60,3 +60,10 @@ Some calls (mostly EIT and other cascade calls) have a thin record in the Fundin
 (key conditions, official info sessions, official resources) shown on the call page. Applied by `scripts/enrich.py`
 in both `fetch_calls.py` and `build_site.py`. Every fact must be in the official page given in `extra.official_url`;
 update `source_checked` when you re-check it. First overlay: EIT HEI Call for Proposals 2026 (Nov 2026).
+
+## Shared taxonomy and network menu (Nov 2026)
+- `content/taxonomy.json` (published as `/data/taxonomy.json`) is the reference list: each theme of this site with the matching
+  `programme` keys of events.ullswaterinvestments.com and categories of news.ullswaterinvestments.com, plus the network menu.
+- Theme pages link to the matching events and news sections (only when those pages exist).
+- The header shows the network menu (Home · EU calls · News · Events · Projects · About), identical on www, calls, news and events.
+- Call pages exist only here: news.ullswaterinvestments.com/calls/... now redirects to this site.
