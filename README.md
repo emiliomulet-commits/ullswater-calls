@@ -53,3 +53,10 @@ Worker source: `worker/ullswater-ai.js` (deploy: paste in the Cloudflare dashboa
 - Limits per visitor: chat 20/hour and 60/day, search 120/hour, AI pre-check 10/hour. Global cap: `DAILY_CLAUDE_LIMIT` Claude answers per day (default 400), then the chat answers with Workers AI.
 - Only requests from the Ullswater sites (Origin header) are accepted.
 - Useful query (D1 console): `SELECT date(ts) d, COUNT(*) n, SUM(engine='claude') claude, SUM(input_tokens) tin, SUM(output_tokens) tout FROM questions GROUP BY d ORDER BY d DESC;`
+
+## Editorial overlays (`content/enrich/`)
+Some calls (mostly EIT and other cascade calls) have a thin record in the Funding & Tenders Portal. A JSON file in
+`content/enrich/` keyed by the call `id` replaces title/summary/maxEU/tags and adds an `extra` block
+(key conditions, official info sessions, official resources) shown on the call page. Applied by `scripts/enrich.py`
+in both `fetch_calls.py` and `build_site.py`. Every fact must be in the official page given in `extra.official_url`;
+update `source_checked` when you re-check it. First overlay: EIT HEI Call for Proposals 2026 (Nov 2026).

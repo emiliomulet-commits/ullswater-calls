@@ -1,0 +1,34 @@
+{
+  "id": "EIT HEI-48939733",
+  "title": "EIT Higher Education Initiative – Call for Proposals 2026",
+  "summary": "Funding for consortia led by higher education institutions to turn STEM talent, knowledge and research into deep-tech and manufacturing innovation and entrepreneurship. Projects work across talent development, institutional capacity for knowledge valorisation and innovation, and integration into innovation ecosystems.",
+  "maxEU": 1250000,
+  "tags": ["Higher education", "Deep tech", "Manufacturing", "Entrepreneurship", "Innovation"],
+  "extra": {
+    "official_url": "https://eit-hei.eu/funding-support/funding-opportunities/open-calls/call-for-proposals-2026/",
+    "source_checked": "2026-11-09",
+    "deadline_time": "13 January 2027, 17:00 CET",
+    "conditions": [
+      "Up to €1.25 million per project, for 18 months (1 May 2027 – 31 October 2028).",
+      "Consortium led by a higher education institution (HEI), with at least 5 partner organisations, all based in Horizon Europe eligible countries.",
+      "At least 3 HEIs from 3 different Horizon Europe eligible countries, one of them from an EU Member State.",
+      "At least 2 business or industry partners (networks and associations included).",
+      "Other eligible partners: research organisations, technology and knowledge transfer offices, public bodies, intermediary organisations, social enterprises and NGOs.",
+      "Applicants complete the HEInnovate self-assessment and an Innovation Vision Action Plan (IVAP). Results are announced in March 2027."
+    ],
+    "resources": [
+      ["Official call page (EIT HEI)", "https://eit-hei.eu/funding-support/funding-opportunities/open-calls/call-for-proposals-2026/", "Call text, FAQs, Part B template, budget template and KIC synergy documents.", "Open ↗"],
+      ["EIT HEI partner matchmaking", "https://events.conversationstarter.net/e/eit-hei-call-2026", "The initiative's own matchmaking platform for Call 2026 consortia.", "Find partners ↗"],
+      ["EIT HEI application portal", "https://seedbook-portal.eitrawmaterials.eu/proposals/new/c1442405-f67b-4553-a445-cd27be87669d", "Proposals are submitted here, not in the Funding & Tenders Portal.", "Apply ↗"],
+      ["Interactive eligibility guide", "https://eit-hei.eu/interactive-guide/", "Check eligibility step by step before you start.", "Check ↗"],
+      ["EIT HEI community", "https://eit-hei-community.eu/", "Community of HEIs and partners of the initiative.", "Join ↗"]
+    ],
+    "sessions": [
+      ["2026-11-11", "MEL Framework and the Impact Domains and Actions", "15:00–16:30 CET", "https://eit-hei.eu/events/mel-framework-and-the-impact-domains-and-actions-call-2026-info-sessions/"],
+      ["2026-11-13", "KPI Expectations", "15:00–16:30 CET", "https://eit-hei.eu/events/kpi-expectations-call-2026-info-sessions/"],
+      ["2026-11-17", "Application and Budget Planning", "15:00–16:30 CET", "https://eit-hei.eu/events/application-and-budget-planning-call-2026-info-sessions/"],
+      ["2026-11-23", "EIT KIC Discovery Day", "10:00–12:15 CET", "https://eit-hei.eu/events/eit-kic-discvery-day-call-2026-info-sessions/"],
+      ["2026-12-03", "Open Q&A", "15:00–16:30 CET", "https://eit-hei.eu/events/open-qa-call-2026-info-sessions/"]
+    ]
+  }
+}

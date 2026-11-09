@@ -249,6 +249,8 @@ def itemlist(calls, name):
 def main():
     data = json.loads((SITE / "data" / "calls.json").read_text(encoding="utf-8"))
     calls, stats = data["calls"], data["stats"]
+    import enrich
+    enrich.apply(calls)
     upd = datetime.fromisoformat(stats["updated"]).date()
     upd_s = fmt_date(upd.isoformat())
     open_calls = [c for c in calls if c["status"] == "open"]

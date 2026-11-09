@@ -210,6 +210,8 @@ def main():
             "url": url,
         })
 
+    import enrich
+    enrich.apply(calls)
     calls.sort(key=lambda c: (c["status"] != "open", c["deadline"] or "9999"))
     if len([c for c in calls if c["status"] == "open"]) < 50:
         sys.exit("Sanity check failed: fewer than 50 open calls — not overwriting data.")

@@ -161,6 +161,8 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
     if c.get("minEU") and c.get("maxEU"):
         rng = money(c["minEU"]) if c["minEU"] == c["maxEU"] else f"{money(c['minEU'])}–{money(c['maxEU'])}"
         facts.append(f"<span>EU contribution per project <b>{rng}</b></span>")
+    elif c.get("maxEU"):
+        facts.append(f"<span>EU contribution per project <b>up to €{c['maxEU']/1e6:g}M</b></span>")
     if c.get("deadlineModel"): facts.append(f"<span>{escape(c['deadlineModel'].replace('-', ' ').capitalize())}</span>")
     if c.get("actions"): facts.append(f"<span>{escape(', '.join(c['actions'][:2]))}</span>")
     ident = c["id"] if c["kind"] == "topic" else c.get("call", "")
@@ -170,7 +172,7 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
 <div class="meta">{st}<span class="tag">{escape(name)}</span>{'<span class="tag cas">Cascade funding</span>' if c['kind'] == 'cascade' else ''}</div>
 <h1 style="margin-top:10px">{escape(c['title'])}</h1>{f'<p class="lead">{escape(c["summary"])}</p>' if c.get('summary') else ''}
 <div class="facts">{''.join(facts)}</div>
-<div class="actions"><a class="btn" href="{escape(c['url'])}" target="_blank" rel="noopener">Official call page ↗</a><a class="btn ghost" href="#partners">Find partners ↓</a>{'<a class="btn ghost" href="deadline.ics">📅 Add deadline to calendar</a>' if c.get('deadline') else ''}<a class="btn ghost" href="/review/?call={escape(c['id'])}">🤖 AI pre-check of my idea</a><a class="btn ghost" href="/alerts/?call={escape(ident)}">🔔 Alerts for this call</a></div></div></section>
+<div class="actions"><a class="btn" href="{escape((c.get('extra') or {}).get('official_url') or c['url'])}" target="_blank" rel="noopener">Official call page ↗</a><a class="btn ghost" href="#partners">Find partners ↓</a>{'<a class="btn ghost" href="deadline.ics">📅 Add deadline to calendar</a>' if c.get('deadline') else ''}<a class="btn ghost" href="/review/?call={escape(c['id'])}">🤖 AI pre-check of my idea</a><a class="btn ghost" href="/alerts/?call={escape(ident)}">🔔 Alerts for this call</a></div></div></section>
 <div class="wrap" id="partners">"""
 
     body = []
@@ -186,6 +188,8 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
         comp.append(f"<li><strong>{c['grants']}</strong>grant{'s' if c['grants'] != 1 else ''} expected (official)</li>")
     if c.get("minEU") and c.get("maxEU"):
         comp.append(f"<li><strong>{money(c['minEU']) if c['minEU'] == c['maxEU'] else money(c['minEU']) + '–' + money(c['maxEU'])}</strong>EU contribution per project</li>")
+    elif c.get("maxEU"):
+        comp.append(f"<li><strong>up to €{c['maxEU']/1e6:g}M</strong>per project</li>")
     fnd = (p or {}).get("funding") or {}
     if show and fnd.get("median_eu"):
         comp.append(f"<li><strong>{money(fnd['median_eu'])}</strong>median EU grant of the most similar funded projects</li>")
@@ -206,6 +210,20 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
         body.append(f'<section class="sec"><h2>What a typical winning consortium looks like</h2>{archetype(p["archetype"])}</section>')
         sim = "".join(f'<li><a href="{cordis(x["id"])}" target="_blank" rel="noopener"><strong>{escape(x["acronym"])}</strong></a> – {escape(x["title"].capitalize() if x["title"].isupper() else x["title"])} <small class="code">({escape(x["fp"])} · {x["year"]} · {escape(x["topic"] or "")})</small></li>' for x in p["similar"])
         body.append(f'<section class="sec"><h2>Most similar funded projects</h2><p class="note">Read their CORDIS pages to see the full consortium, results and deliverables.</p><ul>{sim}</ul></section>')
+
+    x = c.get("extra") or {}
+    if x.get("conditions"):
+        li = "".join(f"<li>{escape(t)}</li>" for t in x["conditions"])
+        when = f' Deadline: <strong>{escape(x["deadline_time"])}</strong>.' if x.get("deadline_time") else ""
+        body.append(f'<section class="sec"><h2>Key conditions</h2><ul>{li}</ul><p class="note">Summary by Ullswater Investments, checked on {fmt_date(x.get("source_checked", ""))} against the <a href="{escape(x.get("official_url", c["url"]))}" target="_blank" rel="noopener">official call page</a>.{when} The call text always prevails.</p></section>')
+    today_ = date.today().isoformat()
+    sess = [s_ for s_ in x.get("sessions", []) if s_[0] >= today_]
+    if sess:
+        li = "".join(f'<li><strong>{fmt_date(d_)}</strong> · {escape(t_)} <small>({escape(h_)}, online)</small> – <a href="{escape(u_)}" target="_blank" rel="noopener">register ↗</a></li>' for d_, t_, h_, u_ in sess)
+        body.append(f'<section class="sec"><h2>Official info sessions</h2><ul>{li}</ul></section>')
+    if x.get("resources"):
+        rb = "".join(f'<div class="box"><h3>{escape(t)}</h3><p>{escape(d)}</p><a class="go" href="{escape(u)}" target="_blank" rel="noopener">{escape(g)}</a></div>' for t, u, d, g in x["resources"])
+        body.append(f'<section class="sec"><h2>Official resources for this call</h2><div class="grid3">{rb}</div></section>')
 
     k = ncp_key(c)
     boxes = [("Partner search on this topic", c["url"], "On the official topic page, open “Partner search announcements” to see organisations that have declared interest in this exact topic, or publish your own (EU Login required).", "Open the topic ↗"),
