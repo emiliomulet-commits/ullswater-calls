@@ -67,3 +67,9 @@ update `source_checked` when you re-check it. First overlay: EIT HEI Call for Pr
 - Theme pages link to the matching events and news sections (only when those pages exist).
 - The header shows the network menu (Home · EU calls · News · Events · Projects · About), identical on www, calls, news and events.
 - Call pages exist only here: news.ullswaterinvestments.com/calls/... now redirects to this site.
+
+## "Apply with our support" (Nov 2026)
+Every call page has an "Apply with our support" button and box. It opens the Google Form "Ullswater Investments · Apply to an EU call with our support"
+(Apps Script project "Ullswater Support Requests", code in `tools/support_request_setup.gs`) prefilled with the call and page.
+Answers go to the private sheet "Ullswater · Support requests (private)" and each request is emailed to eufunding@ and Emilio (reply-to = applicant).
+The same button is on events and news pages. Form URL: `SUPPORT_FORM` in `scripts/call_pages.py`.

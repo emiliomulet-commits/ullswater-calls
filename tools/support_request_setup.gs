@@ -37,8 +37,8 @@ function setupSupportRequests() {
   ScriptApp.newTrigger('onSupportRequest').forForm(form).onFormSubmit().create();
 
   var pre = form.createResponse()
-    .withItemResponse(qCall.asTextItem().createResponse('CALL'))
-    .withItemResponse(qPage.asTextItem().createResponse('PAGE')).toPrefilledUrl();
+    .withItemResponse(qCall.createResponse('CALL'))
+    .withItemResponse(qPage.createResponse('PAGE')).toPrefilledUrl();
   Logger.log('FORM_URL: ' + form.getPublishedUrl());
   Logger.log('PREFILLED: ' + pre);
   Logger.log('SHEET: ' + ss.getUrl());
@@ -56,4 +56,16 @@ function onSupportRequest(e) {
     '<p style="font-family:Arial;font-size:13px;color:#4b5563">Reply to this email to answer the applicant directly.</p>';
   MailApp.sendEmail({to: LEAD_EMAILS, replyTo: v['Email'] || '', name: 'Ullswater · EU calls',
     subject: 'Support request: ' + (v['Call or event'] || '') + ' – ' + (v['Organisation'] || ''), htmlBody: html});
+}
+
+// Prints the URLs of the form already created by setupSupportRequests() (found through its trigger).
+function showSupportFormUrls() {
+  var t = ScriptApp.getProjectTriggers().filter(function (x) { return x.getHandlerFunction() === 'onSupportRequest'; })[0];
+  var form = FormApp.openById(t.getTriggerSourceId());
+  var items = form.getItems();
+  var call = items.filter(function (i) { return i.getTitle() === 'Call or event'; })[0].asTextItem();
+  var page = items.filter(function (i) { return i.getTitle() === 'Page'; })[0].asTextItem();
+  Logger.log('FORM_URL: ' + form.getPublishedUrl());
+  Logger.log('PREFILLED: ' + form.createResponse().withItemResponse(call.createResponse('CALL')).withItemResponse(page.createResponse('PAGE')).toPrefilledUrl());
+  Logger.log('SHEET: ' + SpreadsheetApp.openById(form.getDestinationId()).getUrl());
 }

@@ -14,7 +14,7 @@ FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdIi27JIDNU6-KVL4J_vJ_6rjGr
 FORM_CALL_FIELD = "entry.301116469"
 CONTACT = "eufunding@ullswaterinvestments.com"
 # "Apply with our support" form (Google Form, tools/support_request_setup.gs). CALL and PAGE are replaced per page.
-SUPPORT_FORM = ""
+SUPPORT_FORM = "https://docs.google.com/forms/d/e/1FAIpQLScK2yCvR62EAVc1pRxGHuv54TqkjV2zV7310pBoPqE0klQ94w/viewform?usp=pp_url&entry.841001766=CALL&entry.2085908736=PAGE"
 
 
 def support_link(call, page_url):
