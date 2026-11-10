@@ -113,6 +113,21 @@ $('#reset').addEventListener('click',function(){q.value='';st.value='open';if(pg
 apply();})();
 """
 
+JS += r"""
+/* External links open in a new tab (Nov 2026). The build already does this for static HTML (scripts/extlinks.py);
+   this covers links added later by JavaScript (Fund Finder results, Ask EU Funding answers, partner lists). */
+(function(){
+var own=/(^|\.)ullswaterinvestments\.(com|eu)$/i,es=/^es/i.test(document.documentElement.lang||'');
+function fix(a){if(a.dataset.uwExt)return;var h=a.hostname;if(!/^https?:$/.test(a.protocol)||!h||own.test(h))return;
+ a.dataset.uwExt=1;a.target='_blank';var r=(a.rel||'').split(/\s+/).filter(Boolean);['noopener','noreferrer'].forEach(function(v){if(r.indexOf(v)<0)r.push(v)});a.rel=r.join(' ');
+ if(a.querySelector('.uw-sr'))return;var s=document.createElement('span');s.className='uw-sr';s.textContent=es?' (se abre en una pestaña nueva)':' (opens in a new tab)';
+ if(!a.querySelector('img,svg')&&(a.textContent||'').indexOf('\u2197')<0){var i=document.createElement('span');i.className='uw-ext';i.setAttribute('aria-hidden','true');i.textContent='\u2197';a.appendChild(i)}a.appendChild(s)}
+function scan(n){if(n.nodeType!==1)return;if(n.tagName==='A')fix(n);[].forEach.call(n.querySelectorAll('a[href]'),fix)}
+if(!document.getElementById('uw-ext')){var st=document.createElement('style');st.id='uw-ext';st.textContent='.uw-ext{display:inline-block;margin-left:.25em;font-size:.85em;line-height:1;text-decoration:none;opacity:.75}.uw-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}';document.head.appendChild(st)}
+scan(document.body);new MutationObserver(function(m){m.forEach(function(x){[].forEach.call(x.addedNodes,scan)})}).observe(document.body,{childList:true,subtree:true});
+})();
+"""
+
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 PROG_LABELS = {
