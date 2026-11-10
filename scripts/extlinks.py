@@ -69,6 +69,8 @@ def fix_anchor(m, label=LABEL["en"]):
 def process(text):
     lm = LANG.search(text)
     label = LABEL.get(lm.group(1).lower() if lm else "en", LABEL["en"])
+    if re.search(r'<html\b[^>]*\bdata-lang\s*=', text, re.I):  # bilingual landings: EN/ES shown by html[data-lang]
+        label = '<span class="en">%s</span><span class="es">%s</span>' % (LABEL["en"], LABEL["es"])
     parts = SKIP.split(text)
     out = [p if i % 2 else A.sub(lambda m: fix_anchor(m, label), p) for i, p in enumerate(parts)]
     text = "".join(out)
