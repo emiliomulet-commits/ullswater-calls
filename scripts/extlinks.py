@@ -6,7 +6,7 @@ Post-processes every .html file under a folder, after the site has been generate
   * text links also get a small "↗" icon and a hidden "(opens in a new tab)" label for screen readers;
   * links inside the network (*.ullswaterinvestments.com, ullswaterinvestments.eu), relative links,
     #anchors, mailto: and tel: are left untouched, so moving between our own sites stays in the same tab.
-Idempotent (safe to run twice). <script> and <style> blocks are never modified. No dependencies.
+Links marked data-noext are skipped (e.g. video chapters that play in the page). Idempotent (safe to run twice). <script> and <style> blocks are never modified. No dependencies.
 
 Usage:  python3 extlinks.py <site folder> [--check]
    --check only reports external links without target="_blank" and exits 1 if any are found.
@@ -45,7 +45,7 @@ def _attr(attrs, name):
 def fix_anchor(m, label=LABEL["en"]):
     attrs, inner = m.group(1), m.group(2)
     h = HREF.search(attrs)
-    if not h or not external(h.group(2)):
+    if not h or not external(h.group(2)) or re.search(r'\bdata-noext\b', attrs):  # data-noext: handled by the page itself
         return m.group(0)
     t = _attr(attrs, "target")
     if t:
@@ -87,7 +87,7 @@ def missing(text):
         for m in A.finditer(p):
             h = HREF.search(m.group(1))
             t = _attr(m.group(1), "target")
-            if h and external(h.group(2)) and not (t and t.group(2) == "_blank"):
+            if h and external(h.group(2)) and not (t and t.group(2) == "_blank") and not re.search(r'\bdata-noext\b', m.group(1)):
                 bad.append(h.group(2))
     return bad
 
