@@ -73,3 +73,6 @@ Every call page has an "Apply with our support" button and box. It opens the Goo
 (Apps Script project "Ullswater Support Requests", code in `tools/support_request_setup.gs`) prefilled with the call and page.
 Answers go to the private sheet "Ullswater · Support requests (private)" and each request is emailed to eufunding@ and Emilio (reply-to = applicant).
 The same button is on events and news pages. Form URL: `SUPPORT_FORM` in `scripts/call_pages.py`.
+
+## External links open in a new tab (Nov 2026)
+`scripts/extlinks.py` runs at the end of `build_site.py`: links outside the Ullswater network get `target="_blank" rel="noopener noreferrer"`, a small ↗ icon and a hidden "(opens in a new tab)" label; links between our own sites stay in the same tab. `site/assets/app.js` applies the same rule to links added later by JavaScript (Fund Finder, Ask EU Funding, partner lists). Check with `python3 scripts/extlinks.py site --check`.

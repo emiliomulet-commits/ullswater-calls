@@ -451,6 +451,7 @@ def main():
     (SITE / ".nojekyll").write_text("", encoding="utf-8")
     (SITE / "404.html").write_text(page("Page not found | Ullswater Investments EU Funding Calls", "Page not found.", "/404.html",
         '<main><section class="hero"><div class="wrap"><h1>Page not found</h1><p class="lead">The call you are looking for may have closed.</p><div class="actions"><a class="btn" href="/">See all open calls</a></div></div></section></main>'), encoding="utf-8")
+    import extlinks; extlinks.run(SITE)  # external links open in a new tab (shared rule, see scripts/extlinks.py)
     print(f"Built {len(urls)} pages, {len(calls)} calls")
 
 
