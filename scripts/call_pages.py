@@ -269,9 +269,23 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
 
     title = f"{c['title']} ({ident}): deadline, budget and potential partners | Ullswater Investments"
     desc = f"{name} call {ident}" + (f", deadline {fmt_date(c['deadline'])}" if c.get("deadline") else "") + ". Organisations with a track record, typical consortium and where to find partners."
-    ld = {"@context": "https://schema.org", "@type": "WebPage", "name": c["title"], "url": "https://calls.ullswaterinvestments.com" + path,
-          "about": {"@type": "Thing", "name": f"{ident} – {c['title']}", "url": c["url"]},
-          "publisher": {"@type": "Organization", "name": "Ullswater Investments S.L.", "url": MAIN}}
+    url = "https://calls.ullswaterinvestments.com" + path
+    ec = {"@type": "GovernmentOrganization", "name": "European Commission", "url": "https://commission.europa.eu/"}
+    grant = {"@type": "MonetaryGrant", "@id": url + "#grant", "name": f"{ident} – {c['title']}", "identifier": ident, "url": c["url"],
+             "description": f"{name} call" + (f", deadline {c['deadline']}" if c.get("deadline") else "") + (f", opens {c['opening']}" if c.get("opening") else "") + f". Status: {c['status']}.",
+             "funder": ec if c["kind"] != "cascade" else {"@type": "Organization", "name": f"{c.get('call') or ident} (EU-funded project, cascade funding)"},
+             "sponsor": ec}
+    if c.get("budget"):
+        grant["amount"] = {"@type": "MonetaryAmount", "currency": "EUR", "value": c["budget"]}
+    elif c.get("maxEU"):
+        grant["amount"] = {"@type": "MonetaryAmount", "currency": "EUR", "maxValue": c["maxEU"], **({"minValue": c["minEU"]} if c.get("minEU") else {})}
+    ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": c["title"], "url": url, "description": desc,
+           "about": {"@id": url + "#grant"}, "mainEntity": {"@id": url + "#grant"}, "dateModified": date.today().isoformat()},
+          {"@context": "https://schema.org", **grant},
+          {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "EU funding calls", "item": "https://calls.ullswaterinvestments.com/"},
+              {"@type": "ListItem", "position": 2, "name": name, "item": f"https://calls.ullswaterinvestments.com/programme/{slug(c['programme'])}/"},
+              {"@type": "ListItem", "position": 3, "name": ident, "item": url}]}]
     ics = None
     if c.get("deadline"):
         d = c["deadline"].replace("-", "")

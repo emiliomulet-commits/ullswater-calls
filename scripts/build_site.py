@@ -215,13 +215,40 @@ def card(c):
     )
 
 
+ORG_REF = {"@type": "Organization", "@id": "https://www.ullswaterinvestments.com/#org", "name": "Ullswater Investments", "url": "https://www.ullswaterinvestments.com/"}
+OG_IMAGE = "https://www.ullswaterinvestments.com/assets/og.png"
+
+
+def page_ld(title, desc, path, jsonld=None):
+    """JSON-LD for every page: the page's own nodes (or a WebPage), the Ullswater publisher and a BreadcrumbList."""
+    canon = BASE + path
+    lds = [dict(x) for x in (jsonld if isinstance(jsonld, list) else [jsonld] if jsonld else [])]
+    name = title.split(" | Ullswater")[0].strip()
+    if not any(x.get("@type") in ("WebPage", "CollectionPage", "WebApplication", "AboutPage", "FAQPage") for x in lds):
+        lds.insert(0, {"@context": "https://schema.org", "@type": "WebPage", "name": name, "url": canon, "description": desc})
+    for x in lds:
+        x.setdefault("@context", "https://schema.org")
+        if x.get("@type") in ("WebPage", "CollectionPage", "WebApplication", "AboutPage"):
+            x["publisher"] = ORG_REF
+            x.setdefault("inLanguage", "en")
+            x.setdefault("isPartOf", {"@type": "WebSite", "@id": BASE + "/#website", "name": "EU Funding Calls · Ullswater Investments", "url": BASE + "/", "publisher": {"@id": ORG_REF["@id"]}})
+    if path != "/" and not any(x.get("@type") == "BreadcrumbList" for x in lds):
+        items = [("EU funding calls", BASE + "/")]
+        if path.startswith("/theme/") and path != "/theme/":
+            items.append(("Themes", BASE + "/theme/"))
+        items.append((name, canon))
+        lds.append({"@context": "https://schema.org", "@type": "BreadcrumbList",
+                    "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": u} for i, (n, u) in enumerate(items)]})
+    return lds
+
+
 def page(title, desc, path, body, jsonld=None):
     canon = BASE + path
-    ld = f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>' if jsonld else ""
+    ld = f'<script type="application/ld+json">{json.dumps(page_ld(title, desc, path, jsonld), ensure_ascii=False)}</script>'
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{escape(title)}</title><meta name="description" content="{escape(desc)}"><link rel="canonical" href="{canon}">
 <meta property="og:type" content="website"><meta property="og:title" content="{escape(title)}"><meta property="og:description" content="{escape(desc)}"><meta property="og:url" content="{canon}"><meta property="og:site_name" content="Ullswater Investments · EU Funding Advisors">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{OG_IMAGE}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{OG_IMAGE}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23233567'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='34' text-anchor='middle' fill='%23c9a646'%3EU%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="alternate" type="application/json" href="/data/calls.json" title="EU funding calls (JSON)">
@@ -230,8 +257,8 @@ def page(title, desc, path, body, jsonld=None):
 <nav class="top-links" aria-label="Ullswater Investments sites">{NETWORK_HTML}</nav></div></header>
 {body}
 <footer class="site"><div class="wrap"><div><strong>Ullswater Investments · EU Funding Advisors</strong><br>Madrid: Calle Ramírez de Arellano 17, 28043 Madrid · Brussels: Square de Meeûs 37, 1000 Brussels</div>
-<div>Data: <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home" rel="noopener">EU Funding &amp; Tenders Portal</a> (European Commission), refreshed weekly.<br>Always check the official call page before applying.</div>
-<div><a href="{MAIN}">ullswaterinvestments.com</a> · <a href="/data/calls.json">JSON</a> · © {date.today().year}</div></div></footer>
+<div>Data: <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home" target="_blank" rel="noopener">EU Funding &amp; Tenders Portal</a> (European Commission), refreshed weekly.<br>Always check the official call page before applying.</div>
+<div><a href="{MAIN}">ullswaterinvestments.com</a> · <a href="https://www.linkedin.com/company/ullswater-investments" target="_blank" rel="noopener me">LinkedIn</a> · <a href="https://www.youtube.com/@ullswaterinvestments" target="_blank" rel="noopener me">YouTube</a> · <a href="/data/calls.json">JSON</a> · © {date.today().year}</div></div></footer>
 <script src="/assets/app.js" defer></script>{ai_pages.CHAT}</body></html>"""
 
 
@@ -277,6 +304,32 @@ def itemlist(calls, name):
             "publisher": {"@type": "Organization", "name": "Ullswater Investments S.L.", "url": MAIN},
             "mainEntity": {"@type": "ItemList", "numberOfItems": len(calls), "itemListElement": [
                 {"@type": "ListItem", "position": i + 1, "name": c["title"], "url": c["url"]} for i, c in enumerate(calls[:60])]}}
+
+
+def write_llms_full(calls, upd):
+    """llms-full.txt: every call as one line, grouped by programme and sorted by deadline, for AI assistants."""
+    groups = {}
+    for c in calls:
+        groups.setdefault(label(c["programme"], c["programmeName"]), []).append(c)
+    out = [f"# EU Funding Calls · Ullswater Investments: full list ({len(calls)} open and forthcoming calls)\n",
+           f"> Source: European Commission Funding & Tenders Portal (SEDIA search API), updated {upd.isoformat()}. Compiled by Ullswater Investments S.L., EU funding advisors in Madrid and Brussels ({MAIN}/). Always check the official call page before applying.\n"]
+    for name in sorted(groups, key=lambda n: -len(groups[n])):
+        out.append(f"\n## {name} ({len(groups[name])} calls)\n")
+        for c in sorted(groups[name], key=lambda c: (c.get("deadline") or "9999", c["title"])):
+            ident = c["id"] if c["kind"] == "topic" else c.get("call", "") or c["id"]
+            bits = [c["status"]]
+            if c.get("opening"):
+                bits.append(f"opens {c['opening']}")
+            if c.get("deadline"):
+                bits.append(f"deadline {c['deadline']}")
+            if c.get("budget"):
+                bits.append(f"budget €{c['budget']:,.0f}")
+            if c.get("maxEU"):
+                bits.append(f"up to €{c['maxEU']:,.0f} per project")
+            if c["kind"] == "cascade":
+                bits.append("cascade funding")
+            out.append(f"- [{ident} – {c['title']}]({BASE}/call/{slug(c['id'])}/): " + "; ".join(bits) + f". Official page: {c['url']}")
+    (SITE / "llms-full.txt").write_text("\n".join(out) + "\n", encoding="utf-8")
 
 
 def main():
@@ -444,9 +497,13 @@ def main():
 - [Partner board]({BASE}/partners/) · [Directory]({BASE}/directory/) · [Tools]({BASE}/tools/)
 - [Spain: national and regional R&D and industry calls]({BASE}/spain/)
 
+## Full list
+- [llms-full.txt]({BASE}/llms-full.txt): every open and forthcoming call in one plain-text file (identifier, title, programme, status, dates, budget, page)
+
 ## About
 - [Ullswater Investments]({MAIN}/about/) · [EU Fund Matching]({MAIN}/eu-fund-matching/) · [EU Funding News](https://news.ullswaterinvestments.com/)
 """, encoding="utf-8")
+    write_llms_full(calls, upd)
     (SITE / "CNAME").write_text("calls.ullswaterinvestments.com\n", encoding="utf-8")
     (SITE / ".nojekyll").write_text("", encoding="utf-8")
     (SITE / "404.html").write_text(page("Page not found | Ullswater Investments EU Funding Calls", "Page not found.", "/404.html",
