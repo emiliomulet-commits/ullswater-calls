@@ -79,6 +79,13 @@ jobs:
           pip install --quiet sentence-transformers
           python scripts/embed_calls.py
 
+      - name: Cache sitemap lastmod dates (date each page last changed)
+        uses: actions/cache@v4
+        with:
+          path: .cache/lastmod
+          key: lastmod-${{ github.run_id }}
+          restore-keys: lastmod-
+
       - name: Build static site
         run: python scripts/build_site.py
 

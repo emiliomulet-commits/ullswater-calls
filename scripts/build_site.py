@@ -332,6 +332,48 @@ def write_llms_full(calls, upd):
     (SITE / "llms-full.txt").write_text("\n".join(out) + "\n", encoding="utf-8")
 
 
+def related_calls_html(c, calls, theme_of, fmt_date, slug, prog_name, k=8):
+    """Internal links to the most similar calls (same call, theme, programme, tags), so search engines
+    can reach every call page within a few clicks and understand how the calls relate."""
+    mine_t, mine_tags = theme_of.get(c["id"], set()), set(c.get("tags") or [])
+    scored = []
+    for o in calls:
+        if o["id"] == c["id"]:
+            continue
+        sc = 0
+        if c.get("call") and o.get("call") == c.get("call"):
+            sc += 5
+        sc += 3 * len(mine_t & theme_of.get(o["id"], set()))
+        if o["programme"] == c["programme"]:
+            sc += 2
+        sc += len(mine_tags & set(o.get("tags") or []))
+        if sc:
+            scored.append((-sc, o.get("deadline") or "9999", o["id"], o))
+    scored.sort(key=lambda x: x[:3])
+    pick = [x[3] for x in scored[:k]]
+    if not pick:
+        return ""
+    from html import escape as _e
+    lis = "".join(f'<li><a href="/call/{slug(o["id"])}/"><strong>{_e(o["title"].strip())}</strong></a> '
+                  f'<small class="code">{_e(o["id"])} · {"open" if o["status"] == "open" else "forthcoming"}'
+                  f'{" · deadline " + fmt_date(o["deadline"]) if o.get("deadline") else ""}</small></li>' for o in pick)
+    hubs = f'<a href="/programme/{slug(c["programme"])}/">All {_e(prog_name)} calls</a>'
+    return (f'<div class="wrap"><section class="sec related"><h2>Related EU calls</h2>'
+            f'<p class="note">Other open and forthcoming calls on similar topics. {hubs} · <a href="/theme/">Calls by theme</a> · <a href="/closing-soon/">Closing soon</a></p>'
+            f'<ul>{lis}</ul></section></div>')
+
+
+def page_lastmod(path, fingerprint, upd, store):
+    """Keep the date a page's content last changed, so sitemap <lastmod> is meaningful."""
+    import hashlib
+    h = hashlib.sha1(fingerprint.encode("utf-8")).hexdigest()[:16]
+    old = store.get(path)
+    if old and old[0] == h:
+        return old[1]
+    store[path] = [h, upd.isoformat()]
+    return upd.isoformat()
+
+
 def main():
     data = json.loads((SITE / "data" / "calls.json").read_text(encoding="utf-8"))
     calls, stats = data["calls"], data["stats"]
@@ -428,10 +470,23 @@ def main():
     board = call_pages.load_board()
     directory = extra_pages.load_directory()
     dir_by_profile, dir_by_call = extra_pages.match_directory(directory, calls)
+    theme_of = {}
+    for t in themes:
+        for tc_ in t[5]:
+            theme_of.setdefault(tc_["id"], set()).add(t[0])
+    lm_file = ROOT / ".cache" / "lastmod" / "lastmod.json"
+    lm_file.parent.mkdir(parents=True, exist_ok=True)
+    lm_store = json.loads(lm_file.read_text(encoding="utf-8")) if lm_file.exists() else {}
+    lastmods = {}
     for c in calls:
         path, ics, html_ = call_pages.render_call(c, partners.get(c["id"]), events, page, nav(progs), fmt_date, money, label, slug, MAIN, board, dir_by_call.get(c["id"]))
         d = SITE / path.strip("/")
         d.mkdir(parents=True, exist_ok=True)
+        rel = related_calls_html(c, calls, theme_of, fmt_date, slug, c.get("programmeName") or c["programme"])
+        if rel and "</main>" in html_:
+            i = html_.rfind("</main>")
+            html_ = html_[:i] + rel + html_[i:]
+        lastmods[path] = page_lastmod(path, json.dumps([c, partners.get(c["id"])], sort_keys=True, ensure_ascii=False, default=str), upd, lm_store)
         (d / "index.html").write_text(html_, encoding="utf-8")
         if ics:
             (d / "deadline.ics").write_text(ics, encoding="utf-8")
@@ -473,7 +528,8 @@ def main():
     print(f"  call pages: {len(calls)} ({sum(1 for c in calls if call_pages.partners_enabled(c, partners.get(c['id'])))} with track-record partners), events: {len(events)}")
 
     (SITE / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-        + "".join(f"<url><loc>{BASE}{u}</loc><lastmod>{upd.isoformat()}</lastmod><changefreq>weekly</changefreq></url>" for u in urls) + "</urlset>\n", encoding="utf-8")
+        + "".join(f"<url><loc>{BASE}{u}</loc><lastmod>{lastmods.get(u, upd.isoformat())}</lastmod></url>" for u in urls) + "</urlset>\n", encoding="utf-8")
+    lm_file.write_text(json.dumps({k: v for k, v in lm_store.items() if k in lastmods}, sort_keys=True), encoding="utf-8")
     ai_bots = ['Googlebot', 'Google-Extended', 'Bingbot', 'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Applebot', 'Applebot-Extended', 'DuckAssistBot', 'MistralAI-User', 'CCBot']
     (SITE / "robots.txt").write_text("# calls.ullswaterinvestments.com: public EU funding data, open to search engines and AI assistants.\n"
         + "".join(f"User-agent: {b}\nAllow: /\n\n" for b in ai_bots) + f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8")
