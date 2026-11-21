@@ -74,3 +74,7 @@ buf+=dec.decode(x.value,{stream:true}).replace(/\r/g,'');var k;while((k=buf.inde
 if(ev.type==='delta'){txt+=ev.text;status('');if(!raf)raf=requestAnimationFrame(paint)}else if(ev.type==='status'){status(ev.text)}else if(ev.type==='done'){ended=1;fin(ev)}else if(ev.type==='error'){ended=1;fail(ev.text)}}
 return pump()})}
 return pump()}).catch(function(){fail('The assistant is busy. Please try again.')})}})();</script>""".replace("AI_API", AI_API)
+
+
+# Network-wide "Asistente de ayudas" widget (served by the Worker, source in worker/widget.src.js). Replaces CHAT above on every page.
+CHAT_WIDGET = '<script src="https://ullswater-ai.emilio-mulet-b52.workers.dev/widget.js" defer data-site="calls"></script>'

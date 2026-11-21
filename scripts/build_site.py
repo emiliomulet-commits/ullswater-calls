@@ -259,7 +259,7 @@ def page(title, desc, path, body, jsonld=None):
 <footer class="site"><div class="wrap"><div><strong>Ullswater Investments · EU Funding Advisors</strong><br>Madrid: Calle Ramírez de Arellano 17, 28043 Madrid · Brussels: Square de Meeûs 37, 1000 Brussels</div>
 <div>Data: <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home" target="_blank" rel="noopener">EU Funding &amp; Tenders Portal</a> (European Commission), refreshed weekly.<br>Always check the official call page before applying.</div>
 <div><a href="{MAIN}">ullswaterinvestments.com</a> · <a href="https://www.linkedin.com/company/ullswater-investments" target="_blank" rel="noopener me">LinkedIn</a> · <a href="https://www.youtube.com/@ullswaterinvestments" target="_blank" rel="noopener me">YouTube</a> · <a href="/data/calls.json">JSON</a> · © {date.today().year}</div></div></footer>
-<script src="/assets/app.js" defer></script>{ai_pages.CHAT}</body></html>"""
+<script src="/assets/app.js" defer></script>{ai_pages.CHAT_WIDGET}</body></html>"""
 
 
 def nav(progs, current=None):
