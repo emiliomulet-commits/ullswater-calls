@@ -12,3 +12,7 @@ database_id = "5d2c792c-7fb2-4f6a-91ef-5b717e216266"
 
 # Secret (set in the dashboard or with `wrangler secret put`): ANTHROPIC_API_KEY
 # Optional vars: DAILY_CLAUDE_LIMIT (default 400 Claude answers per day), CLAUDE_MODEL
+
+# Daily purge of the questions log older than 12 months (RETENTION_MONTHS in ullswater-ai.js)
+[triggers]
+crons = ["17 3 * * *"]
