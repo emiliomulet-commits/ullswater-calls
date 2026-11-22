@@ -707,18 +707,24 @@ const WIDGET_JS = String.raw`/* "Asistente de ayudas" chat widget for the Ullswa
       foot: 'AI answers can be wrong: always check the official source. Questions are stored anonymously for 12 months to improve the service; do not include personal data.',
       privacy: 'Privacy', fresh: 'New conversation', think: 'Thinking', busy: 'The assistant is busy. Please try again.', cut: 'The answer was interrupted. Please try again.', close: 'Close',
       q: { www: ['Which of your services fits a startup looking for EU funding?', 'How do you help with a Horizon Europe proposal?', 'Which European projects are open to new partners?'],
-           calls: ['RIA calls in Cluster 4 on AI closing before April 2027', 'Can SMEs apply to this call?', 'EIC calls for deep-tech startups'],
-           news: ['Explain this news and what it means for a company', 'What are the latest EU funding news?', 'Which calls are related to this?'],
+           calls: ['RIA calls in Cluster 4 on AI closing before April 2027', 'Calls open to SMEs on clean energy', 'EIC calls for deep-tech startups'],
+           call: ['Explain this call in plain words', 'Can SMEs apply to this call?', 'Similar calls with a later deadline'],
+           news: ['What are the latest EU funding news?', 'News about funding in Spain this month', 'What changes in the next EU budget (2028-2034)?'],
+           article: ['Explain this news and what it means for a company', 'Which open calls are related to this?', 'What are the latest EU funding news?'],
            events: ['Which info days are coming up this month?', 'Brokerage events to find consortium partners', 'Is there a webinar on writing a proposal?'],
+           event: ['Is this event worth attending for my organisation?', 'Which calls does this event cover?', 'Other events on the same programme'],
            project: ['What is this project about?', 'How can my organisation join the consortium?', 'Which other projects does Ullswater run?'] } },
     es: { name: 'Asistente de ayudas', open: 'Pregunta por ayudas', ai: 'Estás hablando con un asistente de IA.', ph: 'Tu pregunta…', send: 'Enviar', expert: 'Hablar con un experto',
       hi: '¡Hola! Te ayudo con convocatorias europeas, ayudas en España, nuestros servicios, noticias y eventos. ¿Qué estás buscando?',
       foot: 'Las respuestas de la IA pueden contener errores: comprueba siempre la fuente oficial. Las preguntas se guardan de forma anónima 12 meses para mejorar el servicio; no incluyas datos personales.',
       privacy: 'Privacidad', fresh: 'Nueva conversación', think: 'Pensando', busy: 'El asistente está ocupado. Inténtalo de nuevo.', cut: 'La respuesta se interrumpió. Inténtalo de nuevo.', close: 'Cerrar',
       q: { www: ['Ayudas abiertas para pymes en mi comunidad', '¿Qué servicio vuestro encaja con una startup que busca fondos europeos?', '¿Qué proyectos europeos admiten nuevos socios?'],
-           calls: ['Convocatorias RIA del Clúster 4 sobre IA que cierran antes de abril de 2027', '¿Pueden presentarse pymes a esta convocatoria?', 'Convocatorias del EIC para startups deep-tech'],
-           news: ['Explícame esta noticia y qué supone para una empresa', '¿Cuáles son las últimas noticias de financiación europea?', '¿Qué convocatorias tienen relación con esto?'],
+           calls: ['Convocatorias RIA del Clúster 4 sobre IA que cierran antes de abril de 2027', 'Convocatorias abiertas a pymes sobre energía limpia', 'Convocatorias del EIC para startups deep-tech'],
+           call: ['Explícame esta convocatoria en palabras sencillas', '¿Pueden presentarse pymes a esta convocatoria?', 'Convocatorias parecidas con plazo más tarde'],
+           news: ['¿Cuáles son las últimas noticias de financiación europea?', 'Noticias de ayudas en España este mes', '¿Qué cambia en el próximo presupuesto de la UE (2028-2034)?'],
+           article: ['Explícame esta noticia y qué supone para una empresa', '¿Qué convocatorias abiertas tienen relación con esto?', '¿Cuáles son las últimas noticias de financiación europea?'],
            events: ['¿Qué jornadas informativas hay este mes?', 'Eventos de brokerage para encontrar socios', '¿Hay algún webinar sobre cómo escribir una propuesta?'],
+           event: ['¿Merece la pena este evento para mi organización?', '¿Qué convocatorias cubre este evento?', 'Otros eventos del mismo programa'],
            project: ['¿De qué trata este proyecto?', '¿Cómo puede mi organización unirse al consorcio?', '¿Qué otros proyectos tiene Ullswater?'] } }
   }[lang];
   var PRIV = 'https://www.ullswaterinvestments.com/' + (lang === 'es' ? 'es/' : '') + 'privacy/';
@@ -766,7 +772,8 @@ const WIDGET_JS = String.raw`/* "Asistente de ayudas" chat widget for the Ullswa
   function intro() {
     add(esc(T.hi));
     var s = document.createElement('div'); s.id = 'uaa-s';
-    (T.q[site] || T.q.www).forEach(function (q) { var x = document.createElement('button'); x.type = 'button'; x.textContent = q; x.onclick = function () { inp.value = q; s.remove(); ask(); }; s.appendChild(x); });
+    var path = location.pathname.replace(/^\/es\//, '/'), kind = site === 'calls' && /^\/call\//.test(path) ? 'call' : site === 'news' && /^\/\d{4}\/\d{2}\/[^/]+/.test(path) ? 'article' : site === 'events' && /^\/events\/[^/]+/.test(path) ? 'event' : site;
+    (T.q[kind] || T.q[site] || T.q.www).forEach(function (q) { var x = document.createElement('button'); x.type = 'button'; x.textContent = q; x.onclick = function () { inp.value = q; s.remove(); ask(); }; s.appendChild(x); });
     m.appendChild(s);
   }
   if (H.length) {
