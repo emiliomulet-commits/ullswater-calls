@@ -60,6 +60,17 @@ jobs:
         run: python scripts/bdns.py
         continue-on-error: true
 
+      - name: Full content of the Spanish factsheets from the official call texts (Claude Haiku, Batch API at 50 % off)
+        continue-on-error: true   # without ANTHROPIC_API_KEY the factsheets keep the basic BDNS layout
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_EXTRACT_MODEL: claude-haiku-5-5
+          EXTRACT_WAIT_MIN: "20"  # wait for the batch in this run; anything slower is collected by the next run
+          EXTRACT_SUBMIT: ${{ github.event_name != 'push' }}  # push runs do not commit data, so they only collect
+        run: |
+          pip install --quiet pypdf
+          python scripts/bdns_extract.py
+
       - name: Fund Finder index
         run: python scripts/finder_index.py
 
@@ -88,6 +99,22 @@ jobs:
 
       - name: Build static site
         run: python scripts/build_site.py
+
+      - name: Cache rendered PDF factsheets (only changed calls are re-rendered)
+        uses: actions/cache@v4
+        with:
+          path: .cache/fichas
+          key: fichas-${{ github.run_id }}
+          restore-keys: fichas-
+
+      - name: PDF factsheets for every call (pages 1-2 public as images; full PDF encrypted, served by the ullswater-fichas Worker after email verification)
+        continue-on-error: true   # the site is published even if the factsheets fail; the download buttons then stay hidden
+        env:
+          FICHAS_KEY: ${{ secrets.FICHAS_KEY }}
+        run: |
+          sudo apt-get install -y -qq fonts-inter > /dev/null || true
+          pip install --quiet weasyprint cryptography pypdfium2
+          python scripts/fichas.py
 
       - name: Commit refreshed data
         if: github.event_name != 'push'

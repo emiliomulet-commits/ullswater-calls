@@ -2,9 +2,12 @@
 import csv
 import io
 import json
+import re
 import time
 import urllib.request
 from html import escape
+
+import ficha_widget
 from pathlib import Path
 
 ALERTS_FORM = "https://docs.google.com/forms/d/e/1FAIpQLSfEe0ax4pkpY66jkgBnJY1SorVZBTWxsw7aibbUWG6GjGv4QA/viewform"
@@ -92,6 +95,7 @@ def directory_html(profiles, by_profile, slugify):
 def spain_html(data, money, fmt_date):
     calls = data.get("calls", [])
     regions = sorted({c["region"] for c in calls})
+    purposes = sorted({c["purpose"] for c in calls})
     items = []
     for c in calls:
         st = '<span class="tag open">Open</span>' if c["open"] else '<span class="tag fc">Upcoming</span>'
@@ -102,24 +106,101 @@ def spain_html(data, money, fmt_date):
         if c.get("mrr"): dates.append("Recovery plan (MRR)")
         if c.get("funds"): dates.append(escape(", ".join(f.title() for f in c["funds"])))
         link = c.get("url") or c["bdns"]
-        items.append(f'<article class="call" data-region="{escape(c["region"])}" data-open="{int(c["open"])}"><div class="date{"" if c.get("end") else " tbc"}"><small>Deadline</small>'
+        items.append(f'<article class="call" data-region="{escape(c["region"])}" data-purpose="{escape(c["purpose"])}" data-open="{int(c["open"])}"><div class="date{"" if c.get("end") else " tbc"}"><small>Deadline</small>'
                      + (f'<b>{c["end"][8:10].lstrip("0")}</b><i>{fmt_date(c["end"])[-8:]}</i>' if c.get("end") else "<b>TBC</b>") + '</div><div>'
                      f'<div class="meta">{st}<span class="tag">{escape(c["level"])}</span><span>{escape(c["region"])}</span><span class="code">BDNS {escape(c["id"])}</span></div>'
-                     f'<h3><a href="{escape(link)}" target="_blank" rel="noopener">{escape(c["title"][:220])}</a></h3>'
+                     f'<h3><a href="/spain/{escape(c["id"])}/">{escape(c["title"][:220])}</a></h3>'
                      f'<p>{escape(c["body"])} · {escape(c["purpose"])}{" · " + escape(", ".join(c["beneficiaries"])) if c.get("beneficiaries") else ""}</p>'
                      f'<div class="facts">{"".join(f"<span>{d}</span>" for d in dates)}</div>'
-                     f'<div class="links"><a class="more" href="{escape(c["bdns"])}" target="_blank" rel="noopener">Official record (BDNS) ↗</a></div></div></article>')
+                     f'<div class="links"><a class="more" href="{escape(c["bdns"])}" target="_blank" rel="noopener">Official record (BDNS) ↗</a>{ficha_widget.button(c["id"], c["title"], "es", "more ficha")}</div></div></article>')
     opts = "".join(f"<option>{escape(r)}</option>" for r in regions)
+    popts = "".join(f"<option>{escape(r)}</option>" for r in purposes)
     return f"""<main><section class="hero"><div class="wrap"><div class="crumbs"><a href="/">All calls</a> › Spain</div><p class="kicker">Spain · national and regional calls · updated {fmt_date(data.get('updated'))}</p>
-<h1>Spanish R&amp;D, innovation and industry calls</h1><p class="lead">Competitive calls from the State and the regions (R&amp;D&amp;I and industry &amp; energy) that are open or about to open, for companies and organisations. Combine them with EU funding to build your funding strategy.</p>
+<h1>Spanish State and regional grants for companies</h1><p class="lead">Competitive calls from the State and the regions (R&amp;D&amp;I, industry &amp; energy, business and SME competitiveness, trade and tourism, agri-food and employment) that are open or about to open, for companies and organisations. Each one has a downloadable PDF factsheet in Spanish. Combine them with EU funding to build your funding strategy.</p>
 <ul class="stats"><li><strong>{len(calls)}</strong>open or upcoming calls</li><li><strong>{sum(1 for c in calls if c['level'] == 'State')}</strong>State calls</li><li><strong>{len(regions)}</strong>regions</li></ul>
 <div class="actions"><a class="btn" href="https://www.ullswaterinvestments.com/eu-fund-matching">Get a funding strategy (EU + Spain)</a><a class="btn ghost" href="/alerts/?q=spain">🔔 Alerts</a></div></div></section>
-<div class="filters" role="search"><div class="wrap" style="grid-template-columns:2fr 1fr 1fr">
+<div class="filters" role="search"><div class="wrap" style="grid-template-columns:2fr 1fr 1fr 1fr">
 <label class="q">Search<input id="es-q" type="search" placeholder="e.g. hidrógeno, digitalización, I+D"></label>
 <label>Region<select id="es-r"><option value="">All</option>{opts}</select></label>
+<label>Purpose<select id="es-p"><option value="">All</option>{popts}</select></label>
 <label>Status<select id="es-s"><option value="">Open + upcoming</option><option value="1">Open now</option></select></label></div></div>
 <div class="wrap"><div class="resbar"><span><strong id="es-n">{len(calls)}</strong> calls</span></div>{"".join(items) or '<div class="empty">No calls right now.</div>'}
 <p class="disc">Source: Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas (BDNS, IGAE), public API. Data are dynamic and may be corrected by the issuing bodies: always check the official call. Titles are shown in the original language.</p></div></main>
-<script>(function(){{var q=document.getElementById('es-q'),r=document.getElementById('es-r'),s=document.getElementById('es-s'),n=document.getElementById('es-n'),a=[].slice.call(document.querySelectorAll('article.call'));
-function f(){{var t=q.value.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,''),k=0;a.forEach(function(e){{var ok=(!r.value||e.dataset.region===r.value)&&(!s.value||e.dataset.open==='1')&&(!t||e.textContent.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').indexOf(t)>-1);e.hidden=!ok;if(ok)k++}});n.textContent=k}}
-[q,r,s].forEach(function(e){{e.addEventListener('input',f);e.addEventListener('change',f)}})}})();</script>"""
+<script>(function(){{var q=document.getElementById('es-q'),r=document.getElementById('es-r'),pu=document.getElementById('es-p'),s=document.getElementById('es-s'),n=document.getElementById('es-n'),a=[].slice.call(document.querySelectorAll('article.call'));
+function f(){{var t=q.value.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,''),k=0;a.forEach(function(e){{var ok=(!r.value||e.dataset.region===r.value)&&(!pu.value||e.dataset.purpose===pu.value)&&(!s.value||e.dataset.open==='1')&&(!t||e.textContent.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').indexOf(t)>-1);e.hidden=!ok;if(ok)k++}});n.textContent=k}}
+[q,r,pu,s].forEach(function(e){{e.addEventListener('input',f);e.addEventListener('change',f)}})}})();</script>"""
+
+
+def spain_call_html(c, x, money, fmt_date):
+    """Page of one Spanish call (/spain/<BDNS id>/), in Spanish: the content extracted from the official text
+    (visible to everyone and to search engines), pages 1-2 of the PDF factsheet and the email-verified download."""
+    e = escape
+    X = (x or {}).get("data") or {}
+    q, pl = X.get("cuantia") or {}, X.get("plazos") or {}
+    link = c.get("url") or c["bdns"]
+    end = pl.get("solicitud_fin") or c.get("end")
+    start = pl.get("solicitud_inicio") or c.get("start")
+    budget = q.get("presupuesto_total") or c.get("budget")
+
+    def eur(v):
+        if not v:
+            return ""
+        return f"{v / 1e6:,.1f}".rstrip("0").rstrip(".").replace(".", ",") + " M€" if v >= 1e6 else f"{v:,.0f} €".replace(",", ".")
+
+    def fd(iso):
+        return fmt_date(iso) if iso and re.match(r"\d{4}-\d\d-\d\d$", str(iso)) else e(iso or "")
+
+    def ul(items):
+        return "<ul>" + "".join(f"<li>{e(i)}</li>" for i in items if i) + "</ul>"
+
+    st = '<span class="tag open">Abierta</span>' if c.get("open") else '<span class="tag fc">Próximamente</span>'
+    facts = []
+    if end: facts.append(f"<span>Fin de solicitudes <b>{fd(end)}</b>{' · ' + e(pl['hora_fin']) if pl.get('hora_fin') else ''}</span>")
+    if start and not c.get("open"): facts.append(f"<span>Apertura <b>{fd(start)}</b></span>")
+    if budget: facts.append(f"<span>Presupuesto <b>{eur(budget)}</b></span>")
+    if q.get("importe_maximo"): facts.append(f"<span>Ayuda máxima <b>{eur(q['importe_maximo'])}</b></span>")
+    ints = [i for i in q.get("intensidad") or [] if isinstance(i.get("porcentaje"), (int, float)) and 0 < i["porcentaje"] <= 100]
+    if ints:
+        lo, hi = min(i["porcentaje"] for i in ints), max(i["porcentaje"] for i in ints)
+        facts.append(f"<span>Intensidad <b>{lo:g}{'' if lo == hi else f'–{hi:g}'} %</b></span>")
+    lead = X.get("resumen") or f"{c.get('body', '')} · {'convocatoria estatal' if c.get('level') == 'State' else 'convocatoria autonómica · ' + c.get('region', '')}."
+
+    secs = []
+    if X.get("objeto"):
+        secs.append(f"<h2>Objeto de la ayuda</h2><p>{e(X['objeto'])}</p>")
+    if X.get("beneficiarios"):
+        secs.append("<h2>Quién puede solicitarla</h2>" + ul(X["beneficiarios"]))
+    elif c.get("beneficiaries"):
+        secs.append("<h2>Beneficiarios</h2>" + ul(c["beneficiaries"]))
+    if X.get("actuaciones"):
+        secs.append("<h2>Qué se financia</h2>" + ul(X["actuaciones"][:8]))
+    if X.get("gastos"):
+        secs.append("<h2>Gastos subvencionables</h2>" + ul([g.get("partida", "") + (f": {g['condiciones']}" if g.get("condiciones") else "") for g in X["gastos"][:8]]))
+    rows = []
+    if budget: rows.append(("Presupuesto total", eur(budget)))
+    if q.get("importe_maximo"): rows.append(("Ayuda máxima", eur(q["importe_maximo"])))
+    if q.get("importe_minimo"): rows.append(("Ayuda mínima", eur(q["importe_minimo"])))
+    if q.get("inversion_minima"): rows.append(("Proyecto o inversión mínima", eur(q["inversion_minima"])))
+    for i in ints[:4]: rows.append((f"Intensidad · {e(i.get('categoria', ''))}", f"{i['porcentaje']:g} %"))
+    if start: rows.append(("Inicio de solicitudes", fd(start)))
+    if end: rows.append(("Fin de solicitudes", fd(end)))
+    if pl.get("ejecucion"): rows.append(("Ejecución", e(pl["ejecucion"])))
+    if X.get("procedimiento"): rows.append(("Procedimiento", e(X["procedimiento"])))
+    if rows:
+        secs.append("<h2>Cuantía y plazos</h2><table class=\"kv\">" + "".join(f"<tr><th>{k}</th><td>{v}</td></tr>" for k, v in rows) + "</table>")
+    if X.get("atencion"):
+        secs.append("<h2>Puntos de atención</h2>" + ul(X["atencion"][:5]))
+    src = (f'Contenido extraído por Ullswater Investments del texto oficial ({e(x.get("docName") or "convocatoria")}) publicado en la BDNS. '
+           if X else "") + "Compruebe siempre los requisitos y plazos en la convocatoria oficial antes de presentar la solicitud."
+
+    return f"""<main lang="es"><section class="hero"><div class="wrap"><div class="crumbs"><a href="/">All calls</a> › <a href="/spain/">Spain</a> › BDNS {e(c['id'])}</div>
+<p class="kicker">{e(c.get('body', ''))} · {e('Estatal' if c.get('level') == 'State' else c.get('region', ''))}</p>
+<div class="meta">{st}<span class="tag">{e(c.get('purpose', ''))}</span><span class="code">BDNS {e(c['id'])}</span></div>
+<h1 style="margin-top:10px">{e(c['title'])}</h1><p class="lead">{e(lead)}</p>
+<div class="facts">{''.join(facts)}</div>
+<div class="actions"><a class="btn" href="{e(link)}" target="_blank" rel="noopener">Convocatoria oficial ↗</a><a class="btn gold" href="https://www.ullswaterinvestments.com/eu-fund-matching" target="_blank" rel="noopener">Solicitarla con nuestro apoyo</a>{ficha_widget.button(c['id'], c['title'], 'es')}<a class="btn ghost" href="{e(c['bdns'])}" target="_blank" rel="noopener">Registro BDNS ↗</a></div></div></section>
+<div class="wrap">{ficha_widget.preview(c['id'], c['title'], 'es')}
+<section class="sec es-call">{''.join(secs)}</section>
+<p class="disc">{src}</p></div></main>
+<style>.es-call ul{{margin:0 0 18px;padding-left:20px;max-width:860px}}.es-call li{{margin:4px 0}}.es-call p{{max-width:860px}}.es-call h2{{font-size:20px;margin:22px 0 8px}}
+.kv{{border-collapse:collapse;margin:0 0 18px;max-width:860px;width:100%}}.kv th,.kv td{{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}}.kv th{{color:var(--muted);font-weight:600;width:38%}}</style>"""

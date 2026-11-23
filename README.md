@@ -40,7 +40,7 @@ python3 -m http.server -d site 8000
 | `/finder/` | Fund Finder: ranked calls for a project description, by meaning and keywords, with the closest passage of each call | Worker `/search` (hybrid); falls back to `site/data/finder.json` in the browser |
 | `/review/` | AI pre-check of an idea against a call | Worker `ullswater-ai` (Workers AI, Llama 3.3 70B) |
 | chat widget | "Ask EU Funding" assistant on every page: keeps the conversation (per browser session) and knows which call page the user is on | Worker `/ask`: Claude agent with tools (`search_calls`, `filter_calls`, `get_call`, `compare_calls`, `search_spain_calls`, `search_events`) over `calls.json`, `finder.json`, `data/t/*.json`, `spain.json`, `events.json`. `search_calls` is hybrid: semantic similarity over passages of every topic text (`site/data/vec.bin` + `vec.json`, built daily by `scripts/embed_calls.py` with BAAI/bge-small-en-v1.5; the Worker embeds the query with the same model on Workers AI) plus keyword matching (`words.json`). Also `POST /search {q, filters}`. With `stream: true` the widget receives server-sent events (`status` while tools run, `delta` text chunks, `done` with sources), so the answer appears as it is written. Needs the Worker secret `ANTHROPIC_API_KEY` (optional variable `CLAUDE_MODEL`, default `claude-sonnet-5-5`); without the secret, or if the Claude API fails, it falls back to the Workers AI keyword assistant |
-| `/spain/` | Spanish State/regional competitive R&D&I and industry calls | BDNS public API (`scripts/bdns.py`) |
+| `/spain/` | Spanish State and regional competitive grants for companies (R&D&I, industry & energy, business & economy, trade/tourism/SMEs, agri-food, employment), each with a PDF factsheet | BDNS public API (`scripts/bdns.py`, `scripts/bdns_extract.py`) |
 | `/alerts/` | Weekly email alerts, double opt-in | Google Form + Apps Script `weeklyDigest` (Mondays 07:00) |
 | `/directory/` | Reviewed organisation profiles matched with calls | Google Form + moderation sheet (Status = Approved) |
 | `/partners/` | Partner board | Google Form + moderation sheet |
@@ -73,3 +73,28 @@ Every call page has an "Apply with our support" button and box. It opens the Goo
 (Apps Script project "Ullswater Support Requests", code in `tools/support_request_setup.gs`) prefilled with the call and page.
 Answers go to the private sheet "Ullswater · Support requests (private)" and each request is emailed to eufunding@ and Emilio (reply-to = applicant).
 The same button is on events and news pages. Form URL: `SUPPORT_FORM` in `scripts/call_pages.py`.
+
+## PDF factsheets with email verification (Nov 2026)
+Every call page (`/call/<id>/`) and every Spanish call on `/spain/` has a **📄 Download factsheet (PDF)** button.
+The visitor enters an email, confirms it through a one-time link and the PDF downloads; afterwards the same browser can
+download any other factsheet without a new email (access token kept 180 days in `localStorage`).
+
+| Piece | What it does |
+|---|---|
+| `scripts/fichas.py` | Renders one PDF per call in the Ullswater house style (cover, key-figure infographic, calendar, consortium benchmark, next steps), EU calls in English and BDNS calls in Spanish. WeasyPrint + inline SVG. Cached in `.cache/fichas` by content fingerprint, so only changed calls are re-rendered. Each PDF is encrypted (AES-256-GCM, key `FICHAS_KEY`) into `site/fichas/<slug>.bin`; `site/fichas/index.json` lists them. Preview without key: `python scripts/fichas.py --preview <id> …` → `.cache/fichas/preview/` |
+| `scripts/bdns_extract.py` | Spanish calls: downloads the official call text published in the BDNS (Spanish version preferred; Catalan, Basque, Galician and Valencian texts are translated) and has Claude extract the factsheet content (object, beneficiaries, requirements, eligible costs, amounts and aid intensity, deadlines, evaluation criteria, payment, documentation, points of attention) into `site/data/spain_x.json`. Each call is read once (again only if the BDNS publishes a new document). Runs on Claude Haiku (`claude-haiku-5-5`, override with `CLAUDE_EXTRACT_MODEL`) through the Message Batches API, billed at 50 % of the normal price: each run collects finished batches and submits one batch with the pending calls (state in `site/data/spain_x_batches.json`). Needs the GitHub secret `ANTHROPIC_API_KEY`; without it the Spanish factsheets keep the basic BDNS layout. The content is also shown on the call's own page `/spain/<BDNS id>/` (in Spanish, indexable) |
+| `scripts/ficha_widget.py` | Button helper and front-end (`site/assets/ficha.js`): modal with email, mandatory privacy consent and optional, unticked news consent |
+| `worker-fichas/` | Worker `ullswater-fichas`: `POST /request` (sends the link with Resend), `GET /verify` (one-time, 24 h), `GET /pdf` (decrypts and serves), `GET /status`, `GET /unsubscribe`. D1 tables `ficha_leads`, `ficha_tokens`, `ficha_downloads`, `ficha_hits` in the `ullswater-ai` database. Deployed by `.github/workflows/deploy-worker-fichas.yml` |
+
+**Configuration (once):**
+1. Generate the key: `python3 -c "import os,base64;print(base64.b64encode(os.urandom(32)).decode())"`.
+2. GitHub → Settings → Secrets → Actions: `FICHAS_KEY` = that value.
+3. Cloudflare → Workers → `ullswater-fichas` → Settings → Variables and secrets: `FICHAS_KEY` (same value) and `RESEND_API_KEY`.
+4. Resend: add the domain `ullswaterinvestments.com` and create the DNS records it shows in Cloudflare (DKIM `resend._domainkey`, SPF/MX on the `send` subdomain; the root MX of the mailboxes is not touched).
+5. Full Spanish factsheets: GitHub secret `ANTHROPIC_API_KEY` (the same key used by the Ask EU Funding Worker works). About 25k input tokens per call, read once, with Haiku at batch price.
+
+Preview: pages 1 and 2 of every factsheet are public (`/fichas/p/<slug>-1.jpg`, `-2.jpg`, shown on the call page by `assets/ficha.js`); the full PDF and its download need the email check. Previews are published even before `FICHAS_KEY` exists; the download button appears once it is set.
+6. Optional captcha: Cloudflare Turnstile secret as `TURNSTILE_SECRET`.
+
+Leads (D1 console): `SELECT email, datetime(verified,'unixepoch') verified, marketing, lang FROM ficha_leads ORDER BY id DESC;`
+Downloads per call: `SELECT call, COUNT(*) n FROM ficha_downloads GROUP BY call ORDER BY n DESC;`

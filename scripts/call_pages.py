@@ -5,6 +5,8 @@ import urllib.request
 from datetime import date
 from html import escape
 
+import ficha_widget
+
 import csv
 import io
 
@@ -181,7 +183,8 @@ def render_call(c, p, events, page, nav_html, fmt_date, money, label, slug, MAIN
 <div class="meta">{st}<span class="tag">{escape(name)}</span>{'<span class="tag cas">Cascade funding</span>' if c['kind'] == 'cascade' else ''}</div>
 <h1 style="margin-top:10px">{escape(c['title'])}</h1>{f'<p class="lead">{escape(c["summary"])}</p>' if c.get('summary') else ''}
 <div class="facts">{''.join(facts)}</div>
-<div class="actions"><a class="btn" href="{escape((c.get('extra') or {}).get('official_url') or c['url'])}" target="_blank" rel="noopener">Official call page ↗</a><a class="btn gold" href="{escape(support_link(ident + ' – ' + c['title'], 'https://calls.ullswaterinvestments.com' + path))}" target="_blank" rel="noopener">Apply with our support</a><a class="btn ghost" href="#partners">Find partners ↓</a>{'<a class="btn ghost" href="deadline.ics">📅 Add deadline to calendar</a>' if c.get('deadline') else ''}<a class="btn ghost" href="/review/?call={escape(c['id'])}">🤖 AI pre-check of my idea</a><a class="btn ghost" href="/alerts/?call={escape(ident)}">🔔 Alerts for this call</a></div></div></section>
+<div class="actions"><a class="btn" href="{escape((c.get('extra') or {}).get('official_url') or c['url'])}" target="_blank" rel="noopener">Official call page ↗</a><a class="btn gold" href="{escape(support_link(ident + ' – ' + c['title'], 'https://calls.ullswaterinvestments.com' + path))}" target="_blank" rel="noopener">Apply with our support</a><a class="btn ghost" href="#partners">Find partners ↓</a>{ficha_widget.button(c['id'], c['title'], 'en')}{'<a class="btn ghost" href="deadline.ics">📅 Add deadline to calendar</a>' if c.get('deadline') else ''}<a class="btn ghost" href="/review/?call={escape(c['id'])}">🤖 AI pre-check of my idea</a><a class="btn ghost" href="/alerts/?call={escape(ident)}">🔔 Alerts for this call</a></div></div></section>
+<div class="wrap">{ficha_widget.preview(c['id'], c['title'], 'en')}</div>
 <div class="wrap" id="partners">"""
 
     body = []
