@@ -15,6 +15,9 @@
 const SITE = "https://calls.ullswaterinvestments.com";
 const WWW = "https://www.ullswaterinvestments.com";
 const EVENTS = "https://events.ullswaterinvestments.com/events.json";
+// AI fichas of the Spanish grants (FAQ + official text by article): /es/ayudas/convocatoria/<id>/ia.json on www; before a grant page is
+// deployed, the committed copy in the www repo (override with the AYUDAS_IA_RAW var, e.g. to test a draft branch).
+const AYUDAS_IA_RAW = "https://raw.githubusercontent.com/emiliomulet-commits/ullswater-www/main/content/ayudas_ia";
 const MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
 // Every page of the Ullswater network may call this Worker (www, calls, news, events and the six project landings).
 const ORIGINS = ["https://calls.ullswaterinvestments.com", "https://www.ullswaterinvestments.com", "https://ullswaterinvestments.com",
@@ -378,6 +381,8 @@ const TOOLS = [
     input_schema: { type: "object", properties: { query: { type: "string", description: "Spanish keywords, e.g. 'digitalización', 'eficiencia energética', 'contratación'." },
       region: { type: "string", description: "Autonomous community, e.g. Madrid, Cataluña, Andalucía, or 'Estatal' for State grants." },
       company: { type: "string", enum: ["pyme", "gran empresa", "any"], description: "Default any." }, limit: { type: "integer", description: "Default 8, max 15." } } } },
+  { name: "get_ayuda", description: "One Spanish grant in depth (BDNS code, the number in /es/ayudas/convocatoria/<code>/): key data, a summary of its official documents by topic (who can apply, what is funded, eligible costs, amount, how and when to apply, evaluation, obligations, compatibility) with the article each point comes from, FAQs, and the passages of the official call and regulatory bases most related to the question. Use it for any question about a specific grant, above all the one on the page the user is viewing.",
+    input_schema: { type: "object", properties: { id: { type: "string", description: "BDNS code, e.g. 936950." }, question: { type: "string", description: "The user's question, in Spanish, to pick the relevant passages of the official text." } }, required: ["id"] } },
   { name: "get_projects", description: "Ullswater's European R&D projects (ITEA / Eureka): role, status and whether the consortium is open to new partners, with the link to each project site.",
     input_schema: { type: "object", properties: {} } },
   { name: "contact_expert", description: "Links to talk to an Ullswater expert: book a 1-hour Teams meeting, email, or the 'apply with our support' form prefilled with a call. Use it whenever the user wants help to apply, a proposal, partners, a quote, or to talk to someone.",
@@ -454,6 +459,7 @@ async function runTool(name, a, d, seen, env) {
       grants: hits.map(({ x }) => ({ title: x.titulo, summary: x.resumen, body: x.organismo, region: x.region, scope: x.ambito, type: x.tipo,
         budget_eur: x.presupuesto, opens: x.inicio, closes: x.fin, status: x.estado, beneficiaries: x.beneficiarios, eu_funds: x.fondos, page: x.url, official: x.bdns })) };
   }
+  if (name === "get_ayuda") return await getAyuda(d, a, env);
   if (name === "get_projects") return { projects: d.projects.map(p => ({ acronym: p.acronym, title: p.title, programme: p.programme, challenge: p.challenge, status: p.status,
     role: p.role, pitch: p.pitch, open_to_new_partners: p.open_to_new_partners, url: p.url })), page: `${WWW}/projects/` };
   if (name === "contact_expert") {
@@ -480,6 +486,7 @@ How to work:
 - Use the tools for every fact: call IDs, titles, dates, budgets, eligibility, grants, events, articles, services, prices, people, links. Never invent or guess them. If the tools do not give the answer, say so plainly.
 - EU calls: search_calls, filter_calls, get_call, compare_calls. Their data is in English: write those queries in English. Read a call with get_call before saying what it funds or who can apply.
 - Grants and subsidies in Spain (State or regional, any sector): search_ayudas (query in Spanish). search_spain_calls only covers competitive R&D and industry calls.
+- Questions about one specific Spanish grant (eligibility, costs, amount, deadlines, documents, evaluation, obligations): get_ayuda with its BDNS code and the question. Answer from the official texts it returns and cite the article (e.g. «según la base 5 de las bases reguladoras»).
 - Ullswater, its services, courses, projects, news articles and events: search_site (query in English), then get_page for details. get_projects lists the projects.
 - When the user wants help to apply, a proposal, partners, a quote or to talk to someone, use contact_expert and give the booking link. Do not ask for their email, phone or other personal data in the chat.
 - "This call", "this article", "este evento", "esta ayuda" and similar refer to the page the user is viewing (given below). On a news, event or project page, read it with get_page when the question is about it.
@@ -553,6 +560,25 @@ async function claudeStream(env, body, onText, onTool) {
   }
   return { content: blocks.filter(Boolean), stop_reason: stop, usage };
 }
+async function getAyuda(d, a, env) {
+  const id = String(a.id || "").replace(/\D/g, "").slice(0, 9);
+  const x = d.ayudas.find(y => String(y.id) === id || (y.otros || []).map(String).includes(id));
+  let ia = null;
+  for (const u of [`${WWW}/es/ayudas/convocatoria/${id}/ia.json`, `${(env && env.AYUDAS_IA_RAW) || AYUDAS_IA_RAW}/${id}.json`]) {
+    try { ia = await getJSON(u, 1800); if (ia && ia.faq) break; ia = null; } catch (e) { /* not generated yet */ }
+  }
+  if (!x && !ia) return { error: `No grant ${id} on the site. Use search_ayudas to find it.` };
+  const base = x ? { id: x.id, title: x.titulo, official_title: x.original, body: x.organismo, region: x.region, type: x.tipo, procedure: x.concurrencia,
+    budget_eur: x.presupuesto, opens: x.inicio, closes: x.fin, status: x.estado, beneficiaries: x.beneficiarios, eu_funds: x.fondos, page: x.url, official: x.bdns, bases: x.bases }
+    : { id, page: `${WWW}/es/ayudas/convocatoria/${id}/`, official: `https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/${id}` };
+  if (!ia) return { ...base, note: "The official documents of this grant have not been processed yet: give only these data and send the user to the official BDNS page and the regulatory bases for the details." };
+  const terms = tokens(a.question || "");
+  const secs = (ia.secciones || []).map((s, i) => ({ s, i, n: terms.reduce((n, t) => n + (norm(s.t + " " + s.x).includes(t) ? 1 : 0), 0) }));
+  const pick = (terms.length ? secs.filter(h => h.n > 0).sort((p, q) => q.n - p.n || p.i - q.i) : secs).slice(0, 6).sort((p, q) => p.i - q.i);
+  return { ...base, in_brief: ia.en_breve, by_topic: ia.ficha, faq: ia.faq, limitations: ia.avisos, documents_read: ia.fuentes, processed_on: ia.generado,
+    official_text_passages: pick.map(({ s }) => ({ document: s.doc, section: s.t, text: s.x })),
+    note: "Answer only from these data and passages. Cite the document and article (ref fields or section titles). If the answer is not here, say it does not appear in the published documents and suggest checking the official call or talking to an expert. Ask get_ayuda again with another question to read other passages." };
+}
 function toolStatus(t) {
   const a = t.input || {};
   if (t.name === "search_calls") return `Searching calls: ${String(a.query || "").slice(0, 80)}`;
@@ -564,6 +590,7 @@ function toolStatus(t) {
   if (t.name === "search_site") return `Searching the site: ${String(a.query || "").slice(0, 60)}`;
   if (t.name === "get_page") return "Reading the page";
   if (t.name === "search_ayudas") return "Checking grants in Spain";
+  if (t.name === "get_ayuda") return "Reading the official documents of the grant";
   if (t.name === "get_projects") return "Checking our projects";
   if (t.name === "contact_expert") return "Getting the contact options";
   return "Working";
@@ -576,12 +603,15 @@ async function runAgent(env, b, emit) {
   const page = b.page || {};
   const m = String(page.path || "").match(/\/call\/([^/]+)\/?/);
   const cur = findCall(d, page.callId) || (m && findCall(d, m[1]));
+  const ma = String(page.path || "").match(/\/ayudas\/convocatoria\/(\d+)\/?/);
+  const ayu = ma ? (d.ayudas.find(y => String(y.id) === ma[1] || (y.otros || []).map(String).includes(ma[1])) || { id: ma[1], titulo: "", fin: null }) : null;
   const today = new Date().toISOString().slice(0, 10);
   const host = String(page.host || "calls.ullswaterinvestments.com").replace(/[^a-z0-9.\-]/gi, "").slice(0, 60);
   const here = `https://${host}${String(page.path || "/").slice(0, 160)}`;
   const ctx = `Today is ${today}. Data updated ${String(d.stats.updated || "").slice(0, 10)}: ${d.calls.length} open/forthcoming EU calls (${d.stats.open || "?"} open, ${d.stats.forthcoming || "?"} forthcoming), ${d.ayudas.length} Spanish grants, ${d.spain.length} Spanish R&D calls, ${d.events.length} events, ${d.kb ? d.kb.docs.length : 0} site pages.\n` +
     `Interface language: ${page.lang === "es" ? "Spanish" : "English"} (answer in the language the user writes in).\n` +
-    (cur ? `The user is viewing the page of call ${cur.id} – "${cur.title}" (${cur.status}, deadline ${cur.deadline || "n/a"}). Read it with get_call when the question is about it.`
+    (ayu ? `The user is viewing the page of the Spanish grant BDNS ${ayu.id}${ayu.titulo ? ` – "${String(ayu.titulo).replace(/"/g, "'")}"` : ""}${ayu.fin ? ` (closes ${ayu.fin})` : ""}. "Esta ayuda", "la convocatoria" and similar mean this grant: call get_ayuda with id ${ayu.id} and the question before answering, and answer from its official texts.`
+    : cur ? `The user is viewing the page of call ${cur.id} – "${cur.title}" (${cur.status}, deadline ${cur.deadline || "n/a"}). Read it with get_call when the question is about it.`
          : `The user is on page ${here}${page.title ? ` ("${String(page.title).slice(0, 140).replace(/"/g, "'")}")` : ""}.`);
   const system = [{ type: "text", text: AGENT_SYSTEM, cache_control: { type: "ephemeral" } }, { type: "text", text: ctx }];
   const messages = [...cleanHistory(b.history), { role: "user", content: q }];
@@ -727,6 +757,10 @@ const WIDGET_JS = String.raw`/* "Asistente de ayudas" chat widget for the Ullswa
            event: ['¿Merece la pena este evento para mi organización?', '¿Qué convocatorias cubre este evento?', 'Otros eventos del mismo programa'],
            project: ['¿De qué trata este proyecto?', '¿Cómo puede mi organización unirse al consorcio?', '¿Qué otros proyectos tiene Ullswater?'] } }
   }[lang];
+  // page context (grant pages of /es/ayudas/): {"tipo":"ayuda","id","titulo","sugeridas":[...]} in <script type="application/json" id="uaa-ctx">
+  var CTX = null; try { var ce = document.getElementById('uaa-ctx'); if (ce) CTX = JSON.parse(ce.textContent); } catch (e) { CTX = null; }
+  if (CTX && CTX.tipo === 'ayuda') T.hi = lang === 'es' ? 'Pregúntame lo que quieras sobre esta ayuda: quién puede pedirla, qué gastos cubre, cuánto puedes recibir o cómo se solicita. Respondo con sus documentos oficiales.'
+    : 'Ask me anything about this grant: who can apply, eligible costs, amounts or how to apply. I answer from its official documents.';
   var PRIV = 'https://www.ullswaterinvestments.com/' + (lang === 'es' ? 'es/' : '') + 'privacy/';
   var css = '#uaa{position:fixed;right:18px;bottom:18px;z-index:2147483000;font:14px/1.5 Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:#1f2937}' +
     '#uaa *{box-sizing:border-box}#uaa-b{background:#233567;color:#fff;border:0;border-radius:999px;padding:12px 18px;font:inherit;font-weight:700;box-shadow:0 6px 20px rgba(0,0,0,.22);cursor:pointer;display:flex;align-items:center;gap:8px}' +
@@ -773,7 +807,8 @@ const WIDGET_JS = String.raw`/* "Asistente de ayudas" chat widget for the Ullswa
     add(esc(T.hi));
     var s = document.createElement('div'); s.id = 'uaa-s';
     var path = location.pathname.replace(/^\/es\//, '/'), kind = site === 'calls' && /^\/call\//.test(path) ? 'call' : site === 'news' && /^\/\d{4}\/\d{2}\/[^/]+/.test(path) ? 'article' : site === 'events' && /^\/events\/[^/]+/.test(path) ? 'event' : site;
-    (T.q[kind] || T.q[site] || T.q.www).forEach(function (q) { var x = document.createElement('button'); x.type = 'button'; x.textContent = q; x.onclick = function () { inp.value = q; s.remove(); ask(); }; s.appendChild(x); });
+    var qs = CTX && CTX.sugeridas && CTX.sugeridas.length ? CTX.sugeridas.slice(0, 4) : (T.q[kind] || T.q[site] || T.q.www);
+    qs.forEach(function (q) { var x = document.createElement('button'); x.type = 'button'; x.textContent = q; x.onclick = function () { inp.value = q; s.remove(); ask(); }; s.appendChild(x); });
     m.appendChild(s);
   }
   if (H.length) {
@@ -783,6 +818,10 @@ const WIDGET_JS = String.raw`/* "Asistente de ayudas" chat widget for the Ullswa
     c.onclick = function () { H = []; save(); m.innerHTML = ''; intro(); }; m.appendChild(c);
   } else intro();
   f.onsubmit = function (e) { e.preventDefault(); ask(); };
+  // API for buttons on the page (e.g. «Pregunta a la IA sobre esta ayuda»): UAA.ask(question) opens the chat and asks it
+  window.UAA = { open: function () { toggle(true); }, ask: function (q) { toggle(true); inp.value = String(q || '').slice(0, 1000); if (!busy) ask(); } };
+  var pending = window.UAA_Q || []; window.UAA_Q = { push: function (q) { window.UAA.ask(q); } };
+  if (pending.length) setTimeout(function () { window.UAA.ask(pending[pending.length - 1]); }, 0);
   function ask() {
     var q = inp.value.trim(); if (!q || busy) return; busy = 1; inp.value = '';
     var sg = $('uaa-s'); if (sg) sg.remove();

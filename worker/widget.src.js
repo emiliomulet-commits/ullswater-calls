@@ -35,6 +35,10 @@
            event: ['¿Merece la pena este evento para mi organización?', '¿Qué convocatorias cubre este evento?', 'Otros eventos del mismo programa'],
            project: ['¿De qué trata este proyecto?', '¿Cómo puede mi organización unirse al consorcio?', '¿Qué otros proyectos tiene Ullswater?'] } }
   }[lang];
+  // page context (grant pages of /es/ayudas/): {"tipo":"ayuda","id","titulo","sugeridas":[...]} in <script type="application/json" id="uaa-ctx">
+  var CTX = null; try { var ce = document.getElementById('uaa-ctx'); if (ce) CTX = JSON.parse(ce.textContent); } catch (e) { CTX = null; }
+  if (CTX && CTX.tipo === 'ayuda') T.hi = lang === 'es' ? 'Pregúntame lo que quieras sobre esta ayuda: quién puede pedirla, qué gastos cubre, cuánto puedes recibir o cómo se solicita. Respondo con sus documentos oficiales.'
+    : 'Ask me anything about this grant: who can apply, eligible costs, amounts or how to apply. I answer from its official documents.';
   var PRIV = 'https://www.ullswaterinvestments.com/' + (lang === 'es' ? 'es/' : '') + 'privacy/';
   var css = '#uaa{position:fixed;right:18px;bottom:18px;z-index:2147483000;font:14px/1.5 Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:#1f2937}' +
     '#uaa *{box-sizing:border-box}#uaa-b{background:#233567;color:#fff;border:0;border-radius:999px;padding:12px 18px;font:inherit;font-weight:700;box-shadow:0 6px 20px rgba(0,0,0,.22);cursor:pointer;display:flex;align-items:center;gap:8px}' +
@@ -81,7 +85,8 @@
     add(esc(T.hi));
     var s = document.createElement('div'); s.id = 'uaa-s';
     var path = location.pathname.replace(/^\/es\//, '/'), kind = site === 'calls' && /^\/call\//.test(path) ? 'call' : site === 'news' && /^\/\d{4}\/\d{2}\/[^/]+/.test(path) ? 'article' : site === 'events' && /^\/events\/[^/]+/.test(path) ? 'event' : site;
-    (T.q[kind] || T.q[site] || T.q.www).forEach(function (q) { var x = document.createElement('button'); x.type = 'button'; x.textContent = q; x.onclick = function () { inp.value = q; s.remove(); ask(); }; s.appendChild(x); });
+    var qs = CTX && CTX.sugeridas && CTX.sugeridas.length ? CTX.sugeridas.slice(0, 4) : (T.q[kind] || T.q[site] || T.q.www);
+    qs.forEach(function (q) { var x = document.createElement('button'); x.type = 'button'; x.textContent = q; x.onclick = function () { inp.value = q; s.remove(); ask(); }; s.appendChild(x); });
     m.appendChild(s);
   }
   if (H.length) {
@@ -91,6 +96,10 @@
     c.onclick = function () { H = []; save(); m.innerHTML = ''; intro(); }; m.appendChild(c);
   } else intro();
   f.onsubmit = function (e) { e.preventDefault(); ask(); };
+  // API for buttons on the page (e.g. «Pregunta a la IA sobre esta ayuda»): UAA.ask(question) opens the chat and asks it
+  window.UAA = { open: function () { toggle(true); }, ask: function (q) { toggle(true); inp.value = String(q || '').slice(0, 1000); if (!busy) ask(); } };
+  var pending = window.UAA_Q || []; window.UAA_Q = { push: function (q) { window.UAA.ask(q); } };
+  if (pending.length) setTimeout(function () { window.UAA.ask(pending[pending.length - 1]); }, 0);
   function ask() {
     var q = inp.value.trim(); if (!q || busy) return; busy = 1; inp.value = '';
     var sg = $('uaa-s'); if (sg) sg.remove();
