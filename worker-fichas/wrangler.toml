@@ -2,6 +2,11 @@ name = "ullswater-fichas"
 main = "ullswater-fichas.js"
 compatibility_date = "2026-11-01"
 
+# Keep variables set in the Cloudflare dashboard on every deploy. Without this,
+# wrangler deletes any dashboard plain-text variable that is not listed here
+# (on 23 Nov 2026 that removed ANTHROPIC_API_KEY). Secrets are never touched.
+keep_vars = true
+
 # Same D1 database as the ullswater-ai Worker; this Worker only uses the ficha_* tables (created on first use).
 [[d1_databases]]
 binding = "DB"
