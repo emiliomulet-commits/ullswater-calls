@@ -73,3 +73,24 @@ Every call page has an "Apply with our support" button and box. It opens the Goo
 (Apps Script project "Ullswater Support Requests", code in `tools/support_request_setup.gs`) prefilled with the call and page.
 Answers go to the private sheet "Ullswater · Support requests (private)" and each request is emailed to eufunding@ and Emilio (reply-to = applicant).
 The same button is on events and news pages. Form URL: `SUPPORT_FORM` in `scripts/call_pages.py`.
+
+## PDF factsheets with email verification (Nov 2026)
+Every call page (`/call/<id>/`) and every Spanish call on `/spain/` has a **📄 Download factsheet (PDF)** button.
+The visitor enters an email, confirms it through a one-time link and the PDF downloads; afterwards the same browser can
+download any other factsheet without a new email (access token kept 180 days in `localStorage`).
+
+| Piece | What it does |
+|---|---|
+| `scripts/fichas.py` | Renders one PDF per call in the Ullswater house style (cover, key-figure infographic, calendar, consortium benchmark, next steps), EU calls in English and BDNS calls in Spanish. WeasyPrint + inline SVG. Cached in `.cache/fichas` by content fingerprint, so only changed calls are re-rendered. Each PDF is encrypted (AES-256-GCM, key `FICHAS_KEY`) into `site/fichas/<slug>.bin`; `site/fichas/index.json` lists them. Preview without key: `python scripts/fichas.py --preview <id> …` → `.cache/fichas/preview/` |
+| `scripts/ficha_widget.py` | Button helper and front-end (`site/assets/ficha.js`): modal with email, mandatory privacy consent and optional, unticked news consent |
+| `worker-fichas/` | Worker `ullswater-fichas`: `POST /request` (sends the link with Resend), `GET /verify` (one-time, 24 h), `GET /pdf` (decrypts and serves), `GET /status`, `GET /unsubscribe`. D1 tables `ficha_leads`, `ficha_tokens`, `ficha_downloads`, `ficha_hits` in the `ullswater-ai` database. Deployed by `.github/workflows/deploy-worker-fichas.yml` |
+
+**Configuration (once):**
+1. Generate the key: `python3 -c "import os,base64;print(base64.b64encode(os.urandom(32)).decode())"`.
+2. GitHub → Settings → Secrets → Actions: `FICHAS_KEY` = that value.
+3. Cloudflare → Workers → `ullswater-fichas` → Settings → Variables and secrets: `FICHAS_KEY` (same value) and `RESEND_API_KEY`.
+4. Resend: add the domain `ullswaterinvestments.com` and create the DNS records it shows in Cloudflare (DKIM `resend._domainkey`, SPF/MX on the `send` subdomain; the root MX of the mailboxes is not touched).
+5. Optional captcha: Cloudflare Turnstile secret as `TURNSTILE_SECRET`.
+
+Leads (D1 console): `SELECT email, datetime(verified,'unixepoch') verified, marketing, lang FROM ficha_leads ORDER BY id DESC;`
+Downloads per call: `SELECT call, COUNT(*) n FROM ficha_downloads GROUP BY call ORDER BY n DESC;`

@@ -37,6 +37,29 @@ def get(path, **params):
             time.sleep(4 * (attempt + 1))
 
 
+def detail(d):
+    """Extra official fields of a BDNS call for the PDF factsheet (empty values dropped)."""
+    def clean(s):
+        return re.sub(r"\s+", " ", str(s or "")).strip() if s not in (None, "None") else ""
+    out = {
+        "titleCo": clean(d.get("descripcionLeng")),
+        "type": clean(d.get("tipoConvocatoria")),
+        "instrument": "; ".join(clean(i.get("descripcion")) for i in (d.get("instrumentos") or [])).capitalize(),
+        "finalidad": clean(d.get("descripcionFinalidad")),
+        "sectors": [clean(s.get("descripcion")) for s in (d.get("sectores") or [])][:6],
+        "regions": [clean(r.get("descripcion")) for r in (d.get("regiones") or [])][:6],
+        "stateAid": clean(d.get("ayudaEstado")),
+        "regulation": clean((d.get("reglamento") or {}).get("descripcion")),
+        "objectives": [clean(o.get("descripcion")).capitalize() for o in (d.get("objetivos") or [])][:3],
+        "basesTitle": clean(d.get("descripcionBasesReguladoras")),
+        "basesUrl": clean(d.get("urlBasesReguladoras")),
+        "startText": clean(d.get("textInicio")),
+        "announcements": [{"url": clean(a.get("url")), "diario": clean(a.get("desDiarioOficial")).split(".")[0], "date": clean(a.get("datPublicacion"))}
+                          for a in (d.get("anuncios") or []) if a.get("url")][:3],
+    }
+    return {k: v for k, v in out.items() if v}
+
+
 def pdate(s):
     if not s or s == "None":
         return None
@@ -123,6 +146,7 @@ def main():
             "url": d.get("sedeElectronica") if d.get("sedeElectronica") not in (None, "None", "") else None,
             "bdns": f"https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/{num}",
             "published": c.get("fechaRecepcion"),
+            "detail": detail(d),  # used by scripts/fichas.py for the downloadable PDF factsheet
         })
     out.sort(key=lambda x: (not x["open"], x["end"] or "9999"))
     OUT.write_text(json.dumps({"updated": today.isoformat(), "calls": out,

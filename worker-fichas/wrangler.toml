@@ -1,0 +1,21 @@
+name = "ullswater-fichas"
+main = "ullswater-fichas.js"
+compatibility_date = "2026-11-01"
+
+# Same D1 database as the ullswater-ai Worker; this Worker only uses the ficha_* tables (created on first use).
+[[d1_databases]]
+binding = "DB"
+database_name = "ullswater-ai"
+database_id = "5d2c792c-7fb2-4f6a-91ef-5b717e216266"
+
+[vars]
+MAIL_FROM = "Ullswater Investments <fichas@ullswaterinvestments.com>"
+
+# Secrets (dashboard → Worker → Settings → Variables, or `wrangler secret put`):
+#   FICHAS_KEY      32 random bytes in base64 — the SAME value as the GitHub secret FICHAS_KEY
+#   RESEND_API_KEY  Resend API key with sending access for ullswaterinvestments.com
+#   TURNSTILE_SECRET (optional) Cloudflare Turnstile secret, to add a captcha to the request form
+
+# Daily purge of used/expired one-time links and rate-limit counters
+[triggers]
+crons = ["41 3 * * *"]

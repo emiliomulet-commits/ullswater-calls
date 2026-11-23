@@ -1,0 +1,44 @@
+name: Deploy the ullswater-fichas Worker (email-verified PDF factsheet downloads)
+
+on:
+  push:
+    branches: [main]
+    paths: ["worker-fichas/**"]
+  workflow_dispatch:
+
+concurrency:
+  group: worker-fichas
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Check the code parses
+        run: node --check worker-fichas/ullswater-fichas.js
+      - name: Deploy with wrangler (needs the CLOUDFLARE_API_TOKEN secret)
+        if: ${{ env.CF_TOKEN != '' }}
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker-fichas
+      - name: Smoke test
+        if: ${{ env.CF_TOKEN != '' }}
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          sleep 10
+          curl -fsS https://ullswater-fichas.emilio-mulet-b52.workers.dev/ | grep -q ullswater-fichas
+          echo "Worker live"
+      - name: Missing token
+        if: ${{ env.CF_TOKEN == '' }}
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: echo "::warning::Add the CLOUDFLARE_API_TOKEN secret (template 'Edit Cloudflare Workers') to deploy the Worker automatically."

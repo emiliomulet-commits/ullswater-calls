@@ -5,6 +5,8 @@ import json
 import time
 import urllib.request
 from html import escape
+
+import ficha_widget
 from pathlib import Path
 
 ALERTS_FORM = "https://docs.google.com/forms/d/e/1FAIpQLSfEe0ax4pkpY66jkgBnJY1SorVZBTWxsw7aibbUWG6GjGv4QA/viewform"
@@ -108,7 +110,7 @@ def spain_html(data, money, fmt_date):
                      f'<h3><a href="{escape(link)}" target="_blank" rel="noopener">{escape(c["title"][:220])}</a></h3>'
                      f'<p>{escape(c["body"])} · {escape(c["purpose"])}{" · " + escape(", ".join(c["beneficiaries"])) if c.get("beneficiaries") else ""}</p>'
                      f'<div class="facts">{"".join(f"<span>{d}</span>" for d in dates)}</div>'
-                     f'<div class="links"><a class="more" href="{escape(c["bdns"])}" target="_blank" rel="noopener">Official record (BDNS) ↗</a></div></div></article>')
+                     f'<div class="links"><a class="more" href="{escape(c["bdns"])}" target="_blank" rel="noopener">Official record (BDNS) ↗</a>{ficha_widget.button(c["id"], c["title"], "es", "more ficha")}</div></div></article>')
     opts = "".join(f"<option>{escape(r)}</option>" for r in regions)
     return f"""<main><section class="hero"><div class="wrap"><div class="crumbs"><a href="/">All calls</a> › Spain</div><p class="kicker">Spain · national and regional calls · updated {fmt_date(data.get('updated'))}</p>
 <h1>Spanish R&amp;D, innovation and industry calls</h1><p class="lead">Competitive calls from the State and the regions (R&amp;D&amp;I and industry &amp; energy) that are open or about to open, for companies and organisations. Combine them with EU funding to build your funding strategy.</p>

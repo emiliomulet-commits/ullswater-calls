@@ -89,6 +89,22 @@ jobs:
       - name: Build static site
         run: python scripts/build_site.py
 
+      - name: Cache rendered PDF factsheets (only changed calls are re-rendered)
+        uses: actions/cache@v4
+        with:
+          path: .cache/fichas
+          key: fichas-${{ github.run_id }}
+          restore-keys: fichas-
+
+      - name: PDF factsheets for every call (encrypted; served by the ullswater-fichas Worker after email verification)
+        continue-on-error: true   # the site is published even if the factsheets fail; the download buttons then stay hidden
+        env:
+          FICHAS_KEY: ${{ secrets.FICHAS_KEY }}
+        run: |
+          sudo apt-get install -y -qq fonts-inter > /dev/null || true
+          pip install --quiet weasyprint cryptography
+          python scripts/fichas.py
+
       - name: Commit refreshed data
         if: github.event_name != 'push'
         run: |

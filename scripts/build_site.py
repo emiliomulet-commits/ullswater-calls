@@ -259,7 +259,7 @@ def page(title, desc, path, body, jsonld=None):
 <footer class="site"><div class="wrap"><div><strong>Ullswater Investments · EU Funding Advisors</strong><br>Madrid: Calle Ramírez de Arellano 17, 28043 Madrid · Brussels: Square de Meeûs 37, 1000 Brussels</div>
 <div>Data: <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home" target="_blank" rel="noopener">EU Funding &amp; Tenders Portal</a> (European Commission), refreshed weekly.<br>Always check the official call page before applying.</div>
 <div><a href="{MAIN}">ullswaterinvestments.com</a> · <a href="https://www.linkedin.com/company/ullswater-investments" target="_blank" rel="noopener me">LinkedIn</a> · <a href="https://www.youtube.com/@ullswaterinvestments" target="_blank" rel="noopener me">YouTube</a> · <a href="/data/calls.json">JSON</a> · © {date.today().year}</div></div></footer>
-<script src="/assets/app.js" defer></script>{ai_pages.CHAT_WIDGET}</body></html>"""
+<script src="/assets/ficha.js" defer></script><script src="/assets/app.js" defer></script>{ai_pages.CHAT_WIDGET}</body></html>"""
 
 
 def nav(progs, current=None):
@@ -391,6 +391,8 @@ def main():
         shutil.rmtree(SITE / old, ignore_errors=True)
     (SITE / "assets").mkdir(parents=True, exist_ok=True)
     (SITE / "assets" / "app.js").write_text(JS, encoding="utf-8")
+    import ficha_widget
+    (SITE / "assets" / "ficha.js").write_text(ficha_widget.JS, encoding="utf-8")  # email-verified PDF factsheet download
 
     chips = "".join(f'<a href="/programme/{slug(c)}/">{escape(label(c, ""))}<b>{n}</b></a>' for c, n in progs)
     hero = f"""<main><section class="hero"><div class="wrap"><p class="kicker">EU Funding Calls · updated {upd_s}</p>
