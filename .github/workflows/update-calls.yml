@@ -60,6 +60,15 @@ jobs:
         run: python scripts/bdns.py
         continue-on-error: true
 
+      - name: Full content of the Spanish factsheets from the official call texts (Claude)
+        continue-on-error: true   # without ANTHROPIC_API_KEY the factsheets keep the basic BDNS layout
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          EXTRACT_MAX: "80"       # new extractions per run (each call is read once; new calls are a few per day)
+        run: |
+          pip install --quiet pypdf
+          python scripts/bdns_extract.py
+
       - name: Fund Finder index
         run: python scripts/finder_index.py
 

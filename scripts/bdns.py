@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Spanish national and regional R&D&I / industry calls from the BDNS
+"""Spanish national and regional calls for companies from the BDNS
 (Base de Datos Nacional de Subvenciones, public API of infosubvenciones.es).
 
 Keeps only competitive calls (concurrencia competitiva) from State and regional
-administrations, with purpose R&D&I or Industry & Energy, open or opening soon,
-for companies or legal entities. Writes site/data/spain.json.
+administrations, with purpose R&D&I, industry & energy, business & economy, trade/tourism/SMEs,
+agri-food or employment, open or opening soon, for companies or legal entities. Writes site/data/spain.json.
 Source: Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas (IGAE).
 """
 import json
@@ -20,7 +20,13 @@ ROOT = Path(__file__).resolve().parent.parent
 API = "https://www.infosubvenciones.es/bdnstrans/api"
 CACHE = ROOT / ".cache" / "bdns" / "details.json"
 OUT = ROOT / "site" / "data" / "spain.json"
-FINALIDADES = {17: "R&D&I", 13: "Industry & energy"}
+FINALIDADES = {17: "R&D&I", 13: "Industry & energy",
+               # Regional and State aid for companies that the BDNS files under other purposes (e.g. circular-economy
+               # or SME competitiveness programmes registered as "otras actuaciones de carácter económico")
+               18: "Business & economy", 14: "Trade, tourism & SMEs", 12: "Agri-food & fisheries", 6: "Employment"}
+REFRESH_DAYS = 3  # re-read the details of a still-open call every 3 days
+LOOKBACK = {17: 240, 13: 240, 18: 180, 14: 180, 12: 150, 6: 150}  # days back in the BDNS listing, per purpose
+MAX_NEW_DETAILS = int(__import__("os").environ.get("BDNS_MAX_DETAILS", "1200"))  # detail requests per run (the first run fills the cache over a couple of days)
 UA = {"User-Agent": "UllswaterCallsBot/1.0 (+https://calls.ullswaterinvestments.com)", "Accept": "application/json"}
 LOOKBACK_DAYS = 240
 
@@ -54,6 +60,8 @@ def detail(d):
         "basesTitle": clean(d.get("descripcionBasesReguladoras")),
         "basesUrl": clean(d.get("urlBasesReguladoras")),
         "startText": clean(d.get("textInicio")),
+        "docs": [{"id": x.get("id"), "desc": clean(x.get("descripcion")), "name": clean(x.get("nombreFic")), "date": clean(x.get("datPublicacion"))}
+                 for x in (d.get("documentos") or []) if x.get("id")][:8],
         "announcements": [{"url": clean(a.get("url")), "diario": clean(a.get("desDiarioOficial")).split(".")[0], "date": clean(a.get("datPublicacion"))}
                           for a in (d.get("anuncios") or []) if a.get("url")][:3],
     }
@@ -73,29 +81,32 @@ def pdate(s):
 
 def main():
     today = date.today()
-    since = (today - timedelta(days=LOOKBACK_DAYS)).strftime("%d/%m/%Y")
     cache = json.loads(CACHE.read_text(encoding="utf-8")) if CACHE.exists() else {}
     listing = {}
     for fid in FINALIDADES:
+        since = (today - timedelta(days=LOOKBACK.get(fid, LOOKBACK_DAYS))).strftime("%d/%m/%Y")
         page = 0
         while True:
             d = get("convocatorias/busqueda", page=page, pageSize=200, order="fechaRecepcion", direccion="desc",
                     finalidad=fid, fechaDesde=since, vpd="GE")
             for c in d.get("content", []):
-                if c.get("nivel1") in ("ESTADO", "AUTONOMICA"):
+                if c.get("nivel1") in ("ESTADO", "AUTONOMICA") and c["numeroConvocatoria"] not in listing:
                     listing[c["numeroConvocatoria"]] = (c, fid)
-            if d.get("last", True) or page > 20:
+            if d.get("last", True) or page > 40:
                 break
             page += 1
             time.sleep(0.5)
-    print(f"Listing: {len(listing)} State/regional calls (R&D&I + industry) since {since}")
+    print(f"Listing: {len(listing)} State/regional calls ({', '.join(FINALIDADES.values())})")
 
     fetched = 0
-    for num, (c, fid) in listing.items():
+    # New calls first; known open calls are refreshed every few days (dates and documents can change)
+    order = sorted(listing, key=lambda n: (n in cache, (cache.get(n) or {}).get("_fetched", "")))
+    for num in order:
         cached = cache.get(num)
-        # Re-fetch details if unknown, or if dates were still pending last time
-        if cached and (cached.get("_final") or cached.get("_fetched") == today.isoformat()):
+        if cached and (cached.get("_final") or cached.get("_fetched", "") >= (today - timedelta(days=REFRESH_DAYS)).isoformat()):
             continue
+        if fetched >= MAX_NEW_DETAILS:
+            break
         try:
             det = get("convocatorias", numConv=num, vpd="GE")
         except Exception as e:

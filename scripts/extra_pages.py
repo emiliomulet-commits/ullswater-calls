@@ -94,6 +94,7 @@ def directory_html(profiles, by_profile, slugify):
 def spain_html(data, money, fmt_date):
     calls = data.get("calls", [])
     regions = sorted({c["region"] for c in calls})
+    purposes = sorted({c["purpose"] for c in calls})
     items = []
     for c in calls:
         st = '<span class="tag open">Open</span>' if c["open"] else '<span class="tag fc">Upcoming</span>'
@@ -104,7 +105,7 @@ def spain_html(data, money, fmt_date):
         if c.get("mrr"): dates.append("Recovery plan (MRR)")
         if c.get("funds"): dates.append(escape(", ".join(f.title() for f in c["funds"])))
         link = c.get("url") or c["bdns"]
-        items.append(f'<article class="call" data-region="{escape(c["region"])}" data-open="{int(c["open"])}"><div class="date{"" if c.get("end") else " tbc"}"><small>Deadline</small>'
+        items.append(f'<article class="call" data-region="{escape(c["region"])}" data-purpose="{escape(c["purpose"])}" data-open="{int(c["open"])}"><div class="date{"" if c.get("end") else " tbc"}"><small>Deadline</small>'
                      + (f'<b>{c["end"][8:10].lstrip("0")}</b><i>{fmt_date(c["end"])[-8:]}</i>' if c.get("end") else "<b>TBC</b>") + '</div><div>'
                      f'<div class="meta">{st}<span class="tag">{escape(c["level"])}</span><span>{escape(c["region"])}</span><span class="code">BDNS {escape(c["id"])}</span></div>'
                      f'<h3><a href="{escape(link)}" target="_blank" rel="noopener">{escape(c["title"][:220])}</a></h3>'
@@ -112,16 +113,18 @@ def spain_html(data, money, fmt_date):
                      f'<div class="facts">{"".join(f"<span>{d}</span>" for d in dates)}</div>'
                      f'<div class="links"><a class="more" href="{escape(c["bdns"])}" target="_blank" rel="noopener">Official record (BDNS) ↗</a>{ficha_widget.button(c["id"], c["title"], "es", "more ficha")}</div></div></article>')
     opts = "".join(f"<option>{escape(r)}</option>" for r in regions)
+    popts = "".join(f"<option>{escape(r)}</option>" for r in purposes)
     return f"""<main><section class="hero"><div class="wrap"><div class="crumbs"><a href="/">All calls</a> › Spain</div><p class="kicker">Spain · national and regional calls · updated {fmt_date(data.get('updated'))}</p>
-<h1>Spanish R&amp;D, innovation and industry calls</h1><p class="lead">Competitive calls from the State and the regions (R&amp;D&amp;I and industry &amp; energy) that are open or about to open, for companies and organisations. Combine them with EU funding to build your funding strategy.</p>
+<h1>Spanish State and regional grants for companies</h1><p class="lead">Competitive calls from the State and the regions (R&amp;D&amp;I, industry &amp; energy, business and SME competitiveness, trade and tourism, agri-food and employment) that are open or about to open, for companies and organisations. Each one has a downloadable PDF factsheet in Spanish. Combine them with EU funding to build your funding strategy.</p>
 <ul class="stats"><li><strong>{len(calls)}</strong>open or upcoming calls</li><li><strong>{sum(1 for c in calls if c['level'] == 'State')}</strong>State calls</li><li><strong>{len(regions)}</strong>regions</li></ul>
 <div class="actions"><a class="btn" href="https://www.ullswaterinvestments.com/eu-fund-matching">Get a funding strategy (EU + Spain)</a><a class="btn ghost" href="/alerts/?q=spain">🔔 Alerts</a></div></div></section>
-<div class="filters" role="search"><div class="wrap" style="grid-template-columns:2fr 1fr 1fr">
+<div class="filters" role="search"><div class="wrap" style="grid-template-columns:2fr 1fr 1fr 1fr">
 <label class="q">Search<input id="es-q" type="search" placeholder="e.g. hidrógeno, digitalización, I+D"></label>
 <label>Region<select id="es-r"><option value="">All</option>{opts}</select></label>
+<label>Purpose<select id="es-p"><option value="">All</option>{popts}</select></label>
 <label>Status<select id="es-s"><option value="">Open + upcoming</option><option value="1">Open now</option></select></label></div></div>
 <div class="wrap"><div class="resbar"><span><strong id="es-n">{len(calls)}</strong> calls</span></div>{"".join(items) or '<div class="empty">No calls right now.</div>'}
 <p class="disc">Source: Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas (BDNS, IGAE), public API. Data are dynamic and may be corrected by the issuing bodies: always check the official call. Titles are shown in the original language.</p></div></main>
-<script>(function(){{var q=document.getElementById('es-q'),r=document.getElementById('es-r'),s=document.getElementById('es-s'),n=document.getElementById('es-n'),a=[].slice.call(document.querySelectorAll('article.call'));
-function f(){{var t=q.value.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,''),k=0;a.forEach(function(e){{var ok=(!r.value||e.dataset.region===r.value)&&(!s.value||e.dataset.open==='1')&&(!t||e.textContent.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').indexOf(t)>-1);e.hidden=!ok;if(ok)k++}});n.textContent=k}}
-[q,r,s].forEach(function(e){{e.addEventListener('input',f);e.addEventListener('change',f)}})}})();</script>"""
+<script>(function(){{var q=document.getElementById('es-q'),r=document.getElementById('es-r'),pu=document.getElementById('es-p'),s=document.getElementById('es-s'),n=document.getElementById('es-n'),a=[].slice.call(document.querySelectorAll('article.call'));
+function f(){{var t=q.value.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,''),k=0;a.forEach(function(e){{var ok=(!r.value||e.dataset.region===r.value)&&(!pu.value||e.dataset.purpose===pu.value)&&(!s.value||e.dataset.open==='1')&&(!t||e.textContent.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').indexOf(t)>-1);e.hidden=!ok;if(ok)k++}});n.textContent=k}}
+[q,r,pu,s].forEach(function(e){{e.addEventListener('input',f);e.addEventListener('change',f)}})}})();</script>"""

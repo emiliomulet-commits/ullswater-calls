@@ -226,6 +226,7 @@ table.kv, table.list {{ width: 100%; border-collapse: collapse; font-size: 8.6pt
 table.kv td, table.list td, table.list th {{ border: 0.5pt solid {BORDER}; padding: 1.6mm 2.2mm; vertical-align: top; }}
 table.kv td:first-child {{ background: {LIGHT}; font-weight: 700; width: 34%; }}
 table.list th {{ background: {NAVY}; color: #fff; text-align: left; font-weight: 700; }} table.list td.n {{ text-align: right; }}
+ol {{ margin: 0 0 3mm; padding-left: 6mm; }} ol li::marker {{ color: {NAVY}; font-weight: 700; }}
 table.kv tr, table.list tr {{ break-inside: avoid; }}
 .fig {{ margin: 3mm 0 1mm; break-inside: avoid; }} .cap {{ font-size: 7.8pt; color: {GREY}; font-style: italic; margin-bottom: 4mm; }}
 .callout {{ background: {GOLD_BG}; border-left: 1.6mm solid {GOLD}; padding: 3mm 4.5mm; margin: 4mm 0; break-inside: avoid; }}
@@ -258,7 +259,7 @@ def document(lang, title, kicker, lead, cover_rows, body, header_txt, prepared):
 
 
 def fig(svg_, caption):
-    return f'<div class="fig">{svg_}</div><p class="cap">{e(caption)}</p>'
+    return f'<div class="fig">{svg_}<p class="cap">{e(caption)}</p></div>'
 
 
 def help_box(lang, url):
@@ -422,7 +423,9 @@ def eu_ficha(c, p, ttext, today):
 
 
 # ------------------------------------------------------------------ Spanish calls (BDNS)
-def es_ficha(c, today):
+def es_ficha(c, x=None, today=None):
+    if x and x.get("data"):
+        return es_ficha_full(c, x, today)
     lang = "es"
     d = c.get("detail") or {}
     region = c.get("region") or ""
@@ -505,6 +508,194 @@ def es_ficha(c, today):
                     "".join(body), f"Ficha de ayuda · BDNS {c['id']}", f"datos a {fdate(today, lang)}")
 
 
+# ------------------------------------------------------------------ Spanish calls: full factsheet from the official text
+def bars_chart(title, sub, rows, unit, band_main, band_sub, source, max_value=None):
+    """Horizontal bars: rows = [(label, value)]; the largest value is the accent."""
+    b = head(title, sub)
+    rows = rows[:14]
+    mx = max_value or max(v for _, v in rows) or 1
+    top = max(v for _, v in rows)
+    lab_w, bar_x, bar_w = 300, 330, 330
+    y = 92
+    for lab, v in rows:
+        lines_ = wrap(lab, 48)[:2]
+        h = 16 + 13 * (len(lines_) - 1)
+        b += tl(24, y + 12, lines_, 10.5, 600 if v == top else 400, NAVY if v == top else INK, 13)
+        b += f'<rect x="{bar_x}" y="{y + 1}" width="{bar_w}" height="14" rx="4" fill="{LIGHT}"/>'
+        b += f'<rect x="{bar_x}" y="{y + 1}" width="{max(bar_w * v / mx, 3):.1f}" height="14" rx="4" fill="{NAVY if v == top else "#9AA1B1"}"/>'
+        val = f"{v:g}{unit}"
+        b += t(bar_x + bar_w + 12, y + 13, val.replace(".", ","), 11.5, 700, NAVY if v == top else INK)
+        y += h + 12
+    y += 6
+    b += band(y, band_main, band_sub)
+    b += t(24, y + 64, source, 9, 400, GREY)
+    return svg(y + 74, b)
+
+
+def es_ficha_full(c, x, today):
+    lang = "es"
+    d, X = c.get("detail") or {}, x["data"]
+    q, pl = X.get("cuantia") or {}, X.get("plazos") or {}
+    region = c.get("region") or ""
+    end = pl.get("solicitud_fin") or c.get("end")
+    start = pl.get("solicitud_inicio") or c.get("start")
+    budget = q.get("presupuesto_total") or c.get("budget")
+    ints = [i for i in q.get("intensidad") or [] if isinstance(i.get("porcentaje"), (int, float)) and 0 < i["porcentaje"] <= 100]
+    irange = ""
+    if ints:
+        lo, hi = min(i["porcentaje"] for i in ints), max(i["porcentaje"] for i in ints)
+        irange = f"{lo:g} %" if lo == hi else f"{lo:g}–{hi:g} %"
+
+    def money_es(v):
+        return money(v, "es") if v else ""
+    cover_rows = [("Organismo convocante", e(c.get("body"))), ("Ámbito", e("Estatal" if c.get("level") == "State" else f"Autonómico · {region}")),
+                  ("Código BDNS", e(c["id"]))]
+    if end: cover_rows.append(("Fin de solicitudes", f"<b>{fdate(end, lang)}</b>" + (f" · {e(pl['hora_fin'])}" if pl.get("hora_fin") else "")))
+    if budget: cover_rows.append(("Presupuesto total", money_es(budget)))
+    if q.get("importe_maximo"): cover_rows.append(("Ayuda máxima", money_es(q["importe_maximo"])))
+    if irange: cover_rows.append(("Intensidad", irange + " del gasto subvencionable"))
+    if X.get("beneficiarios"): cover_rows.append(("Quién puede pedirla", e(cut("; ".join(X["beneficiarios"]), 220))))
+    lead = e(cut(X.get("resumen") or "", 300))
+
+    # 1. Ficha resumen
+    cards = [(date.fromisoformat(end).strftime("%d/%m/%Y") if end and re.match(r"\d{4}-\d\d-\d\d$", end) else "Ver bases", "Fin de solicitudes",
+              [pl.get("hora_fin") or (f"Desde el {fdate(start, lang)}" if start else "")], True),
+             (money_es(budget) or "n/d", "Presupuesto total", [f"{len(q['lineas'])} líneas o categorías" if q.get("lineas") else "Crédito de la convocatoria"], False),
+             (money_es(q.get("importe_maximo")) or "Según bases", "Ayuda máxima", ["Por beneficiario o proyecto"] + ([f"Mínimo {money_es(q['importe_minimo'])}"] if q.get("importe_minimo") else []), False),
+             (irange or "Ver bases", "Intensidad de ayuda", ["Sobre el gasto subvencionable"], False)]
+    if pl.get("ejecucion_meses"):
+        cards.append((f"{pl['ejecucion_meses']:g} meses", "Plazo de ejecución", [cut(pl.get("ejecucion") or "", 60)], False))
+    elif pl.get("ejecucion"):
+        cards.append(("Ejecución", "Plazo de ejecución", [cut(pl["ejecucion"], 60)], False))
+    if X.get("puntuacion_minima"):
+        cards.append((f"{X['puntuacion_minima']:g} pts", "Puntuación mínima", [cut(X.get("procedimiento") or "Concurrencia competitiva", 60)], False))
+    elif X.get("procedimiento"):
+        cards.append(("Competitiva" if "competitiva" in X["procedimiento"].lower() else "Procedimiento", "Procedimiento", [cut(X["procedimiento"], 60)], False))
+    k1 = kpi_panel("Las cifras clave de la convocatoria", cut(c["title"], 95), cards[:6],
+                   f"Solicitud{' hasta el ' + fdate(end, lang) if end else ''}" + (f" · {cut(X.get('presentacion') or '', 70)}" if X.get("presentacion") else ""),
+                   "Compruebe la hora límite y los requisitos en la convocatoria oficial",
+                   f"Fuente: {x.get('docName') or 'convocatoria oficial'} (BDNS {c['id']}). Elaboración: Ullswater Investments.")
+    rows = [("Organismo", e(c.get("body"))), ("Ámbito", e("Estado" if c.get("level") == "State" else f"Comunidad autónoma · {region}"))]
+    if d.get("type") or X.get("procedimiento"): rows.append(("Procedimiento", e(X.get("procedimiento") or d.get("type"))))
+    if d.get("instrument"): rows.append(("Instrumento", e(d["instrument"])))
+    if budget: rows.append(("Presupuesto", money_es(budget)))
+    if q.get("importe_maximo"): rows.append(("Ayuda máxima", money_es(q["importe_maximo"])))
+    if q.get("inversion_minima"): rows.append(("Proyecto o inversión mínima", money_es(q["inversion_minima"])))
+    if irange: rows.append(("Intensidad", irange))
+    if start: rows.append(("Inicio de solicitudes", fdate(start, lang) if re.match(r"\d{4}-\d\d-\d\d$", start) else e(start)))
+    if end: rows.append(("Fin de solicitudes", (fdate(end, lang) if re.match(r"\d{4}-\d\d-\d\d$", end) else e(end)) + (f" · {e(pl['hora_fin'])}" if pl.get("hora_fin") else "")))
+    for k_, lab in (("ejecucion", "Ejecución"), ("justificacion", "Justificación"), ("resolucion", "Resolución")):
+        if pl.get(k_): rows.append((lab, e(pl[k_])))
+    if X.get("regimen") or d.get("regulation"): rows.append(("Marco de ayudas de Estado", e(X.get("regimen") or d.get("regulation"))))
+    if d.get("stateAid"): rows.append(("Referencia ayuda de Estado", e(d["stateAid"])))
+    if c.get("mrr"): rows.append(("Plan de Recuperación (MRR)", "Sí"))
+    if c.get("funds"): rows.append(("Fondos europeos", e(", ".join(c["funds"]))))
+    body = ["<h2>1. Ficha resumen</h2>"]
+    if X.get("resumen"): body.append(f"<p>{e(X['resumen'])}</p>")
+    body += [fig(k1, "Infografía 1 · Cifras clave de la convocatoria."),
+             '<table class="kv">' + "".join(f"<tr><td>{k}</td><td>{v}</td></tr>" for k, v in rows) + "</table>"]
+    n = 2
+
+    def ul(items_):
+        return "<ul>" + "".join(f"<li>{e(i)}</li>" for i in items_) + "</ul>"
+    # 2. Objeto y actuaciones
+    if X.get("objeto") or X.get("actuaciones"):
+        body.append(f"<h2>{n}. Qué financia</h2>")
+        if X.get("objeto"): body.append(f"<p>{e(X['objeto'])}</p>")
+        if X.get("actuaciones"): body.append("<h3>Actuaciones subvencionables</h3>" + ul(X["actuaciones"]))
+        n += 1
+    # 3. Beneficiarios
+    if X.get("beneficiarios") or X.get("requisitos"):
+        body.append(f"<h2>{n}. Beneficiarios y requisitos</h2>")
+        if X.get("beneficiarios"): body.append("<h3>Quién puede solicitarla</h3>" + ul(X["beneficiarios"]))
+        if X.get("requisitos"): body.append("<h3>Requisitos</h3>" + ul(X["requisitos"]))
+        n += 1
+    # 4. Gastos
+    if X.get("gastos") or X.get("excluidos"):
+        body.append(f"<h2>{n}. Gastos subvencionables</h2>")
+        if X.get("gastos"):
+            body.append('<table class="list"><tr><th>Partida</th><th>Condiciones</th></tr>' +
+                        "".join(f"<tr><td><b>{e(g.get('partida'))}</b></td><td>{e(g.get('condiciones') or '')}</td></tr>" for g in X["gastos"][:16]) + "</table>")
+        if X.get("excluidos"): body.append("<h3>No subvencionable</h3>" + ul(X["excluidos"]))
+        n += 1
+    # 5. Cuantía
+    if ints or q.get("lineas") or q.get("notas"):
+        body.append(f"<h2>{n}. Cuantía e intensidad</h2>")
+        if q.get("notas"): body.append(f"<p>{e(q['notas'])}</p>")
+        if len(ints) >= 2:
+            body.append(fig(bars_chart("Porcentaje máximo de ayuda", "Intensidad sobre el gasto subvencionable, según la convocatoria",
+                                       [(i["categoria"], i["porcentaje"]) for i in ints], " %",
+                                       f"Ayuda máxima: {money_es(q.get('importe_maximo')) or 'según bases'}" + (f" · presupuesto total {money_es(budget)}" if budget else ""),
+                                       "La intensidad efectiva depende del tamaño de la empresa y del gasto finalmente justificado",
+                                       "Fuente: convocatoria oficial. Elaboración: Ullswater Investments.", 100),
+                            "Infografía 2 · Intensidad de la ayuda."))
+        elif ints:
+            body.append(f"<p><b>Intensidad:</b> {e(ints[0]['categoria'])} – {ints[0]['porcentaje']:g} %.</p>")
+        if q.get("lineas"):
+            body.append('<table class="list"><tr><th>Línea o categoría</th><th>Dotación</th></tr>' +
+                        "".join(f"<tr><td>{e(l_.get('nombre'))}</td><td class='n'>{money_es(l_.get('importe')) or '–'}</td></tr>" for l_ in q["lineas"][:10]) + "</table>")
+        n += 1
+    # 6. Criterios
+    crit = [cr for cr in X.get("criterios") or [] if cr.get("criterio")]
+    if crit:
+        body.append(f"<h2>{n}. Criterios de valoración</h2>")
+        scored = [(cr["criterio"], cr["puntos"]) for cr in crit if isinstance(cr.get("puntos"), (int, float)) and cr["puntos"] > 0]
+        total = sum(v for _, v in scored)
+        if len(scored) >= 2:
+            body.append(fig(bars_chart("Dónde se gana la puntuación", f"Puntuación máxima por criterio{f' (total {total:g} puntos)' if total else ''}",
+                                       scored, " pts",
+                                       f"Puntuación mínima: {X['puntuacion_minima']:g} puntos" if X.get("puntuacion_minima") else "Concentre el esfuerzo en los criterios de más peso",
+                                       "Los criterios y su detalle completo están en la convocatoria oficial",
+                                       "Fuente: convocatoria oficial. Elaboración: Ullswater Investments."),
+                            "Infografía 3 · Peso de los criterios de valoración."))
+        else:
+            body.append(ul([cr["criterio"] + (f" ({cr['puntos']:g} puntos)" if isinstance(cr.get("puntos"), (int, float)) else "") for cr in crit]))
+        n += 1
+    # 7. Calendario
+    pts, phases = [], []
+    if c.get("published"): pts.append((c["published"], ["Publicación", fdate(c["published"], lang)], False))
+    if start and re.match(r"\d{4}-\d\d-\d\d$", start): pts.append((start, ["Inicio", fdate(start, lang)], False))
+    if end and re.match(r"\d{4}-\d\d-\d\d$", end):
+        pts.append((end, ["Cierre", fdate(end, lang)], True))
+        if start and re.match(r"\d{4}-\d\d-\d\d$", start) and start < end:
+            phases.append((start, end, "Plazo de solicitud", NAVY, "#FFFFFF"))
+    if len(pts) >= 2:
+        body.append(f"<h2>{n}. Calendario</h2>")
+        note2 = cut(f"Ejecución: {pl['ejecucion']}", 110) if pl.get("ejecucion") else "Nada iniciado antes de solicitar suele ser subvencionable (efecto incentivador)"
+        body.append(fig(timeline("Plazos de la convocatoria", "Fechas de solicitud según la convocatoria y la BDNS", sorted(pts), phases,
+                                 ("Prepare la solicitud con antelación: memoria, presupuesto y declaraciones suelen ser extensas", note2),
+                                 "Fuente: convocatoria oficial y BDNS. Elaboración: Ullswater Investments."), "Infografía 4 · Calendario de la convocatoria."))
+        n += 1
+    # 8. Solicitud, pago y justificación
+    if X.get("documentacion") or X.get("pago") or X.get("justificacion") or X.get("presentacion"):
+        body.append(f"<h2>{n}. Solicitud, pago y justificación</h2>")
+        if X.get("presentacion"): body.append(f"<p><b>Presentación:</b> {e(X['presentacion'])}</p>")
+        if X.get("documentacion"): body.append("<h3>Documentación de la solicitud</h3><ol>" + "".join(f"<li>{e(i)}</li>" for i in X["documentacion"][:14]) + "</ol>")
+        if X.get("pago"): body.append(f"<p><b>Pago:</b> {e(X['pago'])}</p>")
+        if X.get("justificacion"): body.append(f"<p><b>Justificación:</b> {e(X['justificacion'])}</p>")
+        if X.get("obligaciones"): body.append("<h3>Obligaciones principales</h3>" + ul(X["obligaciones"][:10]))
+        if X.get("compatibilidad"): body.append(f"<p><b>Compatibilidad:</b> {e(X['compatibilidad'])}</p>")
+        n += 1
+    if X.get("atencion"):
+        body.append('<div class="callout"><b class="t">Puntos de atención de Ullswater</b>' + ul(X["atencion"][:6]) + "</div>")
+    # 9. Documentos
+    docs = []
+    if d.get("basesUrl") or d.get("basesTitle"): docs.append(("Bases reguladoras", d.get("basesTitle") or "", d.get("basesUrl") or ""))
+    for a in d.get("announcements", [])[:3]:
+        docs.append((f"Publicación en {a.get('diario') or 'diario oficial'}" + (f" ({fdate(a['date'], lang)})" if a.get("date") else ""), "Convocatoria / extracto", a.get("url") or ""))
+    docs.append(("Ficha oficial BDNS", f"Convocatoria {c['id']}", c.get("bdns") or ""))
+    if c.get("url"): docs.append(("Sede electrónica", "Trámite de solicitud", c["url"]))
+    body.append(f"<div class=\"keep\"><h2>{n}. Documentos oficiales</h2><table class=\"list\"><tr><th>Documento</th><th>Detalle</th></tr>" +
+                "".join(f'<tr><td><b>{e(a)}</b></td><td>{e(b)}{"<br><span class=src>" + e(u) + "</span>" if u else ""}</td></tr>' for a, b, u in docs) + "</table></div>")
+    body.append(help_box("es", f"{CALLS}/spain/"))
+    body.append(f'<p class="src"><b>Fuentes:</b> {e(x.get("docName") or "texto oficial de la convocatoria")} publicado en la BDNS ({e(c.get("bdns") or "")}); '
+                'Sistema Nacional de Publicidad de Subvenciones y Ayudas Públicas (IGAE).</p>'
+                f'<p class="disc">Contenido extraído del texto oficial de la convocatoria con ayuda de inteligencia artificial ({e(fdate(x.get("extracted"), lang))}). '
+                'Puede contener omisiones: la convocatoria y las bases reguladoras oficiales prevalecen siempre.</p>')
+    return document(lang, c["title"], f"Ficha de ayuda · {'España' if c.get('level') == 'State' else region} · BDNS {c['id']}", lead, cover_rows,
+                    "".join(body), f"Ficha de ayuda · BDNS {c['id']}", f"datos a {fdate(today, lang)}")
+
+
 # ------------------------------------------------------------------ build
 def render(html):
     from weasyprint import HTML
@@ -532,10 +723,11 @@ def items():
     partners = json.loads(pfile.read_text(encoding="utf-8")) if pfile.exists() else {}
     for c in calls:
         yield "eu", c["id"], slug(c["id"]), (c, partners.get(c["id"]), texts.get(c["id"], ""))
-    sfile = SITE / "data" / "spain.json"
+    sfile, xfile = SITE / "data" / "spain.json", SITE / "data" / "spain_x.json"
+    extracts = json.loads(xfile.read_text(encoding="utf-8")) if xfile.exists() else {}
     if sfile.exists():
         for c in json.loads(sfile.read_text(encoding="utf-8")).get("calls", []):
-            yield "es", c["id"], "bdns-" + slug(c["id"]), (c,)
+            yield "es", c["id"], "bdns-" + slug(c["id"]), (c, extracts.get(c["id"]))
 
 
 def build(only=None, preview=False):
@@ -563,7 +755,7 @@ def build(only=None, preview=False):
         else:
             for old in CACHE.glob(f"{sl}.*.pdf"):
                 old.unlink()
-            html = eu_ficha(*args, today) if kind == "eu" else es_ficha(*args, today)
+            html = eu_ficha(*args, today) if kind == "eu" else es_ficha(*args, today=today)
             try:
                 pdf = render(html)
             except Exception as ex:

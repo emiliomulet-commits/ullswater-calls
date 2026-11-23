@@ -521,8 +521,8 @@ def main():
         ("alerts", "alerts", "Free EU funding alerts by email | Ullswater Investments", "Weekly email with new EU calls for your keywords, upcoming deadlines and partner requests.", extra_pages.alerts_html()),
         ("directory", "directory", f"Directory of organisations open to EU consortia ({len(directory)}) | Ullswater Investments",
          "Organisations looking to join or lead EU projects, matched with open calls by Ullswater Investments.", extra_pages.directory_html(directory, dir_by_profile, slug)),
-        ("spain", "spain", f"Spanish R&D, innovation and industry calls ({len(spain['calls'])} open or upcoming) | Ullswater Investments",
-         "Competitive national and regional calls in Spain for R&D&I and industry, from the official BDNS, updated daily.", extra_pages.spain_html(spain, money, fmt_date))]:
+        ("spain", "spain", f"Spanish State and regional grants for companies ({len(spain['calls'])} open or upcoming) | Ullswater Investments",
+         "Competitive national and regional grants in Spain for companies (R&D&I, industry, SMEs, trade, agri-food, employment), from the official BDNS, updated daily, with a PDF factsheet for each call.", extra_pages.spain_html(spain, money, fmt_date))]:
         (SITE / sub).mkdir(exist_ok=True)
         (SITE / sub / "index.html").write_text(page(ttl, dsc, f"/{sub}/", nav(progs, cur) + body), encoding="utf-8")
         urls.append(f"/{sub}/")
