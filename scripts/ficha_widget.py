@@ -2,9 +2,18 @@
 
 Any element with data-ficha="<call id>" (and optional data-title, data-lang="es|en") becomes a download button.
 Buttons whose factsheet does not exist in /fichas/index.json are hidden.
+
+Any element with data-ficha-preview="<call id>" shows pages 1 and 2 of the factsheet (public images) with a call to
+action: the full PDF (all pages) and its download need the email check.
 """
 WORKER = "https://ullswater-fichas.emilio-mulet-b52.workers.dev"
 PRIVACY = "https://www.ullswaterinvestments.com/privacy/"
+
+
+def preview(call_id, title, lang="en"):
+    from html import escape
+    return (f'<section class="sec ficha-pv" data-ficha-preview="{escape(call_id)}" data-title="{escape(title[:220])}" '
+            f'data-lang="{lang}" hidden></section>')
 
 
 def button(call_id, title, lang="en", cls="btn ghost"):
@@ -21,13 +30,15 @@ var T={en:{h:'Download the PDF factsheet',p:'Enter your email. We will send you 
  m:'I also want to receive news on EU and Spanish funding calls (optional, you can unsubscribe at any time).',s:'Send me the link',c:'Cancel',
  ok:'Check your inbox',ok2:'We have sent a confirmation link to <b>{e}</b>. It is valid for 24 hours. If you cannot find it, look in your spam folder.',
  err:{email:'Please enter a valid email address.',privacy:'Please accept the privacy policy to continue.',rate:'Too many requests. Please try again later.',mail:'We could not send the email. Please check the address or try again later.',unknown_ficha:'This factsheet is not available right now.',_:'Something went wrong. Please try again.'},
- v:'Email verified. Your factsheet is downloading…',as:'Downloading as {e}',sw:'Use another email'},
+ v:'Email verified. Your factsheet is downloading…',as:'Downloading as {e}',sw:'Use another email',
+ ph:'Factsheet preview',pp:'Pages 1 and 2 of {n}',pa:'Page {i} of the factsheet',pc:'See all {n} pages and download the PDF for free',pd:'You only need to confirm your email address once.',pb:'📄 Get the full factsheet (PDF)'},
  es:{h:'Descargar la ficha en PDF',p:'Introduzca su email. Le enviaremos un enlace para confirmar que es suyo; la descarga empieza al abrirlo. Solo tendrá que hacerlo una vez en este navegador.',
  e:'Su email',a:'Acepto la <a href="'+PRIV+'" target="_blank" rel="noopener">política de privacidad</a>. Ullswater Investments usa mi email para verificarlo y enviarme la ficha.',
  m:'Quiero recibir también novedades sobre convocatorias y ayudas (opcional, puede darse de baja cuando quiera).',s:'Enviarme el enlace',c:'Cancelar',
  ok:'Revise su correo',ok2:'Hemos enviado un enlace de confirmación a <b>{e}</b>. Es válido durante 24 horas. Si no lo encuentra, mire en la carpeta de spam.',
  err:{email:'Introduzca un email válido.',privacy:'Debe aceptar la política de privacidad para continuar.',rate:'Demasiadas solicitudes. Inténtelo más tarde.',mail:'No hemos podido enviar el email. Revise la dirección o inténtelo más tarde.',unknown_ficha:'Esta ficha no está disponible ahora mismo.',_:'Algo ha fallado. Inténtelo de nuevo.'},
- v:'Email verificado. Su ficha se está descargando…',as:'Descargando como {e}',sw:'Usar otro email'}};
+ v:'Email verificado. Su ficha se está descargando…',as:'Descargando como {e}',sw:'Usar otro email',
+ ph:'Vista previa de la ficha',pp:'Páginas 1 y 2 de {n}',pa:'Página {i} de la ficha',pc:'Vea las {n} páginas y descargue el PDF gratis',pd:'Solo tiene que validar su email una vez.',pb:'📄 Obtener la ficha completa (PDF)'}};
 var css='.uf-bg{position:fixed;inset:0;background:rgba(15,23,42,.55);display:flex;align-items:center;justify-content:center;z-index:9999;padding:16px}'+
 '.uf{background:#fff;border-radius:12px;max-width:460px;width:100%;padding:26px 26px 22px;border-top:5px solid #c9a646;font-family:Inter,Arial,sans-serif;color:#1f2937;box-shadow:0 20px 50px rgba(0,0,0,.25)}'+
 '.uf h3{margin:0 0 6px;color:#233567;font-size:19px}.uf .t{font-size:13px;color:#475467;margin:0 0 14px}.uf .n{font-size:13px;font-weight:600;color:#233567;margin:0 0 12px}'+
@@ -36,7 +47,13 @@ var css='.uf-bg{position:fixed;inset:0;background:rgba(15,23,42,.55);display:fle
 '.uf .r{display:flex;gap:10px;justify-content:flex-end;margin-top:14px}.uf button{border:0;border-radius:8px;padding:10px 16px;font-weight:600;font-size:14px;cursor:pointer}'+
 '.uf .go{background:#233567;color:#fff}.uf .go[disabled]{opacity:.6}.uf .no{background:#f2f4f7;color:#344054}.uf .er{color:#b42318;font-size:13px;margin:6px 0 0;min-height:18px}'+
 'button.ficha{background:none;border:0;padding:0;margin-left:16px;font:inherit;font-weight:600;color:#233567;cursor:pointer}button.ficha:hover{text-decoration:underline}'+
-'.uf .hp{position:absolute;left:-5000px}.uf-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#233567;color:#fff;padding:12px 18px;border-radius:8px;font:600 14px Inter,Arial,sans-serif;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.25)}';
+'.uf .hp{position:absolute;left:-5000px}.uf-pvw{background:#fff;border:1px solid #e4e7ec;border-radius:12px;padding:20px;margin:8px 0 24px}.uf-pvw h2{margin:0 0 2px;color:#233567;font-size:20px}.uf-pvw .s{margin:0 0 14px;color:#6b7280;font-size:13px}'+
+'.uf-pages{display:grid;grid-template-columns:1fr 1fr;gap:14px}.uf-pages a{display:block;position:relative;border:1px solid #d5d8de;border-radius:6px;overflow:hidden;box-shadow:0 4px 14px rgba(15,23,42,.08);background:#fff}'+
+'.uf-pages img{display:block;width:100%;height:auto}.uf-pages a.f2:after{content:"";position:absolute;left:0;right:0;bottom:0;height:38%;background:linear-gradient(rgba(255,255,255,0),#fff 85%)}'+
+'.uf-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;padding:16px 18px;background:#fbf3e2;border:1px solid #edbc6c;border-radius:10px}'+
+'.uf-cta b{display:block;color:#233567;font-size:15px}.uf-cta span{font-size:13px;color:#475467}.uf-cta button{background:#233567;color:#fff;border:0;border-radius:8px;padding:11px 18px;font:600 14px Inter,Arial,sans-serif;cursor:pointer}'+
+'@media(max-width:640px){.uf-pages{grid-template-columns:1fr}}'+
+'.uf-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#233567;color:#fff;padding:12px 18px;border-radius:8px;font:600 14px Inter,Arial,sans-serif;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.25)}';
 function el(h){var d=document.createElement('div');d.innerHTML=h;return d.firstChild}
 function toast(m){var t=el('<div class="uf-toast"></div>');t.textContent=m;document.body.appendChild(t);setTimeout(function(){t.remove()},6000)}
 function get(){try{return localStorage.getItem(K)}catch(e){return null}}
@@ -75,9 +92,19 @@ function init(){
  var h=location.hash.match(/ficha=([^&]+)&fid=([^&]+)/);
  if(h){var a=decodeURIComponent(h[1]),id=decodeURIComponent(h[2]);put(a);history.replaceState(null,'',location.pathname+location.search);
   var bb=document.querySelector('[data-ficha]');toast(T[bb&&bb.dataset.lang==='es'?'es':(document.documentElement.lang==='es'?'es':'en')].v);setTimeout(function(){download(id,a)},600)}
- var bs=[].slice.call(document.querySelectorAll('[data-ficha]'));if(!bs.length)return;
+ var ps=[].slice.call(document.querySelectorAll('[data-ficha-preview]'));
+ if(!ps.length&&!document.querySelector('[data-ficha]'))return;
  fetch('/fichas/index.json',{cache:'no-cache'}).then(function(r){return r.ok?r.json():{fichas:{}}}).then(function(ix){
-  bs.forEach(function(b){if(ix.fichas&&ix.fichas[b.dataset.ficha]){b.hidden=false;b.addEventListener('click',function(e){e.preventDefault();click(b)})}})}).catch(function(){});
+  var F=ix.fichas||{};
+  ps.forEach(function(p){var id=p.dataset.fichaPreview,x=F[id];if(!x||!x.pv)return;var L=T[p.dataset.lang==='es'?'es':'en'],n=x.pg||x.pv,h='';
+   for(var i=1;i<=x.pv;i++)h+='<a class="f'+i+'" href="/fichas/p/'+x.f+'-'+i+'.jpg" target="_blank" rel="noopener"><img loading="lazy" width="893" height="1263" src="/fichas/p/'+x.f+'-'+i+'.jpg" alt=""></a>';
+   p.innerHTML='<div class="uf-pvw"><h2></h2><p class="s"></p><div class="uf-pages">'+h+'</div>'+(x.dl!==0?'<div class="uf-cta"><div><b></b><span></span></div><button type="button"></button></div>':'')+'</div>';
+   p.querySelector('h2').textContent=L.ph;p.querySelector('.s').textContent=L.pp.replace('{n}',n);
+   [].forEach.call(p.querySelectorAll('img'),function(im,i){im.alt=L.pa.replace('{i}',i+1)+(p.dataset.title?' · '+p.dataset.title:'')});
+   var c=p.querySelector('.uf-cta');if(c){c.querySelector('b').textContent=L.pc.replace('{n}',n);c.querySelector('span').textContent=L.pd;var bt=c.querySelector('button');bt.textContent=L.pb;
+    bt.dataset.ficha=id;bt.dataset.lang=p.dataset.lang;bt.dataset.title=p.dataset.title||''}
+   p.hidden=false});
+  [].slice.call(document.querySelectorAll('[data-ficha]')).forEach(function(b){var x=F[b.dataset.ficha];if(x&&x.dl!==0){b.hidden=false;b.addEventListener('click',function(e){e.preventDefault();click(b)})}})}).catch(function(){});
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();

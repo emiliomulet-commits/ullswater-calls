@@ -155,7 +155,7 @@ async function request(req, env) {
   }
   const idx = await fichaIndex(env).catch(() => ({}));
   const f = idx[String(b.id || "")];
-  if (!f) return json({ error: "unknown_ficha" }, req, 404);
+  if (!f || f.dl === 0) return json({ error: "unknown_ficha" }, req, 404);
   await schema(env);
   if (await overLimit(env, await ipKey(req), LIMITS.ip)) return json({ error: "rate" }, req, 429);
   if (await overLimit(env, "em:" + (await sha256(email)).slice(0, 16), LIMITS.email)) return json({ error: "rate" }, req, 429);
@@ -226,7 +226,7 @@ async function pdf(req, env) {
   if (!lead) return page("Validación necesaria · Verification needed", "Para descargar la ficha, introduzca su email en la página de la ayuda y confirme el enlace que le enviaremos.<br><br>To download the factsheet, enter your email on the call page and confirm the link we send you.");
   if (await overLimit(env, "dl:" + lead.id, LIMITS.pdf)) return page("Límite diario · Daily limit", "Ha alcanzado el número máximo de descargas por hoy. Inténtelo mañana.<br><br>You have reached today's download limit.");
   const f = (await fichaIndex(env))[id];
-  if (!f) return page("Ficha no disponible · Not available", "Esta ficha ya no está disponible (la convocatoria puede haber cerrado).<br><br>This factsheet is no longer available (the call may have closed).");
+  if (!f || f.dl === 0) return page("Ficha no disponible · Not available", "Esta ficha ya no está disponible (la convocatoria puede haber cerrado).<br><br>This factsheet is no longer available (the call may have closed).");
   const r = await fetch(`${env.FICHAS_BASE || SITE}/fichas/${f.f}.bin`, { cf: { cacheTtl: 3600, cacheEverything: true } });
   if (!r.ok) return page("Error", "No se pudo recuperar la ficha. Inténtelo de nuevo en unos minutos.");
   const data = new Uint8Array(await r.arrayBuffer());

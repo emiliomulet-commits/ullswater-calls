@@ -7,6 +7,10 @@ Each PDF is encrypted with AES-256-GCM (key: env FICHAS_KEY, 32 bytes in base64)
 site/fichas/<slug>.bin, so the public site never exposes the PDF itself. The "ullswater-fichas" Worker
 decrypts and serves it only after the visitor has verified their email address.
 
+Pages 1 and 2 are public: they are rendered as images (site/fichas/p/<slug>-1.jpg, -2.jpg) and shown on the call
+page by assets/ficha.js; the full PDF and its download need the email check. Previews are written even without
+FICHAS_KEY (index.json then marks the factsheets as not downloadable, "dl": 0).
+
 PDFs are cached in .cache/fichas by a fingerprint of their content, so only changed calls are re-rendered.
 
 Local preview (no key needed):  python scripts/fichas.py --preview HORIZON-MSCA-2026-DN-01-01 936950
@@ -702,6 +706,27 @@ def render(html):
     return HTML(string=html, base_url=str(ASSETS)).write_pdf()
 
 
+PREVIEW_PAGES = 2
+
+
+def previews(pdf, sl, fp):
+    """JPEG images of the first pages (cached by the PDF fingerprint). Returns (number of preview pages, total pages)."""
+    import pypdfium2 as pdfium
+    doc = pdfium.PdfDocument(pdf)
+    total, n = len(doc), min(PREVIEW_PAGES, len(doc))
+    (OUT / "p").mkdir(parents=True, exist_ok=True)
+    for i in range(n):
+        cached = CACHE / f"{sl}.{fp}.p{i + 1}.jpg"
+        if not cached.exists():
+            for old in CACHE.glob(f"{sl}.*.p{i + 1}.jpg"):
+                old.unlink()
+            img = doc[i].render(scale=1.5).to_pil().convert("RGB")  # A4 -> ~890 x 1260 px
+            img.save(cached, "JPEG", quality=78, optimize=True, progressive=True)
+        (OUT / "p" / f"{sl}-{i + 1}.jpg").write_bytes(cached.read_bytes())
+    doc.close()
+    return n, total
+
+
 def encrypt(pdf, key):
     from cryptography.hazmat.primitives.ciphers.aead import AESGCM
     import hmac as _h
@@ -734,8 +759,7 @@ def build(only=None, preview=False):
     key_b64 = os.environ.get("FICHAS_KEY", "")
     key = base64.b64decode(key_b64) if key_b64 else None
     if not key and not preview:
-        print("  FICHAS_KEY not set: factsheets are not published (set the secret to enable PDF downloads).")
-        return
+        print("  FICHAS_KEY not set: only the public preview (pages 1-2) is published; set the secret to enable PDF downloads.")
     if key and len(key) != 32:
         raise SystemExit("FICHAS_KEY must be 32 bytes, base64-encoded")
     today = date.today().isoformat()
@@ -767,9 +791,13 @@ def build(only=None, preview=False):
             (CACHE / "preview" / f"{sl}.pdf").write_bytes(pdf)
         if key:
             (OUT / f"{sl}.bin").write_bytes(encrypt(pdf, key))
-        index[cid] = {"f": sl, "k": kind, "kb": round(len(pdf) / 1024)}
-    if key:
-        (OUT / "index.json").write_text(json.dumps({"updated": today, "fichas": index}, separators=(",", ":")), encoding="utf-8")
+        try:
+            pv, pages = previews(pdf, sl, fp)
+        except Exception as ex:
+            print(f"  ! preview {cid}: {ex}")
+            pv, pages = 0, 0
+        index[cid] = {"f": sl, "k": kind, "kb": round(len(pdf) / 1024), "pg": pages, "pv": pv, "dl": 1 if key else 0}
+    (OUT / "index.json").write_text(json.dumps({"updated": today, "fichas": index}, separators=(",", ":")), encoding="utf-8")
     print(f"  factsheets: {len(index)} ({made} rendered, {reused} from cache){' · preview in .cache/fichas/preview' if preview else ''}")
 
 

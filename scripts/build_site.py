@@ -242,10 +242,15 @@ def page_ld(title, desc, path, jsonld=None):
     return lds
 
 
-def page(title, desc, path, body, jsonld=None):
+def page(title, desc, path, body, jsonld=None, lang="en"):
     canon = BASE + path
-    ld = f'<script type="application/ld+json">{json.dumps(page_ld(title, desc, path, jsonld), ensure_ascii=False)}</script>'
-    return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    lds = page_ld(title, desc, path, jsonld)
+    if lang != "en":
+        for x in lds:
+            if x.get("inLanguage") == "en":
+                x["inLanguage"] = lang
+    ld = f'<script type="application/ld+json">{json.dumps(lds, ensure_ascii=False)}</script>'
+    return f"""<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{escape(title)}</title><meta name="description" content="{escape(desc)}"><link rel="canonical" href="{canon}">
 <meta property="og:type" content="website"><meta property="og:title" content="{escape(title)}"><meta property="og:description" content="{escape(desc)}"><meta property="og:url" content="{canon}"><meta property="og:site_name" content="Ullswater Investments · EU Funding Advisors">
 <meta property="og:image" content="{OG_IMAGE}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="{OG_IMAGE}">
@@ -526,6 +531,24 @@ def main():
         (SITE / sub).mkdir(exist_ok=True)
         (SITE / sub / "index.html").write_text(page(ttl, dsc, f"/{sub}/", nav(progs, cur) + body), encoding="utf-8")
         urls.append(f"/{sub}/")
+    # One page per Spanish call, in Spanish: extracted content (SEO), public preview of the factsheet and download
+    xfile = SITE / "data" / "spain_x.json"
+    spain_x = json.loads(xfile.read_text(encoding="utf-8")) if xfile.exists() else {}
+    for c in spain["calls"]:
+        x = spain_x.get(c["id"])
+        X = (x or {}).get("data") or {}
+        path = f"/spain/{c['id']}/"
+        dsc = (X.get("resumen") or f"{c.get('body', '')}: convocatoria {'estatal' if c.get('level') == 'State' else 'autonómica de ' + c.get('region', '')} de ayudas a empresas. Ficha en PDF, requisitos, cuantía y plazos.")[:300]
+        ld = [{"@type": "WebPage", "name": c["title"][:200], "url": BASE + path, "description": dsc, "inLanguage": "es"},
+              {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "EU funding calls", "item": BASE + "/"},
+                                                             {"@type": "ListItem", "position": 2, "name": "Spain", "item": BASE + "/spain/"},
+                                                             {"@type": "ListItem", "position": 3, "name": c["title"][:120], "item": BASE + path}]}]
+        (SITE / "spain" / c["id"]).mkdir(parents=True, exist_ok=True)
+        (SITE / "spain" / c["id"] / "index.html").write_text(
+            page(f"{c['title'][:110]} · Ayuda {('estatal' if c.get('level') == 'State' else c.get('region', ''))} | Ullswater Investments", dsc, path,
+                 nav(progs, "spain") + extra_pages.spain_call_html(c, x, money, fmt_date), ld, lang="es"), encoding="utf-8")
+        urls.append(path)
+    print(f"  Spanish call pages: {len(spain['calls'])} ({sum(1 for c in spain['calls'] if c['id'] in spain_x)} with full content)")
     print(f"  partner board: {len(live_reqs)} approved requests")
     print(f"  call pages: {len(calls)} ({sum(1 for c in calls if call_pages.partners_enabled(c, partners.get(c['id'])))} with track-record partners), events: {len(events)}")
 

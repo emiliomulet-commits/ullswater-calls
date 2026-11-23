@@ -8,9 +8,17 @@ For every call in site/data/spain.json:
   3. asks Claude for a structured summary (object, beneficiaries, requirements, eligible costs, amounts and aid
      intensity, deadlines, evaluation criteria, payment, documentation...) — strictly from the text.
 
+The requests go through the Message Batches API (50 % cheaper than the Messages API; results usually within an hour,
+at most 24 h). Each run:
+  a) collects the results of batches submitted earlier (state in site/data/spain_x_batches.json, committed by the
+     daily workflow; ended batches that the state file lost are recovered from the API listing),
+  b) submits one new batch with every call that has no extraction for its current document,
+  c) waits up to EXTRACT_WAIT_MIN minutes (default 20) and collects it, so most factsheets appear the same day.
+
 Output: site/data/spain_x.json  {bdns id: {"doc", "docName", "model", "extracted", "data": {...}}}
 Each call is extracted once per document (re-extracted only if the BDNS publishes a new document or with --force).
-Needs ANTHROPIC_API_KEY (optional CLAUDE_MODEL, default claude-sonnet-5-5; EXTRACT_MAX new extractions per run).
+Needs ANTHROPIC_API_KEY. Optional: CLAUDE_EXTRACT_MODEL (default claude-haiku-5-5), EXTRACT_MAX (calls per batch,
+default 400), EXTRACT_SUBMIT=false (only collect; used on push runs, whose state is not committed).
 Without the key it does nothing, and the factsheets keep the basic BDNS layout.
 
   python scripts/bdns_extract.py [--force] [ID ...]
@@ -22,6 +30,7 @@ import os
 import re
 import sys
 import time
+import urllib.error
 import urllib.request
 from datetime import date
 from pathlib import Path
@@ -29,8 +38,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SPAIN = ROOT / "site" / "data" / "spain.json"
 OUT = ROOT / "site" / "data" / "spain_x.json"
+STATE = ROOT / "site" / "data" / "spain_x_batches.json"
 DOCS = ROOT / ".cache" / "bdns" / "docs"
 API = "https://www.infosubvenciones.es/bdnstrans/api/convocatorias/documentos?idDocumento="
+ANTHROPIC = os.environ.get("ANTHROPIC_BASE_URL", "https://api.anthropic.com")
 UA = {"User-Agent": "UllswaterCallsBot/1.0 (+https://calls.ullswaterinvestments.com)"}
 MAX_CHARS = 140_000
 
@@ -115,26 +126,101 @@ def pdf_text(doc_id):
     return re.sub(r"\n{3,}", "\n\n", text).strip()
 
 
-def claude(text, call, key, model):
+def request_body(text, call, model):
     meta = f"Título: {call['title']}\nOrganismo: {call.get('body')}\nRegión: {call.get('region')}\nCódigo BDNS: {call['id']}\n"
-    body = {"model": model, "max_tokens": 6000, "system": SYSTEM, "tools": [{"name": "ficha", "description": "Ficha estructurada de la convocatoria", "input_schema": SCHEMA}],
+    return {"model": model, "max_tokens": 6000,
+            "system": [{"type": "text", "text": SYSTEM, "cache_control": {"type": "ephemeral"}}],
+            "tools": [{"name": "ficha", "description": "Ficha estructurada de la convocatoria", "input_schema": SCHEMA}],
             "tool_choice": {"type": "tool", "name": "ficha"},
             "messages": [{"role": "user", "content": meta + "\nTEXTO OFICIAL:\n" + text[:MAX_CHARS]}]}
-    base = os.environ.get("ANTHROPIC_BASE_URL", "https://api.anthropic.com")
-    req = urllib.request.Request(base + "/v1/messages", data=json.dumps(body).encode(), method="POST",
+
+
+def api(key, path, body=None, raw=False):
+    req = urllib.request.Request(ANTHROPIC + path, data=json.dumps(body).encode() if body is not None else None,
+                                 method="POST" if body is not None else "GET",
                                  headers={"x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
-    for attempt in range(3):
+    for attempt in range(4):
         try:
-            r = json.load(urllib.request.urlopen(req, timeout=300))
-            for blk in r.get("content", []):
-                if blk.get("type") == "tool_use":
-                    return blk["input"], r.get("usage", {})
-            raise ValueError("no tool_use in response")
-        except Exception as e:
-            if attempt == 2:
+            with urllib.request.urlopen(req, timeout=300) as r:
+                data = r.read()
+            return data if raw else json.loads(data)
+        except urllib.error.HTTPError as ex:
+            if ex.code < 500 and ex.code != 429 or attempt == 3:
+                raise RuntimeError(f"{ex.code} {ex.read()[:300]!r}")
+        except Exception:
+            if attempt == 3:
                 raise
-            print(f"  retry {call['id']}: {e}")
-            time.sleep(10 * (attempt + 1))
+        time.sleep(10 * (attempt + 1))
+
+
+def load(path, default):
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else default
+
+
+def save(path, data):
+    path.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+
+def collect(key, state, store, live):
+    """Fetch the results of every ended batch in `state`; returns token usage."""
+    tin = tout = got = 0
+    for b in list(state["batches"]):
+        info = api(key, f"/v1/messages/batches/{b['id']}")
+        if info.get("processing_status") != "ended":
+            continue
+        for line in api(key, f"/v1/messages/batches/{b['id']}/results", raw=True).decode("utf-8").splitlines():
+            if not line.strip():
+                continue
+            r = json.loads(line)
+            item = b["items"].get(r["custom_id"])
+            res = r.get("result") or {}
+            if not item:
+                continue
+            if res.get("type") != "succeeded":
+                print(f"  ! {item['call']}: {res.get('type')} {str(res.get('error'))[:160]}")
+                continue
+            msg = res["message"]
+            data = next((blk["input"] for blk in msg.get("content", []) if blk.get("type") == "tool_use"), None)
+            if data is None or item["call"] not in live:
+                continue
+            store[item["call"]] = {"doc": item["doc"], "docName": item.get("docName"), "model": msg.get("model") or b.get("model"),
+                                   "extracted": date.today().isoformat(), "data": data}
+            u = msg.get("usage") or {}
+            tin += u.get("input_tokens", 0) + u.get("cache_read_input_tokens", 0) + u.get("cache_creation_input_tokens", 0)
+            tout += u.get("output_tokens", 0)
+            got += 1
+        state["batches"].remove(b)
+        state.setdefault("done", []).append(b["id"])
+        state["done"] = state["done"][-50:]
+    if got:
+        print(f"  collected {got} factsheets from batches (tokens in {tin}, out {tout}; billed at batch price, 50 % off)")
+    return got
+
+
+def recover(key, state):
+    """Ended batches submitted by a run whose state file was not committed (push runs): re-adopt them via their custom ids."""
+    known = {b["id"] for b in state["batches"]} | set(state.get("done", []))
+    try:
+        lst = api(key, "/v1/messages/batches?limit=20").get("data", [])
+    except Exception as ex:
+        print(f"  batch listing skipped: {ex}")
+        return
+    for info in lst:
+        if info["id"] in known or info.get("processing_status") == "canceling":
+            continue
+        try:
+            first = api(key, f"/v1/messages/batches/{info['id']}/results", raw=True).decode().splitlines() if info.get("processing_status") == "ended" else []
+        except Exception:
+            continue
+        items = {}
+        for line in first:
+            cid = json.loads(line)["custom_id"]
+            m = re.match(r"bdns-(\w+)-d(\d+)$", cid)
+            if m:
+                items[cid] = {"call": m.group(1), "doc": int(m.group(2))}
+        if items:
+            state["batches"].append({"id": info["id"], "items": items, "submitted": info.get("created_at", "")[:10]})
+            print(f"  recovered batch {info['id']} ({len(items)} requests)")
 
 
 def main():
@@ -142,16 +228,25 @@ def main():
     force = "--force" in args
     only = {a for a in args if not a.startswith("--")}
     key = os.environ.get("ANTHROPIC_API_KEY", "")
-    model = os.environ.get("CLAUDE_MODEL", "claude-sonnet-5-5")
-    limit = int(os.environ.get("EXTRACT_MAX", "60"))
+    model = os.environ.get("CLAUDE_EXTRACT_MODEL") or "claude-haiku-5-5"
+    limit = int(os.environ.get("EXTRACT_MAX", "400"))
+    wait_min = float(os.environ.get("EXTRACT_WAIT_MIN", "20"))
+    submit = os.environ.get("EXTRACT_SUBMIT", "true").lower() not in ("false", "0", "no")
     if not key:
         print("  ANTHROPIC_API_KEY not set: Spanish factsheets keep the basic BDNS layout.")
         return
     calls = json.loads(SPAIN.read_text(encoding="utf-8")).get("calls", [])
-    store = json.loads(OUT.read_text(encoding="utf-8")) if OUT.exists() else {}
     live = {c["id"] for c in calls}
-    store = {k: v for k, v in store.items() if k in live}  # drop calls that are no longer published
-    done, tin, tout = 0, 0, 0
+    store = {k: v for k, v in load(OUT, {}).items() if k in live}  # drop calls that are no longer published
+    state = load(STATE, {"batches": [], "done": []})
+
+    recover(key, state)
+    collect(key, state, store, live)
+    save(OUT, store)
+    save(STATE, state)
+
+    pending = {it["call"] + ":" + str(it["doc"]) for b in state["batches"] for it in b["items"].values()}
+    todo = []
     for c in calls:
         if only and c["id"] not in only:
             continue
@@ -160,26 +255,46 @@ def main():
             continue
         if not force and store.get(c["id"], {}).get("doc") == doc["id"]:
             continue
-        if done >= limit:
-            print(f"  limit of {limit} extractions reached; the rest go in the next run")
+        if f"{c['id']}:{doc['id']}" in pending:
+            continue
+        todo.append((c, doc))
+    print(f"  Spanish calls: {len(store)} with full factsheet, {len(pending)} in batches being processed, {len(todo)} to extract")
+    if not todo or not submit:
+        return
+
+    requests, items = [], {}
+    for c, doc in todo:
+        if len(requests) >= limit:
+            print(f"  batch limited to {limit} calls; the rest go in the next run")
             break
         try:
             text = pdf_text(doc["id"])
-            if len(text) < 800:
-                print(f"  {c['id']}: document without usable text ({len(text)} chars), skipped")
-                continue
-            data, usage = claude(text, c, key, model)
-        except Exception as e:
-            print(f"  ! {c['id']}: {e}")
+        except Exception as ex:
+            print(f"  ! {c['id']}: document {doc['id']}: {ex}")
             continue
-        store[c["id"]] = {"doc": doc["id"], "docName": doc.get("desc") or doc.get("name"), "model": model,
-                          "extracted": date.today().isoformat(), "data": data}
-        tin += usage.get("input_tokens", 0)
-        tout += usage.get("output_tokens", 0)
-        done += 1
-        OUT.write_text(json.dumps(store, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    OUT.write_text(json.dumps(store, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    print(f"  Spanish calls with full factsheet content: {len(store)} ({done} new; tokens in {tin}, out {tout})")
+        if len(text) < 800:
+            print(f"  {c['id']}: document without usable text ({len(text)} chars), skipped")
+            continue
+        cid = f"bdns-{c['id']}-d{doc['id']}"[:64]
+        requests.append({"custom_id": cid, "params": request_body(text, c, model)})
+        items[cid] = {"call": c["id"], "doc": doc["id"], "docName": doc.get("desc") or doc.get("name")}
+    if not requests:
+        return
+    b = api(key, "/v1/messages/batches", {"requests": requests})
+    state["batches"].append({"id": b["id"], "model": model, "submitted": date.today().isoformat(), "items": items})
+    save(STATE, state)
+    print(f"  submitted batch {b['id']}: {len(requests)} calls with {model}")
+
+    deadline = time.time() + wait_min * 60
+    while time.time() < deadline:
+        time.sleep(30)
+        if api(key, f"/v1/messages/batches/{b['id']}").get("processing_status") == "ended":
+            break
+    collect(key, state, store, live)
+    save(OUT, store)
+    save(STATE, state)
+    if state["batches"]:
+        print(f"  {len(state['batches'])} batch(es) still running: collected in the next run")
 
 
 if __name__ == "__main__":
