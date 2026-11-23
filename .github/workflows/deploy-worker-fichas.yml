@@ -29,6 +29,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: worker-fichas
+          wranglerVersion: "4"
       - name: Smoke test
         if: ${{ env.CF_TOKEN != '' }}
         env:
