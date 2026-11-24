@@ -13,7 +13,7 @@
     en: { name: 'Funding Assistant', open: 'Ask about funding', ai: 'You are chatting with an AI assistant.', ph: 'Your question…', send: 'Send', expert: 'Talk to an expert',
       hi: 'Hi! I can help you with EU calls, grants in Spain, our services, news and events. What are you looking for?',
       foot: 'AI answers can be wrong: always check the official source. Questions are stored anonymously for 12 months to improve the service; do not include personal data.',
-      privacy: 'Privacy', fresh: 'New conversation', think: 'Thinking', busy: 'The assistant is busy. Please try again.', cut: 'The answer was interrupted. Please try again.', close: 'Close',
+      privacy: 'Privacy', rel: 'Related topics', fresh: 'New conversation', think: 'Thinking', busy: 'The assistant is busy. Please try again.', cut: 'The answer was interrupted. Please try again.', close: 'Close',
       q: { www: ['Which of your services fits a startup looking for EU funding?', 'How do you help with a Horizon Europe proposal?', 'Which European projects are open to new partners?'],
            calls: ['RIA calls in Cluster 4 on AI closing before April 2027', 'Calls open to SMEs on clean energy', 'EIC calls for deep-tech startups'],
            call: ['Explain this call in plain words', 'Can SMEs apply to this call?', 'Similar calls with a later deadline'],
@@ -25,7 +25,7 @@
     es: { name: 'Asistente de ayudas', open: 'Pregunta por ayudas', ai: 'Estás hablando con un asistente de IA.', ph: 'Tu pregunta…', send: 'Enviar', expert: 'Hablar con un experto',
       hi: '¡Hola! Te ayudo con convocatorias europeas, ayudas en España, nuestros servicios, noticias y eventos. ¿Qué estás buscando?',
       foot: 'Las respuestas de la IA pueden contener errores: comprueba siempre la fuente oficial. Las preguntas se guardan de forma anónima 12 meses para mejorar el servicio; no incluyas datos personales.',
-      privacy: 'Privacidad', fresh: 'Nueva conversación', think: 'Pensando', busy: 'El asistente está ocupado. Inténtalo de nuevo.', cut: 'La respuesta se interrumpió. Inténtalo de nuevo.', close: 'Cerrar',
+      privacy: 'Privacidad', rel: 'Temas relacionados', fresh: 'Nueva conversación', think: 'Pensando', busy: 'El asistente está ocupado. Inténtalo de nuevo.', cut: 'La respuesta se interrumpió. Inténtalo de nuevo.', close: 'Cerrar',
       q: { www: ['Ayudas abiertas para pymes en mi comunidad', '¿Qué servicio vuestro encaja con una startup que busca fondos europeos?', '¿Qué proyectos europeos admiten nuevos socios?'],
            calls: ['Convocatorias RIA del Clúster 4 sobre IA que cierran antes de abril de 2027', 'Convocatorias abiertas a pymes sobre energía limpia', 'Convocatorias del EIC para startups deep-tech'],
            call: ['Explícame esta convocatoria en palabras sencillas', '¿Pueden presentarse pymes a esta convocatoria?', 'Convocatorias parecidas con plazo más tarde'],
@@ -51,6 +51,7 @@
     '#uaa-m a{color:#233567}#uaa-m .me a{color:#fff}#uaa-s{display:flex;flex-direction:column;gap:6px;margin-top:10px}#uaa-s button{text-align:left;background:#fff;border:1px solid #d7dbe6;border-radius:10px;padding:8px 10px;font:inherit;font-size:13px;color:#233567;cursor:pointer}' +
     '#uaa-s button:hover{border-color:#233567}.uaa-st{color:#6b7280;font-style:italic;font-size:13px}.uaa-src{margin-top:8px;display:flex;flex-wrap:wrap;gap:4px}.uaa-src a{font-size:11px;background:#fff;border:1px solid #e5e7eb;border-radius:999px;padding:2px 8px;text-decoration:none;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}' +
     '#uaa-f{display:flex;gap:6px;padding:10px;border-top:1px solid #e5e7eb}#uaa-i{flex:1;font:inherit;border:1px solid #d7dbe6;border-radius:8px;padding:9px;min-width:0}#uaa-f button{background:#c9a646;color:#233567;border:0;border-radius:8px;padding:0 14px;font:inherit;font-weight:700;cursor:pointer}' +
+    '.uaa-sg{margin-top:10px}.uaa-sg small{display:block;color:#6b7280;font-size:11px;margin-bottom:4px}.uaa-sg button{background:#fff;border:1px solid #c9a646;border-radius:999px;padding:5px 11px;margin:0 6px 6px 0;font:inherit;font-size:12.5px;color:#233567;cursor:pointer;text-align:left}.uaa-sg button:hover{background:#fbf6e6}' +
     '#uaa-n{font-size:11px;color:#6b7280;padding:0 12px 8px}#uaa-n a{color:#6b7280}' +
     '#uaa.wide #uaa-p{width:min(640px,94vw);height:min(780px,86vh)}#uaa.wide #uaa-m{font-size:15px}' +
     '@media (max-width:600px){#uaa{right:10px;bottom:10px}#uaa.o{inset:0}#uaa.o #uaa-p{width:100vw;height:100dvh;border-radius:0}}';
@@ -83,6 +84,13 @@
   }
   function add(h, mine) { var d = document.createElement('div'); d.className = 'msg' + (mine ? ' me' : ''); d.innerHTML = h; m.appendChild(d); m.scrollTop = m.scrollHeight; return d; }
   function src(a) { if (!a || !a.length) return ''; return '<div class="uaa-src">' + a.map(function (x) { return '<a href="' + esc(x.url) + '" title="' + esc(x.title || x.id) + '"' + (ext(x.url) ? ' target="_blank" rel="noopener"' : '') + '>' + esc(x.id || x.title) + '</a>'; }).join('') + '</div>'; }
+  // follow-up suggestions under the last answer: buttons that ask the question
+  function sugg(box, a) {
+    if (!a || !a.length) return;
+    var s = document.createElement('div'); s.className = 'uaa-sg'; s.innerHTML = '<small>' + esc(T.rel) + '</small>';
+    a.slice(0, 3).forEach(function (q) { var x = document.createElement('button'); x.type = 'button'; x.textContent = q; x.onclick = function () { if (busy) return; inp.value = q; ask(); }; s.appendChild(x); });
+    box.appendChild(s);
+  }
   function intro() {
     add(esc(T.hi));
     var s = document.createElement('div'); s.id = 'uaa-s';
@@ -106,12 +114,13 @@
   function ask() {
     var q = inp.value.trim(); if (!q || busy) return; busy = 1; inp.value = '';
     var sg = $('uaa-s'); if (sg) sg.remove();
+    var old = m.querySelectorAll('.uaa-sg'); for (var i = 0; i < old.length; i++) old[i].remove();
     add(esc(q), 1);
     var box = add(''), body = document.createElement('div'), stx = document.createElement('div'), txt = '', raf = 0;
     stx.className = 'uaa-st'; stx.textContent = T.think + '…'; box.appendChild(body); box.appendChild(stx);
     function paint() { raf = 0; body.innerHTML = fmt(txt); m.scrollTop = m.scrollHeight; }
     function status(s) { stx.textContent = s ? s + '…' : ''; stx.style.display = s ? '' : 'none'; m.scrollTop = m.scrollHeight; }
-    function fin(d) { busy = 0; status(''); if (raf) cancelAnimationFrame(raf); paint(); if (d && d.sources) box.insertAdjacentHTML('beforeend', src(d.sources)); H.push({ role: 'assistant', content: txt }); save(); m.scrollTop = m.scrollHeight; }
+    function fin(d) { busy = 0; status(''); if (raf) cancelAnimationFrame(raf); paint(); if (d && d.sources) box.insertAdjacentHTML('beforeend', src(d.sources)); if (d) sugg(box, d.suggest); H.push({ role: 'assistant', content: txt }); save(); m.scrollTop = m.scrollHeight; }
     function fail(msg) { busy = 0; H.pop(); status(''); if (txt) { paint(); box.insertAdjacentHTML('beforeend', '<div style="color:#b91c1c;font-size:12px;margin-top:6px">' + esc(msg) + '</div>'); } else box.textContent = msg; }
     var hist = H.slice(-10); H.push({ role: 'user', content: q });
     var isTopic = q === topicQ; topicQ = '';
