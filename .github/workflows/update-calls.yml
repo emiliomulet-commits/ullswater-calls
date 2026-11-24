@@ -125,6 +125,17 @@ jobs:
           git diff --cached --quiet || git commit -m "Daily calls update $(date -u +%F)"
           for i in 1 2 3; do git pull --rebase -X theirs && git push && break; sleep 5; done
 
+      - name: Data version marker (the ullswater-ai chat reloads its data as soon as this changes)
+        run: |
+          python - <<'PY'
+          import json, os, datetime
+          upd = json.load(open("site/data/calls.json", encoding="utf-8")).get("stats", {}).get("updated")
+          v = f"{os.environ['GITHUB_RUN_ID']}-{os.environ['GITHUB_RUN_ATTEMPT']}"
+          json.dump({"v": v, "updated": upd, "built": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")},
+                    open("site/data/version.json", "w"))
+          print("data version", v, upd)
+          PY
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

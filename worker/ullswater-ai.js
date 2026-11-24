@@ -184,12 +184,26 @@ const STOPWORDS = new Set(("the and for with that this from are which what when 
 const stem = x => x.replace(/(ies)$/, "y").replace(/(ing|ed|es|s)$/, "");
 const tokens = q => [...new Set((norm(q).match(/[a-z0-9][a-z0-9\-]{1,}/g) || []).filter(x => !STOPWORDS.has(x)).map(stem).filter(x => x.length >= 2))];
 
+// Data version written by every build of calls.ullswaterinvestments.com (site/data/version.json). Checked at most every 2 minutes:
+// when it changes, the data is reloaded at once with ?v=<version>, so neither this isolate nor the edge cache serves an old build.
+async function dataVersion() {
+  try {
+    const r = await fetch(`${SITE}/data/version.json?t=${Math.floor(Date.now() / 60e3)}`, { cf: { cacheTtl: 60, cacheEverything: true } });
+    if (r.ok) return String((await r.json()).v || "") || null;
+  } catch (e) { console.log("data version unavailable: " + (e.message || e)); }
+  return null;
+}
 async function loadData() {
-  if (DATA.calls && Date.now() - DATA.at < 1800e3) return DATA;
+  const now = Date.now();
+  if (DATA.calls && now - (DATA.checked || 0) < 120e3) return DATA;
+  const v = await dataVersion();
+  DATA.checked = now;
+  if (DATA.calls && (!v || v === DATA.v) && now - DATA.at < 1800e3) return DATA;
+  const vq = v ? "?v=" + encodeURIComponent(v) : "";
   const [cj, finder, words, spain, events] = await Promise.all([
-    getJSON(`${SITE}/data/calls.json`, 1800), getJSON(`${SITE}/data/finder.json`, 1800).catch(() => []),
-    getJSON(`${SITE}/data/words.json`, 1800).catch(() => ({})),
-    getJSON(`${SITE}/data/spain.json`, 1800).catch(() => ({ calls: [] })), getJSON(EVENTS, 1800).catch(() => ({ events: [] }))]);
+    getJSON(`${SITE}/data/calls.json${vq}`, 1800), getJSON(`${SITE}/data/finder.json${vq}`, 1800).catch(() => []),
+    getJSON(`${SITE}/data/words.json${vq}`, 1800).catch(() => ({})),
+    getJSON(`${SITE}/data/spain.json${vq}`, 1800).catch(() => ({ calls: [] })), getJSON(EVENTS, 1800).catch(() => ({ events: [] }))]);
   const fx = new Map(finder.map(f => [f.id, f]));
   DATA.calls = cj.calls.map(c => {
     const f = fx.get(c.id) || {};
@@ -204,8 +218,8 @@ async function loadData() {
   DATA.stats = cj.stats || {};
   DATA.vec = null;
   try { // semantic index built daily by scripts/embed_calls.py; keyword search still works without it
-    const [vm, vb] = await Promise.all([getJSON(`${SITE}/data/vec.json`, 1800),
-      fetch(`${SITE}/data/vec.bin`, { cf: { cacheTtl: 1800, cacheEverything: true } }).then(r => { if (!r.ok) throw new Error("vec.bin " + r.status); return r.arrayBuffer(); })]);
+    const [vm, vb] = await Promise.all([getJSON(`${SITE}/data/vec.json${vq}`, 1800),
+      fetch(`${SITE}/data/vec.bin${vq}`, { cf: { cacheTtl: 1800, cacheEverything: true } }).then(r => { if (!r.ok) throw new Error("vec.bin " + r.status); return r.arrayBuffer(); })]);
     const v = new Int8Array(vb);
     if (v.length === vm.rows.length * vm.dim) DATA.vec = { dim: vm.dim, rows: vm.rows, cidx: vm.ids.map(id => DATA.byKey.get(id.toLowerCase())), v };
   } catch (e) { console.log("semantic index unavailable: " + (e.message || e)); }
@@ -223,7 +237,7 @@ async function loadData() {
     } catch (e) { console.log("kb vectors unavailable: " + (e.message || e)); }
   }
   DATA.known = new Set([...(DATA.kb ? DATA.kb.docs.map(d => d.u) : []), ...DATA.ayudas.map(a => a.url), ...DATA.projects.map(p => p.url), ...DATA.events.map(e => e.url)]);
-  DATA.at = Date.now();
+  DATA.at = Date.now(); DATA.v = v; DATA.vq = vq;
   return DATA;
 }
 const findCall = (d, id) => d.byKey.get(String(id || "").trim().toLowerCase()) || d.byKey.get(slug(String(id || "")));
@@ -297,7 +311,7 @@ function getPage(d, url) {
 async function passage(c, start) {
   if (start == null || start < 0) return null;
   try {
-    const t = await getJSON(`${SITE}/data/t/${c.slug}.json`, 1800);
+    const t = await getJSON(`${SITE}/data/t/${c.slug}.json${DATA.vq || ""}`, 1800);
     const txt = String(t.text || "").replace(/\s+/g, " ").trim();
     if (start > 0) { const sp = txt.indexOf(" ", start); if (sp > 0 && sp - start < 40) start = sp + 1; } // passages overlap from an arbitrary offset: start at a word
     return txt.slice(start, start + 450).trim() + (txt.length > start + 450 ? "…" : "");
@@ -356,7 +370,7 @@ const SORTS = {
 };
 async function topicText(c, max) {
   try {
-    const t = await getJSON(`${SITE}/data/t/${c.slug}.json`, 1800);
+    const t = await getJSON(`${SITE}/data/t/${c.slug}.json${DATA.vq || ""}`, 1800);
     const txt = String(t.text || c.summary || "");
     return { text: txt.slice(0, max), truncated: txt.length > max, actions: t.actions || c.actions };
   } catch (e) { return { text: String(c.summary || "").slice(0, max), truncated: false, actions: c.actions }; }
@@ -519,6 +533,7 @@ How to work:
 How to answer:
 - Answer in the user's language. In Spanish use "tú" (informal), warm and professional.
 - Be brief. Aim for 80–120 words and never go over 150, also for lists and comparisons. Answer in the first sentence; no preamble, do not restate the question or today's date.
+- Questions about the user's own profile ("soy una startup / pyme / universidad / ayuntamiento / ONG…", "¿puedo liderar…?", "¿a qué puedo optar?"): at most 120 words. Give the direct answer and the 3–4 best options; leave conditions and nuances for the follow-up buttons.
 - Lists: at most 5 items, one line each: the name as a link plus one key fact (deadline or amount). If there are more results, say how many there are and link the full listing with descriptive text, e.g. [ver las 40 convocatorias que cierran pronto](url) — never a bare URL — instead of listing them: ${SITE}/closing-soon/ (calls closing soon), ${SITE}/programme/<code>/ (e.g. /programme/horizon/, /programme/digital/), ${SITE}/finder/, ${WWW}/es/ayudas/ (Spanish grants).
 - Plain text. Short paragraphs; lists as lines starting with "- ". You may use **bold** for IDs or key figures. Every link is written as [text](url) with descriptive text, never as a bare URL. No tables, no headings.
 - Give the page link of everything you mention, exactly as returned by the tools. When the user writes in Spanish and a Spanish version exists (www, news and events pages: /es/ after the domain; spanish_version in get_page), link the Spanish version. calls.ullswaterinvestments.com and the webinars library are English only.
