@@ -52,6 +52,7 @@
     '#uaa-s button:hover{border-color:#233567}.uaa-st{color:#6b7280;font-style:italic;font-size:13px}.uaa-src{margin-top:8px;display:flex;flex-wrap:wrap;gap:4px}.uaa-src a{font-size:11px;background:#fff;border:1px solid #e5e7eb;border-radius:999px;padding:2px 8px;text-decoration:none;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}' +
     '#uaa-f{display:flex;gap:6px;padding:10px;border-top:1px solid #e5e7eb}#uaa-i{flex:1;font:inherit;border:1px solid #d7dbe6;border-radius:8px;padding:9px;min-width:0}#uaa-f button{background:#c9a646;color:#233567;border:0;border-radius:8px;padding:0 14px;font:inherit;font-weight:700;cursor:pointer}' +
     '#uaa-n{font-size:11px;color:#6b7280;padding:0 12px 8px}#uaa-n a{color:#6b7280}' +
+    '#uaa.wide #uaa-p{width:min(640px,94vw);height:min(780px,86vh)}#uaa.wide #uaa-m{font-size:15px}' +
     '@media (max-width:600px){#uaa{right:10px;bottom:10px}#uaa.o{inset:0}#uaa.o #uaa-p{width:100vw;height:100dvh;border-radius:0}}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
   var w = document.createElement('div'); w.id = 'uaa';
@@ -66,8 +67,9 @@
   var b = $('uaa-b'), p = $('uaa-p'), m = $('uaa-m'), f = $('uaa-f'), inp = $('uaa-i'), busy = 0, H = [];
   try { H = JSON.parse(sessionStorage.getItem('uaa-h') || '[]'); } catch (e) { H = []; }
   function save() { try { sessionStorage.setItem('uaa-h', JSON.stringify(H.slice(-12))); } catch (e) {} }
-  function toggle(open) { p.style.display = open ? 'flex' : 'none'; b.style.display = open ? 'none' : ''; w.className = open ? 'o' : ''; b.setAttribute('aria-expanded', open ? 'true' : 'false'); if (open) inp.focus(); else b.focus(); }
-  b.onclick = function () { toggle(true); }; $('uaa-x').onclick = function () { toggle(false); };
+  var wide = 0, topicQ = '';
+  function toggle(open) { p.style.display = open ? 'flex' : 'none'; b.style.display = open ? 'none' : ''; w.className = (open ? 'o' : '') + (open && wide ? ' wide' : ''); b.setAttribute('aria-expanded', open ? 'true' : 'false'); if (open) inp.focus(); else b.focus(); }
+  b.onclick = function () { toggle(true); }; $('uaa-x').onclick = function () { wide = 0; toggle(false); };
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && p.style.display === 'flex') toggle(false); });
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function ext(u) { return !/^https?:\/\/([a-z0-9-]+\.)*ullswaterinvestments\.com(\/|$)/i.test(u); }
@@ -97,9 +99,10 @@
   } else intro();
   f.onsubmit = function (e) { e.preventDefault(); ask(); };
   // API for buttons on the page (e.g. «Pregunta a la IA sobre esta ayuda»): UAA.ask(question) opens the chat and asks it
-  window.UAA = { open: function () { toggle(true); }, ask: function (q) { toggle(true); inp.value = String(q || '').slice(0, 1000); if (!busy) ask(); } };
-  var pending = window.UAA_Q || []; window.UAA_Q = { push: function (q) { window.UAA.ask(q); } };
-  if (pending.length) setTimeout(function () { window.UAA.ask(pending[pending.length - 1]); }, 0);
+  // UAA.ask(question, {wide: 1, topic: 1}): wide = larger panel (home hero); topic = one of the 20 key topics of the home page (answer may come from the Worker cache)
+  window.UAA = { open: function () { toggle(true); }, ask: function (q, o) { o = o || {}; if (o.wide) wide = 1; toggle(true); inp.value = String(q || '').slice(0, 1000); topicQ = o.topic ? inp.value.trim() : ''; if (!busy) ask(); } };
+  var pending = window.UAA_Q || []; window.UAA_Q = { push: function (x) { if (x && x.push) window.UAA.ask(x[0], x[1]); else window.UAA.ask(x); } };
+  if (pending.length) setTimeout(function () { window.UAA_Q.push(pending[pending.length - 1]); }, 0);
   function ask() {
     var q = inp.value.trim(); if (!q || busy) return; busy = 1; inp.value = '';
     var sg = $('uaa-s'); if (sg) sg.remove();
@@ -111,8 +114,9 @@
     function fin(d) { busy = 0; status(''); if (raf) cancelAnimationFrame(raf); paint(); if (d && d.sources) box.insertAdjacentHTML('beforeend', src(d.sources)); H.push({ role: 'assistant', content: txt }); save(); m.scrollTop = m.scrollHeight; }
     function fail(msg) { busy = 0; H.pop(); status(''); if (txt) { paint(); box.insertAdjacentHTML('beforeend', '<div style="color:#b91c1c;font-size:12px;margin-top:6px">' + esc(msg) + '</div>'); } else box.textContent = msg; }
     var hist = H.slice(-10); H.push({ role: 'user', content: q });
+    var isTopic = q === topicQ; topicQ = '';
     fetch(API + '/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ q: q, history: hist, stream: true, page: { host: location.host, path: location.pathname, title: document.title.slice(0, 160), lang: lang, site: site } }) })
+      body: JSON.stringify({ q: q, history: hist, stream: true, topic: (isTopic && !hist.length) ? 1 : undefined, page: { host: location.host, path: location.pathname, title: document.title.slice(0, 160), lang: lang, site: site } }) })
       .then(function (r) {
         var ct = r.headers.get('Content-Type') || '';
         if (ct.indexOf('event-stream') < 0 || !r.body || !window.TextDecoder) return r.json().then(function (d) { if (d.error) return fail(d.error); txt = d.answer || ''; fin(d); });

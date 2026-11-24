@@ -712,6 +712,42 @@ ${facts}`;
   return { answer: String(answer || "").trim(), sources: [], engine: "workers-ai" };
 }
 
+// Answers to the 20 key topics of the www home page (chips of the hero), cached in D1 table topic_cache for TOPIC_TTL_H hours:
+// instant answers that do not count against the daily Claude budget. Only first questions (no history) sent with topic:1.
+const TOPIC_TTL_H = 24;
+let topicTableReady = false;
+function topicKey(b) {
+  const q = String(b.q || "").replace(/\s+/g, " ").trim();
+  if (!b.topic || !b.stream || (Array.isArray(b.history) && b.history.length) || q.length > 300) return null;
+  return (b.page && b.page.lang === "es" ? "es" : "en") + "|" + q;
+}
+async function topicTable(env) {
+  if (topicTableReady || !env.DB) return;
+  await env.DB.prepare("CREATE TABLE IF NOT EXISTS topic_cache (k TEXT PRIMARY KEY, answer TEXT NOT NULL, sources TEXT, ts INTEGER NOT NULL)").run();
+  topicTableReady = true;
+}
+async function topicCacheGet(env, key) {
+  if (!key || !env.DB) return null;
+  try {
+    await topicTable(env);
+    const r = await env.DB.prepare("SELECT answer, sources FROM topic_cache WHERE k = ?1 AND ts > ?2").bind(key, Math.floor(Date.now() / 1000) - TOPIC_TTL_H * 3600).first();
+    return r ? { answer: r.answer, sources: JSON.parse(r.sources || "[]"), engine: "cache" } : null;
+  } catch (e) { console.log("topic cache: " + (e.message || e)); return null; }
+}
+async function topicCachePut(env, key, r) {
+  if (!key || !env.DB || !r || r.engine !== "claude" || r.error || !r.answer || r.answer.length < 80) return;
+  try {
+    await topicTable(env);
+    await env.DB.prepare("INSERT OR REPLACE INTO topic_cache (k, answer, sources, ts) VALUES (?1, ?2, ?3, ?4)").bind(key, r.answer, JSON.stringify(r.sources || []), Math.floor(Date.now() / 1000)).run();
+  } catch (e) { console.log("topic cache put: " + (e.message || e)); }
+}
+function sseOnce(req, r) {
+  // a cached answer, streamed in a few chunks so the widget paints it like a live one
+  const parts = String(r.answer).match(/[\s\S]{1,400}/g) || [];
+  const body = parts.map(t => "data: " + JSON.stringify({ type: "delta", text: t }) + "\n\n").join("") + "data: " + JSON.stringify({ type: "done", sources: r.sources, engine: r.engine }) + "\n\n";
+  return new Response(body, { headers: { "Content-Type": "text/event-stream; charset=utf-8", "Cache-Control": "no-cache, no-transform", ...cors(req) } });
+}
+
 async function askAgent(req, env, b, ctx) {
   // JSON response (older widget)
   const t0 = Date.now();
@@ -723,7 +759,7 @@ async function askAgent(req, env, b, ctx) {
   }
 }
 
-function askStream(req, env, b, ctx) {
+function askStream(req, env, b, ctx, onDone) {
   // Server-sent events: {type:"status"|"delta"|"done"|"error"}
   const { readable, writable } = new TransformStream();
   const w = writable.getWriter(), enc = new TextEncoder();
@@ -736,6 +772,7 @@ function askStream(req, env, b, ctx) {
       const r = await runAgent(env, b, send);
       await send({ type: "done", sources: r.sources, engine: r.engine });
       logQuestion(req, env, ctx, b, r, t0);
+      if (onDone) await onDone(r);
     } catch (e) {
       console.log("agent stream failed: " + (e.message || e));
       const err = String(e.message || e).slice(0, 200);
@@ -821,6 +858,7 @@ const WIDGET_JS = String.raw`/* "Asistente de ayudas" chat widget for the Ullswa
     '#uaa-s button:hover{border-color:#233567}.uaa-st{color:#6b7280;font-style:italic;font-size:13px}.uaa-src{margin-top:8px;display:flex;flex-wrap:wrap;gap:4px}.uaa-src a{font-size:11px;background:#fff;border:1px solid #e5e7eb;border-radius:999px;padding:2px 8px;text-decoration:none;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}' +
     '#uaa-f{display:flex;gap:6px;padding:10px;border-top:1px solid #e5e7eb}#uaa-i{flex:1;font:inherit;border:1px solid #d7dbe6;border-radius:8px;padding:9px;min-width:0}#uaa-f button{background:#c9a646;color:#233567;border:0;border-radius:8px;padding:0 14px;font:inherit;font-weight:700;cursor:pointer}' +
     '#uaa-n{font-size:11px;color:#6b7280;padding:0 12px 8px}#uaa-n a{color:#6b7280}' +
+    '#uaa.wide #uaa-p{width:min(640px,94vw);height:min(780px,86vh)}#uaa.wide #uaa-m{font-size:15px}' +
     '@media (max-width:600px){#uaa{right:10px;bottom:10px}#uaa.o{inset:0}#uaa.o #uaa-p{width:100vw;height:100dvh;border-radius:0}}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
   var w = document.createElement('div'); w.id = 'uaa';
@@ -835,8 +873,9 @@ const WIDGET_JS = String.raw`/* "Asistente de ayudas" chat widget for the Ullswa
   var b = $('uaa-b'), p = $('uaa-p'), m = $('uaa-m'), f = $('uaa-f'), inp = $('uaa-i'), busy = 0, H = [];
   try { H = JSON.parse(sessionStorage.getItem('uaa-h') || '[]'); } catch (e) { H = []; }
   function save() { try { sessionStorage.setItem('uaa-h', JSON.stringify(H.slice(-12))); } catch (e) {} }
-  function toggle(open) { p.style.display = open ? 'flex' : 'none'; b.style.display = open ? 'none' : ''; w.className = open ? 'o' : ''; b.setAttribute('aria-expanded', open ? 'true' : 'false'); if (open) inp.focus(); else b.focus(); }
-  b.onclick = function () { toggle(true); }; $('uaa-x').onclick = function () { toggle(false); };
+  var wide = 0, topicQ = '';
+  function toggle(open) { p.style.display = open ? 'flex' : 'none'; b.style.display = open ? 'none' : ''; w.className = (open ? 'o' : '') + (open && wide ? ' wide' : ''); b.setAttribute('aria-expanded', open ? 'true' : 'false'); if (open) inp.focus(); else b.focus(); }
+  b.onclick = function () { toggle(true); }; $('uaa-x').onclick = function () { wide = 0; toggle(false); };
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && p.style.display === 'flex') toggle(false); });
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function ext(u) { return !/^https?:\/\/([a-z0-9-]+\.)*ullswaterinvestments\.com(\/|$)/i.test(u); }
@@ -866,9 +905,10 @@ const WIDGET_JS = String.raw`/* "Asistente de ayudas" chat widget for the Ullswa
   } else intro();
   f.onsubmit = function (e) { e.preventDefault(); ask(); };
   // API for buttons on the page (e.g. «Pregunta a la IA sobre esta ayuda»): UAA.ask(question) opens the chat and asks it
-  window.UAA = { open: function () { toggle(true); }, ask: function (q) { toggle(true); inp.value = String(q || '').slice(0, 1000); if (!busy) ask(); } };
-  var pending = window.UAA_Q || []; window.UAA_Q = { push: function (q) { window.UAA.ask(q); } };
-  if (pending.length) setTimeout(function () { window.UAA.ask(pending[pending.length - 1]); }, 0);
+  // UAA.ask(question, {wide: 1, topic: 1}): wide = larger panel (home hero); topic = one of the 20 key topics of the home page (answer may come from the Worker cache)
+  window.UAA = { open: function () { toggle(true); }, ask: function (q, o) { o = o || {}; if (o.wide) wide = 1; toggle(true); inp.value = String(q || '').slice(0, 1000); topicQ = o.topic ? inp.value.trim() : ''; if (!busy) ask(); } };
+  var pending = window.UAA_Q || []; window.UAA_Q = { push: function (x) { if (x && x.push) window.UAA.ask(x[0], x[1]); else window.UAA.ask(x); } };
+  if (pending.length) setTimeout(function () { window.UAA_Q.push(pending[pending.length - 1]); }, 0);
   function ask() {
     var q = inp.value.trim(); if (!q || busy) return; busy = 1; inp.value = '';
     var sg = $('uaa-s'); if (sg) sg.remove();
@@ -880,8 +920,9 @@ const WIDGET_JS = String.raw`/* "Asistente de ayudas" chat widget for the Ullswa
     function fin(d) { busy = 0; status(''); if (raf) cancelAnimationFrame(raf); paint(); if (d && d.sources) box.insertAdjacentHTML('beforeend', src(d.sources)); H.push({ role: 'assistant', content: txt }); save(); m.scrollTop = m.scrollHeight; }
     function fail(msg) { busy = 0; H.pop(); status(''); if (txt) { paint(); box.insertAdjacentHTML('beforeend', '<div style="color:#b91c1c;font-size:12px;margin-top:6px">' + esc(msg) + '</div>'); } else box.textContent = msg; }
     var hist = H.slice(-10); H.push({ role: 'user', content: q });
+    var isTopic = q === topicQ; topicQ = '';
     fetch(API + '/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ q: q, history: hist, stream: true, page: { host: location.host, path: location.pathname, title: document.title.slice(0, 160), lang: lang, site: site } }) })
+      body: JSON.stringify({ q: q, history: hist, stream: true, topic: (isTopic && !hist.length) ? 1 : undefined, page: { host: location.host, path: location.pathname, title: document.title.slice(0, 160), lang: lang, site: site } }) })
       .then(function (r) {
         var ct = r.headers.get('Content-Type') || '';
         if (ct.indexOf('event-stream') < 0 || !r.body || !window.TextDecoder) return r.json().then(function (d) { if (d.error) return fail(d.error); txt = d.answer || ''; fin(d); });
@@ -943,6 +984,8 @@ export default {
           try { const r = await benchmarkAnswer(env, b); logQuestion(req, env, ctx, b, r, t0); return json(r, req); }
           catch (e) { logQuestion(req, env, ctx, b, { engine: "none", error: String(e.message || e).slice(0, 200) }, t0); return json({ error: "Assistant unavailable. Write to " + BENCH_EMAIL }, req, 503); }
         }
+        const tkey = topicKey(b);
+        if (tkey) { const hit = await topicCacheGet(env, tkey); if (hit) { logQuestion(req, env, ctx, b, hit, Date.now()); return sseOnce(req, hit); } }
         if (!env.ANTHROPIC_API_KEY || !(await claudeBudgetLeft(env))) {
           const t0 = Date.now(), r = await legacyAnswer(env, b); logQuestion(req, env, ctx, b, r, t0);
           if (b.stream && !r.error) {
@@ -951,7 +994,7 @@ export default {
           }
           return json(r, req, r.error ? 400 : 200);
         }
-        return b.stream ? askStream(req, env, b, ctx) : await askAgent(req, env, b, ctx);
+        return b.stream ? askStream(req, env, b, ctx, tkey ? r => topicCachePut(env, tkey, r) : null) : await askAgent(req, env, b, ctx);
       }
     } catch (e) {
       return json({ error: "Service temporarily unavailable." }, req, 500);
