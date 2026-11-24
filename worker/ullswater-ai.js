@@ -10,7 +10,7 @@
  * Data comes from the public JSON files of calls.ullswaterinvestments.com (calls, Spanish R&D calls) and www (kb.json: pages of www,
  * news, events and project landings; /es/ayudas/ayudas.json: Spanish State and regional grants; data/projects.json).
  * D1 binding DB (database ullswater-ai): table questions (anonymous log of chat questions) and table hits (rate limiting,
- * keyed by a daily hash of the IP, purged after 2 days). Optional variables: DAILY_CLAUDE_LIMIT (default 400), CLAUDE_MODEL.
+ * keyed by a daily hash of the IP, purged after 2 days). Optional variables: DAILY_CLAUDE_LIMIT (default 400), CLAUDE_MODEL, QA_KEY (secret: test mode via header X-QA-Key, no limits, logged as "-qa").
  */
 const SITE = "https://calls.ullswaterinvestments.com";
 const WWW = "https://www.ullswaterinvestments.com";
@@ -32,13 +32,22 @@ const EMAIL = "eufunding@ullswaterinvestments.com";
 const SUPPORT_FORM = "https://docs.google.com/forms/d/e/1FAIpQLScK2yCvR62EAVc1pRxGHuv54TqkjV2zV7310pBoPqE0klQ94w/viewform?usp=pp_url&entry.841001766=CALL&entry.2085908736=PAGE";
 const RETENTION_MONTHS = 12; // questions log kept 12 months (purged daily by the cron trigger)
 const HITS = new Map(); // best-effort per-isolate rate limit
+// test mode: requests carrying header X-QA-Key equal to the QA_KEY secret skip the visitor limits and the daily Claude cap,
+// and are logged with engine "<engine>-qa" so they never count against the 400 daily Claude answers
+const QA_REQS = new WeakSet();
+function isQA(req, env) {
+  const k = req.headers.get("X-QA-Key") || "", s = env.QA_KEY || "";
+  if (!s || k.length !== s.length) return false;
+  let d = 0; for (let i = 0; i < s.length; i++) d |= k.charCodeAt(i) ^ s.charCodeAt(i);
+  return d === 0;
+}
 
 function cors(req) {
   const o = req.headers.get("Origin") || "";
   return {
     "Access-Control-Allow-Origin": ORIGINS.includes(o) ? o : ORIGINS[0],
     "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Headers": "Content-Type, X-QA-Key",
     "Vary": "Origin",
   };
 }
@@ -90,6 +99,7 @@ function logQuestion(req, env, ctx, b, r, t0) {
   // anonymous log: question, page, language, country, engine, tools, sources, size, time, tokens. No IP, no history.
   if (!env.DB) return;
   const u = (r && r.usage) || {};
+  if (QA_REQS.has(req) && r && r.engine) r = { ...r, engine: r.engine + "-qa" };
   const p = env.DB.prepare("INSERT INTO questions (q, page, lang, country, engine, tools, sources, answer_chars, ms, input_tokens, output_tokens, turn, error) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11,?12,?13)")
     .bind(String(b.q || "").slice(0, 1000), String((b.page && b.page.host && !/^calls\./.test(b.page.host) ? b.page.host : "") + ((b.page && b.page.path) || "")).slice(0, 200), String(req.headers.get("Accept-Language") || "").slice(0, 5),
       (req.cf && req.cf.country) || null, (r && r.engine) || null, ((r && r.tools) || []).join(",") || null,
@@ -972,7 +982,8 @@ export default {
       try { return await benchmarkContact(req, env); } catch (e) { return json({ error: "Service temporarily unavailable." }, req, 500); }
     }
     const kind = path === "/review" ? "review" : path === "/search" ? "search" : "ask";
-    if (await overLimit(req, env, ctx, kind)) return json({ error: kind === "ask" ? "You have reached the question limit for now. Please try again later or book a meeting with our experts: " + BOOK : "Too many requests. Please try again later." }, req, 429);
+    const qa = isQA(req, env); if (qa) QA_REQS.add(req);
+    if (!qa && await overLimit(req, env, ctx, kind)) return json({ error: kind === "ask" ? "You have reached the question limit for now. Please try again later or book a meeting with our experts: " + BOOK : "Too many requests. Please try again later." }, req, 429);
     try {
       if (path === "/review") return await review(req, env);
       if (path === "/search") return await search(req, env);
@@ -985,8 +996,8 @@ export default {
           catch (e) { logQuestion(req, env, ctx, b, { engine: "none", error: String(e.message || e).slice(0, 200) }, t0); return json({ error: "Assistant unavailable. Write to " + BENCH_EMAIL }, req, 503); }
         }
         const tkey = topicKey(b);
-        if (tkey) { const hit = await topicCacheGet(env, tkey); if (hit) { logQuestion(req, env, ctx, b, hit, Date.now()); return sseOnce(req, hit); } }
-        if (!env.ANTHROPIC_API_KEY || !(await claudeBudgetLeft(env))) {
+        if (tkey && !qa) { const hit = await topicCacheGet(env, tkey); if (hit) { logQuestion(req, env, ctx, b, hit, Date.now()); return sseOnce(req, hit); } }
+        if (!env.ANTHROPIC_API_KEY || (!qa && !(await claudeBudgetLeft(env)))) {
           const t0 = Date.now(), r = await legacyAnswer(env, b); logQuestion(req, env, ctx, b, r, t0);
           if (b.stream && !r.error) {
             const body = "data: " + JSON.stringify({ type: "delta", text: r.answer }) + "\n\n" + "data: " + JSON.stringify({ type: "done", sources: r.sources, engine: r.engine }) + "\n\n";
@@ -994,7 +1005,7 @@ export default {
           }
           return json(r, req, r.error ? 400 : 200);
         }
-        return b.stream ? askStream(req, env, b, ctx, tkey ? r => topicCachePut(env, tkey, r) : null) : await askAgent(req, env, b, ctx);
+        return b.stream ? askStream(req, env, b, ctx, tkey && !qa ? r => topicCachePut(env, tkey, r) : null) : await askAgent(req, env, b, ctx);
       }
     } catch (e) {
       return json({ error: "Service temporarily unavailable." }, req, 500);
