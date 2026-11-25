@@ -624,7 +624,8 @@ async function getAyuda(d, a, env) {
   if (!x && !ia) return { error: `No grant ${id} on the site. Use search_ayudas to find it.` };
   const base = x ? { id: x.id, title: x.titulo, official_title: x.original, body: x.organismo, region: x.region, type: x.tipo, procedure: x.concurrencia,
     budget_eur: x.presupuesto, opens: x.inicio, closes: x.fin, status: x.estado, beneficiaries: x.beneficiarios, eu_funds: x.fondos, page: x.url, official: x.bdns, bases: x.bases }
-    : { id, page: `${WWW}/es/ayudas/convocatoria/${id}/`, official: `https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/${id}` };
+    : { id, page: null, official: `https://www.infosubvenciones.es/bdnstrans/GE/es/convocatorias/${id}`,
+        status: "no longer published on www.ullswaterinvestments.com (closed or withdrawn): do not link a page on our site; say it is no longer open and link only the official BDNS page" };
   if (!ia) return { ...base, note: "The official documents of this grant have not been processed yet: give only these data and send the user to the official BDNS page and the regulatory bases for the details." };
   const terms = tokens(a.question || "");
   const secs = (ia.secciones || []).map((s, i) => ({ s, i, n: terms.reduce((n, t) => n + (norm(s.t + " " + s.x).includes(t) ? 1 : 0), 0) }));
