@@ -7,6 +7,7 @@ on:
   workflow_dispatch:       # "Run workflow" button for a manual refresh
   push:
     branches: [main]
+    paths-ignore: ["qa/**", ".github/workflows/qa-chat.yml"]  # the chat test agent does not need a site rebuild
 
 permissions:
   contents: write

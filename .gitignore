@@ -20,3 +20,6 @@ site/data/vec.bin
 site/data/vec.json
 site/data/words.json
 site/fichas/
+qa/salida/
+qa/results*.json
+qa/.qa_key

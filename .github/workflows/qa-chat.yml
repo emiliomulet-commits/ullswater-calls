@@ -1,0 +1,70 @@
+name: Pruebas del Asistente de ayudas (muestra del banco de 1000 preguntas)
+
+# Se ejecuta después de cada despliegue del chat (Worker ullswater-ai), cada lunes y a mano.
+# Hace al chat 15 preguntas fijas de regresión + 2 al azar de cada bloque (~47), con la clave QA_KEY
+# (sin límite por IP y sin gastar el tope diario de los visitantes). Deja el informe en el resumen de la
+# ejecución y como artefacto, y abre una incidencia (issue) si encuentra fallos graves.
+on:
+  workflow_run:
+    workflows: ["Deploy the ullswater-ai Worker (chat assistant, AI pre-check, Fund Finder search)"]
+    types: [completed]
+  schedule:
+    - cron: "23 6 * * 1"   # lunes 06:23 UTC
+  workflow_dispatch:
+    inputs:
+      por_bloque:
+        description: "Preguntas al azar por bloque (16 bloques)"
+        default: "2"
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: qa-chat
+  cancel-in-progress: true
+
+jobs:
+  muestra:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Esperar a que el despliegue llegue a todos los servidores
+        if: github.event_name == 'workflow_run'
+        run: sleep 60
+      - name: Preguntar al chat
+        id: qa
+        env:
+          QA_KEY: ${{ secrets.QA_KEY }}
+        run: |
+          set +e
+          python qa/muestra.py --por-bloque "${{ github.event.inputs.por_bloque || '2' }}" --salida qa/salida
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+          cat qa/salida/informe.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: prueba-asistente-${{ github.run_id }}
+          path: qa/salida/
+          retention-days: 90
+      - name: Abrir incidencia si hay fallos graves
+        if: steps.qa.outputs.rc == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "La prueba automática del Asistente de ayudas ha encontrado fallos graves."
+            echo
+            echo "Informe completo: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo
+            sed -n '/^## Incidencias graves/,/^## Respuestas/p' qa/salida/informe.md | sed '$d'
+          } > cuerpo.md
+          gh issue create --title "Pruebas del chat: fallos graves ($(date -u +%Y-%m-%d))" --body-file cuerpo.md
+      - name: Marcar la ejecución como fallida
+        if: steps.qa.outputs.rc == '1'
+        run: exit 1
