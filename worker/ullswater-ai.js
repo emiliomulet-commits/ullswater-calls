@@ -184,26 +184,38 @@ const STOPWORDS = new Set(("the and for with that this from are which what when 
 const stem = x => x.replace(/(ies)$/, "y").replace(/(ing|ed|es|s)$/, "");
 const tokens = q => [...new Set((norm(q).match(/[a-z0-9][a-z0-9\-]{1,}/g) || []).filter(x => !STOPWORDS.has(x)).map(stem).filter(x => x.length >= 2))];
 
-// Data version written by every build of calls.ullswaterinvestments.com (site/data/version.json). Checked at most every 2 minutes:
-// when it changes, the data is reloaded at once with ?v=<version>, so neither this isolate nor the edge cache serves an old build.
+// "The chat updates whenever the web updates": every build of calls (site/data/version.json) and of www (data/version.json) writes a
+// version marker, and events.json (Cloudflare Pages) has an ETag. They are checked at most every 2 minutes; when any of them changes, all
+// the data is reloaded at once with ?v=<version>, so neither this isolate nor the edge cache keeps serving an old build.
 async function dataVersion() {
-  try {
-    const r = await fetch(`${SITE}/data/version.json?t=${Math.floor(Date.now() / 60e3)}`, { cf: { cacheTtl: 60, cacheEverything: true } });
-    if (r.ok) return String((await r.json()).v || "") || null;
-  } catch (e) { console.log("data version unavailable: " + (e.message || e)); }
-  return null;
+  const t = Math.floor(Date.now() / 60e3), opt = { cf: { cacheTtl: 60, cacheEverything: true } };
+  const marker = async u => {
+    try { const r = await fetch(`${u}?t=${t}`, opt); if (r.ok) return String((await r.json()).v || "") || null; }
+    catch (e) { console.log("data version unavailable: " + u + " " + (e.message || e)); }
+    return null;
+  };
+  const etag = async u => {
+    try { const r = await fetch(`${u}?t=${t}`, opt); if (r.ok) return r.headers.get("etag") || r.headers.get("last-modified") || null; }
+    catch (e) { console.log("data version unavailable: " + u + " " + (e.message || e)); }
+    return null;
+  };
+  const [c, w, e] = await Promise.all([marker(`${SITE}/data/version.json`), marker(`${WWW}/data/version.json`), etag(EVENTS)]);
+  return { c, w, e };
 }
+const vparam = v => v ? "?v=" + encodeURIComponent(v) : "";
 async function loadData() {
   const now = Date.now();
   if (DATA.calls && now - (DATA.checked || 0) < 120e3) return DATA;
-  const v = await dataVersion();
+  const ver = await dataVersion();
   DATA.checked = now;
-  if (DATA.calls && (!v || v === DATA.v) && now - DATA.at < 1800e3) return DATA;
-  const vq = v ? "?v=" + encodeURIComponent(v) : "";
+  const old = DATA.ver || {};
+  const changed = ["c", "w", "e"].some(k => ver[k] && ver[k] !== old[k]); // a marker that cannot be read counts as unchanged
+  if (DATA.calls && !changed && now - DATA.at < 1800e3) return DATA;
+  const v = ver.c || old.c || null, vq = vparam(v), wq = vparam(ver.w || old.w), eq = vparam(ver.e || old.e);
   const [cj, finder, words, spain, events] = await Promise.all([
     getJSON(`${SITE}/data/calls.json${vq}`, 1800), getJSON(`${SITE}/data/finder.json${vq}`, 1800).catch(() => []),
     getJSON(`${SITE}/data/words.json${vq}`, 1800).catch(() => ({})),
-    getJSON(`${SITE}/data/spain.json${vq}`, 1800).catch(() => ({ calls: [] })), getJSON(EVENTS, 1800).catch(() => ({ events: [] }))]);
+    getJSON(`${SITE}/data/spain.json${vq}`, 1800).catch(() => ({ calls: [] })), getJSON(`${EVENTS}${eq}`, 1800).catch(() => ({ events: [] }))]);
   const fx = new Map(finder.map(f => [f.id, f]));
   DATA.calls = cj.calls.map(c => {
     const f = fx.get(c.id) || {};
@@ -224,20 +236,20 @@ async function loadData() {
     if (v.length === vm.rows.length * vm.dim) DATA.vec = { dim: vm.dim, rows: vm.rows, cidx: vm.ids.map(id => DATA.byKey.get(id.toLowerCase())), v };
   } catch (e) { console.log("semantic index unavailable: " + (e.message || e)); }
   // network knowledge base (www, news, events, project landings), Spanish grants and projects, all built by the www workflow
-  const [kb, ay, pj] = await Promise.all([getJSON(`${WWW}/data/kb.json`, 1800).catch(() => null),
-    getJSON(`${WWW}/es/ayudas/ayudas.json`, 1800).catch(() => ({ calls: [] })), getJSON(`${WWW}/data/projects.json`, 1800).catch(() => ({ projects: [] }))]);
+  const [kb, ay, pj] = await Promise.all([getJSON(`${WWW}/data/kb.json${wq}`, 1800).catch(() => null),
+    getJSON(`${WWW}/es/ayudas/ayudas.json${wq}`, 1800).catch(() => ({ calls: [] })), getJSON(`${WWW}/data/projects.json${wq}`, 1800).catch(() => ({ projects: [] }))]);
   DATA.ayudas = (ay.calls || []).map(a => ({ ...a, hay: norm([a.titulo, a.resumen, a.original, a.organismo, a.region, a.finalidad, (a.categorias || []).join(" "), a.tipo].join(" ")) }));
   DATA.projects = pj.projects || [];
   DATA.kb = null;
   if (kb && kb.docs) {
     DATA.kb = { docs: kb.docs, chunks: kb.chunks.map(([i, x]) => ({ i, x, hay: norm(kb.docs[i].t + " " + x) })), vec: null, byUrl: new Map(kb.docs.map((d, i) => [d.u, i])) };
     try {
-      const r = await fetch(`${WWW}/data/kb-vec.bin`, { cf: { cacheTtl: 1800, cacheEverything: true } });
+      const r = await fetch(`${WWW}/data/kb-vec.bin${wq}`, { cf: { cacheTtl: 1800, cacheEverything: true } });
       if (r.ok) { const v = new Int8Array(await r.arrayBuffer()); if (v.length === kb.chunks.length * kb.dim) DATA.kb.vec = { dim: kb.dim, v }; }
     } catch (e) { console.log("kb vectors unavailable: " + (e.message || e)); }
   }
   DATA.known = new Set([...(DATA.kb ? DATA.kb.docs.map(d => d.u) : []), ...DATA.ayudas.map(a => a.url), ...DATA.projects.map(p => p.url), ...DATA.events.map(e => e.url)]);
-  DATA.at = Date.now(); DATA.v = v; DATA.vq = vq;
+  DATA.at = Date.now(); DATA.v = v; DATA.vq = vq; DATA.wq = wq; DATA.ver = ver;
   return DATA;
 }
 const findCall = (d, id) => d.byKey.get(String(id || "").trim().toLowerCase()) || d.byKey.get(slug(String(id || "")));
@@ -603,7 +615,7 @@ async function getAyuda(d, a, env) {
   const id = String(a.id || "").replace(/\D/g, "").slice(0, 9);
   const x = d.ayudas.find(y => String(y.id) === id || (y.otros || []).map(String).includes(id));
   let ia = null;
-  for (const u of [`${WWW}/es/ayudas/convocatoria/${id}/ia.json`, `${(env && env.AYUDAS_IA_RAW) || AYUDAS_IA_RAW}/${id}.json`]) {
+  for (const u of [`${WWW}/es/ayudas/convocatoria/${id}/ia.json${(d && d.wq) || ""}`, `${(env && env.AYUDAS_IA_RAW) || AYUDAS_IA_RAW}/${id}.json`]) {
     try { ia = await getJSON(u, 1800); if (ia && ia.faq) break; ia = null; } catch (e) { /* not generated yet */ }
   }
   if (!x && !ia) return { error: `No grant ${id} on the site. Use search_ayudas to find it.` };
