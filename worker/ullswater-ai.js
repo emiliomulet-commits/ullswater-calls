@@ -140,7 +140,7 @@ async function review(req, env) {
 
 async function legacyAnswer(env, b) {
   const q = String(b.q || "").slice(0, 600).trim();
-  if (q.length < 5) return { error: "Please write a question." };
+  if (q.length < 2) return { error: "Please write a question." };
   const [finder, spain, events] = await Promise.all([
     getJSON(`${SITE}/data/finder.json`), getJSON(`${SITE}/data/spain.json`).catch(() => ({ calls: [] })), getJSON(EVENTS).catch(() => ({ events: [] }))]);
   const STOP = new Set("the and for with that this from are which what when where who how calls call open opened closing close funding fund funds grant grants eu europe european project projects any can our your there some about into over more most than also have has does deadline deadlines programme programmes topic topics que los las del por para con una unos convocatoria convocatorias ayudas abiertas".split(" "));
@@ -650,6 +650,37 @@ function toolStatus(t) {
   return "Working";
 }
 
+// Call codes in the answer are checked against the data while streaming: a code that does not exist but is 1–2 characters away
+// from exactly one real topic or call code (e.g. HORIZON-MISS-2027-04-OCEAN-03 for -2027-03-) is replaced by the real one.
+const CODE_RE = /\b[A-Z][A-Z0-9]{1,9}(?:-[A-Za-z0-9]+){2,}\b/g;
+function editDistance(a, b, max) {
+  if (Math.abs(a.length - b.length) > max) return max + 1;
+  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i]; let best = i;
+    for (let j = 1; j <= b.length; j++) { cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); best = Math.min(best, cur[j]); }
+    if (best > max) return max + 1;
+    prev = cur;
+  }
+  return prev[b.length];
+}
+function fixCodes(d, text, keep) {
+  if (!d || !d.calls) return text;
+  if (!d.codeSet) { d.codeSet = new Set(); for (const c of d.calls) { d.codeSet.add(c.id.toUpperCase()); if (c.call) d.codeSet.add(String(c.call).toUpperCase()); } }
+  return text.replace(CODE_RE, m => {
+    const u = m.toUpperCase();
+    if (d.codeSet.has(u) || !/\d{4}/.test(u) || (keep && keep.has(u))) return m; // keep codes the user wrote
+    const years = c => (c.match(/\b\d{4}\b/g) || []).join();
+    const head = u.split("-").slice(0, 2).join("-");
+    let hit = null, n = 0;
+    for (const code of d.codeSet) {
+      if (!code.startsWith(head) || years(code) !== years(u) || editDistance(u, code, 2) > 2) continue; // never change the year
+      hit = code; if (++n > 1) return m; // ambiguous: leave it
+    }
+    if (hit) console.log(`code fixed: ${m} -> ${hit}`);
+    return hit || m;
+  });
+}
 async function runAgent(env, b, emit) {
   // Claude agent loop; emit({type:"status"|"delta", ...}) as it goes; returns {answer, sources}
   const q = String(b.q || "").slice(0, 1500).trim();
@@ -673,12 +704,14 @@ async function runAgent(env, b, emit) {
   let answer = "", resp, pendingBreak = false;
   const total = { input_tokens: 0, output_tokens: 0, cache_read_input_tokens: 0 };
   let raw = "", shown = 0;
-  const onRaw = t => { // hold back the follow-up block: emit only the text before SUGGEST_MARK
-    raw += t;
+  const userCodes = new Set((JSON.stringify([b.q, b.history || []]).toUpperCase().match(CODE_RE) || []));
+  const onRaw = (t, flush) => { // hold back the follow-up block (text from SUGGEST_MARK on) and a code that may still be growing
+    raw += t || "";
     const i = raw.indexOf(SUGGEST_MARK);
     let vis = i >= 0 ? raw.slice(0, i) : raw;
     if (i < 0 && vis.endsWith(SUGGEST_MARK[0])) vis = vis.slice(0, -1); // could be the start of the marker
-    if (vis.length > shown) { const d = vis.slice(shown); shown = vis.length; onText(d); }
+    if (!flush && i < 0) vis = vis.replace(/[A-Za-z0-9-]+$/, ""); // the last word may be part of a call code
+    if (vis.length > shown) { const seg = vis.slice(shown); shown = vis.length; onText(fixCodes(d, seg, userCodes)); }
   };
   const onText = t => {
     if (pendingBreak && answer && t.trim()) { // text resumed after tool calls: new paragraph only if the sentence had ended
@@ -693,6 +726,7 @@ async function runAgent(env, b, emit) {
     const last = step === MAX_STEPS;
     resp = await claudeStream(env, { model, max_tokens: 1500, system, tools: TOOLS, tool_choice: last ? { type: "none" } : { type: "auto" }, messages }, onRaw, onTool);
     for (const k in total) total[k] += +(resp.usage && resp.usage[k]) || 0;
+    onRaw("", true); // end of this step: release the held-back word
     if (resp.stop_reason !== "tool_use" || last) break;
     pendingBreak = true;
     messages.push({ role: "assistant", content: resp.content });
@@ -1049,7 +1083,7 @@ export default {
       if (path === "/search") return await search(req, env);
       if (path === "/ask") {
         const b = await req.json().catch(() => ({}));
-        if (String(b.q || "").trim().length < 3) return json({ error: "Please write a question." }, req, 400);
+        if (!String(b.q || "").trim()) return json({ error: "Please write a question." }, req, 400); // short greetings ("hi", "ok") go to the assistant
         if (b.page && b.page.site === "benchmark") {
           const t0 = Date.now();
           try { const r = await benchmarkAnswer(env, b); logQuestion(req, env, ctx, b, r, t0); return json(r, req); }
