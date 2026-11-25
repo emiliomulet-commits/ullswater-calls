@@ -66,5 +66,7 @@ jobs:
           } > cuerpo.md
           gh issue create --title "Pruebas del chat: fallos graves ($(date -u +%Y-%m-%d))" --body-file cuerpo.md
       - name: Marcar la ejecución como fallida
-        if: steps.qa.outputs.rc == '1'
-        run: exit 1
+        if: steps.qa.outputs.rc != '0'
+        run: |
+          if [ "${{ steps.qa.outputs.rc }}" = "3" ]; then echo "::error::La clave QA_KEY de GitHub no coincide con la del chat: corrige el secret QA_KEY."; fi
+          exit 1

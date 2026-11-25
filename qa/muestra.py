@@ -64,8 +64,14 @@ def main():
     for n, i in enumerate(ids, 1):
         q = QI[i]
         txt, done, err, status, secs = A.ask(q["pregunta"], q["idioma"], q["tipo"] == "etiqueta")
-        if status == 429:  # sin clave válida: esperar y reintentar una vez
-            time.sleep(60); txt, done, err, status, secs = A.ask(q["pregunta"], q["idioma"], q["tipo"] == "etiqueta")
+        if status == 429 or (q["tipo"] == "etiqueta" and done.get("engine") == "cache"):
+            # con una QA_KEY válida el chat no aplica el límite por IP ni sirve respuestas de caché
+            msg = ("La clave QA_KEY no es válida o no coincide con la del chat (secret QA_KEY del Worker en Cloudflare): "
+                   "el chat ha respondido " + ("con el límite de preguntas (429)." if status == 429 else "desde la caché, que solo usa con los visitantes."))
+            print(msg)
+            os.makedirs(a.salida, exist_ok=True)
+            open(os.path.join(a.salida, "informe.md"), "w").write(f"# Prueba del Asistente de ayudas — no realizada\n\n{msg}\n\nCorrige el secret QA_KEY de GitHub (Settings → Secrets and variables → Actions) con el mismo valor que el secret QA_KEY del Worker.\n")
+            sys.exit(3)
         L = A.links_of(txt, done.get("sources"))
         codes = [A.check(u) for _, _, u in L]
         r = dict(estado="error" if (err or not txt) else "respondida", motor=done.get("engine"), segundos=round(secs, 1),
