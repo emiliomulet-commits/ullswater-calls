@@ -404,7 +404,7 @@ def main():
     hero = f"""<main><section class="hero"><div class="wrap"><p class="kicker">EU Funding Calls · updated {upd_s}</p>
 <h1>Open EU funding calls 2026–2027</h1>
 <p class="lead">Every open and forthcoming EU grant and cascade-funding call from the European Commission's Funding &amp; Tenders Portal, in one searchable list. Filter by programme, deadline or keyword. Refreshed automatically every week.</p>
-<ul class="stats"><li><a href="/?status=open#filters"><strong>{stats['open']}</strong>calls open now</a></li><li><a href="/?status=forthcoming#filters"><strong>{stats['forthcoming']}</strong>forthcoming calls</a></li><li><a href="/closing-soon/"><strong>{len(soon30)}</strong>closing in 30 days</a></li><li><a href="#programmes"><strong>{stats['programmes']}</strong>EU programmes</a></li></ul>
+<ul class="stats"><li><a href="/open/"><strong>{stats['open']}</strong>calls open now</a></li><li><a href="/forthcoming/"><strong>{stats['forthcoming']}</strong>forthcoming calls</a></li><li><a href="/closing-soon/"><strong>{len(soon30)}</strong>closing in 30 days</a></li><li><a href="/programmes/"><strong>{stats['programmes']}</strong>EU programmes</a></li></ul>
 <div class="actions"><a class="btn" href="{MAIN}/eu-fund-matching">Find the right call for my project</a><a class="btn ghost" href="/closing-soon/">Deadlines in the next 30 days</a></div>
 <nav class="chips" id="programmes" aria-label="Programmes">{chips}</nav></div></section>"""
     about = """<section class="about"><h2>About this list</h2><p>The list is built from the European Commission's public Funding &amp; Tenders Portal search service and refreshed every Monday. Calls whose deadlines have passed are removed automatically, even if the portal still flags them as open. “Open” means you can submit now; “forthcoming” means the call has been announced but is not yet open. Budgets are the indicative topic budgets published by the Commission. Always read the official call documents before applying.</p></section></div></main>"""
@@ -422,8 +422,35 @@ def main():
         f"{len(soon)} EU funding calls with deadlines in the next 30 days. Updated {upd_s}.", "/closing-soon/",
         nav(progs, "soon") + h + filters(progs, default_dl="30") + listing(open_calls) + about, itemlist(soon, "EU calls closing soon")), encoding="utf-8")
 
+    # Landing pages for the home-page figures of www (each figure has its own URL, so Web Analytics can count it)
+    fore = [c for c in calls if c["status"] == "forthcoming"]
+    for spath, slist, sstat, stitle, slead in (
+            ("open", open_calls, "open", f"Open EU funding calls: {len(open_calls)} open now",
+             f"{len(open_calls)} EU calls are open for proposals now. Sorted by deadline, with budgets, from the EU Funding &amp; Tenders Portal."),
+            ("forthcoming", fore, "forthcoming", f"Forthcoming EU funding calls: {len(fore)} announced",
+             f"{len(fore)} EU calls have been announced but are not open yet. Prepare your proposal and consortium in advance.")):
+        h = f"""<main><section class="hero"><div class="wrap"><div class="crumbs"><a href="/">All calls</a> › {"Open now" if sstat == "open" else "Forthcoming"}</div><p class="kicker">EU Funding Calls · updated {upd_s}</p>
+<h1>{stitle}</h1><p class="lead">{slead}</p></div></section>"""
+        (SITE / spath).mkdir(exist_ok=True)
+        (SITE / spath / "index.html").write_text(page(f"{stitle} ({upd.year}–{upd.year + 1}) | Ullswater Investments",
+            f"{stitle}. Deadlines and budgets, updated {upd_s}.", f"/{spath}/",
+            nav(progs, "all") + h + filters(progs, default_status=sstat) + listing(slist) + about, itemlist(slist, stitle)), encoding="utf-8")
+    ptiles = ""
+    for code, n in progs:
+        pc = [c for c in calls if c["programme"] == code]
+        po = sum(1 for c in pc if c["status"] == "open")
+        ptiles += (f'<a class="tile" href="/programme/{slug(code)}/"><b>{escape(label(code, pc[0]["programmeName"]))}</b>'
+                   f'<span>{n} calls · {po} open</span><small>{escape(pc[0]["programmeName"])}</small></a>')
+    ph = f"""<main><section class="hero"><div class="wrap"><div class="crumbs"><a href="/">All calls</a> › Programmes</div><p class="kicker">Programmes · updated {upd_s}</p>
+<h1>The {len(progs)} EU programmes we track</h1><p class="lead">Every EU funding programme with open or forthcoming calls on the Funding &amp; Tenders Portal. Choose one to see its calls.</p></div></section>
+<div class="wrap"><section class="sec"><div class="tiles">{ptiles}</div></section></div></main>"""
+    (SITE / "programmes").mkdir(exist_ok=True)
+    (SITE / "programmes" / "index.html").write_text(page(f"The {len(progs)} EU funding programmes with open calls | Ullswater Investments",
+        f"Horizon Europe, Digital Europe, EDF, LIFE, EU4Health and the other EU programmes with open or forthcoming calls. Updated {upd_s}.", "/programmes/",
+        nav(progs, "all") + ph), encoding="utf-8")
+
     # Programme pages
-    urls = ["/", "/closing-soon/"]
+    urls = ["/", "/closing-soon/", "/open/", "/forthcoming/", "/programmes/"]
     for code, n in progs:
         pc = [c for c in calls if c["programme"] == code]
         po = sum(1 for c in pc if c["status"] == "open")
