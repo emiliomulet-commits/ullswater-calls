@@ -41,7 +41,7 @@ nav.cats a:hover,nav.cats a[aria-current]{background:rgba(255,255,255,.12);color
 h1{font-size:36px;line-height:1.2;margin:0 0 12px;color:var(--navy)}
 .lead{font-size:18px;color:var(--muted);margin:0;max-width:780px}
 .stats{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0 0;padding:0;list-style:none}
-.stats li{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 16px;font-size:14px;color:var(--muted)}.stats strong{display:block;font-size:22px;color:var(--navy);line-height:1.2}
+.stats li{background:#fff;border:1px solid var(--line);border-radius:8px;font-size:14px;color:var(--muted)}.stats a{display:block;padding:10px 16px;color:inherit;text-decoration:none;border-radius:8px}.stats a:hover,.stats a:focus-visible{background:#f5f6f8;box-shadow:inset 0 0 0 1px var(--navy)}#filters,#programmes{scroll-margin-top:12px}.stats strong{display:block;font-size:22px;color:var(--navy);line-height:1.2}
 .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .btn{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;text-decoration:none;padding:10px 18px;border-radius:6px;white-space:nowrap;border:0;font:inherit;cursor:pointer}
 .btn.ghost{background:#fff;border:1px solid var(--line);font-weight:600}
@@ -101,7 +101,7 @@ cards.forEach(function(c){var d=c.getAttribute('data-deadline');if(d){var days=M
 function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
 function apply(){var words=norm(q.value).split(/\s+/).filter(Boolean),n=0,s=st.value,p=pg?pg.value:'',w=dl.value,t=tp.value;
  cards.forEach(function(c){var ok=(s==='all'||c.getAttribute('data-status')===s)&&(!p||c.getAttribute('data-prog')===p)&&(!t||c.getAttribute('data-kind')===t);
-  if(ok&&w){var days=c.getAttribute('data-days');ok=days!==null&&+days<=+w;}
+  if(ok&&w){var days=c.getAttribute('data-days');ok=days!==null&&+days>=0&&+days<=+w;}
   if(ok&&words.length){var h=c._h||(c._h=norm(c.textContent));ok=words.every(function(x){return h.indexOf(x)>-1});}
   c.hidden=!ok;if(ok)n++;});
  count.textContent=n;empty.hidden=n>0;
@@ -288,7 +288,7 @@ def filters(progs, show_prog=True, default_status="open", default_dl=""):
     prog = f'<label>Programme<select id="f-prog"><option value="">All programmes</option>{popts}</select></label>' if show_prog else ""
     def sel(v, cur):
         return " selected" if v == cur else ""
-    return f"""<div class="filters" role="search"><div class="wrap">
+    return f"""<div class="filters" id="filters" role="search"><div class="wrap">
 <label class="q">Search<input id="f-q" type="search" placeholder="Keyword, topic ID, e.g. AI, hydrogen, HORIZON-CL4…" autocomplete="off"></label>
 <label>Status<select id="f-status"><option value="open"{sel('open',default_status)}>Open now</option><option value="forthcoming"{sel('forthcoming',default_status)}>Forthcoming</option><option value="all"{sel('all',default_status)}>Open + forthcoming</option></select></label>
 {prog}<label>Deadline<select id="f-dl"><option value="">Any deadline</option><option value="15"{sel('15',default_dl)}>Within 15 days</option><option value="30"{sel('30',default_dl)}>Within 30 days</option><option value="60">Within 60 days</option><option value="90">Within 90 days</option><option value="180">Within 6 months</option></select></label>
@@ -399,13 +399,14 @@ def main():
     import ficha_widget
     (SITE / "assets" / "ficha.js").write_text(ficha_widget.JS, encoding="utf-8")  # email-verified PDF factsheet download
 
+    soon30 = [c for c in open_calls if c["deadline"] and 0 <= (date.fromisoformat(c["deadline"]) - upd).days <= 30]  # same rule as /closing-soon/ and the 30-day filter
     chips = "".join(f'<a href="/programme/{slug(c)}/">{escape(label(c, ""))}<b>{n}</b></a>' for c, n in progs)
     hero = f"""<main><section class="hero"><div class="wrap"><p class="kicker">EU Funding Calls · updated {upd_s}</p>
 <h1>Open EU funding calls 2026–2027</h1>
 <p class="lead">Every open and forthcoming EU grant and cascade-funding call from the European Commission's Funding &amp; Tenders Portal, in one searchable list. Filter by programme, deadline or keyword. Refreshed automatically every week.</p>
-<ul class="stats"><li><strong>{stats['open']}</strong>calls open now</li><li><strong>{stats['forthcoming']}</strong>forthcoming calls</li><li><strong>{stats['closingIn30Days']}</strong>closing in 30 days</li><li><strong>{stats['programmes']}</strong>EU programmes</li></ul>
+<ul class="stats"><li><a href="/?status=open#filters"><strong>{stats['open']}</strong>calls open now</a></li><li><a href="/?status=forthcoming#filters"><strong>{stats['forthcoming']}</strong>forthcoming calls</a></li><li><a href="/closing-soon/"><strong>{len(soon30)}</strong>closing in 30 days</a></li><li><a href="#programmes"><strong>{stats['programmes']}</strong>EU programmes</a></li></ul>
 <div class="actions"><a class="btn" href="{MAIN}/eu-fund-matching">Find the right call for my project</a><a class="btn ghost" href="/closing-soon/">Deadlines in the next 30 days</a></div>
-<nav class="chips" aria-label="Programmes">{chips}</nav></div></section>"""
+<nav class="chips" id="programmes" aria-label="Programmes">{chips}</nav></div></section>"""
     about = """<section class="about"><h2>About this list</h2><p>The list is built from the European Commission's public Funding &amp; Tenders Portal search service and refreshed every Monday. Calls whose deadlines have passed are removed automatically, even if the portal still flags them as open. “Open” means you can submit now; “forthcoming” means the call has been announced but is not yet open. Budgets are the indicative topic budgets published by the Commission. Always read the official call documents before applying.</p></section></div></main>"""
 
     title = f"Open EU funding calls {upd.year}–{upd.year + 1}: {stats['open']} open, {stats['forthcoming']} forthcoming | Ullswater Investments"
@@ -413,7 +414,7 @@ def main():
     (SITE / "index.html").write_text(page(title, desc, "/", nav(progs, "all") + hero + filters(progs) + listing(calls) + about, itemlist(open_calls, "Open EU funding calls")), encoding="utf-8")
 
     # Closing soon
-    soon = [c for c in open_calls if c["deadline"] and (date.fromisoformat(c["deadline"]) - upd).days <= 30]
+    soon = soon30
     h = f"""<main><section class="hero"><div class="wrap"><div class="crumbs"><a href="/">All calls</a> › Closing soon</div><p class="kicker">Deadlines · updated {upd_s}</p>
 <h1>EU funding calls closing in the next 30 days</h1><p class="lead">{len(soon)} open EU calls have a deadline within 30 days. If you want to apply, start now.</p></div></section>"""
     (SITE / "closing-soon").mkdir(exist_ok=True)
