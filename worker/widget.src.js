@@ -54,6 +54,10 @@
     '.uaa-sg{margin-top:10px}.uaa-sg small{display:block;color:#6b7280;font-size:11px;margin-bottom:4px}.uaa-sg button{background:#fff;border:1px solid #c9a646;border-radius:999px;padding:5px 11px;margin:0 6px 6px 0;font:inherit;font-size:12.5px;color:#233567;cursor:pointer;text-align:left}.uaa-sg button:hover{background:#fbf6e6}' +
     '#uaa-n{font-size:11px;color:#6b7280;padding:0 12px 8px}#uaa-n a{color:#6b7280}' +
     '#uaa.wide #uaa-p{width:min(640px,94vw);height:min(780px,86vh)}#uaa.wide #uaa-m{font-size:15px}' +
+    '#uaa-p{transition:width .35s ease,height .35s ease}#uaa.big #uaa-p{width:min(533px,96vw);height:min(806px,92vh)}#uaa.big #uaa-m{font-size:15px}' +
+    '#uaa.big.wide #uaa-p{width:min(832px,96vw);height:min(1014px,92vh)}#uaa.big.wide #uaa-m{font-size:16px}' +
+    '.uaa-cur{display:inline-block;width:.5em;height:1.05em;margin-left:1px;vertical-align:-.15em;background:#233567;animation:uaab 1s steps(1) infinite}@keyframes uaab{50%{opacity:0}}' +
+    '@media (prefers-reduced-motion:reduce){#uaa-p{transition:none}.uaa-cur{animation:none}}' +
     '@media (max-width:600px){#uaa{right:10px;bottom:10px}#uaa.o{inset:0}#uaa.o #uaa-p{width:100vw;height:100dvh;border-radius:0}}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
   var w = document.createElement('div'); w.id = 'uaa';
@@ -68,8 +72,11 @@
   var b = $('uaa-b'), p = $('uaa-p'), m = $('uaa-m'), f = $('uaa-f'), inp = $('uaa-i'), busy = 0, H = [];
   try { H = JSON.parse(sessionStorage.getItem('uaa-h') || '[]'); } catch (e) { H = []; }
   function save() { try { sessionStorage.setItem('uaa-h', JSON.stringify(H.slice(-12))); } catch (e) {} }
-  var wide = 0, topicQ = '';
-  function toggle(open) { p.style.display = open ? 'flex' : 'none'; b.style.display = open ? 'none' : ''; w.className = (open ? 'o' : '') + (open && wide ? ' wide' : ''); b.setAttribute('aria-expanded', open ? 'true' : 'false'); if (open) inp.focus(); else b.focus(); }
+  var wide = 0, big = 0, topicQ = '';
+  // big: the panel grows 30% once the assistant starts answering (easier reading); back to normal size when closed
+  var RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function cls() { var open = p.style.display === 'flex'; w.className = (open ? 'o' : '') + (open && wide ? ' wide' : '') + (open && big ? ' big' : ''); }
+  function toggle(open) { if (!open) big = 0; p.style.display = open ? 'flex' : 'none'; b.style.display = open ? 'none' : ''; cls(); b.setAttribute('aria-expanded', open ? 'true' : 'false'); if (open) inp.focus(); else b.focus(); }
   b.onclick = function () { toggle(true); }; $('uaa-x').onclick = function () { wide = 0; toggle(false); };
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && p.style.display === 'flex') toggle(false); });
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -116,12 +123,35 @@
     var sg = $('uaa-s'); if (sg) sg.remove();
     var old = m.querySelectorAll('.uaa-sg'); for (var i = 0; i < old.length; i++) old[i].remove();
     add(esc(q), 1);
-    var box = add(''), body = document.createElement('div'), stx = document.createElement('div'), txt = '', raf = 0;
+    big = 1; cls();
+    var box = add(''), body = document.createElement('div'), stx = document.createElement('div'), txt = '', raf = 0, shown = 0, done = null, last = 0;
     stx.className = 'uaa-st'; stx.textContent = T.think + '…'; box.appendChild(body); box.appendChild(stx);
-    function paint() { raf = 0; body.innerHTML = fmt(txt); m.scrollTop = m.scrollHeight; }
+    // typewriter: the received text (txt) is revealed progressively (shown chars), never cutting a link or bold mid-way
+    var TOK = /\[[^\]\n]+\]\(https?:\/\/[^\s)]+\)|\*\*[^*\n]+\*\*|https?:\/\/[^\s)<]+/g;
+    function cut(n) {
+      var t, re = new RegExp(TOK.source, 'g');
+      while ((t = re.exec(txt))) { var a = t.index, e = a + t[0].length; if (a >= n) break; if (n < e) return (e < txt.length || done) ? e : a; }
+      var sl = txt.slice(0, n), ob = sl.lastIndexOf('['), cb = sl.lastIndexOf(')');
+      if (!done && ob > cb && /\[[^\]\n]*(\]\(?[^\s)]*)?$/.test(sl.slice(ob))) return ob;
+      if (!done && (sl.split('**').length % 2 === 0)) return sl.lastIndexOf('**');
+      return n;
+    }
+    function paint() {
+      raf = 0; var c = shown >= txt.length && done !== null;
+      body.innerHTML = fmt(txt.slice(0, shown)) + (c ? '' : '<span class="uaa-cur" aria-hidden="true"></span>'); m.scrollTop = m.scrollHeight;
+    }
+    function tick(ts) {
+      raf = 0; var dt = last ? Math.min(ts - last, 100) : 16; last = ts;
+      var back = txt.length - shown, speed = Math.max(0.09, back / 1500);   // ~90 chars/s, faster when far behind
+      if (RM) shown = txt.length; else if (back > 0) shown = Math.max(shown, cut(Math.min(txt.length, shown + Math.max(1, Math.round(speed * dt)))));
+      paint();
+      if (shown < txt.length) raf = requestAnimationFrame(tick); else { last = 0; if (done) end(); }
+    }
+    function kick() { if (!raf) raf = requestAnimationFrame(tick); }
     function status(s) { stx.textContent = s ? s + '…' : ''; stx.style.display = s ? '' : 'none'; m.scrollTop = m.scrollHeight; }
-    function fin(d) { busy = 0; status(''); if (raf) cancelAnimationFrame(raf); paint(); if (d && d.sources) box.insertAdjacentHTML('beforeend', src(d.sources)); if (d) sugg(box, d.suggest); H.push({ role: 'assistant', content: txt }); save(); m.scrollTop = m.scrollHeight; }
-    function fail(msg) { busy = 0; H.pop(); status(''); if (txt) { paint(); box.insertAdjacentHTML('beforeend', '<div style="color:#b91c1c;font-size:12px;margin-top:6px">' + esc(msg) + '</div>'); } else box.textContent = msg; }
+    function end() { var d = done; done = 0; if (!d) return; busy = 0; shown = txt.length; paint(); if (d.sources) box.insertAdjacentHTML('beforeend', src(d.sources)); sugg(box, d.suggest); H.push({ role: 'assistant', content: txt }); save(); m.scrollTop = m.scrollHeight; }
+    function fin(d) { status(''); done = d || {}; if (shown >= txt.length) { if (raf) cancelAnimationFrame(raf); raf = 0; end(); } else kick(); }
+    function fail(msg) { busy = 0; H.pop(); status(''); done = {}; if (raf) cancelAnimationFrame(raf); raf = 0; shown = txt.length; if (txt) { paint(); box.insertAdjacentHTML('beforeend', '<div style="color:#b91c1c;font-size:12px;margin-top:6px">' + esc(msg) + '</div>'); } else box.textContent = msg; }
     var hist = H.slice(-10); H.push({ role: 'user', content: q });
     var isTopic = q === topicQ; topicQ = '';
     fetch(API + '/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -137,7 +167,7 @@
             while ((k = buf.indexOf('\n\n')) >= 0) {
               var line = buf.slice(0, k); buf = buf.slice(k + 2); if (line.indexOf('data:') !== 0) continue; var ev;
               try { ev = JSON.parse(line.slice(5)); } catch (_) { continue; }
-              if (ev.type === 'delta') { txt += ev.text; status(''); if (!raf) raf = requestAnimationFrame(paint); }
+              if (ev.type === 'delta') { txt += ev.text; status(''); kick(); }
               else if (ev.type === 'status') status(lang === 'es' ? T.think : ev.text);
               else if (ev.type === 'done') { ended = 1; fin(ev); }
               else if (ev.type === 'error') { ended = 1; fail(lang === 'es' ? (txt ? T.cut : T.busy) : ev.text); }
