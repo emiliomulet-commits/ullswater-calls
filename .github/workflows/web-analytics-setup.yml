@@ -1,0 +1,25 @@
+name: Cloudflare Web Analytics setup (one-off)
+on:
+  workflow_dispatch:
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable Web Analytics (automatic setup) on ullswaterinvestments.com
+        env:
+          T: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          A: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          H="Authorization: Bearer $T"
+          echo "--- token permissions check"
+          curl -s -H "$H" https://api.cloudflare.com/client/v4/user/tokens/verify | jq -c '.success,.errors'
+          echo "--- zone"
+          Z=$(curl -s -H "$H" "https://api.cloudflare.com/client/v4/zones?name=ullswaterinvestments.com" | tee /tmp/z.json | jq -r '.result[0].id // empty')
+          jq -c '.success,.errors,(.result|length)' /tmp/z.json
+          echo "zone id found: ${Z:+yes}"
+          echo "--- existing RUM sites"
+          curl -s -H "$H" "https://api.cloudflare.com/client/v4/accounts/$A/rum/site_info/list" | tee /tmp/l.json | jq -c '.success,.errors,[.result[]?|{host,auto_install,site_tag,zone:.ruleset.zone_name}]'
+          if jq -e '.result[]? | select(.host=="ullswaterinvestments.com" or .ruleset.zone_name=="ullswaterinvestments.com")' /tmp/l.json >/dev/null; then echo "already exists"; exit 0; fi
+          echo "--- create"
+          if [ -n "$Z" ]; then BODY="{\"zone_tag\":\"$Z\",\"auto_install\":true}"; else BODY='{"host":"ullswaterinvestments.com","auto_install":false}'; fi
+          curl -s -X POST -H "$H" -H "Content-Type: application/json" -d "$BODY" "https://api.cloudflare.com/client/v4/accounts/$A/rum/site_info" | jq -c '.success,.errors,{host:.result.host,auto_install:.result.auto_install,site_tag:.result.site_tag,site_token:.result.site_token}'
