@@ -118,7 +118,8 @@ def spain_html(data, money, fmt_date):
     return f"""<main><section class="hero"><div class="wrap"><div class="crumbs"><a href="/">All calls</a> › Spain</div><p class="kicker">Spain · national and regional calls · updated {fmt_date(data.get('updated'))}</p>
 <h1>Spanish State and regional grants for companies</h1><p class="lead">Competitive calls from the State and the regions (R&amp;D&amp;I, industry &amp; energy, business and SME competitiveness, trade and tourism, agri-food and employment) that are open or about to open, for companies and organisations. Each one has a downloadable PDF factsheet in Spanish. Combine them with EU funding to build your funding strategy.</p>
 <ul class="stats"><li><strong>{len(calls)}</strong>open or upcoming calls</li><li><strong>{sum(1 for c in calls if c['level'] == 'State')}</strong>State calls</li><li><strong>{len(regions)}</strong>regions</li></ul>
-<div class="actions"><a class="btn" href="https://www.ullswaterinvestments.com/eu-fund-matching">Get a funding strategy (EU + Spain)</a><a class="btn ghost" href="/alerts/?q=spain">🔔 Alerts</a></div></div></section>
+<div class="actions"><a class="btn" href="https://www.ullswaterinvestments.com/es/ayudas/" hreflang="es">All open grants in Spain, in Spanish →</a><a class="btn ghost" href="https://www.ullswaterinvestments.com/eu-fund-matching">Get a funding strategy (EU + Spain)</a><a class="btn ghost" href="/alerts/?q=spain">🔔 Alerts</a></div>
+<p style="margin:14px 0 0;max-width:80ch">This page lists the R&amp;D, industry and competitiveness calls in English. <a href="https://www.ullswaterinvestments.com/es/ayudas/" hreflang="es" style="color:inherit;font-weight:700">Ayudas en España</a> (in Spanish) covers every State and regional grant for companies, with a search by region, a calendar of deadlines and the CDTI, ENISA and ICO programmes open all year.</p></div></section>
 <div class="filters" role="search"><div class="wrap" style="grid-template-columns:2fr 1fr 1fr 1fr">
 <label class="q">Search<input id="es-q" type="search" placeholder="e.g. hidrógeno, digitalización, I+D"></label>
 <label>Region<select id="es-r"><option value="">All</option>{opts}</select></label>
@@ -129,6 +130,26 @@ def spain_html(data, money, fmt_date):
 <script>(function(){{var q=document.getElementById('es-q'),r=document.getElementById('es-r'),pu=document.getElementById('es-p'),s=document.getElementById('es-s'),n=document.getElementById('es-n'),a=[].slice.call(document.querySelectorAll('article.call'));
 function f(){{var t=q.value.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,''),k=0;a.forEach(function(e){{var ok=(!r.value||e.dataset.region===r.value)&&(!pu.value||e.dataset.purpose===pu.value)&&(!s.value||e.dataset.open==='1')&&(!t||e.textContent.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').indexOf(t)>-1);e.hidden=!ok;if(ok)k++}});n.textContent=k}}
 [q,r,pu,s].forEach(function(e){{e.addEventListener('input',f);e.addEventListener('change',f)}})}})();</script>"""
+
+
+AYUDAS = "https://www.ullswaterinvestments.com/es/ayudas/"
+_AYUDAS_IDS = None
+
+
+def ayudas_ids():
+    """BDNS codes that have their own page in www /es/ayudas/ (open grants), so a call page can link to it. Empty if unreachable."""
+    global _AYUDAS_IDS
+    if _AYUDAS_IDS is None:
+        import json as _json
+        import urllib.request
+        try:
+            req = urllib.request.Request(AYUDAS + "ayudas.json", headers={"User-Agent": "ullswater-calls-build"})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                _AYUDAS_IDS = {str(c["id"]) for c in _json.load(r).get("calls", [])}
+        except Exception as ex:  # noqa: BLE001
+            print("  ayudas.json not reachable, no links to individual www grant pages:", ex)
+            _AYUDAS_IDS = set()
+    return _AYUDAS_IDS
 
 
 def spain_call_html(c, x, money, fmt_date):
@@ -190,6 +211,9 @@ def spain_call_html(c, x, money, fmt_date):
         secs.append("<h2>Cuantía y plazos</h2><table class=\"kv\">" + "".join(f"<tr><th>{k}</th><td>{v}</td></tr>" for k, v in rows) + "</table>")
     if X.get("atencion"):
         secs.append("<h2>Puntos de atención</h2>" + ul(X["atencion"][:5]))
+    www = (f'<a class="btn ghost" href="{AYUDAS}convocatoria/{e(c["id"])}/">Ficha completa y asistente de IA en Ayudas en España →</a> '
+           if str(c["id"]) in ayudas_ids() else "")
+    secs.append(f'<p style="margin-top:18px">{www}<a href="{AYUDAS}">Todas las ayudas abiertas para empresas en España</a></p>')
     src = (f'Contenido extraído por Ullswater Investments del texto oficial ({e(x.get("docName") or "convocatoria")}) publicado en la BDNS. '
            if X else "") + "Compruebe siempre los requisitos y plazos en la convocatoria oficial antes de presentar la solicitud."
 

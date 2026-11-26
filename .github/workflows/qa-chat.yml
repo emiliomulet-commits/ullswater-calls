@@ -30,8 +30,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Esperar a que el despliegue llegue a todos los servidores
@@ -46,7 +46,7 @@ jobs:
           python qa/muestra.py --por-bloque "${{ github.event.inputs.por_bloque || '2' }}" --salida qa/salida
           echo "rc=$?" >> "$GITHUB_OUTPUT"
           cat qa/salida/informe.md >> "$GITHUB_STEP_SUMMARY"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         if: always()
         with:
           name: prueba-asistente-${{ github.run_id }}
