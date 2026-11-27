@@ -1,0 +1,11 @@
+# tenders.ullswaterinvestments.com: static site served by Workers Static Assets (no script yet).
+# Later phases (alerts, AI pre-check of a tender) can add `main = "..."` here.
+name = "ullswater-tenders"
+compatibility_date = "2026-11-01"
+keep_vars = true
+
+[assets]
+directory = "../../site-tenders"
+html_handling = "auto-trailing-slash"
+not_found_handling = "404-page"
+
