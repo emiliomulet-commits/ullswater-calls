@@ -293,6 +293,15 @@ def walk(name, url, today, stop_at, cache, gone):
         raw = get(url)
         pages += 1
         root = ET.fromstring(raw)
+        if PROBE and pages <= 2:
+            inv = Counter()
+            for e in root.iter():
+                ln = local(e.tag)
+                if ln in ("LegalDocumentReference", "TechnicalDocumentReference", "AdditionalDocumentReference"):
+                    continue
+                val = (e.text or "").strip()[:30]
+                inv[(ln, val if len(set(val)) and not re.search(r"\d{4}-\d{2}|http|@", val) and len(val) < 25 else "*")] += 1
+            print("--- tag inventory", name, [f"{k[0]}={k[1]}:{n}" for k, n in sorted(inv.items()) if n >= 3][:900])
         if PROBE and pages == 1:
             print(f"--- {name} page 1: {len(raw):,} bytes")
             e0 = next((e for e in root if local(e.tag) == "entry"), None)
