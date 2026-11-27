@@ -95,6 +95,16 @@ T = {
     ),
 }
 
+SHELL_FIX = ""
+# with the www shell, the calls. header and footer rules must not leak into the www header and footer
+OWN_CHROME = ("header.site", "footer.site", ".brand", ".lang", ".top-links")
+
+
+def base_css(shell):
+    if not shell:
+        return B.CSS
+    import re as _re
+    return _re.sub(r"[^{}]+\{[^{}]*\}", lambda m: "" if any(k in m.group(0).split("{")[0] for k in OWN_CHROME) else m.group(0), B.CSS)
 EXTRA_CSS = """.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .ask{max-width:860px;margin:26px 0 0;display:flex;align-items:center;gap:12px;background:#fff;border-radius:40px;height:64px;padding:0 10px 0 24px;box-shadow:0 8px 28px rgba(35,53,103,.14);border:1px solid var(--line)}
 .ask input{flex:1;border:0;outline:0;font:inherit;font-size:17px;color:#1f2937;background:transparent;min-width:0}.ask input::placeholder{color:#6b7280}
@@ -122,6 +132,35 @@ def money(v, cur="EUR"):
     if v >= 1000:
         return f"{sym}{round(v / 1000):,}k"
     return f"{sym}{v:,}"
+
+
+_SHELL = None
+
+
+def www_shell():
+    """Header, footer, scoped CSS and menu JS of www (www writes assets/shell.json on every build), so this site shares the menu,
+    logo and look of www.ullswaterinvestments.com. SHELL_FILE=<path> reads a local copy. None if unavailable (own header then)."""
+    global _SHELL
+    if _SHELL is None:
+        _SHELL = {}
+        try:
+            import os
+            import urllib.request
+            f = os.environ.get("SHELL_FILE")
+            raw = Path(f).read_text(encoding="utf-8") if f else urllib.request.urlopen(
+                urllib.request.Request(MAIN + "/assets/shell.json", headers={"User-Agent": "ullswater-tenders-build"}), timeout=30).read().decode("utf-8")
+            sh = json.loads(raw)
+            if all(sh.get(k, {}).get("header") and sh[k].get("footer") for k in ("en", "es")) and sh.get("css"):
+                _SHELL = sh
+        except Exception as e:  # keep building with the site's own header
+            print("www shell unavailable:", e)
+    return _SHELL or None
+
+
+def own_footer(lang):
+    return f"""<footer class="site"><div class="wrap"><div><strong>Ullswater Investments · EU Funding Advisors</strong><br>Madrid: Calle Ramírez de Arellano 17, 28043 Madrid · Brussels: Square de Meeûs 37, 1000 Brussels</div>
+<div>{"Data" if lang == "en" else "Datos"}: <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/calls-for-tenders" target="_blank" rel="noopener">EU Funding &amp; Tenders Portal</a> · <a href="https://ted.europa.eu/" target="_blank" rel="noopener">TED</a> (© European Union), {"refreshed daily" if lang == "en" else "actualizado cada día"}.</div>
+<div><a href="{MAIN}{'/es/' if lang == 'es' else '/'}">ullswaterinvestments.com</a> · <a href="{CALLS}/">calls.</a> · <a href="https://www.linkedin.com/company/ullswater-investments" target="_blank" rel="noopener me">LinkedIn</a> · © {date.today().year}</div></div></footer>"""
 
 
 def network(lang):
@@ -155,20 +194,29 @@ def page(lang, title, desc, path, body, alt=None, jsonld=None):
         hre = (f'<link rel="alternate" hreflang="en" href="{BASE}{en}"><link rel="alternate" hreflang="es" href="{BASE}{es}">'
                f'<link rel="alternate" hreflang="x-default" href="{BASE}{en}">')
     sw = (f'<a class="lang" href="{alt}" hreflang="{"es" if lang == "en" else "en"}">{"ES" if lang == "en" else "EN"}</a>') if alt else ""
+    sh = www_shell()
+    if sh:
+        en_p, es_p = (path, alt) if lang == "en" else (alt, path)
+        sw_www = (f'<nav class="lang" aria-label="{"Language" if lang == "en" else "Idioma"}"><a href="{en_p or T["en"]["home"]}" hreflang="en" lang="en"{" aria-current=\"true\"" if lang == "en" else ""}>EN</a>'
+                  f'<a href="{es_p or T["es"]["home"]}" hreflang="es" lang="es"{" aria-current=\"true\"" if lang == "es" else ""}>ES</a></nav>')
+        top = '<div class="uw">' + sh[lang]["header"].replace("<!--LANG-->", sw_www) + "</div>"
+        bottom = '<div class="uw">' + sh[lang]["footer"] + "</div>"
+        shell_css, menu_js = SHELL_FIX + sh["css"], "<script>" + sh.get("js", "") + "</script>"
+    else:
+        top = (f'''<header class="site"><div class="wrap"><a class="brand" href="{t['home']}">Ullswater Investments <span>· {t['brand']}</span></a>
+<nav class="top-links" aria-label="Ullswater Investments sites">{network(lang)}{sw}</nav></div></header>''')
+        bottom, shell_css, menu_js = own_footer(lang), "", ""
     return f"""<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{escape(title)}</title><meta name="description" content="{escape(desc)}"><link rel="canonical" href="{canon}">{hre}
 <meta property="og:type" content="website"><meta property="og:title" content="{escape(title)}"><meta property="og:description" content="{escape(desc)}"><meta property="og:url" content="{canon}"><meta property="og:site_name" content="Ullswater Investments · EU Funding Advisors">
 <meta property="og:image" content="{B.OG_IMAGE}"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23233567'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='34' text-anchor='middle' fill='%23c9a646'%3EU%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>{B.CSS}{EXTRA_CSS}</style><script type="application/ld+json">{json.dumps(lds, ensure_ascii=False)}</script></head><body>
-<header class="site"><div class="wrap"><a class="brand" href="{t['home']}">Ullswater Investments <span>· {t['brand']}</span></a>
-<nav class="top-links" aria-label="Ullswater Investments sites">{network(lang)}{sw}</nav></div></header>
+<style>{base_css(sh)}{EXTRA_CSS}{shell_css}</style><script type="application/ld+json">{json.dumps(lds, ensure_ascii=False)}</script></head><body>
+{top}
 {body}
-<footer class="site"><div class="wrap"><div><strong>Ullswater Investments · EU Funding Advisors</strong><br>Madrid: Calle Ramírez de Arellano 17, 28043 Madrid · Brussels: Square de Meeûs 37, 1000 Brussels</div>
-<div>{"Data" if lang == "en" else "Datos"}: <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/calls-for-tenders" target="_blank" rel="noopener">EU Funding &amp; Tenders Portal</a> · <a href="https://ted.europa.eu/" target="_blank" rel="noopener">TED</a> (© European Union), {"refreshed daily" if lang == "en" else "actualizado cada día"}.</div>
-<div><a href="{MAIN}{'/es/' if lang == 'es' else '/'}">ullswaterinvestments.com</a> · <a href="{CALLS}/">calls.</a> · <a href="https://www.linkedin.com/company/ullswater-investments" target="_blank" rel="noopener me">LinkedIn</a> · © {date.today().year}</div></div></footer>
-<script src="/assets/tenders.js" defer></script>{CHAT}</body></html>"""
+{bottom}
+<script src="/assets/tenders.js" defer></script>{menu_js}{CHAT}</body></html>"""
 
 
 def ask_bar(lang):
