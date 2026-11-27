@@ -456,14 +456,14 @@ def build_fichas(write, page, ctx):
                   documents=[dict(label=x.get("name"), local=ctx["base"] + names.get(x["file"], ""), official=x.get("uri"), pages=x.get("pages"))
                              for x in idx["docs"] if x["file"] in names])
         (site / "data" / "es" / "fichas" / f"{i}.json").write_text(json.dumps(f2, ensure_ascii=False), encoding="utf-8")
-        inner = R.body(f, idx, local=lambda x: names.get(x["file"], f["official_url"]), logo=False)
+        inner = R.body(f, idx, local=lambda x: names.get(x["file"], f["official_url"]), logo=False, pdf_url=f"/docs/es/{i}/ficha-ullswater-{i}.pdf")
         inner = inner.replace("Licitaciones › España", '<a href="/es/">Licitaciones</a> › <a href="/es/espana/">España</a>', 1)
         qs = ["¿Qué solvencia piden y cómo la acredito?", "¿Cómo se reparten los 100 puntos?", "¿Qué pasa si oferto un precio muy bajo?", "¿A cuántos lotes me puedo presentar?"]
-        strip = ('<section class="fx-ask"><div class="in"><h2>Pregunta al asistente sobre esta licitación</h2>'
+        strip = ('<section class="fx-ask" id="pregunta"><div class="in"><h2>Pregunta al asistente sobre esta licitación</h2>'
                  '<p>Ha leído todos los documentos oficiales y te contesta citando el documento y la página.</p>'
                  '<div class="esp-ask">' + ctx["ask"]("es", qs, "Ej.: ¿qué experiencia piden al director de obra?") + "</div>"
-                 f'<p class="fx-pdf"><a class="btn" href="/docs/es/{i}/ficha-ullswater-{i}.pdf" download>Descargar la ficha en PDF</a></p></div></section>')
-        inner = inner.replace('<section class="key">', strip + '<section class="key">', 1)
+                 '</div></section>')
+        inner = inner.replace("<!--ASK-->", strip, 1)
         css = ".fx-ask{background:#fbf8f1;border-bottom:1px solid #efe6d2}.fx-ask .in{padding-top:26px;padding-bottom:22px}.fx-ask h2{margin:0 0 4px;font-size:20px}.fx-ask p{margin:0 0 14px;color:#4b5563}.fx-ask .fx-pdf{margin:14px 0 0}"
         body = f'<main><style>{R.scoped_css()}{css}</style><div class="fx">{inner}</div></main>'
         ld = {"@context": "https://schema.org", "@type": "Article", "headline": f["title"], "inLanguage": "es", "url": ctx["base"] + ficha_path(i),
