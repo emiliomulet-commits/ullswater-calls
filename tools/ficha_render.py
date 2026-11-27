@@ -46,23 +46,39 @@ def rows(items, docs_url, pdf=False):
 LOGO = "data:image/svg+xml;base64," + __import__("base64").b64encode((Path(__file__).resolve().parent.parent / "scripts" / "fichas_assets" / "logo_white.svg").read_bytes()).decode()
 
 
-def body(f, idx, pdf=False, local=None, logo=True):
+COLORS = ["#c9a227", "#4f7cff", "#22b07d", "#e46a4f", "#8b5cf6", "#0ea5e9"]
+ICON = {
+    "target": '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+    "crane": '<path d="M4 21V5h14M4 5l6 6M18 5v5M15 10h6M8 21h-4"/>',
+    "alert": '<path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/>',
+}
+
+
+def ic(k, s=18, c="currentColor"):
+    return f'<svg width="{s}" height="{s}" viewBox="0 0 24 24" fill="none" stroke="{c}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ICON[k]}</svg>'
+
+
+def num(v):
+    return f"{v:,.0f}".replace(",", ".")
+
+
+def body(f, idx, pdf=False, local=None, logo=True, pdf_url=None, today=None):
+    """Design B («historia visual»): hero with the key figures, calendar, the 100 points as a bar, lots as tiles; detail below."""
     docs_url = {}
     by_file = {d.get("file"): d for d in idx["docs"]}
     for k, d in f["docs"].items():
         docs_url[k] = by_file.get(d["file"], {}).get("uri", "")
-    days = (date.fromisoformat(f["deadline"]) - date.fromisoformat(f["reviewed"])).days
+    pub, dl = date.fromisoformat(f["published"]), date.fromisoformat(f["deadline"])
+    today = today or (date.fromisoformat(f["reviewed"]) if pdf else date.today())
+    days = max((dl - today).days, 0)
     v = f["verdict"]
-    lvl = {"alta": "hi", "media": "mid", "baja": "lo"}
-    tags = "".join(f'<li>{e(t)}</li>' for t in f["tags"].values())
     secs = {s["key"]: s for s in f["sections"]}
     lots = secs["lots"]
-    lot_rows = "".join(f'<tr><td class="n">{x["n"]}</td><td>{e(x["centres"])}</td><td class="num">{eur(x["fee"])}</td>'
-                       f'<td class="num">{eur0(x["works"])}</td><td class="num">{x["months"]} meses</td></tr>' for x in lots["lots"])
     tot_fee, tot_w = sum(x["fee"] for x in lots["lots"]), sum(x["works"] for x in lots["lots"])
+    n_lots, max_w = len(lots["lots"]), max(x["works"] for x in lots["lots"])
+    max_lots = f.get("max_lots_per_bidder", 2)
     win = secs["win"]
-    bars = "".join(f'<div class="crit"><div class="ch"><b>{e(c["name"])}</b><span class="pts">{c["pts"]} pts</span></div>'
-                   f'<div class="bar"><i style="width:{c["pts"]}%"></i></div><p>{e(c["how"])}</p></div>' for c in win["criteria"])
+    total_pts = sum(c["pts"] for c in win["criteria"]) or 100
     risk = secs["risk"]
     risk_html = "".join(f'<div class="rg"><h3>{e(g["h"])}</h3><dl>{rows(g["items"], docs_url, pdf)}</dl></div>' for g in risk["groups"])
     err = secs["errors"]
@@ -70,38 +86,63 @@ def body(f, idx, pdf=False, local=None, logo=True):
         f'<tr><td>{e(x["name"])}</td><td>{e(x["type"])}{" · " + str(x["pages"]) + " págs." if x.get("pages") else ""}</td><td class="num">{x["bytes"] / 1e3:,.0f} KB</td>'
         + ("" if pdf else f'<td><a class="dl" href="{e(local(x) if local else by_file.get(x["file"], {}).get("uri", f["official_url"]))}" target="_blank" rel="noopener">Descargar</a></td>') + "</tr>"
         for x in f["files"])
-    summ = "".join(f"<li>{e(s)}</li>" for s in f["summary"])
+    MS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
+    short = lambda d: f"{d.day} {MS[d.month - 1]}"  # noqa: E731
+    # calendar: published -> last day for questions -> answers due -> deadline, with today's marker
+    span = max((dl - pub).days, 1)
+    pos = lambda d: min(max((d - pub).days / span * 100, 0), 100)  # noqa: E731
+    qd = date.fromisoformat(f["questions_until"]) if f.get("questions_until") else None
+    ev = [(pub, "Publicada", "first")]
+    if qd:
+        ev += [(qd, "Último día para preguntar", "q"), (dl - __import__("datetime").timedelta(days=6), "Respuestas a las preguntas", "")]
+    ev += [(dl, "Cierre de ofertas · " + f["deadline_time"] + " h", "end")]
+    marks = "".join(f'<div class="ev {c}{" past" if d < today else ""}" style="left:{pos(d):.1f}%"><i></i><b>{"Hoy, " if d == today else ""}{short(d)}</b><span>{e(t)}</span></div>' for d, t, c in ev)
+    now = "" if today > dl else f'<div class="now" style="left:{pos(today):.1f}%" title="Hoy"></div>'
+    cal = (f'<section class="cal"><div class="in"><h2 class="lbl">Calendario</h2><div class="track"><div class="done" style="width:{pos(today):.1f}%"></div>{now}{marks}</div>'
+           f'<ol class="evl">' + "".join(f'<li class="{c}{" past" if d < today else ""}"><b>{"Hoy, " if d == today else ""}{short(d)}</b> {e(t)}</li>' for d, t, c in ev) + "</ol></div></section>")
+    stack = "".join(f'<div style="width:{c["pts"] / total_pts * 100:.2f}%;background:{COLORS[i % 6]}">{c["pts"]}</div>' for i, c in enumerate(win["criteria"]))
+    legend = "".join(f'<div style="border-color:{COLORS[i % 6]}"><b>{e(c["name"])} · {c["pts"]}</b><span>{e(c["how"])}</span></div>' for i, c in enumerate(win["criteria"]))
+    tiles = "".join(f'<div class="lot"><div class="lk">LOTE {x["n"]}</div><b>{num(x["fee"])} €</b><div class="c">{e(x["centres"])}</div>'
+                    f'<div class="h"><i style="width:{x["works"] / max_w * 100:.0f}%"></i></div><div class="m">{ic("crane", 14)} {num(x["works"])} € de obra · {x["months"]} meses</div></div>' for x in lots["lots"])
+    lvl = {"alta": "hi", "media": "mid", "baja": "lo"}
+    first_err = err["items"][0] if err.get("items") else None
+    btns = "" if pdf else ('<div class="cta-row"><a class="btn" href="#pregunta">Pregunta al asistente</a>'
+                           + (f'<a class="btn g" href="{e(pdf_url)}" download>Descargar ficha PDF</a>' if pdf_url else "") + "</div>")
+    headline = f.get("headline") or f["title"]
+    hl = e(headline)
+    if f.get("headline_em") and f["headline_em"] in headline:
+        hl = e(headline).replace(e(f["headline_em"]), f'<em>{e(f["headline_em"])}</em>', 1)
     return f"""
-<header class="hero"><div class="in">
+<header class="hero"><div class="in hg"><div class="l">
  {'<img class="logo" src="' + LOGO + '" alt="Ullswater Investments">' if logo else ''}
  <p class="crumbs">Licitaciones › España › Ayuntamientos › Andalucía</p>
- <p class="kicker">Ficha Ullswater · expediente {e(f['ref'])}</p>
- <h1>{e(f['title'])}</h1>
- <p class="buyer">{e(f['buyer'])} · {e(f['unit'])}</p>
- <ul class="tags">{tags}</ul>
-</div></header>
-<section class="key"><div class="in grid">
- <div class="k due"><small>Fecha límite</small><b>{date.fromisoformat(f['deadline']).day} dic</b><span>{f['deadline_time']} h · quedan {days} días</span></div>
- <div class="k"><small>Presupuesto sin IVA</small><b>{eur0(tot_fee)}</b><span>5 lotes de 30.133 € a 33.971 €</span></div>
- <div class="k"><small>Obras que se dirigen</small><b>{f"{tot_w / 1e6:.2f}".replace(".", ",")} M€</b><span>13 colegios de Infantil</span></div>
- <div class="k sem"><small>Valoración Ullswater</small>
-  <div class="lights"><span class="lt {lvl[v['opportunity']]}">Oportunidad {e(v['opportunity'])}</span><span class="lt {lvl[v['difficulty']]}">Dificultad {e(v['difficulty'])}</span></div></div>
-</div></section>
+ <span class="kick">{ic("target", 14)} Oportunidad {e(v['opportunity'])} · Dificultad {e(v['difficulty'])}</span>
+ <h1>{hl}</h1>
+ <p class="lede">{e(f.get('lede') or f['summary'][0])}</p>
+ <p class="buyer">{e(f['buyer'])} · Expte. {e(f['ref'])}</p>
+ {btns}
+</div><div class="r">
+ <div class="big gold"><b>{days} {"día" if days == 1 else "días"}</b><span>para presentar<br>{short(dl)} · {e(f['deadline_time'])} h</span></div>
+ <div class="big"><b>{num(tot_fee)} €</b><span>sin IVA<br>en {n_lots} lotes</span></div>
+ <div class="big last"><b>{max_lots} de {n_lots}</b><span>lotes como máximo<br>por empresa</span></div>
+</div></div></header>
+<!--ASK-->
+{cal}
 <main class="in">
- <section class="sum"><h2>En cinco líneas</h2><ol>{summ}</ol>
-  <p class="verdict"><b>Nuestra lectura.</b> {e(v['text'])}</p></section>
+ <section class="sec0"><h2>Así se ganan los {total_pts} puntos</h2><p class="sub">{e(f.get('points_sub') or 'Sin memoria técnica ni juicio de valor: cada punto sale de una fórmula.')} {cites(win['cite'], docs_url, pdf)}</p>
+  <div class="stack">{stack}</div><div class="leg">{legend}</div>
+  <p class="insight"><b>Dónde se decide.</b> {e(win['insight'])}</p></section>
+ <section class="sec0"><h2>{"Cinco" if n_lots == 5 else n_lots} lotes, elige {"dos" if max_lots == 2 else max_lots}</h2><p class="sub">Honorarios sin IVA y obra que dirigirías en cada uno. Total: {eur(tot_fee)} de honorarios y {f"{tot_w / 1e6:.2f}".replace(".", ",")} M€ de obra.</p>
+  <div class="lots">{tiles}</div><p class="note">{e(lots['note'])} {cites(lots['cite'], docs_url, pdf)}</p></section>
+ {f'<div class="alert">{ic("alert", 26, "#e46a4f")}<div><b>Hemos encontrado {len(err["items"])} incoherencias en los pliegos.</b> {e(first_err[0])}: {e(first_err[1])} <a href="#incoherencias">Ver todas</a></div></div>' if first_err else ''}
+ <section class="verd"><h2>Nuestra lectura</h2><div class="lights"><span class="lt {lvl[v['opportunity']]}">Oportunidad {e(v['opportunity'])}</span><span class="lt {lvl[v['difficulty']]}">Dificultad {e(v['difficulty'])}</span></div><p>{e(v['text'])}</p></section>
  <section><h2>{e(secs['what']['h'])}</h2><dl>{rows(secs['what']['items'], docs_url, pdf)}</dl></section>
- <section><h2>{e(lots['h'])}</h2><div class="tw"><table class="lots"><thead><tr><th>Lote</th><th>Colegios</th><th class="num">Honorarios sin IVA</th><th class="num">Obra que se dirige</th><th class="num">Duración</th></tr></thead>
-  <tbody>{lot_rows}</tbody><tfoot><tr><td></td><td>Total</td><td class="num">{eur(tot_fee)}</td><td class="num">{eur0(tot_w)}</td><td></td></tr></tfoot></table></div>
-  <p class="note">{e(lots['note'])} {cites(lots['cite'], docs_url, pdf)}</p></section>
- <section><h2>{e(secs['money']['h'])}</h2><dl>{rows(secs['money']['items'], docs_url, pdf)}</dl></section>
  <section><h2>{e(secs['can']['h'])}</h2><dl>{rows(secs['can']['items'], docs_url, pdf)}</dl></section>
- <section><h2>{e(win['h'])} <span class="h2n">100 puntos, todos con fórmula</span></h2><div class="crits">{bars}</div>
-  <p class="note">{cites(win['cite'], docs_url, pdf)}</p>
-  <p class="insight"><b>Dónde se decide.</b> {e(win['insight'])}</p><dl>{rows(win['items'], docs_url, pdf)}</dl></section>
+ <section><h2>{e(secs['money']['h'])}</h2><dl>{rows(secs['money']['items'], docs_url, pdf)}</dl></section>
+ <section><h2>La letra pequeña de la puntuación</h2><dl>{rows(win['items'], docs_url, pdf)}</dl></section>
  <section><h2>{e(secs['when']['h'])}</h2><dl>{rows(secs['when']['items'], docs_url, pdf)}</dl></section>
  <section><h2>{e(risk['h'])}</h2><div class="rgs">{risk_html}</div></section>
- <section class="errs"><h2>{e(err['h'])}</h2><dl>{rows(err['items'], docs_url, pdf)}</dl><p class="note">{e(err['advice'])}</p></section>
+ <section class="errs" id="incoherencias"><h2>{e(err['h'])}</h2><dl>{rows(err['items'], docs_url, pdf)}</dl><p class="note">{e(err['advice'])}</p></section>
  <section><h2>Documentos oficiales</h2><p class="note">Copia de los documentos publicados en la Plataforma de Contratación del Sector Público. La versión válida es siempre la de la Plataforma.</p>
   <div class="tw"><table class="files"><thead><tr><th>Documento</th><th>Formato</th><th class="num">Tamaño</th>{'' if pdf else '<th></th>'}</tr></thead><tbody>{files}</tbody></table></div>
   <p class="note">Anuncio, pliegos y rectificaciones en la <a href="{e(f['official_url'])}" target="_blank" rel="noopener">ficha oficial de la licitación</a>.</p></section>
@@ -153,6 +194,35 @@ td{padding:8px;border-bottom:1px solid var(--line);vertical-align:top}td.n{font-
 .btn:focus-visible,.dl:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 .disc{font-size:12.5px;color:var(--muted);padding-block:18px 40px;max-width:90ch}
 @media (max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.row,.rg .row{grid-template-columns:minmax(0,1fr);gap:2px}.crits,.rgs{grid-template-columns:minmax(0,1fr)}}
+/* design B */
+.hero{background:linear-gradient(90deg,#0b1f3a 50%,#1a2b5a 50%);padding:0;color:#fff}.hg{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
+.hero .l{background:#0b1f3a;padding:36px 36px 40px 0}.hero .r{background:none;padding:32px 0 32px 34px;display:grid;gap:14px;align-content:center}
+.kick{display:inline-flex;gap:8px;align-items:center;background:#c9a227;color:#0b1f3a;font-weight:900;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:6px}
+.hero h1{font-size:clamp(30px,4.4vw,46px);line-height:1.04;font-weight:900;letter-spacing:-.025em;margin:16px 0 14px;max-width:none}.hero h1 em{font-style:normal;color:#e9c75a}
+.lede{color:#d3d9e8;font-size:16.5px;line-height:1.55;margin:0 0 10px;max-width:60ch}.hero .buyer{color:#9aa6c2;font-size:13.5px;margin:0}
+.cta-row{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}.btn.g{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.big{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid rgba(255,255,255,.13);padding-bottom:14px}.big.last{border:0;padding:0}
+.big b{font-size:clamp(34px,4.6vw,52px);font-weight:900;letter-spacing:-.03em;line-height:1;white-space:nowrap}.big span{color:#c8cfe0;font-size:13.5px;line-height:1.3}.big.gold b{color:#e9c75a}
+.cal{background:var(--bg);border-bottom:1px solid var(--line)}.cal .in{padding-top:22px;padding-bottom:22px}
+.lbl{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+.track{position:relative;height:6px;background:var(--line);border-radius:9px;margin:0 10px 62px}.track .done{position:absolute;left:0;top:0;bottom:0;background:#23356b;border-radius:9px}
+.ev{position:absolute;top:-7px;margin-left:-75px;text-align:center;width:150px}.ev i{display:block;width:20px;height:20px;border-radius:50%;background:var(--bg);border:4px solid #23356b;margin:0 auto 8px;box-sizing:border-box}
+.ev b{display:block;font-size:14px}.ev span{display:block;font-size:12px;color:var(--muted);line-height:1.3}.ev.end i{background:#c9a227;border-color:#c9a227}.ev.q i{border-color:#e46a4f}.ev.past i{background:#23356b}
+.ev.first{margin-left:-10px;text-align:left}.ev.first i{margin-left:0}.ev.end{margin-left:-140px;text-align:right}.ev.end i{margin-right:0}
+.now{position:absolute;top:-6px;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:#e46a4f;box-shadow:0 0 0 6px rgba(228,106,79,.22);z-index:2}
+.evl{display:none}
+main section.sec0{border-bottom:0;padding-top:34px}.sec0 h2{font-size:clamp(24px,3vw,30px);font-weight:900;letter-spacing:-.02em;margin:0 0 6px}.sub{color:var(--muted);margin:0 0 20px}
+.stack{display:flex;height:60px;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(15,26,51,.10)}.stack div{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:21px;min-width:0}
+.leg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:14px}.leg div{background:var(--soft);border-radius:12px;padding:14px;border-top:5px solid}.leg b{display:block;font-size:14.5px;margin-bottom:4px}.leg span{font-size:13.5px;color:var(--muted);line-height:1.45}
+.lots{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.lot{background:var(--bg);border-radius:14px;padding:16px;border:1px solid var(--line);box-shadow:0 2px 8px rgba(15,26,51,.04)}
+.lot .lk{font-size:12px;font-weight:800;color:#9a7a12;letter-spacing:.1em}.lot b{display:block;font-size:22px;font-weight:900;margin:4px 0 6px;white-space:nowrap}.lot .c{font-size:13px;color:var(--muted);line-height:1.4;min-height:54px}
+.lot .h{height:6px;background:var(--chip);border-radius:9px;margin-top:10px}.lot .h i{display:block;height:100%;background:#4f7cff;border-radius:9px}.lot .m{margin-top:8px;font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center}
+.alert{margin:30px 0 8px;background:#fff4f1;border:1px solid #f6cfc5;border-radius:16px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;color:#8f2f1c}.alert b{color:#0f1a33}.alert svg{flex:none}.alert a{color:#8f2f1c;font-weight:700}
+.verd .lights{flex-direction:row;flex-wrap:wrap;margin:0 0 10px}.verd p{max-width:80ch;margin:0}
+@media (max-width:820px){.hero{background:#0b1f3a}.hg{grid-template-columns:minmax(0,1fr)}.hero .l{padding:26px 0 28px}.hero .r{margin:0 -16px;padding:22px 16px}
+.leg{grid-template-columns:repeat(2,minmax(0,1fr))}.lots{grid-template-columns:repeat(2,minmax(0,1fr))}.stack div{font-size:16px}
+.track{display:none}.evl{display:grid;list-style:none;margin:0;padding:0 0 0 18px;border-left:3px solid var(--line);gap:10px}.evl li{position:relative;font-size:14px}.evl li::before{content:"";position:absolute;left:-26px;top:4px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:3px solid #23356b}
+.evl li.past::before{background:#23356b}.evl li.end::before{background:#c9a227;border-color:#c9a227}.evl li.q::before{border-color:#e46a4f}}
 """
 
 PDF_CSS = """
@@ -162,6 +232,10 @@ body{font-size:9.6pt;line-height:1.45}.in{max-width:none;padding:0}.hero{margin:
 .key{background:none;border:0}.grid{grid-template-columns:repeat(4,1fr);padding:10px 0}.k b{font-size:14pt}
 main section{padding:10px 0;break-inside:auto}h2{font-size:13pt;break-after:avoid}.row{grid-template-columns:42mm 1fr;padding:5px 0;break-inside:avoid}.rg .row{grid-template-columns:30mm 1fr}
 .crits{grid-template-columns:1fr 1fr}.crit,.k,.rg h3{break-inside:avoid}.rgs{grid-template-columns:1fr}table{font-size:8.6pt}.cta .btn{display:none}.logo{height:30px;width:auto;display:block;margin-bottom:14px}.crumbs{display:none}
+.hero{border-radius:8px;overflow:hidden;background:#0b1f3a}.hero .l{padding:16px 18px 18px}.hero .r{padding:16px 18px}.hero h1{font-size:22pt}.lede{font-size:10pt}.big b{font-size:20pt}.big span{font-size:8pt}.kick{font-size:7pt;display:inline-block}
+.cal .in{padding:12px 0 4px}.track{margin:0 8px 46px}.ev{width:110px;margin-left:-55px}.ev.end{margin-left:-100px}.ev b{font-size:8.5pt}.ev span{font-size:7.5pt}
+main section.sec0{padding-top:12px}.sec0 h2{font-size:15pt}.stack{height:34px;box-shadow:none}.stack div{font-size:12pt}.leg div{padding:8px}.leg b{font-size:9pt}.leg span{font-size:8pt}
+.lots{gap:6px}.lot{padding:8px;box-shadow:none}.lot b{font-size:12pt}.lot .c{font-size:7.5pt;min-height:0}.lot .m{font-size:7pt}.alert{padding:10px 12px;font-size:9pt}.sec0,.lots,.leg,.alert,.hero{break-inside:avoid}
 """
 
 
