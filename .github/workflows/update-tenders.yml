@@ -43,6 +43,8 @@ jobs:
           json.dump({"v": v, "built": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")}, open("site-tenders/data/version.json", "w"))
           PY
           echo "files: $(find site-tenders -type f | wc -l), size: $(du -sh site-tenders | cut -f1)"
+          ls -S -l site-tenders/data/ted | head -6; ls -l site-tenders/data/eu.json
+          python -c "import json;e=json.load(open('site-tenders/data/eu.json'));print(json.dumps(e[:3],ensure_ascii=False,indent=1));s=json.load(open('site-tenders/data/ted/ESP.json'));print(json.dumps(s[:3],ensure_ascii=False,indent=1));from collections import Counter;print('eu nature',Counter(x['nature'] for x in e),'eu deadline none',sum(1 for x in e if not x['deadline']));print('esp no title_es',sum(1 for x in s if 'title_es' not in x),'of',len(s))"
 
       - name: Preview artifact (branch runs only)
         if: github.ref != 'refs/heads/main'

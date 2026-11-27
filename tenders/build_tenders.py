@@ -215,7 +215,7 @@ def finder(lang, stats, src="EU"):
     dls = "".join(f'<option value="{d}">{lab}</option>' for d, lab in zip((7, 15, 30, 60), t["f_d"]))
     vals = "".join(f'<option value="{v}">≥ {money(v)}</option>' for v in (100_000, 500_000, 1_000_000, 5_000_000))
     return f"""<div class="filters" id="filters" role="search"><div class="wrap">
-<label>{t['f_src']}<select id="f-src">{opts}</select></label>
+<label>{t['f_src']}<select id="f-src" data-default="{src}">{opts}</select></label>
 <label class="q">{t['f_q']}<input id="f-q" type="search" placeholder="{escape(t['f_qph'])}" autocomplete="off"></label>
 <label>{t['f_nat']}<select id="f-nat"><option value="">{t['f_all_nat']}</option>{nat}</select></label>
 <label>{t['f_cpv']}<select id="f-cpv"><option value="">{t['f_all_cpv']}</option>{cpv}</select></label>
@@ -265,12 +265,12 @@ function apply(){var w=norm(q.value).split(/\s+/).filter(Boolean),n=nat.value,c=
   if(d){var k=days(x.deadline);if(k===null||k<0||k>+d)return false}if(v&&!(x.value>=v))return false;
   if(w.length){var h=x._h||(x._h=norm([x.title,x.title_es,x.buyer,x.city,x.summary,x.ref,x.id,cp.join(' ')].join(' ')));if(!w.every(function(t){return h.indexOf(t)>-1}))return false}return true;});
  count.textContent=rows.length.toLocaleString(L);empty.hidden=rows.length>0;render(true);
- var u=new URLSearchParams();if(src.value!=='EU')u.set('country',src.value);if(q.value)u.set('q',q.value);if(n)u.set('contract',n);if(c)u.set('cpv',c);if(d)u.set('closing',d);if(v)u.set('value',v);
+ var u=new URLSearchParams();if(src.value!==(src.getAttribute('data-default')||'EU'))u.set('country',src.value);if(q.value)u.set('q',q.value);if(n)u.set('contract',n);if(c)u.set('cpv',c);if(d)u.set('closing',d);if(v)u.set('value',v);
  history.replaceState(null,'',u.toString()?'?'+u:location.pathname);}
 function load(){var s=src.value,url=s==='EU'?'/data/eu.json':'/data/ted/'+s+'.json';
  if(cache[s]){data=cache[s];apply();return}count.textContent='…';list.innerHTML='<p class="empty">…</p>';
  fetch(url).then(function(r){return r.json()}).then(function(j){cache[s]=data=j;apply()}).catch(function(){data=[];apply()});}
-var u=new URLSearchParams(location.search);if(u.get('country'))src.value=u.get('country');if(u.get('q'))q.value=u.get('q');if(u.get('contract'))nat.value=u.get('contract');if(u.get('cpv'))cpv.value=u.get('cpv');if(u.get('closing'))dl.value=u.get('closing');if(u.get('value'))val.value=u.get('value');
+var u=new URLSearchParams(location.search);if(u.get('country'))src.value=u.get('country');else if(src.getAttribute('data-default'))src.value=src.getAttribute('data-default');if(u.get('q'))q.value=u.get('q');if(u.get('contract'))nat.value=u.get('contract');if(u.get('cpv'))cpv.value=u.get('cpv');if(u.get('closing'))dl.value=u.get('closing');if(u.get('value'))val.value=u.get('value');
 src.addEventListener('change',load);q.addEventListener('input',apply);[nat,cpv,dl,val].forEach(function(e){e.addEventListener('change',apply)});
 more.addEventListener('click',function(){render(false)});
 $('reset').addEventListener('click',function(){q.value='';nat.value='';cpv.value='';dl.value='';val.value='';apply()});
@@ -382,7 +382,7 @@ def main():
               "creator": B.ORG_REF, "license": "https://eur-lex.europa.eu/eli/dec/2011/833/oj", "dateModified": stats["updated"],
               "isBasedOn": ["https://ec.europa.eu/info/funding-tenders/opportunities/portal/", "https://ted.europa.eu/"],
               "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": BASE + "/data/eu.json"}]}
-        write(t["home"], page(lang, title, desc, t["home"], hero + finder(lang, stats) + tail, T["es" if lang == "en" else "en"]["home"], ld))
+        write(t["home"], page(lang, title, desc, t["home"], hero + finder(lang, stats, "ESP" if lang == "es" and "ESP" in countries else "EU") + tail, T["es" if lang == "en" else "en"]["home"], ld))
 
         # EU institutions page + country pages
         other = T["es" if lang == "en" else "en"]

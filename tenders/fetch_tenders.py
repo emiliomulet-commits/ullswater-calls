@@ -227,14 +227,14 @@ def ted_record(n, today):
     except (TypeError, ValueError):
         val = None
     rec = {
-        "id": pub, "src": "ted", "title": re.sub(r"\s+", " ", title).strip()[:300], "tl": tlang,
+        "id": pub, "src": "ted", "title": re.sub(r"\s+", " ", title).strip()[:300],
         "buyer": re.sub(r"\s+", " ", buyer).strip()[:160], "city": (one(n.get("buyer-city")) or "")[:60] if isinstance(one(n.get("buyer-city")), str) else "",
         "country": country, "status": "open",
         "nature": TED_NATURE.get(str(one(n.get("contract-nature-main-proc")) or ""), ""),
         "procedure": TED_PROC.get(str(one(n.get("procedure-type")) or ""), ""),
-        "cpv": cpvs[:4], "published": str(n.get("publication-date") or "")[:10] or None, "deadline": dls[0],
+        "cpv": cpvs[:3], "published": str(n.get("publication-date") or "")[:10] or None, "deadline": dls[0],
         "value": val, "currency": one(n.get("estimated-value-cur-proc")) if val else None,
-        "summary": strip_html(desc, 320),
+        "summary": strip_html(desc, 200),
         "url": f"https://ted.europa.eu/en/notice/-/detail/{pub}",
     }
     if title_es and title_es != title:
