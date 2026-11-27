@@ -117,7 +117,8 @@ CSS = """.esp{background:#fbf8f1;border-bottom:1px solid #efe6d2}.esp .wrap{padd
 .esp-st a:hover{box-shadow:inset 0 0 0 1px var(--navy);border-radius:12px}
 .esp .actions{display:flex;gap:12px;flex-wrap:wrap}.esp .btn{padding:14px 24px;font-size:17px}.esp .btn.ghost{background:#fff}
 .esp-rg{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 0}.esp-rg a{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 15px;text-decoration:none;color:var(--navy);font-size:15px}
-.esp-rg a b{margin-left:6px;color:#8a6d1f}.esp-rg a:hover{border-color:#c9a646}.esp-src{font-size:14px;color:var(--muted);margin:18px 0 0}
+.esp-rg a b{margin-left:6px;color:#8a6d1f}.esp-rg a:hover{border-color:#c9a646}
+.hero .esp-rg a{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.3);color:#fff}.hero .esp-rg a b{color:#e2c46b}.hero .esp-rg a:hover,.hero .esp-rg a:focus-visible{background:rgba(255,255,255,.16);border-color:#c9a646}.esp-src{font-size:14px;color:var(--muted);margin:18px 0 0}
 .esp-lv{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 0}.esp-lv a{display:block;border:1px solid var(--line);border-radius:12px;padding:18px;background:#fff;text-decoration:none;color:var(--muted);font-size:14px}
 .esp-lv a strong{display:block;font-size:30px;color:var(--navy);line-height:1.1}.esp-lv a b{display:block;color:var(--navy);font-size:16px;margin:4px 0}.esp-lv a:hover{border-color:#c9a646}
 .lvtag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;padding:3px 8px;background:#fbf3dc;color:#7a5f17}
