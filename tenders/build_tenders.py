@@ -105,7 +105,14 @@ def base_css(shell):
         return B.CSS
     import re as _re
     return _re.sub(r"[^{}]+\{[^{}]*\}", lambda m: "" if any(k in m.group(0).split("{")[0] for k in OWN_CHROME) else m.group(0), B.CSS)
-EXTRA_CSS = """.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+EXTRA_CSS = """/* navy hero, same scheme as the www home */
+.hero{background:radial-gradient(720px 520px at 4% 38%,rgba(201,166,70,.16),transparent 65%),radial-gradient(900px 520px at 100% 0%,rgba(91,124,214,.28),transparent 60%),linear-gradient(170deg,#101c40 0%,#1a2850 52%,#233567 100%);border-bottom:0;color:#fff}
+.hero h1{color:#fff}.hero .lead,.hero p{color:#d5dcef}.hero .kicker{color:#c9a646}.hero .crumbs,.hero .crumbs a{color:#cbd3ea}.hero a:not(.btn){color:#fff}
+.hero .achip{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.28);color:#fff}.hero .achip:hover,.hero .achip:focus-visible{border-color:#c9a646;background:rgba(255,255,255,.14)}
+.hero .ask{border:0;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.hero .stats li,.hero .stats a{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.14)!important;color:#cbd3ea!important}.hero .stats strong{color:#fff!important}
+.hero .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}.hero .btn.ghost:hover{border-color:#c9a646}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .ask{max-width:860px;margin:26px 0 0;display:flex;align-items:center;gap:12px;background:#fff;border-radius:40px;height:64px;padding:0 10px 0 24px;box-shadow:0 8px 28px rgba(35,53,103,.14);border:1px solid var(--line)}
 .ask input{flex:1;border:0;outline:0;font:inherit;font-size:17px;color:#1f2937;background:transparent;min-width:0}.ask input::placeholder{color:#6b7280}
 .ask button{flex:none;width:46px;height:46px;border-radius:50%;border:0;background:#c9a646;color:#233567;font-size:22px;font-weight:700;cursor:pointer}.ask button:hover{background:#233567;color:#fff}.ask:focus-within{box-shadow:0 0 0 3px #c9a646}
