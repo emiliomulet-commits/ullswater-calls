@@ -227,12 +227,12 @@ def page(lang, title, desc, path, body, alt=None, jsonld=None):
 <script src="/assets/tenders.js" defer></script>{'<script src="/assets/spain.js" defer></script>' if 'id="f-lvl"' in body else ""}{menu_js}{CHAT}</body></html>"""
 
 
-def ask_bar(lang):
+def ask_bar(lang, qs=None, ph=None):
     """AI question bar of the home hero: opens the network assistant (widget.js, UAA.ask) with the question, like the www home."""
     t = T[lang]
-    chips = "".join(f'<button type="button" class="achip" data-q="{escape(q)}">{escape(q)}</button>' for q in t["ask_q"])
+    chips = "".join(f'<button type="button" class="achip" data-q="{escape(q)}">{escape(q)}</button>' for q in (qs or t["ask_q"]))
     return (f'<form class="ask" id="ai-ask" role="search" action="{MAIN}{"/es/" if lang == "es" else "/"}"><label class="vh" for="ai-q">{t["ask_btn"]}</label>'
-            f'<input id="ai-q" name="q" type="text" autocomplete="off" maxlength="500" placeholder="{escape(t["ask_ph"])}">'
+            f'<input id="ai-q" name="q" type="text" autocomplete="off" maxlength="500" placeholder="{escape(ph or t["ask_ph"])}">'
             f'<button type="submit" aria-label="{t["ask_btn"]}">↑</button></form><div class="achips">{chips}</div>'
             "<script>(function(){function go(q,o){if(window.UAA&&window.UAA.ask){window.UAA.ask(q,o);return true}window.UAA_Q=window.UAA_Q||[];if(window.UAA_Q.push){window.UAA_Q.push([q,o]);return true}return false}"
             "var f=document.getElementById('ai-ask');f.addEventListener('submit',function(e){var i=document.getElementById('ai-q'),q=(i.value||'').trim();e.preventDefault();if(!q){i.focus();return}if(go(q,{wide:1}))i.value=''});"
@@ -431,7 +431,7 @@ def main():
 
     sp_stats = build_spain.build(write, page, None, dict(
         T=T, MON=MON, money=money, fdate=fdate, cpv_label=cpv_label, CPV=CPV, base=BASE, data_dir=DATA, site_dir=SITE,
-        support=call_pages.SUPPORT_FORM, help_url=lambda ref, path: help_url(ref, path)))
+        support=call_pages.SUPPORT_FORM, help_url=lambda ref, path: help_url(ref, path), ask=ask_bar))
 
     soon15 = (upd + timedelta(days=15)).isoformat()
     soon30 = (upd + timedelta(days=30)).isoformat()

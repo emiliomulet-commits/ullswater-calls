@@ -858,7 +858,14 @@ async function runAgent(env, b, emit) {
          : mt ? `The user is viewing the page of the EU-institution tender ${mt[1]} (${here}). "This tender", "esta licitación" and similar mean it: read it with get_tender (id ${mt[1]}, country EU) when the question is about it.`
          : mc ? `The user is viewing the list of public tenders of country ${T_ISO3[mc[1]] || mc[1]} (${here}). Use search_tenders with that country by default.`
          : `The user is on page ${here}${page.title ? ` ("${String(page.title).slice(0, 140).replace(/"/g, "'")}")` : ""}.`);
-  const system = [{ type: "text", text: AGENT_SYSTEM, cache_control: { type: "ephemeral" } }, { type: "text", text: ctx }];
+  const onTenders = /tenders/.test(host);
+  const ms = onTenders ? String(page.path || "").match(/\/(?:es\/espana|spain)\/(?:([a-z-]+)\/)?/) : null;
+  const ES_LV_BY_SLUG = { estatales: "nacional", national: "nacional", autonomicas: "autonomico", regional: "autonomico", diputaciones: "diputacion", provincial: "diputacion", comarcas: "comarca", county: "comarca", ayuntamientos: "ayuntamiento", municipal: "ayuntamiento", otros: "otros", other: "otros" };
+  const focus = !onTenders ? "" :
+    "\nThis assistant runs on the public tenders site (tenders.ullswaterinvestments.com): focus ONLY on public tenders (licitaciones, contratación pública) and how to bid for them, using search_tenders_spain, search_tenders, get_tender and contact_expert. " +
+    `If the question is about something else, do not answer it here: in one or two sentences say this assistant covers public tenders and send the user to the right page with a link: grants or subsidies for companies in Spain → [Ayudas España](${WWW}/es/ayudas/); EU funding calls (Horizon Europe, Digital Europe, LIFE…) → [Convocatorias UE](${SITE}/); our consulting services → [Servicios](${WWW}/es/) or Tender Readiness (${WWW}/tender-readiness/); events → https://events.ullswaterinvestments.com/; news → https://news.ullswaterinvestments.com/. Use the English pages when the user writes in English.` +
+    (ms ? `\nThe user is on the Spanish tenders section (${here})${ms[1] && ES_LV_BY_SLUG[ms[1]] ? `, level «${ms[1]}»: use search_tenders_spain with level ${ES_LV_BY_SLUG[ms[1]]} by default` : ms[1] ? `, page of the region «${ms[1]}»: use search_tenders_spain with that region by default` : ": use search_tenders_spain by default"}.` : "");
+  const system = [{ type: "text", text: AGENT_SYSTEM, cache_control: { type: "ephemeral" } }, { type: "text", text: ctx + focus }];
   const messages = [...cleanHistory(b.history), { role: "user", content: q }];
   const model = env.CLAUDE_MODEL || CLAUDE_MODEL, seen = new Set(), used = [];
   let answer = "", resp, pendingBreak = false;

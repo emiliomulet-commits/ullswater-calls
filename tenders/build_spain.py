@@ -71,6 +71,8 @@ S = {
              "<b>Offer writing.</b> Technical proposal, award-criteria strategy, economic offer and the administrative envelope (DEUC, declarations).",
              "<b>UTE and subcontracting.</b> We find partners to reach the required solvency and set up joint bids."],
         title="Public tenders in Spain: {n} open tenders by level of government | Ullswater Investments",
+        ask_ph="Ask the AI about Spanish public tenders, e.g. cleaning tenders of town councils in Aragón…",
+        ask_q=["IT tenders of the State closing this month", "Cleaning tenders of town councils in Catalonia", "Works tenders of diputaciones above €1M", "How do I bid for a Spanish public tender?"],
     ),
     "es": dict(
         home="/es/espana/", other="/spain/", tenders_home="/es/", crumbs="Todas las licitaciones", h_short="España",
@@ -101,6 +103,8 @@ S = {
              "<b>Redacción de la oferta.</b> Memoria técnica, estrategia ante los criterios de adjudicación, oferta económica y sobre administrativo (DEUC, declaraciones).",
              "<b>UTE y subcontratación.</b> Buscamos socios para alcanzar la solvencia exigida y montamos ofertas conjuntas."],
         title="Licitaciones públicas en España: {n} abiertas por nivel de administración | Ullswater Investments",
+        ask_ph="Pregunta a la IA por licitaciones en España, p. ej. limpieza en ayuntamientos de Aragón…",
+        ask_q=["Licitaciones de informática del Estado que cierran este mes", "Licitaciones de limpieza de ayuntamientos en Cataluña", "Obras de diputaciones de más de 1 millón", "¿Cómo me presento a una licitación pública?"],
     ),
 }
 LVL_H1_ES = {"nacional": "estatales (Administración General del Estado)", "autonomico": "de las comunidades autónomas",
@@ -121,6 +125,7 @@ CSS = """.esp{background:#fbf8f1;border-bottom:1px solid #efe6d2}.esp .wrap{padd
 .hero .esp-rg a{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.3);color:#fff}.hero .esp-rg a b{color:#e2c46b}.hero .esp-rg a:hover,.hero .esp-rg a:focus-visible{background:rgba(255,255,255,.16);border-color:#c9a646}.esp-src{font-size:14px;color:var(--muted);margin:18px 0 0}
 .esp-lv{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:6px 0 0}.esp-lv a{display:block;border:1px solid var(--line);border-radius:12px;padding:18px;background:#fff;text-decoration:none;color:var(--muted);font-size:14px}
 .esp-lv a strong{display:block;font-size:30px;color:var(--navy);line-height:1.1}.esp-lv a b{display:block;color:var(--navy);font-size:16px;margin:4px 0}.esp-lv a:hover{border-color:#c9a646}
+.esp-ask .ask{margin:0 0 4px}.esp-ask .achips{margin:12px 0 22px}.hero .esp-ask .achips{margin-bottom:4px}
 .lvtag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;padding:3px 8px;background:#fbf3dc;color:#7a5f17}
 .filters.es7 .wrap{grid-template-columns:1fr 1fr 2fr repeat(4,1fr)}@media(max-width:1100px){.filters.es7 .wrap{grid-template-columns:1fr 1fr}.filters.es7 .q{grid-column:1/-1}}
 @media(max-width:900px){.esp-g{grid-template-columns:1fr;gap:26px}.esp h1,.esp h2{font-size:29px}.esp-lv{grid-template-columns:1fr 1fr}}
@@ -163,7 +168,7 @@ def load(data_dir):
     return json.loads(f.read_text(encoding="utf-8")), json.loads(s.read_text(encoding="utf-8"))
 
 
-def spain_band(lang, st, fdate, h="h2", crumbs=""):
+def spain_band(lang, st, fdate, h="h2", crumbs="", ask=""):
     """Promo block, same layout as «Ayudas para empresas en España» on the www home."""
     if not st or not st.get("total"):
         return ""
@@ -173,7 +178,7 @@ def spain_band(lang, st, fdate, h="h2", crumbs=""):
     upd = fdate(st["updated"][:10], lang)
     chips = "".join(f'<a href="{reg_path(r, lang)}">{escape(rname(r, lang))}<b>{fmt(n, lang)}</b></a>' for r, n in sorted(st["regions"].items(), key=lambda kv: rname(kv[0], lang)))
     return f"""<section class="esp" id="espana"><div class="wrap">{crumbs}<p class="esp-k"><span class="esp-new">{t['new']}</span>{t['kicker']}</p>
-<div class="esp-g"><div><{h}>{t['h1']}</{h}><p class="sub">{t['lead']}</p>
+<div class="esp-g"><div><{h}>{t['h1']}</{h}><p class="sub">{t['lead']}</p>{ask}
 <div class="actions"><a class="btn" href="{t['home']}#finder">{t['cta'].format(n=f"{fmt(st['total'], lang)}")}</a><a class="btn ghost" href="{t['home']}#niveles">{t['cta2']}</a></div></div>
 <ul class="esp-st"><li><a href="{t['home']}#finder"><strong>{fmt(st['total'], lang)}</strong>{t['s_open']}</a></li><li><a href="{lvl_path('nacional', lang)}"><strong>{fmt(lv.get('nacional', 0), lang)}</strong>{t['s_nat']}</a></li>
 <li><a href="{lvl_path('autonomico', lang)}"><strong>{fmt(lv.get('autonomico', 0), lang)}</strong>{t['s_aut']}</a></li><li><a href="{t['home']}#niveles"><strong>{fmt(local, lang)}</strong>{t['s_loc']}</a></li>
@@ -280,6 +285,7 @@ def build(write, page, why_box_unused, ctx):
     for lang in ("en", "es"):
         t, o = S[lang], S["es" if lang == "en" else "en"]
         upd = fdate(st["updated"][:10], lang)
+        ask_html = '<div class="esp-ask">' + ctx["ask"](lang, t["ask_q"], t["ask_ph"]) + "</div>"
         crumbs = f'<div class="crumbs"><a href="{t["tenders_home"]}">{t["crumbs"]}</a> › <a href="{t["home"]}">{t["h_short"]}</a></div>'
 
         def why():
@@ -293,7 +299,7 @@ def build(write, page, why_box_unused, ctx):
 
         lv_tiles = "".join(f'<a href="{lvl_path(k, lang)}"><strong>{fmt(st["levels"].get(k, 0), lang)}</strong><b>{lvl_label(k, lang)}</b>{LV_LEAD[k][1 if lang == "es" else 0]}</a>'
                            for k in LEVELS if st["levels"].get(k))
-        body = (f'<main>' + spain_band(lang, st, fdate, "h1", crumbs.replace('class="crumbs"', 'class="crumbs" style="margin-bottom:18px"'))
+        body = (f'<main>' + spain_band(lang, st, fdate, "h1", crumbs.replace('class="crumbs"', 'class="crumbs" style="margin-bottom:18px"'), ask_html)
                 + f'<div class="wrap"><section class="sec" id="niveles"><h2>{t["levels_h"]}</h2><div class="esp-lv">{lv_tiles}</div></section></div>'
                 + finder(lang, st, ctx["CPV"], money) + f'<div class="wrap">{why()}</div></main>')
         ld = {"@context": "https://schema.org", "@type": "Dataset", "name": t["h1"], "description": t["lead"], "url": ctx["base"] + t["home"],
@@ -313,7 +319,7 @@ def build(write, page, why_box_unused, ctx):
                     regs[x["region"]] = regs.get(x["region"], 0) + 1
             chips = ("" if k == "nacional" else '<nav class="esp-rg" style="margin:18px 0 0">' + "".join(
                 f'<a href="{t["home"]}?level={k}&amp;region={escape(r)}#finder">{escape(rname(r, lang))}<b>{fmt(n, lang)}</b></a>' for r, n in sorted(regs.items(), key=lambda kv: rname(kv[0], lang))) + "</nav>")
-            b = (f'<main><section class="hero"><div class="wrap">{crumbs}<p class="kicker">{t["kicker"]} · {upd}</p><h1>{escape(h1)}</h1><p class="lead">{lead}</p>{chips}'
+            b = (f'<main><section class="hero"><div class="wrap">{crumbs}<p class="kicker">{t["kicker"]} · {upd}</p><h1>{escape(h1)}</h1><p class="lead">{lead}</p>{ask_html}{chips}'
                  f'<div class="actions"><a class="btn" href="{t["home"]}?level={k}#finder">{t["open_finder"]}</a></div></div></section>'
                  f'<div class="wrap"><div class="resbar"><span><strong>{fmt(len(rs), lang)}</strong> {t["count"]}</span></div>{static_list(rs, "level=" + k)}{why()}</div></main>')
             write(lvl_path(k, lang), page(lang, f"{h1} ({fmt(len(rs), lang)}) | Ullswater Investments", lead, lvl_path(k, lang), b, lvl_path(k, "es" if lang == "en" else "en")))
@@ -327,7 +333,7 @@ def build(write, page, why_box_unused, ctx):
             cnt = st["regionLevels"].get(r, {})
             chips = '<nav class="esp-rg" style="margin:18px 0 0">' + "".join(
                 f'<a href="{t["home"]}?level={k}&amp;region={escape(r)}#finder">{lvl_label(k, lang, True)}<b>{fmt(cnt[k], lang)}</b></a>' for k in LEVELS if cnt.get(k)) + "</nav>"
-            b = (f'<main><section class="hero"><div class="wrap">{crumbs}<p class="kicker">{t["kicker"]} · {upd}</p><h1>{escape(h1)}</h1><p class="lead">{lead}</p>{chips}'
+            b = (f'<main><section class="hero"><div class="wrap">{crumbs}<p class="kicker">{t["kicker"]} · {upd}</p><h1>{escape(h1)}</h1><p class="lead">{lead}</p>{ask_html}{chips}'
                  f'<div class="actions"><a class="btn" href="{t["home"]}?region={escape(r)}#finder">{t["open_finder"]}</a><a class="btn ghost" href="{lvl_path("nacional", lang)}">{lvl_label("nacional", lang, True)} →</a></div></div></section>'
                  f'<div class="wrap"><div class="resbar"><span><strong>{fmt(len(rs), lang)}</strong> {t["count"]}</span></div>{static_list(rs, "region=" + escape(r))}{why()}</div></main>')
             write(reg_path(r, lang), page(lang, f"{h1} ({fmt(len(rs), lang)}) | Ullswater Investments", lead, reg_path(r, lang), b, reg_path(r, "es" if lang == "en" else "en")))
