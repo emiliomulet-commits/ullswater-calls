@@ -176,7 +176,7 @@ LVL_H1_ES = {"nacional": "estatales (Administración General del Estado)", "auto
              "diputacion": "de diputaciones, cabildos y consells insulars", "comarca": "de consejos comarcales, comarcas y mancomunidades",
              "ayuntamiento": "de ayuntamientos", "otros": "de otros organismos públicos"}
 
-CSS = """.call.es .more.fch{background:#0b1f3a;color:#fff;border-color:#0b1f3a}.call.es .more.fch:hover{background:#c9a227;color:#0b1f3a}.esp{background:#fbf8f1;border-bottom:1px solid #efe6d2}.esp .wrap{padding:44px 20px 34px}
+CSS = """.call.es .more.fch{background:#c9a227;color:#0b1f3a;padding:5px 14px;border-radius:999px;text-decoration:none;font-weight:700}.call.es .more.fch:hover{background:#0b1f3a;color:#fff}.esp{background:#fbf8f1;border-bottom:1px solid #efe6d2}.esp .wrap{padding:44px 20px 34px}
 .esp-k{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#a8862f;margin:0 0 14px;display:flex;align-items:center;gap:10px}
 .esp-new{background:var(--navy);color:#fff;border-radius:4px;padding:4px 9px;letter-spacing:.08em}
 .esp-g{display:grid;grid-template-columns:1.35fr 1fr;gap:40px;align-items:center}.esp h1,.esp h2{font-size:38px;line-height:1.18;color:var(--navy);margin:0 0 16px}
@@ -192,7 +192,7 @@ CSS = """.call.es .more.fch{background:#0b1f3a;color:#fff;border-color:#0b1f3a}.
 .esp-lv a strong{display:block;font-size:30px;color:var(--navy);line-height:1.1}.esp-lv a b{display:block;color:var(--navy);font-size:16px;margin:4px 0}.esp-lv a:hover{border-color:#c9a646}
 .esp-ask .ask{margin:0 0 4px}.esp-ask .achips{margin:12px 0 22px}.hero .esp-ask .achips{margin-bottom:4px}
 .lvtag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;padding:3px 8px;background:#fbf3dc;color:#7a5f17}
-.filters.es7 .wrap{grid-template-columns:1fr 1fr 2fr repeat(4,1fr)}.call.es .facts{gap:6px;font-size:13px}.call.es .facts span{border:1px solid #dfe3ea;background:#f6f7f9;border-radius:999px;padding:3px 10px;color:#33415c}.facts .tg.eu{background:#e8eefb;color:#1d3f8f;border-color:#c7d4f3}.facts .tg.dl{background:#fdecea;color:#a1261b;border-color:#f5c6c1}.facts .tg.sz{background:#f4efe1;color:#6b5414;border-color:#e6d9b3}@media(max-width:1100px){.filters.es7 .wrap{grid-template-columns:1fr 1fr}.filters.es7 .q{grid-column:1/-1}}
+.filters.es7 .wrap{grid-template-columns:1fr 1fr 2fr repeat(4,1fr)}.call.es .facts{gap:6px;font-size:13px;align-items:flex-start}.call.es .facts span{white-space:nowrap;line-height:1.4;border:1px solid #dfe3ea;background:#f6f7f9;border-radius:999px;padding:3px 10px;color:#33415c}.facts .tg.eu{background:#e8eefb;color:#1d3f8f;border-color:#c7d4f3}.facts .tg.dl{background:#fdecea;color:#a1261b;border-color:#f5c6c1}.facts .tg.sz{background:#f4efe1;color:#6b5414;border-color:#e6d9b3}@media(max-width:1100px){.filters.es7 .wrap{grid-template-columns:1fr 1fr}.filters.es7 .q{grid-column:1/-1}}
 @media(max-width:900px){.esp-g{grid-template-columns:1fr;gap:26px}.esp h1,.esp h2{font-size:29px}.esp-lv{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.esp-st strong{font-size:28px}.esp-lv{grid-template-columns:1fr}.esp .btn{width:100%;text-align:center}}"""
 
