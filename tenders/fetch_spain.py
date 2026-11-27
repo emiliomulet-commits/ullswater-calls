@@ -102,7 +102,7 @@ REGION_WORDS = [
 
 LEVELS = ["nacional", "autonomico", "diputacion", "comarca", "ayuntamiento", "otros"]
 RX = {
-    "diputacion": re.compile(r"diputaci|foru aldundi|\bcabildo|consell insular|consell de (mallorca|menorca|eivissa|formentera)"),
+    "diputacion": re.compile(r"diputaci|empresa provincial|organismo provincial|instituto provincial|patronato provincial|foru aldundi|\bcabildo|consell insular|consell de (mallorca|menorca|eivissa|formentera)"),
     "comarca": re.compile(r"consell comarcal|consejo comarcal|^(presiden\w* de la )?comarca (de|del|d')|^comarcas$|mancomunida|mancomunitat|cuadrilla d|comunidad de villa y tierra"),
     "ayuntamiento": re.compile(r"ayuntamiento|ajuntament|concello|\budala\b|udalerri|alcald|junta de gobierno local|entidad local menor|junta vecinal|"
                                r"\bconcejo\b|consistori|\bmunicipal|ayto\.?\b|\bconcellos?\b"),
@@ -111,7 +111,8 @@ RX = {
                              r"eusko jaurlaritza|principado de asturias|comunidad de madrid|region de murcia|govern de les illes|govern balear|"
                              r"servicio (andaluz|madrileno|gallego|canario|murciano|riojano|navarro|aragones|extremeno|cantabro|de salud de)|osakidetza|"
                              r"sergas|institut catala|departament d|departamento de|ciudad autonoma|parlament|parlamento de|"
-                             r"agencia (andaluza|vasca|gallega|valenciana|catalana)"),
+                             r"agencia (andaluza|vasca|gallega|valenciana|catalana)|^axencia|xunta de galicia|eusko trenbide|euskal trenbide|nasuvinsa|"
+                             r"transformacion de la rioja|ferrocarrils de la generalitat|metro de madrid|canal de isabel ii|servei catala|institut catala"),
     "nacional": re.compile(r"administracion general del estado|estatales$|ministerio|secretaria de estado|secretaria general de|agencia estatal|"
                            r"guardia civil|policia nacional|ejercito|armada espanola|\barmada\b|estado mayor|adif|aena|renfe|puertos del estado|"
                            r"autoridad portuaria|confederacion hidrografica|tesoreria general|instituto nacional|servicio publico de empleo estatal|"

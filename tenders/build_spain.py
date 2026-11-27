@@ -126,6 +126,12 @@ CSS = """.esp{background:#fbf8f1;border-bottom:1px solid #efe6d2}.esp .wrap{padd
 @media(max-width:520px){.esp-st strong{font-size:28px}.esp-lv{grid-template-columns:1fr}.esp .btn{width:100%;text-align:center}}"""
 
 
+def fmt(n, lang):
+    """8278 → '8,278' (EN) or '8.278' (ES)."""
+    s = f"{n:,}"
+    return s.replace(",", ".") if lang == "es" else s
+
+
 def slug(s):
     s = unicodedata.normalize("NFD", s.lower())
     s = "".join(c for c in s if unicodedata.category(c) != "Mn")
@@ -164,13 +170,13 @@ def spain_band(lang, st, fdate, h="h2", crumbs=""):
     lv = st["levels"]
     local = lv.get("diputacion", 0) + lv.get("comarca", 0) + lv.get("ayuntamiento", 0)
     upd = fdate(st["updated"][:10], lang)
-    chips = "".join(f'<a href="{reg_path(r, lang)}">{escape(rname(r, lang))}<b>{n:,}</b></a>' for r, n in sorted(st["regions"].items(), key=lambda kv: rname(kv[0], lang)))
+    chips = "".join(f'<a href="{reg_path(r, lang)}">{escape(rname(r, lang))}<b>{fmt(n, lang)}</b></a>' for r, n in sorted(st["regions"].items(), key=lambda kv: rname(kv[0], lang)))
     return f"""<section class="esp" id="espana"><div class="wrap">{crumbs}<p class="esp-k"><span class="esp-new">{t['new']}</span>{t['kicker']}</p>
 <div class="esp-g"><div><{h}>{t['h1']}</{h}><p class="sub">{t['lead']}</p>
-<div class="actions"><a class="btn" href="{t['home']}#finder">{t['cta'].format(n=f"{st['total']:,}")}</a><a class="btn ghost" href="{t['home']}#niveles">{t['cta2']}</a></div></div>
-<ul class="esp-st"><li><a href="{t['home']}#finder"><strong>{st['total']:,}</strong>{t['s_open']}</a></li><li><a href="{lvl_path('nacional', lang)}"><strong>{lv.get('nacional', 0):,}</strong>{t['s_nat']}</a></li>
-<li><a href="{lvl_path('autonomico', lang)}"><strong>{lv.get('autonomico', 0):,}</strong>{t['s_aut']}</a></li><li><a href="{t['home']}#niveles"><strong>{local:,}</strong>{t['s_loc']}</a></li>
-<li class="hl" style="grid-column:1/-1"><a href="{t['home']}?closing=7#finder"><strong>{st['closingIn7Days']:,}</strong>{t['s_soon']}</a></li></ul></div>
+<div class="actions"><a class="btn" href="{t['home']}#finder">{t['cta'].format(n=f"{fmt(st['total'], lang)}")}</a><a class="btn ghost" href="{t['home']}#niveles">{t['cta2']}</a></div></div>
+<ul class="esp-st"><li><a href="{t['home']}#finder"><strong>{fmt(st['total'], lang)}</strong>{t['s_open']}</a></li><li><a href="{lvl_path('nacional', lang)}"><strong>{fmt(lv.get('nacional', 0), lang)}</strong>{t['s_nat']}</a></li>
+<li><a href="{lvl_path('autonomico', lang)}"><strong>{fmt(lv.get('autonomico', 0), lang)}</strong>{t['s_aut']}</a></li><li><a href="{t['home']}#niveles"><strong>{fmt(local, lang)}</strong>{t['s_loc']}</a></li>
+<li class="hl" style="grid-column:1/-1"><a href="{t['home']}?closing=7#finder"><strong>{fmt(st['closingIn7Days'], lang)}</strong>{t['s_soon']}</a></li></ul></div>
 <nav class="esp-rg" aria-label="{t['regions_h']}">{chips}</nav><p class="esp-src">{t['src'].format(d=upd)}</p></div></section>"""
 
 
@@ -200,7 +206,7 @@ def card(x, lang, T, MON, money, cpv_label, help_url):
 
 def finder(lang, st, CPV, money, level="", region=""):
     t = S[lang]
-    lv = "".join(f'<option value="{k}"{" selected" if k == level else ""}>{lvl_label(k, lang, True)} ({st["levels"].get(k, 0):,})</option>' for k in LEVELS if st["levels"].get(k))
+    lv = "".join(f'<option value="{k}"{" selected" if k == level else ""}>{lvl_label(k, lang, True)} ({fmt(st["levels"].get(k, 0), lang)})</option>' for k in LEVELS if st["levels"].get(k))
     rg = "".join(f'<option value="{escape(r)}"{" selected" if r == region else ""}>{escape(rname(r, lang))}</option>' for r in sorted(st["regions"], key=lambda r: rname(r, lang)))
     nat = "".join(f'<option value="{k}">{v[1 if lang == "es" else 0]}</option>' for k, v in NAT.items() if k != "other")
     cpv = "".join(f'<option value="{k}">{k} · {escape(v[1 if lang == "es" else 0])}</option>' for k, v in CPV.items())
@@ -284,7 +290,7 @@ def build(write, page, why_box_unused, ctx):
             return ("".join(C(x, lang) for x in shown)
                     + (f'<p><a class="btn ghost" href="{t["home"]}?{finder_q}#finder">{t["open_finder"]}</a></p>' if len(rs) > len(shown) else ""))
 
-        lv_tiles = "".join(f'<a href="{lvl_path(k, lang)}"><strong>{st["levels"].get(k, 0):,}</strong><b>{lvl_label(k, lang)}</b>{LV_LEAD[k][1 if lang == "es" else 0]}</a>'
+        lv_tiles = "".join(f'<a href="{lvl_path(k, lang)}"><strong>{fmt(st["levels"].get(k, 0), lang)}</strong><b>{lvl_label(k, lang)}</b>{LV_LEAD[k][1 if lang == "es" else 0]}</a>'
                            for k in LEVELS if st["levels"].get(k))
         body = (f'<main>' + spain_band(lang, st, fdate, "h1", crumbs.replace('class="crumbs"', 'class="crumbs" style="margin-bottom:18px"'))
                 + f'<div class="wrap"><section class="sec" id="niveles"><h2>{t["levels_h"]}</h2><div class="esp-lv">{lv_tiles}</div></section></div>'
@@ -292,36 +298,36 @@ def build(write, page, why_box_unused, ctx):
         ld = {"@context": "https://schema.org", "@type": "Dataset", "name": t["h1"], "description": t["lead"], "url": ctx["base"] + t["home"],
               "dateModified": st["updated"], "isBasedOn": "https://contrataciondelsectorpublico.gob.es/",
               "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": ctx["base"] + "/data/es/spain.json"}]}
-        write(t["home"], page(lang, t["title"].format(n=f"{st['total']:,}"), t["lead"][:300], t["home"], body, o["home"], ld))
+        write(t["home"], page(lang, t["title"].format(n=f"{fmt(st['total'], lang)}"), t["lead"][:300], t["home"], body, o["home"], ld))
 
         for k in LEVELS:
             rs = [x for x in recs if x["level"] == k]
             if not rs:
                 continue
             h1 = t["lvl_h1"].format(l=lvl_label(k, lang)) if lang == "en" else "Licitaciones " + LVL_H1_ES[k]
-            lead = t["lvl_lead"].format(n=f"{len(rs):,}", x=LV_LEAD[k][1 if lang == "es" else 0])
+            lead = t["lvl_lead"].format(n=f"{fmt(len(rs), lang)}", x=LV_LEAD[k][1 if lang == "es" else 0])
             regs = {}
             for x in rs:
                 if x.get("region"):
                     regs[x["region"]] = regs.get(x["region"], 0) + 1
             chips = ("" if k == "nacional" else '<nav class="esp-rg" style="margin:18px 0 0">' + "".join(
-                f'<a href="{t["home"]}?level={k}&amp;region={escape(r)}#finder">{escape(rname(r, lang))}<b>{n:,}</b></a>' for r, n in sorted(regs.items(), key=lambda kv: rname(kv[0], lang))) + "</nav>")
+                f'<a href="{t["home"]}?level={k}&amp;region={escape(r)}#finder">{escape(rname(r, lang))}<b>{fmt(n, lang)}</b></a>' for r, n in sorted(regs.items(), key=lambda kv: rname(kv[0], lang))) + "</nav>")
             b = (f'<main><section class="hero"><div class="wrap">{crumbs}<p class="kicker">{t["kicker"]} · {upd}</p><h1>{escape(h1)}</h1><p class="lead">{lead}</p>{chips}'
                  f'<div class="actions"><a class="btn" href="{t["home"]}?level={k}#finder">{t["open_finder"]}</a></div></div></section>'
-                 f'<div class="wrap"><div class="resbar"><span><strong>{len(rs):,}</strong> {t["count"]}</span></div>{static_list(rs, "level=" + k)}{why()}</div></main>')
-            write(lvl_path(k, lang), page(lang, f"{h1} ({len(rs):,}) | Ullswater Investments", lead, lvl_path(k, lang), b, lvl_path(k, "es" if lang == "en" else "en")))
+                 f'<div class="wrap"><div class="resbar"><span><strong>{fmt(len(rs), lang)}</strong> {t["count"]}</span></div>{static_list(rs, "level=" + k)}{why()}</div></main>')
+            write(lvl_path(k, lang), page(lang, f"{h1} ({fmt(len(rs), lang)}) | Ullswater Investments", lead, lvl_path(k, lang), b, lvl_path(k, "es" if lang == "en" else "en")))
 
         for r in st["regions"]:
             rs = [x for x in recs if x.get("region") == r and x["level"] != "nacional"]
             if not rs:
                 continue
             rn = rname(r, lang)
-            h1, lead = t["reg_h1"].format(r=rn), t["reg_lead"].format(n=f"{len(rs):,}", r=rn)
+            h1, lead = t["reg_h1"].format(r=rn), t["reg_lead"].format(n=f"{fmt(len(rs), lang)}", r=rn)
             cnt = st["regionLevels"].get(r, {})
             chips = '<nav class="esp-rg" style="margin:18px 0 0">' + "".join(
-                f'<a href="{t["home"]}?level={k}&amp;region={escape(r)}#finder">{lvl_label(k, lang, True)}<b>{cnt[k]:,}</b></a>' for k in LEVELS if cnt.get(k)) + "</nav>"
+                f'<a href="{t["home"]}?level={k}&amp;region={escape(r)}#finder">{lvl_label(k, lang, True)}<b>{fmt(cnt[k], lang)}</b></a>' for k in LEVELS if cnt.get(k)) + "</nav>"
             b = (f'<main><section class="hero"><div class="wrap">{crumbs}<p class="kicker">{t["kicker"]} · {upd}</p><h1>{escape(h1)}</h1><p class="lead">{lead}</p>{chips}'
                  f'<div class="actions"><a class="btn" href="{t["home"]}?region={escape(r)}#finder">{t["open_finder"]}</a><a class="btn ghost" href="{lvl_path("nacional", lang)}">{lvl_label("nacional", lang, True)} →</a></div></div></section>'
-                 f'<div class="wrap"><div class="resbar"><span><strong>{len(rs):,}</strong> {t["count"]}</span></div>{static_list(rs, "region=" + escape(r))}{why()}</div></main>')
-            write(reg_path(r, lang), page(lang, f"{h1} ({len(rs):,}) | Ullswater Investments", lead, reg_path(r, lang), b, reg_path(r, "es" if lang == "en" else "en")))
+                 f'<div class="wrap"><div class="resbar"><span><strong>{fmt(len(rs), lang)}</strong> {t["count"]}</span></div>{static_list(rs, "region=" + escape(r))}{why()}</div></main>')
+            write(reg_path(r, lang), page(lang, f"{h1} ({fmt(len(rs), lang)}) | Ullswater Investments", lead, reg_path(r, lang), b, reg_path(r, "es" if lang == "en" else "en")))
     return st
