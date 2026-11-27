@@ -1,0 +1,22 @@
+name: Probe Spanish tenders feed (PLACSP)
+
+on:
+  push:
+    branches: ["claude/**"]
+    paths: ["tenders/fetch_spain.py", ".github/workflows/probe-spain.yml"]
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Probe (a few pages of each feed)
+        env:
+          SPAIN_PROBE: "1"
+          SPAIN_DAYS_BACK: "2"
+          SPAIN_MAX_PAGES: "8"
+        run: python tenders/fetch_spain.py
