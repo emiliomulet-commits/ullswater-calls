@@ -20,7 +20,7 @@ const EVENTS = "https://events.ullswaterinvestments.com/events.json";
 const AYUDAS_IA_RAW = "https://raw.githubusercontent.com/emiliomulet-commits/ullswater-www/main/content/ayudas_ia";
 const MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
 // Every page of the Ullswater network may call this Worker (www, calls, news, events and the six project landings).
-const ORIGINS = ["https://calls.ullswaterinvestments.com", "https://www.ullswaterinvestments.com", "https://ullswaterinvestments.com",
+const ORIGINS = ["https://calls.ullswaterinvestments.com", "https://tenders.ullswaterinvestments.com", "https://www.ullswaterinvestments.com", "https://ullswaterinvestments.com",
   "https://news.ullswaterinvestments.com", "https://events.ullswaterinvestments.com",
   ...["proactedge", "hoskit", "samba", "cognigene", "ehdsjungle", "drmbank", "benchmark"].map(s => `https://${s}.ullswaterinvestments.com`)];
 // Benchmark Compliance 2027 (benchmark.ullswaterinvestments.com): its own assistant, answering only from the site's kb.json

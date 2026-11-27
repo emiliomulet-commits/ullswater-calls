@@ -23,3 +23,5 @@ site/fichas/
 qa/salida/
 qa/results*.json
 qa/.qa_key
+site-tenders/
+tenders/probe-report.json
