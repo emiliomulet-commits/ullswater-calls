@@ -1,0 +1,740 @@
+<ns0:entry xmlns:ns0="http://www.w3.org/2005/Atom" xmlns:ns1="urn:dgpe:names:draft:codice-place-ext:schema:xsd:CommonAggregateComponents-2" xmlns:ns2="urn:dgpe:names:draft:codice:schema:xsd:CommonBasicComponents-2" xmlns:ns3="urn:dgpe:names:draft:codice-place-ext:schema:xsd:CommonBasicComponents-2" xmlns:ns4="urn:dgpe:names:draft:codice:schema:xsd:CommonAggregateComponents-2">
+        <ns0:id>https://contrataciondelestado.es/sindicacion/licitacionesPerfilContratante/20957771</ns0:id>
+        <ns0:link href="https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&amp;idEvl=arkmOeyJA9dVq4S9zvaQpQ%3D%3D" />
+        <ns0:summary type="text">Id licitación: 2026/ASE/001096; Órgano de Contratación: Junta de Gobierno del Ayuntamiento de Sevilla; Importe: 158678.09 EUR; Estado: PUB</ns0:summary>
+        <ns0:title>Servicio para la dirección facultativa de las obras y coordinación de Seguridad y Salud correspondiente a obras de revitalización de Centros de Educación Infantil en Sevilla.</ns0:title>
+        <ns0:updated>2026-11-26T14:48:08.456+01:00</ns0:updated>
+        <ns1:ContractFolderStatus>
+            <ns2:ContractFolderID>2026/ASE/001096</ns2:ContractFolderID>
+            <ns3:ContractFolderStatusCode languageID="es" listURI="https://contrataciondelestado.es/codice/cl/2.04/SyndicationContractFolderStatusCode-2.04.gc">PUB</ns3:ContractFolderStatusCode>
+            <ns1:LocatedContractingParty>
+                <ns2:ContractingPartyTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.10/ContractingAuthorityCode-2.10.gc">3</ns2:ContractingPartyTypeCode>
+                <ns2:ActivityCode listURI="http://contrataciondelestado.es/codice/cl/2.10/ContractingAuthorityActivityCode-2.10.gc">1</ns2:ActivityCode>
+                <ns2:BuyerProfileURIID>https://contrataciondelestado.es/wps/poc?uri=deeplink:perfilContratante&amp;idBp=%2FAieP4sVToEQK2TEfXGy%2BA%3D%3D</ns2:BuyerProfileURIID>
+                <ns4:Party>
+                    <ns2:WebsiteURI>http://www.sevilla.org</ns2:WebsiteURI>
+                    <ns4:PartyIdentification>
+                        <ns2:ID schemeName="DIR3">L01410917</ns2:ID>
+                    </ns4:PartyIdentification>
+                    <ns4:PartyIdentification>
+                        <ns2:ID schemeName="NIF">P4109100J</ns2:ID>
+                    </ns4:PartyIdentification>
+                    <ns4:PartyIdentification>
+                        <ns2:ID schemeName="ID_PLATAFORMA">31025560146316</ns2:ID>
+                    </ns4:PartyIdentification>
+                    <ns4:PartyName>
+                        <ns2:Name>Junta de Gobierno del Ayuntamiento de Sevilla</ns2:Name>
+                    </ns4:PartyName>
+                    <ns4:PostalAddress>
+                        <ns2:CityName>Sevilla</ns2:CityName>
+                        <ns2:PostalZone>41004</ns2:PostalZone>
+                        <ns4:AddressLine>
+                            <ns2:Line>Plaza de San Sebastián, 1 - Estación de Autobuses</ns2:Line>
+                        </ns4:AddressLine>
+                        <ns4:Country>
+                            <ns2:IdentificationCode listURI="http://contrataciondelestado.es/codice/cl/2.08/CountryIdentificationCode-2.08.gc">ES</ns2:IdentificationCode>
+                            <ns2:Name>España</ns2:Name>
+                        </ns4:Country>
+                    </ns4:PostalAddress>
+                    <ns4:Contact>
+                        <ns2:Name>Junta de Gobierno del Ayuntamiento de Sevilla</ns2:Name>
+                        <ns2:Telephone>955470302</ns2:Telephone>
+                        <ns2:ElectronicMail>perfilcontratante.junta@sevilla.org</ns2:ElectronicMail>
+                    </ns4:Contact>
+                </ns4:Party>
+                <ns1:ParentLocatedParty>
+                    <ns4:PartyName>
+                        <ns2:Name>Sevilla</ns2:Name>
+                    </ns4:PartyName>
+                    <ns1:ParentLocatedParty>
+                        <ns4:PartyName>
+                            <ns2:Name>Ayuntamientos</ns2:Name>
+                        </ns4:PartyName>
+                        <ns1:ParentLocatedParty>
+                            <ns4:PartyName>
+<ns2:Name>Sevilla</ns2:Name>
+                            </ns4:PartyName>
+                            <ns1:ParentLocatedParty>
+<ns4:PartyName>
+    <ns2:Name>Andalucía</ns2:Name>
+</ns4:PartyName>
+<ns1:ParentLocatedParty>
+    <ns4:PartyName>
+        <ns2:Name>ENTIDADES LOCALES</ns2:Name>
+    </ns4:PartyName>
+    <ns1:ParentLocatedParty>
+        <ns4:PartyName>
+            <ns2:Name>Sector Público</ns2:Name>
+        </ns4:PartyName>
+    </ns1:ParentLocatedParty>
+</ns1:ParentLocatedParty>
+                            </ns1:ParentLocatedParty>
+                        </ns1:ParentLocatedParty>
+                    </ns1:ParentLocatedParty>
+                </ns1:ParentLocatedParty>
+            </ns1:LocatedContractingParty>
+            <ns4:ProcurementProject>
+                <ns2:Name>Servicio para la dirección facultativa de las obras y coordinación de Seguridad y Salud correspondiente a obras de revitalización de Centros de Educación Infantil en Sevilla.</ns2:Name>
+                <ns2:TypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/ContractCode-2.08.gc">2</ns2:TypeCode>
+                <ns2:SubTypeCode listURI="http://contrataciondelestado.es/codice/cl/1.04/ServiceContractCode-1.04.gc">12</ns2:SubTypeCode>
+                <ns2:MixContractIndicator>false</ns2:MixContractIndicator>
+                <ns4:BudgetAmount>
+                    <ns2:EstimatedOverallContractAmount currencyID="EUR">158678.09</ns2:EstimatedOverallContractAmount>
+                    <ns2:TotalAmount currencyID="EUR">192000.49</ns2:TotalAmount>
+                    <ns2:TaxExclusiveAmount currencyID="EUR">158678.09</ns2:TaxExclusiveAmount>
+                </ns4:BudgetAmount>
+                <ns4:RequiredCommodityClassification>
+                    <ns2:ItemClassificationCode listURI="http://contrataciondelestado.es/codice/cl/2.04/CPV2008-2.04.gc">71000000</ns2:ItemClassificationCode>
+                </ns4:RequiredCommodityClassification>
+                <ns4:RealizedLocation>
+                    <ns2:CountrySubentity>Sevilla</ns2:CountrySubentity>
+                    <ns2:CountrySubentityCode listURI="http://contrataciondelestado.es/codice/cl/2.08/NUTS-2021.gc">ES618</ns2:CountrySubentityCode>
+                    <ns4:Address>
+                        <ns2:CityName>Sevilla</ns2:CityName>
+                        <ns4:Country>
+                            <ns2:IdentificationCode listURI="http://contrataciondelestado.es/codice/cl/2.08/CountryIdentificationCode-2.08.gc">ES</ns2:IdentificationCode>
+                            <ns2:Name>España</ns2:Name>
+                        </ns4:Country>
+                    </ns4:Address>
+                </ns4:RealizedLocation>
+                <ns4:PlannedPeriod>
+                    <ns2:DurationMeasure unitCode="MON">10</ns2:DurationMeasure>
+                </ns4:PlannedPeriod>
+            </ns4:ProcurementProject>
+            <ns4:ProcurementProjectLot>
+                <ns2:ID schemeName="ID_LOTE">1</ns2:ID>
+                <ns4:TenderingTerms>
+                    <ns4:TendererQualificationRequest>
+                        <ns4:TechnicalEvaluationCriteria>
+                            <ns2:EvaluationCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/TechnicalCapabilityTypeCode-2.0.gc">OSR-COMPTASK</ns2:EvaluationCriteriaTypeCode>
+                            <ns2:Description>De conformidad con PCAP y Anexos PCAP</ns2:Description>
+                            <ns2:ThresholdQuantity>25143.54</ns2:ThresholdQuantity>
+                        </ns4:TechnicalEvaluationCriteria>
+                        <ns4:FinancialEvaluationCriteria>
+                            <ns2:EvaluationCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/FinancialCapabilityTypeCode-2.0.gc">5</ns2:EvaluationCriteriaTypeCode>
+                            <ns2:Description>De conformidad con PCAP y Anexos PCAP</ns2:Description>
+                            <ns2:ThresholdQuantity>31429.43</ns2:ThresholdQuantity>
+                        </ns4:FinancialEvaluationCriteria>
+                    </ns4:TendererQualificationRequest>
+                    <ns4:AwardingTerms>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>3 - Compromiso de tiempo de respuesta de presencia física en obra</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.2.2 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">2</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>12</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>1 - OFERTA ECONÓMICA</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.1 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">1</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>49</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>2 - Cualificación del equipo-Experiencia adicional</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.2.1  del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">2</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>27</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>4 - Compromiso de presencia en obra en cada EDIFICIO</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.2.3 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">2</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>12</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                    </ns4:AwardingTerms>
+                </ns4:TenderingTerms>
+                <ns4:ProcurementProject>
+                    <ns2:Name>Lote 1: DF Revitalización Educación infantil CEIPs 1</ns2:Name>
+                    <ns4:BudgetAmount>
+                        <ns2:TotalAmount currencyID="EUR">38029.61</ns2:TotalAmount>
+                        <ns2:TaxExclusiveAmount currencyID="EUR">31429.43</ns2:TaxExclusiveAmount>
+                    </ns4:BudgetAmount>
+                    <ns4:RequiredCommodityClassification>
+                        <ns2:ItemClassificationCode listURI="http://contrataciondelestado.es/codice/cl/2.04/CPV2008-2.04.gc">71000000</ns2:ItemClassificationCode>
+                    </ns4:RequiredCommodityClassification>
+                    <ns4:RealizedLocation>
+                        <ns2:CountrySubentity>Sevilla</ns2:CountrySubentity>
+                        <ns2:CountrySubentityCode listURI="http://contrataciondelestado.es/codice/cl/2.08/NUTS-2021.gc">ES618</ns2:CountrySubentityCode>
+                        <ns4:Address>
+                            <ns4:Country>
+<ns2:IdentificationCode listURI="http://contrataciondelestado.es/codice/cl/2.08/CountryIdentificationCode-2.08.gc">ES</ns2:IdentificationCode>
+<ns2:Name>España</ns2:Name>
+                            </ns4:Country>
+                        </ns4:Address>
+                    </ns4:RealizedLocation>
+                </ns4:ProcurementProject>
+            </ns4:ProcurementProjectLot>
+            <ns4:ProcurementProjectLot>
+                <ns2:ID schemeName="ID_LOTE">2</ns2:ID>
+                <ns4:TenderingTerms>
+                    <ns4:TendererQualificationRequest>
+                        <ns4:TechnicalEvaluationCriteria>
+                            <ns2:EvaluationCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/TechnicalCapabilityTypeCode-2.0.gc">OSR-COMPTASK</ns2:EvaluationCriteriaTypeCode>
+                            <ns2:Description>De conformidad con PCAP y Anexos PCAP</ns2:Description>
+                            <ns2:ThresholdQuantity>25900.54</ns2:ThresholdQuantity>
+                        </ns4:TechnicalEvaluationCriteria>
+                        <ns4:FinancialEvaluationCriteria>
+                            <ns2:EvaluationCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/FinancialCapabilityTypeCode-2.0.gc">5</ns2:EvaluationCriteriaTypeCode>
+                            <ns2:Description>De conformidad con PCAP y Anexos PCAP</ns2:Description>
+                            <ns2:ThresholdQuantity>32375.68</ns2:ThresholdQuantity>
+                        </ns4:FinancialEvaluationCriteria>
+                    </ns4:TendererQualificationRequest>
+                    <ns4:AwardingTerms>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>4 - Compromiso de presencia en obra en cada EDIFICIO</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.2.3 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">2</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>12</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>2 - Cualificación del equipo-Experiencia adicional</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.2.1 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">2</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>27</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>3 - Compromiso de tiempo de respuesta de presencia física en obra</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.2.2 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">2</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>12</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>1 - OFERTA ECONÓMICA</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.1 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">1</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>49</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                    </ns4:AwardingTerms>
+                </ns4:TenderingTerms>
+                <ns4:ProcurementProject>
+                    <ns2:Name>Lote 2: DF Revitalización Educación infantil CEIPs 2</ns2:Name>
+                    <ns4:BudgetAmount>
+                        <ns2:TotalAmount currencyID="EUR">39174.57</ns2:TotalAmount>
+                        <ns2:TaxExclusiveAmount currencyID="EUR">32375.68</ns2:TaxExclusiveAmount>
+                    </ns4:BudgetAmount>
+                    <ns4:RequiredCommodityClassification>
+                        <ns2:ItemClassificationCode listURI="http://contrataciondelestado.es/codice/cl/2.04/CPV2008-2.04.gc">71000000</ns2:ItemClassificationCode>
+                    </ns4:RequiredCommodityClassification>
+                    <ns4:RealizedLocation>
+                        <ns2:CountrySubentity>Sevilla</ns2:CountrySubentity>
+                        <ns2:CountrySubentityCode listURI="http://contrataciondelestado.es/codice/cl/2.08/NUTS-2021.gc">ES618</ns2:CountrySubentityCode>
+                        <ns4:Address>
+                            <ns4:Country>
+<ns2:IdentificationCode listURI="http://contrataciondelestado.es/codice/cl/2.08/CountryIdentificationCode-2.08.gc">ES</ns2:IdentificationCode>
+<ns2:Name>España</ns2:Name>
+                            </ns4:Country>
+                        </ns4:Address>
+                    </ns4:RealizedLocation>
+                </ns4:ProcurementProject>
+            </ns4:ProcurementProjectLot>
+            <ns4:ProcurementProjectLot>
+                <ns2:ID schemeName="ID_LOTE">3</ns2:ID>
+                <ns4:TenderingTerms>
+                    <ns4:TendererQualificationRequest>
+                        <ns4:TechnicalEvaluationCriteria>
+                            <ns2:EvaluationCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/TechnicalCapabilityTypeCode-2.0.gc">OSR-COMPTASK</ns2:EvaluationCriteriaTypeCode>
+                            <ns2:Description>De conformidad con PCAP y Anexos PCAP</ns2:Description>
+                            <ns2:ThresholdQuantity>24614.73</ns2:ThresholdQuantity>
+                        </ns4:TechnicalEvaluationCriteria>
+                        <ns4:FinancialEvaluationCriteria>
+                            <ns2:EvaluationCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/FinancialCapabilityTypeCode-2.0.gc">5</ns2:EvaluationCriteriaTypeCode>
+                            <ns2:Description>De conformidad con PCAP y Anexos PCAP</ns2:Description>
+                            <ns2:ThresholdQuantity>30768.41</ns2:ThresholdQuantity>
+                        </ns4:FinancialEvaluationCriteria>
+                    </ns4:TendererQualificationRequest>
+                    <ns4:AwardingTerms>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>1 - OFERTA ECONÓMICA</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.1 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">1</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>49</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>4 - Compromiso de presencia en obra en cada EDIFICIO</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.2.3 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">2</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>12</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>3 - Compromiso de tiempo de respuesta de presencia física en obra</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.2.2 del Anexo i al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">2</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>12</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>2 - Cualificación del equipo-Experiencia adicional</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.2.1 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">2</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>27</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                    </ns4:AwardingTerms>
+                </ns4:TenderingTerms>
+                <ns4:ProcurementProject>
+                    <ns2:Name>Lote 3: DF Revitalización Educación infantil CEIPs 3</ns2:Name>
+                    <ns4:BudgetAmount>
+                        <ns2:TotalAmount currencyID="EUR">37229.78</ns2:TotalAmount>
+                        <ns2:TaxExclusiveAmount currencyID="EUR">30768.41</ns2:TaxExclusiveAmount>
+                    </ns4:BudgetAmount>
+                    <ns4:RequiredCommodityClassification>
+                        <ns2:ItemClassificationCode listURI="http://contrataciondelestado.es/codice/cl/2.04/CPV2008-2.04.gc">71000000</ns2:ItemClassificationCode>
+                    </ns4:RequiredCommodityClassification>
+                    <ns4:RealizedLocation>
+                        <ns2:CountrySubentity>Sevilla</ns2:CountrySubentity>
+                        <ns2:CountrySubentityCode listURI="http://contrataciondelestado.es/codice/cl/2.08/NUTS-2021.gc">ES618</ns2:CountrySubentityCode>
+                        <ns4:Address>
+                            <ns4:Country>
+<ns2:IdentificationCode listURI="http://contrataciondelestado.es/codice/cl/2.08/CountryIdentificationCode-2.08.gc">ES</ns2:IdentificationCode>
+<ns2:Name>España</ns2:Name>
+                            </ns4:Country>
+                        </ns4:Address>
+                    </ns4:RealizedLocation>
+                </ns4:ProcurementProject>
+            </ns4:ProcurementProjectLot>
+            <ns4:ProcurementProjectLot>
+                <ns2:ID schemeName="ID_LOTE">4</ns2:ID>
+                <ns4:TenderingTerms>
+                    <ns4:TendererQualificationRequest>
+                        <ns4:TechnicalEvaluationCriteria>
+                            <ns2:EvaluationCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/TechnicalCapabilityTypeCode-2.0.gc">OSR-COMPTASK</ns2:EvaluationCriteriaTypeCode>
+                            <ns2:Description>De conformidad con PCAP y Anexos PCAP</ns2:Description>
+                            <ns2:ThresholdQuantity>27177.18</ns2:ThresholdQuantity>
+                        </ns4:TechnicalEvaluationCriteria>
+                        <ns4:FinancialEvaluationCriteria>
+                            <ns2:EvaluationCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/FinancialCapabilityTypeCode-2.0.gc">5</ns2:EvaluationCriteriaTypeCode>
+                            <ns2:Description>De conformidad con PCAP y Anexos PCAP</ns2:Description>
+                            <ns2:ThresholdQuantity>33971.47</ns2:ThresholdQuantity>
+                        </ns4:FinancialEvaluationCriteria>
+                    </ns4:TendererQualificationRequest>
+                    <ns4:AwardingTerms>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>2 - Cualificación del equipo-Experiencia adicional</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.2.1 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">2</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>27</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>4 - Compromiso de presencia en obra en cada EDIFICIO</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.2.3 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">2</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>12</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>3 - Compromiso de tiempo de respuesta de presencia física en obra</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.2.2 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">2</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>12</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>1 - OFERTA ECONÓMICA</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.1 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">1</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>49</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                    </ns4:AwardingTerms>
+                </ns4:TenderingTerms>
+                <ns4:ProcurementProject>
+                    <ns2:Name>Lote 4: DF Revitalización Educación infantil CEIPs 4</ns2:Name>
+                    <ns4:BudgetAmount>
+                        <ns2:TotalAmount currencyID="EUR">41105.48</ns2:TotalAmount>
+                        <ns2:TaxExclusiveAmount currencyID="EUR">33971.47</ns2:TaxExclusiveAmount>
+                    </ns4:BudgetAmount>
+                    <ns4:RequiredCommodityClassification>
+                        <ns2:ItemClassificationCode listURI="http://contrataciondelestado.es/codice/cl/2.04/CPV2008-2.04.gc">71000000</ns2:ItemClassificationCode>
+                    </ns4:RequiredCommodityClassification>
+                    <ns4:RealizedLocation>
+                        <ns2:CountrySubentity>Sevilla</ns2:CountrySubentity>
+                        <ns2:CountrySubentityCode listURI="http://contrataciondelestado.es/codice/cl/2.08/NUTS-2021.gc">ES618</ns2:CountrySubentityCode>
+                        <ns4:Address>
+                            <ns4:Country>
+<ns2:IdentificationCode listURI="http://contrataciondelestado.es/codice/cl/2.08/CountryIdentificationCode-2.08.gc">ES</ns2:IdentificationCode>
+<ns2:Name>España</ns2:Name>
+                            </ns4:Country>
+                        </ns4:Address>
+                    </ns4:RealizedLocation>
+                </ns4:ProcurementProject>
+            </ns4:ProcurementProjectLot>
+            <ns4:ProcurementProjectLot>
+                <ns2:ID schemeName="ID_LOTE">5</ns2:ID>
+                <ns4:TenderingTerms>
+                    <ns4:TendererQualificationRequest>
+                        <ns4:TechnicalEvaluationCriteria>
+                            <ns2:EvaluationCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/TechnicalCapabilityTypeCode-2.0.gc">OSR-COMPTASK</ns2:EvaluationCriteriaTypeCode>
+                            <ns2:Description>De conformidad con PCAP y Anexos PCAP</ns2:Description>
+                            <ns2:ThresholdQuantity>24106.48</ns2:ThresholdQuantity>
+                        </ns4:TechnicalEvaluationCriteria>
+                        <ns4:FinancialEvaluationCriteria>
+                            <ns2:EvaluationCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/FinancialCapabilityTypeCode-2.0.gc">5</ns2:EvaluationCriteriaTypeCode>
+                            <ns2:Description>De conformidad con PCAP y Anexos PCAP</ns2:Description>
+                            <ns2:ThresholdQuantity>30133.1</ns2:ThresholdQuantity>
+                        </ns4:FinancialEvaluationCriteria>
+                    </ns4:TendererQualificationRequest>
+                    <ns4:AwardingTerms>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>2 - Cualificación del equipo-Experiencia adicional</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.2.1 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">2</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>27</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>3 - Compromiso de tiempo de respuesta de presencia física en obra</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.2.2 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">2</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>12</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>4 - Compromiso de presencia en obra en cada EDIFICIO</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.2.3 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">2</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>12</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                        <ns4:AwardingCriteria>
+                            <ns2:AwardingCriteriaTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.0/AwardingCriteriaCode-2.0.gc">OBJ</ns2:AwardingCriteriaTypeCode>
+                            <ns2:Description>1 - OFERTA ECONÓMICA</ns2:Description>
+                            <ns2:Note>De conformidad con el apartado 8.1 del Anexo I al PCAP</ns2:Note>
+                            <ns2:AwardingCriteriaSubTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.09/AwardingCriteriaAutomaticallyEvaluatedSubTypeCode-2.09.gc">1</ns2:AwardingCriteriaSubTypeCode>
+                            <ns2:WeightNumeric>49</ns2:WeightNumeric>
+                        </ns4:AwardingCriteria>
+                    </ns4:AwardingTerms>
+                </ns4:TenderingTerms>
+                <ns4:ProcurementProject>
+                    <ns2:Name>Lote 5: DF Revitalización Educación infantil CEIPs 5</ns2:Name>
+                    <ns4:BudgetAmount>
+                        <ns2:TotalAmount currencyID="EUR">36461.05</ns2:TotalAmount>
+                        <ns2:TaxExclusiveAmount currencyID="EUR">30133.1</ns2:TaxExclusiveAmount>
+                    </ns4:BudgetAmount>
+                    <ns4:RequiredCommodityClassification>
+                        <ns2:ItemClassificationCode listURI="http://contrataciondelestado.es/codice/cl/2.04/CPV2008-2.04.gc">71000000</ns2:ItemClassificationCode>
+                    </ns4:RequiredCommodityClassification>
+                    <ns4:RealizedLocation>
+                        <ns2:CountrySubentity>Sevilla</ns2:CountrySubentity>
+                        <ns2:CountrySubentityCode listURI="http://contrataciondelestado.es/codice/cl/2.08/NUTS-2021.gc">ES618</ns2:CountrySubentityCode>
+                        <ns4:Address>
+                            <ns4:Country>
+<ns2:IdentificationCode listURI="http://contrataciondelestado.es/codice/cl/2.08/CountryIdentificationCode-2.08.gc">ES</ns2:IdentificationCode>
+<ns2:Name>España</ns2:Name>
+                            </ns4:Country>
+                        </ns4:Address>
+                    </ns4:RealizedLocation>
+                </ns4:ProcurementProject>
+            </ns4:ProcurementProjectLot>
+            <ns4:TenderingTerms>
+                <ns2:RequiredCurriculaIndicator>false</ns2:RequiredCurriculaIndicator>
+                <ns2:VariantConstraintIndicator>false</ns2:VariantConstraintIndicator>
+                <ns2:FundingProgramCode name="No hay financiación con fondos de la UE" listURI="http://contrataciondelestado.es/codice/cl/2.08/FundingProgramCode-2.08.gc">NO-EU</ns2:FundingProgramCode>
+                <ns2:ProcurementNationalLegislationCode listURI="https://contrataciondelestado.es/codice/cl/2.08/ProcurementNationalLegislationCode-2.08.gc">3</ns2:ProcurementNationalLegislationCode>
+                <ns4:RequiredFinancialGuarantee>
+                    <ns2:GuaranteeTypeCode listURI="http://contrataciondelestado.es/codice/cl/1.04/GuaranteeTypeCode-1.04.gc">1</ns2:GuaranteeTypeCode>
+                    <ns2:AmountRate>0</ns2:AmountRate>
+                </ns4:RequiredFinancialGuarantee>
+                <ns4:RequiredFinancialGuarantee>
+                    <ns2:GuaranteeTypeCode listURI="http://contrataciondelestado.es/codice/cl/1.04/GuaranteeTypeCode-1.04.gc">3</ns2:GuaranteeTypeCode>
+                    <ns2:AmountRate>5</ns2:AmountRate>
+                </ns4:RequiredFinancialGuarantee>
+                <ns4:RequiredFinancialGuarantee>
+                    <ns2:GuaranteeTypeCode listURI="http://contrataciondelestado.es/codice/cl/1.04/GuaranteeTypeCode-1.04.gc">2</ns2:GuaranteeTypeCode>
+                    <ns2:AmountRate>5</ns2:AmountRate>
+                </ns4:RequiredFinancialGuarantee>
+                <ns4:ProcurementLegislationDocumentReference>
+                    <ns2:ID>2014/24/EU</ns2:ID>
+                </ns4:ProcurementLegislationDocumentReference>
+                <ns4:TendererQualificationRequest>
+                    <ns4:SpecificTendererRequirement>
+                        <ns2:RequirementTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/DeclarationTypeCode-2.08.gc">3</ns2:RequirementTypeCode>
+                        <ns2:Description>No estar incurso en incompatibilidades</ns2:Description>
+                    </ns4:SpecificTendererRequirement>
+                    <ns4:SpecificTendererRequirement>
+                        <ns2:RequirementTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/DeclarationTypeCode-2.08.gc">1</ns2:RequirementTypeCode>
+                        <ns2:Description>Capacidad de obrar</ns2:Description>
+                    </ns4:SpecificTendererRequirement>
+                    <ns4:SpecificTendererRequirement>
+                        <ns2:RequirementTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/DeclarationTypeCode-2.08.gc">2</ns2:RequirementTypeCode>
+                        <ns2:Description>No prohibición para contratar</ns2:Description>
+                    </ns4:SpecificTendererRequirement>
+                    <ns4:SpecificTendererRequirement>
+                        <ns2:RequirementTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/DeclarationTypeCode-2.08.gc">4</ns2:RequirementTypeCode>
+                        <ns2:Description>Cumplimiento con las obligaciones con la Seguridad Social</ns2:Description>
+                    </ns4:SpecificTendererRequirement>
+                    <ns4:SpecificTendererRequirement>
+                        <ns2:RequirementTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/DeclarationTypeCode-2.08.gc">5</ns2:RequirementTypeCode>
+                        <ns2:Description>Cumplimiento con las obligaciones tributarias</ns2:Description>
+                    </ns4:SpecificTendererRequirement>
+                </ns4:TendererQualificationRequest>
+                <ns4:ContractExecutionRequirement>
+                    <ns2:Name>Consideraciones de tipo social</ns2:Name>
+                    <ns2:ExecutionRequirementCode listURI="https://contrataciondelestado.es/codice/cl/2.08/ExecutionRequirementCode-2.08.gc">2</ns2:ExecutionRequirementCode>
+                    <ns2:Description>Convenio Colectivo / Condiciones Laborales</ns2:Description>
+                </ns4:ContractExecutionRequirement>
+                <ns4:TenderRecipientParty>
+                    <ns2:EndpointID>https://contrataciondelestado.es</ns2:EndpointID>
+                </ns4:TenderRecipientParty>
+                <ns4:Language>
+                    <ns2:ID>es</ns2:ID>
+                </ns4:Language>
+            </ns4:TenderingTerms>
+            <ns4:TenderingProcess>
+                <ns2:ProcedureCode listURI="https://contrataciondelestado.es/codice/cl/2.07/SyndicationTenderingProcessCode-2.07.gc">1</ns2:ProcedureCode>
+                <ns2:UrgencyCode listURI="http://contrataciondelestado.es/codice/cl/1.04/DiligenceTypeCode-1.04.gc">1</ns2:UrgencyCode>
+                <ns2:PartPresentationCode name="A uno o varios lotes" listURI="http://contrataciondelestado.es/codice/cl/1.04/TenderPresentationCode-1.04.gc">3</ns2:PartPresentationCode>
+                <ns2:ContractingSystemCode listURI="http://contrataciondelestado.es/codice/cl/2.08/ContractingSystemTypeCode-2.08.gc">0</ns2:ContractingSystemCode>
+                <ns2:SubmissionMethodCode listURI="http://contrataciondelestado.es/codice/cl/1.04/TenderDeliveryCode-1.04.gc">1</ns2:SubmissionMethodCode>
+                <ns2:MaximumLotPresentationQuantity>5</ns2:MaximumLotPresentationQuantity>
+                <ns2:MaximumTendererAwardedLotsQuantity>2</ns2:MaximumTendererAwardedLotsQuantity>
+                <ns2:LotsCombinationContractingAuthorityRights>Se debe atender a la regla de concurrencia /nº Lotes establecida en el Anexo I del PCAP</ns2:LotsCombinationContractingAuthorityRights>
+                <ns2:OverThresholdIndicator>false</ns2:OverThresholdIndicator>
+                <ns4:DocumentAvailabilityPeriod>
+                    <ns2:EndDate>2026-12-09</ns2:EndDate>
+                    <ns2:EndTime>23:59:00</ns2:EndTime>
+                </ns4:DocumentAvailabilityPeriod>
+                <ns4:TenderSubmissionDeadlinePeriod>
+                    <ns2:EndDate>2026-12-09</ns2:EndDate>
+                    <ns2:EndTime>23:59:00</ns2:EndTime>
+                    <ns2:Description>Los Pliegos y Anexos, así como las Plantillas se publican en la Plataforma</ns2:Description>
+                </ns4:TenderSubmissionDeadlinePeriod>
+                <ns4:AuctionTerms>
+                    <ns2:AuctionConstraintIndicator>false</ns2:AuctionConstraintIndicator>
+                </ns4:AuctionTerms>
+            </ns4:TenderingProcess>
+            <ns4:LegalDocumentReference>
+                <ns2:ID>367787PCAP ABIERTO SERVICIOS.pdf</ns2:ID>
+                <ns4:Attachment>
+                    <ns4:ExternalReference>
+                        <ns2:URI>https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&amp;DocumentIdParam=ZSjWPM4V9q4Lw9Cv2TfFg3AK7DG2VCrKgtVJgPl5z%2BCEsiKugsJHRdkng%2BsXsmqzWk5aeABj2FSDYe4SSVd85ibZ0uiaxfluOT2rkIXSlqW1aXEvq3KHa/AEHgtDrQw0</ns2:URI>
+                        <ns2:DocumentHash>JMtUdTDUez64cP9hC/7yhWulfnU=</ns2:DocumentHash>
+                    </ns4:ExternalReference>
+                </ns4:Attachment>
+            </ns4:LegalDocumentReference>
+            <ns4:TechnicalDocumentReference>
+                <ns2:ID>PPT.pdf</ns2:ID>
+                <ns4:Attachment>
+                    <ns4:ExternalReference>
+                        <ns2:URI>https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&amp;DocumentIdParam=KfP82l0%2B2Fw85WlM0aqSLy6iPF5jhFGWjC4CENHOzccXPUrhtwm3iPo%2Bg30yVb1EQEUSqneGdyIbnQATypdGQSnywg9TsOOQDPw4uEzHnw2HAj0WEJrB5sP7amrh2jBD</ns2:URI>
+                        <ns2:DocumentHash>ecX5HEdxxCZ6NsBckCndrxZy9b0=</ns2:DocumentHash>
+                    </ns4:ExternalReference>
+                </ns4:Attachment>
+            </ns4:TechnicalDocumentReference>
+            <ns4:AdditionalDocumentReference>
+                <ns2:ID>Anexo III.odt</ns2:ID>
+                <ns4:Attachment>
+                    <ns4:ExternalReference>
+                        <ns2:URI>https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&amp;DocumentIdParam=%2B3X3byww8FwXejWIcm4VTE812B%2B1g6%2BkftakrRAk98zsofEbQDVEX1x4iwfP9K7c8zgAzaPmemjmqGPCoP9lv6KfKj1DrAb6RnQpIklWx9QC1/zDIE0Kw/PWNnLS0Z0z</ns2:URI>
+                        <ns2:DocumentHash>RyT9ffPH4w2zxS55CWoSLFInx2Q=</ns2:DocumentHash>
+                    </ns4:ExternalReference>
+                </ns4:Attachment>
+            </ns4:AdditionalDocumentReference>
+            <ns4:AdditionalDocumentReference>
+                <ns2:ID>Anexo DEUC.xml</ns2:ID>
+                <ns4:Attachment>
+                    <ns4:ExternalReference>
+                        <ns2:URI>https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&amp;DocumentIdParam=ejeSAHOXupoJTi1WdjcnDlB9jPTZ/drubgcxxMLE1b6VV2lE1EUqjSMPKeLV3/Hm4QB1kWJNLfSgVQTVjwPZYEaQvVsbf33t8xDOKdH0NqLfdyQgZAdTm3EfcUAC7CJ6</ns2:URI>
+                        <ns2:DocumentHash>dRMtUD6mlJp5rF3yb8ufFzO8PiE=</ns2:DocumentHash>
+                    </ns4:ExternalReference>
+                </ns4:Attachment>
+            </ns4:AdditionalDocumentReference>
+            <ns4:AdditionalDocumentReference>
+                <ns2:ID>Anexo PCAP y DEUC.pdf</ns2:ID>
+                <ns4:Attachment>
+                    <ns4:ExternalReference>
+                        <ns2:URI>https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&amp;DocumentIdParam=c0NKfpp6LsV9tB641aQJ1hJN77WYtl95DvxA5PlKVUHNoG/4o3YhQ3qti16T8F4fbuJHZqOJJ6ssToOtMvNl8jpN8w9S2y0npheUOVJvphiB0nvVKRzfe4rpHcnlPhSZ</ns2:URI>
+                        <ns2:DocumentHash>D6FKzAcwclxl53RRXKpl8GTc4Ts=</ns2:DocumentHash>
+                    </ns4:ExternalReference>
+                </ns4:Attachment>
+            </ns4:AdditionalDocumentReference>
+            <ns4:AdditionalDocumentReference>
+                <ns2:ID>Anexo IV.odt</ns2:ID>
+                <ns4:Attachment>
+                    <ns4:ExternalReference>
+                        <ns2:URI>https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&amp;DocumentIdParam=CHYpYvBw6l0nnC1GLy70nMnzS3E5mM9gz0JWx5Izm/K1wQrDTMSPsQ9djgIeHl15vBDXUM8HDu51ldbVwuHrfYgaX9sg86ZvL5E40Cuqtu57QB3HKyQaFUExmUVQCerk</ns2:URI>
+                        <ns2:DocumentHash>DY/95ZW+fbTtlb0Lh81D1JbIMxo=</ns2:DocumentHash>
+                    </ns4:ExternalReference>
+                </ns4:Attachment>
+            </ns4:AdditionalDocumentReference>
+            <ns1:ValidNoticeInfo>
+                <ns3:NoticeTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.11/TenderingNoticeTypeCode-2.11.gc">DOC_CD</ns3:NoticeTypeCode>
+                <ns1:AdditionalPublicationStatus>
+                    <ns3:PublicationMediaName>Perfil del contratante</ns3:PublicationMediaName>
+                    <ns1:AdditionalPublicationDocumentReference>
+                        <ns2:IssueDate>2026-11-23</ns2:IssueDate>
+                    </ns1:AdditionalPublicationDocumentReference>
+                    <ns1:AdditionalPublicationDocumentReference>
+                        <ns2:IssueDate>2026-11-23</ns2:IssueDate>
+                    </ns1:AdditionalPublicationDocumentReference>
+                </ns1:AdditionalPublicationStatus>
+            </ns1:ValidNoticeInfo>
+            <ns1:ValidNoticeInfo>
+                <ns3:NoticeTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.11/TenderingNoticeTypeCode-2.11.gc">DOC_CN</ns3:NoticeTypeCode>
+                <ns1:AdditionalPublicationStatus>
+                    <ns3:PublicationMediaName>Perfil del contratante</ns3:PublicationMediaName>
+                    <ns1:AdditionalPublicationDocumentReference>
+                        <ns2:IssueDate>2026-11-18</ns2:IssueDate>
+                    </ns1:AdditionalPublicationDocumentReference>
+                    <ns1:AdditionalPublicationDocumentReference>
+                        <ns2:IssueDate>2026-11-23</ns2:IssueDate>
+                    </ns1:AdditionalPublicationDocumentReference>
+                </ns1:AdditionalPublicationStatus>
+            </ns1:ValidNoticeInfo>
+            <ns1:GeneralDocument>
+                <ns1:GeneralDocumentDocumentReference>
+                    <ns2:ID>2026-8b23ee56-628f-4ea4-8158-bf9fdb43b224</ns2:ID>
+                    <ns2:DocumentTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/GeneralContractDocuments-2.08.gc">ZZZ</ns2:DocumentTypeCode>
+                    <ns4:Attachment>
+                        <ns4:ExternalReference>
+                            <ns2:URI>https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&amp;cmpntname=GetDocumentsById&amp;source=library&amp;DocumentIdParam=2026-8b23ee56-628f-4ea4-8158-bf9fdb43b224</ns2:URI>
+                            <ns2:FileName>INFORME DE CONFORMIDAD DEL SERVICIO CONTRATACIÓN</ns2:FileName>
+                        </ns4:ExternalReference>
+                    </ns4:Attachment>
+                </ns1:GeneralDocumentDocumentReference>
+            </ns1:GeneralDocument>
+            <ns1:GeneralDocument>
+                <ns1:GeneralDocumentDocumentReference>
+                    <ns2:ID>2026-71fc9586-7fb2-48a9-bdb6-2ba48cc7d1b5</ns2:ID>
+                    <ns2:DocumentTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/GeneralContractDocuments-2.08.gc">ZZZ</ns2:DocumentTypeCode>
+                    <ns4:Attachment>
+                        <ns4:ExternalReference>
+                            <ns2:URI>https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&amp;cmpntname=GetDocumentsById&amp;source=library&amp;DocumentIdParam=2026-71fc9586-7fb2-48a9-bdb6-2ba48cc7d1b5</ns2:URI>
+                            <ns2:FileName>RESUMEN ACTUACIONES LOTE 4</ns2:FileName>
+                        </ns4:ExternalReference>
+                    </ns4:Attachment>
+                </ns1:GeneralDocumentDocumentReference>
+            </ns1:GeneralDocument>
+            <ns1:GeneralDocument>
+                <ns1:GeneralDocumentDocumentReference>
+                    <ns2:ID>2026-c5c8b50c-51ae-4d94-9196-77eb0078686d</ns2:ID>
+                    <ns2:DocumentTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/GeneralContractDocuments-2.08.gc">8</ns2:DocumentTypeCode>
+                    <ns4:Attachment>
+                        <ns4:ExternalReference>
+                            <ns2:URI>https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&amp;cmpntname=GetDocumentsById&amp;source=library&amp;DocumentIdParam=2026-c5c8b50c-51ae-4d94-9196-77eb0078686d</ns2:URI>
+                            <ns2:FileName>Acuerdo de iniciación del expediente</ns2:FileName>
+                        </ns4:ExternalReference>
+                    </ns4:Attachment>
+                </ns1:GeneralDocumentDocumentReference>
+            </ns1:GeneralDocument>
+            <ns1:GeneralDocument>
+                <ns1:GeneralDocumentDocumentReference>
+                    <ns2:ID>2026-9eaf92db-fe36-41cd-a786-4166f32d794c</ns2:ID>
+                    <ns2:DocumentTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/GeneralContractDocuments-2.08.gc">ZZZ</ns2:DocumentTypeCode>
+                    <ns4:Attachment>
+                        <ns4:ExternalReference>
+                            <ns2:URI>https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&amp;cmpntname=GetDocumentsById&amp;source=library&amp;DocumentIdParam=2026-9eaf92db-fe36-41cd-a786-4166f32d794c</ns2:URI>
+                            <ns2:FileName>NOTA ampliación plazo presentación de ofertas</ns2:FileName>
+                        </ns4:ExternalReference>
+                    </ns4:Attachment>
+                </ns1:GeneralDocumentDocumentReference>
+            </ns1:GeneralDocument>
+            <ns1:GeneralDocument>
+                <ns1:GeneralDocumentDocumentReference>
+                    <ns2:ID>2026-e009e9c9-fb69-4218-8c99-8c7e347191da</ns2:ID>
+                    <ns2:DocumentTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/GeneralContractDocuments-2.08.gc">9</ns2:DocumentTypeCode>
+                    <ns4:Attachment>
+                        <ns4:ExternalReference>
+                            <ns2:URI>https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&amp;cmpntname=GetDocumentsById&amp;source=library&amp;DocumentIdParam=2026-e009e9c9-fb69-4218-8c99-8c7e347191da</ns2:URI>
+                            <ns2:FileName>Memoria justificativa</ns2:FileName>
+                        </ns4:ExternalReference>
+                    </ns4:Attachment>
+                </ns1:GeneralDocumentDocumentReference>
+            </ns1:GeneralDocument>
+            <ns1:GeneralDocument>
+                <ns1:GeneralDocumentDocumentReference>
+                    <ns2:ID>2026-628e0362-fbd7-44eb-a23f-32cffb3c8ed8</ns2:ID>
+                    <ns2:DocumentTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/GeneralContractDocuments-2.08.gc">ZZZ</ns2:DocumentTypeCode>
+                    <ns4:Attachment>
+                        <ns4:ExternalReference>
+                            <ns2:URI>https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&amp;cmpntname=GetDocumentsById&amp;source=library&amp;DocumentIdParam=2026-628e0362-fbd7-44eb-a23f-32cffb3c8ed8</ns2:URI>
+                            <ns2:FileName>RESUMEN ACTUACIONES LOTE 3</ns2:FileName>
+                        </ns4:ExternalReference>
+                    </ns4:Attachment>
+                </ns1:GeneralDocumentDocumentReference>
+            </ns1:GeneralDocument>
+            <ns1:GeneralDocument>
+                <ns1:GeneralDocumentDocumentReference>
+                    <ns2:ID>2026-7887d025-8280-4572-bf34-a84505467ab1</ns2:ID>
+                    <ns2:DocumentTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/GeneralContractDocuments-2.08.gc">11</ns2:DocumentTypeCode>
+                    <ns4:Attachment>
+                        <ns4:ExternalReference>
+                            <ns2:URI>https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&amp;cmpntname=GetDocumentsById&amp;source=library&amp;DocumentIdParam=2026-7887d025-8280-4572-bf34-a84505467ab1</ns2:URI>
+                            <ns2:FileName>Documento de aprobación del expediente</ns2:FileName>
+                        </ns4:ExternalReference>
+                    </ns4:Attachment>
+                </ns1:GeneralDocumentDocumentReference>
+            </ns1:GeneralDocument>
+            <ns1:GeneralDocument>
+                <ns1:GeneralDocumentDocumentReference>
+                    <ns2:ID>2026-e55b13ae-b86d-4af4-8501-a0605cb11715</ns2:ID>
+                    <ns2:DocumentTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/GeneralContractDocuments-2.08.gc">10</ns2:DocumentTypeCode>
+                    <ns4:Attachment>
+                        <ns4:ExternalReference>
+                            <ns2:URI>https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&amp;cmpntname=GetDocumentsById&amp;source=library&amp;DocumentIdParam=2026-e55b13ae-b86d-4af4-8501-a0605cb11715</ns2:URI>
+                            <ns2:FileName>Informe de insuficiencia de medios</ns2:FileName>
+                        </ns4:ExternalReference>
+                    </ns4:Attachment>
+                </ns1:GeneralDocumentDocumentReference>
+            </ns1:GeneralDocument>
+            <ns1:GeneralDocument>
+                <ns1:GeneralDocumentDocumentReference>
+                    <ns2:ID>2026-dacb9e13-90ca-4e38-8e03-ac28453b827f</ns2:ID>
+                    <ns2:DocumentTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/GeneralContractDocuments-2.08.gc">ZZZ</ns2:DocumentTypeCode>
+                    <ns4:Attachment>
+                        <ns4:ExternalReference>
+                            <ns2:URI>https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&amp;cmpntname=GetDocumentsById&amp;source=library&amp;DocumentIdParam=2026-dacb9e13-90ca-4e38-8e03-ac28453b827f</ns2:URI>
+                            <ns2:FileName>RESUMEN ACTUACIONES LOTE 1</ns2:FileName>
+                        </ns4:ExternalReference>
+                    </ns4:Attachment>
+                </ns1:GeneralDocumentDocumentReference>
+            </ns1:GeneralDocument>
+            <ns1:GeneralDocument>
+                <ns1:GeneralDocumentDocumentReference>
+                    <ns2:ID>2026-902abcfc-0ba0-4bd3-a13c-675b1fe8801d</ns2:ID>
+                    <ns2:DocumentTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/GeneralContractDocuments-2.08.gc">ZZZ</ns2:DocumentTypeCode>
+                    <ns4:Attachment>
+                        <ns4:ExternalReference>
+                            <ns2:URI>https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&amp;cmpntname=GetDocumentsById&amp;source=library&amp;DocumentIdParam=2026-902abcfc-0ba0-4bd3-a13c-675b1fe8801d</ns2:URI>
+                            <ns2:FileName>RESUMEN ACTUACIONES LOTE 2</ns2:FileName>
+                        </ns4:ExternalReference>
+                    </ns4:Attachment>
+                </ns1:GeneralDocumentDocumentReference>
+            </ns1:GeneralDocument>
+            <ns1:GeneralDocument>
+                <ns1:GeneralDocumentDocumentReference>
+                    <ns2:ID>2026-f2897de3-c31d-4f23-a685-ef9a38f1352f</ns2:ID>
+                    <ns2:DocumentTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/GeneralContractDocuments-2.08.gc">ZZZ</ns2:DocumentTypeCode>
+                    <ns4:Attachment>
+                        <ns4:ExternalReference>
+                            <ns2:URI>https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&amp;cmpntname=GetDocumentsById&amp;source=library&amp;DocumentIdParam=2026-f2897de3-c31d-4f23-a685-ef9a38f1352f</ns2:URI>
+                            <ns2:FileName>RESUMEN ACTUACIONES LOTE 5</ns2:FileName>
+                        </ns4:ExternalReference>
+                    </ns4:Attachment>
+                </ns1:GeneralDocumentDocumentReference>
+            </ns1:GeneralDocument>
+            <ns1:GeneralDocument>
+                <ns1:GeneralDocumentDocumentReference>
+                    <ns2:ID>2026-2c8c0f92-fe27-4b3b-902d-88d47df668f3</ns2:ID>
+                    <ns2:DocumentTypeCode listURI="http://contrataciondelestado.es/codice/cl/2.08/GeneralContractDocuments-2.08.gc">ZZZ</ns2:DocumentTypeCode>
+                    <ns4:Attachment>
+                        <ns4:ExternalReference>
+                            <ns2:URI>https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&amp;cmpntname=GetDocumentsById&amp;source=library&amp;DocumentIdParam=2026-2c8c0f92-fe27-4b3b-902d-88d47df668f3</ns2:URI>
+                            <ns2:FileName>INFORME DE LA SECRETARÍA GENERAL (PERMITE CONTINUAR)</ns2:FileName>
+                        </ns4:ExternalReference>
+                    </ns4:Attachment>
+                </ns1:GeneralDocumentDocumentReference>
+            </ns1:GeneralDocument>
+        </ns1:ContractFolderStatus>
+    </ns0:entry>
+    
