@@ -215,6 +215,45 @@ def amount(el, *names):
     return None
 
 
+CONCESSION = {"21", "22", "31", "32"}  # gestión de servicios públicos, concesión de servicios / de obras
+RX_PRICE = re.compile(r"\b(precio|price|oferta econ|econ[oó]mic|import|coste|cost|baja|tarifa|canon)", re.I)
+RX_NGEU = re.compile(r"next ?generation|nextgen|\bngeu\b|\bprtr\b|\bmrr\b|plan de recuperaci|mecanismo de recuperaci|recovery and resilience", re.I)
+RX_EU = re.compile(r"\bfeder\b|\bfse\+?\b|\bfeader\b|\bfemp|\bfempa\b|fondos? europeos?|uni[oó]n europea|\bue\b|\beu\b|interreg|\bpoctep\b|cohesi[oó]n", re.I)
+
+
+def lots_of(cfs):
+    """Number of lots (0 = not split into lots)."""
+    return len([e for e in deep(cfs, "ProcurementProjectLot")])
+
+
+def award_of(cfs):
+    """'price' when price/cost is the only award criterion, 'quality' when there are others, '' unknown.
+    CODICE: AwardingCriteriaTypeCode OBJ (formula) / SUBJ (judgement); SubTypeCode 1 = price."""
+    crit = deep(cfs, "AwardingCriteria")
+    if not crit:
+        return ""
+    for c in crit:
+        if txt(c, "AwardingCriteriaTypeCode").upper().startswith("SUBJ"):
+            return "quality"
+        sub = txt(c, "AwardingCriteriaSubTypeCode").lstrip("0")
+        d = " ".join((e.text or "") for e in c.iter() if local(e.tag) in ("Description", "Name"))
+        if sub != "1" and not (not sub and RX_PRICE.search(d)) and not (sub in ("", "99") and RX_PRICE.search(d)):
+            return "quality"
+    return "price"
+
+
+def funds_of(cfs, text):
+    """'ngeu' Next Generation EU / PRTR, 'eu' other EU funds, 'none'."""
+    codes = [(e.text or "").strip().upper() for e in deep(cfs, "FundingProgramCode") if e.text]
+    names = " ".join((e.text or "") for e in deep(cfs, "FundingProgram") if e.text)
+    blob = " ".join(codes) + " " + names
+    if RX_NGEU.search(blob) or RX_NGEU.search(text):
+        return "ngeu"
+    if any(c and c not in ("NO-EU", "NOEU", "NO") for c in codes) or RX_EU.search(names):
+        return "eu"
+    return "none"
+
+
 def rec(entry, today):
     """Atom entry → (id, updated, record or None if not open)."""
     A = lambda name: kid(entry, name)  # noqa: E731
@@ -252,6 +291,7 @@ def rec(entry, today):
         lvl = "otros"
     pubs = sorted(d.text[:10] for d in deep(cfs, "IssueDate") if d.text and re.match(r"\d{4}-\d{2}-\d{2}", d.text))
     summary = (kid(entry, "summary").text or "") if kid(entry, "summary") is not None else ""
+    tcode = txt(pp, "TypeCode")
     r = {
         "id": eid.rsplit("/", 1)[-1],
         "ref": txt(cfs, "ContractFolderID")[:60],
@@ -265,6 +305,10 @@ def rec(entry, today):
         "deadline": dl, "time": txt(tp, "TenderSubmissionDeadlinePeriod", "EndTime")[:5] or None,
         "value": amount(pp, "EstimatedOverallContractAmount", "TaxExclusiveAmount", "TotalAmount"),
         "url": link,
+        "concession": tcode in CONCESSION,
+        "lots": lots_of(cfs),
+        "award": award_of(cfs),
+        "funds": funds_of(cfs, title + " " + summary),
     }
     if PROBE:
         r["_ptype"], r["_parents"], r["_summary"] = ptype, parents, summary[:200]
@@ -293,15 +337,6 @@ def walk(name, url, today, stop_at, cache, gone):
         raw = get(url)
         pages += 1
         root = ET.fromstring(raw)
-        if PROBE and pages <= 2:
-            inv = Counter()
-            for e in root.iter():
-                ln = local(e.tag)
-                if ln in ("LegalDocumentReference", "TechnicalDocumentReference", "AdditionalDocumentReference"):
-                    continue
-                val = (e.text or "").strip()[:30]
-                inv[(ln, val if len(set(val)) and not re.search(r"\d{4}-\d{2}|http|@", val) and len(val) < 25 else "*")] += 1
-            print("--- tag inventory", name, [f"{k[0]}={k[1]}:{n}" for k, n in sorted(inv.items()) if n >= 3][:900])
         if PROBE and pages == 1:
             print(f"--- {name} page 1: {len(raw):,} bytes")
             e0 = next((e for e in root if local(e.tag) == "entry"), None)
@@ -410,7 +445,7 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     allrecs = {}
     for name, url in FEEDS.items():
-        cf = CACHE / f"spain_{name}.json"
+        cf = CACHE / f"spain2_{name}.json"  # v2: + lots, award, funds, concession
         st = json.loads(cf.read_text(encoding="utf-8")) if cf.exists() else {}
         cache = st.get("records", {})
         if not (st.get("complete") and st.get("newest")) and not PROBE_NO_ZIP:
@@ -468,6 +503,10 @@ def main():
         "regionLevels": {r: dict(Counter(x["level"] for x in recs if x["region"] == r and x["level"] != "nacional")) for r in REGIONS},
         "provinces": dict(sorted(Counter(x["province"] for x in recs if x["province"]).items())),
         "nature": dict(Counter(x["nature"] or "other" for x in recs)),
+        "funds": dict(Counter(x.get("funds") or "none" for x in recs)),
+        "award": dict(Counter(x.get("award") or "unknown" for x in recs)),
+        "splitIntoLots": sum(1 for x in recs if (x.get("lots") or 0) > 1),
+        "concessions": sum(1 for x in recs if x.get("concession")),
         "duplicatesDropped": dup,
         "source": "Plataforma de Contratación del Sector Público (Ministerio de Hacienda), incl. plataformas autonómicas agregadas",
     }

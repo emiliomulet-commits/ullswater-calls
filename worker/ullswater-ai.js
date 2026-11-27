@@ -494,6 +494,12 @@ async function searchTendersSpain(a, lang) {
     if (a.deadline_to && r.deadline > a.deadline_to) continue;
     if (a.min_value != null && !((r.value || 0) >= a.min_value)) continue;
     if (a.max_value != null && !(r.value != null && r.value <= a.max_value)) continue;
+    if (a.procedure && !norm(r.procedure || "").includes(norm(a.procedure))) continue;
+    if (a.eu_funds && a.eu_funds !== "any" && r.funds !== a.eu_funds) continue;
+    if (a.lots === "split" && !(r.lots > 1)) continue;
+    if (a.lots === "single" && r.lots > 1) continue;
+    if (a.award && a.award !== "any" && r.award !== a.award) continue;
+    if (a.concession === true && !r.concession) continue;
     const sc = terms.length ? terms.reduce((s, t) => s + (r._h.includes(t) ? (norm(r.title).includes(t) ? 2 : 1) : 0), 0) : 1;
     if (sc) hits.push({ r, sc });
   }
@@ -503,7 +509,9 @@ async function searchTendersSpain(a, lang) {
     note: terms.length && !hits.length ? "No tender matches these keywords: titles are in Spanish (or Catalan, Basque, Galician). Try simpler Spanish words or a CPV division." : undefined,
     tenders: hits.slice(0, lim).map(({ r }) => ({ id: r.id, ref: r.ref, title: r.title, buyer: r.buyer, level: ES_LV[r.level] || r.level, region: r.region, province: r.province, city: r.city,
       contract_type: r.nature, procedure: r.procedure, cpv: r._c.map(c => `${c} ${CPV_DIV[c.slice(0, 2)] || ""}`.trim()), deadline: r.deadline, deadline_time: r.time,
-      value_excl_vat: r.value ? `${r.value} EUR` : undefined, official_notice: r.url })) };
+      value_excl_vat: r.value ? `${r.value} EUR` : undefined, concession: r.concession || undefined, lots: r.lots > 1 ? r.lots : r.lots != null ? "single lot" : undefined,
+      award: r.award === "price" ? "price only" : r.award === "quality" ? "price and quality criteria" : undefined,
+      eu_funds: r.funds === "ngeu" ? "Next Generation EU (PRTR)" : r.funds === "eu" ? "EU funds" : r.funds === "none" ? "none" : undefined, official_notice: r.url })) };
 }
 async function getTender(a, lang) {
   const id = String(a.id || "").trim(), want = tCode(a.country);
@@ -564,7 +572,13 @@ const TOOLS = [
       region: { type: "string", description: "Autonomous community in Spanish, e.g. Cataluña, Andalucía, Comunidad de Madrid, País Vasco." },
       place: { type: "string", description: "Town or province, e.g. Zaragoza, Vigo." }, cpv: { type: "string", description: "CPV prefix, e.g. 72, 45, 90." },
       contract_type: { type: "string", enum: ["services", "supplies", "works", "any"] }, deadline_to: { type: "string", description: "YYYY-MM-DD" },
-      min_value: { type: "number", description: "Minimum value excl. VAT (EUR)." }, max_value: { type: "number" }, limit: { type: "integer", description: "Default 8, max 20." } } } },
+      min_value: { type: "number", description: "Minimum value excl. VAT (EUR)." }, max_value: { type: "number" },
+      procedure: { type: "string", description: "Procedure in Spanish, e.g. Abierto, Abierto simplificado, Negociado sin publicidad, Restringido, Basado en acuerdo marco." },
+      eu_funds: { type: "string", enum: ["ngeu", "eu", "none", "any"], description: "ngeu = financed by Next Generation EU / PRTR; eu = other EU funds (FEDER, FSE+, FEADER…); none = no EU funds." },
+      lots: { type: "string", enum: ["split", "single", "any"], description: "split = divided into lots (easier for SMEs to bid for one lot)." },
+      award: { type: "string", enum: ["price", "quality", "any"], description: "price = awarded on price only; quality = price plus quality criteria." },
+      concession: { type: "boolean", description: "true = only concessions (services or works concessions)." },
+      limit: { type: "integer", description: "Default 8, max 20." } } } },
   { name: "get_tender", description: "Full facts of one open tender found with search_tenders (or the tender page the user is viewing): buyer, CPV, contract type, procedure, deadline, value, lots, description and links.",
     input_schema: { type: "object", properties: { id: { type: "string", description: "Tender id as returned by search_tenders (TED publication number such as 812345-2026, or the EU tender id)." }, country: { type: "string", description: "ISO alpha-3 code of the buyer country, or EU." } }, required: ["id"] } },
   { name: "contact_expert", description: "Links to talk to an Ullswater expert: book a 1-hour Teams meeting, email, or the 'apply with our support' form prefilled with a call. Use it whenever the user wants help to apply, a proposal, partners, a quote, or to talk to someone.",

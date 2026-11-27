@@ -40,6 +40,59 @@ REGION_EN = {"Andalucía": "Andalusia", "Aragón": "Aragon", "Canarias": "Canary
              "Illes Balears": "Balearic Islands", "Navarra": "Navarre", "País Vasco": "Basque Country", "Región de Murcia": "Murcia"}
 NAT = {"works": ("Works", "Obras"), "supplies": ("Supplies", "Suministros"), "services": ("Services", "Servicios"), "other": ("Other", "Otros")}
 STATIC_CAP = 300
+# The 10 tags every tender carries (level and place sit in the meta line; the rest in the tag row).
+SIZE = [("s", 100_000), ("m", 1_000_000), ("l", 5_000_000), ("xl", None)]
+TAG = {
+    "size": {"s": ("Small (< €100k)", "Pequeño (< 100.000 €)"), "m": ("Medium (€100k–1M)", "Mediano (100.000 € – 1 M€)"),
+             "l": ("Large (€1–5M)", "Grande (1–5 M€)"), "xl": ("Very large (> €5M)", "Muy grande (> 5 M€)")},
+    "dl": {"7": ("Closes within 7 days", "Cierra en 7 días"), "15": ("Closes within 15 days", "Cierra en 15 días"),
+           "30": ("Closes within 30 days", "Cierra en 30 días"), "later": ("Closes in over 30 days", "Cierra en más de 30 días")},
+    "funds": {"ngeu": ("Next Generation EU", "Next Generation EU"), "eu": ("EU funds", "Fondos europeos"), "none": ("No EU funds", "Sin fondos europeos")},
+    "lots": {"y": ("Split into lots", "Dividida en lotes"), "n": ("Single lot", "Lote único")},
+    "award": {"price": ("Award: price only", "Adjudica solo por precio"), "quality": ("Award: price and quality", "Adjudica por precio y calidad")},
+    "conc": ("Concession", "Concesión"),
+}
+FLAB = {"en": dict(f_size="Size", f_all_size="Any size", f_proc="Procedure", f_all_proc="Any procedure", f_funds="EU funds", f_all_funds="With or without",
+                   f_lots="Lots", f_all_lots="With or without", f_award="Award", f_all_award="Any criteria", lots_n="{n} lots"),
+        "es": dict(f_size="Tamaño", f_all_size="Cualquier tamaño", f_proc="Procedimiento", f_all_proc="Cualquier procedimiento", f_funds="Fondos UE", f_all_funds="Con o sin",
+                   f_lots="Lotes", f_all_lots="Con o sin", f_award="Adjudicación", f_all_award="Cualquier criterio", lots_n="{n} lotes")}
+
+
+def size_of(v):
+    if not v:
+        return ""
+    return next(k for k, lim in SIZE if lim is None or v < lim)
+
+
+def dl_band(iso):
+    n = (date.fromisoformat(iso) - date.today()).days
+    return "7" if n <= 7 else "15" if n <= 15 else "30" if n <= 30 else "later"
+
+
+def tag_list(x, lang, money, cpv_label):
+    """[(css, text)] for the tag row: value, size, contract, concession, sector, deadline, procedure, EU funds, lots, award."""
+    i, t, out = (1 if lang == "es" else 0), S[lang], []
+    if x.get("value"):
+        out.append(("v", f'{t["value"]} <b>{money(x["value"])}</b>'))
+        out.append(("sz", TAG["size"][size_of(x["value"])][i]))
+    if x.get("nature"):
+        out.append(("", NAT.get(x["nature"], ("", ""))[i]))
+    if x.get("concession"):
+        out.append(("", TAG["conc"][i]))
+    cp = (x.get("cpv") or [""])[0]
+    if cp and cpv_label(cp, lang):
+        out.append(("", escape(cpv_label(cp, lang))))
+    b = dl_band(x["deadline"])
+    out.append(("dl" if b == "7" else "", TAG["dl"][b][i]))
+    if x.get("procedure"):
+        out.append(("", escape(x["procedure"])))
+    if x.get("funds"):
+        out.append(("eu" if x["funds"] != "none" else "", TAG["funds"][x["funds"]][i]))
+    if "lots" in x:
+        out.append(("", FLAB[lang]["lots_n"].format(n=x["lots"]) if x["lots"] > 1 else TAG["lots"]["n"][i]))
+    if x.get("award"):
+        out.append(("", TAG["award"][x["award"]][i]))
+    return out
 
 S = {
     "en": dict(
@@ -127,7 +180,7 @@ CSS = """.esp{background:#fbf8f1;border-bottom:1px solid #efe6d2}.esp .wrap{padd
 .esp-lv a strong{display:block;font-size:30px;color:var(--navy);line-height:1.1}.esp-lv a b{display:block;color:var(--navy);font-size:16px;margin:4px 0}.esp-lv a:hover{border-color:#c9a646}
 .esp-ask .ask{margin:0 0 4px}.esp-ask .achips{margin:12px 0 22px}.hero .esp-ask .achips{margin-bottom:4px}
 .lvtag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border-radius:4px;padding:3px 8px;background:#fbf3dc;color:#7a5f17}
-.filters.es7 .wrap{grid-template-columns:1fr 1fr 2fr repeat(4,1fr)}@media(max-width:1100px){.filters.es7 .wrap{grid-template-columns:1fr 1fr}.filters.es7 .q{grid-column:1/-1}}
+.filters.es7 .wrap{grid-template-columns:1fr 1fr 2fr repeat(4,1fr)}.call.es .facts{gap:6px;font-size:13px}.call.es .facts span{border:1px solid #dfe3ea;background:#f6f7f9;border-radius:999px;padding:3px 10px;color:#33415c}.facts .tg.eu{background:#e8eefb;color:#1d3f8f;border-color:#c7d4f3}.facts .tg.dl{background:#fdecea;color:#a1261b;border-color:#f5c6c1}.facts .tg.sz{background:#f4efe1;color:#6b5414;border-color:#e6d9b3}@media(max-width:1100px){.filters.es7 .wrap{grid-template-columns:1fr 1fr}.filters.es7 .q{grid-column:1/-1}}
 @media(max-width:900px){.esp-g{grid-template-columns:1fr;gap:26px}.esp h1,.esp h2{font-size:29px}.esp-lv{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.esp-st strong{font-size:28px}.esp-lv{grid-template-columns:1fr}.esp .btn{width:100%;text-align:center}}"""
 
@@ -165,7 +218,10 @@ def load(data_dir):
     f, s = data_dir / "es" / "spain.json", data_dir / "es" / "stats.json"
     if not f.exists() or not s.exists():
         return None, None
-    return json.loads(f.read_text(encoding="utf-8")), json.loads(s.read_text(encoding="utf-8"))
+    recs, st = json.loads(f.read_text(encoding="utf-8")), json.loads(s.read_text(encoding="utf-8"))
+    from collections import Counter
+    st["procedures"] = [p for p, _ in Counter(x.get("procedure") for x in recs if x.get("procedure")).most_common()]
+    return recs, st
 
 
 def spain_band(lang, st, fdate, h="h2", crumbs="", ask=""):
@@ -190,19 +246,10 @@ def card(x, lang, T, MON, money, cpv_label, help_url):
     t = S[lang]
     d = date.fromisoformat(x["deadline"])
     dbox = f'<div class="date{" soon" if (d - date.today()).days <= 7 else ""}"><small>{t["deadline"]}</small><b>{d.day}</b><i>{MON[lang][d.month - 1]} {d.year}</i></div>'
-    facts = []
-    if x.get("value"):
-        facts.append(f'<span>{t["value"]} <b>{money(x["value"])}</b></span>')
-    if x.get("nature"):
-        facts.append(f'<span>{NAT.get(x["nature"], ("", ""))[1 if lang == "es" else 0]}</span>')
-    if x.get("procedure"):
-        facts.append(f'<span>{escape(x["procedure"])}</span>')
-    cp = (x.get("cpv") or [""])[0]
-    if cp and cpv_label(cp, lang):
-        facts.append(f'<span>{escape(cpv_label(cp, lang))}</span>')
+    facts = [f'<span class="tg {c}">{v}</span>' if c else f"<span>{v}</span>" for c, v in tag_list(x, lang, money, cpv_label)]
     where = ", ".join(filter(None, [x.get("city"), x.get("province") if x.get("province") != x.get("city") else "", rname(x["region"], lang) if x.get("region") and x.get("region") != x.get("province") else ""]))
     url = escape(x.get("url") or "https://contrataciondelsectorpublico.gob.es/")
-    return (f'<article class="call">{dbox}<div><div class="meta"><span class="lvtag">{lvl_label(x["level"], lang, True)}</span>'
+    return (f'<article class="call es">{dbox}<div><div class="meta"><span class="lvtag">{lvl_label(x["level"], lang, True)}</span>'
             + (f'<span class="src">{escape(where)}</span>' if where else "") + f'<span class="code">{escape(x.get("ref") or "")}</span></div>'
             f'<h3><a href="{url}" target="_blank" rel="noopener">{escape(x["title"])}</a></h3><p><b>{escape(x.get("buyer") or "")}</b></p>'
             + (f'<div class="facts">{"".join(facts)}</div>' if facts else "")
@@ -217,7 +264,12 @@ def finder(lang, st, CPV, money, level="", region=""):
     nat = "".join(f'<option value="{k}">{v[1 if lang == "es" else 0]}</option>' for k, v in NAT.items() if k != "other")
     cpv = "".join(f'<option value="{k}">{k} · {escape(v[1 if lang == "es" else 0])}</option>' for k, v in CPV.items())
     dls = "".join(f'<option value="{d}">{lab}</option>' for d, lab in zip((7, 15, 30), t["f_d"]))
-    vals = "".join(f'<option value="{v}">≥ {money(v)}</option>' for v in (15_000, 100_000, 500_000, 1_000_000, 5_000_000))
+    i, fl = (1 if lang == "es" else 0), FLAB[lang]
+    sizes = "".join(f'<option value="{k}">{v[i]}</option>' for k, v in TAG["size"].items())
+    procs = "".join(f'<option value="{escape(p)}">{escape(p)}</option>' for p in st.get("procedures", []))
+    funds = "".join(f'<option value="{k}">{v[i]}</option>' for k, v in TAG["funds"].items())
+    lots = "".join(f'<option value="{k}">{v[i]}</option>' for k, v in TAG["lots"].items())
+    award = "".join(f'<option value="{k}">{v[i]}</option>' for k, v in TAG["award"].items())
     return f"""<div class="filters es7" id="filters" role="search"><div class="wrap">
 <label>{t['f_lvl']}<select id="f-lvl" data-default="{level}"><option value="">{t['f_all_lvl']}</option>{lv}</select></label>
 <label>{t['f_reg']}<select id="f-reg" data-default="{escape(region)}"><option value="">{t['f_all_reg']}</option>{rg}</select></label>
@@ -225,7 +277,11 @@ def finder(lang, st, CPV, money, level="", region=""):
 <label>{t['f_nat']}<select id="f-nat"><option value="">{t['f_all_nat']}</option>{nat}</select></label>
 <label>{t['f_cpv']}<select id="f-cpv"><option value="">{t['f_all_cpv']}</option>{cpv}</select></label>
 <label>{t['f_dl']}<select id="f-dl"><option value="">{t['f_any']}</option>{dls}</select></label>
-<label>{t['f_val']}<select id="f-val"><option value="">{t['f_any_val']}</option>{vals}</select></label>
+<label>{fl['f_size']}<select id="f-size"><option value="">{fl['f_all_size']}</option>{sizes}</select></label>
+<label>{fl['f_proc']}<select id="f-proc"><option value="">{fl['f_all_proc']}</option>{procs}</select></label>
+<label>{fl['f_funds']}<select id="f-funds"><option value="">{fl['f_all_funds']}</option>{funds}</select></label>
+<label>{fl['f_lots']}<select id="f-lots"><option value="">{fl['f_all_lots']}</option>{lots}</select></label>
+<label>{fl['f_award']}<select id="f-award"><option value="">{fl['f_all_award']}</option>{award}</select></label>
 </div></div>
 <div class="wrap" id="finder" data-lang="{lang}"><div class="resbar"><span><strong id="count">…</strong> {t['count']}</span><button class="linkbtn" id="reset" type="button">{t['reset']}</button></div>
 <div id="list"><p class="empty">{t['loading']}</p></div><button class="btn ghost loadmore" id="more" type="button" hidden>{t['more']}</button>
@@ -235,31 +291,39 @@ def finder(lang, st, CPV, money, level="", region=""):
 JS = r"""(function(){
 var box=document.getElementById('finder');if(!box||!document.getElementById('f-lvl'))return;
 var L=box.getAttribute('data-lang')||'es',T=__I18N__[L],$=function(i){return document.getElementById(i)};
-var lvl=$('f-lvl'),reg=$('f-reg'),q=$('f-q'),nat=$('f-nat'),cpv=$('f-cpv'),dl=$('f-dl'),val=$('f-val'),list=$('list'),count=$('count'),more=$('more'),empty=$('empty');
+var lvl=$('f-lvl'),reg=$('f-reg'),q=$('f-q'),nat=$('f-nat'),cpv=$('f-cpv'),dl=$('f-dl'),sz=$('f-size'),pr=$('f-proc'),fu=$('f-funds'),lo=$('f-lots'),aw=$('f-award'),list=$('list'),count=$('count'),more=$('more'),empty=$('empty');
 var SUPPORT=__SUPPORT__,data=[],rows=[],shown=0,today=new Date();today.setHours(0,0,0,0);
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
 function money(v){return v>=1e6?'€'+(v/1e6).toFixed(1).replace('.0','')+'M':v>=1e3?'€'+Math.round(v/1e3).toLocaleString('en')+'k':'€'+v}
 function days(iso){return Math.round((new Date(iso+'T00:00:00')-today)/864e5)}
+function size(v){return !v?'':v<1e5?'s':v<1e6?'m':v<5e6?'l':'xl'}
+function band(n){return n<=7?'7':n<=15?'15':n<=30?'30':'later'}
+function tags(x){var o=[],c=(x.cpv||[])[0],G=T.tag,b=band(days(x.deadline));
+ if(x.value){o.push(['v',T.value+' <b>'+money(x.value)+'</b>']);o.push(['sz',G.size[size(x.value)]])}
+ if(x.nature&&T.nat[x.nature])o.push(['',T.nat[x.nature]]);if(x.concession)o.push(['',G.conc]);
+ if(c&&T.cpv[String(c).slice(0,2)])o.push(['',esc(T.cpv[String(c).slice(0,2)])]);
+ o.push([b==='7'?'dl':'',G.dl[b]]);if(x.procedure)o.push(['',esc(x.procedure)]);
+ if(x.funds)o.push([x.funds!=='none'?'eu':'',G.funds[x.funds]]);
+ if(x.lots!=null)o.push(['',x.lots>1?G.lots_n.replace('{n}',x.lots):G.lots.n]);if(x.award)o.push(['',G.award[x.award]]);return o}
 function card(x){var d=new Date(x.deadline+'T00:00:00'),n=days(x.deadline),f=[],c=(x.cpv||[])[0];
- if(x.value)f.push('<span>'+T.value+' <b>'+money(x.value)+'</b></span>');if(x.nature&&T.nat[x.nature])f.push('<span>'+T.nat[x.nature]+'</span>');if(x.procedure)f.push('<span>'+esc(x.procedure)+'</span>');
- if(c&&T.cpv[String(c).slice(0,2)])f.push('<span>'+esc(T.cpv[String(c).slice(0,2)])+'</span>');
+ tags(x).forEach(function(t){f.push('<span'+(t[0]?' class="tg '+t[0]+'"':'')+'>'+t[1]+'</span>')});
  var where=[x.city,x.province!==x.city?x.province:'',x.region&&x.region!==x.province?(T.reg[x.region]||x.region):''].filter(Boolean).join(', '),url=esc(x.url||'https://contrataciondelsectorpublico.gob.es/');
  var help=SUPPORT.replace('CALL',encodeURIComponent('Licitación: '+(x.ref||x.id))).replace('PAGE',encodeURIComponent(location.href));
- return '<article class="call"><div class="date'+(n<=7?' soon':'')+'"><small>'+T.deadline+'</small><b>'+d.getDate()+'</b><i>'+T.mon[d.getMonth()]+' '+d.getFullYear()+'</i></div><div><div class="meta"><span class="lvtag">'+T.lvl[x.level]+'</span>'
+ return '<article class="call es"><div class="date'+(n<=7?' soon':'')+'"><small>'+T.deadline+'</small><b>'+d.getDate()+'</b><i>'+T.mon[d.getMonth()]+' '+d.getFullYear()+'</i></div><div><div class="meta"><span class="lvtag">'+T.lvl[x.level]+'</span>'
   +(where?'<span class="src">'+esc(where)+'</span>':'')+'<span class="code">'+esc(x.ref||'')+'</span></div><h3><a href="'+url+'" target="_blank" rel="noopener">'+esc(x.title)+'</a></h3><p><b>'+esc(x.buyer)+'</b></p>'
   +(f.length?'<div class="facts">'+f.join('')+'</div>':'')+'<div class="links"><a class="more" href="'+url+'" target="_blank" rel="noopener">'+T.portal+'</a><a class="more ext" href="'+esc(help)+'" target="_blank" rel="noopener">'+T.help+'</a></div></div></article>';}
 function render(r){if(r){shown=0;list.innerHTML=''}var h='';for(var i=shown;i<Math.min(rows.length,shown+50);i++)h+=card(rows[i]);list.insertAdjacentHTML('beforeend',h);shown=Math.min(rows.length,shown+50);more.hidden=shown>=rows.length}
-function apply(){var w=norm(q.value).split(/\s+/).filter(Boolean),lv=lvl.value,rg=reg.value,n=nat.value,c=cpv.value,d=dl.value,v=+val.value||0;
+function apply(){var w=norm(q.value).split(/\s+/).filter(Boolean),lv=lvl.value,rg=reg.value,n=nat.value,c=cpv.value,d=dl.value,z=sz.value,p=pr.value,e=fu.value,l=lo.value,a=aw.value;
  rows=data.filter(function(x){if(lv&&x.level!==lv)return false;if(rg&&x.region!==rg)return false;if(n&&x.nature!==n)return false;
-  if(c&&!(x.cpv||[]).some(function(k){return String(k).slice(0,2)===c}))return false;if(d){var k=days(x.deadline);if(k<0||k>+d)return false}if(v&&!(x.value>=v))return false;
+  if(c&&!(x.cpv||[]).some(function(k){return String(k).slice(0,2)===c}))return false;if(d){var k=days(x.deadline);if(k<0||k>+d)return false}if(z&&size(x.value)!==z)return false;if(p&&x.procedure!==p)return false;if(e&&x.funds!==e)return false;if(l&&(l==='y')!==(x.lots>1))return false;if(a&&x.award!==a)return false;
   if(w.length){var h=x._h||(x._h=norm([x.title,x.buyer,x.city,x.province,x.region,x.ref,(x.cpv||[]).join(' ')].join(' ')));if(!w.every(function(t){return h.indexOf(t)>-1}))return false}return true});
  count.textContent=rows.length.toLocaleString(L);empty.hidden=rows.length>0;render(true);
- var u=new URLSearchParams();if(lv!==(lvl.getAttribute('data-default')||''))u.set('level',lv);if(rg!==(reg.getAttribute('data-default')||''))u.set('region',rg);if(q.value)u.set('q',q.value);if(n)u.set('contract',n);if(c)u.set('cpv',c);if(d)u.set('closing',d);if(v)u.set('value',v);
+ var u=new URLSearchParams();if(lv!==(lvl.getAttribute('data-default')||''))u.set('level',lv);if(rg!==(reg.getAttribute('data-default')||''))u.set('region',rg);if(q.value)u.set('q',q.value);if(n)u.set('contract',n);if(c)u.set('cpv',c);if(d)u.set('closing',d);if(z)u.set('size',z);if(p)u.set('procedure',p);if(e)u.set('funds',e);if(l)u.set('lots',l);if(a)u.set('award',a);
  history.replaceState(null,'',(u.toString()?'?'+u:location.pathname)+location.hash)}
-var u=new URLSearchParams(location.search);if(u.has('level'))lvl.value=u.get('level');if(u.has('region'))reg.value=u.get('region');if(u.get('q'))q.value=u.get('q');if(u.get('contract'))nat.value=u.get('contract');if(u.get('cpv'))cpv.value=u.get('cpv');if(u.get('closing'))dl.value=u.get('closing');if(u.get('value'))val.value=u.get('value');
-q.addEventListener('input',apply);[lvl,reg,nat,cpv,dl,val].forEach(function(e){e.addEventListener('change',apply)});more.addEventListener('click',function(){render(false)});
-$('reset').addEventListener('click',function(){lvl.value=lvl.getAttribute('data-default')||'';reg.value=reg.getAttribute('data-default')||'';q.value='';nat.value='';cpv.value='';dl.value='';val.value='';apply()});
+var u=new URLSearchParams(location.search);if(u.has('level'))lvl.value=u.get('level');if(u.has('region'))reg.value=u.get('region');if(u.get('q'))q.value=u.get('q');if(u.get('contract'))nat.value=u.get('contract');if(u.get('cpv'))cpv.value=u.get('cpv');if(u.get('closing'))dl.value=u.get('closing');if(u.get('size'))sz.value=u.get('size');if(u.get('procedure'))pr.value=u.get('procedure');if(u.get('funds'))fu.value=u.get('funds');if(u.get('lots'))lo.value=u.get('lots');if(u.get('award'))aw.value=u.get('award');
+q.addEventListener('input',apply);[lvl,reg,nat,cpv,dl,sz,pr,fu,lo,aw].forEach(function(e){e.addEventListener('change',apply)});more.addEventListener('click',function(){render(false)});
+$('reset').addEventListener('click',function(){lvl.value=lvl.getAttribute('data-default')||'';reg.value=reg.getAttribute('data-default')||'';q.value='';nat.value='';cpv.value='';dl.value='';[sz,pr,fu,lo,aw].forEach(function(e){e.value=''});apply()});
 fetch('/data/es/spain.json').then(function(r){return r.json()}).then(function(j){data=j;apply()}).catch(function(){data=[];apply()});})();"""
 
 
@@ -269,7 +333,11 @@ def js(CPV, MON, support):
         t = S[lang]
         lab[lang] = {"deadline": t["deadline"], "value": t["value"], "portal": t["portal"], "help": t["help"], "mon": MON[lang],
                      "nat": {k: v[1 if lang == "es" else 0] for k, v in NAT.items()}, "cpv": {k: v[1 if lang == "es" else 0] for k, v in CPV.items()},
-                     "lvl": {k: lvl_label(k, lang, True) for k in LEVELS}, "reg": dict(REGION_EN) if lang == "en" else {}}
+                     "lvl": {k: lvl_label(k, lang, True) for k in LEVELS}, "reg": dict(REGION_EN) if lang == "en" else {},
+                     "tag": {"size": {k: v[1 if lang == "es" else 0] for k, v in TAG["size"].items()}, "dl": {k: v[1 if lang == "es" else 0] for k, v in TAG["dl"].items()},
+                             "funds": {k: v[1 if lang == "es" else 0] for k, v in TAG["funds"].items()}, "lots": {k: v[1 if lang == "es" else 0] for k, v in TAG["lots"].items()},
+                             "award": {k: v[1 if lang == "es" else 0] for k, v in TAG["award"].items()}, "conc": TAG["conc"][1 if lang == "es" else 0],
+                             "lots_n": FLAB[lang]["lots_n"]}}
     return JS.replace("__I18N__", json.dumps(lab, ensure_ascii=False)).replace("__SUPPORT__", json.dumps(support))
 
 
