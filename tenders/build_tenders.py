@@ -53,6 +53,8 @@ T = {
         why=["<b>Bid / no-bid in 48 h.</b> We read the tender documents and tell you if it is worth bidding, what you need and the risks.",
              "<b>Offer writing.</b> Technical proposal, award-criteria strategy, price structure and the administrative file (ESPD, declarations).",
              "<b>Consortia and subcontracting.</b> We find partners to meet the selection criteria and set up joint bids."],
+        ask_ph="Ask the AI about public tenders, e.g. IT tenders in Spain closing this month…", ask_btn="Ask the AI",
+        ask_q=["IT services tenders of the EU institutions", "Public tenders in Spain closing this month", "Consulting tenders in France and Belgium", "How do I bid for an EU tender?"],
         book="Book a meeting", about_h="About this list",
         about="Data from the public search services of the European Commission's Funding &amp; Tenders Portal (tenders of the EU institutions and agencies) and of TED, the Publications Office's journal of public procurement in Europe (national tenders above the EU thresholds). Only competition notices whose deadline is still ahead are shown; tenders whose deadline has passed are removed every day. Always read the official notice and tender documents before bidding.",
         ctry_h1="Public tenders in {c}", ctry_lead="{n} open public tenders from buyers in {c}, published in TED. The ones closing first are listed below; use the finder for every filter.",
@@ -80,6 +82,8 @@ T = {
         why=["<b>Decisión de presentarse en 48 h.</b> Leemos los pliegos y te decimos si merece la pena, qué necesitas y qué riesgos hay.",
              "<b>Redacción de la oferta.</b> Memoria técnica, estrategia ante los criterios de adjudicación, estructura de precios y sobre administrativo (DEUC, declaraciones).",
              "<b>UTE y subcontratación.</b> Buscamos socios para cumplir la solvencia y montamos ofertas conjuntas."],
+        ask_ph="Pregunta a la IA por licitaciones, p. ej. licitaciones TI en España que cierran este mes…", ask_btn="Preguntar a la IA",
+        ask_q=["Licitaciones de servicios TI de las instituciones de la UE", "Licitaciones públicas en España que cierran este mes", "Licitaciones de consultoría en Francia y Bélgica", "¿Cómo me presento a una licitación de la UE?"],
         book="Reservar una reunión", about_h="Sobre este listado",
         about="Datos de los servicios públicos de búsqueda del Portal Funding &amp; Tenders de la Comisión Europea (licitaciones de las instituciones y agencias de la UE) y de TED, el diario de contratación pública europea de la Oficina de Publicaciones (licitaciones nacionales por encima de los umbrales UE). Solo se muestran anuncios de licitación con plazo abierto; los vencidos se retiran cada día. Lee siempre el anuncio oficial y los pliegos antes de presentarte.",
         ctry_h1="Licitaciones públicas en {c}", ctry_lead="{n} licitaciones públicas abiertas de organismos de {c}, publicadas en TED. Abajo, las que cierran antes; usa el buscador para filtrar.",
@@ -91,7 +95,30 @@ T = {
     ),
 }
 
-EXTRA_CSS = """.src{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;padding:3px 8px;background:#eef1f8;color:var(--navy)}
+SHELL_FIX = ""
+# with the www shell, the calls. header and footer rules must not leak into the www header and footer
+OWN_CHROME = ("header.site", "footer.site", ".brand", ".lang", ".top-links")
+
+
+def base_css(shell):
+    if not shell:
+        return B.CSS
+    import re as _re
+    return _re.sub(r"[^{}]+\{[^{}]*\}", lambda m: "" if any(k in m.group(0).split("{")[0] for k in OWN_CHROME) else m.group(0), B.CSS)
+EXTRA_CSS = """/* navy hero, same scheme as the www home */
+.hero{background:radial-gradient(720px 520px at 4% 38%,rgba(201,166,70,.16),transparent 65%),radial-gradient(900px 520px at 100% 0%,rgba(91,124,214,.28),transparent 60%),linear-gradient(170deg,#101c40 0%,#1a2850 52%,#233567 100%);border-bottom:0;color:#fff}
+.hero h1{color:#fff}.hero .lead,.hero p{color:#d5dcef}.hero .kicker{color:#c9a646}.hero .crumbs,.hero .crumbs a{color:#cbd3ea}.hero a:not(.btn){color:#fff}
+.hero .achip{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.28);color:#fff}.hero .achip:hover,.hero .achip:focus-visible{border-color:#c9a646;background:rgba(255,255,255,.14)}
+.hero .ask{border:0;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.hero .stats li,.hero .stats a{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.14)!important;color:#cbd3ea!important}.hero .stats strong{color:#fff!important}
+.hero .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}.hero .btn.ghost:hover{border-color:#c9a646}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ask{max-width:860px;margin:26px 0 0;display:flex;align-items:center;gap:12px;background:#fff;border-radius:40px;height:64px;padding:0 10px 0 24px;box-shadow:0 8px 28px rgba(35,53,103,.14);border:1px solid var(--line)}
+.ask input{flex:1;border:0;outline:0;font:inherit;font-size:17px;color:#1f2937;background:transparent;min-width:0}.ask input::placeholder{color:#6b7280}
+.ask button{flex:none;width:46px;height:46px;border-radius:50%;border:0;background:#c9a646;color:#233567;font-size:22px;font-weight:700;cursor:pointer}.ask button:hover{background:#233567;color:#fff}.ask:focus-within{box-shadow:0 0 0 3px #c9a646}
+.achips{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px;max-width:960px}.achip{font:inherit;font-size:14px;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer}.achip:hover,.achip:focus-visible{border-color:#c9a646;background:#fffaf0}
+@media(max-width:640px){.ask{height:56px;padding:0 6px 0 16px}.ask input{font-size:15px}.ask button{width:42px;height:42px}}
+.src{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;padding:3px 8px;background:#eef1f8;color:var(--navy)}
 .filters .wrap{grid-template-columns:1.3fr 2fr repeat(4,1fr)}@media(max-width:1000px){.filters .wrap{grid-template-columns:1fr 1fr}.filters .q{grid-column:1/-1}}
 .why{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 0;padding:0;list-style:none}.why li{border:1px solid var(--line);border-radius:10px;padding:16px;background:#fff;font-size:15px;color:var(--muted)}.why b{display:block;color:var(--navy);margin-bottom:4px}
 @media(max-width:860px){.why{grid-template-columns:1fr}}.dl{display:grid;grid-template-columns:200px 1fr;gap:8px 18px;margin:18px 0;font-size:15px}.dl dt{font-weight:700;color:var(--navy)}.dl dd{margin:0;color:var(--ink)}
@@ -112,6 +139,35 @@ def money(v, cur="EUR"):
     if v >= 1000:
         return f"{sym}{round(v / 1000):,}k"
     return f"{sym}{v:,}"
+
+
+_SHELL = None
+
+
+def www_shell():
+    """Header, footer, scoped CSS and menu JS of www (www writes assets/shell.json on every build), so this site shares the menu,
+    logo and look of www.ullswaterinvestments.com. SHELL_FILE=<path> reads a local copy. None if unavailable (own header then)."""
+    global _SHELL
+    if _SHELL is None:
+        _SHELL = {}
+        try:
+            import os
+            import urllib.request
+            f = os.environ.get("SHELL_FILE")
+            raw = Path(f).read_text(encoding="utf-8") if f else urllib.request.urlopen(
+                urllib.request.Request(MAIN + "/assets/shell.json", headers={"User-Agent": "ullswater-tenders-build"}), timeout=30).read().decode("utf-8")
+            sh = json.loads(raw)
+            if all(sh.get(k, {}).get("header") and sh[k].get("footer") for k in ("en", "es")) and sh.get("css"):
+                _SHELL = sh
+        except Exception as e:  # keep building with the site's own header
+            print("www shell unavailable:", e)
+    return _SHELL or None
+
+
+def own_footer(lang):
+    return f"""<footer class="site"><div class="wrap"><div><strong>Ullswater Investments · EU Funding Advisors</strong><br>Madrid: Calle Ramírez de Arellano 17, 28043 Madrid · Brussels: Square de Meeûs 37, 1000 Brussels</div>
+<div>{"Data" if lang == "en" else "Datos"}: <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/calls-for-tenders" target="_blank" rel="noopener">EU Funding &amp; Tenders Portal</a> · <a href="https://ted.europa.eu/" target="_blank" rel="noopener">TED</a> (© European Union), {"refreshed daily" if lang == "en" else "actualizado cada día"}.</div>
+<div><a href="{MAIN}{'/es/' if lang == 'es' else '/'}">ullswaterinvestments.com</a> · <a href="{CALLS}/">calls.</a> · <a href="https://www.linkedin.com/company/ullswater-investments" target="_blank" rel="noopener me">LinkedIn</a> · © {date.today().year}</div></div></footer>"""
 
 
 def network(lang):
@@ -145,20 +201,41 @@ def page(lang, title, desc, path, body, alt=None, jsonld=None):
         hre = (f'<link rel="alternate" hreflang="en" href="{BASE}{en}"><link rel="alternate" hreflang="es" href="{BASE}{es}">'
                f'<link rel="alternate" hreflang="x-default" href="{BASE}{en}">')
     sw = (f'<a class="lang" href="{alt}" hreflang="{"es" if lang == "en" else "en"}">{"ES" if lang == "en" else "EN"}</a>') if alt else ""
+    sh = www_shell()
+    if sh:
+        en_p, es_p = (path, alt) if lang == "en" else (alt, path)
+        sw_www = (f'<nav class="lang" aria-label="{"Language" if lang == "en" else "Idioma"}"><a href="{en_p or T["en"]["home"]}" hreflang="en" lang="en"{" aria-current=\"true\"" if lang == "en" else ""}>EN</a>'
+                  f'<a href="{es_p or T["es"]["home"]}" hreflang="es" lang="es"{" aria-current=\"true\"" if lang == "es" else ""}>ES</a></nav>')
+        top = '<div class="uw">' + sh[lang]["header"].replace("<!--LANG-->", sw_www) + "</div>"
+        bottom = '<div class="uw">' + sh[lang]["footer"] + "</div>"
+        shell_css, menu_js = SHELL_FIX + sh["css"], "<script>" + sh.get("js", "") + "</script>"
+    else:
+        top = (f'''<header class="site"><div class="wrap"><a class="brand" href="{t['home']}">Ullswater Investments <span>· {t['brand']}</span></a>
+<nav class="top-links" aria-label="Ullswater Investments sites">{network(lang)}{sw}</nav></div></header>''')
+        bottom, shell_css, menu_js = own_footer(lang), "", ""
     return f"""<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{escape(title)}</title><meta name="description" content="{escape(desc)}"><link rel="canonical" href="{canon}">{hre}
 <meta property="og:type" content="website"><meta property="og:title" content="{escape(title)}"><meta property="og:description" content="{escape(desc)}"><meta property="og:url" content="{canon}"><meta property="og:site_name" content="Ullswater Investments · EU Funding Advisors">
 <meta property="og:image" content="{B.OG_IMAGE}"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23233567'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='34' text-anchor='middle' fill='%23c9a646'%3EU%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>{B.CSS}{EXTRA_CSS}</style><script type="application/ld+json">{json.dumps(lds, ensure_ascii=False)}</script></head><body>
-<header class="site"><div class="wrap"><a class="brand" href="{t['home']}">Ullswater Investments <span>· {t['brand']}</span></a>
-<nav class="top-links" aria-label="Ullswater Investments sites">{network(lang)}{sw}</nav></div></header>
+<style>{base_css(sh)}{EXTRA_CSS}{shell_css}</style><script type="application/ld+json">{json.dumps(lds, ensure_ascii=False)}</script></head><body>
+{top}
 {body}
-<footer class="site"><div class="wrap"><div><strong>Ullswater Investments · EU Funding Advisors</strong><br>Madrid: Calle Ramírez de Arellano 17, 28043 Madrid · Brussels: Square de Meeûs 37, 1000 Brussels</div>
-<div>{"Data" if lang == "en" else "Datos"}: <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/calls-for-tenders" target="_blank" rel="noopener">EU Funding &amp; Tenders Portal</a> · <a href="https://ted.europa.eu/" target="_blank" rel="noopener">TED</a> (© European Union), {"refreshed daily" if lang == "en" else "actualizado cada día"}.</div>
-<div><a href="{MAIN}{'/es/' if lang == 'es' else '/'}">ullswaterinvestments.com</a> · <a href="{CALLS}/">calls.</a> · <a href="https://www.linkedin.com/company/ullswater-investments" target="_blank" rel="noopener me">LinkedIn</a> · © {date.today().year}</div></div></footer>
-<script src="/assets/tenders.js" defer></script>{CHAT}</body></html>"""
+{bottom}
+<script src="/assets/tenders.js" defer></script>{menu_js}{CHAT}</body></html>"""
+
+
+def ask_bar(lang):
+    """AI question bar of the home hero: opens the network assistant (widget.js, UAA.ask) with the question, like the www home."""
+    t = T[lang]
+    chips = "".join(f'<button type="button" class="achip" data-q="{escape(q)}">{escape(q)}</button>' for q in t["ask_q"])
+    return (f'<form class="ask" id="ai-ask" role="search" action="{MAIN}{"/es/" if lang == "es" else "/"}"><label class="vh" for="ai-q">{t["ask_btn"]}</label>'
+            f'<input id="ai-q" name="q" type="text" autocomplete="off" maxlength="500" placeholder="{escape(t["ask_ph"])}">'
+            f'<button type="submit" aria-label="{t["ask_btn"]}">↑</button></form><div class="achips">{chips}</div>'
+            "<script>(function(){function go(q,o){if(window.UAA&&window.UAA.ask){window.UAA.ask(q,o);return true}window.UAA_Q=window.UAA_Q||[];if(window.UAA_Q.push){window.UAA_Q.push([q,o]);return true}return false}"
+            "var f=document.getElementById('ai-ask');f.addEventListener('submit',function(e){var i=document.getElementById('ai-q'),q=(i.value||'').trim();e.preventDefault();if(!q){i.focus();return}if(go(q,{wide:1}))i.value=''});"
+            "document.querySelectorAll('.achip').forEach(function(b){b.addEventListener('click',function(){go(b.getAttribute('data-q'),{wide:1})})})})();</script>")
 
 
 def help_url(ref, path):
@@ -371,6 +448,7 @@ def main():
                          for cc, v in sorted(countries.items(), key=lambda kv: -len(kv[1])))
         ctiles = f'<a class="tile" href="{t["ctry"]}eu/"><b>{escape(country("EU", lang))}</b><span>{len(eu):,} {t["s_total"]}</span></a>' + ctiles
         hero = f"""<main><section class="hero"><div class="wrap"><p class="kicker">{t['kicker'].format(d=upd_s)}</p><h1>{t['h1']}</h1><p class="lead">{t['lead']}</p>
+{ask_bar(lang)}
 <ul class="stats"><li><a href="#filters"><strong>{stats['total']:,}</strong>{t['s_total']}</a></li><li><a href="{t['ctry']}eu/"><strong>{stats['eu']:,}</strong>{t['s_eu']}</a></li><li><a href="#countries"><strong>{len(countries)}</strong>{t['s_ctry']}</a></li><li><a href="{t['soon']}"><strong>{stats['closingIn30Days']:,}</strong>{t['s_soon']}</a></li></ul>
 <div class="actions"><a class="btn" href="{escape(call_pages.support_link('Tender Readiness', BASE + t['home']))}" target="_blank" rel="noopener">{t['cta1']}</a><a class="btn ghost" href="{t['soon']}">{t['cta2']}</a></div></div></section>"""
         tail = (f'<div class="wrap"><section class="sec" id="countries"><h2>{t["countries_h"]}</h2><div class="tiles">{ctiles}</div></section>'
