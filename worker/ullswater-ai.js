@@ -466,6 +466,45 @@ async function searchTenders(a, lang) {
     note: terms.length && !hits.length ? "No tender matches these keywords. Titles are in the buyer's language with an English (and Spanish) version: try simpler English words, or a CPV division instead of keywords." : undefined,
     tenders: hits.slice(0, lim).map(x => tBrief(x.r, lang)) };
 }
+// Spanish tenders by level of government (tenders./es/espana/, from the Plataforma de Contratación del Sector Público)
+const ES_LV = { nacional: "Estado (AGE)", autonomico: "comunidad autónoma", diputacion: "diputación / cabildo / consell insular", comarca: "consejo comarcal / comarca / mancomunidad", ayuntamiento: "ayuntamiento", otros: "otro organismo público" };
+const ES_LV_SLUG = { nacional: "estatales", autonomico: "autonomicas", diputacion: "diputaciones", comarca: "comarcas", ayuntamiento: "ayuntamientos", otros: "otros" };
+const ES_LV_SLUG_EN = { nacional: "national", autonomico: "regional", diputacion: "provincial", comarca: "county", ayuntamiento: "municipal", otros: "other" };
+const TES = { recs: null, at: 0 };
+async function tSpain() {
+  if (TES.recs && Date.now() - TES.at < 1800e3) return TES.recs;
+  try {
+    const j = await getJSON(`${TENDERS}/data/es/spain.json?t=${Math.floor(Date.now() / 1800e3)}`, 1800);
+    for (const r of j) { r._c = (r.cpv || []).map(String); r._h = norm([r.title, r.buyer, r.city, r.province, r.region, r.ref, r._c.join(" ")].join(" ")); }
+    TES.recs = j; TES.at = Date.now();
+  } catch (e) { console.log("spain tenders unavailable: " + (e.message || e)); }
+  return TES.recs || [];
+}
+async function searchTendersSpain(a, lang) {
+  const today = new Date().toISOString().slice(0, 10), lim = Math.min(Math.max(a.limit || 8, 1), 20), recs = await tSpain();
+  const terms = tokens(a.query || ""), cpv = String(a.cpv || "").replace(/\D/g, ""), lv = a.level && a.level !== "any" ? a.level : null;
+  const reg = norm(a.region || ""), place = norm(a.place || ""), nat = a.contract_type && a.contract_type !== "any" ? a.contract_type : null, hits = [];
+  for (const r of recs) {
+    if (r.deadline < today) continue;
+    if (lv && r.level !== lv) continue;
+    if (reg && !norm(r.region || "").includes(reg)) continue;
+    if (place && !norm([r.city, r.province, r.buyer].join(" ")).includes(place)) continue;
+    if (nat && r.nature !== nat) continue;
+    if (cpv && !r._c.some(c => c.startsWith(cpv))) continue;
+    if (a.deadline_to && r.deadline > a.deadline_to) continue;
+    if (a.min_value != null && !((r.value || 0) >= a.min_value)) continue;
+    if (a.max_value != null && !(r.value != null && r.value <= a.max_value)) continue;
+    const sc = terms.length ? terms.reduce((s, t) => s + (r._h.includes(t) ? (norm(r.title).includes(t) ? 2 : 1) : 0), 0) : 1;
+    if (sc) hits.push({ r, sc });
+  }
+  hits.sort((x, y) => (terms.length ? y.sc - x.sc : 0) || x.r.deadline.localeCompare(y.r.deadline));
+  const home = `${TENDERS}${lang === "es" ? "/es/espana/" : "/spain/"}`;
+  return { total_matches: hits.length, open_in_spain: recs.length, finder: home, level_page: lv ? home + (lang === "es" ? ES_LV_SLUG : ES_LV_SLUG_EN)[lv] + "/" : undefined,
+    note: terms.length && !hits.length ? "No tender matches these keywords: titles are in Spanish (or Catalan, Basque, Galician). Try simpler Spanish words or a CPV division." : undefined,
+    tenders: hits.slice(0, lim).map(({ r }) => ({ id: r.id, ref: r.ref, title: r.title, buyer: r.buyer, level: ES_LV[r.level] || r.level, region: r.region, province: r.province, city: r.city,
+      contract_type: r.nature, procedure: r.procedure, cpv: r._c.map(c => `${c} ${CPV_DIV[c.slice(0, 2)] || ""}`.trim()), deadline: r.deadline, deadline_time: r.time,
+      value_excl_vat: r.value ? `${r.value} EUR` : undefined, official_notice: r.url })) };
+}
 async function getTender(a, lang) {
   const id = String(a.id || "").trim(), want = tCode(a.country);
   const order = [...new Set([want, "EU", ...TD.c.keys()].filter(Boolean))];
@@ -519,6 +558,13 @@ const TOOLS = [
       contract_type: { type: "string", enum: ["services", "supplies", "works", "any"] }, deadline_from: { type: "string", description: "YYYY-MM-DD" }, deadline_to: { type: "string", description: "YYYY-MM-DD" },
       min_value: { type: "number", description: "Minimum estimated value (EUR)." }, max_value: { type: "number" },
       sort_by: { type: "string", enum: ["relevance", "deadline", "value"] }, limit: { type: "integer", description: "Default 8, max 20." } } } },
+  { name: "search_tenders_spain", description: "Every open Spanish public tender (licitaciones en plazo) from the Plataforma de Contratación del Sector Público, including the regional platforms of Catalonia, Basque Country, Madrid, Galicia, Andalusia, Navarre and La Rioja, below and above EU thresholds (no minor contracts). Classified by level of government: nacional (State), autonomico (regional government), diputacion (provincial councils, cabildos, consells insulars), comarca (consells comarcals, comarcas, mancomunidades), ayuntamiento (town councils), otros (universities, consortia, public companies). Use this for any Spanish public tender question; titles are in Spanish (or Catalan, Basque, Galician): use short Spanish keywords.",
+    input_schema: { type: "object", properties: { query: { type: "string", description: "Short Spanish keywords, e.g. 'limpieza', 'software', 'alumbrado'. Optional." },
+      level: { type: "string", enum: ["nacional", "autonomico", "diputacion", "comarca", "ayuntamiento", "otros", "any"] },
+      region: { type: "string", description: "Autonomous community in Spanish, e.g. Cataluña, Andalucía, Comunidad de Madrid, País Vasco." },
+      place: { type: "string", description: "Town or province, e.g. Zaragoza, Vigo." }, cpv: { type: "string", description: "CPV prefix, e.g. 72, 45, 90." },
+      contract_type: { type: "string", enum: ["services", "supplies", "works", "any"] }, deadline_to: { type: "string", description: "YYYY-MM-DD" },
+      min_value: { type: "number", description: "Minimum value excl. VAT (EUR)." }, max_value: { type: "number" }, limit: { type: "integer", description: "Default 8, max 20." } } } },
   { name: "get_tender", description: "Full facts of one open tender found with search_tenders (or the tender page the user is viewing): buyer, CPV, contract type, procedure, deadline, value, lots, description and links.",
     input_schema: { type: "object", properties: { id: { type: "string", description: "Tender id as returned by search_tenders (TED publication number such as 812345-2026, or the EU tender id)." }, country: { type: "string", description: "ISO alpha-3 code of the buyer country, or EU." } }, required: ["id"] } },
   { name: "contact_expert", description: "Links to talk to an Ullswater expert: book a 1-hour Teams meeting, email, or the 'apply with our support' form prefilled with a call. Use it whenever the user wants help to apply, a proposal, partners, a quote, or to talk to someone.",
@@ -599,6 +645,7 @@ async function runTool(name, a, d, seen, env, lang) {
   if (name === "get_projects") return { projects: d.projects.map(p => ({ acronym: p.acronym, title: p.title, programme: p.programme, challenge: p.challenge, status: p.status,
     role: p.role, pitch: p.pitch, open_to_new_partners: p.open_to_new_partners, url: p.url })), page: `${WWW}/projects/` };
   if (name === "search_tenders") return await searchTenders(a, lang);
+  if (name === "search_tenders_spain") return await searchTendersSpain(a, lang);
   if (name === "get_tender") return await getTender(a, lang);
   if (name === "contact_expert") {
     const c = a.call_id ? findCall(d, a.call_id) : null;
@@ -635,6 +682,7 @@ What Ullswater offers (details with search_site / get_page):
 How to work:
 - Use the tools for every fact: call IDs, titles, dates, budgets, eligibility, grants, events, articles, services, prices, people, links. Never invent or guess them. If the tools do not give the answer, say so plainly.
 - EU calls: search_calls, filter_calls, get_call, compare_calls. Their data is in English: write those queries in English. Read a call with get_call before saying what it funds or who can apply.
+- Public tenders in Spain (any level: State, comunidad autónoma, diputación, comarca, ayuntamiento, or a Spanish town or region): search_tenders_spain, and link the finder or level page it returns (Spanish pages ${TENDERS}/es/espana/, English ${TENDERS}/spain/). It covers far more Spanish tenders than TED.
 - Public tenders, public procurement, contracts, «licitaciones», «contratos públicos», «concursos públicos»: search_tenders (countries as ISO alpha-3 codes, EU for the EU institutions; Spain is ESP; for a sector use the CPV filter), then get_tender for one tender. Tenders are not grants: a buyer pays for services, supplies or works. When the user does not say where, search EU and the user's own country (ESP if they write in Spanish). Link the tender page when it exists, otherwise the official TED notice, and the country listing for more. For help to bid, use contact_expert with tender_id and link Tender Readiness.
 - Grants and subsidies in Spain (State or regional, any sector): search_ayudas (query in Spanish). search_spain_calls only covers competitive R&D and industry calls.
 - Questions about one specific Spanish grant (eligibility, costs, amount, deadlines, documents, evaluation, obligations): get_ayuda with its BDNS code and the question. Answer from the official texts it returns and cite the article (e.g. «según la base 5 de las bases reguladoras»).
@@ -751,6 +799,7 @@ function toolStatus(t) {
   if (t.name === "get_ayuda") return "Reading the official documents of the grant";
   if (t.name === "get_projects") return "Checking our projects";
   if (t.name === "search_tenders") return "Searching public tenders" + (Array.isArray(a.countries) && a.countries.length ? ` (${a.countries.join(", ")})` : "");
+  if (t.name === "search_tenders_spain") return "Searching public tenders in Spain";
   if (t.name === "get_tender") return "Reading the tender";
   if (t.name === "contact_expert") return "Getting the contact options";
   return "Working";
