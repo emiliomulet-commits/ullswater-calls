@@ -1,0 +1,122 @@
+{
+ "id": "20957771",
+ "ref": "2026/ASE/001096",
+ "reviewed": "2026-11-27",
+ "title": "Dirección facultativa y coordinación de seguridad y salud de las obras de revitalización de Educación Infantil en 13 colegios públicos de Sevilla",
+ "title_official": "Servicio para la dirección facultativa de las obras y coordinación de Seguridad y Salud correspondiente a obras de revitalización de Centros de Educación Infantil en Sevilla.",
+ "buyer": "Junta de Gobierno del Ayuntamiento de Sevilla",
+ "unit": "Dirección General de Edificios Municipales",
+ "place": "Sevilla (Andalucía)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=arkmOeyJA9dVq4S9zvaQpQ%3D%3D",
+ "published": "2026-11-18",
+ "updated": "2026-11-23",
+ "deadline": "2026-12-09",
+ "deadline_time": "23:59",
+ "questions_until": "2026-11-27",
+ "docs": {
+  "PCAP": {"label": "Pliego de cláusulas administrativas (PCAP)", "file": "01_Legal.pdf", "pages": 48},
+  "PPT": {"label": "Pliego de prescripciones técnicas (PPT)", "file": "02_Technical.pdf", "pages": 29},
+  "ANX": {"label": "Anexos al PCAP (Anexo I, DEUC y modelos)", "file": "05_Additional.pdf", "pages": 64}
+ },
+ "tags": {
+  "level": "Ayuntamiento", "where": "Sevilla, Andalucía", "contract": "Servicios", "sector": "Arquitectura e ingeniería (CPV 71000000)",
+  "size": "Mediano (100.000 € – 1 M€)", "deadline": "Cierra en 12 días", "procedure": "Abierto", "funds": "Sin fondos europeos",
+  "lots": "5 lotes", "award": "Precio y calidad (todo con fórmula)"
+ },
+ "verdict": {
+  "opportunity": "alta", "difficulty": "media",
+  "text": "Buena oportunidad para estudios de arquitectura y aparejadores con experiencia en obra pública de edificación. Los lotes son pequeños (30.000–34.000 €), la solvencia económica es asequible y todos los puntos se reparten con fórmula, sin juicio de valor. Se gana con experiencia acreditada del equipo por encima del mínimo y un precio afinado. Ojo a los pagos por hitos y a las penalidades."
+ },
+ "summary": [
+  "El Ayuntamiento de Sevilla busca la dirección de obra, la dirección de ejecución y la coordinación de seguridad y salud de las obras que va a hacer en 13 colegios de Infantil.",
+  "Son 5 lotes de entre 30.133 € y 33.971 € (sin IVA), 158.678 € en total; las obras que se dirigen suman 4,18 M€.",
+  "Cada empresa puede presentarse a los 5 lotes pero solo puede ganar 2, y cada equipo técnico solo puede ir a 2 lotes.",
+  "Puntúa el precio (49 puntos) y tres compromisos medibles: experiencia extra del equipo (27), tiempo de respuesta en obra (12) y horas extra de presencia (12).",
+  "Las ofertas se presentan por la Plataforma hasta el 9 de diciembre de 2026 a las 23:59, en 2 sobres electrónicos."
+ ],
+ "sections": [
+  {"key": "what", "h": "Qué se contrata y para quién", "items": [
+   ["Objeto", "Dirección de obra, dirección de ejecución, coordinación de seguridad y salud y, en su caso, certificado energético de las obras de revitalización de Infantil. Incluye redactar el posible modificado, la medición general, el certificado final y el informe previo al final de la garantía.", "ANX 1"],
+   ["Contrato complementario", "Depende de los contratos de obra de cada colegio: si una obra no llega a ejecutarse, ese servicio no genera derecho a cobro.", "ANX 1"],
+   ["Órgano", "Junta de Gobierno del Ayuntamiento de Sevilla. Gestiona la Dirección General de Edificios Municipales.", "ANX 4"],
+   ["Lugar", "Sevilla (NUTS ES618). 13 centros de Educación Infantil y Primaria.", "ANX 4"],
+   ["Por qué se contrata", "Los técnicos municipales no pueden asumir más direcciones de obra. Forma parte del Plan de mejoras en colegios 2024-2027 (PMS).", "ANX 3"]
+  ]},
+  {"key": "lots", "h": "Lotes", "lots": [
+   {"n": 1, "centres": "CEIP El Manantial, CEIP María Zambrano", "fee": 31429.43, "works": 828923.48, "months": 10, "works_months": 6},
+   {"n": 2, "centres": "CEIP Los Azahares, CEIP Pedro Garfias, CEIP Calvo Sotelo, CEIP Fernando Villalón", "fee": 32375.68, "works": 853879.73, "months": 8, "works_months": 4},
+   {"n": 3, "centres": "CEI Argote de Molina, CEI Julio César, CEI Lope de Rueda", "fee": 30768.41, "works": 811489.47, "months": 8, "works_months": 4},
+   {"n": 4, "centres": "CEI Toribio de Velasco, CEI Martín de Gainza", "fee": 33971.47, "works": 895967.34, "months": 10, "works_months": 6},
+   {"n": 5, "centres": "CEIP Teodosio, CEIP Joaquín Turina", "fee": 30133.10, "works": 794733.80, "months": 10, "works_months": 6}
+  ], "cite": "PPT 1–3 · ANX 1–8", "note": "Los honorarios equivalen a un 3,8 % del presupuesto de las obras. Un mismo licitador no puede ser propuesto para más de 2 lotes: si gana más, se queda con los 2 que más ahorran al Ayuntamiento (ANX 2)."},
+  {"key": "money", "h": "Cuánto vale", "items": [
+   ["Presupuesto base", "158.678,09 € sin IVA (192.000,49 € con IVA). Valor estimado igual al presupuesto.", "ANX 4–6"],
+   ["Sistema de precio", "Tanto alzado y precio cerrado: no cambia aunque cambie el presupuesto final de las obras.", "PPT 2–3"],
+   ["Duración", "8 o 10 meses según el lote, desde la formalización. Termina con la aprobación de la medición final.", "ANX 7–10"],
+   ["Prórrogas", "No hay.", "ANX 11"],
+   ["Revisión de precios", "No.", "ANX 11"],
+   ["Modificaciones previstas", "No procede.", "ANX 27"],
+   ["Subrogación de personal", "No procede.", "ANX 30"],
+   ["Financiación", "Presupuesto municipal 2026 (partida 01111-32101-6320065). Sin fondos europeos.", "ANX 7"],
+   ["Antecedente", "Los 5 lotes proceden de un expediente anterior (2025/000586, lotes 1, 3, 4, 5 y 7). Conviene ver en la Plataforma quién se presentó entonces y por qué se vuelve a licitar.", "PPT 3"]
+  ]},
+  {"key": "can", "h": "¿Puedo presentarme?", "items": [
+   ["Clasificación", "No se exige.", "ANX 15"],
+   ["Solvencia económica", "Volumen anual de negocios, en el mejor de los últimos 3 años, de al menos el valor del lote: entre 30.133 € y 33.971 €. Se exige la cifra de cada lote al que te presentes.", "ANX 15–16"],
+   ["Solvencia técnica", "Servicios similares (mismos 3 primeros dígitos del CPV, 710) en 2023-2026 por al menos el 80 % del valor del lote: entre 24.106 € y 27.177 €.", "ANX 16–17"],
+   ["Equipo mínimo por lote", "Director de obra (arquitecto) y director de ejecución (arquitecto técnico), que deben ser personas distintas, más coordinador de seguridad y salud, cada uno con 5 años dirigiendo obras de edificación equivalentes. Además, 3 certificados energéticos en 5 años.", "ANX 18–19 · PPT 7"],
+   ["Adscripción de medios", "Es obligación esencial: si cambias el equipo sin autorización, pueden resolver el contrato.", "ANX 19"],
+   ["Seguro", "Responsabilidad civil de cada miembro del equipo, mínimo 100.000 €, franquicia máxima 1.000 €.", "ANX 12"],
+   ["UTE e integración de solvencia", "Se admiten. No puedes usar la solvencia de otro licitador, y una empresa no puede completar la solvencia de dos.", "ANX 17 · PCAP 6"],
+   ["Incompatibilidad", "No puedes dirigir una obra que haya ganado tu empresa o una vinculada.", "PCAP 7"]
+  ]},
+  {"key": "win", "h": "Cómo se gana", "criteria": [
+   {"name": "Oferta económica", "pts": 49, "kind": "fórmula", "how": "0 puntos si ofreces el presupuesto. Máximo para la oferta 15 % por debajo de la media (o la más baja si hay alguna aún más baja). Reparto lineal entre ambos."},
+   {"name": "Experiencia adicional del equipo", "pts": 27, "kind": "fórmula", "how": "Hasta 9 puntos por cada perfil (director de obra, director de ejecución y coordinador de seguridad y salud): 3, 6 o 9 puntos si la experiencia supera el mínimo en un 25 %, 50 % o 100 %."},
+   {"name": "Tiempo de respuesta en obra", "pts": 12, "kind": "fórmula", "how": "4 horas = 0 puntos (mínimo), 3 horas = 6, 2 horas = 12."},
+   {"name": "Horas extra de presencia por edificio", "pts": 12, "kind": "fórmula", "how": "Mínimo 6 h/semana de DF y 3 h de CSS = 0 puntos. +2 h DF y +1 h CSS = 6. +4 h DF y +2 h CSS = 12."}
+  ], "cite": "ANX 23–26", "items": [
+   ["Juicio de valor", "Ninguno: los 100 puntos son automáticos.", "ANX 13"],
+   ["Baja anormal", "Oferta más de 15 puntos porcentuales por debajo de la media. Si solo hay una oferta, más de un 20 % por debajo del presupuesto.", "ANX 22"],
+   ["Desempate", "Por orden: más trabajadores con discapacidad, menos temporalidad, más mujeres en plantilla, más personas en exclusión social, más puntos en el criterio de más peso, medidas LGTBI, y sorteo.", "PCAP 17–18"]
+  ], "insight": "Los 24 puntos de compromisos (respuesta y horas) son fáciles de conseguir para todos, así que la diferencia la marcan la experiencia acreditada (27) y el precio (49). El precio deja de sumar puntos al llegar al 15 % por debajo de la media de ofertas."},
+  {"key": "when", "h": "Qué entregar y cuándo", "items": [
+   ["Plazo", "Hasta el 9 de diciembre de 2026 a las 23:59, solo por la Plataforma de Contratación del Sector Público.", "ANX 13"],
+   ["Preguntas", "En la pestaña «Preguntas y respuestas» de la Plataforma. Si preguntas al menos 12 días antes del cierre, deben responderte al menos 6 días antes: el 27 de noviembre es el último día para tener respuesta garantizada.", "PCAP 9 · ANX 13"],
+   ["Sobre 1", "DEUC (modelo xml incluido), Anexo IV con declaraciones y autorizaciones, compromiso de UTE si lo hay y compromiso de adscripción de medios.", "ANX 13–14"],
+   ["Sobre 2", "Uno por cada lote: Anexo III con el precio y los compromisos, más la lista y los certificados de la experiencia adicional del equipo.", "ANX 13 · ANX 25–26"],
+   ["Garantías", "Provisional: no. Definitiva: 5 % del precio adjudicado. Complementaria: otro 5 % si tu oferta fue anormalmente baja.", "ANX 12"],
+   ["Apertura", "En los 20 días siguientes al cierre, en Plaza Nueva 1. No es pública.", "ANX 26–27"],
+   ["Visita", "Los pliegos no prevén visita previa.", ""],
+   ["Regulación armonizada (SARA)", "No. Sí cabe recurso especial en materia de contratación.", "ANX 4"]
+  ]},
+  {"key": "risk", "h": "Riesgos y letra pequeña", "groups": [
+   {"h": "Cobro", "items": [
+    ["Pago por hitos", "Por cada colegio: 40 % cuando la obra supera el 50 % certificado y 60 % tras la recepción y la medición general. Con obras de 4 a 6 meses, el primer cobro puede tardar varios meses.", "ANX 10"],
+    ["Si la obra se retrasa", "No hay derecho a subir el precio aunque la obra se alargue o se modifique.", "ANX 11"],
+    ["Si se resuelve la obra", "Cobras la parte proporcional. Si no se llegó a certificar nada, como máximo un 1 % mensual del importe adjudicado más un 0,5 % por los documentos.", "ANX 10"]
+   ]},
+   {"h": "Ejecución y penalidades", "items": [
+    ["Informes en 3 días hábiles", "Cada incidencia de obra exige un informe con propuesta en 3 días hábiles. Los retrasos cuestan de 50 € a 150 € por día.", "ANX 9 · ANX 28"],
+    ["Compromisos ofertados", "Si no cumples la respuesta o las horas ofertadas: 50 €, 100 € o 150 € por hora según se repita.", "ANX 27"],
+    ["Periodo de garantía", "Hasta 36 meses tras la obra. Si los informes de garantía llegan con 5 o más días de retraso, la penalidad es del 40 % del importe adjudicado.", "ANX 11 · ANX 29"],
+    ["Visitas", "Visita semanal a cada edificio y acta de reunión semanal. Respuesta presencial en un máximo de 4 horas.", "PPT 10 · PPT 20"],
+    ["Convenio colectivo", "Cumplir el convenio y pagar nóminas al día es condición especial de ejecución, con penalidades escalonadas.", "ANX 20–21"]
+   ]}
+  ]},
+  {"key": "errors", "h": "Incoherencias en los pliegos", "items": [
+   ["Lote 1", "El Anexo I incluye el CEIP María Zambrano, pero la tabla de honorarios del pliego técnico pone CEIP Jorge Juan y Antonio Ulloa.", "ANX 1 · PPT 1"],
+   ["Número de lotes", "El Anexo I dice «se podrá licitar a uno o a ambos lotes», pero hay 5 lotes.", "ANX 2"],
+   ["Lote 5", "El plazo aparece rotulado como «Lote 6».", "ANX 8"],
+   ["Sobres", "El pliego general describe 3 sobres. El Anexo I fija 2, sin juicio de valor.", "PCAP 14 · ANX 13"]
+  ], "advice": "Conviene preguntar por la Plataforma antes de presentar la oferta, sobre todo por el colegio del lote 1."}
+ ],
+ "files": [
+  {"name": "Pliego de cláusulas administrativas particulares (PCAP)", "file": "01_Legal.pdf", "type": "PDF", "pages": 48, "bytes": 508427},
+  {"name": "Pliego de prescripciones técnicas (PPT)", "file": "02_Technical.pdf", "type": "PDF", "pages": 29, "bytes": 329517},
+  {"name": "Anexos al PCAP: Anexo I, DEUC y modelos", "file": "05_Additional.pdf", "type": "PDF", "pages": 64, "bytes": 560191},
+  {"name": "Anexo III: modelo de oferta (editable)", "file": "03_Additional.zip", "type": "ODT", "bytes": 69243},
+  {"name": "Anexo IV: declaración responsable (editable)", "file": "06_Additional.zip", "type": "ODT", "bytes": 71237},
+  {"name": "DEUC en formato xml para el servicio DEUC electrónico", "file": "04_Additional.bin", "type": "XML", "bytes": 138999}
+ ]
+}

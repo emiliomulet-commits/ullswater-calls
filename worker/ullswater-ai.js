@@ -466,6 +466,69 @@ async function searchTenders(a, lang) {
     note: terms.length && !hits.length ? "No tender matches these keywords. Titles are in the buyer's language with an English (and Spanish) version: try simpler English words, or a CPV division instead of keywords." : undefined,
     tenders: hits.slice(0, lim).map(x => tBrief(x.r, lang)) };
 }
+// Spanish tenders by level of government (tenders./es/espana/, from the Plataforma de Contratación del Sector Público)
+const ES_LV = { nacional: "Estado (AGE)", autonomico: "comunidad autónoma", diputacion: "diputación / cabildo / consell insular", comarca: "consejo comarcal / comarca / mancomunidad", ayuntamiento: "ayuntamiento", otros: "otro organismo público" };
+const ES_LV_SLUG = { nacional: "estatales", autonomico: "autonomicas", diputacion: "diputaciones", comarca: "comarcas", ayuntamiento: "ayuntamientos", otros: "otros" };
+const ES_LV_SLUG_EN = { nacional: "national", autonomico: "regional", diputacion: "provincial", comarca: "county", ayuntamiento: "municipal", otros: "other" };
+const TES = { recs: null, at: 0 };
+async function tSpain() {
+  if (TES.recs && Date.now() - TES.at < 1800e3) return TES.recs;
+  try {
+    const j = await getJSON(`${TENDERS}/data/es/spain.json?t=${Math.floor(Date.now() / 1800e3)}`, 1800);
+    for (const r of j) { r._c = (r.cpv || []).map(String); r._h = norm([r.title, r.buyer, r.city, r.province, r.region, r.ref, r._c.join(" ")].join(" ")); }
+    TES.recs = j; TES.at = Date.now();
+  } catch (e) { console.log("spain tenders unavailable: " + (e.message || e)); }
+  return TES.recs || [];
+}
+// Tenders we have read in full: a factsheet (ficha) per tender, written from every official document, with document + page for each fact.
+const TFI = { ids: null, at: 0, by: {} };
+async function tFichas() {
+  if (TFI.ids && Date.now() - TFI.at < 1800e3) return TFI.ids;
+  try { TFI.ids = (await getJSON(`${TENDERS}/data/es/fichas/index.json?t=${Math.floor(Date.now() / 1800e3)}`, 1800)).map(String); TFI.at = Date.now(); }
+  catch (e) { TFI.ids = TFI.ids || []; }
+  return TFI.ids;
+}
+const fichaUrl = id => `${TENDERS}/es/espana/licitacion/${id}/`;
+async function getTenderSpainFicha(a) {
+  const id = String(a.id || "").replace(/\D/g, "");
+  if (!id || !(await tFichas()).includes(id)) return { error: "We have no factsheet for this tender yet. Use search_tenders_spain and link the official notice.", factsheets_available: TFI.ids };
+  if (!TFI.by[id]) TFI.by[id] = await getJSON(`${TENDERS}/data/es/fichas/${id}.json?t=${Math.floor(Date.now() / 1800e3)}`, 1800);
+  return { how_to_cite: "Each fact ends with its source, e.g. 'ANX 13 · PPT 1–3' = Anexos al PCAP page 13 and Pliego de Prescripciones Técnicas pages 1-3 (PCAP = Pliego de Cláusulas Administrativas). Quote it as (ANX p. 13). Link documents with their 'local' URL.", ficha: TFI.by[id] };
+}
+async function searchTendersSpain(a, lang) {
+  const today = new Date().toISOString().slice(0, 10), lim = Math.min(Math.max(a.limit || 8, 1), 20), recs = await tSpain(), fis = await tFichas();
+  const terms = tokens(a.query || ""), cpv = String(a.cpv || "").replace(/\D/g, ""), lv = a.level && a.level !== "any" ? a.level : null;
+  const reg = norm(a.region || ""), place = norm(a.place || ""), nat = a.contract_type && a.contract_type !== "any" ? a.contract_type : null, hits = [];
+  for (const r of recs) {
+    if (r.deadline < today) continue;
+    if (lv && r.level !== lv) continue;
+    if (reg && !norm(r.region || "").includes(reg)) continue;
+    if (place && !norm([r.city, r.province, r.buyer].join(" ")).includes(place)) continue;
+    if (nat && r.nature !== nat) continue;
+    if (cpv && !r._c.some(c => c.startsWith(cpv))) continue;
+    if (a.deadline_to && r.deadline > a.deadline_to) continue;
+    if (a.min_value != null && !((r.value || 0) >= a.min_value)) continue;
+    if (a.max_value != null && !(r.value != null && r.value <= a.max_value)) continue;
+    if (a.procedure && !norm(r.procedure || "").includes(norm(a.procedure))) continue;
+    if (a.eu_funds && a.eu_funds !== "any" && r.funds !== a.eu_funds) continue;
+    if (a.lots === "split" && !(r.lots > 1)) continue;
+    if (a.lots === "single" && r.lots > 1) continue;
+    if (a.award && a.award !== "any" && r.award !== a.award) continue;
+    if (a.concession === true && !r.concession) continue;
+    const sc = terms.length ? terms.reduce((s, t) => s + (r._h.includes(t) ? (norm(r.title).includes(t) ? 2 : 1) : 0), 0) : 1;
+    if (sc) hits.push({ r, sc });
+  }
+  hits.sort((x, y) => (terms.length ? y.sc - x.sc : 0) || x.r.deadline.localeCompare(y.r.deadline));
+  const home = `${TENDERS}${lang === "es" ? "/es/espana/" : "/spain/"}`;
+  return { total_matches: hits.length, open_in_spain: recs.length, finder: home, level_page: lv ? home + (lang === "es" ? ES_LV_SLUG : ES_LV_SLUG_EN)[lv] + "/" : undefined,
+    note: terms.length && !hits.length ? "No tender matches these keywords: titles are in Spanish (or Catalan, Basque, Galician). Try simpler Spanish words or a CPV division." : undefined,
+    tenders: hits.slice(0, lim).map(({ r }) => ({ id: r.id, ref: r.ref, title: r.title, buyer: r.buyer, level: ES_LV[r.level] || r.level, region: r.region, province: r.province, city: r.city,
+      contract_type: r.nature, procedure: r.procedure, cpv: r._c.map(c => `${c} ${CPV_DIV[c.slice(0, 2)] || ""}`.trim()), deadline: r.deadline, deadline_time: r.time,
+      value_excl_vat: r.value ? `${r.value} EUR` : undefined, concession: r.concession || undefined, lots: r.lots > 1 ? r.lots : r.lots != null ? "single lot" : undefined,
+      award: r.award === "price" ? "price only" : r.award === "quality" ? "price and quality criteria" : undefined,
+      eu_funds: r.funds === "ngeu" ? "Next Generation EU (PRTR)" : r.funds === "eu" ? "EU funds" : r.funds === "none" ? "none" : undefined, official_notice: r.url,
+      ullswater_factsheet: fis.includes(String(r.id)) ? fichaUrl(r.id) + " (read in full: use get_tender_spain_ficha)" : undefined })) };
+}
 async function getTender(a, lang) {
   const id = String(a.id || "").trim(), want = tCode(a.country);
   const order = [...new Set([want, "EU", ...TD.c.keys()].filter(Boolean))];
@@ -519,6 +582,21 @@ const TOOLS = [
       contract_type: { type: "string", enum: ["services", "supplies", "works", "any"] }, deadline_from: { type: "string", description: "YYYY-MM-DD" }, deadline_to: { type: "string", description: "YYYY-MM-DD" },
       min_value: { type: "number", description: "Minimum estimated value (EUR)." }, max_value: { type: "number" },
       sort_by: { type: "string", enum: ["relevance", "deadline", "value"] }, limit: { type: "integer", description: "Default 8, max 20." } } } },
+  { name: "search_tenders_spain", description: "Every open Spanish public tender (licitaciones en plazo) from the Plataforma de Contratación del Sector Público, including the regional platforms of Catalonia, Basque Country, Madrid, Galicia, Andalusia, Navarre and La Rioja, below and above EU thresholds (no minor contracts). Classified by level of government: nacional (State), autonomico (regional government), diputacion (provincial councils, cabildos, consells insulars), comarca (consells comarcals, comarcas, mancomunidades), ayuntamiento (town councils), otros (universities, consortia, public companies). Use this for any Spanish public tender question; titles are in Spanish (or Catalan, Basque, Galician): use short Spanish keywords.",
+    input_schema: { type: "object", properties: { query: { type: "string", description: "Short Spanish keywords, e.g. 'limpieza', 'software', 'alumbrado'. Optional." },
+      level: { type: "string", enum: ["nacional", "autonomico", "diputacion", "comarca", "ayuntamiento", "otros", "any"] },
+      region: { type: "string", description: "Autonomous community in Spanish, e.g. Cataluña, Andalucía, Comunidad de Madrid, País Vasco." },
+      place: { type: "string", description: "Town or province, e.g. Zaragoza, Vigo." }, cpv: { type: "string", description: "CPV prefix, e.g. 72, 45, 90." },
+      contract_type: { type: "string", enum: ["services", "supplies", "works", "any"] }, deadline_to: { type: "string", description: "YYYY-MM-DD" },
+      min_value: { type: "number", description: "Minimum value excl. VAT (EUR)." }, max_value: { type: "number" },
+      procedure: { type: "string", description: "Procedure in Spanish, e.g. Abierto, Abierto simplificado, Negociado sin publicidad, Restringido, Basado en acuerdo marco." },
+      eu_funds: { type: "string", enum: ["ngeu", "eu", "none", "any"], description: "ngeu = financed by Next Generation EU / PRTR; eu = other EU funds (FEDER, FSE+, FEADER…); none = no EU funds." },
+      lots: { type: "string", enum: ["split", "single", "any"], description: "split = divided into lots (easier for SMEs to bid for one lot)." },
+      award: { type: "string", enum: ["price", "quality", "any"], description: "price = awarded on price only; quality = price plus quality criteria." },
+      concession: { type: "boolean", description: "true = only concessions (services or works concessions)." },
+      limit: { type: "integer", description: "Default 8, max 20." } } } },
+  { name: "get_tender_spain_ficha", description: "Ullswater's factsheet (ficha) of one Spanish public tender, written from reading every official document (PCAP, PPT, annexes): object, lots, budget, who can bid (solvency), deadlines, award criteria with points and formulas, risks, inconsistencies found and common mistakes, each fact with its source document and page, plus links to download every official document. Use it for any question about a tender that has a factsheet (search_tenders_spain marks them with ullswater_factsheet) and always when the user is on a /es/espana/licitacion/<id>/ page.",
+    input_schema: { type: "object", properties: { id: { type: "string", description: "Tender id (the number in /es/espana/licitacion/<id>/ or the id returned by search_tenders_spain)." } }, required: ["id"] } },
   { name: "get_tender", description: "Full facts of one open tender found with search_tenders (or the tender page the user is viewing): buyer, CPV, contract type, procedure, deadline, value, lots, description and links.",
     input_schema: { type: "object", properties: { id: { type: "string", description: "Tender id as returned by search_tenders (TED publication number such as 812345-2026, or the EU tender id)." }, country: { type: "string", description: "ISO alpha-3 code of the buyer country, or EU." } }, required: ["id"] } },
   { name: "contact_expert", description: "Links to talk to an Ullswater expert: book a 1-hour Teams meeting, email, or the 'apply with our support' form prefilled with a call. Use it whenever the user wants help to apply, a proposal, partners, a quote, or to talk to someone.",
@@ -599,6 +677,8 @@ async function runTool(name, a, d, seen, env, lang) {
   if (name === "get_projects") return { projects: d.projects.map(p => ({ acronym: p.acronym, title: p.title, programme: p.programme, challenge: p.challenge, status: p.status,
     role: p.role, pitch: p.pitch, open_to_new_partners: p.open_to_new_partners, url: p.url })), page: `${WWW}/projects/` };
   if (name === "search_tenders") return await searchTenders(a, lang);
+  if (name === "search_tenders_spain") return await searchTendersSpain(a, lang);
+  if (name === "get_tender_spain_ficha") return await getTenderSpainFicha(a);
   if (name === "get_tender") return await getTender(a, lang);
   if (name === "contact_expert") {
     const c = a.call_id ? findCall(d, a.call_id) : null;
@@ -635,6 +715,7 @@ What Ullswater offers (details with search_site / get_page):
 How to work:
 - Use the tools for every fact: call IDs, titles, dates, budgets, eligibility, grants, events, articles, services, prices, people, links. Never invent or guess them. If the tools do not give the answer, say so plainly.
 - EU calls: search_calls, filter_calls, get_call, compare_calls. Their data is in English: write those queries in English. Read a call with get_call before saying what it funds or who can apply.
+- Public tenders in Spain (any level: State, comunidad autónoma, diputación, comarca, ayuntamiento, or a Spanish town or region): search_tenders_spain, and link the finder or level page it returns (Spanish pages ${TENDERS}/es/espana/, English ${TENDERS}/spain/). It covers far more Spanish tenders than TED.
 - Public tenders, public procurement, contracts, «licitaciones», «contratos públicos», «concursos públicos»: search_tenders (countries as ISO alpha-3 codes, EU for the EU institutions; Spain is ESP; for a sector use the CPV filter), then get_tender for one tender. Tenders are not grants: a buyer pays for services, supplies or works. When the user does not say where, search EU and the user's own country (ESP if they write in Spanish). Link the tender page when it exists, otherwise the official TED notice, and the country listing for more. For help to bid, use contact_expert with tender_id and link Tender Readiness.
 - Grants and subsidies in Spain (State or regional, any sector): search_ayudas (query in Spanish). search_spain_calls only covers competitive R&D and industry calls.
 - Questions about one specific Spanish grant (eligibility, costs, amount, deadlines, documents, evaluation, obligations): get_ayuda with its BDNS code and the question. Answer from the official texts it returns and cite the article (e.g. «según la base 5 de las bases reguladoras»).
@@ -751,6 +832,8 @@ function toolStatus(t) {
   if (t.name === "get_ayuda") return "Reading the official documents of the grant";
   if (t.name === "get_projects") return "Checking our projects";
   if (t.name === "search_tenders") return "Searching public tenders" + (Array.isArray(a.countries) && a.countries.length ? ` (${a.countries.join(", ")})` : "");
+  if (t.name === "search_tenders_spain") return "Searching public tenders in Spain";
+  if (t.name === "get_tender_spain_ficha") return "Reading our factsheet of the tender";
   if (t.name === "get_tender") return "Reading the tender";
   if (t.name === "contact_expert") return "Getting the contact options";
   return "Working";
@@ -798,7 +881,8 @@ async function runAgent(env, b, emit) {
   const ayu = ma ? (d.ayudas.find(y => String(y.id) === ma[1] || (y.otros || []).map(String).includes(ma[1])) || { id: ma[1], titulo: "", fin: null }) : null;
   const today = new Date().toISOString().slice(0, 10);
   const ts = await tStats().catch(() => null);
-  const mt = /tenders\./.test(String(page.host || "")) ? String(page.path || "").match(/\/(?:tender|licitacion)\/([^/]+)\/?/) : null;
+  const mf = /tenders\./.test(String(page.host || "")) ? String(page.path || "").match(/\/espana\/licitacion\/(\d+)\/?/) : null;
+  const mt = /tenders\./.test(String(page.host || "")) && !mf ? String(page.path || "").match(/\/(?:tender|licitacion)\/([^/]+)\/?/) : null;
   const mc = /tenders\./.test(String(page.host || "")) ? String(page.path || "").match(/\/(?:country|pais)\/([a-z]{2})\/?/) : null;
   const host = String(page.host || "calls.ullswaterinvestments.com").replace(/[^a-z0-9.\-]/gi, "").slice(0, 60);
   const here = `https://${host}${String(page.path || "/").slice(0, 160)}`;
@@ -806,10 +890,18 @@ async function runAgent(env, b, emit) {
     `Interface language: ${page.lang === "es" ? "Spanish" : "English"} (answer in the language the user writes in).\n` +
     (ayu ? `The user is viewing the page of the Spanish grant BDNS ${ayu.id}${ayu.titulo ? ` – "${String(ayu.titulo).replace(/"/g, "'")}"` : ""}${ayu.fin ? ` (closes ${ayu.fin})` : ""}. "Esta ayuda", "la convocatoria" and similar mean this grant: call get_ayuda with id ${ayu.id} and the question before answering, and answer from its official texts.`
     : cur ? `The user is viewing the page of call ${cur.id} – "${cur.title}" (${cur.status}, deadline ${cur.deadline || "n/a"}). Read it with get_call when the question is about it.`
+         : mf ? `The user is viewing Ullswater's factsheet of the Spanish public tender ${mf[1]} (${here}). "Esta licitación", "this tender", "el lote 3" and similar mean it: call get_tender_spain_ficha with id ${mf[1]} before answering and answer only from it, citing document and page, e.g. (PCAP p. 12). If the factsheet does not cover the question, say so and link the official document to check (its 'local' URL). For help preparing the bid, offer contact_expert with tender_id ${mf[1]}.`
          : mt ? `The user is viewing the page of the EU-institution tender ${mt[1]} (${here}). "This tender", "esta licitación" and similar mean it: read it with get_tender (id ${mt[1]}, country EU) when the question is about it.`
          : mc ? `The user is viewing the list of public tenders of country ${T_ISO3[mc[1]] || mc[1]} (${here}). Use search_tenders with that country by default.`
          : `The user is on page ${here}${page.title ? ` ("${String(page.title).slice(0, 140).replace(/"/g, "'")}")` : ""}.`);
-  const system = [{ type: "text", text: AGENT_SYSTEM, cache_control: { type: "ephemeral" } }, { type: "text", text: ctx }];
+  const onTenders = /tenders/.test(host);
+  const ms = onTenders && !mf ? String(page.path || "").match(/\/(?:es\/espana|spain)\/(?:([a-z-]+)\/)?/) : null;
+  const ES_LV_BY_SLUG = { estatales: "nacional", national: "nacional", autonomicas: "autonomico", regional: "autonomico", diputaciones: "diputacion", provincial: "diputacion", comarcas: "comarca", county: "comarca", ayuntamientos: "ayuntamiento", municipal: "ayuntamiento", otros: "otros", other: "otros" };
+  const focus = !onTenders ? "" :
+    "\nThis assistant runs on the public tenders site (tenders.ullswaterinvestments.com): focus ONLY on public tenders (licitaciones, contratación pública) and how to bid for them, using search_tenders_spain, get_tender_spain_ficha, search_tenders, get_tender and contact_expert. " +
+    `If the question is about something else, do not answer it here: in one or two sentences say this assistant covers public tenders and send the user to the right page with a link: grants or subsidies for companies in Spain → [Ayudas España](${WWW}/es/ayudas/); EU funding calls (Horizon Europe, Digital Europe, LIFE…) → [Convocatorias UE](${SITE}/); our consulting services → [Servicios](${WWW}/es/) or Tender Readiness (${WWW}/tender-readiness/); events → https://events.ullswaterinvestments.com/; news → https://news.ullswaterinvestments.com/. Use the English pages when the user writes in English.` +
+    (ms ? `\nThe user is on the Spanish tenders section (${here})${ms[1] && ES_LV_BY_SLUG[ms[1]] ? `, level «${ms[1]}»: use search_tenders_spain with level ${ES_LV_BY_SLUG[ms[1]]} by default` : ms[1] ? `, page of the region «${ms[1]}»: use search_tenders_spain with that region by default` : ": use search_tenders_spain by default"}.` : "");
+  const system = [{ type: "text", text: AGENT_SYSTEM, cache_control: { type: "ephemeral" } }, { type: "text", text: ctx + focus }];
   const messages = [...cleanHistory(b.history), { role: "user", content: q }];
   const model = env.CLAUDE_MODEL || CLAUDE_MODEL, seen = new Set(), used = [];
   let answer = "", resp, pendingBreak = false;

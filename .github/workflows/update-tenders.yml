@@ -32,6 +32,13 @@ jobs:
       - name: Fetch tenders (EU Funding & Tenders Portal + TED)
         run: python tenders/fetch_tenders.py
 
+      - name: Fetch Spanish tenders by level of government (Plataforma de Contratación del Sector Público)
+        continue-on-error: true
+        timeout-minutes: 120
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: python tenders/fetch_spain.py
+
       - name: Build the site (EN + ES)
         run: python tenders/build_tenders.py
 
@@ -44,6 +51,7 @@ jobs:
           PY
           echo "files: $(find site-tenders -type f | wc -l), size: $(du -sh site-tenders | cut -f1)"
           ls -S -l site-tenders/data/ted | head -6; ls -l site-tenders/data/eu.json
+          python -c "import json;s=json.load(open('site-tenders/data/es/stats.json'));print(json.dumps({k:v for k,v in s.items() if k!='provinces'},ensure_ascii=False))" || true
           python -c "import json;e=json.load(open('site-tenders/data/eu.json'));print(json.dumps(e[:3],ensure_ascii=False,indent=1));s=json.load(open('site-tenders/data/ted/ESP.json'));print(json.dumps(s[:3],ensure_ascii=False,indent=1));from collections import Counter;print('eu nature',Counter(x['nature'] for x in e),'eu deadline none',sum(1 for x in e if not x['deadline']));print('esp no title_es',sum(1 for x in s if 'title_es' not in x),'of',len(s))"
 
       - name: Preview artifact (branch runs only)
@@ -55,9 +63,18 @@ jobs:
           retention-days: 5
 
       - uses: actions/setup-node@v4
-        if: github.ref == 'refs/heads/main'
         with:
           node-version: "22"
+
+      - name: Preview deploy of a branch (ullswater-tenders-preview.<account>.workers.dev, never the live domain)
+        if: github.ref != 'refs/heads/main' && env.CF_TOKEN != ''
+        continue-on-error: true
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        working-directory: tenders/worker
+        run: npx --yes wrangler@4 deploy --config wrangler.nodomain.toml --name ullswater-tenders-preview
 
       - name: Deploy to tenders.ullswaterinvestments.com (Workers Static Assets)
         id: deploy
