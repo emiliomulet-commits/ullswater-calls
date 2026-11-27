@@ -1091,7 +1091,8 @@ export default {
     ctx.waitUntil(Promise.all([
       env.DB.prepare(`DELETE FROM questions WHERE ts < datetime('now', '-${RETENTION_MONTHS} months')`).run(),
       env.DB.prepare(`DELETE FROM benchmark_contacts WHERE ts < datetime('now', '-${RETENTION_MONTHS} months')`).run(),
-      env.DB.prepare("DELETE FROM hits WHERE ts < ?1").bind(Math.floor(Date.now() / 1000) - 2 * 86400).run()]).catch(e => console.log("purge: " + (e.message || e))));
+      env.DB.prepare("DELETE FROM hits WHERE ts < ?1").bind(Math.floor(Date.now() / 1000) - 2 * 86400).run(),
+      env.DB.prepare("DELETE FROM topic_cache WHERE ts < ?1").bind(Math.floor(Date.now() / 1000) - 2 * 86400).run().catch(() => null)]).catch(e => console.log("purge: " + (e.message || e))));
   },
   async fetch(req, env, ctx) {
     if (req.method === "OPTIONS") return new Response(null, { headers: cors(req) });
@@ -1120,7 +1121,10 @@ export default {
           try { const r = await benchmarkAnswer(env, b); logQuestion(req, env, ctx, b, r, t0); return json(r, req); }
           catch (e) { logQuestion(req, env, ctx, b, { engine: "none", error: String(e.message || e).slice(0, 200) }, t0); return json({ error: "Assistant unavailable. Write to " + BENCH_EMAIL }, req, 503); }
         }
-        const tkey = topicKey(b);
+        // cached topic answers are tied to the current data versions of calls, www and events: a new build of the web
+        // (new calls, news, pages, figures) makes them stale at once, not after TOPIC_TTL_H hours
+        let tkey = topicKey(b);
+        if (tkey) { try { const d = await loadData(); tkey += "|" + ["c", "w", "e"].map(k => (d.ver && d.ver[k]) || "").join("|"); } catch (e) { tkey = null; } }
         if (tkey && !qa) { const hit = await topicCacheGet(env, tkey); if (hit) { logQuestion(req, env, ctx, b, hit, Date.now()); return sseOnce(req, hit); } }
         if (!env.ANTHROPIC_API_KEY || (!qa && !(await claudeBudgetLeft(env)))) {
           const t0 = Date.now(), r = await legacyAnswer(env, b); logQuestion(req, env, ctx, b, r, t0);
