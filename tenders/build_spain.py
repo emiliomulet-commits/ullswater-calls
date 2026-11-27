@@ -8,9 +8,21 @@ Also spain_band(lang): the promo block for the home of this site. Tender titles 
 """
 import json
 import re
+import shutil
+import sys
 import unicodedata
 from datetime import date, timedelta
 from html import escape
+from pathlib import Path
+
+FICHAS_DIR = Path(__file__).resolve().parent / "fichas"
+FICHAS = sorted(d.name for d in FICHAS_DIR.glob("*") if (d / "ficha.json").exists()) if FICHAS_DIR.exists() else []
+FICHA_LBL = {"en": "Ullswater factsheet (ES)", "es": "Ficha Ullswater"}
+EXT = {".zip": None, ".bin": ".xml"}  # PLACSP serves .odt annexes as zip and the DEUC as octet-stream
+
+
+def ficha_path(i):
+    return f"/es/espana/licitacion/{i}/"
 
 LEVELS = ["nacional", "autonomico", "diputacion", "comarca", "ayuntamiento", "otros"]
 LV = {  # key: (EN label, ES label, EN slug, ES slug, EN short, ES short)
@@ -164,7 +176,7 @@ LVL_H1_ES = {"nacional": "estatales (Administración General del Estado)", "auto
              "diputacion": "de diputaciones, cabildos y consells insulars", "comarca": "de consejos comarcales, comarcas y mancomunidades",
              "ayuntamiento": "de ayuntamientos", "otros": "de otros organismos públicos"}
 
-CSS = """.esp{background:#fbf8f1;border-bottom:1px solid #efe6d2}.esp .wrap{padding:44px 20px 34px}
+CSS = """.call.es .more.fch{background:#0b1f3a;color:#fff;border-color:#0b1f3a}.call.es .more.fch:hover{background:#c9a227;color:#0b1f3a}.esp{background:#fbf8f1;border-bottom:1px solid #efe6d2}.esp .wrap{padding:44px 20px 34px}
 .esp-k{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#a8862f;margin:0 0 14px;display:flex;align-items:center;gap:10px}
 .esp-new{background:var(--navy);color:#fff;border-radius:4px;padding:4px 9px;letter-spacing:.08em}
 .esp-g{display:grid;grid-template-columns:1.35fr 1fr;gap:40px;align-items:center}.esp h1,.esp h2{font-size:38px;line-height:1.18;color:var(--navy);margin:0 0 16px}
@@ -253,7 +265,8 @@ def card(x, lang, T, MON, money, cpv_label, help_url):
             + (f'<span class="src">{escape(where)}</span>' if where else "") + f'<span class="code">{escape(x.get("ref") or "")}</span></div>'
             f'<h3><a href="{url}" target="_blank" rel="noopener">{escape(x["title"])}</a></h3><p><b>{escape(x.get("buyer") or "")}</b></p>'
             + (f'<div class="facts">{"".join(facts)}</div>' if facts else "")
-            + f'<div class="links"><a class="more" href="{url}" target="_blank" rel="noopener">{t["portal"]}</a>'
+            + f'<div class="links">' + (f'<a class="more fch" href="{ficha_path(x["id"])}">{FICHA_LBL[lang]}</a>' if x["id"] in FICHAS else "")
+            + f'<a class="more" href="{url}" target="_blank" rel="noopener">{t["portal"]}</a>'
             f'<a class="more ext" href="{escape(help_url(x.get("ref") or x["id"], t["home"]))}" target="_blank" rel="noopener">{t["help"]}</a></div></div></article>')
 
 
@@ -292,7 +305,7 @@ JS = r"""(function(){
 var box=document.getElementById('finder');if(!box||!document.getElementById('f-lvl'))return;
 var L=box.getAttribute('data-lang')||'es',T=__I18N__[L],$=function(i){return document.getElementById(i)};
 var lvl=$('f-lvl'),reg=$('f-reg'),q=$('f-q'),nat=$('f-nat'),cpv=$('f-cpv'),dl=$('f-dl'),sz=$('f-size'),pr=$('f-proc'),fu=$('f-funds'),lo=$('f-lots'),aw=$('f-award'),list=$('list'),count=$('count'),more=$('more'),empty=$('empty');
-var SUPPORT=__SUPPORT__,data=[],rows=[],shown=0,today=new Date();today.setHours(0,0,0,0);
+var SUPPORT=__SUPPORT__,FICHAS=__FICHAS__,data=[],rows=[],shown=0,today=new Date();today.setHours(0,0,0,0);
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
 function money(v){return v>=1e6?'€'+(v/1e6).toFixed(1).replace('.0','')+'M':v>=1e3?'€'+Math.round(v/1e3).toLocaleString('en')+'k':'€'+v}
@@ -312,7 +325,7 @@ function card(x){var d=new Date(x.deadline+'T00:00:00'),n=days(x.deadline),f=[],
  var help=SUPPORT.replace('CALL',encodeURIComponent('Licitación: '+(x.ref||x.id))).replace('PAGE',encodeURIComponent(location.href));
  return '<article class="call es"><div class="date'+(n<=7?' soon':'')+'"><small>'+T.deadline+'</small><b>'+d.getDate()+'</b><i>'+T.mon[d.getMonth()]+' '+d.getFullYear()+'</i></div><div><div class="meta"><span class="lvtag">'+T.lvl[x.level]+'</span>'
   +(where?'<span class="src">'+esc(where)+'</span>':'')+'<span class="code">'+esc(x.ref||'')+'</span></div><h3><a href="'+url+'" target="_blank" rel="noopener">'+esc(x.title)+'</a></h3><p><b>'+esc(x.buyer)+'</b></p>'
-  +(f.length?'<div class="facts">'+f.join('')+'</div>':'')+'<div class="links"><a class="more" href="'+url+'" target="_blank" rel="noopener">'+T.portal+'</a><a class="more ext" href="'+esc(help)+'" target="_blank" rel="noopener">'+T.help+'</a></div></div></article>';}
+  +(f.length?'<div class="facts">'+f.join('')+'</div>':'')+'<div class="links">'+(FICHAS.indexOf(x.id)>=0?'<a class="more fch" href="/es/espana/licitacion/'+x.id+'/">'+T.ficha+'</a>':'')+'<a class="more" href="'+url+'" target="_blank" rel="noopener">'+T.portal+'</a><a class="more ext" href="'+esc(help)+'" target="_blank" rel="noopener">'+T.help+'</a></div></div></article>';}
 function render(r){if(r){shown=0;list.innerHTML=''}var h='';for(var i=shown;i<Math.min(rows.length,shown+50);i++)h+=card(rows[i]);list.insertAdjacentHTML('beforeend',h);shown=Math.min(rows.length,shown+50);more.hidden=shown>=rows.length}
 function apply(){var w=norm(q.value).split(/\s+/).filter(Boolean),lv=lvl.value,rg=reg.value,n=nat.value,c=cpv.value,d=dl.value,z=sz.value,p=pr.value,e=fu.value,l=lo.value,a=aw.value;
  rows=data.filter(function(x){if(lv&&x.level!==lv)return false;if(rg&&x.region!==rg)return false;if(n&&x.nature!==n)return false;
@@ -331,14 +344,14 @@ def js(CPV, MON, support):
     lab = {}
     for lang in ("en", "es"):
         t = S[lang]
-        lab[lang] = {"deadline": t["deadline"], "value": t["value"], "portal": t["portal"], "help": t["help"], "mon": MON[lang],
+        lab[lang] = {"deadline": t["deadline"], "value": t["value"], "portal": t["portal"], "help": t["help"], "ficha": FICHA_LBL[lang], "mon": MON[lang],
                      "nat": {k: v[1 if lang == "es" else 0] for k, v in NAT.items()}, "cpv": {k: v[1 if lang == "es" else 0] for k, v in CPV.items()},
                      "lvl": {k: lvl_label(k, lang, True) for k in LEVELS}, "reg": dict(REGION_EN) if lang == "en" else {},
                      "tag": {"size": {k: v[1 if lang == "es" else 0] for k, v in TAG["size"].items()}, "dl": {k: v[1 if lang == "es" else 0] for k, v in TAG["dl"].items()},
                              "funds": {k: v[1 if lang == "es" else 0] for k, v in TAG["funds"].items()}, "lots": {k: v[1 if lang == "es" else 0] for k, v in TAG["lots"].items()},
                              "award": {k: v[1 if lang == "es" else 0] for k, v in TAG["award"].items()}, "conc": TAG["conc"][1 if lang == "es" else 0],
                              "lots_n": FLAB[lang]["lots_n"]}}
-    return JS.replace("__I18N__", json.dumps(lab, ensure_ascii=False)).replace("__SUPPORT__", json.dumps(support))
+    return JS.replace("__I18N__", json.dumps(lab, ensure_ascii=False)).replace("__SUPPORT__", json.dumps(support)).replace("__FICHAS__", json.dumps(FICHAS))
 
 
 def build(write, page, why_box_unused, ctx):
@@ -405,4 +418,54 @@ def build(write, page, why_box_unused, ctx):
                  f'<div class="actions"><a class="btn" href="{t["home"]}?region={escape(r)}#finder">{t["open_finder"]}</a><a class="btn ghost" href="{lvl_path("nacional", lang)}">{lvl_label("nacional", lang, True)} →</a></div></div></section>'
                  f'<div class="wrap"><div class="resbar"><span><strong>{fmt(len(rs), lang)}</strong> {t["count"]}</span></div>{static_list(rs, "region=" + escape(r))}{why()}</div></main>')
             write(reg_path(r, lang), page(lang, f"{h1} ({fmt(len(rs), lang)}) | Ullswater Investments", lead, reg_path(r, lang), b, reg_path(r, "es" if lang == "en" else "en")))
+    build_fichas(write, page, ctx)
     return st
+
+
+def build_fichas(write, page, ctx):
+    """One page per tender we have read in full (tenders/fichas/<id>/ficha.json), Spanish only for now.
+    Publishes the page, our PDF, the JSON the assistant reads, and local copies of the official documents."""
+    if not FICHAS:
+        return
+    (ctx["site_dir"] / "data" / "es" / "fichas").mkdir(parents=True, exist_ok=True)
+    (ctx["site_dir"] / "data" / "es" / "fichas" / "index.json").write_text(json.dumps(FICHAS), encoding="utf-8")
+    sys.path.insert(0, str(FICHAS_DIR.parent.parent / "tools"))
+    import ficha_render as R
+    site = ctx["site_dir"]
+    for i in FICHAS:
+        d = FICHAS_DIR / i
+        f = json.loads((d / "ficha.json").read_text(encoding="utf-8"))
+        idx = json.loads((d / "index.json").read_text(encoding="utf-8"))
+        out = site / "docs" / "es" / i
+        out.mkdir(parents=True, exist_ok=True)
+        names = {}
+        for x in idx["docs"]:
+            src = d / "docs" / x["file"]
+            if not src.exists():
+                continue
+            suf = src.suffix.lower()
+            if suf in EXT:
+                orig = Path(x.get("name") or "").suffix.lower()
+                suf = orig if suf == ".zip" and orig else (EXT[suf] or suf)
+            name = src.stem + suf
+            shutil.copyfile(src, out / name)
+            names[x["file"]] = f"/docs/es/{i}/{name}"
+        shutil.copyfile(d / "ficha.pdf", out / f"ficha-ullswater-{i}.pdf")
+        (site / "data" / "es" / "fichas").mkdir(parents=True, exist_ok=True)
+        f2 = dict(f, url=ctx["base"] + ficha_path(i), pdf=ctx["base"] + f"/docs/es/{i}/ficha-ullswater-{i}.pdf",
+                  documents=[dict(label=x.get("name"), local=ctx["base"] + names.get(x["file"], ""), official=x.get("uri"), pages=x.get("pages"))
+                             for x in idx["docs"] if x["file"] in names])
+        (site / "data" / "es" / "fichas" / f"{i}.json").write_text(json.dumps(f2, ensure_ascii=False), encoding="utf-8")
+        inner = R.body(f, idx, local=lambda x: names.get(x["file"], f["official_url"]), logo=False)
+        inner = inner.replace("Licitaciones › España", '<a href="/es/">Licitaciones</a> › <a href="/es/espana/">España</a>', 1)
+        qs = ["¿Qué solvencia piden y cómo la acredito?", "¿Cómo se reparten los 100 puntos?", "¿Qué pasa si oferto un precio muy bajo?", "¿A cuántos lotes me puedo presentar?"]
+        strip = ('<section class="fx-ask"><div class="in"><h2>Pregunta al asistente sobre esta licitación</h2>'
+                 '<p>Ha leído todos los documentos oficiales y te contesta citando el documento y la página.</p>'
+                 '<div class="esp-ask">' + ctx["ask"]("es", qs, "Ej.: ¿qué experiencia piden al director de obra?") + "</div>"
+                 f'<p class="fx-pdf"><a class="btn" href="/docs/es/{i}/ficha-ullswater-{i}.pdf" download>Descargar la ficha en PDF</a></p></div></section>')
+        inner = inner.replace('<section class="key">', strip + '<section class="key">', 1)
+        css = ".fx-ask{background:#fbf8f1;border-bottom:1px solid #efe6d2}.fx-ask .in{padding-top:26px;padding-bottom:22px}.fx-ask h2{margin:0 0 4px;font-size:20px}.fx-ask p{margin:0 0 14px;color:#4b5563}.fx-ask .fx-pdf{margin:14px 0 0}"
+        body = f'<main><style>{R.scoped_css()}{css}</style><div class="fx">{inner}</div></main>'
+        ld = {"@context": "https://schema.org", "@type": "Article", "headline": f["title"], "inLanguage": "es", "url": ctx["base"] + ficha_path(i),
+              "dateModified": f.get("reviewed"), "isBasedOn": f["official_url"], "publisher": {"@type": "Organization", "name": "Ullswater Investments"}}
+        write(ficha_path(i), page("es", f'{f["title"]} | Ficha de licitación | Ullswater Investments', f["summary"][0][:300] if f.get("summary") else f["title"], ficha_path(i), body, None, ld))

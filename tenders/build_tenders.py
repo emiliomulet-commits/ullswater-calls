@@ -417,7 +417,7 @@ def main():
     stats = json.loads((DATA / "stats.json").read_text(encoding="utf-8"))
     eu = json.loads((DATA / "eu.json").read_text(encoding="utf-8"))
     upd = datetime.fromisoformat(stats["updated"]).date()
-    for old in ("tender", "country", "closing-soon", "es", "assets", "spain"):
+    for old in ("tender", "country", "closing-soon", "es", "assets", "spain", "docs"):
         shutil.rmtree(SITE / old, ignore_errors=True)
     (SITE / "assets").mkdir(parents=True, exist_ok=True)
     (SITE / "assets" / "tenders.js").write_text(JS.replace("__I18N__", i18n_js()).replace("__SUPPORT__", json.dumps(call_pages.SUPPORT_FORM)), encoding="utf-8")

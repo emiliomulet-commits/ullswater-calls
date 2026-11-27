@@ -46,7 +46,7 @@ def rows(items, docs_url, pdf=False):
 LOGO = "data:image/svg+xml;base64," + __import__("base64").b64encode((Path(__file__).resolve().parent.parent / "scripts" / "fichas_assets" / "logo_white.svg").read_bytes()).decode()
 
 
-def body(f, idx, pdf=False):
+def body(f, idx, pdf=False, local=None, logo=True):
     docs_url = {}
     by_file = {d.get("file"): d for d in idx["docs"]}
     for k, d in f["docs"].items():
@@ -68,12 +68,12 @@ def body(f, idx, pdf=False):
     err = secs["errors"]
     files = "".join(
         f'<tr><td>{e(x["name"])}</td><td>{e(x["type"])}{" · " + str(x["pages"]) + " págs." if x.get("pages") else ""}</td><td class="num">{x["bytes"] / 1e3:,.0f} KB</td>'
-        + ("" if pdf else f'<td><a class="dl" href="{e(by_file.get(x["file"], {}).get("uri", f["official_url"]))}" target="_blank" rel="noopener">Descargar</a></td>') + "</tr>"
+        + ("" if pdf else f'<td><a class="dl" href="{e(local(x) if local else by_file.get(x["file"], {}).get("uri", f["official_url"]))}" target="_blank" rel="noopener">Descargar</a></td>') + "</tr>"
         for x in f["files"])
     summ = "".join(f"<li>{e(s)}</li>" for s in f["summary"])
     return f"""
 <header class="hero"><div class="in">
- <img class="logo" src="{LOGO}" alt="Ullswater Investments">
+ {'<img class="logo" src="' + LOGO + '" alt="Ullswater Investments">' if logo else ''}
  <p class="crumbs">Licitaciones › España › Ayuntamientos › Andalucía</p>
  <p class="kicker">Ficha Ullswater · expediente {e(f['ref'])}</p>
  <h1>{e(f['title'])}</h1>
@@ -163,6 +163,19 @@ body{font-size:9.6pt;line-height:1.45}.in{max-width:none;padding:0}.hero{margin:
 main section{padding:10px 0;break-inside:auto}h2{font-size:13pt;break-after:avoid}.row{grid-template-columns:42mm 1fr;padding:5px 0;break-inside:avoid}.rg .row{grid-template-columns:30mm 1fr}
 .crits{grid-template-columns:1fr 1fr}.crit,.k,.rg h3{break-inside:avoid}.rgs{grid-template-columns:1fr}table{font-size:8.6pt}.cta .btn{display:none}.logo{height:30px;width:auto;display:block;margin-bottom:14px}.crumbs{display:none}
 """
+
+
+def scoped_css(scope=".fx"):
+    """Site version of the CSS: light tokens only, every selector prefixed with the scope so it cannot clash with the site shell."""
+    import re
+    css = re.sub(r"@media \(prefers-color-scheme: dark\)\{(?:[^{}]*\{[^{}]*\})+\}", "", CSS)
+    css = re.sub(r":root\[data-theme=\"dark\"\][^{]*\{[^{}]*\}", "", css)
+    css = css.replace(":root{", scope + "{").replace("body{", scope + "{")
+
+    def fix(m):
+        sels = ",".join(x.strip() if x.strip().startswith(scope) else f"{scope} {x.strip()}" for x in m.group(1).split(","))
+        return f"{sels}{{{m.group(2)}}}"
+    return re.sub(r"([^{}@]+)\{([^{}]*)\}", fix, css)
 
 
 def main(d):
