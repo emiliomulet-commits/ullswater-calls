@@ -1,0 +1,32 @@
+name: Sample tender factsheet (download one tender's official documents)
+
+on:
+  workflow_dispatch:
+    inputs:
+      sample_id: { description: "PLACSP entry id (optional)", required: false }
+  push:
+    branches: ["claude/**"]
+    paths: ["tools/sample_ficha.py", ".github/workflows/sample-ficha.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  sample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: sudo apt-get install -y -q poppler-utils >/dev/null
+      - name: Download one tender's documents
+        env: { PYTHONUNBUFFERED: "1", SAMPLE_ID: "${{ github.event.inputs.sample_id }}" }
+        run: python tools/sample_ficha.py
+      - name: Commit the sample to the branch (skip CI)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add samples
+          git commit -m "sample: official documents of one tender [skip ci]" || exit 0
+          git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push -q origin HEAD:"${GITHUB_REF_NAME}"
