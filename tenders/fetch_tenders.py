@@ -314,11 +314,13 @@ def main():
     (OUT / "eu.json").write_text(json.dumps(eu, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
     soon = (now.date() + timedelta(days=30)).isoformat()
+    week = (now.date() + timedelta(days=7)).isoformat()
     stats = {
         "updated": now.isoformat(timespec="seconds"),
         "eu": len(eu), "euOpen": sum(1 for x in eu if x["status"] == "open"), "euForthcoming": sum(1 for x in eu if x["status"] == "forthcoming"),
         "ted": len(ted), "total": len(eu) + len(ted),
         "closingIn30Days": sum(1 for x in eu + ted if x.get("deadline") and x["deadline"] <= soon),
+        "closingIn7Days": sum(1 for x in eu + ted if x.get("deadline") and x["deadline"] <= week),
         "countries": {cc: len(v) for cc, v in sorted(by_country.items(), key=lambda kv: -len(kv[1]))},
         "nature": dict(Counter(x["nature"] or "other" for x in eu + ted)),
         "sources": ["European Commission – Funding & Tenders Portal (SEDIA search API)", "Publications Office of the EU – TED (search API v3)"],

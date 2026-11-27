@@ -53,6 +53,8 @@ T = {
         why=["<b>Bid / no-bid in 48 h.</b> We read the tender documents and tell you if it is worth bidding, what you need and the risks.",
              "<b>Offer writing.</b> Technical proposal, award-criteria strategy, price structure and the administrative file (ESPD, declarations).",
              "<b>Consortia and subcontracting.</b> We find partners to meet the selection criteria and set up joint bids."],
+        ask_ph="Ask the AI about public tenders, e.g. IT tenders in Spain closing this month…", ask_btn="Ask the AI",
+        ask_q=["IT services tenders of the EU institutions", "Public tenders in Spain closing this month", "Consulting tenders in France and Belgium", "How do I bid for an EU tender?"],
         book="Book a meeting", about_h="About this list",
         about="Data from the public search services of the European Commission's Funding &amp; Tenders Portal (tenders of the EU institutions and agencies) and of TED, the Publications Office's journal of public procurement in Europe (national tenders above the EU thresholds). Only competition notices whose deadline is still ahead are shown; tenders whose deadline has passed are removed every day. Always read the official notice and tender documents before bidding.",
         ctry_h1="Public tenders in {c}", ctry_lead="{n} open public tenders from buyers in {c}, published in TED. The ones closing first are listed below; use the finder for every filter.",
@@ -80,6 +82,8 @@ T = {
         why=["<b>Decisión de presentarse en 48 h.</b> Leemos los pliegos y te decimos si merece la pena, qué necesitas y qué riesgos hay.",
              "<b>Redacción de la oferta.</b> Memoria técnica, estrategia ante los criterios de adjudicación, estructura de precios y sobre administrativo (DEUC, declaraciones).",
              "<b>UTE y subcontratación.</b> Buscamos socios para cumplir la solvencia y montamos ofertas conjuntas."],
+        ask_ph="Pregunta a la IA por licitaciones, p. ej. licitaciones TI en España que cierran este mes…", ask_btn="Preguntar a la IA",
+        ask_q=["Licitaciones de servicios TI de las instituciones de la UE", "Licitaciones públicas en España que cierran este mes", "Licitaciones de consultoría en Francia y Bélgica", "¿Cómo me presento a una licitación de la UE?"],
         book="Reservar una reunión", about_h="Sobre este listado",
         about="Datos de los servicios públicos de búsqueda del Portal Funding &amp; Tenders de la Comisión Europea (licitaciones de las instituciones y agencias de la UE) y de TED, el diario de contratación pública europea de la Oficina de Publicaciones (licitaciones nacionales por encima de los umbrales UE). Solo se muestran anuncios de licitación con plazo abierto; los vencidos se retiran cada día. Lee siempre el anuncio oficial y los pliegos antes de presentarte.",
         ctry_h1="Licitaciones públicas en {c}", ctry_lead="{n} licitaciones públicas abiertas de organismos de {c}, publicadas en TED. Abajo, las que cierran antes; usa el buscador para filtrar.",
@@ -91,7 +95,13 @@ T = {
     ),
 }
 
-EXTRA_CSS = """.src{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;padding:3px 8px;background:#eef1f8;color:var(--navy)}
+EXTRA_CSS = """.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ask{max-width:860px;margin:26px 0 0;display:flex;align-items:center;gap:12px;background:#fff;border-radius:40px;height:64px;padding:0 10px 0 24px;box-shadow:0 8px 28px rgba(35,53,103,.14);border:1px solid var(--line)}
+.ask input{flex:1;border:0;outline:0;font:inherit;font-size:17px;color:#1f2937;background:transparent;min-width:0}.ask input::placeholder{color:#6b7280}
+.ask button{flex:none;width:46px;height:46px;border-radius:50%;border:0;background:#c9a646;color:#233567;font-size:22px;font-weight:700;cursor:pointer}.ask button:hover{background:#233567;color:#fff}.ask:focus-within{box-shadow:0 0 0 3px #c9a646}
+.achips{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px;max-width:960px}.achip{font:inherit;font-size:14px;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer}.achip:hover,.achip:focus-visible{border-color:#c9a646;background:#fffaf0}
+@media(max-width:640px){.ask{height:56px;padding:0 6px 0 16px}.ask input{font-size:15px}.ask button{width:42px;height:42px}}
+.src{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:4px;padding:3px 8px;background:#eef1f8;color:var(--navy)}
 .filters .wrap{grid-template-columns:1.3fr 2fr repeat(4,1fr)}@media(max-width:1000px){.filters .wrap{grid-template-columns:1fr 1fr}.filters .q{grid-column:1/-1}}
 .why{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 0;padding:0;list-style:none}.why li{border:1px solid var(--line);border-radius:10px;padding:16px;background:#fff;font-size:15px;color:var(--muted)}.why b{display:block;color:var(--navy);margin-bottom:4px}
 @media(max-width:860px){.why{grid-template-columns:1fr}}.dl{display:grid;grid-template-columns:200px 1fr;gap:8px 18px;margin:18px 0;font-size:15px}.dl dt{font-weight:700;color:var(--navy)}.dl dd{margin:0;color:var(--ink)}
@@ -159,6 +169,18 @@ def page(lang, title, desc, path, body, alt=None, jsonld=None):
 <div>{"Data" if lang == "en" else "Datos"}: <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/calls-for-tenders" target="_blank" rel="noopener">EU Funding &amp; Tenders Portal</a> · <a href="https://ted.europa.eu/" target="_blank" rel="noopener">TED</a> (© European Union), {"refreshed daily" if lang == "en" else "actualizado cada día"}.</div>
 <div><a href="{MAIN}{'/es/' if lang == 'es' else '/'}">ullswaterinvestments.com</a> · <a href="{CALLS}/">calls.</a> · <a href="https://www.linkedin.com/company/ullswater-investments" target="_blank" rel="noopener me">LinkedIn</a> · © {date.today().year}</div></div></footer>
 <script src="/assets/tenders.js" defer></script>{CHAT}</body></html>"""
+
+
+def ask_bar(lang):
+    """AI question bar of the home hero: opens the network assistant (widget.js, UAA.ask) with the question, like the www home."""
+    t = T[lang]
+    chips = "".join(f'<button type="button" class="achip" data-q="{escape(q)}">{escape(q)}</button>' for q in t["ask_q"])
+    return (f'<form class="ask" id="ai-ask" role="search" action="{MAIN}{"/es/" if lang == "es" else "/"}"><label class="vh" for="ai-q">{t["ask_btn"]}</label>'
+            f'<input id="ai-q" name="q" type="text" autocomplete="off" maxlength="500" placeholder="{escape(t["ask_ph"])}">'
+            f'<button type="submit" aria-label="{t["ask_btn"]}">↑</button></form><div class="achips">{chips}</div>'
+            "<script>(function(){function go(q,o){if(window.UAA&&window.UAA.ask){window.UAA.ask(q,o);return true}window.UAA_Q=window.UAA_Q||[];if(window.UAA_Q.push){window.UAA_Q.push([q,o]);return true}return false}"
+            "var f=document.getElementById('ai-ask');f.addEventListener('submit',function(e){var i=document.getElementById('ai-q'),q=(i.value||'').trim();e.preventDefault();if(!q){i.focus();return}if(go(q,{wide:1}))i.value=''});"
+            "document.querySelectorAll('.achip').forEach(function(b){b.addEventListener('click',function(){go(b.getAttribute('data-q'),{wide:1})})})})();</script>")
 
 
 def help_url(ref, path):
@@ -371,6 +393,7 @@ def main():
                          for cc, v in sorted(countries.items(), key=lambda kv: -len(kv[1])))
         ctiles = f'<a class="tile" href="{t["ctry"]}eu/"><b>{escape(country("EU", lang))}</b><span>{len(eu):,} {t["s_total"]}</span></a>' + ctiles
         hero = f"""<main><section class="hero"><div class="wrap"><p class="kicker">{t['kicker'].format(d=upd_s)}</p><h1>{t['h1']}</h1><p class="lead">{t['lead']}</p>
+{ask_bar(lang)}
 <ul class="stats"><li><a href="#filters"><strong>{stats['total']:,}</strong>{t['s_total']}</a></li><li><a href="{t['ctry']}eu/"><strong>{stats['eu']:,}</strong>{t['s_eu']}</a></li><li><a href="#countries"><strong>{len(countries)}</strong>{t['s_ctry']}</a></li><li><a href="{t['soon']}"><strong>{stats['closingIn30Days']:,}</strong>{t['s_soon']}</a></li></ul>
 <div class="actions"><a class="btn" href="{escape(call_pages.support_link('Tender Readiness', BASE + t['home']))}" target="_blank" rel="noopener">{t['cta1']}</a><a class="btn ghost" href="{t['soon']}">{t['cta2']}</a></div></div></section>"""
         tail = (f'<div class="wrap"><section class="sec" id="countries"><h2>{t["countries_h"]}</h2><div class="tiles">{ctiles}</div></section>'

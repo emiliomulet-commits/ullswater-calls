@@ -1,21 +1,23 @@
 /* "Asistente de ayudas" chat widget for the Ullswater network. Served by the Worker at /widget.js.
    Embed: <script src="https://ullswater-ai.emilio-mulet-b52.workers.dev/widget.js" defer data-site="www"></script>
-   data-site: www | calls | news | events | project (suggested questions); language from <html lang> or a /es/ path.
+   data-site: www | calls | tenders | news | events | project (suggested questions); language from <html lang> or a /es/ path.
    No backtick strings or dollar-brace sequences in this file: it is embedded in the Worker as String.raw. */
 (function () {
   if (window.__uaaLoaded) return; window.__uaaLoaded = 1;
   var me = document.currentScript || document.querySelector('script[src*="widget.js"]');
   var API = me ? me.src.replace(/\/widget\.js.*$/, '') : '';
-  var site = (me && me.getAttribute('data-site')) || (/calls\./.test(location.host) ? 'calls' : /news\./.test(location.host) ? 'news' : /events\./.test(location.host) ? 'events' : /^www\.|^ullswater/.test(location.host) ? 'www' : 'project');
+  var site = (me && me.getAttribute('data-site')) || (/calls\./.test(location.host) ? 'calls' : /tenders\./.test(location.host) ? 'tenders' : /news\./.test(location.host) ? 'news' : /events\./.test(location.host) ? 'events' : /^www\.|^ullswater/.test(location.host) ? 'www' : 'project');
   var lang = ((document.documentElement.lang || '').slice(0, 2) === 'es' || /^\/es(\/|$)/.test(location.pathname)) ? 'es' : 'en';
   var BOOK = 'https://outlook.office.com/bookwithme/user/e458fce3fc324c73bf552650547cf141@ullswaterinvestments.com/meetingtype/nBIRMB9DAUGZ7TZQg15B-A2?anonymous';
   var T = {
     en: { name: 'Funding Assistant', open: 'Ask about funding', ai: 'You are chatting with an AI assistant.', ph: 'Your question…', send: 'Send', expert: 'Talk to an expert',
-      hi: 'Hi! I can help you with EU calls, grants in Spain, our services, news and events. What are you looking for?',
+      hi: 'Hi! I can help you with EU calls, public tenders across Europe, grants in Spain, our services, news and events. What are you looking for?',
       foot: 'AI answers can be wrong: always check the official source. Questions are stored anonymously for 12 months to improve the service; do not include personal data.',
       privacy: 'Privacy', rel: 'Related topics', fresh: 'New conversation', think: 'Thinking', busy: 'The assistant is busy. Please try again.', cut: 'The answer was interrupted. Please try again.', close: 'Close',
       q: { www: ['Which of your services fits a startup looking for EU funding?', 'How do you help with a Horizon Europe proposal?', 'Which European projects are open to new partners?'],
            calls: ['RIA calls in Cluster 4 on AI closing before April 2027', 'Calls open to SMEs on clean energy', 'EIC calls for deep-tech startups'],
+           tenders: ['IT services tenders of the EU institutions', 'Public tenders in Spain closing this month', 'Consulting tenders in France and Belgium'],
+           tender: ['Explain this tender in plain words', 'Can an SME bid for this tender?', 'How can you help me bid for this tender?'],
            call: ['Explain this call in plain words', 'Can SMEs apply to this call?', 'Similar calls with a later deadline'],
            news: ['What are the latest EU funding news?', 'News about funding in Spain this month', 'What changes in the next EU budget (2028-2034)?'],
            article: ['Explain this news and what it means for a company', 'Which open calls are related to this?', 'What are the latest EU funding news?'],
@@ -23,11 +25,13 @@
            event: ['Is this event worth attending for my organisation?', 'Which calls does this event cover?', 'Other events on the same programme'],
            project: ['What is this project about?', 'How can my organisation join the consortium?', 'Which other projects does Ullswater run?'] } },
     es: { name: 'Asistente de ayudas', open: 'Pregunta por ayudas', ai: 'Estás hablando con un asistente de IA.', ph: 'Tu pregunta…', send: 'Enviar', expert: 'Hablar con un experto',
-      hi: '¡Hola! Te ayudo con convocatorias europeas, ayudas en España, nuestros servicios, noticias y eventos. ¿Qué estás buscando?',
+      hi: '¡Hola! Te ayudo con convocatorias europeas, licitaciones públicas de toda Europa, ayudas en España, nuestros servicios, noticias y eventos. ¿Qué estás buscando?',
       foot: 'Las respuestas de la IA pueden contener errores: comprueba siempre la fuente oficial. Las preguntas se guardan de forma anónima 12 meses para mejorar el servicio; no incluyas datos personales.',
       privacy: 'Privacidad', rel: 'Temas relacionados', fresh: 'Nueva conversación', think: 'Pensando', busy: 'El asistente está ocupado. Inténtalo de nuevo.', cut: 'La respuesta se interrumpió. Inténtalo de nuevo.', close: 'Cerrar',
       q: { www: ['Ayudas abiertas para pymes en mi comunidad', '¿Qué servicio vuestro encaja con una startup que busca fondos europeos?', '¿Qué proyectos europeos admiten nuevos socios?'],
            calls: ['Convocatorias RIA del Clúster 4 sobre IA que cierran antes de abril de 2027', 'Convocatorias abiertas a pymes sobre energía limpia', 'Convocatorias del EIC para startups deep-tech'],
+           tenders: ['Licitaciones de servicios TI de las instituciones de la UE', 'Licitaciones públicas en España que cierran este mes', 'Licitaciones de consultoría en Francia y Bélgica'],
+           tender: ['Explícame esta licitación en palabras sencillas', '¿Puede presentarse una pyme a esta licitación?', '¿Cómo me ayudáis a presentar una oferta?'],
            call: ['Explícame esta convocatoria en palabras sencillas', '¿Pueden presentarse pymes a esta convocatoria?', 'Convocatorias parecidas con plazo más tarde'],
            news: ['¿Cuáles son las últimas noticias de financiación europea?', 'Noticias de ayudas en España este mes', '¿Qué cambia en el próximo presupuesto de la UE (2028-2034)?'],
            article: ['Explícame esta noticia y qué supone para una empresa', '¿Qué convocatorias abiertas tienen relación con esto?', '¿Cuáles son las últimas noticias de financiación europea?'],
@@ -101,7 +105,7 @@
   function intro() {
     add(esc(T.hi));
     var s = document.createElement('div'); s.id = 'uaa-s';
-    var path = location.pathname.replace(/^\/es\//, '/'), kind = site === 'calls' && /^\/call\//.test(path) ? 'call' : site === 'news' && /^\/\d{4}\/\d{2}\/[^/]+/.test(path) ? 'article' : site === 'events' && /^\/events\/[^/]+/.test(path) ? 'event' : site;
+    var path = location.pathname.replace(/^\/es\//, '/'), kind = site === 'calls' && /^\/call\//.test(path) ? 'call' : site === 'tenders' && /^\/(tender|licitacion)\//.test(path) ? 'tender' : site === 'news' && /^\/\d{4}\/\d{2}\/[^/]+/.test(path) ? 'article' : site === 'events' && /^\/events\/[^/]+/.test(path) ? 'event' : site;
     var qs = CTX && CTX.sugeridas && CTX.sugeridas.length ? CTX.sugeridas.slice(0, 4) : (T.q[kind] || T.q[site] || T.q.www);
     qs.forEach(function (q) { var x = document.createElement('button'); x.type = 'button'; x.textContent = q; x.onclick = function () { inp.value = q; s.remove(); ask(); }; s.appendChild(x); });
     m.appendChild(s);
