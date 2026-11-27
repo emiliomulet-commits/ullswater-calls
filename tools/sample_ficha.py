@@ -49,6 +49,11 @@ def docs_of(cfs):
     return res
 
 
+def buyer_of(cfs):
+    party = next((e for e in cfs if local(e.tag) == "LocatedContractingParty"), None)
+    return first(next((e for e in party.iter() if local(e.tag) == "PartyName"), party), "Name") if party is not None else ""
+
+
 def score(entry):
     cfs = next((e for e in entry if local(e.tag) == "ContractFolderStatus"), None)
     if cfs is None or first(cfs, "ContractFolderStatusCode") != "PUB":
@@ -66,8 +71,11 @@ def score(entry):
         v = 0
     if not 150_000 <= v <= 3_000_000:
         return None
-    buyer = " ".join(e.text or "" for e in deep(cfs, "Name"))
-    s = len(ds) + (5 if re.search(r"ayuntamiento|diputaci|ajuntament|concello", buyer, re.I) else 0)
+    party = next((e for e in cfs if local(e.tag) == "LocatedContractingParty"), None)
+    buyer = first(next((e for e in party.iter() if local(e.tag) == "PartyName"), party), "Name") if party is not None else ""
+    if not re.search(r"ayuntamiento|ajuntament|concello|diputaci", buyer, re.I):
+        return None
+    s = min(len(ds), 12)
     s += 3 * min(len(deep(cfs, "ProcurementProjectLot")), 3) + (2 if first(cfs, "TypeCode") in ("2", "3") else 0)
     return s, cfs, ds
 
@@ -95,7 +103,8 @@ def main():
     d = OUT / eid
     (d / "docs").mkdir(parents=True, exist_ok=True)
     (d / "entry.xml").write_bytes(ET.tostring(entry, encoding="utf-8"))
-    idx = {"id": eid, "title": first(cfs, "Name"), "link": next((l.get("href") for l in entry if local(l.tag) == "link"), ""), "docs": []}
+    pp = next((e for e in cfs if local(e.tag) == "ProcurementProject"), cfs)
+    idx = {"id": eid, "title": first(pp, "Name"), "buyer": buyer_of(cfs), "link": next((l.get("href") for l in entry if local(l.tag) == "link"), ""), "docs": []}
     for n, doc in enumerate(ds, 1):
         try:
             body, ctype, disp = get(doc["uri"])
