@@ -44,6 +44,7 @@ MAX_PAGES = int(os.environ.get("SPAIN_MAX_PAGES", "4000"))   # per feed and run
 TIME_BUDGET = int(os.environ.get("SPAIN_TIME_BUDGET", "2400"))  # seconds per feed and run
 OVERLAP = timedelta(hours=6)
 PROBE = os.environ.get("SPAIN_PROBE") == "1"
+PROBE_NO_ZIP = os.environ.get("SPAIN_NO_ZIP") == "1"
 
 # CODICE code lists (PLACSP)
 NATURE = {"1": "supplies", "2": "services", "3": "works", "21": "services", "22": "services", "31": "works", "32": "services",
@@ -336,6 +337,62 @@ def walk(name, url, today, stop_at, cache, gone):
     return newest, complete, (None if complete else url)
 
 
+def months_back(now, days):
+    """['202609', '202610', '202611'] for the months that overlap the last `days` days, oldest first."""
+    out, d = [], (now - timedelta(days=days)).date().replace(day=1)
+    while d <= now.date():
+        out.append(f"{d.year}{d.month:02d}")
+        d = (d + timedelta(days=32)).replace(day=1)
+    return out
+
+
+def backfill(name, url, today, now):
+    """Latest state of every tender updated in the last DAYS_BACK days, from the monthly zips of the feed
+    (<feed>_YYYYMM.zip next to the .atom: every Atom page published that month)."""
+    import tempfile
+    import zipfile
+    best, t0 = {}, time.time()
+    for ym in months_back(now, DAYS_BACK):
+        zurl = url.replace(".atom", f"_{ym}.zip")
+        with tempfile.TemporaryFile() as tmp:
+            req = urllib.request.Request(zurl, headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=600) as r:
+                while True:
+                    chunk = r.read(1 << 20)
+                    if not chunk:
+                        break
+                    tmp.write(chunk)
+            size = tmp.tell()
+            tmp.seek(0)
+            zf = zipfile.ZipFile(tmp)
+            members = [m for m in zf.namelist() if m.endswith(".atom")]
+            n = 0
+            for m in members:
+                root = ET.fromstring(zf.read(m))
+                for el in root:
+                    tag = local(el.tag)
+                    if tag == "deleted-entry":
+                        ref, when = el.get("ref") or "", el.get("when") or ""
+                        if ref and when >= best.get(ref, ("", None))[0]:
+                            best[ref] = (when, None)
+                        continue
+                    if tag != "entry":
+                        continue
+                    n += 1
+                    eid, upd, r = rec(el, today)
+                    if eid and upd >= best.get(eid, ("", None))[0]:
+                        best[eid] = (upd, r)
+            print(f"  {name} {ym}: {size / 1e6:.0f} MB, {len(members)} pages, {n:,} entries ({time.time() - t0:.0f}s)")
+    cache = {}
+    for eid, (upd, r) in best.items():
+        if r:
+            r["_upd"] = upd
+            cache[eid] = r
+    newest = max((u for u, _ in best.values()), default=None)
+    print(f"  {name} backfill: {len(best):,} tenders, {len(cache):,} open, newest {newest}")
+    return cache, newest
+
+
 def main():
     now = datetime.now(timezone.utc)
     today = now.date().isoformat()
@@ -346,9 +403,16 @@ def main():
         cf = CACHE / f"spain_{name}.json"
         st = json.loads(cf.read_text(encoding="utf-8")) if cf.exists() else {}
         cache = st.get("records", {})
+        if not (st.get("complete") and st.get("newest")) and not PROBE_NO_ZIP:
+            # first run (no cache): read the monthly zips of the last DAYS_BACK days, much faster than paging the feed
+            try:
+                cache, newest = backfill(name, url, today, now)
+                st = {"records": cache, "newest": newest, "complete": True, "resume": None, "gone": []}
+            except Exception as e:
+                print(f"::warning::{name}: monthly zips failed ({e}); paging the feed instead")
         # resume an unfinished deep walk from where it stopped; otherwise walk back to the last newest entry read
         if st.get("complete") and st.get("newest"):
-            stop_at = (datetime.fromisoformat(st["newest"].replace("Z", "+00:00")) - OVERLAP).isoformat()
+            stop_at = (datetime.fromisoformat(st["newest"]) - OVERLAP).isoformat()
             start = url
         else:
             stop_at = (now - timedelta(days=DAYS_BACK)).isoformat()
