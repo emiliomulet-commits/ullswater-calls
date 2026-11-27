@@ -24,6 +24,7 @@ sys.path.insert(0, str(HERE))
 import build_site as B  # noqa: E402  (CSS, ORG_REF, OG_IMAGE)
 import call_pages  # noqa: E402  (support form)
 from labels import COUNTRIES, CPV, NATURE, country, country_slug, cpv_label  # noqa: E402
+import build_spain  # noqa: E402
 
 SITE = ROOT / "site-tenders"
 DATA = SITE / "data"
@@ -219,11 +220,11 @@ def page(lang, title, desc, path, body, alt=None, jsonld=None):
 <meta property="og:image" content="{B.OG_IMAGE}"><meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23233567'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='34' text-anchor='middle' fill='%23c9a646'%3EU%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>{base_css(sh)}{EXTRA_CSS}{shell_css}</style><script type="application/ld+json">{json.dumps(lds, ensure_ascii=False)}</script></head><body>
+<style>{base_css(sh)}{EXTRA_CSS}{build_spain.CSS}{shell_css}</style><script type="application/ld+json">{json.dumps(lds, ensure_ascii=False)}</script></head><body>
 {top}
 {body}
 {bottom}
-<script src="/assets/tenders.js" defer></script>{menu_js}{CHAT}</body></html>"""
+<script src="/assets/tenders.js" defer></script>{'<script src="/assets/spain.js" defer></script>' if 'id="f-lvl"' in body else ""}{menu_js}{CHAT}</body></html>"""
 
 
 def ask_bar(lang):
@@ -316,7 +317,7 @@ def i18n_js():
 
 
 JS = r"""(function(){
-var box=document.getElementById('finder');if(!box)return;
+var box=document.getElementById('finder');if(!box||!document.getElementById('f-src'))return;
 var L=box.getAttribute('data-lang')||'en',T=__I18N__[L],$=function(i){return document.getElementById(i)};
 var src=$('f-src'),q=$('f-q'),nat=$('f-nat'),cpv=$('f-cpv'),dl=$('f-dl'),val=$('f-val'),list=$('list'),count=$('count'),more=$('more'),empty=$('empty');
 var SUPPORT=__SUPPORT__,data=[],shown=0,rows=[],cache={};
@@ -416,7 +417,7 @@ def main():
     stats = json.loads((DATA / "stats.json").read_text(encoding="utf-8"))
     eu = json.loads((DATA / "eu.json").read_text(encoding="utf-8"))
     upd = datetime.fromisoformat(stats["updated"]).date()
-    for old in ("tender", "country", "closing-soon", "es", "assets"):
+    for old in ("tender", "country", "closing-soon", "es", "assets", "spain"):
         shutil.rmtree(SITE / old, ignore_errors=True)
     (SITE / "assets").mkdir(parents=True, exist_ok=True)
     (SITE / "assets" / "tenders.js").write_text(JS.replace("__I18N__", i18n_js()).replace("__SUPPORT__", json.dumps(call_pages.SUPPORT_FORM)), encoding="utf-8")
@@ -427,6 +428,10 @@ def main():
         f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(html, encoding="utf-8")
         urls.append(path)
+
+    sp_stats = build_spain.build(write, page, None, dict(
+        T=T, MON=MON, money=money, fdate=fdate, cpv_label=cpv_label, CPV=CPV, base=BASE, data_dir=DATA, site_dir=SITE,
+        support=call_pages.SUPPORT_FORM, help_url=lambda ref, path: help_url(ref, path)))
 
     soon15 = (upd + timedelta(days=15)).isoformat()
     soon30 = (upd + timedelta(days=30)).isoformat()
@@ -460,7 +465,7 @@ def main():
               "creator": B.ORG_REF, "license": "https://eur-lex.europa.eu/eli/dec/2011/833/oj", "dateModified": stats["updated"],
               "isBasedOn": ["https://ec.europa.eu/info/funding-tenders/opportunities/portal/", "https://ted.europa.eu/"],
               "distribution": [{"@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": BASE + "/data/eu.json"}]}
-        write(t["home"], page(lang, title, desc, t["home"], hero + finder(lang, stats, "ESP" if lang == "es" and "ESP" in countries else "EU") + tail, T["es" if lang == "en" else "en"]["home"], ld))
+        write(t["home"], page(lang, title, desc, t["home"], hero + build_spain.spain_band(lang, sp_stats, fdate) + finder(lang, stats, "ESP" if lang == "es" and "ESP" in countries else "EU") + tail, T["es" if lang == "en" else "en"]["home"], ld))
 
         # EU institutions page + country pages
         other = T["es" if lang == "en" else "en"]
@@ -487,6 +492,7 @@ def main():
         f"# EU Tenders · Ullswater Investments\n\n> Open public tenders in Europe, updated daily ({stats['updated'][:10]}): {stats['eu']:,} tenders of the EU institutions and agencies "
         f"(EU Funding & Tenders Portal) and {stats['ted']:,} national tenders from TED. Compiled by Ullswater Investments S.L., EU funding advisors in Madrid and Brussels ({MAIN}/).\n\n"
         f"- [Tender Finder]({BASE}/) · [Spanish]({BASE}/es/)\n- [EU-institution tenders]({BASE}/country/eu/) · [JSON]({BASE}/data/eu.json)\n"
+        f"- [Public tenders in Spain by level of government (State, regions, diputaciones, comarcas, town councils)]({BASE}/spain/) · [Spanish]({BASE}/es/espana/) · [JSON]({BASE}/data/es/spain.json)\n"
         f"- [Closing in 15 days]({BASE}/closing-soon/)\n- Countries: {top}\n- National tenders as JSON: {BASE}/data/ted/<ISO3>.json (e.g. ESP)\n"
         f"- Statistics: {BASE}/data/stats.json\n- EU grants (not tenders): {CALLS}/\n", encoding="utf-8")
     key = (ROOT / "content" / "indexnow_key.txt").read_text().strip()

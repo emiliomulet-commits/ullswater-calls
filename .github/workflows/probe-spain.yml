@@ -9,14 +9,23 @@ on:
 jobs:
   probe:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Reachability
+        run: |
+          for u in https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3.atom https://contrataciondelestado.es/sindicacion/sindicacion_643/licitacionesPerfilesContratanteCompleto3.atom https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_1044/PlataformasAgregadasSinMenores.atom; do
+            curl -sS -m 60 -o /tmp/f.atom -w "%{http_code} %{size_download} %{time_total}s $u\n" -A "UllswaterTendersBot/1.0" "$u" || echo "FAIL $u"
+            head -c 600 /tmp/f.atom; echo; grep -o '<link[^>]*rel="next"[^>]*>' /tmp/f.atom | head -1; grep -c "<entry" /tmp/f.atom
+          done
       - name: Probe (a few pages of each feed)
+        timeout-minutes: 15
         env:
           SPAIN_PROBE: "1"
+          PYTHONUNBUFFERED: "1"
           SPAIN_DAYS_BACK: "2"
           SPAIN_MAX_PAGES: "8"
         run: python tenders/fetch_spain.py
