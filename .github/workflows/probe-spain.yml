@@ -18,11 +18,11 @@ jobs:
       - name: Zip names and gzip
         run: |
           B=https://contrataciondelsectorpublico.gob.es/sindicacion/sindicacion_643
-          curl -sS -m 60 "$B/licitacionesPerfilesContratanteCompleto3_202611.zip" | head -c 400; echo
-          for f in licitacionesPerfilesContratanteCompleto3_202610.zip licitacionesPerfilesContratanteCompleto3_2025.zip; do curl -sS -o /dev/null -m 60 -w "%{http_code} %{size_download} $f\n" -r 0-1000 "$B/$f"; done
-          curl -sS -m 60 "https://contrataciondelsectorpublico.gob.es/wps/portal/plataforma/datos_abiertos/datos_abiertos_listado" | grep -o 'href="[^"]*\.zip"' | head -10 || true
-          curl -sS -o /dev/null -m 120 -H "Accept-Encoding: gzip" -D - -w "gzip: %{size_download} bytes %{time_total}s\n" "$B/licitacionesPerfilesContratanteCompleto3.atom" | grep -i "content-encoding\|gzip:\|HTTP/"
-          curl -sS -o /dev/null -m 120 -w "plain: %{size_download} bytes %{time_total}s\n" "$B/licitacionesPerfilesContratanteCompleto3.atom"
+          curl -sS -A "UllswaterTendersBot/1.0 (+https://tenders.ullswaterinvestments.com)" -m 60 "$B/licitacionesPerfilesContratanteCompleto3_202611.zip" | head -c 400; echo
+          for f in licitacionesPerfilesContratanteCompleto3_202610.zip licitacionesPerfilesContratanteCompleto3_2025.zip; do curl -sS -A "UllswaterTendersBot/1.0 (+https://tenders.ullswaterinvestments.com)" -o /dev/null -m 60 -w "%{http_code} %{size_download} $f\n" -I "$B/$f"; done
+          curl -sS -A "UllswaterTendersBot/1.0 (+https://tenders.ullswaterinvestments.com)" -m 60 "https://contrataciondelsectorpublico.gob.es/wps/portal/plataforma/datos_abiertos/datos_abiertos_listado" | grep -o 'href="[^"]*\.zip"' | head -10 || true
+          curl -sS -A "UllswaterTendersBot/1.0 (+https://tenders.ullswaterinvestments.com)" -o /dev/null -m 120 -H "Accept-Encoding: gzip" -D - -w "gzip: %{size_download} bytes %{time_total}s\n" "$B/licitacionesPerfilesContratanteCompleto3.atom" | grep -i "content-encoding\|gzip:\|HTTP/"
+          curl -sS -A "UllswaterTendersBot/1.0 (+https://tenders.ullswaterinvestments.com)" -o /dev/null -m 120 -w "plain: %{size_download} bytes %{time_total}s\n" "$B/licitacionesPerfilesContratanteCompleto3.atom"
       - name: Probe (a few pages of each feed)
         if: false
         timeout-minutes: 15
