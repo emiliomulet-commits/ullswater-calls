@@ -150,7 +150,7 @@ def fetch_eu(today):
             "deadline": future[0] if future else None,
             "planned": planned if re.match(r"\d{4}-\d{2}-\d{2}", planned) else None,
             "value": value,
-            "currency": first(m, "cftEstimatedOverallContractCurrency") or ("EUR" if value else None),
+            "currency": (first(m, "cftEstimatedOverallContractCurrency") or "EUR") if value else None,
             "lots": nlots or None,
             "summary": strip_html(first(m, "description"), 600),
             "lang": first(m, "language"),
@@ -206,6 +206,13 @@ def one(v):
     return v
 
 
+def clean_title(t):
+    """TED titles read 'Country – CPV label – Buyer's own title': keep the buyer's title."""
+    t = re.sub(r"\s+", " ", t or "").strip()
+    parts = t.split(" – ", 2)
+    return parts[2] if len(parts) == 3 and len(parts[2]) > 8 else t
+
+
 def ted_record(n, today):
     pub = n.get("publication-number", "")
     dls = sorted({str(x)[:10] for x in (n.get("deadline-receipt-tender-date-lot") or []) if str(x)[:10] >= today})
@@ -227,7 +234,7 @@ def ted_record(n, today):
     except (TypeError, ValueError):
         val = None
     rec = {
-        "id": pub, "src": "ted", "title": re.sub(r"\s+", " ", title).strip()[:300],
+        "id": pub, "src": "ted", "title": clean_title(title)[:300],
         "buyer": re.sub(r"\s+", " ", buyer).strip()[:160], "city": (one(n.get("buyer-city")) or "")[:60] if isinstance(one(n.get("buyer-city")), str) else "",
         "country": country, "status": "open",
         "nature": TED_NATURE.get(str(one(n.get("contract-nature-main-proc")) or ""), ""),
@@ -238,7 +245,9 @@ def ted_record(n, today):
         "url": f"https://ted.europa.eu/en/notice/-/detail/{pub}",
     }
     if title_es and title_es != title:
-        rec["title_es"] = re.sub(r"\s+", " ", title_es).strip()[:300]
+        rec["title_es"] = clean_title(title_es)[:300]
+    if rec.get("title_es") == rec["title"]:
+        rec.pop("title_es")
     if isinstance(rec["city"], list):
         rec["city"] = ""
     return rec
