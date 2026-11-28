@@ -50,7 +50,12 @@ def candidates(n):
     url, picked, pages, per_type = S.FEED, [], 0, {}
     cap = max(1, math.ceil(n / 3))
     seen_buyers = set()
-    while url and pages < 25 and len(picked) < n:
+    vmin = float(os.environ.get("FICHA_MIN_VALUE") or 0)  # scale mode: every open tender from this amount up, no variety rule
+    vmax = float("inf") if vmin else 20_000_000
+    vmin = vmin or 40_000
+    scale = bool(os.environ.get("FICHA_MIN_VALUE"))
+    min_days = int(os.environ.get("FICHA_MIN_DAYS") or 10)
+    while url and pages < (400 if scale else 25) and len(picked) < n:
         raw, _, _ = S.get(url); pages += 1
         root = ET.fromstring(raw)
         for entry in (e for e in root if S.local(e.tag) == "entry"):
@@ -61,7 +66,7 @@ def candidates(n):
             if (ROOT / "tenders" / "fichas" / eid / "ficha.json").exists():
                 continue
             dl = S.first(cfs, "EndDate")[:10]
-            if not dl or dl < (date.today() + timedelta(days=10)).isoformat():
+            if not dl or dl < (date.today() + timedelta(days=min_days)).isoformat():
                 continue
             ds = S.docs_of(cfs)
             if "Legal" not in {d["kind"] for d in ds}:
@@ -70,10 +75,10 @@ def candidates(n):
                 v = float(S.first(cfs, "TaxExclusiveAmount") or 0)
             except ValueError:
                 v = 0
-            if not 40_000 <= v <= 20_000_000:
+            if not vmin <= v <= vmax:
                 continue
             tc, buyer = S.first(cfs, "TypeCode"), S.buyer_of(cfs)
-            if per_type.get(tc, 0) >= cap or buyer in seen_buyers:
+            if not scale and (per_type.get(tc, 0) >= cap or buyer in seen_buyers):
                 continue
             per_type[tc] = per_type.get(tc, 0) + 1
             seen_buyers.add(buyer)
