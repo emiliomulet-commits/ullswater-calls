@@ -1,0 +1,35 @@
+{
+ "date": "2026-11-28",
+ "model": "claude-sonnet-5-5",
+ "effort": "medium",
+ "batch": true,
+ "tenders": 1,
+ "ok": 1,
+ "cost_usd": 0.28,
+ "cost_eur": 0.26,
+ "avg_cost_eur_per_ok": 0.258,
+ "results": [
+  {
+   "model": "claude-sonnet-5-5",
+   "effort": "medium",
+   "doc_chars": 315945,
+   "doc_pages": 143,
+   "batch_seconds": 181,
+   "input_tokens": 321,
+   "output_tokens": 15152,
+   "cache_creation_input_tokens": 163301,
+   "cache_read_input_tokens": 0,
+   "calls": 1,
+   "rules_check": "21017439: OK · revisar: 6 contradicción(es) entre documentos: revisar",
+   "cost_usd": 0.2802,
+   "seconds": 247,
+   "status": "ok",
+   "problems": [],
+   "not_read": [],
+   "cost_eur": 0.2578,
+   "id": "21017439",
+   "title": "Suministro de gasóleo para calefacción para la Base Discontinua Tte. Flomesta (Melilla). Tramitación anticipada 2027",
+   "buyer": "Jefatura de Asuntos Económicos del CG de la Comandancia Gral. de Melilla"
+  }
+ ]
+}

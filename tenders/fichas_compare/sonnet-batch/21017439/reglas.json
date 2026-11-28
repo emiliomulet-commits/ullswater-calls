@@ -1,0 +1,221 @@
+{
+ "schema": 1,
+ "id": "21017439",
+ "reviewed": "2026-11-28",
+ "title": "Suministro de gasóleo para calefacción a la Base Tte. Flomesta de Melilla",
+ "buyer": "Comandancia General de Melilla (Ministerio de Defensa)",
+ "buyer_key": "Jefatura de Asuntos Económicos del CG de la Comandancia Gral. de Melilla",
+ "province": "Melilla",
+ "cpv": "09134100",
+ "ref": "2026/ETSAE0287/00001402E",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9yNe%2F6qYGw1%2FP7lJ7Fu0SA%3D%3D",
+ "deadline": "2027-06-30",
+ "deadline_time": "08:00",
+ "questions_until": null,
+ "questions_cite": "PCAP p.21",
+ "opening_days": null,
+ "opening_cite": "PCAP p.59",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 2,
+ "judgement_pts": 0,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Lote único: gasóleo para instalaciones (calefacción)",
+   "budget": 180000
+  }
+ ],
+ "lots_cite": "PCAP p.54",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": "Lote único: no hay reparto de lotes.",
+ "lots_rule_cite": "PCAP p.54",
+ "requirements": [
+  {
+   "id": "turnover",
+   "kind": "yesno",
+   "label": "Solvencia económica",
+   "rule": "Volumen anual de negocios del mejor de los 3 últimos ejercicios, sin superar 1,5 veces el valor estimado (600.000 €). El pliego no indica la cifra exacta.",
+   "question": "¿Tu facturación anual en el mejor de los 3 últimos ejercicios es suficiente? Confirma la cifra mínima con el órgano, porque el pliego no la da.",
+   "cite": "PCAP p.59",
+   "proof": "Cuentas anuales depositadas en el Registro Mercantil"
+  },
+  {
+   "id": "similar",
+   "kind": "yesno",
+   "label": "Solvencia técnica",
+   "rule": "Relación de suministros similares (combustible) de los últimos 3 años, con importe, fecha y destinatario. No hay importe mínimo indicado.",
+   "question": "¿Has suministrado combustible o productos petrolíferos en los últimos 3 años y puedes acreditarlo con certificados de clientes?",
+   "cite": "PCAP p.60",
+   "proof": "Certificados de los clientes o declaración con documentos"
+  },
+  {
+   "id": "iso9001",
+   "kind": "yesno",
+   "label": "Certificado de calidad",
+   "rule": "ISO 9001 o equivalente",
+   "question": "¿Tu empresa tiene ISO 9001 (o equivalente) en vigor?",
+   "cite": "PCAP p.60",
+   "proof": "Certificado ISO 9001 en vigor"
+  },
+  {
+   "id": "iso14001",
+   "kind": "yesno",
+   "label": "Gestión medioambiental",
+   "rule": "ISO 14001 o equivalente, que además es condición especial de ejecución",
+   "question": "¿Tu empresa tiene ISO 14001 (o equivalente) en vigor?",
+   "cite": "PCAP p.60 · PCAP p.68",
+   "proof": "Certificado ISO 14001 en vigor"
+  },
+  {
+   "id": "transport",
+   "kind": "yesno",
+   "label": "Transporte y entrega",
+   "rule": "Camiones cisterna con ADR y contador volumétrico homologado con registrador; entrega en Melilla con aviso de 12 horas",
+   "question": "¿Puedes entregar en Melilla con cisternas que cumplan el ADR y lleven contador volumétrico homologado?",
+   "cite": "PPT p.2–3",
+   "proof": "Documentación ADR y certificado de homologación del contador"
+  },
+  {
+   "id": "adscription",
+   "kind": "yesno",
+   "label": "Adscripción de medios",
+   "rule": "Compromiso firmado de dedicar los medios personales y materiales necesarios (Anexo V)",
+   "question": "¿Puedes comprometerte a mantener los medios necesarios durante todo el contrato?",
+   "cite": "PCAP p.60",
+   "proof": "Anexo V firmado y, si se pide, relación de medios"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": "",
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Precio: porcentaje de descuento sobre el Weekly Oil Bulletin",
+   "pts": 100,
+   "formula": "linear_min",
+   "floor_pct": 25,
+   "how": "Los 100 puntos son para el mayor descuento. Se reparte de forma lineal entre el presupuesto (0 puntos) y el menor entre la mejor oferta y el 75 % del presupuesto, que es el valor de referencia.",
+   "cite": "PCAP p.61–62",
+   "note": "La fórmula usa precios en euros mientras la oferta es un porcentaje de descuento. Hemos asumido que el descuento se traduce en precio proporcional; conviene preguntarlo."
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 15,
+  "single_pct": 30,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.63–65",
+  "note": "Con 3 o más licitadores: más de 15 puntos por debajo de la media. Con un solo licitador: más de 30 puntos por debajo del presupuesto. Con dos: más de 20 puntos por debajo de la otra oferta."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": 12,
+  "note": "Estimación nuestra de las horas para preparar los 2 sobres y la documentación posterior; el pliego no da cifra."
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 0,
+  "cite": "PCAP p.34 · PCAP p.67",
+  "note": "El Anexo I cita 25.000 €, pero el 5 % de 180.000 € son 9.000 €."
+ },
+ "risk_flags": [
+  {
+   "id": "volume",
+   "label": "El presupuesto no garantiza compras: solo se cobra lo que pida la Unidad según sus necesidades",
+   "cite": "PCAP p.56 · PCAP p.70",
+   "weight": 4
+  },
+  {
+   "id": "resolution",
+   "label": "Incumplir los medios adscritos, las condiciones medioambientales o las obligaciones laborales lleva a la resolución",
+   "cite": "PCAP p.69",
+   "weight": 3
+  },
+  {
+   "id": "penalties",
+   "label": "Penalidad por demora de 0,60 € por cada 1.000 € del precio y día; aviso previo de 12 horas y entrega en menos de 72 horas",
+   "cite": "PCAP p.69 · PPT p.3",
+   "weight": 3
+  },
+  {
+   "id": "discard",
+   "label": "La oferta se descarta si el descuento deja el precio por encima del precio del surtidor ese día",
+   "cite": "PCAP p.62",
+   "weight": 2
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se admite con compromiso de la otra entidad (Anexo VII)",
+  "ute": true,
+  "subcontracting": "Hasta el 30 % del importe del contrato",
+  "cite": "PCAP p.16 · PCAP p.29 · PCAP p.71"
+ },
+ "specific_checks": [
+  {
+   "text": "El descuento tiene como máximo 2 decimales y se expresa en el Anexo II",
+   "cite": "PCAP p.62 · PCAP p.76"
+  },
+  {
+   "text": "No metas la oferta económica en el sobre 1: se excluye la oferta",
+   "cite": "PCAP p.24"
+  },
+  {
+   "text": "Hay que presentar la oferta por la Plataforma con certificado electrónico, con el alta completa en la Plataforma",
+   "cite": "PCAP p.20"
+  },
+  {
+   "text": "Los certificados ISO 9001 e ISO 14001 (o equivalentes) deben estar en vigor",
+   "cite": "PCAP p.60"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -8,
+   "task": "Prepara el DEUC, el Anexo IV (grupo), el Anexo V (adscripción de medios) y el Anexo VI (sobre 1)",
+   "cite": "PCAP p.21–23",
+   "help": "Borrador del DEUC (próximamente)"
+  },
+  {
+   "when": -5,
+   "task": "Calcula tu descuento máximo y rellena el Anexo II (sobre 3)",
+   "cite": "PCAP p.61–62 · PCAP p.76",
+   "help": "Rebaja recomendada"
+  },
+  {
+   "when": -3,
+   "task": "Reúne ISO 9001, ISO 14001, certificados de suministros previos y cuentas anuales para el requerimiento posterior",
+   "cite": "PCAP p.28–31",
+   "help": "Lo que te falta según este diagnóstico"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "El plazo de ofertas del anuncio (30/06/2027 08:00) coincide con el fin del contrato y parece erróneo; confirmar la fecha real",
+   "cite": "PCAP p.58"
+  },
+  {
+   "text": "La garantía definitiva aparece como 5 % (25.000 €), pero el 5 % de 180.000 € son 9.000 €",
+   "cite": "PCAP p.67 · PCAP p.34"
+  },
+  {
+   "text": "El valor estimado atribuye 420.000 € a una prórroga de 6 meses frente a 180.000 € del periodo inicial",
+   "cite": "PCAP p.56 · PCAP p.58"
+  },
+  {
+   "text": "La fórmula de puntuación usa precios en euros, pero la oferta es un porcentaje de descuento",
+   "cite": "PCAP p.62"
+  },
+  {
+   "text": "El pliego general habla de 3 sobres, pero el Anexo I fija 2",
+   "cite": "PCAP p.21 · PCAP p.66"
+  },
+  {
+   "text": "No se indican las cifras mínimas de solvencia económica ni técnica",
+   "cite": "PCAP p.59–60"
+  }
+ ]
+}
