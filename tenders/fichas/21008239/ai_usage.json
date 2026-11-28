@@ -1,0 +1,25 @@
+{
+ "model": "claude-sonnet-5-5",
+ "effort": "medium",
+ "doc_chars": 520987,
+ "doc_pages": 386,
+ "batch_seconds": 271,
+ "input_tokens": 12217,
+ "output_tokens": 29418,
+ "cache_creation_input_tokens": 225397,
+ "cache_read_input_tokens": 255003,
+ "calls": 2,
+ "rules_check": "21008239: OK · revisar: 3 contradicción(es) entre documentos: revisar",
+ "cost_usd": 0.4538,
+ "seconds": 353,
+ "status": "ok",
+ "problems": [],
+ "not_read": [
+  "ANX5 desde la página 5 de 36",
+  "ANX6 desde la página 1 de 40",
+  "ANX7 desde la página 1 de 9",
+  "ANX8 desde la página 3 de 12",
+  "PPT desde la página 1 de 48"
+ ],
+ "cost_eur": 0.4175
+}

@@ -1,0 +1,102 @@
+{
+ "id": "21017532",
+ "title": "Aprovechamiento de madera quenada en los montes de utilidad pública afectados por el incendio de la Mierla (Guadalajara)-Lotes 1 a 17",
+ "buyer": "Secretaría General de la Consejería de Desarrollo Sostenible de la Junta de Comunidades de Castilla-La Mancha",
+ "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6%2FRZXn43uK3I8aL3PRS10Q%3D%3D",
+ "docs": [
+  {
+   "kind": "Legal",
+   "name": "PCAPyAnexosEstampillado.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=1QEaTJNDbjQYLaWXnOPvE2HS7UFvUw5R2532HzkxycrcNA7NLa3LrGgoEqgzYl2xjPDaZOdAWyEv9BGhHtjJcnUbJXvrIavuvVhB8rdwDRh7QB3HKyQaFUExmUVQCerk",
+   "file": "01_Legal.pdf",
+   "bytes": 5138075,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261127141900PCAPyAnexosEstampillado.pdf",
+   "codes": [
+    "PCAP"
+   ],
+   "pages": 81
+  },
+  {
+   "kind": "Technical",
+   "name": "pptreducido2.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=p3c4No63GlufFkq2K2avhi5XTt%2B8jCehAQ3QdYjQ7HlEvuvrR0DORDWI6NOdEuZ8fSz6TFvGSiqnkuhJ4hbqPIlJDzBBwpIq8QqrABQLFE4C1/zDIE0Kw/PWNnLS0Z0z",
+   "file": "02_Technical.pdf",
+   "bytes": 22560555,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261127141939pptreducido2.pdf",
+   "codes": [
+    "PPT"
+   ],
+   "pages": 647
+  },
+  {
+   "kind": "Additional",
+   "name": "MEMORIAJUSTIFICATIVALAMIERLAFdo.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=FX/vNmRMDOaa/3Xwk2mvoxlZHnXU9LXzWb5kkH2touDmz30/HWDThIh4wBMJEAkaKBezEysiotSVi3wZk1mbnWyieo7mCCvOxfOKJt8YAEwZyAJWGsSt0OzTSTyw9JAs",
+   "file": "03_Additional.pdf",
+   "bytes": 745280,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261127141952MEMORIAJUSTIFICATIVALAMIERLAFdo.pdf",
+   "codes": [
+    "ANX"
+   ],
+   "pages": 29
+  },
+  {
+   "kind": "Additional",
+   "name": "Anexos.docx",
+   "type": "XML",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=UuQmJkodBcd%2BFYfoIBjHs2JjaTgzd6HUN3xakX4V%2BrWxtU/yooRQvEMl5bVQYUrW0zvprAMWIIxGuZ%2BJ44s/6pT5/odUh0FVyQ/0qjzj/WF7QB3HKyQaFUExmUVQCerk",
+   "file": "04_Additional.zip",
+   "bytes": 53744,
+   "content_type": "application/vnd.openxmlformatsofficedocument.wordprocessingml.document",
+   "disposition": "inline;filename=DOC20261127141903Anexos.docx"
+  },
+  {
+   "kind": "Additional",
+   "name": "INFORMEIFLAMIERLAFdo.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=8GKCYjTMnhqyM/2lqTODzKBliohHX8F0c9N5twAevStmsEUjxeEI%2BYU6n0%2By/4VDKIczfnkOTHhOVrRMqJSaL2QU2AAaurr5oFkNIIyDhHUZyAJWGsSt0OzTSTyw9JAs",
+   "file": "05_Additional.pdf",
+   "bytes": 565353,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261127141947INFORMEIFLAMIERLAFdo.pdf",
+   "codes": [
+    "ANX2"
+   ],
+   "pages": 6
+  },
+  {
+   "kind": "Additional",
+   "name": "ResolucionAprobMierla.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=LHeAgyvOb5s/o5OZaVL31/VVKfEq8c19L34Kvwp11YV0ALY6FEdyX0548749IimgJFGDFK1PVNSS6qZeXiB45YgUzLaan%2BK8yzHP/pOaVDC1aXEvq3KHa/AEHgtDrQw0",
+   "file": "06_Additional.pdf",
+   "bytes": 239265,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261127141950ResolucionAprobMierla.pdf",
+   "codes": [
+    "ANX3"
+   ],
+   "pages": 4
+  },
+  {
+   "kind": "Additional",
+   "name": "ResolucionInicioMierla.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=FZVfsHZrc15/CWKhePv9bCtvjenJnGXwM4v%2BS%2Bp6RPIXcafBhtzRMfd0WWUesi1qQfO%2BJZ1NB2UKKcEAW465LgsMVJZJjnSWKSIPTJ7%2BfK17QB3HKyQaFUExmUVQCerk",
+   "file": "07_Additional.pdf",
+   "bytes": 241215,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261127141948ResolucionInicioMierla.pdf",
+   "codes": [
+    "ANX4"
+   ],
+   "pages": 6
+  }
+ ]
+}

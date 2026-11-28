@@ -1,0 +1,323 @@
+{
+ "schema": 1,
+ "id": "21017437",
+ "reviewed": "2026-11-28",
+ "title": "Pista de atletismo exterior de 200 m en Mula",
+ "buyer": "Ayuntamiento de Mula",
+ "buyer_key": "Junta de Gobierno del Ayuntamiento de Mula",
+ "province": "Murcia",
+ "cpv": "45212200",
+ "ref": "CONT/0052/2026",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=tDYMi2n0jJBLAIVZdUs8KA%3D%3D",
+ "deadline": "2026-12-17",
+ "deadline_time": "23:59",
+ "questions_until": null,
+ "questions_cite": "PCAP p.15",
+ "questions_note": "El pliego no fija plazo de preguntas. Por el art. 138 LCSP, preguntando al menos 12 días antes del cierre (5 de diciembre) deben responder 6 días antes.",
+ "opening_days": null,
+ "opening_cite": "PCAP p.17",
+ "opening_note": "El pliego no indica en cuántos días se abre el sobre.",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 1,
+ "judgement_pts": 0,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Pista de atletismo de 200 m completa (obra única)",
+   "budget": 245497.0,
+   "months": 3
+  }
+ ],
+ "lots_cite": "PCAP p.2 · PCAP p.6–7",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": "Sin lotes: es un contrato único.",
+ "lots_rule_cite": "PCAP p.2",
+ "requirements": [
+  {
+   "id": "turnover",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 1.5,
+   "label": "Solvencia económica",
+   "rule": "Facturación del mejor de los 3 últimos años cerrados de al menos 368.245,50 € (1,5 veces el valor estimado)",
+   "question": "¿Cuál fue tu facturación en tu mejor año entre 2023 y 2025?",
+   "unit": "€",
+   "cite": "PCAP p.8",
+   "proof": "Cuentas anuales u otro justificante del volumen de negocios (el pliego no concreta el documento); o clasificación G-6 categoría 2"
+  },
+  {
+   "id": "similar",
+   "kind": "number_min",
+   "min": 250000,
+   "label": "Solvencia técnica",
+   "rule": "Obras parecidas por al menos 250.000 € en el año de más obra de los últimos 5 (se pueden sumar varias obras)",
+   "question": "¿Cuánto facturaste en obras parecidas (pistas, urbanización, pavimentos deportivos) en tu mejor año de los últimos 5?",
+   "unit": "€",
+   "cite": "PCAP p.9",
+   "proof": "Lista de obras con importe, fecha y cliente, y certificados de buena ejecución; o clasificación G-6 categoría 2",
+   "note": "Empresas de menos de 5 años: alternativa con plantilla media de más de 4 trabajadores y control de calidad propio o contratado"
+  },
+  {
+   "id": "rolece",
+   "kind": "yesno",
+   "label": "Inscripción en el registro de licitadores",
+   "rule": "Estar inscrito en el ROLECE o en el registro autonómico, o haberlo solicitado, al cierre del plazo",
+   "question": "¿Estás inscrito en el ROLECE o en el registro de licitadores de tu comunidad (o lo has solicitado)?",
+   "cite": "PCAP p.10",
+   "proof": "Certificado de inscripción o justificante de la solicitud"
+  },
+  {
+   "id": "insurance",
+   "kind": "yesno",
+   "label": "Seguro de responsabilidad civil",
+   "rule": "Póliza de responsabilidad civil de 300.000 € para la obra",
+   "question": "¿Tienes o puedes contratar un seguro de responsabilidad civil de al menos 300.000 €?",
+   "cite": "PCAP p.23",
+   "proof": "Póliza y recibo"
+  }
+ ],
+ "classification": {
+  "required": false,
+  "group": "G",
+  "subgroup": "6",
+  "category": "2",
+  "note": "No se exige, pero sustituye la solvencia económica y técnica",
+  "cite": "PCAP p.9–10"
+ },
+ "roles": [
+  {
+   "id": "site_tech",
+   "label": "Técnico titulado a pie de obra (ingeniero, ingeniero técnico, arquitecto o arquitecto técnico)",
+   "short": "técnico a pie de obra"
+  }
+ ],
+ "roles_question": "¿Puedes dedicar a jornada completa durante los 3 meses de obra a un ingeniero, ingeniero técnico, arquitecto o arquitecto técnico contratado por tu empresa?",
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica",
+   "pts": 50,
+   "formula": "proportional",
+   "basis": "discount",
+   "exponent": 0.35,
+   "how": "0 puntos si no bajas; 50 para la mayor rebaja que no esté en baja temeraria; el resto, 50 × (tu % de baja ÷ mejor % de baja) elevado a 0,35",
+   "cite": "PCAP p.10–11",
+   "note": "Fórmula sobre porcentajes de baja con exponente 0,35: con la mitad de rebaja que la mejor se obtienen 39,2 puntos. La mejor oferta de referencia excluye las ofertas en baja temeraria."
+  },
+  {
+   "id": "turf",
+   "kind": "choice",
+   "name": "Mejora: césped de mayor calidad sin coste",
+   "pts": 40,
+   "question": "¿Cuántos m² del césped del proyecto (1.240 m²) puedes cambiar gratis por el césped mejorado que pide el pliego?",
+   "options": [
+    {
+     "label": "Ninguno",
+     "pts": 0
+    },
+    {
+     "label": "La mitad (620 m²)",
+     "pts": 19.84
+    },
+    {
+     "label": "1.000 m²",
+     "pts": 32
+    },
+    {
+     "label": "Todo el césped del proyecto (1.240 m²)",
+     "pts": 39.68
+    }
+   ],
+   "how": "0,032 puntos por m² cambiado; tope de 40 puntos (1.250 m²)",
+   "cite": "PCAP p.11–12",
+   "note": "El proyecto solo tiene 1.240 m² de césped (PPT p.101): máximo real 39,68. El pliego valora el m² de mejora en 36,3 € de ejecución material (unos 45.012 € para 1.240 m²)."
+  },
+  {
+   "id": "site_tech",
+   "kind": "choice",
+   "name": "Técnico titulado a pie de obra",
+   "pts": 10,
+   "question": "¿Te comprometes a tener un técnico titulado a jornada completa en la obra durante toda la ejecución?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí, a jornada completa",
+     "pts": 10
+    }
+   ],
+   "how": "10 puntos con el compromiso, acreditado con título y contrato, alta o compromiso de contratación; 0 sin él",
+   "cite": "PCAP p.13–14"
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 10,
+  "single_pct": 25,
+  "two_pct": 20,
+  "three_max_pct": 25,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.14–15",
+  "note": "Art. 85 RGLCAP: 1 oferta, más de 25 puntos porcentuales bajo el presupuesto; 2 ofertas, más de 20 bajo la otra; 3 o más, más de 10 bajo la media (excluyendo ofertas más de 10 por encima). Con 3 ofertas, siempre anormal por encima de 25. Justificación en 5 días hábiles."
+ },
+ "effort": {
+  "kind": "presence",
+  "weeks_per_building": 13,
+  "default_hours_week": 40,
+  "note": "Solo si ofreces el técnico a pie de obra: unas 13 semanas (3 meses) a jornada completa. Preparar la oferta exige además pedir precio del césped mejorado y del pavimento sintético."
+ },
+ "guarantee": {
+  "provisional_pct": null,
+  "definitive_pct": 5,
+  "abnormal_extra_pct": null,
+  "cite": "PCAP p.19"
+ },
+ "risk_flags": [
+  {
+   "id": "turf_cost",
+   "label": "La mejora del césped vale casi 40 puntos pero cuesta dinero: el pliego la valora en unos 45.000 € de ejecución material si se hace entera, y puede reconvertirse en otras unidades",
+   "cite": "PCAP p.11–12",
+   "weight": 3
+  },
+  {
+   "id": "short_term",
+   "label": "Plazo de 3 meses y penalidad de 0,60 € por cada 1.000 € y día de retraso",
+   "cite": "PCAP p.6",
+   "weight": 2
+  },
+  {
+   "id": "live_site",
+   "label": "Obra junto a campos de fútbol en uso, con vallado, accesos y control de polvo a tu cargo como obligación esencial",
+   "cite": "PCAP p.19–20",
+   "weight": 2
+  },
+  {
+   "id": "budget_mismatch",
+   "label": "Descuadres en el presupuesto del proyecto (partidas sin medir y precio del marcaje)",
+   "cite": "PPT p.126 · PPT p.173",
+   "weight": 1
+  },
+  {
+   "id": "credit",
+   "label": "Adjudicación condicionada a que haya crédito, sin indemnización",
+   "cite": "PCAP p.18",
+   "weight": 1
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "El pliego no lo regula; se aplica el art. 75 LCSP",
+  "ute": true,
+  "subcontracting": true,
+  "subcontracting_note": "Se permite subcontratar en parte; hay que indicar en la oferta la parte, su importe y el perfil de los subcontratistas",
+  "cite": "PCAP p.8 · PCAP p.21"
+ },
+ "specific_checks": [
+  {
+   "text": "Debes estar inscrito en el ROLECE o en el registro autonómico (o haberlo solicitado) el día del cierre",
+   "cite": "PCAP p.10"
+  },
+  {
+   "text": "La oferta económica y la de mejora deben copiar literalmente los modelos del pliego, firmados digitalmente",
+   "cite": "PCAP p.11–13"
+  },
+  {
+   "text": "Si ofreces el técnico, incluye en el sobre la declaración, el título y el contrato, alta o compromiso de contratación; si falta, 0 puntos",
+   "cite": "PCAP p.13"
+  },
+  {
+   "text": "Incluye la declaración de ausencia de conflicto de intereses (Anexo I)",
+   "cite": "PCAP p.17 · PCAP p.30"
+  },
+  {
+   "text": "Indica en la oferta la parte que vas a subcontratar",
+   "cite": "PCAP p.21"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -15,
+   "task": "Comprueba tu inscripción en el ROLECE o solicítala ya: debe constar al cierre",
+   "cite": "PCAP p.10",
+   "help": "Enlace a la solicitud del ROLECE"
+  },
+  {
+   "when": -12,
+   "task": "Envía tus preguntas por la Plataforma (tope de la mejora del césped, partidas 5.5–5.7, precio del marcaje)",
+   "cite": "PCAP p.12 · PPT p.173",
+   "help": "Borrador de preguntas según este diagnóstico"
+  },
+  {
+   "when": -10,
+   "task": "Pide precio a proveedores del césped mejorado y del pavimento sintético de 13 mm",
+   "cite": "PCAP p.11–12 · PPT p.179",
+   "help": "Coste de la mejora frente a los puntos que da"
+  },
+  {
+   "when": -7,
+   "task": "Reúne título y contrato, alta o compromiso de contratación del técnico a pie de obra",
+   "cite": "PCAP p.13",
+   "help": "Modelo de compromiso de adscripción"
+  },
+  {
+   "when": -5,
+   "task": "Firma la declaración responsable (o el DEUC) y la declaración de ausencia de conflicto de intereses",
+   "cite": "PCAP p.15–17 · PCAP p.30",
+   "help": "Borrador de la declaración responsable"
+  },
+  {
+   "when": -3,
+   "task": "Redacta la oferta económica y la de mejora copiando los modelos literales, e indica la subcontratación",
+   "cite": "PCAP p.11–13 · PCAP p.21",
+   "help": "Rebaja recomendada"
+  },
+  {
+   "when": -1,
+   "task": "Sube el sobre único firmado a la Plataforma",
+   "cite": "PCAP p.15",
+   "help": "Guía de presentación de la Plataforma"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "La mejora del césped tiene tope de 40 puntos (1.250 m²), pero el proyecto solo tiene 1.240 m² (máximo real 39,68)",
+   "cite": "PCAP p.12 · PPT p.101"
+  },
+  {
+   "text": "El plazo de garantía se dice «mejorable por los licitadores», pero no hay criterio ni modelo para ofertarlo",
+   "cite": "PCAP p.28 · PCAP p.10–13"
+  },
+  {
+   "text": "Las partidas 5.5, 5.6 y 5.7 (2.200,00 €) solo aparecen en el presupuesto, no en mediciones ni cuadros de precios",
+   "cite": "PPT p.173 · PPT p.95–96"
+  },
+  {
+   "text": "El marcaje (partida 8.3) vale 5.893,05 € en cifra y 8.093,05 € en letra y en su desglose",
+   "cite": "PPT p.126 · PPT p.150"
+  },
+  {
+   "text": "El total del capítulo 8 es 109.549,56 € en el presupuesto parcial y 107.349,56 € en el resumen",
+   "cite": "PPT p.181 · PPT p.196"
+  },
+  {
+   "text": "Pavimento de las zonas de salto: 110 m² en la memoria y 395 m² en mediciones",
+   "cite": "PPT p.6 · PPT p.100"
+  },
+  {
+   "text": "Recebado de sílice de la partida 8.5: la memoria dice que no lo lleva y las instrucciones de uso que sí",
+   "cite": "PPT p.11 · PPT p.29"
+  },
+  {
+   "text": "Colchoneta de salto de altura: 6 × 4 m frente a 8 × 4 × 0,8 m",
+   "cite": "PPT p.31 · PPT p.102"
+  },
+  {
+   "text": "El complejo se llama «José Soriano Chacón» en el PCAP y «José Soriano Espinosa» en el proyecto",
+   "cite": "PCAP p.20 · PPT p.5"
+  }
+ ]
+}

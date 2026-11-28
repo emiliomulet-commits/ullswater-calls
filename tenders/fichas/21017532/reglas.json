@@ -1,0 +1,339 @@
+{
+ "schema": 1,
+ "id": "21017532",
+ "reviewed": "2026-11-28",
+ "title": "Madera quemada de La Mierla (Guadalajara): lotes 1 a 17",
+ "buyer": "Junta de Comunidades de Castilla-La Mancha (Consejería de Desarrollo Sostenible)",
+ "buyer_key": "Secretaría General de la Consejería de Desarrollo Sostenible de la Junta de Comunidades de Castilla-La Mancha",
+ "province": "Guadalajara",
+ "cpv": "03410000",
+ "ref": "2026-043229 (I y II)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6%2FRZXn43uK3I8aL3PRS10Q%3D%3D",
+ "deadline": "2026-12-17",
+ "deadline_time": "23:59",
+ "questions_until": "2026-12-11",
+ "questions_cite": "PCAP p.38",
+ "opening_days": null,
+ "opening_cite": "PCAP p.51",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 2,
+ "judgement_pts": 0,
+ "auction_direction": "up",
+ "auction_note": "Subasta al alza: la empresa paga a la Administración; gana la oferta más alta y no se admiten ofertas por debajo del precio mínimo. PCAP p.12 · PCAP p.50",
+ "lots": [
+  {
+   "n": 1,
+   "label": "Fraguas (Monasterio), 18.538,93 m³ a 13 €/m³",
+   "budget": 241006.14,
+   "months": 12
+  },
+  {
+   "n": 2,
+   "label": "Muriel Sacedoncillo (Tamajón), 15.995,70 m³ a 11 €/m³",
+   "budget": 175952.75,
+   "months": 12
+  },
+  {
+   "n": 3,
+   "label": "Robredarcas y otros (Semillas), 17.087,70 m³ a 12 €/m³",
+   "budget": 205052.42,
+   "months": 12
+  },
+  {
+   "n": 4,
+   "label": "Jocar (Arbancón), 15.592,99 m³ a 12 €/m³",
+   "budget": 187115.86,
+   "months": 12
+  },
+  {
+   "n": 5,
+   "label": "Las Cabezadas y El Reajo, 4.785,68 m³ a 13 €/m³",
+   "budget": 62213.84,
+   "months": 12
+  },
+  {
+   "n": 6,
+   "label": "Jocar (Arbancón), 13.815,36 m³ a 13 €/m³",
+   "budget": 179599.72,
+   "months": 12
+  },
+  {
+   "n": 7,
+   "label": "Robredarcas y otros (Semillas), 14.656,77 m³ a 12 €/m³",
+   "budget": 175881.24,
+   "months": 12
+  },
+  {
+   "n": 8,
+   "label": "Valsordo (Albendiego), 9.494,45 m³ a 9 €/m³",
+   "budget": 85450.06,
+   "months": 12
+  },
+  {
+   "n": 9,
+   "label": "Robredarcas y otros (Semillas), 13.788,19 m³ a 10 €/m³",
+   "budget": 137881.86,
+   "months": 12
+  },
+  {
+   "n": 10,
+   "label": "Almiruete (Tamajón), 4.548,20 m³ a 12 €/m³",
+   "budget": 54578.4,
+   "months": 12
+  },
+  {
+   "n": 11,
+   "label": "Las Cabezadas y Solana de Valdetrillo, 28.475,88 m³ a 8 €/m³",
+   "budget": 227807.03,
+   "months": 12
+  },
+  {
+   "n": 12,
+   "label": "Las Navas y otros (Miedes de Atienza), 18.171,71 m³ a 8 €/m³",
+   "budget": 145373.7,
+   "months": 12
+  },
+  {
+   "n": 13,
+   "label": "Agua Fría (Zarzuela de Jadraque), 6.941,35 m³ a 12 €/m³",
+   "budget": 83296.21,
+   "months": 12
+  },
+  {
+   "n": 14,
+   "label": "Agua Fría (Zarzuela de Jadraque), 8.186,87 m³ a 12 €/m³",
+   "budget": 98242.39,
+   "months": 12
+  },
+  {
+   "n": 15,
+   "label": "La Mierla, 3.327,37 m³ a 12 €/m³",
+   "budget": 39928.49,
+   "months": 12
+  },
+  {
+   "n": 16,
+   "label": "Pinar y Dehesa (Condemios de Abajo), 1.996,37 m³ a 12 €/m³",
+   "budget": 23956.4,
+   "months": 12
+  },
+  {
+   "n": 17,
+   "label": "La Matilla de Miedes, 12.494,16 m³ a 7 €/m³",
+   "budget": 87459.1,
+   "months": 12
+  }
+ ],
+ "lots_cite": "PCAP p.5–22",
+ "max_lots_award": 17,
+ "max_lots_per_team": 17,
+ "lots_rule": "No hay límite de lotes ganados. Si ganas varios, acreditas la solvencia por la suma de todos.",
+ "lots_rule_cite": "PCAP p.10 · PCAP p.44",
+ "requirements": [
+  {
+   "id": "similar",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 0.7,
+   "label": "Solvencia técnica",
+   "rule": "En tu mejor año de los últimos 3 años completos, trabajos forestales similares ejecutados por al menos el 70 % del precio mínimo del lote. Si optas a varios lotes, se suman.",
+   "question": "¿Cuánto facturaste en tu mejor año de los últimos 3 años en aprovechamientos forestales similares (corta y extracción de madera)?",
+   "unit": "€",
+   "cite": "PCAP p.42–44",
+   "proof": "Certificados de buena ejecución con importe, fechas y lugar"
+  },
+  {
+   "id": "insurance",
+   "kind": "yesno",
+   "label": "Seguro de indemnización por riesgos profesionales",
+   "rule": "Seguro de 250.000 €, con compromiso de renovarlo durante todo el contrato",
+   "question": "¿Tienes un seguro de riesgos profesionales y responsabilidad civil de al menos 250.000 € que puedas mantener 12 meses?",
+   "cite": "PCAP p.42 · ANX p.25",
+   "proof": "Certificado del asegurador con importes, riesgos y vencimiento"
+  },
+  {
+   "id": "traceability",
+   "kind": "yesno",
+   "label": "Herramienta de trazabilidad",
+   "rule": "Herramienta automática de órdenes de carga, fichero diario, ficha mensual y fotos geolocalizadas; se declara al pedir la licencia",
+   "question": "¿Tienes (o puedes contratar) una herramienta que avise de cada carga antes de salir del cargadero y haga fotos con coordenadas y hora en monte y en fábrica?",
+   "cite": "PPT p.4–6",
+   "proof": "Declaración responsable con la herramienta y la versión"
+  },
+  {
+   "id": "crew",
+   "kind": "yesno",
+   "label": "Medios humanos y maquinaria",
+   "rule": "Al menos dos operarios a la vez en el tajo y maquinaria que se somete a aprobación previa de la Administración",
+   "question": "¿Tienes personal y maquinaria propios (procesadora, autocargador, saca) para trabajar con al menos dos operarios a la vez en terreno de monte?",
+   "cite": "PPT p.6 · PCAP p.41 · PCAP p.65",
+   "proof": "Relación de maquinaria y personal para aprobación en el acta de entrega"
+  },
+  {
+   "id": "provisional",
+   "kind": "yesno",
+   "label": "Liquidez para garantía y pago",
+   "rule": "Garantía provisional del 3 % para ofertar y pago íntegro del precio más IVA antes de empezar",
+   "question": "¿Puedes depositar el 3 % del precio mínimo de los lotes elegidos y, si ganas, pagar el precio completo más IVA en 20 días hábiles?",
+   "cite": "PCAP p.35 · PCAP p.45",
+   "proof": "Resguardo de la Caja General de Depósitos (modelos 801/802) y pago por modelo 046"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica (precio al alza)",
+   "pts": 100,
+   "formula": "proportional",
+   "direction": "up",
+   "floor": "budget",
+   "how": "La oferta más alta admitida recibe 100 puntos y la que coincide con el precio mínimo, 0; las intermedias, en proporción. Si nadie supera el mínimo, todas reciben 100 y se aplica el desempate.",
+   "cite": "PCAP p.50 · ANX p.14",
+   "note": "Se puntúa cada lote por separado. La fórmula es 100 × (tu oferta − precio mínimo) ÷ (oferta más alta − precio mínimo); no hay tope de rebaja, porque la oferta sube."
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": null,
+  "single_pct": null,
+  "accept_rate": null,
+  "cite": "PCAP p.32",
+  "note": "No procede baja anormal: la Junta ingresa dinero. Lo que se rechaza son ofertas por debajo del precio mínimo del lote (PCAP p.12)."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": null,
+  "note": "El pliego no indica horas; dependen del tamaño del lote (de 1.996 a 28.476 m³) y de los 12 meses de plazo. Hay que sumar la gestión diaria de trazabilidad (fichero diario y ficha mensual)."
+ },
+ "guarantee": {
+  "provisional_pct": 3,
+  "definitive_pct": 5,
+  "abnormal_extra_pct": null,
+  "cite": "PCAP p.45 · PCAP p.53"
+ },
+ "risk_flags": [
+  {
+   "id": "upfront",
+   "label": "Pago íntegro del precio más IVA antes de la licencia, sin aplazar",
+   "cite": "PCAP p.35",
+   "weight": 4
+  },
+  {
+   "id": "volume",
+   "label": "Volumen estimado no vinculante y riesgo y ventura del adjudicatario",
+   "cite": "PPT p.2 · PCAP p.63",
+   "weight": 3
+  },
+  {
+   "id": "traceability",
+   "label": "Trazabilidad digital obligatoria y penalidades por fallos",
+   "cite": "PPT p.4–6 · PCAP p.67",
+   "weight": 3
+  },
+  {
+   "id": "deadline",
+   "label": "Plazos de saca de 20 o 60 días y 12 meses sin prórroga ordinaria",
+   "cite": "PPT p.8 · PCAP p.11",
+   "weight": 3
+  },
+  {
+   "id": "provisional",
+   "label": "Garantía provisional del 3 % y pérdida de la misma si no presentas la documentación",
+   "cite": "PCAP p.45 · PCAP p.56",
+   "weight": 2
+  }
+ ],
+ "solvency_paths": {
+  "integration": null,
+  "integration_note": "El pliego no lo indica",
+  "ute": true,
+  "subcontracting": false,
+  "cite": "PCAP p.40 · PCAP p.63"
+ },
+ "specific_checks": [
+  {
+   "text": "Dar de alta tu empresa en la plataforma de notificaciones de la Junta antes del cierre; sin ello no recibirás avisos",
+   "cite": "PCAP p.36"
+  },
+  {
+   "text": "El importe ofertado no puede ser inferior al precio mínimo del lote ni condicionado ni sin cifra concreta",
+   "cite": "PCAP p.12 · PCAP p.50"
+  },
+  {
+   "text": "No presentar más de una proposición ni ir en UTE si ya ofertas por separado",
+   "cite": "PCAP p.39"
+  },
+  {
+   "text": "La garantía provisional debe estar constituida y justificada en el sobre 1 antes del cierre",
+   "cite": "PCAP p.46"
+  },
+  {
+   "text": "Los 12 meses y la prohibición de subcontratar obligan a tener medios propios",
+   "cite": "PCAP p.63"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -12,
+   "task": "Registrarte en la Plataforma y en la plataforma de notificaciones de la Junta; añade la licitación a «Mis licitaciones»",
+   "cite": "PCAP p.36 · PCAP p.47",
+   "help": "Alta necesaria antes del cierre"
+  },
+  {
+   "when": -10,
+   "task": "Pedir al banco o aseguradora el aval o seguro de caución de la garantía provisional (3 %) y tramitar el depósito (modelos 801/802)",
+   "cite": "PCAP p.45–46",
+   "help": "Importe de garantía por lote elegido"
+  },
+  {
+   "when": -7,
+   "task": "Firmar la declaración responsable (Anexo I) y, si procede, Anexo II y compromiso de UTE (Anexo IV) (sobre 1)",
+   "cite": "PCAP p.48–49",
+   "help": "Borrador de declaración responsable"
+  },
+  {
+   "when": -6,
+   "task": "Último día para hacer preguntas por la Plataforma (11 de diciembre)",
+   "cite": "PCAP p.38",
+   "help": "Preguntas sugeridas sobre las incoherencias"
+  },
+  {
+   "when": -4,
+   "task": "Preparar la relación de trabajos, los certificados de buena ejecución y el certificado del seguro (se piden si ganas, en 10 días hábiles)",
+   "cite": "PCAP p.42–44 · PCAP p.55",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -2,
+   "task": "Rellenar y firmar el Anexo III de cada lote con tu oferta (por encima del mínimo, dos decimales) y subirlo al sobre 3",
+   "cite": "PCAP p.49–50",
+   "help": "Precio máximo que te sale a cuenta por lote"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "El valor estimado del anuncio (2.161.695,61 €) no coincide con la suma de los precios mínimos (2.210.795,61 €) ni con el del PCAP (3.277.697,59 € para los 34 lotes)",
+   "cite": "Anuncio · PCAP p.32"
+  },
+  {
+   "text": "El plazo de 12 meses cuenta desde la formalización (PCAP) o desde la adjudicación firme (PPT)",
+   "cite": "PCAP p.10 · PPT p.1"
+  },
+  {
+   "text": "El pliego exige pago íntegro previo sin fraccionar pero habla de anualidades del precio",
+   "cite": "PCAP p.35 · PCAP p.63"
+  },
+  {
+   "text": "La subcontratación está prohibida en el PCAP, pero la memoria prevé penalidades por medios subcontratados",
+   "cite": "PCAP p.63 · ANX p.18–19"
+  },
+  {
+   "text": "Solo se han revisado los PPT de los lotes 1 a 7 del PCAP; el resto del PPT no estaba disponible y puede contener particularidades por lote",
+   "cite": "PPT p.1–116"
+  }
+ ]
+}

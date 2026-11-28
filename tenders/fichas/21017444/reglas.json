@@ -1,0 +1,491 @@
+{
+ "schema": 1,
+ "id": "21017444",
+ "reviewed": "2026-11-28",
+ "title": "Limpieza (lote 1) y control de plagas (lote 2) de la Universidad Autónoma de Madrid",
+ "buyer": "Universidad Autónoma de Madrid",
+ "buyer_key": "Rectorado de la Universidad Autónoma de Madrid",
+ "province": "Madrid",
+ "cpv": "90911200",
+ "ref": "2027-A-06",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ORBq%2BpaRDU8adbH3CysQuQ%3D%3D",
+ "deadline": "2027-01-07",
+ "deadline_time": "23:59",
+ "questions_until": "2026-12-26",
+ "questions_cite": "PCAP p.9",
+ "opening_days": null,
+ "opening_cite": "El pliego no indica la fecha de apertura",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 2,
+ "judgement_pts": 0,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Limpieza de 27 dependencias (5.694 h/semana)",
+   "budget": 4520661.16,
+   "buildings": 27,
+   "months": 12
+  },
+  {
+   "n": 2,
+   "label": "Desratización, desinsectación y control integrado de plagas",
+   "budget": 12396.69,
+   "months": 12
+  }
+ ],
+ "lots_cite": "PCAP p.39–40",
+ "max_lots_award": 2,
+ "max_lots_per_team": 2,
+ "lots_rule": "Sin límite: puedes presentarte y ganar los 2 lotes, con un sobre por lote.",
+ "lots_rule_cite": "PCAP p.39 · PCAP p.28",
+ "requirements": [
+  {
+   "id": "turnover",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 1.5,
+   "label": "Solvencia económica",
+   "rule": "Facturación del mejor de los 3 últimos ejercicios de al menos 1,5 veces el importe anual del lote: lote 1, 6.780.991,74 €; lote 2, 18.595,04 €",
+   "question": "¿Cuál fue tu facturación en tu mejor año de los 3 últimos ejercicios?",
+   "unit": "€",
+   "cite": "PCAP p.56–57",
+   "proof": "Cuentas anuales depositadas en el Registro Mercantil"
+  },
+  {
+   "id": "similar",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 0.7,
+   "label": "Solvencia técnica",
+   "rule": "Servicios similares en el mejor de los 3 últimos años por al menos el 70 % del importe anual del lote: lote 1, 3.164.462,81 €; lote 2, 8.677,68 €",
+   "question": "¿Cuánto ejecutaste en tu mejor año, de los 3 últimos, en servicios de limpieza (lote 1) o de control de plagas (lote 2)?",
+   "unit": "€",
+   "cite": "PCAP p.57–58",
+   "proof": "Relación de servicios con importes, fechas y destinatarios"
+  },
+  {
+   "id": "iso",
+   "kind": "yesno",
+   "applies_to_lots": [
+    1
+   ],
+   "label": "ISO 9001 e ISO 14001 o EMAS (solo lote 1)",
+   "rule": "Certificados de calidad (ISO 9001) y de gestión ambiental (ISO 14001 o EMAS), o equivalentes",
+   "question": "¿Tienes en vigor ISO 9001 e ISO 14001 (o EMAS) aplicables a limpieza?",
+   "cite": "PCAP p.57",
+   "proof": "Certificados de organismos independientes"
+  },
+  {
+   "id": "roesb",
+   "kind": "yesno",
+   "applies_to_lots": [
+    2
+   ],
+   "label": "Inscripción en el ROESB (solo lote 2)",
+   "rule": "Inscripción vigente en el Registro Oficial de Establecimientos y Servicios Biocidas, válida para actuar en Madrid",
+   "question": "¿Estás inscrito en el ROESB con habilitación para Madrid?",
+   "cite": "PCAP p.60",
+   "proof": "Certificado de inscripción en el ROESB"
+  },
+  {
+   "id": "sensitive",
+   "kind": "yesno",
+   "applies_to_lots": [
+    2
+   ],
+   "label": "Experiencia en instalaciones sensibles (solo lote 2)",
+   "rule": "Al menos un servicio de control de plagas en laboratorios, centros sanitarios, docentes, alimentarios, archivos u otros espacios de complejidad equivalente",
+   "question": "¿Has hecho control de plagas en algún laboratorio, centro sanitario, docente, archivo u otro espacio sensible?",
+   "cite": "PCAP p.58",
+   "proof": "Certificados de las entidades destinatarias"
+  },
+  {
+   "id": "tech_lead",
+   "kind": "yesno",
+   "applies_to_lots": [
+    2
+   ],
+   "label": "Responsable técnico (solo lote 2)",
+   "rule": "Titulación universitaria superior (Biología, Ciencias Ambientales, Farmacia, Química o equivalente) con experiencia en espacios sensibles",
+   "question": "¿Tienes un responsable técnico con esa titulación y experiencia?",
+   "cite": "PCAP p.59",
+   "proof": "Currículo y certificados de las entidades destinatarias"
+  },
+  {
+   "id": "means",
+   "kind": "yesno",
+   "label": "Medios adscritos",
+   "rule": "Lote 1: personal para 5.694 h/semana, 10 mandos intermedios, 2 personas para residuos peligrosos, maquinaria listada y furgón eléctrico de menos de 5 años. Lote 2: personal capacitado y declaración de equipos. Es obligación esencial",
+   "question": "¿Puedes comprometer esos medios para el lote al que te presentas?",
+   "cite": "PCAP p.59–60",
+   "proof": "Compromiso de adscripción y documentación de medios"
+  },
+  {
+   "id": "insurance",
+   "kind": "yesno",
+   "label": "Seguro de responsabilidad civil",
+   "rule": "Lote 1: 1.000.000 €. Lote 2: 300.000 € por siniestro. Debe mantenerse durante la ejecución",
+   "question": "¿Tienes o puedes contratar el seguro de responsabilidad civil con ese capital?",
+   "cite": "PCAP p.57 · PPT p.15",
+   "proof": "Póliza y recibo vigente"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Precio",
+   "pts": 50,
+   "formula": "proportional",
+   "k_pct": null,
+   "single_k_pct": null,
+   "how": "Puntos = (tu baja ÷ la mayor baja) × 50. Con 0 de baja, 0 puntos. En el lote 2 el precio vale 85 puntos",
+   "cite": "PCAP p.53 · PCAP p.55"
+  },
+  {
+   "id": "hours_bag",
+   "kind": "choice",
+   "name": "Bolsa de horas sin coste",
+   "pts": 10,
+   "question": "¿Cuántas horas al año de bolsa gratuita puedes ofrecer?",
+   "options": [
+    {
+     "label": "Ninguna",
+     "pts": 0
+    },
+    {
+     "label": "1.500 h/año",
+     "pts": 3
+    },
+    {
+     "label": "3.000 h/año",
+     "pts": 6
+    },
+    {
+     "label": "4.500 h/año",
+     "pts": 10
+    }
+   ],
+   "cite": "PCAP p.53"
+  },
+  {
+   "id": "vaccine",
+   "kind": "choice",
+   "name": "Vacunación antigripal voluntaria",
+   "pts": 10,
+   "question": "¿Puedes comprometer una campaña anual de vacunación antigripal pagada por la empresa para el personal adscrito?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí",
+     "pts": 10
+    }
+   ],
+   "cite": "PCAP p.53–54"
+  },
+  {
+   "id": "gender",
+   "kind": "choice",
+   "name": "Protocolo contra la violencia de género",
+   "pts": 10,
+   "question": "¿Puedes presentar un protocolo adicional y adaptado al contrato, con canal confidencial y formación anual?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí",
+     "pts": 10
+    }
+   ],
+   "note": "Se valora con fórmula (sí o no), pero exige memoria descriptiva con contenido mínimo. Un protocolo genérico no puntúa.",
+   "cite": "PCAP p.54"
+  },
+  {
+   "id": "vacuums",
+   "kind": "choice",
+   "name": "Aspiradores de agua y polvo adicionales",
+   "pts": 6,
+   "question": "¿Cuántos aspiradores de agua y polvo, además de los 11 exigidos, puedes adscribir?",
+   "options": [
+    {
+     "label": "Ninguno",
+     "pts": 0
+    },
+    {
+     "label": "1",
+     "pts": 1
+    },
+    {
+     "label": "2",
+     "pts": 2
+    },
+    {
+     "label": "3",
+     "pts": 3
+    },
+    {
+     "label": "4",
+     "pts": 4
+    },
+    {
+     "label": "5",
+     "pts": 5
+    },
+    {
+     "label": "6 o más",
+     "pts": 6
+    }
+   ],
+   "cite": "PCAP p.54"
+  },
+  {
+   "id": "platform_upload",
+   "kind": "choice",
+   "name": "Plataforma: carga diaria con foto",
+   "pts": 5,
+   "question": "¿Puedes ofrecer una plataforma con carga el mismo día, foto fechada y consulta en tiempo real?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí",
+     "pts": 5
+    }
+   ],
+   "cite": "PCAP p.54"
+  },
+  {
+   "id": "platform_incidents",
+   "kind": "choice",
+   "name": "Plataforma: incidencias de los centros",
+   "pts": 5,
+   "question": "¿Puedes dar acceso a los administradores gerentes para registrar incidencias, con aviso automático?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí",
+     "pts": 5
+    }
+   ],
+   "cite": "PCAP p.54"
+  },
+  {
+   "id": "dispensers",
+   "kind": "choice",
+   "name": "Sustitución de dispensadores y escobillas",
+   "pts": 4,
+   "question": "¿Aceptas sustituir sin coste, al terminar el contrato, dispensadores y escobillas deteriorados?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí",
+     "pts": 4
+    }
+   ],
+   "cite": "PCAP p.54"
+  }
+ ],
+ "criteria_by_lot": {
+  "2": [
+   {
+    "id": "price2",
+    "kind": "price",
+    "name": "Precio (lote 2)",
+    "pts": 85,
+    "formula": "proportional",
+    "how": "Puntos = (tu baja ÷ la mayor baja) × 85",
+    "cite": "PCAP p.55"
+   },
+   {
+    "id": "guard24",
+    "kind": "choice",
+    "name": "Guardia 24 horas los 365 días",
+    "pts": 15,
+    "question": "¿Puedes ofrecer un servicio de guardia 24 h todos los días del año para urgencias de desinfección?",
+    "options": [
+     {
+      "label": "No",
+      "pts": 0
+     },
+     {
+      "label": "Sí",
+      "pts": 15
+     }
+    ],
+    "cite": "PCAP p.55"
+   }
+  ]
+ },
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 10,
+  "single_pct": null,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.25",
+  "note": "El PCAP remite al art. 85 del RGLCAP sin dar cifras. Los 10 puntos porcentuales sobre la media son nuestra lectura de ese artículo y no figuran en el pliego. Conviene confirmarlo con la UAM."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": 296088,
+  "note": "Lote 1: 5.694 horas semanales (296.088 horas retribuidas al año). Lote 2: visitas cada 15 días y dos por semana de abril a junio",
+  "cite": "PCAP p.39 · PPT p.32"
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 0,
+  "cite": "PCAP p.56"
+ },
+ "risk_flags": [
+  {
+   "id": "hours_deduction",
+   "label": "Deducción de la factura por horas no recuperadas, además de penalidades",
+   "cite": "PCAP p.49–50 · PCAP p.48",
+   "weight": 3
+  },
+  {
+   "id": "subrogation",
+   "label": "Subrogación de plantilla sin datos de número ni coste (Anexo VI en blanco)",
+   "cite": "PCAP p.42 · PCAP p.69",
+   "weight": 3
+  },
+  {
+   "id": "essential",
+   "label": "Medios adscritos y fichaje como obligaciones esenciales, causa de resolución",
+   "cite": "PCAP p.59–61",
+   "weight": 2
+  },
+  {
+   "id": "penalties",
+   "label": "Penalidades hasta el 50 % del precio y multiplicadas por 1,5 o 2 si hay reincidencia",
+   "cite": "PCAP p.47",
+   "weight": 2
+  },
+  {
+   "id": "salary",
+   "label": "Subidas salariales de convenio por cuenta de la empresa, sin revisión de precios",
+   "cite": "PPT p.7–8 · PCAP p.51",
+   "weight": 2
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se admite con compromiso escrito. Para la solvencia económica, el compromiso debe ser solidario",
+  "ute": true,
+  "subcontracting": true,
+  "cite": "PCAP p.22–23 · PCAP p.60"
+ },
+ "specific_checks": [
+  {
+   "text": "Lote 1: tener certificados ISO 9001 e ISO 14001 (o EMAS) vigentes en la fecha de cierre",
+   "cite": "PCAP p.57"
+  },
+  {
+   "text": "Lote 2: tener inscripción vigente en el ROESB válida para Madrid",
+   "cite": "PCAP p.60"
+  },
+  {
+   "text": "El importe de la oferta no puede superar el presupuesto base sin IVA, y el IVA va como partida aparte",
+   "cite": "PCAP p.6 · PCAP p.53"
+  },
+  {
+   "text": "Presentar un sobre A por cada lote, con el modelo del Anexo II y sin enmiendas ni tachaduras",
+   "cite": "PCAP p.28 · PCAP p.26"
+  },
+  {
+   "text": "Una empresa no puede presentarse sola y en UTE, ni figurar en más de una UTE",
+   "cite": "PCAP p.26"
+  },
+  {
+   "text": "No mezclar en el sobre A datos de otros sobres. El sobre B lleva el DEUC y la solvencia declarada",
+   "cite": "PCAP p.28–29"
+  },
+  {
+   "text": "Si eres empresa extranjera, incluir la declaración de sometimiento a los tribunales españoles",
+   "cite": "PCAP p.30 · ANX2 p.1"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -30,
+   "task": "Comprueba tus certificados ISO 9001 e ISO 14001 (lote 1) o tu inscripción en el ROESB (lote 2)",
+   "cite": "PCAP p.57 · PCAP p.60",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -21,
+   "task": "Envía por la Plataforma tus preguntas sobre la plantilla a subrogar, el precio de la hora y la baja anormal",
+   "cite": "PCAP p.9",
+   "help": "Lista de preguntas recomendadas"
+  },
+  {
+   "when": -12,
+   "task": "Prepara la relación de servicios similares y las cuentas anuales para acreditar la solvencia",
+   "cite": "PCAP p.56–58",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -7,
+   "task": "Rellena el DEUC firmado y el compromiso de UTE o de integración de solvencia (sobre B)",
+   "cite": "PCAP p.28–29 · ANX3 p.1–23",
+   "help": "Borrador del DEUC (próximamente)"
+  },
+  {
+   "when": -4,
+   "task": "Rellena el Anexo II de cada lote con el precio sin IVA y las mejoras ofertadas (sobre A)",
+   "cite": "PCAP p.28 · PCAP p.62–63",
+   "help": "Rebaja recomendada por lote"
+  },
+  {
+   "when": -1,
+   "task": "Envía las ofertas por la Plataforma con margen sobre la hora de cierre",
+   "cite": "PCAP p.25",
+   "help": "Lista final de comprobación"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "El Anexo I remite al «Anexo VI del PCAP» y el PPT al «Anexo III del PCAP» para el personal a subrogar. Este último trata de datos personales y el Anexo VI está en blanco, así que no hay datos de la plantilla",
+   "cite": "PCAP p.42 · PCAP p.64 · PCAP p.69 · PPT p.47"
+  },
+  {
+   "text": "Precio de la hora: 15,27 € sin IVA como ratio máxima de la hora retribuida y 17,81 € sin IVA para deducciones y modificaciones, sin explicar la diferencia",
+   "cite": "PCAP p.42 · PCAP p.49"
+  },
+  {
+   "text": "Baja anormal: el Anexo I dice que los parámetros están en el PCAP, pero el PCAP solo remite al art. 85 del RGLCAP sin cifras",
+   "cite": "PCAP p.25 · PCAP p.56"
+  },
+  {
+   "text": "El importe total con IVA del Anexo I está escrito como «5.485.00,00». La suma de los lotes es 5.485.000 €",
+   "cite": "PCAP p.40"
+  },
+  {
+   "text": "El modelo de oferta cita el «apartado 14» del Anexo I para los criterios automáticos, que están en el apartado 15",
+   "cite": "PCAP p.62–63"
+  },
+  {
+   "text": "El Anexo I dice que no hay acceso a datos personales, pero el contrato incluye sistemas de fichaje y la cláusula 10.3 convierte a la empresa en encargada del tratamiento",
+   "cite": "PCAP p.52 · PCAP p.10"
+  },
+  {
+   "text": "El pliego no indica la fecha de publicación (se usa como referencia la de la firma del PCAP, 2026-11-25) ni la de apertura de ofertas",
+   "cite": "PCAP p.38"
+  }
+ ]
+}

@@ -1,0 +1,367 @@
+{
+ "schema": 1,
+ "id": "21017635",
+ "reviewed": "2026-11-28",
+ "title": "Intervención socioeducativa con menores en 4 barrios de Logroño",
+ "buyer": "Ayuntamiento de Logroño",
+ "buyer_key": "Junta de Gobierno del Ayuntamiento de Logroño",
+ "province": "La Rioja",
+ "cpv": "85311300",
+ "ref": "CTR-CON21-2026/0338",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=yxeHusHRHf9xseVhcqrkhw%3D%3D",
+ "deadline": "2026-12-28",
+ "deadline_time": "23:59",
+ "questions_until": null,
+ "questions_cite": "PCAP p.20",
+ "opening_days": 7,
+ "opening_cite": "PCAP p.21",
+ "opening_note": "Si hay que subsanar documentación, el sobre B se abre el 7º día natural tras el cierre. Si no, el pliego da fecha con 1 día hábil de aviso.",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 3,
+ "judgement_pts": 49,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Madre de Dios-San José",
+   "budget": 349759.23,
+   "months": 24
+  },
+  {
+   "n": 2,
+   "label": "Centro-Sur-Oeste de Logroño",
+   "budget": 454460.17,
+   "months": 24
+  },
+  {
+   "n": 3,
+   "label": "Casco Antiguo",
+   "budget": 283286.15,
+   "months": 24
+  },
+  {
+   "n": 4,
+   "label": "La Estrella",
+   "budget": 252691.86,
+   "months": 24
+  }
+ ],
+ "lots_cite": "PCAP p.30–32",
+ "max_lots_award": 4,
+ "max_lots_per_team": 4,
+ "lots_rule": "Puedes presentarte a los 4 lotes y ganarlos todos.",
+ "lots_rule_cite": "PCAP p.30",
+ "requirements": [
+  {
+   "id": "turnover",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 0.5,
+   "label": "Solvencia económica",
+   "rule": "Facturación del mejor de los 3 últimos años de al menos el valor anual medio del contrato. Con 2 años iniciales, la mitad del importe del lote",
+   "question": "¿Cuál fue tu facturación en tu mejor año de los 3 últimos cerrados?",
+   "unit": "€",
+   "cite": "PCAP p.36",
+   "proof": "Declaración responsable en el DEUC y cuentas anuales o inscripción en el Registro Oficial de Licitadores",
+   "note": "El pliego no aclara si el valor anual medio es el del contrato inicial o el del valor estimado. Hemos usado la mitad del importe de los 2 años iniciales."
+  },
+  {
+   "id": "similar",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 0.35,
+   "label": "Solvencia técnica",
+   "rule": "Servicios similares: en el año de mayor ejecución de los 3 últimos, al menos el 70 % de la anualidad media. Con 2 años iniciales, el 35 % del importe del lote",
+   "question": "¿Cuánto facturaste en servicios similares (intervención social o educativa con menores) en tu mejor año de los 3 últimos?",
+   "unit": "€",
+   "cite": "PCAP p.36",
+   "proof": "Certificados de buena ejecución del cliente público, o certificado o declaración responsable si es privado",
+   "note": "Cálculo nuestro sobre la anualidad media de los 2 años iniciales."
+  },
+  {
+   "id": "team",
+   "kind": "yesno",
+   "label": "Equipo con titulación",
+   "rule": "Puestos a jornada completa con Grado o Diplomatura en Educación Social (y, en algunos puestos, Técnico Superior en Integración Social). Lote 1: 3, lote 2: 4, lote 3: 2 más 1 de 16 a 20 h, lote 4: 2",
+   "question": "¿Puedes adscribir el número de educadores sociales exigido en el lote, con la titulación pedida y jornada completa partida con al menos 4 horas por la tarde, o subrogar a los actuales?",
+   "cite": "PCAP p.37–38 · PPT p.8–9",
+   "proof": "Títulos, contratos y compromiso de adscripción en el DEUC"
+  },
+  {
+   "id": "office",
+   "kind": "yesno",
+   "label": "Oficina y local en Logroño",
+   "rule": "Oficina abierta en Logroño al inicio, con teléfono y correo en horario permanente, y un local de unos 80 m² con licencia por cada lote",
+   "question": "¿Tienes, o puedes tener al inicio del contrato, oficina en Logroño y un local de unos 80 m² con licencia municipal en la zona de cada lote?",
+   "cite": "PPT p.6 · PPT p.9 · PPT p.21",
+   "proof": "Contrato o título del local y licencia municipal"
+  },
+  {
+   "id": "insurance",
+   "kind": "yesno",
+   "label": "Seguro de responsabilidad civil",
+   "rule": "Cuantía no inferior a 601.000 €, y el PCAP indica que sea sin franquicia",
+   "question": "¿Tienes o puedes contratar un seguro de responsabilidad civil de al menos 601.000 € para la empresa y su personal?",
+   "cite": "PPT p.6 · PCAP p.9",
+   "proof": "Póliza y recibo"
+  },
+  {
+   "id": "quota",
+   "kind": "yesno",
+   "label": "Cuota de discapacidad e igualdad",
+   "rule": "Con 50 o más trabajadores, el 2 % con discapacidad (o medidas alternativas). Con más de 50, plan de igualdad inscrito",
+   "question": "Si tienes 50 o más trabajadores, ¿cumples la cuota del 2 % de discapacidad y, con más de 50, tienes plan de igualdad inscrito? (Responde sí si tienes menos de 50)",
+   "cite": "PCAP p.5 · PCAP p.46",
+   "proof": "Anexo VI y plan de igualdad"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica",
+   "pts": 40,
+   "formula": "proportional",
+   "k": 6,
+   "full_at_pct": 16.66,
+   "how": "Puntos proporcionales a la baja sobre el presupuesto del lote: el máximo se logra con una baja del 16,66 %",
+   "cite": "PCAP p.18 · PCAP p.38",
+   "note": "La fórmula de la baja y la de K fuera del rango 0–16,66 % no se leen en el texto del pliego. Suponemos reparto lineal con tope del 100 % de los puntos al 16,66 %."
+  },
+  {
+   "id": "training",
+   "kind": "choice",
+   "name": "Formación extra del personal",
+   "pts": 6,
+   "question": "¿Cuántas horas de formación por encima de las 25 obligatorias puedes ofrecer?",
+   "options": [
+    {
+     "label": "Ninguna",
+     "pts": 0
+    },
+    {
+     "label": "20 horas extra",
+     "pts": 2
+    },
+    {
+     "label": "40 horas extra",
+     "pts": 4
+    },
+    {
+     "label": "60 horas extra o más",
+     "pts": 6
+    }
+   ],
+   "how": "1 punto por cada 10 horas extra, hasta 6 puntos",
+   "cite": "PCAP p.38"
+  },
+  {
+   "id": "unit_prices",
+   "kind": "choice",
+   "name": "Precios unitarios para ampliaciones",
+   "pts": 5,
+   "question": "¿Vas a ofrecer rebaja sobre los precios máximos del educador (16,33 €) y del integrador social (14,79 €)?",
+   "options": [
+    {
+     "label": "Ofrezco el precio máximo",
+     "pts": 0
+    },
+    {
+     "label": "Ofrezco rebaja en ambos precios",
+     "pts": 5
+    }
+   ],
+   "how": "Hasta 3 puntos el educador y hasta 2 el integrador",
+   "cite": "PCAP p.38 · PPT p.10–11",
+   "note": "El pliego no explica cómo se reparten los puntos entre ofertas. Los puntos por opción son una aproximación, y la rebaja posible está limitada por el convenio."
+  },
+  {
+   "id": "j_found",
+   "kind": "judgement",
+   "name": "Proyecto: fundamentación, objetivos y actuaciones",
+   "pts": 23,
+   "how": "Hasta 23 puntos por justificar la intervención, fijar objetivos y desarrollar las áreas del punto 5 del Anexo I del PPT",
+   "cite": "PCAP p.38–39"
+  },
+  {
+   "id": "j_method",
+   "kind": "judgement",
+   "name": "Proyecto: metodología, organización y gestión",
+   "pts": 14,
+   "how": "Hasta 14 puntos por metodología, calendario, jornada tipo, trabajo de calle y organización del personal",
+   "cite": "PCAP p.39"
+  },
+  {
+   "id": "j_eval",
+   "kind": "judgement",
+   "name": "Proyecto: evaluación y coordinación",
+   "pts": 12,
+   "how": "Hasta 12 puntos por coordinación, evaluación y recursos",
+   "cite": "PCAP p.39",
+   "note": "El proyecto en conjunto debe alcanzar 25 puntos sobre 49 para que se valore la oferta económica."
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 10,
+  "single_pct": null,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.36",
+  "note": "El pliego remite al art. 85 del Reglamento General de la Ley de Contratos de las Administraciones Públicas y no da cifras. Usamos 10 puntos sobre la media como referencia orientativa. Conviene preguntar al órgano."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": 60,
+  "note": "Estimación nuestra: redactar un proyecto técnico de hasta 50 páginas, preparar el sobre A y calcular la oferta de cada lote"
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 0,
+  "cite": "PCAP p.35–36"
+ },
+ "risk_flags": [
+  {
+   "id": "subrogation",
+   "label": "Hay que subrogar a 13 trabajadores con sus condiciones actuales, y los datos de los listados no coinciden del todo con los puestos exigidos",
+   "cite": "PCAP p.40 · ANX p.1 · ANX2 p.1",
+   "weight": 3
+  },
+  {
+   "id": "no_revision",
+   "label": "Sin revisión de precios durante 2 años, con convenio colectivo estatal que cumplir",
+   "cite": "PCAP p.34 · PCAP p.5",
+   "weight": 3
+  },
+  {
+   "id": "penalties",
+   "label": "Penalidades de hasta 12.000 € por incumplimiento y del 1 % al 10 % del precio por las condiciones especiales",
+   "cite": "PCAP p.13–14 · PCAP p.35",
+   "weight": 2
+  },
+  {
+   "id": "modification",
+   "label": "El Ayuntamiento puede subir o bajar las horas hasta un 20 % durante el contrato",
+   "cite": "PCAP p.40",
+   "weight": 2
+  },
+  {
+   "id": "payment",
+   "label": "Pago mensual a 30 días desde la factura aprobada, con justificantes de nóminas y Seguridad Social cada mes",
+   "cite": "PCAP p.12 · PCAP p.28",
+   "weight": 2
+  },
+  {
+   "id": "anticipated",
+   "label": "Tramitación anticipada: adjudicación sujeta a que haya crédito",
+   "cite": "PCAP p.33",
+   "weight": 1
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se puede acreditar la solvencia con medios de otras entidades si se demuestra que se dispone de ellos",
+  "ute": true,
+  "subcontracting": false,
+  "cite": "PCAP p.23 · PCAP p.39 · PCAP p.44"
+ },
+ "specific_checks": [
+  {
+   "text": "El personal adscrito no puede cambiarse sin aceptación del Ayuntamiento: incumplirlo es causa de resolución",
+   "cite": "PCAP p.8"
+  },
+  {
+   "text": "Todo el personal debe aportar certificación negativa del Registro Central de Delincuentes Sexuales",
+   "cite": "PPT p.8"
+  },
+  {
+   "text": "Si el proyecto no llega a 25 puntos sobre 49, no se valora la oferta económica",
+   "cite": "PCAP p.39"
+  },
+  {
+   "text": "No incluir datos de precio ni de fórmulas en el sobre B: pueden desechar la oferta",
+   "cite": "PCAP p.24"
+  },
+  {
+   "text": "La oferta económica no puede superar el presupuesto del lote ni los precios máximos de 16,33 € (educador) y 14,79 € (integrador social)",
+   "cite": "PCAP p.24 · PCAP p.43"
+  },
+  {
+   "text": "Debes tener oficina en Logroño y un local de unos 80 m² con licencia por lote al comenzar el contrato",
+   "cite": "PPT p.6 · PPT p.21"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -14,
+   "task": "Envía por la Plataforma las preguntas sobre la fórmula de precio, la baja anormal y la subrogación (límite recomendado: 12 días antes del cierre)",
+   "cite": "PCAP p.20",
+   "help": "Lista de dudas de este diagnóstico"
+  },
+  {
+   "when": -10,
+   "task": "Prepara el equipo y los compromisos: titulaciones, certificados de delitos sexuales, local y oficina en Logroño, seguro",
+   "cite": "PPT p.6–9",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -8,
+   "task": "Firma el DEUC, la solicitud (Anexo II), la declaración de discapacidad (Anexo VI) y, si hay UTE, el Anexo IV (sobre A)",
+   "cite": "PCAP p.22–24",
+   "help": "Borrador del DEUC (próximamente)"
+  },
+  {
+   "when": -6,
+   "task": "Termina el proyecto técnico de hasta 50 páginas: Arial 11, márgenes de 2 cm (sobre B)",
+   "cite": "PCAP p.38",
+   "help": "Esquema de los 49 puntos del proyecto"
+  },
+  {
+   "when": -3,
+   "task": "Rellena el Anexo III por lote con el precio, las horas de formación con su dosier y los precios unitarios (sobre C)",
+   "cite": "PCAP p.42–43",
+   "help": "Rebaja recomendada por lote"
+  },
+  {
+   "when": -1,
+   "task": "Envía las ofertas por la Plataforma antes de las 23:59 (huella y oferta completa en 24 h como máximo)",
+   "cite": "PCAP p.20",
+   "help": "Lista final de comprobación"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "La fórmula completa de precio no se lee en el texto del pliego, y el Anexo I la sitúa en la cláusula 25ª en vez de la 24ª",
+   "cite": "PCAP p.18–19 · PCAP p.38"
+  },
+  {
+   "text": "Los criterios de baja anormal remiten al art. 85 del RGLCAP sin cifras",
+   "cite": "PCAP p.36"
+  },
+  {
+   "text": "El pliego no explica cómo se reparten los 5 puntos de precios unitarios entre ofertas",
+   "cite": "PCAP p.38 · PPT p.10–11"
+  },
+  {
+   "text": "No queda claro si el valor anual medio para la solvencia es el del contrato inicial (2 años) o el del valor estimado con prórrogas y modificaciones",
+   "cite": "PCAP p.36"
+  },
+  {
+   "text": "El listado de subrogación titulado «lotes III y IV» recoge los lotes 1, 2 y 4, y el del lote 3 tiene 4 personas frente a los 3 puestos que exige el pliego",
+   "cite": "ANX2 p.1 · ANX p.1 · PCAP p.37"
+  },
+  {
+   "text": "El Anexo I no admite subcontratar, pero el PCAP general prevé un trámite de autorización previa",
+   "cite": "PCAP p.39 · PCAP p.10"
+  },
+  {
+   "text": "El PPT dice que no se sustituyen vacaciones, y el PCAP exige garantizar la continuidad con independencia de bajas y vacaciones",
+   "cite": "PPT p.8 · PCAP p.7"
+  },
+  {
+   "text": "El Anexo III pone 349.759,25 € para el lote 1 y el resto del pliego, 349.759,23 €",
+   "cite": "PCAP p.42 · PCAP p.30"
+  }
+ ]
+}

@@ -2,7 +2,7 @@
 /* Automatic check of a diagnosis rule sheet: node tenders/diagnostico/check.js <id> [<id>…] (no ids = every ficha).
  * Fails (exit 1) when the sheet cannot be right; warns when it needs a human look. Run by build_spain before publishing. */
 const fs = require("fs"), path = require("path");
-const dir = path.join(__dirname, "..", "fichas");
+const dir = process.env.FICHAS_DIR || path.join(__dirname, "..", "fichas");
 const ids = process.argv.slice(2).length ? process.argv.slice(2) : fs.readdirSync(dir).filter(i => fs.existsSync(path.join(dir, i, "reglas.json")));
 const D = require("./engine.js");
 let bad = 0;

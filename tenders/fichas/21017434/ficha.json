@@ -1,0 +1,636 @@
+{
+ "id": "21017434",
+ "ref": "3995/2026",
+ "reviewed": "2026-11-28",
+ "title": "Clases dirigidas y atención de la sala de musculación del Gimnasio Municipal de Firgas (Gran Canaria)",
+ "title_official": "Servicio de desarrollo de programa de actividades deportivas en el gimnasio municipal de Firgas.",
+ "buyer": "Alcaldía del Ayuntamiento de la Villa de Firgas",
+ "unit": "Servicio de Deportes",
+ "place": "Firgas (Canarias)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=lSxHz3%2FX%2BgPN3k3tjedSGw%3D%3D",
+ "published": "2026-11-26",
+ "published_note": "Los pliegos no indican la fecha de publicación del anuncio. Ponemos la fecha de firma del último documento del expediente (normas de uso del gimnasio, 26/11/2026). Conviene comprobarla en la Plataforma.",
+ "deadline": "2026-12-15",
+ "deadline_time": "01:00",
+ "questions_until": null,
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de cláusulas administrativas particulares (PCAP), con cuadro resumen y anexos I a X",
+   "file": "01_Legal.pdf",
+   "pages": 63
+  },
+  "PPT": {
+   "label": "Pliego de prescripciones técnicas (PPT), con inventario del gimnasio y normas de uso",
+   "file": "02_Technical.pdf",
+   "pages": 29
+  },
+  "ANX": {
+   "label": "Anexo IX publicado aparte: personal que se subroga",
+   "file": "07_Additional.pdf",
+   "pages": 1
+  },
+  "ANX2": {
+   "label": "Anexo I publicado aparte: instrucciones para rellenar el DEUC",
+   "file": "08_Additional.pdf",
+   "pages": 1
+  }
+ },
+ "tags": {
+  "level": "Ayuntamiento",
+  "where": "Firgas, Canarias",
+  "contract": "Servicios",
+  "sector": "Servicios deportivos (CPV 92000000)",
+  "size": "Pequeño (menos de 100.000 €/año)",
+  "deadline": "Cierra en 17 días",
+  "procedure": "Abierto",
+  "funds": "Sin fondos europeos",
+  "lots": "Sin lotes",
+  "award": "Precio y calidad (todo con fórmula)"
+ },
+ "verdict": {
+  "opportunity": "media",
+  "difficulty": "media",
+  "text": "Interesa a empresas de gestión deportiva o de monitores, mejor si ya trabajan en Gran Canaria. La barrera es la solvencia: hay que haber facturado 301.935,39 € en un año en este tipo de servicios. Eso deja fuera a autónomos y microempresas, salvo que vayan en UTE (unión temporal de empresas) o se apoyen en otra empresa. Los 70 puntos de calidad se consiguen con compromisos sencillos, así que se gana con el precio. Pero el margen es estrecho: casi el 85 % del presupuesto es personal y hay que subrogar a 3 monitores. Antes de ofertar, conviene aclarar si la subrogación es de verdad obligatoria."
+ },
+ "summary": [
+  "El Ayuntamiento de Firgas (Gran Canaria) busca una empresa que dé las clases dirigidas de acondicionamiento físico y atienda la sala de musculación de su gimnasio municipal, de lunes a viernes de 7:30 a 21:30.",
+  "El presupuesto es de 94.003,96 € al año sin IGIC (Impuesto General Indirecto Canario), por 1 año prorrogable otro más. El valor estimado es de 201.290,26 €.",
+  "Hay que adscribir 3 monitores titulados y, según el pliego, subrogar a los 3 actuales, cada uno a jornada completa con un coste de 23.051,26 €.",
+  "La solvencia exige haber facturado 301.935,39 € en tu mejor año y 140.903,18 € en servicios parecidos.",
+  "Todo se puntúa sin juicio de valor: precio (30 puntos), material extra (32), formación del personal (20) y jornadas deportivas abiertas (18). Las ofertas se presentan por la Plataforma hasta el 15 de diciembre de 2026, en 2 archivos electrónicos."
+ ],
+ "max_lots_per_bidder": 1,
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Organizar, programar e impartir clases colectivas de acondicionamiento físico y tonificación muscular, 6 horas al día de lunes a viernes. También orientar y supervisar a los usuarios de la sala de musculación de 7:30 a 21:30, con tablas de entrenamiento personalizadas.",
+     "PCAP 6 · PPT 2–3 · PPT 5–7"
+    ],
+    [
+     "Tareas complementarias",
+     "Informar de las actividades, comprobar el derecho de acceso, abrir y cerrar la instalación y comunicar incidencias. El servicio se evalúa con indicadores: sesiones impartidas, encuestas de satisfacción e incidencias.",
+     "PPT 3 · PPT 6–7"
+    ],
+    [
+     "Fuera del contrato",
+     "Altas y bajas de usuarios, cobro de cuotas, vigilancia de seguridad, limpieza y mantenimiento del edificio y de las máquinas. Todo eso corre a cargo del Ayuntamiento.",
+     "PPT 3 · PPT 10"
+    ],
+    [
+     "Calendario",
+     "De lunes a viernes, todo el año, salvo festivos nacionales, autonómicos y locales y los días que el Ayuntamiento cierre la instalación.",
+     "PPT 7–8"
+    ],
+    [
+     "Usuarios",
+     "Desde 14 años. Los menores necesitan autorización de sus padres o tutores.",
+     "PPT 6 · PPT 28"
+    ],
+    [
+     "Órgano",
+     "Alcaldía del Ayuntamiento de la Villa de Firgas, asistida por la Mesa de Contratación. Lo gestiona el Servicio de Deportes.",
+     "PCAP 1 · PCAP 4"
+    ],
+    [
+     "Lugar",
+     "Gimnasio Municipal (antigua piscina municipal), en el Barrio del Lomo el Pino, Firgas. El Ayuntamiento pone las instalaciones y la maquinaria, que se detallan en el inventario del PPT.",
+     "PCAP 7 · PPT 10 · PPT 20–25"
+    ],
+    [
+     "Por qué se contrata",
+     "Hasta ahora lo prestan 3 trabajadores de un programa municipal de fomento del empleo que termina a finales de 2026. El técnico municipal no puede asumirlo.",
+     "PPT 2"
+    ],
+    [
+     "Tipo de contrato",
+     "Contrato de servicios de carácter privado (arts. 17 y 25.1 a) 1º de la LCSP, Ley 9/2017 de Contratos del Sector Público). La ejecución y la extinción se rigen por el derecho privado. Los pleitos sobre la ejecución van a los juzgados civiles de la provincia de Las Palmas.",
+     "PCAP 3 · PCAP 50"
+    ],
+    [
+     "CPV",
+     "92000000-1, 92600000-7 y 92620000-3 (servicios deportivos).",
+     "PCAP 7"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Servicio completo: clases dirigidas y atención de la sala de musculación",
+     "fee": 94003.96,
+     "months": 12
+    }
+   ],
+   "cite": "PCAP 1 · PCAP 8 · PPT 4",
+   "note": "No hay lotes. El Ayuntamiento lo justifica (art. 99.3 b) LCSP) por cuatro motivos: hace falta un único criterio técnico, sustituciones inmediatas y un solo interlocutor, y los lotes saldrían de importe ínfimo."
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base",
+     "94.003,96 € sin IGIC, más 2.820,12 € de IGIC: 96.824,08 € en total, para 1 año.",
+     "PCAP 1 · PCAP 11"
+    ],
+    [
+     "IGIC",
+     "En Canarias se aplica el IGIC en lugar del IVA. El desglose usa el 3 %, pero el cuadro resumen dice 7 % (ver incoherencias).",
+     "PCAP 1 · PCAP 11"
+    ],
+    [
+     "Valor estimado",
+     "201.290,26 €: 94.003,96 € del primer año, 97.603,89 € de la prórroga (con un 4 % de actualización) y 9.682,41 € de modificación prevista.",
+     "PCAP 9–10"
+    ],
+    [
+     "Cómo se calcula el precio",
+     "Personal: 79.688,25 € (3 monitores a jornada completa, 5.256 horas al año). Gastos de explotación: 5.000 €. Gastos generales (5 %): 4.234,41 €. Beneficio industrial (6 %): 5.081,30 €.",
+     "PCAP 9–11"
+    ],
+    [
+     "Qué se oferta",
+     "El precio total del año, no un precio por hora. Las ofertas por encima del presupuesto quedan excluidas.",
+     "PCAP 13 · PCAP 27"
+    ],
+    [
+     "Duración",
+     "1 año desde la firma del acta de inicio, después de formalizar el contrato.",
+     "PCAP 13 · PPT 8"
+    ],
+    [
+     "Prórrogas",
+     "1 prórroga de 1 año, hasta un máximo de 2 años.",
+     "PCAP 2 · PCAP 13"
+    ],
+    [
+     "Revisión de precios",
+     "No.",
+     "PCAP 2 · PCAP 14"
+    ],
+    [
+     "Modificaciones previstas",
+     "Hasta un 10 % si aumentan las horas de clase dirigida o se añaden actividades, por ejemplo zumba o clases para mayores o personas con discapacidad. Son obligatorias para el contratista y no pueden crear precios nuevos.",
+     "PCAP 47"
+    ],
+    [
+     "Subrogación de personal",
+     "Sí, según el pliego: 3 monitores multidisciplinares a jornada completa, con contrato temporal y antigüedad de diciembre de 2025 o enero de 2026. Cada uno cobra 17.094 € al año y cuesta 23.051,26 € (69.153,78 € los tres). Se aplica el convenio estatal de instalaciones deportivas y gimnasios (art. 25), que está denunciado y sin tablas salariales nuevas.",
+     "PCAP 11 · PCAP 14 · PCAP 62 · ANX 1"
+    ],
+    [
+     "Financiación",
+     "100 % municipal, partida 341.22799. Sin fondos europeos.",
+     "PCAP 1–2 · PCAP 13"
+    ],
+    [
+     "Variantes",
+     "No se admiten.",
+     "PCAP 2"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Clasificación",
+     "No se exige. Si la tienes en el grupo que corresponda, te sirve como solvencia, pero el pliego no dice qué grupo. Estar inscrito en el registro estatal de licitadores (ROLECE) o en el canario también acredita la solvencia.",
+     "PCAP 16"
+    ],
+    [
+     "Solvencia económica",
+     "Volumen anual de negocios «en el ámbito del contrato» de al menos 301.935,39 € sin IGIC (1,5 veces el valor estimado), en el mejor de los 3 últimos años cerrados. Se acredita con las cuentas anuales depositadas en el Registro Mercantil; los autónomos, con sus libros legalizados. En una UTE, al menos una empresa debe cumplirla entera.",
+     "PCAP 16"
+    ],
+    [
+     "Solvencia técnica",
+     "Servicios iguales o parecidos en los últimos 3 años, por al menos 140.903,18 € en el año de más actividad (70 % del valor estimado). Se acredita con certificados de los clientes. Si el cliente es privado y no lo da, vale una declaración propia con documentos. En una UTE, se suman las de sus miembros.",
+     "PCAP 16–17"
+    ],
+    [
+     "Empresas nuevas",
+     "Si tu empresa tiene menos de 5 años, la solvencia técnica se acredita con una declaración del personal técnico del que dispones.",
+     "PCAP 17"
+    ],
+    [
+     "Equipo mínimo",
+     "3 monitores multidisciplinares titulados en acondicionamiento físico o en animación sociodeportiva (TSAF, TSEAS o equivalente; grado medio o FP). Es condición especial de ejecución.",
+     "PCAP 14 · PCAP 17 · PPT 8"
+    ],
+    [
+     "Certificado de delitos sexuales",
+     "Cada monitor, también los sustitutos, debe acreditarlo antes de empezar (art. 57 de la Ley Orgánica 8/2021 de protección a la infancia).",
+     "PPT 8 · PPT 10"
+    ],
+    [
+     "Seguro",
+     "Seguro de responsabilidad civil por daños a terceros: póliza y recibo al ser propuesto adjudicatario. El pliego no fija importe mínimo.",
+     "PCAP 33 · PPT 13"
+    ],
+    [
+     "Objeto social y habilitaciones",
+     "La actividad de la empresa debe estar relacionada con el objeto del contrato según sus estatutos, y debes tener las habilitaciones legalmente exigibles.",
+     "PCAP 15 · PCAP 32"
+    ],
+    [
+     "UTE e integración de solvencia",
+     "Se admiten. Puedes apoyarte en la solvencia de otra empresa (art. 75 LCSP) si demuestras que la tendrás durante todo el contrato. Esa empresa también presenta DEUC.",
+     "PCAP 15 · PCAP 17 · PCAP 26"
+    ],
+    [
+     "Si tienes 50 o más trabajadores",
+     "Debes acreditar el 2 % de plantilla con discapacidad (o medidas alternativas) y un plan de igualdad registrado.",
+     "PCAP 32–33"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Precio",
+     "pts": 30,
+     "kind": "fórmula",
+     "how": "Puntos = 30 × ((presupuesto − tu oferta) / (presupuesto − oferta más baja)) elevado a 1/6. Si ofreces el presupuesto, 0 puntos; la más barata saca 30. La raíz sexta premia mucho las rebajas pequeñas: con la mitad de rebaja que la más barata sacas 26,73 puntos, y con una décima parte, 20,43."
+    },
+    {
+     "name": "Material deportivo adicional",
+     "pts": 32,
+     "kind": "fórmula",
+     "how": "8 puntos por cada material que aportes: 5 o más TRX o equivalente, 5 o más kettlebells de distintos pesos, 10 o más bandas elásticas y 10 o más pelotas de masaje. El material se mantiene todo el contrato, sin coste para el Ayuntamiento, y sigue siendo tuyo."
+    },
+    {
+     "name": "Formación del personal",
+     "pts": 20,
+     "kind": "fórmula",
+     "how": "5 puntos por cada acción formativa anual de al menos 5 horas para los monitores, hasta 4 acciones (20 puntos). Se acredita cada año con un certificado."
+    },
+    {
+     "name": "Jornadas deportivas abiertas",
+     "pts": 18,
+     "kind": "fórmula",
+     "how": "6 puntos por cada jornada anual de al menos 3 horas abierta a la población (ciclo indoor, aeróbic, step, circuitos o formato HYROX), hasta 3 jornadas (18 puntos). El personal y el material corren de tu cuenta."
+    }
+   ],
+   "cite": "PCAP 18–21",
+   "items": [
+    [
+     "Juicio de valor",
+     "Ninguno: los 100 puntos son automáticos.",
+     "PCAP 18"
+    ],
+    [
+     "Baja anormal",
+     "El pliego remite al art. 85 del RGLCAP (Reglamento general de contratos). Con 4 o más ofertas, es anormal la que baje más de 10 puntos porcentuales de la media. Con 1 oferta, la que baje más de un 25 % del presupuesto. Con 2, la que baje más de 20 puntos respecto a la otra. Tendrías 5 días hábiles para justificarla.",
+     "PCAP 29"
+    ],
+    [
+     "Desempate",
+     "Por orden: mayor porcentaje de trabajadores con discapacidad o en exclusión social, menor temporalidad, más mujeres en plantilla y sorteo. Se acredita en 5 días hábiles.",
+     "PCAP 22 · PCAP 29"
+    ],
+    [
+     "Pruebas de los compromisos",
+     "Las fichas del material y los cuadros de la formación y de las jornadas solo se piden al propuesto como adjudicatario.",
+     "PCAP 33"
+    ]
+   ],
+   "insight": "Los 70 puntos de calidad dependen de compromisos asequibles, así que es probable que casi todos los consigan: la adjudicación se decidirá en el precio. Con la raíz sexta, una rebaja moderada ya da muchos puntos. El margen del presupuesto (gastos generales más beneficio, 9.315,71 €) deja poco sitio para bajar sin perder dinero."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Hasta el 15 de diciembre de 2026 a la 01:00, según el anuncio de la Plataforma; el pliego remite al anuncio. Solo se presenta por vía electrónica en la Plataforma de Contratación del Sector Público. Confirma la hora: en Canarias es una hora menos que en la península.",
+     "PCAP 24"
+    ],
+    [
+     "Publicación",
+     "Los pliegos no indican la fecha del anuncio. El último documento del expediente está firmado el 26 de noviembre de 2026.",
+     "PPT 27"
+    ],
+    [
+     "Preguntas",
+     "El pliego no fija un plazo para preguntas. Todas las comunicaciones van por la Plataforma.",
+     "PCAP 25"
+    ],
+    [
+     "Archivo 1",
+     "DEUC (Documento Europeo Único de Contratación), con instrucciones en el Anexo I. También el Anexo II de declaración responsable, que incluye los datos de plantilla para el desempate y si vas a subcontratar.",
+     "PCAP 25–26 · PCAP 52–53 · ANX2 1"
+    ],
+    [
+     "Archivo 2",
+     "Anexo III con el precio, en número y en letra, y los compromisos: material, número de acciones formativas y número de jornadas.",
+     "PCAP 26–27 · PCAP 54–55"
+    ],
+    [
+     "Si te proponen",
+     "En 10 días hábiles debes entregar:\n- capacidad y solvencia;\n- garantía definitiva;\n- certificados de Hacienda, IGIC y Seguridad Social;\n- Anexo VI de adscripción de medios;\n- pruebas de los compromisos;\n- seguro;\n- Anexo VIII de protección de datos;\n- alta de terceros.\nSi no lo entregas, se entiende que retiras la oferta, con una penalidad del 3 % del presupuesto.",
+     "PCAP 30–33"
+    ],
+    [
+     "Garantías",
+     "Provisional: no. Definitiva: 5 % del precio ofertado sin IGIC, en 10 días hábiles, mediante aval (Anexo IV), seguro de caución (Anexo V) u otra forma legal. Complementaria: no.",
+     "PCAP 2 · PCAP 23–24"
+    ],
+    [
+     "Subsanación",
+     "3 días naturales para corregir defectos de la documentación.",
+     "PCAP 26 · PCAP 28"
+    ],
+    [
+     "Apertura",
+     "En el lugar y la hora que fije el anuncio. El pliego no da un número de días.",
+     "PCAP 29"
+    ],
+    [
+     "Formalización",
+     "Pasados 15 días hábiles desde la adjudicación sin recurso, tienes 5 días hábiles para firmar.",
+     "PCAP 33–35"
+    ],
+    [
+     "Visita",
+     "Los pliegos no prevén visita previa.",
+     ""
+    ],
+    [
+     "Regulación armonizada y recurso especial",
+     "No es contrato sujeto a regulación armonizada (SARA). Sí cabe recurso especial en materia de contratación (art. 44 LCSP), porque el valor estimado supera los 100.000 €.",
+     "PCAP 4 · PCAP 18 · PCAP 50"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro",
+     "items": [
+      [
+       "Pago mensual",
+       "Una doceava parte del precio, a mes vencido, con factura electrónica en FACe más el informe mensual del servicio. El Ayuntamiento debe pagar en 30 días desde la conformidad.",
+       "PCAP 35–36 · PPT 15"
+      ],
+      [
+       "Sin revisión de precios",
+       "Si suben el salario mínimo o las tablas del convenio (ahora denunciado), no puedes subir el precio.",
+       "PCAP 12 · PCAP 14 · PCAP 62"
+      ]
+     ]
+    },
+    {
+     "h": "Personal",
+     "items": [
+      [
+       "Subrogación",
+       "Según el pliego, debes asumir a 3 monitores con contrato temporal de un programa municipal de empleo. Su empleador actual es el propio Ayuntamiento, no una empresa, así que conviene confirmar si el art. 25 del convenio obliga de verdad.",
+       "PCAP 14 · PPT 9 · ANX 1"
+      ],
+      [
+       "Cobertura",
+       "Sala abierta 14 horas al día más 6 horas diarias de clases, con 3 monitores. Las bajas, vacaciones y ausencias deben cubrirse al momento con personal igual de cualificado.",
+       "PPT 7–9 · PPT 13"
+      ],
+      [
+       "Peso del personal",
+       "Cerca del 85 % del presupuesto es coste laboral (79.688,25 € de 94.003,96 €).",
+       "PCAP 11"
+      ]
+     ]
+    },
+    {
+     "h": "Penalidades",
+     "items": [
+      [
+       "Escala",
+       "Leve: hasta el 5 % del pago mensual. Grave: hasta el 45 %. Muy grave: hasta el 75 %, y puede acabar en resolución. Si el servicio no se presta por falta de personal: hasta el 100 % del mes. Si falta más del 20 % del servicio, pueden resolver el contrato.",
+       "PCAP 45–46 · PPT 16–17"
+      ],
+      [
+       "Demora y mala ejecución",
+       "0,60 € por cada 1.000 € del precio y día de retraso. Si ejecutas mal o incumples compromisos o condiciones especiales: un 10 % del precio o la resolución con pérdida de la garantía.",
+       "PCAP 44"
+      ],
+      [
+       "Empezar tarde",
+       "Retrasarte más de 7 días en el inicio es falta muy grave.",
+       "PCAP 45"
+      ],
+      [
+       "Subcontratación",
+       "Se permite subcontratar parte del servicio si lo declaras en la oferta. Si incumples las reglas: hasta el 50 % del subcontrato.",
+       "PCAP 41–42"
+      ]
+     ]
+    },
+    {
+     "h": "Obligaciones",
+     "items": [
+      [
+       "Compromisos ofertados",
+       "El material, la formación y las jornadas deben mantenerse durante todo el contrato. Incumplirlos es causa de penalidad o de resolución.",
+       "PCAP 14 · PCAP 38 · PPT 10"
+      ],
+      [
+       "Gastos a tu cargo",
+       "Uniformes con el logo de tu empresa, material fungible, música y sus licencias, una aplicación de fichajes, formación y seguros.",
+       "PPT 10"
+      ],
+      [
+       "Seguimiento",
+       "Supervisor localizable por móvil, respuesta en 72 horas, informe mensual y comisión de seguimiento al menos una vez cada semestre.",
+       "PPT 10–12 · PPT 17–18"
+      ],
+      [
+       "Garantía del servicio",
+       "3 meses después de terminar el contrato.",
+       "PCAP 2 · PCAP 48"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Tipo de IGIC",
+     "El cuadro resumen indica un 7 %, pero el desglose y los importes aplican el 3 % (2.820,12 €).",
+     "PCAP 1 · PCAP 11"
+    ],
+    [
+     "Anexo IX",
+     "La versión dentro del PCAP calcula los costes con el salario mínimo de 2026 (RD 126/2026). El anexo publicado aparte habla del salario mínimo de 2027.",
+     "PCAP 62 · ANX 1"
+    ],
+    [
+     "Modificación del 10 %",
+     "Se dice que se aplica solo al año de prórroga, pero los 9.682,41 € son el 10 % del primer año con IGIC. El 10 % de la prórroga serían 9.760,39 €. Además, la cláusula 35 no la limita a la prórroga.",
+     "PCAP 9–10 · PCAP 47"
+    ],
+    [
+     "Subrogación",
+     "El PCAP la da por obligatoria. El PPT dice «cuando resulte de aplicación». Los trabajadores son del Ayuntamiento, con contratos de un programa de empleo que acaba a finales de 2026.",
+     "PCAP 14 · PPT 2 · PPT 9 · ANX 1"
+    ],
+    [
+     "Fórmula del precio",
+     "Se describe como «proporcionalidad inversa», pero la raíz sexta no es proporcional. Tampoco dice qué pasa si nadie rebaja el precio.",
+     "PCAP 19"
+    ],
+    [
+     "Procedimiento",
+     "La apertura cita el art. 159.4 LCSP (procedimiento abierto simplificado), pero el contrato se tramita como abierto ordinario (art. 156).",
+     "PCAP 18 · PCAP 29"
+    ],
+    [
+     "Hora de cierre",
+     "El pliego no indica la hora. El anuncio fija la 01:00 del 15 de diciembre, que puede ser hora peninsular.",
+     "PCAP 24"
+    ]
+   ],
+   "advice": "Antes de ofertar, conviene preguntar por la Plataforma tres cosas: si la subrogación es obligatoria y con qué salario, qué tipo de IGIC se aplica y a qué hora exacta cierra el plazo en hora canaria."
+  }
+ ],
+ "headline": "Firgas busca monitores para su gimnasio municipal",
+ "headline_em": "monitores para su gimnasio",
+ "lede": "El Ayuntamiento de Firgas (Gran Canaria) contrata por 94.003,96 € al año las clases dirigidas y la atención de la sala de musculación de su gimnasio. Tres monitores a subrogar y todo puntuado con fórmula.",
+ "crumbs": "Licitaciones › España › Ayuntamientos › Canarias",
+ "updated": "2026-11-27",
+ "files": [
+  {
+   "name": "Pliego de cláusulas administrativas particulares (PCAP), con cuadro resumen y anexos I a X",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 63,
+   "bytes": 1089296
+  },
+  {
+   "name": "Pliego de prescripciones técnicas (PPT), con inventario del gimnasio y normas de uso",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 29,
+   "bytes": 572765
+  },
+  {
+   "name": "Anexo VII.doc",
+   "file": "03_Additional.bin",
+   "type": "XML",
+   "pages": null,
+   "bytes": 38912
+  },
+  {
+   "name": "Anexo V.doc",
+   "file": "04_Additional.bin",
+   "type": "XML",
+   "pages": null,
+   "bytes": 41472
+  },
+  {
+   "name": "Anexo IV.doc",
+   "file": "05_Additional.bin",
+   "type": "XML",
+   "pages": null,
+   "bytes": 41472
+  },
+  {
+   "name": "Anexo II Declaracion responsable.doc",
+   "file": "06_Additional.bin",
+   "type": "XML",
+   "pages": null,
+   "bytes": 57344
+  },
+  {
+   "name": "Anexo IX publicado aparte: personal que se subroga",
+   "file": "07_Additional.pdf",
+   "type": "PDF",
+   "pages": 1,
+   "bytes": 187147
+  },
+  {
+   "name": "Anexo I publicado aparte: instrucciones para rellenar el DEUC",
+   "file": "08_Additional.pdf",
+   "type": "PDF",
+   "pages": 1,
+   "bytes": 193485
+  },
+  {
+   "name": "Anexo X.doc",
+   "file": "09_Additional.bin",
+   "type": "XML",
+   "pages": null,
+   "bytes": 41472
+  },
+  {
+   "name": "Anexo III Oferta.doc",
+   "file": "10_Additional.bin",
+   "type": "XML",
+   "pages": null,
+   "bytes": 56832
+  },
+  {
+   "name": "Anexo VIII.doc",
+   "file": "11_Additional.bin",
+   "type": "XML",
+   "pages": null,
+   "bytes": 43520
+  },
+  {
+   "name": "Anexo VI.doc",
+   "file": "12_Additional.bin",
+   "type": "XML",
+   "pages": null,
+   "bytes": 40448
+  },
+  {
+   "name": "DEUC.zip",
+   "file": "13_Additional.zip",
+   "type": "ZIP",
+   "pages": null,
+   "bytes": 12064
+  },
+  {
+   "name": "2026-0188ebf9-1bea-4f7c-970b-011d4ecca4ca",
+   "file": "14_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-4742145a-9ef8-40b1-bde6-e91de696052f",
+   "file": "15_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-87777161-2d16-449e-97c4-3e512ed0a35c",
+   "file": "16_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-9785c227-626b-40da-9e04-880b9a15fdc1",
+   "file": "17_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ]
+}

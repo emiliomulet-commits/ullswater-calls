@@ -1,0 +1,570 @@
+{
+ "id": "21017678",
+ "ref": "CA-123-26",
+ "reviewed": "2026-11-28",
+ "title": "Obras de prolongación de las vías de tren en la nueva terminal de contenedores del puerto de Cádiz (fase 2)",
+ "title_official": "Prolongación de ramales de ferrocarril en la nueva terminal de contenedores de Cádiz (Fase 2)",
+ "buyer": "Presidencia de la Autoridad Portuaria de la Bahía de Cádiz",
+ "unit": "Departamento de Infraestructuras-Obras",
+ "place": "Cádiz (Andalucía)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=co1ez1mBsh28ebB%2FXTwy0A%3D%3D",
+ "published": "2026-11-27",
+ "deadline": "2027-01-11",
+ "deadline_time": "14:00",
+ "questions_until": "2026-12-30",
+ "headline": "Cádiz licita 2 M€ para llevar el tren a su nueva terminal",
+ "headline_em": "llevar el tren a su nueva terminal",
+ "lede": "El puerto de Cádiz contrata la obra que alargará las vías de tren de su nueva terminal de contenedores, hasta poder recibir trenes de 750 m. Obra de 6 meses, con la mitad de los puntos decididos por juicio de valor.",
+ "crumbs": "Licitaciones › España › Autoridades Portuarias › Andalucía",
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de cláusulas administrativas particulares (PCAP), con cuadro de características y anexos (declaraciones, solvencia, oferta, subcontratación, garantías, sobre 2 y plan de calidad)",
+   "file": "01_Legal.pdf",
+   "pages": 97
+  }
+ },
+ "tags": {
+  "level": "Autoridad Portuaria",
+  "where": "Cádiz, Andalucía",
+  "contract": "Obras",
+  "sector": "Obras ferroviarias (CPV 45234116)",
+  "size": "Grande (1 M€ – 3 M€)",
+  "deadline": "Cierra en 44 días",
+  "procedure": "Abierto",
+  "funds": "Fondos europeos (CEF Transporte)",
+  "lots": "Sin lotes",
+  "award": "Precio y calidad (50 % juicio de valor)"
+ },
+ "verdict": {
+  "opportunity": "media",
+  "difficulty": "alta",
+  "text": "Oportunidad para constructoras ferroviarias que ya tengan la clasificación D-1 categoría 4 (tendido de vías) y un jefe de obra ingeniero de caminos con 10 años de experiencia y 5 M€ en obra ferroviaria. Si no cumples esos dos requisitos, no puedes presentarte. La mitad de los puntos (50 de 100) depende de memorias técnicas evaluadas por el puerto, sobre todo la memoria de ejecución (27,5 puntos). El precio pesa 47,5 puntos, pero ofrecer el presupuesto ya da 22,5 de ellos. Se gana con una memoria muy trabajada y una baja moderada, porque hay umbral de temeridad de solo 4 puntos sobre la media. Ojo al plazo de 6 meses, a los costes a cargo del contratista y a que no hemos recibido el pliego técnico (PPT)."
+ },
+ "summary": [
+  "La Autoridad Portuaria de la Bahía de Cádiz quiere prolongar las dos vías de tren de su nueva terminal de contenedores, para recibir trenes de hasta 750 m. La solución elegida es vía en placa de ancho ibérico.",
+  "El presupuesto es de 1.998.891,50 € sin IVA (2.418.658,72 € con IVA). Es un solo contrato, sin lotes, con 6 meses de plazo de ejecución.",
+  "Hace falta estar clasificado en Grupo D (Ferrocarriles), subgrupo 1 (Tendido de vías), categoría 4, y comprometer un equipo con requisitos concretos.",
+  "Se reparten 100 puntos: 50 por juicio de valor (con mínimo del 50 % para no ser excluido), 47,5 por precio y 2,5 por comprometer un modelo BIM de nivel 300 o superior.",
+  "Las ofertas se presentan por la Plataforma de Contratación del Sector Público hasta el 11 de enero de 2027 a las 14:00, en 3 sobres electrónicos.",
+  "Es un contrato cofinanciado con fondos europeos CEF Transporte."
+ ],
+ "max_lots_per_bidder": 1,
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Ejecución de las obras del proyecto de prolongación de ramales de ferrocarril en la nueva terminal de contenedores de Cádiz (fase 2). Incluye vía en placa de ancho ibérico, seguridad, señalización y solución a los servicios afectados que haya en el trazado.",
+     "PCAP 2 · PCAP 3"
+    ],
+    [
+     "Para qué sirve",
+     "La fase 1 ya permite convoyes de unos 500 m. Con esta fase 2 se prolongan las dos vías para convoyes de hasta 750 m. El ramal se conectará a la red ferroviaria de interés general cuando ADIF haga su tramo de enlace de unos 111 m.",
+     "PCAP 3"
+    ],
+    [
+     "Órgano",
+     "Presidencia de la Autoridad Portuaria de la Bahía de Cádiz. Gestiona el Departamento de Infraestructuras-Obras.",
+     "PCAP 2 · PCAP 6"
+    ],
+    [
+     "Lugar",
+     "Cádiz (Andalucía). El trazado discurre por terreno de dominio público portuario, parte de él por encima del túnel de acceso viario.",
+     "PCAP 2 · PCAP 3"
+    ],
+    [
+     "Financiación",
+     "El proyecto se financia con fondos del programa europeo CEF Transport 2021 (Mecanismo «Conectar Europa», CEF2).",
+     "PCAP 3 · PCAP 19"
+    ],
+    [
+     "Fecha de inicio prevista",
+     "Solo para redactar el programa de trabajos, hay que suponer que las obras empiezan el 1 de marzo de 2027.",
+     "PCAP 14"
+    ],
+    [
+     "Tipo de procedimiento",
+     "Abierto, tramitación ordinaria, licitación electrónica. No está sujeto a regulación armonizada.",
+     "PCAP 2 · PCAP 6"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Obra completa de prolongación de ramales de ferrocarril (sin lotes)",
+     "fee": 1998891.5,
+     "months": 6
+    }
+   ],
+   "cite": "PCAP 5",
+   "note": "No se divide en lotes: el pliego dice que la naturaleza del objeto no lo permite."
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base",
+     "1.998.891,50 € sin IVA. IVA (21 %): 419.767,22 €. Total con IVA: 2.418.658,72 €.",
+     "PCAP 3"
+    ],
+    [
+     "Valor estimado",
+     "1.998.891,50 € sin IVA. Las modificaciones previstas suman 0,00 €.",
+     "PCAP 5"
+    ],
+    [
+     "Reparto por años",
+     "Todo en 2027: 1.998.891,50 € sin IVA (2.418.658,72 € con IVA). No se puede cobrar en un año más que la anualidad consignada, aunque se certifique más.",
+     "PCAP 4 · PCAP 42"
+    ],
+    [
+     "Duración",
+     "Plazo máximo de ejecución: 6 meses, contados desde el día siguiente a firmar el acta de comprobación del replanteo. Al ofertar puedes proponer un plazo menor (en el Anexo IV).",
+     "PCAP 14 · PCAP 41 · PCAP 63"
+    ],
+    [
+     "Prórrogas",
+     "El pliego no prevé prórrogas.",
+     "PCAP 14"
+    ],
+    [
+     "Revisión de precios",
+     "No procede. La casilla marcada es «No procede»; el texto de justificación de la otra opción habla de 12 meses, que no es el caso (ver incoherencias).",
+     "PCAP 14"
+    ],
+    [
+     "Modificaciones previstas",
+     "No hay modificaciones previstas (apartado 23 sin contenido y 0,00 € en el valor estimado). Se aplica el régimen general de la LCSP, con límite del 20 % en las previstas.",
+     "PCAP 5 · PCAP 18 · PCAP 47"
+    ],
+    [
+     "Subrogación de personal",
+     "No procede.",
+     "PCAP 18"
+    ],
+    [
+     "Forma de pago",
+     "Certificaciones y abonos a cuenta (arts. 155 y 156 RCAP). Las facturas se presentan en formato electrónico por FACe.",
+     "PCAP 14 · PCAP 42"
+    ],
+    [
+     "Plazo de recepción y garantía",
+     "Recepción: hasta 3 meses. Plazo de garantía: 1 año desde la recepción. Certificación final y liquidación: en 3 meses tras la recepción. La APBC puede hacer recepciones parciales.",
+     "PCAP 19 · PCAP 51"
+    ],
+    [
+     "Patrimonio histórico (1,5 %)",
+     "Se aplica la normativa del 1,5 % para conservación del patrimonio, calculado sobre el presupuesto de ejecución material del proyecto. El pliego no dice quién lo asume.",
+     "PCAP 4"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Clasificación",
+     "Obligatoria porque el valor estimado supera 500.000 €: Grupo D (Ferrocarriles), subgrupo 1 (Tendido de vías), categoría 4. En UTE se suman las clasificaciones de las empresas.",
+     "PCAP 8 · PCAP 9–10 · PCAP 30"
+    ],
+    [
+     "Solvencia económica y técnica",
+     "El pliego no fija cifras de facturación ni de obras ejecutadas: las casillas están sin marcar. Se acredita con el certificado de clasificación. El pliego no indica nada más para empresas españolas.",
+     "PCAP 8–9"
+    ],
+    [
+     "Delegado y jefe de obra",
+     "Ingeniero de Caminos, Canales y Puertos (o titulación oficial equivalente). Pueden ser la misma persona. Mínimo 10 años de experiencia. Además, experiencia previa como jefe de obra en obras ferroviarias por al menos 5 M€ de ejecución material acumulados, con certificados nominales. El jefe de obra tiene plena dedicación.",
+     "PCAP 10"
+    ],
+    [
+     "Jefe de producción de estructuras de hormigón",
+     "Ingeniero civil, ingeniero técnico de obras públicas o de caminos, con al menos 5 años de experiencia y experiencia previa en obras ferroviarias como jefe de producción de esa unidad o jefe de obra. Plena dedicación.",
+     "PCAP 10"
+    ],
+    [
+     "Responsable de calidad",
+     "Técnico competente (ingeniero superior, técnico o equivalente) con al menos 2 años de experiencia en control de calidad en obras civiles.",
+     "PCAP 10"
+    ],
+    [
+     "Responsable de seguridad y salud",
+     "Técnico de nivel superior en prevención de riesgos laborales, con al menos 5 años como responsable de seguridad y salud en obras. Solo puede hacer esa función.",
+     "PCAP 10–11"
+    ],
+    [
+     "Compromiso de adscripción",
+     "Hay que comprometer estos medios en la declaración complementaria del DEUC (Anexo I). Sustituirlos exige autorización previa del puerto.",
+     "PCAP 10 · PCAP 43 · PCAP 48"
+    ],
+    [
+     "Modelo BIM",
+     "Hay que entregar el modelo BIM de la obra terminada («as built») con nivel de desarrollo mínimo L.O.D. 200.",
+     "PCAP 11"
+    ],
+    [
+     "Habilitación y medioambiente",
+     "No se exige habilitación especial ni certificados de gestión medioambiental.",
+     "PCAP 11"
+    ],
+    [
+     "Seguros",
+     "Seguro a todo riesgo de construcción por 2.000.000 €. Seguro de responsabilidad civil por 1.500.000 € por siniestro. Hay que tenerlos antes de formalizar y hasta el fin de la garantía.",
+     "PCAP 16 · PCAP 43–44"
+    ],
+    [
+     "UTE e integración de solvencia",
+     "Se admiten UTE y recurrir a la solvencia de otras empresas. En ese caso, todas responden solidariamente y el compromiso debe elevarse a escritura pública antes de formalizar.",
+     "PCAP 10 · PCAP 28–30 · PCAP 40"
+    ],
+    [
+     "Empresas de nueva creación",
+     "Las de menos de 5 años no están sujetas al apartado de relación de obras de solvencia técnica, pero ese apartado no está marcado en este contrato.",
+     "PCAP 9"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Oferta económica",
+     "pts": 47.5,
+     "kind": "fórmula",
+     "how": "En el pliego vale 95 de 100 puntos de fórmula, que pesan el 50 %. Ofrecer el presupuesto (baja 0 %) da 45 puntos; la oferta más barata admitida recibe 95. El resto se reparte según su baja sobre la mayor baja. Fórmula: 50 × baja / baja máxima + 45. En la escala de 100 de esta ficha, eso son 22,5 puntos por no bajar y 47,5 por la mejor oferta. Se excluyen ofertas por encima del presupuesto."
+    },
+    {
+     "name": "Compromiso de modelo BIM de nivel superior",
+     "pts": 2.5,
+     "kind": "fórmula",
+     "how": "Vale 5 de 100 puntos de fórmula. Sin compromiso o con nivel L.O.D. 200: 0 puntos. Compromiso de L.O.D. 300 o superior: todos los puntos. Hay que entregar el plan BIM en 45 días y un modelo L.O.D. 300 en los 3 primeros meses de obra."
+    },
+    {
+     "name": "Memoria descriptiva del proceso de ejecución",
+     "pts": 27.5,
+     "kind": "juicio de valor",
+     "how": "Vale 55 de 100 puntos de juicio de valor. Incluye concepción global (6), procesos constructivos y coordinación (25), fuentes de suministro (8), acopios, plantas y medios (6), minimización del impacto a usuarios (6), subcontratación prevista (1) y organización del personal (3). Máximo 100 páginas."
+    },
+    {
+     "name": "Programa de trabajos y plazo de ejecución",
+     "pts": 7.5,
+     "kind": "juicio de valor",
+     "how": "Vale 15 de 100. Rendimientos que justifiquen el plazo (5), diagrama Gantt con red de precedencias (5), lista de actividades y holguras (4) y reducción del plazo total (1). Máximo 30 páginas."
+    },
+    {
+     "name": "Plan de calidad",
+     "pts": 5,
+     "kind": "juicio de valor",
+     "how": "Vale 10 de 100. Medidas de calidad y plan de ensayos (4), programa de puntos de inspección (4) y organización del control de calidad (3, según tabla de Anexo VII). Máximo 30 páginas."
+    },
+    {
+     "name": "Programa de actuaciones medioambientales",
+     "pts": 5,
+     "kind": "juicio de valor",
+     "how": "Vale 10 de 100. Identificación de impactos (2), organización física de la obra (2), gestión de tierras y residuos (5) y reducción de combustibles fósiles y materiales reciclados (1). Máximo 20 páginas."
+    },
+    {
+     "name": "Tecnología e I+D+i",
+     "pts": 2.5,
+     "kind": "juicio de valor",
+     "how": "Vale 5 de 100. Calidad de las tecnologías propuestas (3) y uso de I+D+i propia, acreditable (2). Máximo 20 páginas."
+    },
+    {
+     "name": "Memoria de actuaciones sociales",
+     "pts": 2.5,
+     "kind": "juicio de valor",
+     "how": "Vale 5 de 100. Integración de personas con discapacidad o vulnerables (2), igualdad y contratación femenina (1), condiciones salariales, estabilidad y conciliación (1) y criterios éticos (1). Máximo 10 páginas."
+    }
+   ],
+   "cite": "PCAP 12–13 · PCAP 33–36 · PCAP 75–76",
+   "items": [
+    [
+     "Cómo se combinan",
+     "Puntuación global = (puntos de juicio de valor × 50 + puntos de fórmula × 50) / 100. Ambos bloques pesan el 50 %. No hace falta comité de expertos.",
+     "PCAP 12 · PCAP 39"
+    ],
+    [
+     "Juicio de valor",
+     "Los 6 criterios suman 100 puntos y pesan el 50 % del total. Se puntúa por adaptación a lo pedido, coherencia y particularización al proyecto. Lo que pase del máximo de páginas no se valora.",
+     "PCAP 12 · PCAP 33 · PCAP 73"
+    ],
+    [
+     "Umbral mínimo",
+     "Hay que sacar al menos el 50 % de los puntos del conjunto de criterios de juicio de valor (50 de 100). Si no, la oferta queda excluida y no se abre el sobre 3.",
+     "PCAP 13 · PCAP 33"
+    ],
+    [
+     "Otras mejoras",
+     "Servicios afectados, arqueología y mayor gasto en ensayos aparecen en la tabla, pero valen 0 puntos. El Anexo IV las pide igualmente.",
+     "PCAP 13 · PCAP 63–64"
+    ],
+    [
+     "Baja anormal",
+     "Con menos de 5 ofertas: se presume anormal la que supera en más de 4 puntos la baja media. Con 5 o más: la que supera en más de 4 puntos la «baja de referencia» (media de las bajas que estén a una desviación típica de la media). Tienes 5 días hábiles para justificarla.",
+     "PCAP 13 · PCAP 37–38"
+    ],
+    [
+     "Seguimiento de ofertas bajas",
+     "Si ganas con una oferta anormal, se vigila el programa de trabajos con un límite del 20 % (ver incoherencias).",
+     "PCAP 13"
+    ],
+    [
+     "Desempate",
+     "Criterios del artículo 147.2 LCSP. El pliego no los detalla.",
+     "PCAP 33"
+    ]
+   ],
+   "insight": "La mitad de la nota depende de la memoria técnica, sobre todo la de ejecución (27,5 puntos). El precio sirve para afinar: ofrecer el presupuesto ya da 22,5 puntos, y el umbral de temeridad de 4 puntos sobre la baja media limita las rebajas agresivas."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "45 días naturales desde la publicación del anuncio. El anuncio fija el cierre el 11 de enero de 2027 a las 14:00, solo por la Plataforma de Contratación del Sector Público, con firma electrónica reconocida.",
+     "PCAP 6–7 · PCAP 23–24"
+    ],
+    [
+     "Preguntas",
+     "Por la Plataforma. Si preguntas al menos 12 días antes del cierre, deben contestarte al menos 6 días antes: último día para tener respuesta garantizada, el 30 de diciembre de 2026. Las respuestas son vinculantes y públicas.",
+     "PCAP 6"
+    ],
+    [
+     "Sobre 1: documentación administrativa",
+     "DEUC (partes II, III, IV sección A y VI), declaración complementaria (Anexo I), declaración de ausencia de conflicto de intereses (DACI, fondos CEF2), compromiso de UTE si lo hay, correo para notificaciones y declaración de sumisión a tribunales españoles si eres extranjera. La mesa da 3 días hábiles para subsanar defectos.",
+     "PCAP 7–8 · PCAP 27–29 · PCAP 54–56"
+    ],
+    [
+     "Sobre 2: juicio de valor",
+     "Memoria de ejecución, programa de trabajos, plan de calidad, memoria medioambiental, I+D+i y memoria social. Formato A4, Arial 11, interlineado sencillo y márgenes de 2 cm. Hasta 10 páginas pueden ir en tamaño mayor. Sin ningún dato del precio.",
+     "PCAP 69–73"
+    ],
+    [
+     "Sobre 3: oferta y mejoras",
+     "Anexo IV firmado: presupuesto de ejecución sin IVA, plazo de ejecución, compromisos (servicios afectados, arqueología, % de ensayos y modelo BIM con su nivel). En UTE, firman todas las empresas con su porcentaje.",
+     "PCAP 33–34 · PCAP 63–64"
+    ],
+    [
+     "Garantías",
+     "Provisional: no se exige. Definitiva: 5 % del precio final ofertado, sin IVA. Complementaria: el cuadro la marca «No se exige», aunque el texto dice 5 % (ver incoherencias).",
+     "PCAP 11–12"
+    ],
+    [
+     "Apertura",
+     "La mesa abre el sobre 2 en los 20 días siguientes al cierre. El sobre 3 se abre después, en el lugar y día que fije el anuncio. Antes se publica la valoración del sobre 2.",
+     "PCAP 28"
+    ],
+    [
+     "Plazo de adjudicación",
+     "Dos meses.",
+     "PCAP 14"
+    ],
+    [
+     "Gastos de publicidad",
+     "El adjudicatario paga la publicidad de la licitación hasta 3.000 €.",
+     "PCAP 32"
+    ],
+    [
+     "Requerimiento de documentos",
+     "Si no aportas a tiempo lo que te pidan, se entiende que retiras la oferta y te exigen una penalidad del 3 % del presupuesto base sin IVA.",
+     "PCAP 29"
+    ],
+    [
+     "Visita a la obra",
+     "El pliego no lo indica.",
+     ""
+    ],
+    [
+     "Recurso especial (art. 44 LCSP)",
+     "No parece proceder: el contrato no es de regulación armonizada y el valor estimado (1.998.891,50 €) no llega a 3.000.000 €, el umbral para obras. La preparación y la adjudicación se discuten ante la jurisdicción contencioso-administrativa.",
+     "PCAP 2 · PCAP 5 · PCAP 52"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro",
+     "items": [
+      [
+       "Cobro por certificaciones",
+       "Se cobra por certificaciones y abonos a cuenta. No puedes cobrar en 2027 más de la anualidad prevista (todo el importe), aunque certifiques más.",
+       "PCAP 4 · PCAP 14 · PCAP 42"
+      ],
+      [
+       "Sin revisión de precios",
+       "No hay revisión de precios. El precio queda fijo durante la obra.",
+       "PCAP 14"
+      ],
+      [
+       "Costes a tu cargo",
+       "A cargo del contratista: ensayos que ordene la dirección hasta el 1 % del presupuesto de obra, señalización, carteles e información al público (hasta el 2 por mil), formalización, tasas e impuestos, y publicidad de licitación hasta 3.000 €.",
+       "PCAP 32 · PCAP 49–50"
+      ],
+      [
+       "Adaptación a normativa",
+       "Debes asumir a tu costa adaptar el proyecto a la normativa técnica vigente, hasta el 5 % del precio inicial. Por encima de eso se puede pedir modificación.",
+       "PCAP 16 · PCAP 43"
+      ]
+     ]
+    },
+    {
+     "key": "risk-penalties",
+     "h": "Ejecución y penalidades",
+     "items": [
+      [
+       "Demora",
+       "Penalidad de 0,60 € al día por cada 1.000 € de precio. Sobre el presupuesto base serían unos 1.199 € al día. Si la causa es sólo en parte tuya, puede bajar hasta 0,10 € por cada 1.000 €.",
+       "PCAP 17 · PCAP 41"
+      ],
+      [
+       "Retraso en el programa de trabajos",
+       "Si la obra ejecutada a origen queda más de un 30 % por debajo de lo previsto, penalidad del 2,5 % de la diferencia cada mes, con tope del 50 % del presupuesto.",
+       "PCAP 46–47"
+      ],
+      [
+       "Incumplir condiciones o compromisos de la oferta",
+       "Por regla general, 1 % del precio. Puede llegar al 5 % o al 10 % si es grave o muy grave, con tope total del 50 %. Aplica a condiciones especiales de ejecución, cumplimiento defectuoso y a incumplir lo ofertado.",
+       "PCAP 17 · PCAP 44–46"
+      ],
+      [
+       "Subcontratación",
+       "Si incumples las condiciones, 5 % del importe del subcontrato (hasta el 10 % o el 50 % según gravedad). Hay que comunicar los subcontratos por escrito antes (Anexo V) y avisar al alcanzar el 30 %.",
+       "PCAP 17 · PCAP 44 · PCAP 48"
+      ],
+      [
+       "Fondos europeos",
+       "Hay penalidad por incumplir las obligaciones de información y publicidad exigidas para fondos europeos.",
+       "PCAP 18"
+      ],
+      [
+       "Seguridad laboral",
+       "Es condición especial de ejecución: dos sanciones muy graves en un año por la autoridad laboral se consideran incumplimiento esencial.",
+       "PCAP 15–16 · PCAP 42–43"
+      ],
+      [
+       "Causas de resolución",
+       "Entre otras: abandono de obra, subcontratar o ceder sin autorización, incumplir plazos del programa de trabajos, ejecución gravemente deficiente.",
+       "PCAP 52"
+      ]
+     ]
+    },
+    {
+     "key": "risk-people",
+     "h": "Personal y medios",
+     "items": [
+      [
+       "Equipo fijo",
+       "El equipo comprometido no se puede cambiar sin autorización previa del órgano de contratación. El jefe de obra y el jefe de producción tienen plena dedicación.",
+       "PCAP 10 · PCAP 48"
+      ],
+      [
+       "Inspecciones",
+       "El puerto puede inspeccionar instalaciones, oficinas y centros de fabricación o almacén para auditar materiales y calidad.",
+       "PCAP 19"
+      ],
+      [
+       "Convenio",
+       "Hay que cumplir el Convenio de la Construcción de la Provincia de Cádiz.",
+       "PCAP 5 · PCAP 50"
+      ],
+      [
+       "Plan de calidad (PAC)",
+       "Se exige un Plan de Aseguramiento de la Calidad de categoría B. Hay que revisarlo en el mes siguiente a la autorización de inicio y hacer auditorías.",
+       "PCAP 19 · PCAP 78–80"
+      ],
+      [
+       "Datos y seguros",
+       "Hay que mantener el seguro a todo riesgo (2.000.000 €) y el de responsabilidad civil (1.500.000 €) hasta el fin de la garantía.",
+       "PCAP 16 · PCAP 43–44"
+      ],
+      [
+       "Pliego técnico",
+       "El pliego técnico (PPT) no estaba entre los documentos que hemos recibido. Conviene leerlo antes de ofertar, sobre todo los condicionantes de la obra y la garantía.",
+       ""
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Revisión de precios",
+     "La casilla marcada dice «No procede», pero el texto de la otra opción habla de duración de 12 meses y de que sí procede. El plazo real es de 6 meses.",
+     "PCAP 14"
+    ],
+    [
+     "Adscripción de medios",
+     "El apartado 8.4 exige el compromiso de adscribir medios, pero el apartado 21.2 marca «No» a la adscripción de medios específicos como condición especial de ejecución. La cláusula 41 sí la exige.",
+     "PCAP 10 · PCAP 16 · PCAP 43"
+    ],
+    [
+     "Garantía complementaria",
+     "El texto dice «5 % del importe del precio final ofertado», pero la casilla marcada es «No se exige».",
+     "PCAP 11–12"
+    ],
+    [
+     "Límite del programa de trabajos",
+     "El cuadro habla del 20 % como límite por incumplir el programa de trabajos y remite a la cláusula 41.4.b. La cláusula 42.4.b usa el 30 %.",
+     "PCAP 13 · PCAP 46"
+    ],
+    [
+     "Remisiones a apartados",
+     "La cláusula 27 remite al apartado 15 del cuadro para las ofertas anormales, y la cláusula 28 al apartado 14, que es el correcto. La cláusula 57 remite a la «Cláusula 41» para penalidades que están en la 42.",
+     "PCAP 34 · PCAP 37 · PCAP 52"
+    ],
+    [
+     "Experiencia del equipo de calidad y jefe de obra",
+     "El cuadro exige 2 años al responsable de calidad y 10 años al jefe de obra. El Anexo IX (PAC categoría B) habla de 3 años para ambos perfiles.",
+     "PCAP 10 · PCAP 83–84"
+    ],
+    [
+     "CPV",
+     "El pliego indica CPV 45236200-2, y el anuncio de la Plataforma, 45234116.",
+     "PCAP 2"
+    ],
+    [
+     "Anexo IV",
+     "Pide ofertar el % de ensayos, servicios afectados y arqueología, que valen 0 puntos. Para el BIM remite a la «cláusula 27 del PCAG», no a la del PCAP.",
+     "PCAP 13 · PCAP 63–64"
+    ],
+    [
+     "Garantía de las obras",
+     "Existe una opción de «2 años según PPTP 5.21» sin marcar. Está marcado 1 año. No hemos podido comprobar el PPT.",
+     "PCAP 19"
+    ],
+    [
+     "Seguro de responsabilidad civil",
+     "Dice que el «Ministerio de Fomento» debe figurar como asegurado adicional, aunque el órgano es la Autoridad Portuaria. Parece resto de otro modelo.",
+     "PCAP 44"
+    ]
+   ],
+   "advice": "Conviene preguntar por la Plataforma, antes del 30 de diciembre de 2026, por la revisión de precios, la garantía complementaria, la adscripción de medios y las experiencias exigidas a calidad y jefe de obra."
+  }
+ ],
+ "updated": "2026-11-27",
+ "files": [
+  {
+   "name": "Pliego de cláusulas administrativas particulares (PCAP), con cuadro de características y anexos (declaraciones, solvencia, oferta, subcontratación, garantías, sobre 2 y plan de calidad)",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 97,
+   "bytes": 2453023
+  }
+ ]
+}

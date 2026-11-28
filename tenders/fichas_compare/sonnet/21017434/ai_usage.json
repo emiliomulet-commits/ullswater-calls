@@ -1,0 +1,18 @@
+{
+ "model": "claude-sonnet-5-5",
+ "effort": "medium",
+ "doc_chars": 240896,
+ "doc_pages": 94,
+ "input_tokens": 13907,
+ "output_tokens": 37584,
+ "cache_creation_input_tokens": 116178,
+ "cache_read_input_tokens": 116178,
+ "calls": 2,
+ "rules_check": "21017434: OK · revisar: 5 contradicción(es) entre documentos: revisar",
+ "cost_usd": 0.7057,
+ "seconds": 243,
+ "status": "ok",
+ "problems": [],
+ "not_read": [],
+ "cost_eur": 0.6492
+}

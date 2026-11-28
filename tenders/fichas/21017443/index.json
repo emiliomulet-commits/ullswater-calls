@@ -1,0 +1,100 @@
+{
+ "id": "21017443",
+ "title": "Adquisició d'un immoble destinat per als serveis municipals",
+ "buyer": "Alcaldía del Ajuntament de Son Servera",
+ "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=N6AP%2FHraEikIYE3ZiZ%2BxmQ%3D%3D",
+ "docs": [
+  {
+   "kind": "Legal",
+   "name": "20261123_PCAP_9705-2026.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=N52kIhurvOd94q6qYSiKGoqVckJgpIfeLlRIFI60/twi4J0onGQPpV5UZq4Ihyg%2BUGcmw5SdnHqUJTVm6L6z0EYdBSjrsqH9m5UIFQ%2BLDsU//q7NB2iMZvNyf0xrJmjt",
+   "file": "01_Legal.pdf",
+   "bytes": 434646,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC2026112708454620261123_PCAP_9705-2026.pdf",
+   "codes": [
+    "PCAP"
+   ],
+   "pages": 16
+  },
+  {
+   "kind": "Technical",
+   "name": "20261123_PPT_9705-2026.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=1H%2BYHuxv9MmVKeMmKJTQyAODje1NGKJd6HK6dCjUm7efEeug83Tk8xFcvT0brKaDvR0VXmrrkzc%2BTGZriUZuSyMNIpAizoKBsFf0JIwxCG36CYyL7SIrUOBFfNf52ZqA",
+   "file": "02_Technical.pdf",
+   "bytes": 242590,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC2026112708312920261123_PPT_9705-2026.pdf",
+   "codes": [
+    "PPT"
+   ],
+   "pages": 2
+  },
+  {
+   "kind": "Additional",
+   "name": "Mapa_9705-2026.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=KA8GTZMLWU3N5MbhELgiISGvFTwU6xkh4l27tQcf2MCGY2UkvPxhb9KwZiG%2Bp7AOsGTT14pw9dp92xuVJkOcaFkK9Bpd8zEYbVpiYnw34R6B0nvVKRzfe4rpHcnlPhSZ",
+   "file": "03_Additional.pdf",
+   "bytes": 352681,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261127141457Mapa_9705-2026.pdf",
+   "codes": [
+    "ANX"
+   ],
+   "pages": 3
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-a94e928b-6a4c-4f81-ba0c-d39ad0726135",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-a94e928b-6a4c-4f81-ba0c-d39ad0726135",
+   "file": "04_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-f4d55543-da43-4733-b9b8-67cd3028399f",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-f4d55543-da43-4733-b9b8-67cd3028399f",
+   "file": "05_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-079e3695-8659-4104-8a28-3bd262a9214f",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-079e3695-8659-4104-8a28-3bd262a9214f",
+   "file": "06_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-9d2aeed2-dabb-497f-858b-c3d193d3a6a4",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-9d2aeed2-dabb-497f-858b-c3d193d3a6a4",
+   "file": "07_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-e4928439-a41a-4462-bd39-24bbf20cace9",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-e4928439-a41a-4462-bd39-24bbf20cace9",
+   "file": "08_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  }
+ ]
+}

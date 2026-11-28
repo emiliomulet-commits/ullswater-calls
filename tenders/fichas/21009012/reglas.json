@@ -1,0 +1,358 @@
+{
+ "schema": 1,
+ "id": "21009012",
+ "reviewed": "2026-11-28",
+ "title": "Soporte a la operación de TI y mantenimiento de aplicaciones de la Autoridad Portuaria de Valencia 2027-28",
+ "buyer": "Autoridad Portuaria de Valencia",
+ "buyer_key": "Presidencia de la Autoridad Portuaria de Valencia",
+ "province": "Valencia",
+ "cpv": "72000000",
+ "ref": "EC26-C05-03320",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=GXbJuS%2BLZ%2FLI8aL3PRS10Q%3D%3D",
+ "deadline": "2027-01-11",
+ "deadline_time": "13:00",
+ "questions_until": null,
+ "questions_cite": "El pliego no lo indica",
+ "opening_days": null,
+ "opening_cite": "PCAP p.66",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 3,
+ "judgement_pts": 20,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Contrato único: servicio ordinario y servicio extraordinario",
+   "budget": 3488565.43,
+   "months": 12
+  }
+ ],
+ "lots_cite": "PCAP p.1 · PCAP p.18",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": "No hay lotes.",
+ "lots_rule_cite": "PCAP p.18",
+ "requirements": [
+  {
+   "id": "turnover",
+   "kind": "number_min",
+   "min": 4000000,
+   "label": "Solvencia económica",
+   "rule": "Facturación de al menos 4.000.000 € en el mejor de los 3 últimos ejercicios cerrados",
+   "question": "¿Cuál fue tu facturación en tu mejor año de los 3 últimos ejercicios cerrados?",
+   "unit": "€",
+   "cite": "PCAP p.6",
+   "proof": "Cuentas anuales depositadas en el Registro Mercantil"
+  },
+  {
+   "id": "similar",
+   "kind": "number_min",
+   "min": 1000000,
+   "label": "Solvencia técnica: servicios similares",
+   "rule": "Al menos 1.000.000 € en el mejor año de los 3 últimos en gestión de servicios TI",
+   "question": "¿Cuánto facturaste en tu mejor año reciente en gestión de servicios TI?",
+   "unit": "€",
+   "cite": "PCAP p.7",
+   "proof": "Certificados de los clientes (o declaración del empresario si el cliente es privado y no lo emite)"
+  },
+  {
+   "id": "key_team",
+   "kind": "yesno",
+   "label": "Equipo clave de 9 personas",
+   "rule": "2 coordinadores, 3 jefes de equipo y 4 jefes de producto al 100 %, con 5 años de gestión de equipos IT (coordinadores y jefes de equipo) y 5 o 2 años en entorno portuario (jefes de producto)",
+   "question": "¿Puedes adscribir 2 coordinadores, 3 jefes de equipo y 4 jefes de producto al 100 %, con la experiencia mínima exigida?",
+   "cite": "PCAP p.7–8",
+   "proof": "CV nominativo con tabla resumen (Anexo C) y certificados de clientes"
+  },
+  {
+   "id": "titled",
+   "kind": "number_min",
+   "min": 5,
+   "label": "Titulados en Informática o Telecomunicaciones",
+   "rule": "Al menos 5 recursos con titulación en Informática, Telecomunicaciones o equivalente (MECES 2 o superior)",
+   "question": "¿Cuántas personas de tu equipo propuesto tienen titulación en Informática o Telecomunicaciones?",
+   "unit": "",
+   "cite": "PCAP p.8",
+   "proof": "Títulos oficiales"
+  },
+  {
+   "id": "certified",
+   "kind": "yesno",
+   "label": "Certificaciones de los 9 perfiles clave",
+   "rule": "Los 9 con PMP, PRINCE2 o ITIL (o similar)",
+   "question": "¿Tienen los 9 perfiles clave certificación PMP, PRINCE2 o ITIL?",
+   "cite": "PCAP p.9",
+   "proof": "Certificados de PMI, Axelos, APM Group u otra organización acreditada"
+  },
+  {
+   "id": "extra_team",
+   "kind": "yesno",
+   "label": "37 técnicos adicionales",
+   "rule": "Adscribir otros 37 técnicos al 100 %, con 2 años de experiencia en el 75 % del equipo y las titulaciones y certificaciones por tecnología de la tabla del pliego",
+   "question": "¿Puedes aportar 37 técnicos más al 100 % (46 en total) con las titulaciones y certificaciones exigidas?",
+   "cite": "PCAP p.28–30",
+   "proof": "CV nominativos, títulos y certificados"
+  },
+  {
+   "id": "ens",
+   "kind": "yesno",
+   "label": "Certificado ENS nivel medio",
+   "rule": "Certificación de conformidad con el ENS categoría MEDIA, con alcance sobre el contrato, vigente durante todo el contrato",
+   "question": "¿Tienes certificado ENS de categoría media que cubra este servicio?",
+   "cite": "PCAP p.14",
+   "proof": "Certificado emitido por entidad acreditada por ENAC"
+  },
+  {
+   "id": "iso20000",
+   "kind": "yesno",
+   "label": "ISO 20000",
+   "rule": "ISO 20000 de gestión de servicios TI o equivalente, con alcance sobre soporte y operación de sistemas IT y mantenimiento de aplicaciones",
+   "question": "¿Tienes certificado ISO 20000 (o equivalente) con ese alcance?",
+   "cite": "PCAP p.10",
+   "proof": "Certificado ISO 20000 en el sobre 1"
+  },
+  {
+   "id": "insurance",
+   "kind": "yesno",
+   "label": "Seguro de responsabilidad civil",
+   "rule": "1.000.000 € de cobertura, con certificado según el Anexo 7",
+   "question": "¿Tienes o puedes contratar un seguro de responsabilidad civil de al menos 1.000.000 €?",
+   "cite": "PCAP p.14",
+   "proof": "Certificado de la aseguradora (Anexo 7)"
+  }
+ ],
+ "classification": null,
+ "roles": [
+  {
+   "id": "jp",
+   "label": "Jefe/a de producto (4)",
+   "short": "jefes de producto"
+  },
+  {
+   "id": "coord",
+   "label": "Coordinador/a (2)",
+   "short": "coordinadores"
+  },
+  {
+   "id": "je",
+   "label": "Jefe/a de equipo (3)",
+   "short": "jefes de equipo"
+  }
+ ],
+ "roles_question": "¿Cuántos años de experiencia certificada tiene cada perfil clave en entorno portuario (jefes de producto) y en gestión de equipos IT (coordinadores y jefes de equipo)?",
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica",
+   "pts": 40,
+   "formula": "proportional",
+   "how": "Puntos según la baja de tu oferta (importe total con IVA frente al presupuesto base) en proporción a la baja de la oferta más económica no anormal",
+   "cite": "PCAP p.66",
+   "note": "La fórmula del pliego incluye un «+ 60» que no cuadra con 40 puntos; hay que confirmarlo con el órgano."
+  },
+  {
+   "id": "exp_port",
+   "kind": "choice",
+   "name": "Experiencia en entornos portuarios",
+   "pts": 25,
+   "question": "¿Qué experiencia certificada en entorno portuario tienen tus 4 jefes de producto?",
+   "options": [
+    {
+     "label": "Todos entre 1 y 5 años",
+     "pts": 0
+    },
+    {
+     "label": "Todos entre 6 y 10 años (4 puntos cada uno)",
+     "pts": 16
+    },
+    {
+     "label": "Todos entre 11 y 15 años (6 puntos cada uno)",
+     "pts": 24
+    },
+    {
+     "label": "Todos con más de 15 años (8 puntos cada uno, tope 25)",
+     "pts": 25
+    }
+   ],
+   "cite": "PCAP p.23",
+   "note": "Se suman los puntos de cada persona (0, 4, 6 u 8) con tope de 25. Los perfiles mixtos hay que calcularlos a mano."
+  },
+  {
+   "id": "exp_it",
+   "kind": "choice",
+   "name": "Experiencia en gestión de equipos IT",
+   "pts": 15,
+   "question": "¿Qué experiencia certificada en gestión de equipos IT tienen tus 2 coordinadores y 3 jefes de equipo?",
+   "options": [
+    {
+     "label": "Todos entre 1 y 5 años",
+     "pts": 0
+    },
+    {
+     "label": "Todos con más de 5 y hasta 8 años (2 puntos cada uno)",
+     "pts": 10
+    },
+    {
+     "label": "Todos con más de 8 y menos de 10 años (3 puntos cada uno)",
+     "pts": 15
+    },
+    {
+     "label": "Todos con más de 10 años (4 puntos cada uno, tope 15)",
+     "pts": 15
+    }
+   ],
+   "cite": "PCAP p.23",
+   "note": "Se suman los puntos de cada persona con tope de 15. Los perfiles mixtos hay que calcularlos a mano."
+  },
+  {
+   "id": "memoria",
+   "kind": "judgement",
+   "name": "Adecuación de la estructura funcional para la prestación del servicio",
+   "pts": 20,
+   "how": "Memoria sobre dimensionamiento y organización de áreas (13 puntos), reporte de trabajo a la APV (5) y reporte de dirección (2). Mínimo 10 de 20 para seguir en el proceso",
+   "cite": "PCAP p.22 · PCAP p.66"
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 4,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.66–68",
+  "note": "Con 5 o más ofertas, la referencia es la baja de referencia (BR), que descarta las ofertas muy alejadas de la media. Con menos de 5, es la baja media (BM). En ambos casos, anormal si la baja supera la referencia en más de 4 puntos. La tasa de aceptación es un supuesto nuestro."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": null,
+  "note": "46 personas al 100 % durante 12 meses (PCAP p.7 · PCAP p.28), sin cifra de horas en el pliego"
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 5,
+  "cite": "PCAP p.11",
+  "note": "Se aplica al precio del servicio ordinario sin IVA, más el 5 % del presupuesto del servicio extraordinario sin IVA (31.425,62 €)."
+ },
+ "risk_flags": [
+  {
+   "id": "subrogation",
+   "label": "Subrogar a unos 45 trabajadores del contratista actual, obligación esencial",
+   "cite": "PCAP p.25–27",
+   "weight": 3
+  },
+  {
+   "id": "team46",
+   "label": "46 personas al 100 %, con experiencia y certificaciones exigidas; cambiarlas necesita permiso",
+   "cite": "PCAP p.28–30 · PCAP p.76",
+   "weight": 3
+  },
+  {
+   "id": "penalties",
+   "label": "Penalidades de 1 % y 3 % de la factura mensual por historias no aprobadas y entregas revertidas, más las generales",
+   "cite": "PCAP p.30–31 · PCAP p.94–97",
+   "weight": 2
+  },
+  {
+   "id": "ceiling",
+   "label": "Presupuesto máximo sin indemnización si no se agota, y crecimiento del 5–10 % anual sin coste extra",
+   "cite": "PCAP p.20 · PPT p.8",
+   "weight": 2
+  },
+  {
+   "id": "ip",
+   "label": "Propiedad intelectual de todo lo desarrollado para la APV; sin reutilización",
+   "cite": "PCAP p.97–98",
+   "weight": 1
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se admite recurrir a medios de otras empresas; cada una presenta su DEUC y declaración complementaria",
+  "ute": true,
+  "subcontracting": true,
+  "subcontracting_note": "No se pueden subcontratar las funciones de coordinadores, jefes de equipo y jefes de producto",
+  "cite": "PCAP p.52 · PCAP p.62 · PCAP p.27"
+ },
+ "specific_checks": [
+  {
+   "text": "El certificado ENS (categoría media) y la ISO 20000 deben estar en vigor y cubrir el alcance del contrato antes de presentar la oferta",
+   "cite": "PCAP p.10 · PCAP p.14"
+  },
+  {
+   "text": "Solo cuenta la experiencia certificada por empresas cliente; los certificados de empresas de servicios o de trabajo temporal no valen salvo que prestaran el servicio directamente",
+   "cite": "PCAP p.21 · PCAP p.23"
+  },
+  {
+   "text": "No se puede declarar en el Anexo 1-C la experiencia adicional que se oferta como criterio de adjudicación",
+   "cite": "PCAP p.8–9"
+  },
+  {
+   "text": "Hay que ofertar precio unitario por hora para los 3 perfiles del servicio extraordinario; omitir alguno supone la exclusión",
+   "cite": "PCAP p.21 · PCAP p.33"
+  },
+  {
+   "text": "Sacar menos de 10 de 20 puntos en la memoria excluye la oferta",
+   "cite": "PCAP p.66"
+  },
+  {
+   "text": "Documentos en lengua oficial de la Comunitat Valenciana (o con traducción jurada)",
+   "cite": "PCAP p.56"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -21,
+   "task": "Comprueba que tu certificado ENS (categoría media) y tu ISO 20000 están en vigor y cubren el objeto del contrato",
+   "cite": "PCAP p.10 · PCAP p.14",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -14,
+   "task": "Prepara el DEUC y la declaración complementaria (Anexo 1-C) con la solvencia económica y técnica y el equipo clave (sobre 1)",
+   "cite": "PCAP p.12 · PCAP p.62",
+   "help": "Borrador del DEUC (próximamente)"
+  },
+  {
+   "when": -10,
+   "task": "Redacta la memoria de estructura funcional: áreas, reporte de trabajo y reporte de dirección (sobre 2)",
+   "cite": "PCAP p.20 · PCAP p.22",
+   "help": "Esquema de memoria con los subcriterios y puntos"
+  },
+  {
+   "when": -7,
+   "task": "Rellena el Anexo B con la experiencia de cada perfil clave y reúne los certificados de los clientes (sobre 3)",
+   "cite": "PCAP p.21 · PCAP p.36",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -3,
+   "task": "Rellena la oferta económica (Anexo A): servicio ordinario y precios por hora del extraordinario, con IVA (sobre 3)",
+   "cite": "PCAP p.33–34",
+   "help": "Rebaja recomendada"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "La fórmula del precio incluye un «+ 60» que no cuadra con un criterio de 40 puntos; conviene preguntar cómo se calcula",
+   "cite": "PCAP p.13 · PCAP p.66"
+  },
+  {
+   "text": "En experiencia en gestión de equipos IT, el tramo «más de 8 y menos de 10 años» deja sin cubrir exactamente 10 años. Además, la suma máxima por persona supera el tope de cada criterio (32 sobre 25 y 20 sobre 15)",
+   "cite": "PCAP p.23"
+  },
+  {
+   "text": "El perfil se llama «Coordinador/a» en la solvencia y «Coordinador/a de Área» en la puntuación",
+   "cite": "PCAP p.7 · PCAP p.23"
+  },
+  {
+   "text": "Régimen de datos personales contradictorio: encargado del tratamiento en el cuadro y responsables independientes en la norma específica 9",
+   "cite": "PCAP p.15 · PCAP p.24"
+  },
+  {
+   "text": "Seguro de responsabilidad civil: 1.000.000 € en el cuadro, pero «igual al importe de adjudicación» en el Anexo 8",
+   "cite": "PCAP p.14 · PCAP p.171"
+  },
+  {
+   "text": "No se indica fecha límite de preguntas ni fecha de apertura de ofertas; el detalle de los niveles de servicio y las guardias del PPT no figura en el texto revisado",
+   "cite": "PPT p.2"
+  }
+ ]
+}

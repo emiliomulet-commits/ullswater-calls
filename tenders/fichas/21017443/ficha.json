@@ -1,0 +1,514 @@
+{
+ "id": "21017443",
+ "ref": "9705/2026",
+ "reviewed": "2026-11-28",
+ "title": "Compra de un edificio en el centro de Son Servera para servicios municipales (biblioteca, centro cultural y servicios sociales)",
+ "title_official": "Adquisició d'un immoble destinat per als serveis municipals.",
+ "buyer": "Alcaldía del Ajuntament de Son Servera",
+ "unit": "Regidoria de Patrimoni i Cementiri (seguimiento); arquitecto municipal (responsable del contrato)",
+ "place": "Son Servera (Illes Balears)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=N6AP%2FHraEikIYE3ZiZ%2BxmQ%3D%3D",
+ "published": "2026-11-23",
+ "updated": "2026-11-27",
+ "deadline": "2027-02-28",
+ "deadline_time": "14:00",
+ "questions_until": "2027-02-16",
+ "headline": "Son Servera compra un edificio céntrico para servicios municipales",
+ "headline_em": "un edificio céntrico",
+ "lede": "El Ayuntamiento de Son Servera quiere comprar, por un máximo de 1,4 M€, un inmueble a menos de 200 metros del Ayuntamiento. Lo destinará a biblioteca, centro cultural y servicios sociales.",
+ "crumbs": "Licitaciones › España › Ayuntamientos › Illes Balears",
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de cláusulas administrativas particulares (PCAP), con Anexo 1 (declaración responsable) y Anexo 2 (oferta económica)",
+   "file": "01_Legal.pdf",
+   "pages": 16
+  },
+  "PPT": {
+   "label": "Pliego de prescripciones técnicas (PPT)",
+   "file": "02_Technical.pdf",
+   "pages": 2
+  },
+  "ANX": {
+   "label": "Mapas con los radios de 200, 100 y 50 metros desde el Ayuntamiento",
+   "file": "03_Additional.pdf",
+   "pages": 3
+  }
+ },
+ "tags": {
+  "level": "Ayuntamiento",
+  "where": "Son Servera, Illes Balears",
+  "contract": "Compraventa de inmueble (contrato patrimonial)",
+  "sector": "Inmuebles (CPV 70120000)",
+  "size": "Grande (más de 1 M€)",
+  "deadline": "Cierra en 92 días",
+  "procedure": "Abierto",
+  "funds": "No se indican fondos europeos",
+  "lots": "Sin lotes",
+  "award": "Precio 40 % y calidad del inmueble 60 %"
+ },
+ "verdict": {
+  "opportunity": "media",
+  "difficulty": "media",
+  "text": "Solo interesa a quien sea propietario de un edificio (o pueda ofrecerlo con todos los copropietarios) en el centro de Son Servera, a 200 metros o menos del Ayuntamiento. Debe tener al menos 800 m² construidos, 650 m² de solar y 250 m² de espacio libre, y estar libre de cargas y de ocupantes. No es una licitación para empresas de servicios. Si el inmueble cumple, la oferta es sencilla: no hay solvencia, ni garantías, ni subcontratación. Los puntos se ganan con la cercanía al Ayuntamiento (hasta 10), con el juicio técnico sobre el edificio (40, sin umbral mínimo) y con el precio por m² (40). Hay dudas en los pliegos que conviene preguntar, sobre todo el plazo y el tope de precio."
+ },
+ "summary": [
+  "El Ayuntamiento de Son Servera compra un inmueble para usos municipales: centro cultural, biblioteca, servicios sociales y otras oficinas.",
+  "El precio máximo es de 1.400.000 € (sin lotes), con un tope de 1.750 € por m² construido. Se paga todo al firmar la escritura pública.",
+  "El inmueble debe estar en el núcleo urbano, a 200 metros o menos del Ayuntamiento. Debe tener como mínimo 800 m² construidos, 650 m² de solar y 250 m² de espacio libre, estar inscrito en el Registro de la Propiedad y estar libre de cargas y de ocupantes.",
+  "Se puntúa sobre 100: precio 40, evaluación técnica del inmueble 40 (juicio de valor), cercanía al Ayuntamiento 10, superficies 7 y calificación energética 3.",
+  "El plazo de entrega según el anuncio es el 28 de febrero de 2027 a las 14:00, por la Plataforma de Contratación del Sector Público, en 3 sobres electrónicos. El pliego dice otra cosa (ver «Incoherencias en los pliegos»)."
+ ],
+ "max_lots_per_bidder": 1,
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Compra de un inmueble en el núcleo urbano de Son Servera, en zona céntrica y a un máximo de 200 m del edificio del Ayuntamiento. Debe tener escritura de propiedad, estar inscrito en el Registro de la Propiedad y estar libre de cargas, gravámenes, arrendatarios y ocupantes en el momento de la escritura.",
+     "PCAP 2"
+    ],
+    [
+     "Para qué",
+     "Disponer de un inmueble para centro cultural, biblioteca, servicios sociales y otras dependencias administrativas.",
+     "PCAP 1 · PPT 1"
+    ],
+    [
+     "Tipo de contrato",
+     "Contrato privado de carácter patrimonial, excluido de la LCSP (Ley 9/2017 de Contratos del Sector Público). La preparación y adjudicación se rigen por el pliego y, en lo no previsto, por la Ley 33/2003 de Patrimonio de las Administraciones Públicas, el Reglamento de Bienes de las Entidades Locales y partes de la LCSP. Los efectos y la extinción se rigen por derecho privado.",
+     "PCAP 2 · PCAP 13"
+    ],
+    [
+     "Órgano",
+     "Alcaldía del Ayuntamiento de Son Servera. Seguimiento: regidora de Patrimonio y Cementerio. Responsable del contrato: arquitecto municipal.",
+     "PCAP 1"
+    ],
+    [
+     "Quién puede ofertar",
+     "Personas físicas o jurídicas, españolas o extranjeras, con plena capacidad de obrar, sin prohibiciones para contratar (art. 71 LCSP) y que acrediten la titularidad del inmueble. Cada licitador solo puede presentar una oferta. La oferta económica debe ir firmada por todos los propietarios o sus representantes.",
+     "PCAP 3 · PCAP 4"
+    ],
+    [
+     "Contrato reservado",
+     "No.",
+     "PCAP 1"
+    ],
+    [
+     "Requisitos urbanísticos",
+     "Suelo urbano, calificación «intensiva A» y uso administrativo en las normas subsidiarias y el catálogo de protección. Las propuestas fuera del radio o sin ese uso quedan excluidas.",
+     "PPT 1"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Compra de un único inmueble (sin lotes)",
+     "fee": 1400000
+    }
+   ],
+   "note": "El contrato no se divide en lotes. El importe es el valor estimado y precio máximo de compra, sin IVA según el anuncio. Equivale a 800 m² construidos a 1.750 €/m² (cálculo nuestro con el mínimo exigido).",
+   "cite": "PCAP 2"
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base y valor estimado",
+     "1.400.000,00 €, que es el precio máximo para adquirir el inmueble. Partida presupuestaria 2026/9200/60926.",
+     "PCAP 2"
+    ],
+    [
+     "Precio unitario máximo",
+     "1.750,00 € por m² construido.",
+     "PCAP 2"
+    ],
+    [
+     "IVA",
+     "El pliego no lo indica. El anuncio da el importe sin IVA igual a 1.400.000 €.",
+     "PCAP 2"
+    ],
+    [
+     "Impuestos y gastos",
+     "La compra está sujeta pero exenta del Impuesto de Transmisiones Patrimoniales (art. 45.I.A.a TRLITPAJD). Corren por cuenta del vendedor la escritura y el impuesto sobre el incremento de valor de los terrenos urbanos (plusvalía). Corren por cuenta del comprador la primera copia, las copias posteriores y la inscripción en el Registro de la Propiedad.",
+     "PCAP 2 · PCAP 11"
+    ],
+    [
+     "Duración y prórrogas",
+     "No procede: es una compraventa que termina con la escritura y el pago. La escritura se firma en la notaría de Son Servera, como máximo 2 meses después de notificar la adjudicación.",
+     "PCAP 11"
+    ],
+    [
+     "Revisión de precios",
+     "No procede. El pliego no la menciona.",
+     "PCAP 2"
+    ],
+    [
+     "Modificaciones previstas",
+     "No procede. El pliego no prevé modificaciones.",
+     "PCAP 2"
+    ],
+    [
+     "Subrogación de personal",
+     "No procede.",
+     "PCAP 2"
+    ],
+    [
+     "Financiación",
+     "Presupuesto municipal, partida 2026/9200/60926. El pliego no menciona fondos europeos.",
+     "PCAP 2"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Clasificación",
+     "No se exige.",
+     "PCAP 6"
+    ],
+    [
+     "Solvencia económica y técnica",
+     "El pliego no fija cifras de solvencia. Solo se pide declarar que se cumplen los requisitos de capacidad, y los de la declaración del Anexo 1.",
+     "PCAP 3 · PCAP 14"
+    ],
+    [
+     "Capacidad y titularidad",
+     "Persona física: DNI. Persona jurídica: NIF y escritura de constitución (y modificaciones) inscrita en el Registro Mercantil si procede. Hay que acreditar la titularidad del inmueble. Quien firme en nombre de otro debe acreditar su representación.",
+     "PCAP 3 · PCAP 4"
+    ],
+    [
+     "Superficies mínimas",
+     "Solar de al menos 650 m². Superficie construida de al menos 800 m² «o equivalente funcionalmente». Espacio libre de parcela de al menos 250 m².",
+     "PPT 1"
+    ],
+    [
+     "Estado del inmueble",
+     "Cédula de habitabilidad y/o final de obra. Accesibilidad desde la vía pública, espacio exterior ante el acceso, planta con acceso desde el nivel de la calle y distribución adaptable. Estructura sólida y buen estado (o recuperable con obras menores o moderadas). Redes de suministro disponibles. Situación jurídica y urbanística regular, sin cargas ni deberes urbanísticos incompatibles.",
+     "PPT 1–2"
+    ],
+    [
+     "Ubicación",
+     "Núcleo urbano, a 200 m o menos del Ayuntamiento (coordenadas 39°37'16.0\"N 3°21'37.2\"E). Los mapas de 200, 100 y 50 m están en los anexos.",
+     "PCAP 2 · PPT 1 · ANX 1–3"
+    ],
+    [
+     "Habilitaciones",
+     "No se exige ninguna. Hay que presentar cédula de habitabilidad y/o final de obra, y certificación de eficiencia energética (sin ella, 0 puntos en ese criterio).",
+     "PCAP 5 · PCAP 8"
+    ],
+    [
+     "Subcontratación e integración de solvencia",
+     "No procede: no se exige solvencia ni hay prestación subcontratable. UTE: el pliego no las menciona.",
+     "PCAP 3"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Oferta económica",
+     "pts": 40,
+     "kind": "fórmula",
+     "how": "Puntos = OB/OV × 40, donde OB es el precio unitario más bajo (€/m² construido) y OV el de la oferta que se valora. La oferta más barata obtiene 40. Quien no ofrezca rebaja sobre 1.750 €/m² obtiene 0 puntos."
+    },
+    {
+     "name": "Evaluación del inmueble",
+     "pts": 40,
+     "kind": "juicio de valor",
+     "how": "Valoración conjunta y comparada entre las ofertas de: accesibilidad, espacio exterior ante el acceso, planta a pie de calle, distribución adaptable, estructura, estado de conservación, luz, ventilación e instalaciones, compatibilidad urbanística y carácter arquitectónico. El pliego no fija umbral mínimo ni reparto de puntos por aspecto."
+    },
+    {
+     "name": "Ubicación: cercanía al Ayuntamiento",
+     "pts": 10,
+     "kind": "fórmula",
+     "how": "Menos de 50 m: 10 puntos. De 51 a 100 m: 5 puntos. De 101 a 200 m: 2 puntos."
+    },
+    {
+     "name": "Superficie construida",
+     "pts": 3,
+     "kind": "fórmula",
+     "how": "Más de 900 m²: 3 puntos. Más de 850 y hasta 900 m²: 2. Más de 800 y hasta 850 m²: 1."
+    },
+    {
+     "name": "Espacio abierto",
+     "pts": 2,
+     "kind": "fórmula",
+     "how": "Más de 300 m²: 2 puntos. Más de 250 y hasta 300 m²: 1."
+    },
+    {
+     "name": "Superficie del solar",
+     "pts": 2,
+     "kind": "fórmula",
+     "how": "Más de 800 m²: 2 puntos. Más de 650 y hasta 800 m²: 1."
+    },
+    {
+     "name": "Calificación energética",
+     "pts": 3,
+     "kind": "fórmula",
+     "how": "A o B: 3 puntos. C: 2. D o E: 1. F o G: 0. Sin certificado: 0."
+    }
+   ],
+   "cite": "PCAP 5–8",
+   "items": [
+    [
+     "Juicio de valor",
+     "40 puntos (evaluación del inmueble). El pliego dice que, para verificar el estado, el inmueble «se podrá visitar». Los otros 60 puntos son automáticos.",
+     "PCAP 6 · PCAP 7"
+    ],
+    [
+     "Orden de apertura",
+     "Primero se abre el sobre 1 (documentación). Después el sobre 3 (propuesta técnica) y, tras evaluarlo, el sobre 2 (oferta económica). La apertura no es pública con carácter general.",
+     "PCAP 9"
+    ],
+    [
+     "Baja anormal",
+     "El pliego no la regula.",
+     "PCAP 6"
+    ],
+    [
+     "Desempate",
+     "El pliego no lo indica.",
+     "PCAP 6"
+    ],
+    [
+     "Mesa de contratación",
+     "Es el órgano que valora las ofertas y propone la adjudicación. Se adjudica en un máximo de 5 días hábiles tras recibir la documentación previa, y en 15 días desde la apertura de proposiciones.",
+     "PCAP 8–9 · PCAP 11"
+    ]
+   ],
+   "insight": "Hay dos vías para ganar puntos: la distancia al Ayuntamiento (10 puntos, y menos de 50 m es el escalón máximo) y el juicio técnico del edificio (40 puntos, sin fórmula ni umbral). El precio pesa 40 con fórmula proporcional, así que una rebaja pequeña frente al competidor más barato cuesta pocos puntos."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Según el anuncio: 28 de febrero de 2027 a las 14:00, solo por la Plataforma de Contratación del Sector Público. El pliego dice «16 días naturales desde el día siguiente a la publicación»: confirma la fecha.",
+     "PCAP 3"
+    ],
+    [
+     "Preguntas",
+     "Por la Plataforma. Si se piden al menos 12 días antes del cierre, deben responder al menos 6 días antes. Con el cierre del anuncio, el último día para tener respuesta garantizada es el 16 de febrero de 2027 (cálculo nuestro).",
+     "PCAP 4"
+    ],
+    [
+     "Sobre 1: documentación general",
+     "Declaración responsable (Anexo 1): sin prohibiciones para contratar, al corriente de obligaciones tributarias (incluidas las del Ayuntamiento) y de Seguridad Social, el inmueble cumple los pliegos, responde de reclamaciones de terceros. Más acreditación de representación si se firma en nombre de otro.",
+     "PCAP 4 · PCAP 14"
+    ],
+    [
+     "Sobre 2: oferta económica",
+     "Anexo 2, con precio unitario por m² construido y precio total, en cifras y letras. Si no coinciden, prevalece la cifra en letras. Firmado por todos los propietarios o sus representantes.",
+     "PCAP 4–5 · PCAP 16"
+    ],
+    [
+     "Sobre 3: propuesta técnica",
+     "Ficha catastral, nota simple actualizada del Registro, memoria descriptiva (identificación, características, cuadro de superficies, fotografías, planos de emplazamiento y accesos, plantas, alzados y secciones), cédula de habitabilidad y/o final de obra y certificado de eficiencia energética.",
+     "PCAP 5 · PPT 2"
+    ],
+    [
+     "Después de ofertar",
+     "La mejor oferta tiene 10 días hábiles para presentar capacidad, documentos fiscales y de Seguridad Social, y los que acrediten la titularidad y condiciones del inmueble. Los defectos subsanables, 3 días naturales como máximo.",
+     "PCAP 10"
+    ],
+    [
+     "Garantías",
+     "Provisional: el pliego no la exige. Definitiva: el mejor licitador está eximido.",
+     "PCAP 10"
+    ],
+    [
+     "Visita",
+     "El inmueble podrá visitarse para verificar su estado.",
+     "PCAP 6"
+    ],
+    [
+     "Regulación armonizada y recurso especial",
+     "Es contrato patrimonial excluido de la LCSP. El pliego no prevé recurso especial del art. 44 LCSP y remite a la jurisdicción contencioso-administrativa para preparación y adjudicación.",
+     "PCAP 2 · PCAP 13"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro",
+     "items": [
+      [
+       "Pago único",
+       "El precio se paga al otorgar la escritura pública de compraventa. No hay pagos aplazados ni anticipos.",
+       "PCAP 11"
+      ],
+      [
+       "Impago",
+       "La falta de pago del precio en los plazos y forma del pliego es causa de resolución del contrato.",
+       "PCAP 12"
+      ]
+     ]
+    },
+    {
+     "h": "Penalidades",
+     "items": [
+      [
+       "Si retiras la oferta",
+       "Si no presentas la documentación previa en plazo o no corriges defectos, se entiende retirada la oferta y se exige el 3 % del presupuesto base sin IVA, que son 42.000 € (cálculo nuestro).",
+       "PCAP 10"
+      ],
+      [
+       "Si no firmas la escritura",
+       "Si por causas imputables al adjudicatario no se formaliza en el plazo de 2 meses, penalidad del 3 % del valor estimado, 42.000 € (cálculo nuestro). Si la causa es del Ayuntamiento, indemniza daños y perjuicios.",
+       "PCAP 11"
+      ]
+     ]
+    },
+    {
+     "h": "Obligaciones del vendedor",
+     "items": [
+      [
+       "Inmueble libre y depurado",
+       "El Ayuntamiento adquiere el inmueble depurado física y jurídicamente y libre de cargas, gravámenes, arrendatarios y ocupantes. El adjudicatario cancela las cargas y ajusta los linderos si el catastro y la nota simple no coinciden.",
+       "PCAP 2 · PCAP 11"
+      ],
+      [
+       "Gastos a cargo del vendedor",
+       "Escritura y plusvalía municipal (impuesto sobre el incremento de valor de los terrenos).",
+       "PCAP 11"
+      ],
+      [
+       "Reclamaciones de terceros",
+       "El licitador se compromete a responder de todas las reclamaciones de terceros sobre el inmueble y a estar al corriente de los suministros.",
+       "PCAP 14"
+      ],
+      [
+       "Protección de datos",
+       "Cumplir la normativa de protección de datos es condición especial de ejecución y obligación contractual esencial.",
+       "PCAP 12"
+      ]
+     ]
+    },
+    {
+     "h": "Personal",
+     "items": [
+      [
+       "Subrogación y subcontratación",
+       "No procede.",
+       "PCAP 2"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Plazo de presentación",
+     "El pliego dice 14:00 del decimosexto día natural desde la publicación del anuncio. El anuncio fija el 28 de febrero de 2027 a las 14:00, que son más de 3 meses. Usamos la fecha del anuncio.",
+     "PCAP 3"
+    ],
+    [
+     "Tope de precio y superficie",
+     "El precio máximo total es 1.400.000 € y el unitario 1.750 €/m². A ese precio 800 m² ya llegan a 1,4 M€, pero se puntúan superficies de más de 900 m². El pliego no aclara si 1,4 M€ es un tope total.",
+     "PCAP 2 · PCAP 8"
+    ],
+    [
+     "Fórmula del precio",
+     "La fórmula OB/OV × 40 daría puntos a una oferta sin rebaja, pero el pliego dice que sin rebaja sobre 1.750 €/m² se obtienen 0 puntos.",
+     "PCAP 6"
+    ],
+    [
+     "Cláusulas inexistentes",
+     "El Anexo 1 remite a las «cláusulas 20.2 y 20.3» del pliego, que tiene 18 cláusulas.",
+     "PCAP 14"
+    ],
+    [
+     "Escala de distancia",
+     "La tabla puntúa «menos de 50 m» y «de 51 a 100 m». No cubre exactamente 50 m ni los decimales. Además, el pliego no explica cómo se mide la distancia.",
+     "PCAP 7"
+    ],
+    [
+     "Solvencia",
+     "El Anexo 1 habla de «solvencia que se exige», pero el pliego no fija requisitos de solvencia.",
+     "PCAP 14"
+    ],
+    [
+     "Numeración",
+     "La cláusula 15 aparece repetida («Resolución del contrato» y «Pago»).",
+     "PCAP 11"
+    ]
+   ],
+   "advice": "Conviene preguntar por la Plataforma, al menos 12 días antes del cierre, la fecha exacta de cierre, si 1.400.000 € es tope total del precio y cómo se mide la distancia."
+  }
+ ],
+ "files": [
+  {
+   "name": "Pliego de cláusulas administrativas particulares (PCAP), con Anexo 1 (declaración responsable) y Anexo 2 (oferta económica)",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 16,
+   "bytes": 434646
+  },
+  {
+   "name": "Pliego de prescripciones técnicas (PPT)",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 2,
+   "bytes": 242590
+  },
+  {
+   "name": "Mapas con los radios de 200, 100 y 50 metros desde el Ayuntamiento",
+   "file": "03_Additional.pdf",
+   "type": "PDF",
+   "pages": 3,
+   "bytes": 352681
+  },
+  {
+   "name": "2026-a94e928b-6a4c-4f81-ba0c-d39ad0726135",
+   "file": "04_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-f4d55543-da43-4733-b9b8-67cd3028399f",
+   "file": "05_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-079e3695-8659-4104-8a28-3bd262a9214f",
+   "file": "06_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-9d2aeed2-dabb-497f-858b-c3d193d3a6a4",
+   "file": "07_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-e4928439-a41a-4462-bd39-24bbf20cace9",
+   "file": "08_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ]
+}

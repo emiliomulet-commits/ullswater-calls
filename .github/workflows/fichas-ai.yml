@@ -1,0 +1,73 @@
+name: AI factsheets for Spanish tenders (read every official document, write ficha + diagnosis)
+
+on:
+  workflow_dispatch:
+    inputs:
+      n: { description: "How many new tenders (ignored if ids is set)", required: false, default: "10" }
+      ids: { description: "PLACSP entry ids, comma separated (optional)", required: false }
+      model: { description: "Claude model", required: false, default: "claude-sonnet-5-5" }
+      effort: { description: "Effort (low | medium | high)", required: false, default: "medium" }
+      batch: { description: "Use the Batch API (half price, slower): yes | no", required: false, default: "yes" }
+      min_value: { description: "Only tenders from this amount in euros (empty = small varied test)", required: false, default: "" }
+      workers: { description: "Tenders processed at the same time", required: false, default: "3" }
+      out: { description: "Output folder (tenders/fichas publishes; anything else is a comparison)", required: false, default: "tenders/fichas" }
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fichas-ai-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fichas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - run: |
+          sudo apt-get install -y -q poppler-utils libpango-1.0-0 libpangoft2-1.0-0 fonts-inter >/dev/null || sudo apt-get install -y -q poppler-utils libpango-1.0-0 libpangoft2-1.0-0 >/dev/null
+          pip install -q "anthropic>=1.0" weasyprint || pip install -q anthropic weasyprint
+      - name: Free-model comparison only - deploy a temporary Worker with the Workers AI binding
+        if: startsWith(github.event.inputs.model, '@cf/')
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        working-directory: worker-compare
+        run: |
+          K=$(openssl rand -hex 24); echo "::add-mask::$K"; echo "COMPARE_KEY=$K" >> "$GITHUB_ENV"
+          npx -y wrangler@4 deploy --var KEY:"$K" 2>&1 | tee deploy.log
+          U=$(grep -o 'https://ullswater-ai-compare[^ ]*workers.dev' deploy.log | head -1); echo "COMPARE_URL=$U" >> "$GITHUB_ENV"; echo "url $U"; sleep 10
+      - name: Read the documents and write the fichas
+        env:
+          PYTHONUNBUFFERED: "1"
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          KIMI_API_KEY: ${{ secrets.KIMI_API_KEY }}
+          FICHA_N: ${{ github.event.inputs.n || '3' }}
+          FICHA_IDS: ${{ github.event.inputs.ids }}
+          FICHA_MODEL: ${{ github.event.inputs.model || 'claude-sonnet-5-5' }}
+          FICHA_EFFORT: ${{ github.event.inputs.effort || 'medium' }}
+          FICHA_BATCH: ${{ github.event.inputs.batch || 'yes' }}
+          FICHA_MIN_VALUE: ${{ github.event.inputs.min_value }}
+          FICHA_WORKERS: ${{ github.event.inputs.workers || '3' }}
+          FICHA_OUT: ${{ github.event.inputs.out || 'tenders/fichas' }}
+        run: python tools/ficha_ai.py
+      - name: Delete the temporary Worker
+        if: always() && startsWith(github.event.inputs.model, '@cf/')
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        working-directory: worker-compare
+        run: npx -y wrangler@4 delete --force || true
+      - name: Commit the fichas to this branch (the tenders site rebuilds from them)
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A tenders
+          git commit -m "fichas: AI factsheets for Spanish tenders" || exit 0
+          git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push -q origin HEAD:"${GITHUB_REF_NAME}"

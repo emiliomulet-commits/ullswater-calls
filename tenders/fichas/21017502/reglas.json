@@ -1,0 +1,388 @@
+{
+ "schema": 1,
+ "id": "21017502",
+ "reviewed": "2026-11-28",
+ "title": "Madera quemada de La Mierla, lotes 18 a 34 (Guadalajara)",
+ "buyer": "Junta de Comunidades de Castilla-La Mancha",
+ "buyer_key": "Secretaría General de la Consejería de Desarrollo Sostenible de la Junta de Comunidades de Castilla-La Mancha",
+ "province": "Guadalajara",
+ "cpv": "03410000",
+ "ref": "2026-043229 (I y II)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ju7ZfpP6MzcS7pcxhTeWOg%3D%3D",
+ "deadline": "2026-12-17",
+ "deadline_time": "23:59",
+ "questions_until": "2026-12-11",
+ "questions_cite": "PCAP p.38",
+ "opening_days": null,
+ "opening_cite": "PCAP p.51",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 2,
+ "judgement_pts": 0,
+ "lots": [
+  {
+   "n": 18,
+   "label": "Pinar y Dehesa (Condemios de Arriba)",
+   "budget": 11730.83,
+   "months": 12,
+   "m3": 1066.439,
+   "unit_price": 11
+  },
+  {
+   "n": 19,
+   "label": "Bienes Comunales (Gascueña de Bornova)",
+   "budget": 53785.24,
+   "months": 12,
+   "m3": 6723.1554,
+   "unit_price": 8
+  },
+  {
+   "n": 20,
+   "label": "Robredarcas, Umbría de los Parejones y otros (Semillas)",
+   "budget": 132858.76,
+   "months": 12,
+   "m3": 12653.215,
+   "unit_price": 10.5
+  },
+  {
+   "n": 21,
+   "label": "Santotis (Arroyo de las Fraguas)",
+   "budget": 226436.95,
+   "months": 12,
+   "m3": 18869.746,
+   "unit_price": 12
+  },
+  {
+   "n": 22,
+   "label": "Jocar (Arbancón)",
+   "budget": 39329.68,
+   "months": 12,
+   "m3": 3575.4258,
+   "unit_price": 11
+  },
+  {
+   "n": 23,
+   "label": "Muriel Sacedoncillo (Tamajón)",
+   "budget": 85904.62,
+   "months": 12,
+   "m3": 7809.5108,
+   "unit_price": 11
+  },
+  {
+   "n": 24,
+   "label": "Robredarcas, Umbría de los Parejones y otros (Semillas)",
+   "budget": 66624.71,
+   "months": 12,
+   "m3": 7013.1277,
+   "unit_price": 9.5
+  },
+  {
+   "n": 25,
+   "label": "Baldíos / Dehesa Boyal de la Torrecilla (Ujados)",
+   "budget": 54920.7,
+   "months": 12,
+   "m3": 6865.0872,
+   "unit_price": 8
+  },
+  {
+   "n": 26,
+   "label": "Muriel Sacedoncillo (Tamajón)",
+   "budget": 57233.99,
+   "months": 12,
+   "m3": 7154.2482,
+   "unit_price": 8
+  },
+  {
+   "n": 27,
+   "label": "Agua Fría (Zarzuela de Jadraque)",
+   "budget": 46643.84,
+   "months": 12,
+   "m3": 5830.4806,
+   "unit_price": 8
+  },
+  {
+   "n": 28,
+   "label": "La Mierla (La Mierla)",
+   "budget": 76526.09,
+   "months": 12,
+   "m3": 10203.4787,
+   "unit_price": 7.5
+  },
+  {
+   "n": 29,
+   "label": "La Mierla (La Mierla)",
+   "budget": 5261.44,
+   "months": 12,
+   "m3": 526.1442,
+   "unit_price": 10
+  },
+  {
+   "n": 30,
+   "label": "Bienes Comunales (Prádena de Atienza)",
+   "budget": 31783.3,
+   "months": 12,
+   "m3": 3972.9119,
+   "unit_price": 8
+  },
+  {
+   "n": 31,
+   "label": "Dehesa (La Miñosa)",
+   "budget": 6000.0,
+   "months": 12,
+   "m3": 2000,
+   "unit_price": 3
+  },
+  {
+   "n": 32,
+   "label": "Peña Recorte, Bustariega y Termuñoz (Condemios de Arriba)",
+   "budget": 68720.0,
+   "months": 12,
+   "m3": 6872,
+   "unit_price": 10
+  },
+  {
+   "n": 33,
+   "label": "Jocar / Fuente de la Cueva, Retortilla y otros (Arbancón / Semillas)",
+   "budget": 87524.87,
+   "months": 12,
+   "m3": 8752.4872,
+   "unit_price": 10
+  },
+  {
+   "n": 34,
+   "label": "Fuente de la Cueva, Retortilla, Matalonguilla y otros (Semillas)",
+   "budget": 15616.96,
+   "months": 12,
+   "m3": 1952.1204,
+   "unit_price": 8
+  }
+ ],
+ "lots_cite": "PCAP p.7–9 · PCAP p.21–32",
+ "max_lots_award": 17,
+ "max_lots_per_team": 17,
+ "lots_rule": "No hay límite de lotes adjudicables a una misma empresa, pero la solvencia se exige por la suma de los lotes propuestos.",
+ "lots_rule_cite": "PCAP p.10 · PCAP p.44",
+ "requirements": [
+  {
+   "id": "insurance",
+   "kind": "yesno",
+   "label": "Seguro de riesgos profesionales",
+   "rule": "Seguro de indemnización por riesgos profesionales de 250.000 €, con compromiso de renovación durante toda la ejecución",
+   "question": "¿Tienes un seguro de indemnización por riesgos profesionales de al menos 250.000 € y puedes comprometerte a renovarlo mientras dure el contrato?",
+   "cite": "PCAP p.42",
+   "proof": "Certificado del asegurador con importes, riesgos y vencimiento"
+  },
+  {
+   "id": "similar",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 0.7,
+   "label": "Solvencia técnica",
+   "rule": "Trabajos similares (aprovechamientos forestales) en el mejor de los 3 últimos años completos por al menos el 70 % del precio de salida del lote. Si ganas varios lotes, se suma",
+   "question": "¿Cuánto facturaste en aprovechamientos forestales (corta y extracción de madera) en tu mejor año de los 3 últimos años completos?",
+   "unit": "€",
+   "cite": "PCAP p.42–44",
+   "proof": "Certificados de buena ejecución con importe, fechas y lugar"
+  },
+  {
+   "id": "liquidity",
+   "kind": "yesno",
+   "label": "Pago íntegro previo",
+   "rule": "Hay que ingresar todo el precio adjudicado (modelo 046) antes de la licencia, sin aplazamiento",
+   "question": "¿Puedes ingresar el precio completo de los lotes que ganes (más IVA y tasas) en los 20 días hábiles siguientes a la firmeza de la adjudicación?",
+   "cite": "PCAP p.35",
+   "proof": "Justificante de ingreso del modelo 046"
+  },
+  {
+   "id": "provisional",
+   "kind": "yesno",
+   "label": "Garantía provisional del 3 %",
+   "rule": "Garantía del 3 % del precio de salida sin IVA de los lotes a los que ofertes, constituida antes de presentar la oferta",
+   "question": "¿Puedes constituir (en metálico, aval o seguro de caución) el 3 % del precio de salida de los lotes a los que quieres ir?",
+   "cite": "PCAP p.44–46",
+   "proof": "Resguardo de la Caja General de Depósitos"
+  },
+  {
+   "id": "traceability",
+   "kind": "yesno",
+   "label": "Herramienta de trazabilidad",
+   "rule": "Herramienta propia o de tercero que notifique cada orden de carga antes de salir, con fotos geolocalizadas y ficheros diarios y mensuales",
+   "question": "¿Dispones o puedes contratar una herramienta de trazabilidad con notificación automática de cada carga y fotos geolocalizadas?",
+   "cite": "PPT p.4–6",
+   "proof": "Declaración responsable de la herramienta y versión para pedir la licencia"
+  },
+  {
+   "id": "crew",
+   "kind": "yesno",
+   "label": "Medios y personal",
+   "rule": "Maquinaria de corta y desembosque aprobada por la Administración, mínimo 2 operarios a la vez en el tajo, técnico representante y seguro de responsabilidad civil de 250.000 €",
+   "question": "¿Dispones de maquinaria de corta y saca, al menos 2 operarios y un técnico responsable, y un seguro de responsabilidad civil de 250.000 €?",
+   "cite": "ANX3 p.24–25 · PCAP p.41",
+   "proof": "Relación de maquinaria, plantilla y póliza"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Precio ofertado al alza",
+   "pts": 100,
+   "formula": "highest_offer_up",
+   "min_price": "budget",
+   "how": "La oferta más alta de cada lote recibe 100 puntos y una oferta igual al precio mínimo recibe 0. Se reparte lineal con Pi = 100 × (Oi − T) / (Omax − T). Si ninguna supera el mínimo, todas reciben 100",
+   "cite": "PCAP p.50",
+   "note": "Es una puja al alza (la Junta cobra): gana la oferta más alta y las ofertas por debajo de la tasación se rechazan. Si el motor solo conoce fórmulas de bajada, hay que tratarlo como maximización respecto al precio de salida."
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "not_applicable": true,
+  "pp": null,
+  "single_pct": null,
+  "accept_rate": 0,
+  "cite": "PCAP p.32",
+  "note": "No procede baja anormal o temeraria: la Junta ingresa en vez de gastar. Lo que se rechaza son ofertas por debajo del precio mínimo de cada lote."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": null,
+  "note": "El pliego no permite estimar horas de dedicación: depende del volumen del lote, de la maquinaria y de los plazos de saca (20 días de abril a septiembre y 60 días el resto del año)"
+ },
+ "guarantee": {
+  "provisional_pct": 3,
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 0,
+  "cite": "PCAP p.44–46 · PCAP p.53"
+ },
+ "risk_flags": [
+  {
+   "id": "prepayment",
+   "label": "Hay que pagar todo el precio antes de empezar, sin aplazamiento",
+   "cite": "PCAP p.35",
+   "weight": 3
+  },
+  {
+   "id": "risk_venture",
+   "label": "Riesgo y ventura: existencias estimadas no vinculantes y sin indemnización si el aprovechamiento no se hace",
+   "cite": "PCAP p.63 · PPT p.2",
+   "weight": 3
+  },
+  {
+   "id": "traceability",
+   "label": "Trazabilidad obligatoria y sanciones por no notificar cada carga",
+   "cite": "PPT p.4–6 · PCAP p.67",
+   "weight": 2
+  },
+  {
+   "id": "deadlines",
+   "label": "Plazos de saca de 20 o 60 días, con suspensiones sin ampliar el plazo",
+   "cite": "PPT p.6 · PPT p.8–9",
+   "weight": 2
+  },
+  {
+   "id": "penalties",
+   "label": "Penalidades de hasta el 10 % por incumplimiento (tope total del 50 %)",
+   "cite": "PCAP p.64–67",
+   "weight": 3
+  }
+ ],
+ "solvency_paths": {
+  "integration": null,
+  "integration_note": "El pliego no lo indica. En UTE, cada miembro presenta su declaración responsable",
+  "ute": true,
+  "subcontracting": false,
+  "cite": "PCAP p.40 · PCAP p.63"
+ },
+ "specific_checks": [
+  {
+   "text": "La garantía provisional (3 %) debe estar constituida en la Caja General de Depósitos antes de enviar la oferta; el resguardo va en el sobre 1",
+   "cite": "PCAP p.46 · PCAP p.48"
+  },
+  {
+   "text": "No se admiten ofertas por debajo del precio mínimo, condicionadas, comparativas o sin cifra concreta",
+   "cite": "PCAP p.12 · PCAP p.50"
+  },
+  {
+   "text": "Hay que estar dado de alta en la plataforma de notificaciones de la Junta (notifica.jccm.es) antes del cierre",
+   "cite": "PCAP p.36"
+  },
+  {
+   "text": "Una empresa no puede presentar más de una proposición ni ir en UTE si ya ofertó sola",
+   "cite": "PCAP p.39"
+  },
+  {
+   "text": "No se permite subcontratar ni ceder el contrato: es causa de resolución",
+   "cite": "PCAP p.63"
+  },
+  {
+   "text": "Los trabajos no pueden empezar sin licencia y acta de entrega, y la licencia de corta exige declaración responsable de la herramienta de trazabilidad",
+   "cite": "PCAP p.11 · PPT p.6"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -12,
+   "task": "Constituye la garantía provisional del 3 % de los lotes elegidos en la Caja General de Depósitos (formulario 801 o 802) y guarda el resguardo (sobre 1)",
+   "cite": "PCAP p.44–46 · PCAP p.48",
+   "help": "Importe de garantía por lote"
+  },
+  {
+   "when": -10,
+   "task": "Regístrate en la Plataforma de Contratación, añade la licitación a «Mis licitaciones» y date de alta en notifica.jccm.es",
+   "cite": "PCAP p.36 · PCAP p.47",
+   "help": "Lista de comprobación de alta"
+  },
+  {
+   "when": -8,
+   "task": "Reúne el seguro de riesgos profesionales (250.000 €) y los certificados de buena ejecución de los 3 últimos años",
+   "cite": "PCAP p.42–44",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -6,
+   "task": "Firma electrónicamente la declaración responsable (Anexo I) y, si vais en UTE, el Anexo II y el compromiso del Anexo IV (sobre 1)",
+   "cite": "PCAP p.48–49 · PCAP p.76–81",
+   "help": "Borrador de declaración"
+  },
+  {
+   "when": -3,
+   "task": "Calcula tu precio por lote (precio mínimo × tu valoración de la madera) y rellena el Anexo III con dos decimales (sobre 3)",
+   "cite": "PCAP p.49–50 · PCAP p.80",
+   "help": "Precio recomendado por lote"
+  },
+  {
+   "when": -1,
+   "task": "Firma todos los documentos y envía la oferta por la herramienta de la Plataforma, sin dejarlo para las últimas horas",
+   "cite": "PCAP p.37 · PCAP p.47",
+   "help": "Comprobación final antes de enviar"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "El valor estimado del anuncio (8.947.974,24 €) no coincide con el del PCAP (3.277.697,59 € para los 34 lotes)",
+   "cite": "PCAP p.32 · ANX p.3"
+  },
+  {
+   "text": "El plazo de 12 meses se cuenta «desde la formalización» en el PCAP y «desde la adjudicación firme» en el pliego técnico",
+   "cite": "PCAP p.4 · PPT p.1"
+  },
+  {
+   "text": "El PCAP exige pagar todo el precio antes de la licencia pero también habla de «anualidades» del precio, así que no queda claro si el pago es único",
+   "cite": "PCAP p.35 · PCAP p.63"
+  },
+  {
+   "text": "La tabla de solvencia técnica usa la numeración del pliego técnico y no la de los lotes 18 a 34 del título",
+   "cite": "PCAP p.43–44"
+  },
+  {
+   "text": "El PCAP habla de sobre 1 y sobre 3, sin sobre 2",
+   "cite": "PCAP p.47 · PCAP p.49"
+  },
+  {
+   "text": "No hemos recibido los pliegos técnicos de los lotes 18 a 34 y las condiciones técnicas se toman de los lotes anteriores",
+   "cite": "PPT p.1–10"
+  }
+ ]
+}

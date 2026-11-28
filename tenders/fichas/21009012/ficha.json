@@ -1,0 +1,526 @@
+{
+ "id": "21009012",
+ "ref": "EC26-C05-03320",
+ "reviewed": "2026-11-28",
+ "title": "Soporte informático al puerto de Valencia: atención a usuarios, operación de sistemas y mantenimiento de sus aplicaciones (2027-28)",
+ "title_official": "Soporte a la Operación de TI y Mantenimiento de Aplicaciones de desarrollo propio 2027-28",
+ "buyer": "Presidencia de la Autoridad Portuaria de Valencia",
+ "unit": "Departamento de Transformación Digital",
+ "place": "Valencia (Comunitat Valenciana)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=GXbJuS%2BLZ%2FLI8aL3PRS10Q%3D%3D",
+ "published": "2026-10-23",
+ "updated": "2026-11-27",
+ "deadline": "2027-01-11",
+ "deadline_time": "13:00",
+ "questions_until": null,
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de cláusulas administrativas (PCAP): cuadro de características, normas específicas, cláusulas y anexos",
+   "file": "01_Legal.pdf",
+   "pages": 189
+  },
+  "PPT": {
+   "label": "Pliego de prescripciones técnicas (PPT)",
+   "file": "02_Technical.pdf",
+   "pages": 67
+  }
+ },
+ "tags": {
+  "level": "Autoridad Portuaria",
+  "where": "Valencia, Comunitat Valenciana",
+  "contract": "Servicios",
+  "sector": "Servicios TI (CPV 72000000)",
+  "size": "Grande (más de 1 M€)",
+  "deadline": "Cierra en 44 días",
+  "procedure": "Abierto (regulación armonizada)",
+  "funds": "Sin financiación de terceros",
+  "lots": "Sin lotes",
+  "award": "Precio 40 % · calidad 60 %"
+ },
+ "verdict": {
+  "opportunity": "media",
+  "difficulty": "alta",
+  "text": "Contrato solo apto para empresas TI grandes o para UTE (unión temporal de empresas). Exige 4 M€ de facturación anual, 1 M€ al año en servicios TI similares, certificado ENS de nivel medio, ISO 20000 y un equipo de 46 personas al 100 %. Además hay que subrogar a unos 45 trabajadores del contratista actual. Se gana con la experiencia certificada de los 9 perfiles clave (40 puntos), una buena memoria de organización (20) y el precio (40). El contratista actual parte con ventaja porque conoce el servicio y su plantilla coincide con la que hay que subrogar."
+ },
+ "summary": [
+  "La Autoridad Portuaria de Valencia contrata el soporte a la operación de TI (niveles 1, 2 y 3) y el mantenimiento de sus aplicaciones propias durante 12 meses, con hasta dos prórrogas de 12 meses.",
+  "El presupuesto base es de 3.488.565,43 € sin IVA (4.221.164,17 € con IVA). El valor estimado, con prórrogas, es de 10.465.696,29 €. No hay lotes.",
+  "Hay que adscribir 46 personas al 100 %: 9 perfiles clave que sirven de solvencia (coordinadores, jefes de equipo y jefes de producto) y 37 técnicos más. También hay que subrogar a unos 45 trabajadores del contratista actual.",
+  "Puntúan el precio (40), la experiencia certificada de los 9 perfiles clave (25 + 15) y una memoria de organización (20). Esta memoria debe alcanzar al menos 10 de 20 puntos o la oferta queda fuera.",
+  "Las ofertas se presentan por la Plataforma de Contratación hasta el 11 de enero de 2027 a las 13:00, en 3 sobres electrónicos."
+ ],
+ "max_lots_per_bidder": 1,
+ "headline": "El puerto de Valencia licita 3,5 M€ de soporte informático",
+ "headline_em": "soporte informático",
+ "lede": "La Autoridad Portuaria de Valencia busca un socio TI para operar sus sistemas y mantener sus aplicaciones propias. Contrato de 12 meses, prorrogable dos veces, con un equipo de 46 personas.",
+ "crumbs": "Licitaciones › España › Autoridades Portuarias › Comunitat Valenciana",
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Soporte a la operación de TI en niveles 1, 2 y 3: atención al usuario, infraestructura, redes, puesto de trabajo y bases de datos. Incluye el mantenimiento correctivo, evolutivo y adaptativo de las aplicaciones de desarrollo propio de la APV (Autoridad Portuaria de Valencia).",
+     "PCAP 1 · PPT 5–6 · PPT 9–10"
+    ],
+    [
+     "Servicio ordinario y extraordinario",
+     "El ordinario es la cuota mensual fija. El extraordinario son intervenciones puntuales que se pagan por horas, según los precios por hora que ofertes.",
+     "PCAP 5 · PCAP 17"
+    ],
+    [
+     "Órgano",
+     "Presidencia de la Autoridad Portuaria de Valencia. Gestiona el Departamento de Transformación Digital.",
+     "PCAP 2–3"
+    ],
+    [
+     "Lugar",
+     "Puertos de Valencia, Sagunto y Gandía. Unos 550 puestos de trabajo (85 % en Valencia) y dos centros de datos en Valencia.",
+     "PPT 5"
+    ],
+    [
+     "Tecnologías",
+     "Visual Basic, C# .NET, JavaScript, Angular, RPG y DB2 en IBM iSeries, SharePoint y WSO2, entre otras. Las cifras son orientativas y se prevé un crecimiento anual del 5 % al 10 %.",
+     "PPT 6–8 · PPT 18–20"
+    ],
+    [
+     "Procedimiento",
+     "Abierto, sujeto a regulación armonizada. Se valoran varios criterios (calidad-precio).",
+     "PCAP 2"
+    ],
+    [
+     "Alternativas (variantes)",
+     "No se admiten.",
+     "PCAP 13 · PCAP 22"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Contrato único: servicio ordinario (3.457.139,81 €) más servicio extraordinario (31.425,62 €)",
+     "fee": 3488565.43,
+     "months": 12
+    }
+   ],
+   "cite": "PCAP 1 · PCAP 18",
+   "note": "No procede la división en lotes."
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base (sin IVA)",
+     "3.488.565,43 €: servicio ordinario 3.457.139,81 € y servicio extraordinario 31.425,62 €.",
+     "PCAP 4 · PCAP 18"
+    ],
+    [
+     "IVA",
+     "21 %: 732.598,74 €. Presupuesto con IVA: 4.221.164,17 € (ordinario 4.183.139,17 € y extraordinario 38.025,00 €).",
+     "PCAP 3–4"
+    ],
+    [
+     "Valor estimado",
+     "10.465.696,29 € sin IVA. Suma el presupuesto base y las dos prórrogas (6.977.130,86 €).",
+     "PCAP 5 · PCAP 19"
+    ],
+    [
+     "Anualidades (sin IVA)",
+     "2027: 2.616.424,07 €. 2028: 872.141,36 €.",
+     "PCAP 4"
+    ],
+    [
+     "Sistema de precio",
+     "Precio cierto para el servicio ordinario. Precios por hora para el extraordinario, con 20 h de jefe de equipo, 220 h de técnico N2/N3 y 160 h del resto de perfiles solo para comparar ofertas. El contrato se adjudica con el presupuesto con IVA como límite máximo. No hay indemnización si no se agota.",
+     "PCAP 5 · PCAP 20 · PCAP 33"
+    ],
+    [
+     "Duración",
+     "12 meses. Empieza el día siguiente al acta de inicio y no antes del 1 de abril de 2027, fecha en que vence el contrato anterior.",
+     "PCAP 5"
+    ],
+    [
+     "Prórrogas",
+     "Hasta 2 de 12 meses cada una, decididas por la APV según las necesidades. Preaviso de 2 meses.",
+     "PCAP 6 · PCAP 19"
+    ],
+    [
+     "Revisión de precios",
+     "No procede.",
+     "PCAP 17"
+    ],
+    [
+     "Modificaciones previstas",
+     "No procede modificar el contrato.",
+     "PCAP 16 · PCAP 30"
+    ],
+    [
+     "Subrogación de personal",
+     "Sí. Convenio de oficinas y despachos de la provincia de Valencia, con unos 45 trabajadores indefinidos a jornada completa. El pliego da por cada uno salario, Seguridad Social y seguros, sin sumar el total. Antigüedades de 1 a 28 años. Entre las categorías hay administradores de sistemas, analistas, jefes de equipo, programadores y técnicos de soporte.",
+     "PCAP 13 · PCAP 25–27"
+    ],
+    [
+     "Financiación",
+     "El pliego no indica fondos europeos. Marca «financiación de terceros: no».",
+     "PCAP 5"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Clasificación",
+     "No se exige.",
+     "PCAP 6"
+    ],
+    [
+     "Solvencia económica",
+     "Facturar al menos 4.000.000 € en el año de mayor volumen de los 3 últimos ejercicios cerrados. Se declara en el DEUC y el posible adjudicatario lo prueba con cuentas anuales depositadas en el Registro Mercantil.",
+     "PCAP 6"
+    ],
+    [
+     "Solvencia técnica: servicios",
+     "Servicios de gestión de servicios TI por al menos 1.000.000 € en el año de mayor ejecución de los 3 últimos. Se declara en el Anexo 1-C y se prueba con certificados.",
+     "PCAP 7"
+    ],
+    [
+     "Solvencia técnica: equipo clave",
+     "9 personas al 100 %: 2 coordinadores, 3 jefes de equipo y 4 jefes de producto. Los coordinadores y jefes de equipo necesitan 5 años en gestión de equipos IT. Los 2 primeros jefes de producto necesitan 5 años en entorno portuario y los otros 2, 2 años.",
+     "PCAP 7–8"
+    ],
+    [
+     "Titulaciones y certificaciones",
+     "Al menos 5 recursos con titulación en Informática o Telecomunicaciones (MECES 2 o superior). Los 9 con PMP, PRINCE2 o ITIL. Se prueba con CV, títulos y certificados.",
+     "PCAP 8–9"
+    ],
+    [
+     "Medios a adscribir (37 más)",
+     "Además de los 9, hay que adscribir 37 técnicos al 100 % (atención al usuario, aplicaciones, infraestructuras, redes, ciberseguridad, arquitectos, QA, etc.). El 75 % del equipo necesita 2 años de experiencia. También se exige un número de titulados y certificados por tecnología: 23 con titulación TI y 23 con ITIL, 3 con WSO2, 2 con Cisco, etc. Es obligación esencial.",
+     "PCAP 9 · PCAP 28–30"
+    ],
+    [
+     "Habilitación",
+     "No aplica.",
+     "PCAP 10"
+    ],
+    [
+     "Calidad: ISO 20000",
+     "Hay que aportar ISO 20000 (gestión de servicios TI) o equivalente, con alcance sobre el objeto del contrato.",
+     "PCAP 10 · PCAP 12"
+    ],
+    [
+     "Seguridad: ENS",
+     "Certificado de conformidad con el ENS (Esquema Nacional de Seguridad), categoría MEDIA, emitido por entidad acreditada por ENAC. Debe estar en vigor durante todo el contrato. Los licitadores lo declaran y el adjudicatario lo acredita.",
+     "PCAP 14 · PCAP 24 · PCAP 48–49"
+    ],
+    [
+     "Seguro",
+     "Responsabilidad civil de 1.000.000 € mínimo, con certificado según el Anexo 7.",
+     "PCAP 14 · PCAP 83"
+    ],
+    [
+     "UTE e integración de solvencia",
+     "Se admiten. Cada empresa de la UTE presenta su declaración. Si se recurre a medios de otra empresa, esta también presenta DEUC.",
+     "PCAP 52 · PCAP 62"
+    ],
+    [
+     "Idioma",
+     "Documentos en lengua oficial de la Comunitat Valenciana. Si están en otra lengua, traducción jurada.",
+     "PCAP 56"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Oferta económica",
+     "pts": 40,
+     "kind": "fórmula",
+     "how": "Los puntos se reparten según la baja de tu oferta respecto al presupuesto base, comparada con la de la oferta más barata no anormal. La oferta es el importe total con IVA del servicio ordinario más el extraordinario. La fórmula del pliego es ambigua (ver «Incoherencias»)."
+    },
+    {
+     "name": "Experiencia en entornos portuarios",
+     "pts": 25,
+     "kind": "fórmula",
+     "how": "Para cada uno de los 4 jefes de producto: 0 puntos con 1–5 años, 4 con 6–10, 6 con 11–15 y 8 con más de 15. Se suman y el máximo es 25. Solo cuenta la experiencia certificada por empresas cliente."
+    },
+    {
+     "name": "Experiencia en gestión de equipos IT",
+     "pts": 15,
+     "kind": "fórmula",
+     "how": "Para cada uno de los 2 coordinadores y los 3 jefes de equipo: 0 puntos con 1–5 años, 2 con más de 5 y hasta 8, 3 con más de 8 y menos de 10, 4 con más de 10. Se suman y el máximo es 15."
+    },
+    {
+     "name": "Adecuación de la estructura funcional",
+     "pts": 20,
+     "kind": "juicio de valor",
+     "how": "Memoria sobre la organización del servicio. Dimensionamiento de áreas y organización: hasta 13 puntos. Esquema de reporte de trabajo a la APV: hasta 5. Esquema de reporte de dirección: hasta 2. Hay que sacar al menos el 50 % (10 puntos) para seguir en el proceso."
+    }
+   ],
+   "cite": "PCAP 13 · PCAP 22–23",
+   "items": [
+    [
+     "Juicio de valor",
+     "20 puntos, un único criterio con tres subcriterios. Umbral: mínimo el 50 % de la puntuación cualitativa o la oferta se excluye.",
+     "PCAP 13 · PCAP 22 · PCAP 66"
+    ],
+    [
+     "Baja anormal",
+     "Con 5 o más ofertas «contemplables»: es anormal la baja superior a la baja de referencia (BR) + 4 puntos. Con menos de 5: superior a la baja media (BM) + 4 puntos. La BR se calcula descartando las ofertas que se alejan más de una desviación típica de la media. Se sigue el art. 149.4 LCSP, con audiencia para justificar la oferta.",
+     "PCAP 66–69"
+    ],
+    [
+     "Garantía complementaria",
+     "Si tu oferta es anormalmente baja y resultas adjudicatario, garantía adicional del 5 % del precio del servicio ordinario más el 5 % del presupuesto del extraordinario (sin IVA).",
+     "PCAP 11"
+    ],
+    [
+     "Desempate",
+     "Según el art. 147.2 LCSP. La documentación se pide a quien empata.",
+     "PCAP 69"
+    ],
+    [
+     "Apertura",
+     "La oferta económica se abre en acto público, salvo que se usen medios electrónicos. Antes, la APV hace constar que ya está hecha la valoración del juicio de valor.",
+     "PCAP 66"
+    ]
+   ],
+   "insight": "El 40 % de los puntos depende de que tus jefes de producto, coordinadores y jefes de equipo tengan años certificados por clientes, sobre todo en entorno portuario. Es difícil mejorarlo si no los tienes ya. El resto se decide en la memoria (con umbral de 10 puntos) y en el precio."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Hasta el 11 de enero de 2027 a las 13:00 (según el anuncio de la Plataforma). Solo presentación electrónica por la Plataforma de Contratación del Sector Público, con firma electrónica válida.",
+     "PCAP 3 · PCAP 55–56"
+    ],
+    [
+     "Preguntas",
+     "El pliego no fija una fecha límite para preguntas. El PPT tiene un apartado de aclaraciones (5.1) que no figura en el texto revisado.",
+     "PPT 3"
+    ],
+    [
+     "Sobre 1: requisitos previos",
+     "DEUC (Documento Europeo Único de Contratación) y declaración complementaria (Anexo 1-C). Compromiso de UTE si lo hay. Documento de ISO 20000. Declaración de confidencialidad (Anexo 1-D).",
+     "PCAP 12 · PCAP 62"
+    ],
+    [
+     "Sobre 2: juicio de valor",
+     "Memoria con el esquema funcional, el dimensionamiento de áreas, el reporte de trabajo y el reporte de dirección. Declaración de confidencialidad (Anexo 1-E).",
+     "PCAP 12 · PCAP 20"
+    ],
+    [
+     "Sobre 3: fórmulas y oferta económica",
+     "Oferta económica (modelo del Anexo A de las normas específicas). Declaración del Anexo B con las experiencias de los perfiles, más los certificados de los clientes. Solo se valora la experiencia certificada.",
+     "PCAP 11 · PCAP 20–21 · PCAP 33–36"
+    ],
+    [
+     "Garantías",
+     "Provisional: no. Definitiva: 5 % del precio adjudicado del servicio ordinario más 5 % del presupuesto del extraordinario (sin IVA), es decir, 1.571,28 € por esta parte.",
+     "PCAP 10–11"
+    ],
+    [
+     "Tras la propuesta de adjudicación",
+     "Diez días hábiles para aportar documentación, garantía, seguros y prueba de los medios adscritos. Luego se adjudica en 5 días hábiles. Plazo de adjudicación: 5 meses.",
+     "PCAP 14 · PCAP 69–70"
+    ],
+    [
+     "Formalización",
+     "15 días hábiles tras la adjudicación o 15 días tras la notificación si cabe recurso especial. Una UTE debe presentar la escritura en 10 días.",
+     "PCAP 72"
+    ],
+    [
+     "Visita",
+     "El pliego no prevé visita previa.",
+     ""
+    ],
+    [
+     "Regulación armonizada (SARA)",
+     "Sí. Cabe recurso especial en materia de contratación.",
+     "PCAP 2 · PCAP 103"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro",
+     "items": [
+      [
+       "Pago",
+       "Facturas mensuales a cuenta del servicio ordinario. El extraordinario se factura por horas según los precios ofertados. La APV paga a 30 días desde la recepción de la factura, previa conformidad del responsable.",
+       "PCAP 17 · PCAP 90"
+      ],
+      [
+       "Presupuesto máximo",
+       "El presupuesto con IVA es un techo. No hay indemnización si no se agota ni si el contrato acaba antes por agotarse.",
+       "PCAP 20"
+      ],
+      [
+       "Retenciones",
+       "La APV puede retener de las facturas las penalidades.",
+       "PCAP 91"
+      ]
+     ]
+    },
+    {
+     "h": "Penalidades",
+     "items": [
+      [
+       "Cumplimiento defectuoso (casos propios)",
+       "Se descuenta de la siguiente factura mensual un 1 % por cada historia de usuario no aprobada por causa del adjudicatario y un 3 % por cada entrega revertida tras pasar a producción.",
+       "PCAP 30–31"
+      ],
+      [
+       "Penalidades generales",
+       "Defectos: 1 % del precio (hasta 5 % o 10 % si es grave o muy grave). Demora: 0,60 € al día por cada 1.000 € de precio sin IVA. Condiciones especiales y compromisos de la oferta: 1 % del precio.",
+       "PCAP 94–96"
+      ],
+      [
+       "Subcontratación",
+       "Hasta el 50 % del importe del subcontrato.",
+       "PCAP 97"
+      ]
+     ]
+    },
+    {
+     "h": "Obligaciones y personal",
+     "items": [
+      [
+       "Equipo adscrito",
+       "Es obligación esencial. Cambiar personas necesita autorización previa. La APV puede pedir sustituciones y el contratista tiene 30 días para aportar a alguien equivalente.",
+       "PCAP 76 · PPT 18"
+      ],
+      [
+       "Subrogación",
+       "Subrogar a unos 45 trabajadores con sus antigüedades y beneficios sociales (26 días de vacaciones, complemento de baja al 100 % hasta 12 meses, seguro de vida). Es obligación esencial. Si los costes reales son mayores a los informados, hay acción directa contra el contratista saliente.",
+       "PCAP 27 · PCAP 73"
+      ],
+      [
+       "Subcontratación",
+       "Hay que indicarla en la oferta. No se pueden subcontratar las funciones de coordinadores, jefes de equipo y jefes de producto.",
+       "PCAP 16 · PCAP 27"
+      ],
+      [
+       "Seguridad y datos personales",
+       "El ENS debe mantenerse todo el contrato. Hay obligaciones de seguridad adicionales y se puede exigir un Acuerdo de Interconexión de Sistemas. Hay que firmar el acuerdo de tratamiento de datos en 15 días naturales. Se exige tener los servidores en la UE.",
+       "PCAP 48–51 · PCAP 126–131 · PCAP 146"
+      ],
+      [
+       "Propiedad intelectual",
+       "Todo el software, la documentación y los resultados son de la APV. No puedes reutilizarlos en otros proyectos sin permiso.",
+       "PCAP 97–98"
+      ],
+      [
+       "Condiciones especiales de ejecución",
+       "Conciliación de la vida laboral y familiar, formación en el lugar de trabajo y cumplimiento de la normativa de datos. Incumplirlas puede penalizarse y resolver el contrato.",
+       "PCAP 15 · PCAP 95–96"
+      ],
+      [
+       "Niveles de servicio y guardias",
+       "El PPT fija acuerdos de nivel de servicio y un servicio de guardia fuera de horario (apartados 3.4.7 y 3.5). Su detalle no figura en el texto revisado. Léelo entero antes de ofertar.",
+       "PPT 2"
+      ],
+      [
+       "Sin garantía de volumen",
+       "El adjudicatario debe asumir un crecimiento del 5–10 % anual sin coste extra y reorganizar el equipo sin coste si no basta.",
+       "PPT 8 · PPT 16"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Fórmula del precio",
+     "La fórmula escrita es «40 × baja de la oferta / baja de la oferta más económica + 60». El «+ 60» no cuadra con un criterio de 40 puntos y no queda claro cómo se calcula.",
+     "PCAP 13 · PCAP 66"
+    ],
+    [
+     "Rangos de experiencia",
+     "En el criterio de gestión de equipos IT, el tramo «más de 8 y menos de 10 años» deja sin cubrir exactamente 10 años. Además, el máximo por persona (4 × 5 = 20 y 8 × 4 = 32) supera el tope del criterio (15 y 25).",
+     "PCAP 23"
+    ],
+    [
+     "Nombre del perfil",
+     "Se habla de «Coordinador/a» en la solvencia y de «Coordinador/a de Área» en la puntuación.",
+     "PCAP 7 · PCAP 23"
+    ],
+    [
+     "Datos personales",
+     "El cuadro dice que el contratista es encargado del tratamiento. La norma específica 9 dice que cada parte es responsable independiente y que la APV no da instrucciones.",
+     "PCAP 15 · PCAP 24"
+    ],
+    [
+     "Seguro de responsabilidad civil",
+     "El cuadro fija 1.000.000 €. El Anexo 8 dice que la cobertura mínima es igual al importe de adjudicación.",
+     "PCAP 14 · PCAP 171"
+    ]
+   ],
+   "advice": "Pregunta por la Plataforma antes de ofertar, sobre todo por la fórmula del precio, el seguro y el régimen de datos personales."
+  }
+ ],
+ "files": [
+  {
+   "name": "Pliego de cláusulas administrativas (PCAP): cuadro de características, normas específicas, cláusulas y anexos",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 189,
+   "bytes": 1505755
+  },
+  {
+   "name": "Pliego de prescripciones técnicas (PPT)",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 67,
+   "bytes": 2496125
+  },
+  {
+   "name": "2026-e916dfcc-95ca-4650-ae96-2382299820e9",
+   "file": "03_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-352534ad-32d3-42fe-b831-fea60bc5bda5",
+   "file": "04_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-3a165133-63e8-4600-a7da-26d0ee101fd5",
+   "file": "05_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-61b224d9-228c-4f9d-ae92-87f5771d728f",
+   "file": "06_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ],
+ "not_read": [
+  "PPT desde la página 24 de 67"
+ ]
+}

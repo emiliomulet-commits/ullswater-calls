@@ -1,0 +1,278 @@
+{
+ "schema": 1,
+ "id": "21017437",
+ "reviewed": "2026-11-28",
+ "title": "Construcción de pista de atletismo exterior de 200 m en Mula",
+ "buyer": "Ayuntamiento de Mula",
+ "buyer_key": "Junta de Gobierno del Ayuntamiento de Mula",
+ "province": "Murcia",
+ "cpv": "45212200",
+ "ref": "CONT/0052/2026",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=tDYMi2n0jJBLAIVZdUs8KA%3D%3D",
+ "deadline": "2026-12-17",
+ "deadline_time": "23:59",
+ "questions_until": null,
+ "questions_cite": "PCAP p.15",
+ "opening_days": null,
+ "opening_cite": "PCAP p.17",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 1,
+ "judgement_pts": 0,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Obra completa: pista de atletismo exterior de 200 m",
+   "budget": 245497.0,
+   "months": 3
+  }
+ ],
+ "lots_cite": "PCAP p.2 · PCAP p.7",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": "No hay lotes: un único contrato de obras.",
+ "lots_rule_cite": "PCAP p.2",
+ "requirements": [
+  {
+   "id": "turnover",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 1.5,
+   "label": "Solvencia económica",
+   "rule": "Facturación del mejor de los 3 últimos años cerrados de al menos 1,5 veces el valor estimado (368.245,50 €)",
+   "question": "¿Cuál fue tu facturación en tu mejor año de los 3 últimos cerrados?",
+   "unit": "€",
+   "cite": "PCAP p.8",
+   "proof": "Cuentas anuales depositadas en el Registro Mercantil"
+  },
+  {
+   "id": "works",
+   "kind": "number_min",
+   "min": 250000,
+   "label": "Solvencia técnica",
+   "rule": "Obras similares ejecutadas en el año de mayor ejecución de los últimos 5 años por al menos 250.000 € (se pueden sumar varias obras)",
+   "question": "¿Cuántos euros de obras similares ejecutaste en tu mejor año de los últimos 5?",
+   "unit": "€",
+   "cite": "PCAP p.9",
+   "proof": "Relación de obras con importe, fecha y destinatario, y certificados de buena ejecución"
+  },
+  {
+   "id": "rolece",
+   "kind": "yesno",
+   "label": "Inscripción en el registro de licitadores",
+   "rule": "Estar inscrito, o haber solicitado la inscripción, en el ROLECE o el registro autonómico antes del cierre",
+   "question": "¿Estás inscrito (o has solicitado la inscripción) en el Registro Oficial de Licitadores (ROLECE) o en el de tu comunidad?",
+   "cite": "PCAP p.10",
+   "proof": "Certificado de inscripción o justificante de la solicitud"
+  },
+  {
+   "id": "insurance",
+   "kind": "yesno",
+   "label": "Seguro de responsabilidad civil",
+   "rule": "Póliza de responsabilidad civil de 300.000 € para la obra",
+   "question": "¿Tienes (o puedes contratar) un seguro de responsabilidad civil de al menos 300.000 €?",
+   "cite": "PCAP p.23",
+   "proof": "Póliza y recibo de pago"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica",
+   "pts": 50,
+   "formula": "proportional",
+   "exponent": 0.35,
+   "basis": "baja_pct",
+   "how": "Puntos = 50 × (tu % de baja / % de baja de la mejor oferta no temeraria) elevado a 0,35",
+   "cite": "PCAP p.10–11"
+  },
+  {
+   "id": "turf",
+   "kind": "choice",
+   "name": "Mejora: cambio de césped sin coste",
+   "pts": 40,
+   "question": "¿Cuántos m² de césped puedes cambiar sin coste por el césped mejorado exigido en el pliego?",
+   "options": [
+    {
+     "label": "Los 1.240 m² del proyecto (todo el césped)",
+     "pts": 39.68
+    },
+    {
+     "label": "Unos 620 m² (la mitad)",
+     "pts": 19.84
+    },
+    {
+     "label": "Ninguno",
+     "pts": 0
+    }
+   ],
+   "cite": "PCAP p.11–12"
+  },
+  {
+   "id": "tech",
+   "kind": "choice",
+   "name": "Técnico a pie de obra a jornada completa",
+   "pts": 10,
+   "question": "¿Puedes comprometer a jornada completa, durante toda la obra, a un ingeniero, ingeniero técnico, arquitecto o arquitecto técnico de tu plantilla?",
+   "options": [
+    {
+     "label": "Sí, con título y vínculo laboral acreditados",
+     "pts": 10
+    },
+    {
+     "label": "No",
+     "pts": 0
+    }
+   ],
+   "cite": "PCAP p.13–14"
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 10,
+  "single_pct": 25,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.14–15",
+  "note": "Regla del art. 85 RGLCAP: con 1 licitador, más de 25 puntos por debajo del presupuesto; con 2, más de 20 puntos por debajo de la otra oferta; con 3 o más, más de 10 puntos por debajo de la media (con 3 ofertas, además, siempre más de 25 puntos por debajo del presupuesto). Justificación en 5 días hábiles."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": 40,
+  "note": "Estimación orientativa de Ullswater para preparar el sobre único (no viene del pliego)"
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 0,
+  "cite": "PCAP p.19"
+ },
+ "risk_flags": [
+  {
+   "id": "short_term",
+   "label": "Plazo de ejecución de solo 3 meses desde el acta de replanteo",
+   "cite": "PCAP p.6",
+   "weight": 3
+  },
+  {
+   "id": "penalty",
+   "label": "Penalidad por demora de 0,60 € por cada 1.000 € del precio y por día; resolución posible si el retraso supera el 50 % del plazo",
+   "cite": "PCAP p.6 · PCAP p.26",
+   "weight": 3
+  },
+  {
+   "id": "live_site",
+   "label": "Obra junto a un recinto deportivo en uso: vallado, accesos y protocolo de interferencias a tu coste",
+   "cite": "PCAP p.19–20",
+   "weight": 3
+  },
+  {
+   "id": "discrepancies",
+   "label": "Proyecto con discrepancias entre medición, presupuesto y precios (capítulos 5 y 8, césped)",
+   "cite": "PPT p.181 · PPT p.173",
+   "weight": 2
+  },
+  {
+   "id": "essential_team",
+   "label": "El técnico a pie de obra es obligación esencial: cambiarlo exige autorización previa",
+   "cite": "PCAP p.14",
+   "weight": 2
+  },
+  {
+   "id": "warranty",
+   "label": "Garantía de 1 año a tu cargo y responsabilidad por vicios ocultos durante 15 años",
+   "cite": "PCAP p.28–29",
+   "weight": 2
+  }
+ ],
+ "solvency_paths": {
+  "integration": null,
+  "integration_note": "El pliego no menciona la integración de solvencia con medios de otras empresas. Sí permite acreditar la solvencia con la clasificación G-6-2 y presentarse en UTE.",
+  "ute": true,
+  "subcontracting": true,
+  "cite": "PCAP p.8–10 · PCAP p.21"
+ },
+ "specific_checks": [
+  {
+   "text": "Estás inscrito en el ROLECE (o el registro autonómico) o has solicitado la inscripción antes del cierre",
+   "cite": "PCAP p.10"
+  },
+  {
+   "text": "La proposición económica y la mejora usan el texto literal del pliego, firmado digitalmente",
+   "cite": "PCAP p.11–13"
+  },
+  {
+   "text": "El compromiso del técnico a pie de obra incluye título oficial y prueba del vínculo laboral",
+   "cite": "PCAP p.13"
+  },
+  {
+   "text": "Si quieres puntuar con la clasificación en lugar de la solvencia: grupo G, subgrupo 6, categoría 2 vigente",
+   "cite": "PCAP p.10"
+  },
+  {
+   "text": "El césped que ofreces como mejora cumple todas las características mínimas (30 mm, 13.000 dtex, 2.500 g/m², etc.)",
+   "cite": "PCAP p.11–12"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -10,
+   "task": "Comprueba tu inscripción en el ROLECE y reúne las cuentas anuales y la relación de obras de los últimos 5 años",
+   "cite": "PCAP p.8–10",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -8,
+   "task": "Prepara y firma la declaración responsable (o DEUC) y la declaración de ausencia de conflicto de intereses (Anexo I)",
+   "cite": "PCAP p.15–17",
+   "help": "Borrador del DEUC (próximamente)"
+  },
+  {
+   "when": -6,
+   "task": "Pide precio al proveedor de césped y de pavimento sintético y decide los m² de mejora",
+   "cite": "PCAP p.11–12",
+   "help": "Rebaja recomendada"
+  },
+  {
+   "when": -5,
+   "task": "Rellena la proposición económica y la oferta de mejora con el texto literal del pliego",
+   "cite": "PCAP p.11–13",
+   "help": "Rebaja recomendada"
+  },
+  {
+   "when": -4,
+   "task": "Reúne la declaración del técnico adscrito con título y vínculo laboral",
+   "cite": "PCAP p.13",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -1,
+   "task": "Sube todo a la Plataforma y confirma el justificante de envío",
+   "cite": "PCAP p.15",
+   "help": ""
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "Los 40 puntos de la mejora exigen 1.250 m², pero el proyecto solo tiene 1.240 m² de césped",
+   "cite": "PCAP p.12 · PPT p.9"
+  },
+  {
+   "text": "El capítulo 8 suma 109.549,56 € en el presupuesto parcial y 107.349,56 € en el resumen",
+   "cite": "PPT p.181 · PPT p.196"
+  },
+  {
+   "text": "Las partidas 5.5 a 5.7 (2.200 €) están en el presupuesto pero no en las mediciones ni los precios",
+   "cite": "PPT p.173 · PPT p.95"
+  },
+  {
+   "text": "Superficie de pavimento sintético: 1.628 m² en la memoria frente a 1.913 m² en el presupuesto",
+   "cite": "PPT p.6 · PPT p.100"
+  },
+  {
+   "text": "El pliego no indica plazo para preguntas ni criterio de desempate",
+   "cite": "PCAP p.10–15"
+  }
+ ]
+}

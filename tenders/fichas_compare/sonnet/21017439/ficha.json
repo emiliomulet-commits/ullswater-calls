@@ -1,0 +1,529 @@
+{
+ "id": "21017439",
+ "ref": "2026/ETSAE0287/00001402E",
+ "reviewed": "2026-11-28",
+ "title": "Suministro de gasóleo de calefacción a la Base Discontinua Teniente Flomesta de Melilla (2027)",
+ "title_official": "Suministro de gasóleo para calefacción para la Base Discontinua Tte. Flomesta (Melilla). Tramitación anticipada 2027.",
+ "buyer": "Sección de Asuntos Económicos de la Comandancia General de Melilla (Ministerio de Defensa)",
+ "unit": "Unidad de Servicios de la Base Discontinua Tte. Flomesta (USBAD)",
+ "place": "Melilla (Ciudad Autónoma de Melilla)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9yNe%2F6qYGw1%2FP7lJ7Fu0SA%3D%3D",
+ "published": "2026-11-23",
+ "deadline": "2027-06-30",
+ "deadline_time": "08:00",
+ "questions_until": null,
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de cláusulas administrativas (PCAP) con Anexo I y modelos",
+   "file": "01_Legal.pdf",
+   "pages": 139
+  },
+  "PPT": {
+   "label": "Pliego de prescripciones técnicas (PPT)",
+   "file": "02_Technical.pdf",
+   "pages": 4
+  }
+ },
+ "tags": {
+  "level": "Administración del Estado",
+  "where": "Melilla",
+  "contract": "Suministros",
+  "sector": "Combustibles: gasóleo (CPV 09134100)",
+  "size": "Mediano (100.000 € – 1 M€)",
+  "deadline": "Fecha por confirmar en la Plataforma",
+  "procedure": "Abierto (urgente y anticipado)",
+  "funds": "Presupuesto de Defensa 2027",
+  "lots": "Sin lotes",
+  "award": "Solo precio (descuento sobre boletín)"
+ },
+ "verdict": {
+  "opportunity": "media",
+  "difficulty": "media",
+  "text": "Oportunidad para distribuidores de gasóleo con capacidad de reparto en Melilla y con ISO 9001 e ISO 14001 (o equivalentes), que son exigibles como solvencia. Se adjudica con un único criterio: el mayor descuento sobre el precio del Weekly Oil Bulletin. Se gana con un descuento ajustado a tu margen. Ojo: el importe es un máximo, no un compromiso de compra, y hay incoherencias en fechas y garantía que conviene preguntar antes de ofertar."
+ },
+ "summary": [
+  "El Ejército de Tierra en Melilla busca un proveedor de gasóleo de calefacción para la Base Discontinua Teniente Flomesta.",
+  "El presupuesto es de 180.000 € (IPSI 0 %, sin IVA). El valor estimado sube a 600.000 € si se cuentan las prórrogas.",
+  "El contrato va desde la formalización hasta el 30 de junio de 2027, con prórroga posible hasta el 31 de diciembre de 2027.",
+  "Solo puntúa el precio: gana quien ofrezca el mayor porcentaje de descuento sobre el precio del boletín petrolero de la UE, con impuestos. No hay juicio de valor.",
+  "Se presenta por la Plataforma de Contratación en 2 sobres. Los pliegos no dan fecha de cierre y el anuncio indica 30/06/2027 08:00, un dato dudoso que hay que confirmar."
+ ],
+ "max_lots_per_bidder": 1,
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Suministro de gasóleo para calefacción (gasóleo para instalaciones) a la Base Discontinua Tte. Flomesta de Melilla.",
+     "PCAP 3 · PPT 1"
+    ],
+    [
+     "Órgano",
+     "Sección de Asuntos Económicos de la Comandancia General de Melilla, del Ministerio de Defensa.",
+     "PCAP 55"
+    ],
+    [
+     "Lugar de entrega",
+     "Instalaciones de la Unidad de Servicios de la Base Discontinua de Melilla. El transporte y la entrega corren a cargo de la empresa.",
+     "PCAP 58 · PCAP 13"
+    ],
+    [
+     "Forma de entrega",
+     "Camión cisterna con contador volumétrico homologado. Hay que avisar con al menos 12 horas de antelación. El pedido se atiende en menos de 72 horas. Cada entrega lleva albarán.",
+     "PPT 3"
+    ],
+    [
+     "Tramitación",
+     "Urgente y anticipada. La ejecución queda condicionada a que exista crédito en 2027.",
+     "PCAP 58 · PCAP 14"
+    ],
+    [
+     "Regulación armonizada (SARA)",
+     "Sí. Cabe recurso especial en materia de contratación.",
+     "PCAP 55"
+    ],
+    [
+     "Calidad del producto",
+     "Cumplir el Real Decreto 61/2006. El producto debe ser de reciente fabricación. Habrá pruebas en el Laboratorio Central del Ejército o, si no, certificado de calidad con el albarán.",
+     "PPT 2–3 · PCAP 73"
+    ],
+    [
+     "Contrato reservado / datos personales",
+     "No es reservado y no implica tratamiento de datos personales.",
+     "PCAP 54 · PCAP 74"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Lote único: gasóleo para instalaciones de la Base (NOC 9140 33 0021416)",
+     "fee": 180000
+    }
+   ],
+   "note": "No hay división en lotes: el objeto se considera una unidad funcional indivisible.",
+   "cite": "PCAP 54"
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base",
+     "180.000,00 € sin IVA. El IPSI de suministros en Melilla es del 0 %, así que el total también es 180.000,00 €.",
+     "PCAP 56–57"
+    ],
+    [
+     "Valor estimado",
+     "600.000,00 € (180.000 € de la anualidad 2027 + 420.000 € de prórrogas; modificaciones y opciones, 0 €).",
+     "PCAP 56"
+    ],
+    [
+     "Carácter del importe",
+     "Es el máximo a suministrar. No es un compromiso de compra: se paga lo realmente pedido por la Unidad según sus necesidades y la capacidad de sus depósitos.",
+     "PCAP 56 · PCAP 70"
+    ],
+    [
+     "Sistema de precio",
+     "Precios unitarios: porcentaje de descuento sobre el precio del Weekly Oil Bulletin vigente en la fecha de entrega, con impuestos.",
+     "PCAP 56 · PCAP 70"
+    ],
+    [
+     "Baja de adjudicación",
+     "La baja se traduce en ampliar el suministro a más unidades, sin pasar del presupuesto base.",
+     "PCAP 57"
+    ],
+    [
+     "Duración",
+     "Desde la formalización hasta el 30 de junio de 2027.",
+     "PCAP 58"
+    ],
+    [
+     "Prórrogas",
+     "Sí: puede haber varias, hasta 6 meses en total (hasta el 31 de diciembre de 2027), según haya crédito. Preaviso de 2 meses.",
+     "PCAP 58"
+    ],
+    [
+     "Revisión de precios",
+     "No.",
+     "PCAP 71"
+    ],
+    [
+     "Modificaciones previstas",
+     "No procede.",
+     "PCAP 69"
+    ],
+    [
+     "Subrogación de personal",
+     "El pliego no lo indica (es un suministro, sin personal a subrogar).",
+     "PCAP 54–74"
+    ],
+    [
+     "IPSI y gravamen",
+     "Las referencias al IVA se entienden hechas al IPSI. El gravamen complementario del gasóleo A en Melilla es de 62 €/1000 litros y va incluido en el precio.",
+     "PCAP 62"
+    ],
+    [
+     "Financiación",
+     "Aplicación presupuestaria 14.12.121M2.22102, ejercicio 2027, 180.000 €.",
+     "PCAP 57"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Clasificación",
+     "El pliego no exige ni menciona clasificación de empresa.",
+     "PCAP 59–60"
+    ],
+    [
+     "Solvencia económica",
+     "Volumen anual de negocios del mejor de los 3 últimos ejercicios. El pliego no fija cifra; solo dice que no puede superar 1,5 veces el valor estimado. Se acredita con las cuentas anuales depositadas en el Registro Mercantil.",
+     "PCAP 59"
+    ],
+    [
+     "Solvencia técnica",
+     "Relación de los principales suministros similares de los últimos 3 años, con importe, fecha y destinatario. Se acredita con certificados (del organismo si es público, o del cliente privado).",
+     "PCAP 60"
+    ],
+    [
+     "Calidad y medio ambiente",
+     "Se exige ISO 9001 y ISO 14001 o equivalentes, como criterio de solvencia.",
+     "PCAP 60 · PCAP 29"
+    ],
+    [
+     "Habilitaciones",
+     "No se exige habilitación empresarial ni de seguridad (el contrato no está clasificado).",
+     "PCAP 60–61"
+    ],
+    [
+     "Adscripción de medios",
+     "Compromiso genérico de dedicar medios personales y materiales (Anexo V). No se piden nombres. Su incumplimiento es causa de resolución.",
+     "PCAP 60 · PCAP 74"
+    ],
+    [
+     "UTE e integración de solvencia",
+     "Se admiten UTE y apoyarse en la solvencia de otras empresas (compromiso Anexo VII). Una empresa no puede presentar dos ofertas ni estar en varias UTE.",
+     "PCAP 16 · PCAP 20"
+    ],
+    [
+     "Transporte",
+     "Los camiones cisterna deben cumplir el ADR y llevar la documentación al día. El transportista y la empresa responden de cualquier siniestro.",
+     "PPT 2"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Precio: porcentaje de descuento",
+     "pts": 100,
+     "kind": "fórmula",
+     "how": "Puntos = 100 × (PML − POV) / (PML − mínimo(VRV, PMO)). PML es el precio máximo (el presupuesto base), POV tu oferta y PMO la mejor oferta. VRV es el 75 % del presupuesto base (el 70 % si fuera menor de 100.000 €). El descuento se aplica al precio del Weekly Oil Bulletin (gasóleo, con impuestos) y se ofrece con máximo 2 decimales."
+    }
+   ],
+   "cite": "PCAP 61–62",
+   "items": [
+    [
+     "Juicio de valor",
+     "Ninguno: es un único criterio automático.",
+     "PCAP 63"
+    ],
+    [
+     "Oferta descartada",
+     "Se descarta la oferta si, con tu descuento, el precio de esa semana resulta superior al del surtidor.",
+     "PCAP 62"
+    ],
+    [
+     "Baja anormal",
+     "Con 1 oferta: más de 30 puntos por debajo del presupuesto. Con 2: más de 20 puntos por debajo de la otra. Con 3 o más: más de 15 puntos por debajo de la media. Se pide justificación antes de excluir.",
+     "PCAP 63–64"
+    ],
+    [
+     "Desempate",
+     "Más trabajadores fijos con discapacidad, entidades sin ánimo de lucro (si procede), medidas de igualdad y, por último, sorteo.",
+     "PCAP 65"
+    ],
+    [
+     "Variantes y subasta",
+     "No se admiten variantes. No hay subasta electrónica. La apertura de la oferta económica es privada y electrónica.",
+     "PCAP 59 · PCAP 65"
+    ]
+   ],
+   "insight": "Se decide todo en el descuento. Si alguien ofrece más del 25 % de descuento (por debajo del valor de referencia VRV), pasa a contar ese tope en el denominador de la fórmula. La clave es calcular tu margen real sobre el boletín y vigilar el umbral de baja anormal."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Los pliegos remiten al anuncio y no dan fecha. El dato del anuncio es 30/06/2027 08:00, que coincide con el fin de la ejecución. Hay que confirmarlo en la Plataforma. Solo se admiten ofertas por la Plataforma de Contratación del Sector Público (con certificado electrónico y alta con datos adicionales).",
+     "PCAP 20"
+    ],
+    [
+     "Preguntas",
+     "Se responde hasta 6 días antes del cierre (4 en licitaciones armonizadas urgentes) si se pregunta al menos 12 días antes.",
+     "PCAP 21"
+    ],
+    [
+     "Sobre 1",
+     "DEUC (Anexo XII), declaración de seguridad, compromiso de UTE si lo hay, grupo empresarial (Anexo IV), adscripción de medios (Anexo V), declaración de discapacidad e igualdad (Anexo VI) y compromiso de integración de solvencia si procede.",
+     "PCAP 21–23 · PCAP 66"
+    ],
+    [
+     "Sobre 3",
+     "Oferta económica según Anexo II: porcentaje de descuento con 2 decimales, IPSI 0 %. No puede ser confidencial.",
+     "PCAP 24 · PCAP 76"
+    ],
+    [
+     "Tras la mejor oferta",
+     "10 días hábiles para aportar la documentación (capacidad, solvencia, ISO, Hacienda y Seguridad Social, declaración REACH, código ético Anexo XV). Si no, se pierde la oferta y se exige el 3 % del presupuesto base.",
+     "PCAP 28–32"
+    ],
+    [
+     "Garantías",
+     "Provisional: no. Definitiva: 5 % del precio final ofertado, en 10 días hábiles (el cuadro indica 25.000 €). Complementaria: no.",
+     "PCAP 34 · PCAP 67"
+    ],
+    [
+     "Adjudicación y formalización",
+     "Adjudicación en 5 días hábiles tras la documentación. Formalización a los 15 días hábiles de la notificación, con recurso especial posible.",
+     "PCAP 32–33"
+    ],
+    [
+     "Muestras y visita",
+     "No hay muestras de calidad ni visita previa en los pliegos.",
+     "PCAP 67"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro",
+     "items": [
+      [
+       "Plazo de pago",
+       "Se paga en 30 días desde la conformidad. Factura electrónica por FACE con el número de expediente.",
+       "PCAP 42 · PCAP 70"
+      ],
+      [
+       "Pagos parciales",
+       "Se pagan los suministros efectivamente entregados y recibidos.",
+       "PCAP 70"
+      ],
+      [
+       "Precio de facturación",
+       "Se aplica tu descuento sobre el precio del boletín en la fecha real del suministro. Tu margen depende de la evolución del mercado.",
+       "PCAP 70"
+      ]
+     ]
+    },
+    {
+     "h": "Volumen y ejecución",
+     "items": [
+      [
+       "Sin consumo garantizado",
+       "El importe es un máximo. El consumo real depende de las peticiones de la Unidad y de sus depósitos.",
+       "PCAP 56"
+      ],
+      [
+       "Penalidades",
+       "Por demora: 0,60 € por cada 1.000 € del precio, al día. Por cumplimiento defectuoso: máximo 10 % del precio. Las penalidades no pueden pasar del 50 % del precio.",
+       "PCAP 69 · PCAP 40"
+      ],
+      [
+       "Resolución del contrato",
+       "Incumplir la adscripción de medios, las condiciones especiales (certificación ISO 14001) o las obligaciones laborales y medioambientales lleva a la resolución.",
+       "PCAP 68–69 · PCAP 73–74"
+      ],
+      [
+       "Plazo de garantía",
+       "6 meses desde la recepción. Rechazo del combustible no apto a cargo del contratista.",
+       "PCAP 73 · PPT 2"
+      ],
+      [
+       "Pruebas",
+       "Los ensayos de recepción corren a cargo del contratista hasta el 1 % del presupuesto. Recepción formal en un máximo de 30 días.",
+       "PCAP 73"
+      ]
+     ]
+    },
+    {
+     "h": "Subcontratación y cesión",
+     "items": [
+      [
+       "Subcontratación",
+       "Se permite hasta el 30 % del importe. Hay que comunicarla. La penalidad por incumplir condiciones es de hasta el 50 % del subcontrato.",
+       "PCAP 71 · PCAP 69"
+      ],
+      [
+       "Cesión",
+       "No se permite ceder el contrato.",
+       "PCAP 71"
+      ],
+      [
+       "Condiciones especiales de ejecución",
+       "Medioambiental: gestión del riesgo ambiental, acreditada con ISO 14001 o equivalente. Social: no procede.",
+       "PCAP 68"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Fecha límite",
+     "El pliego no da fecha de cierre. El anuncio indica 30/06/2027 08:00, que coincide con el fin de la ejecución del contrato. Parece un dato erróneo.",
+     "PCAP 58 · PCAP 20"
+    ],
+    [
+     "Garantía definitiva",
+     "El cuadro dice 5 % = 25.000 €, pero el 5 % del presupuesto base de 180.000 € son 9.000 €. La cláusula 27 habla del 5 % del precio ofertado.",
+     "PCAP 67 · PCAP 34"
+    ],
+    [
+     "Valor estimado",
+     "Se computan 420.000 € de prórrogas, pero la prórroga es de solo 6 meses. El anuncio indica además un valor estimado de 180.000 €.",
+     "PCAP 56 · PCAP 58"
+    ],
+    [
+     "Duración",
+     "El pliego técnico habla de suministro hasta el 31/12/2027. El administrativo fija el fin el 30/06/2027, prorrogable hasta el 31/12/2027.",
+     "PPT 1 · PCAP 58"
+    ],
+    [
+     "Número de sobres",
+     "La cláusula 19 describe 3 sobres. El Anexo I fija 2 (administrativo y automático).",
+     "PCAP 21 · PCAP 66"
+    ],
+    [
+     "Fórmula de precio",
+     "La fórmula mezcla el presupuesto base en euros con el porcentaje de descuento y su referencia VRV. No queda claro cómo se calcula el POV en euros.",
+     "PCAP 61–62"
+    ]
+   ],
+   "advice": "Antes de ofertar, pregunta por la Plataforma por la fecha de cierre real, el importe de la garantía definitiva y cómo se convierte el descuento en precio para la fórmula."
+  }
+ ],
+ "headline": "Defensa busca proveedor de gasóleo para su base de Melilla",
+ "headline_em": "gasóleo para su base de Melilla",
+ "lede": "La Comandancia General de Melilla contrata el gasóleo de calefacción de la Base Teniente Flomesta: 180.000 € y gana el mayor descuento sobre el boletín petrolero de la UE.",
+ "updated": "2026-11-27",
+ "files": [
+  {
+   "name": "Pliego de cláusulas administrativas (PCAP) con Anexo I y modelos",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 139,
+   "bytes": 2867243
+  },
+  {
+   "name": "Pliego de prescripciones técnicas (PPT)",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 4,
+   "bytes": 178326
+  },
+  {
+   "name": "ANEXO IV GRUPO EMPRESAS 1402.docx",
+   "file": "03_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 3240567
+  },
+  {
+   "name": "ANEXO VIII SUBCONTRATACION 1402.docx",
+   "file": "04_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 3931548
+  },
+  {
+   "name": "ANEXO XV C ETICO 1402.docx",
+   "file": "05_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 3093540
+  },
+  {
+   "name": "ANEXO VII SOLVENCIA CON MEDIOS EXTERNOS 1402.docx",
+   "file": "06_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 3240407
+  },
+  {
+   "name": "ANEXO XII DEUC 1402.docx",
+   "file": "07_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 4646599
+  },
+  {
+   "name": "ANEXO VI DOS POR CIENTO 1402.docx",
+   "file": "08_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 3254624
+  },
+  {
+   "name": "ANEXO V ADSCRIPCION DE MEDIOS 1402.docx",
+   "file": "09_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 3240687
+  },
+  {
+   "name": "DECLARACION NO BAJA IAE.docx",
+   "file": "10_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 152326
+  },
+  {
+   "name": "2026-7b8a185a-25ed-442e-8733-0b13cae1a2af",
+   "file": "11_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-3caa3262-fd6f-44d6-af47-c9d1a751aa4b",
+   "file": "12_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-1a0653e1-4392-45c9-b1d2-b9c55ee4e2c8",
+   "file": "13_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-de73e4f6-2492-4084-b4b8-8f9cecad298a",
+   "file": "14_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "model": "claude-sonnet-5-5",
+ "effort": "medium",
+ "doc_chars": 516565,
+ "doc_pages": 235,
+ "input_tokens": 11767,
+ "output_tokens": 28444,
+ "cache_creation_input_tokens": 228259,
+ "cache_read_input_tokens": 257865,
+ "calls": 2,
+ "rules_check": "21017437: OK · revisar: 5 contradicción(es) entre documentos: revisar",
+ "cost_usd": 0.9044,
+ "seconds": 188,
+ "status": "ok",
+ "problems": [],
+ "not_read": [
+  "PPT desde la página 204 de 204"
+ ],
+ "cost_eur": 0.832
+}

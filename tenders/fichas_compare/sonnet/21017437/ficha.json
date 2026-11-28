@@ -1,0 +1,509 @@
+{
+ "id": "21017437",
+ "ref": "CONT/0052/2026",
+ "reviewed": "2026-11-28",
+ "title": "Construcción de una pista de atletismo exterior de 200 m en el complejo deportivo de Mula",
+ "title_official": "Construcción de pista de atletismo exterior de 200m. en la Ciudad de Mula",
+ "buyer": "Junta de Gobierno del Ayuntamiento de Mula",
+ "unit": "Secretaría / Oficina Técnica municipal",
+ "place": "Mula (Región de Murcia)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=tDYMi2n0jJBLAIVZdUs8KA%3D%3D",
+ "published": "2026-11-27",
+ "deadline": "2026-12-17",
+ "deadline_time": "23:59",
+ "questions_until": null,
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de cláusulas administrativas particulares (PCAP)",
+   "file": "01_Legal.pdf",
+   "pages": 31
+  },
+  "PPT": {
+   "label": "Proyecto técnico: memoria, pliego de condiciones, seguridad y salud, presupuesto y planos",
+   "file": "02_Technical.pdf",
+   "pages": 204
+  }
+ },
+ "tags": {
+  "level": "Ayuntamiento",
+  "where": "Mula, Región de Murcia",
+  "contract": "Obras",
+  "sector": "Instalaciones deportivas (CPV 45212200)",
+  "size": "Mediano (100.000 € – 1 M€)",
+  "deadline": "Cierra en 19 días",
+  "procedure": "Abierto simplificado",
+  "funds": "Sin fondos europeos indicados",
+  "lots": "Sin lotes",
+  "award": "Precio, mejora del césped y equipo técnico (todo con fórmula)"
+ },
+ "verdict": {
+  "opportunity": "alta",
+  "difficulty": "media",
+  "text": "Buena oportunidad para constructoras medianas de obra civil y pavimentos deportivos. Plazo corto (3 meses), sin lotes, sin juicio de valor, un solo sobre y sin clasificación obligatoria. La solvencia pide facturar 368.245,50 € al año, una cifra exigente para una pyme pequeña. Los 100 puntos son automáticos. La mejora del césped (40 puntos) y el técnico a pie de obra (10) son fáciles de conseguir para todos, así que casi todo se decide con el precio. Ojo a las contradicciones del proyecto y a trabajar junto a un campo de fútbol en uso."
+ },
+ "summary": [
+  "El Ayuntamiento de Mula contrata la obra de una pista de atletismo exterior de 200 m (anillo de 4 calles, recta de 60 m, zonas de salto), con pavimento sintético, césped artificial interior, alumbrado y equipamiento.",
+  "El presupuesto base es de 245.497,00 € sin IVA (297.051,37 € con IVA). El plazo de ejecución es de 3 meses. No hay lotes, prórrogas ni revisión de precios.",
+  "Se exige facturar al menos 368.245,50 € en el mejor de los 3 últimos años y haber ejecutado obras por 250.000 € en un año dentro de los últimos 5. No se exige clasificación.",
+  "Puntúan el precio (50 puntos), una mejora que consiste en cambiar sin coste el césped de proyecto por otro de más calidad (hasta 40 puntos) y un técnico a pie de obra a jornada completa (10 puntos). Todo se puntúa con fórmula.",
+  "Las ofertas se presentan en un único sobre electrónico por la Plataforma de Contratación del Sector Público hasta el 17 de diciembre de 2026 a las 23:59."
+ ],
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Ejecutar las obras del proyecto «Pista de Atletismo Exterior de 200 metros»: explanación y movimiento de tierras, pavimentación y superficie atlética con césped artificial interior, equipamiento para atletismo y alumbrado exterior.",
+     "PCAP 2"
+    ],
+    [
+     "Qué incluye el proyecto",
+     "1.913 m² de pavimento deportivo sintético, 1.240 m² de césped artificial, 6 proyectores de 1.500 W sobre postes existentes, zona de caída de salto de altura, foso y tabla de salto de longitud, drenaje, muros y cerramientos.",
+     "PPT 6 · PPT 9 · PPT 12"
+    ],
+    [
+     "Lotes",
+     "No hay división en lotes: es una única instalación y la ejecuta un solo contratista (art. 99.3 LCSP).",
+     "PCAP 2"
+    ],
+    [
+     "Órgano de contratación",
+     "El Alcalde, que tiene delegada la competencia en la Junta de Gobierno Local. Lo asiste una Mesa de Contratación.",
+     "PCAP 7"
+    ],
+    [
+     "Lugar",
+     "Complejo deportivo municipal «Mula Deportiva», Camino Viejo de Murcia 37, Mula (Murcia).",
+     "PPT 5"
+    ],
+    [
+     "Tipo de contrato y procedimiento",
+     "Contrato de obras. Procedimiento abierto simplificado (art. 159 LCSP), con varios criterios de adjudicación.",
+     "PCAP 3 · PCAP 8"
+    ],
+    [
+     "Códigos CPV",
+     "45212200-8 (instalaciones deportivas), 45212210-1, 45236110-4, 45233222-1, 45316100-6, 37415000-0 y 45442100-8.",
+     "PCAP 3"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Obra completa: pista de atletismo exterior de 200 m",
+     "fee": 245497.0,
+     "months": 3
+    }
+   ],
+   "note": "No hay lotes. Un único contrato de obras por 245.497,00 € sin IVA y 3 meses de plazo.",
+   "cite": "PCAP 2 · PCAP 6 · PCAP 7"
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base de licitación",
+     "245.497,00 € sin IVA. IVA (21 %): 51.554,37 €. Total: 297.051,37 €. Las ofertas son a la baja sobre este importe.",
+     "PCAP 7"
+    ],
+    [
+     "Valor estimado",
+     "245.497,00 €, igual que el presupuesto sin IVA, porque no se prevén prórrogas ni modificaciones.",
+     "PCAP 7"
+    ],
+    [
+     "Cómo se forma el presupuesto",
+     "Ejecución material 206.300,00 € + gastos generales (13 %) 26.819,00 € + beneficio industrial (6 %) 12.378,00 € = 245.497,00 €.",
+     "PPT 64 · PPT 197"
+    ],
+    [
+     "Duración",
+     "3 meses desde el día siguiente al acta de replanteo.",
+     "PCAP 6"
+    ],
+    [
+     "Prórrogas",
+     "No hay.",
+     "PCAP 7"
+    ],
+    [
+     "Revisión de precios",
+     "No procede.",
+     "PCAP 7"
+    ],
+    [
+     "Modificaciones previstas",
+     "No se prevén. Solo las modificaciones legales por interés público (arts. 191, 203, 206, 207 y 242 LCSP).",
+     "PCAP 7 · PCAP 24–25"
+    ],
+    [
+     "Subrogación de personal",
+     "El pliego no lo indica. Al ser una obra, no figura ningún personal a subrogar.",
+     "PCAP 24"
+    ],
+    [
+     "Financiación",
+     "La adjudicación queda condicionada al certificado de crédito adecuado y suficiente. El pliego no indica fondos europeos.",
+     "PCAP 18"
+    ],
+    [
+     "Garantía de la obra",
+     "Plazo de garantía de 1 año desde la recepción, «mejorable al alza por los licitadores». Pero ningún criterio puntúa esa mejora.",
+     "PCAP 28"
+    ],
+    [
+     "Seguro",
+     "Póliza de responsabilidad civil de 300.000 €.",
+     "PCAP 23"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Clasificación",
+     "No se exige. Quien la tenga puede acreditar con ella su solvencia: grupo G (viales y pistas), subgrupo 6, categoría 2.",
+     "PCAP 9–10"
+    ],
+    [
+     "Solvencia económica",
+     "Volumen anual de negocios, en el mejor de los 3 últimos años cerrados, de al menos 1,5 veces el valor estimado: 368.245,50 €. Se acredita con las cuentas anuales.",
+     "PCAP 8"
+    ],
+    [
+     "Solvencia técnica",
+     "Relación de obras similares de los últimos 5 años, con importe, fecha y destinatario. En el año de mayor ejecución hay que sumar al menos 250.000 € (valen varias obras). Se acredita con certificados de la entidad pública o, si es privada, con certificado del cliente o declaración del empresario más documentos.",
+     "PCAP 9"
+    ],
+    [
+     "Empresas de menos de 5 años",
+     "Pueden acreditar la solvencia técnica de otra forma: plantilla media anual superior a 4 trabajadores y departamento interno de control de calidad o contrato con un organismo externo homologado.",
+     "PCAP 9"
+    ],
+    [
+     "Registro de licitadores",
+     "Hay que estar inscrito, o haber solicitado la inscripción, en el Registro Oficial de Licitadores (ROLECE o el autonómico) a la fecha de cierre.",
+     "PCAP 10"
+    ],
+    [
+     "Habilitaciones",
+     "El pliego no exige otra habilitación específica. Sí exige personal cualificado según la normativa de obra (por ejemplo, instalación eléctrica y pavimentos deportivos).",
+     "PPT 67"
+    ],
+    [
+     "UTE",
+     "Se admite presentarse en unión temporal de empresarios.",
+     "PCAP 8"
+    ],
+    [
+     "Declaraciones",
+     "Declaración responsable (o DEUC) y declaración de ausencia de conflicto de intereses (Anexo I).",
+     "PCAP 15–17 · PCAP 30–31"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Oferta económica",
+     "pts": 50,
+     "kind": "fórmula",
+     "how": "Puntos = 50 × (B/M)^0,35. B es tu porcentaje de baja y M el porcentaje de baja de la mejor oferta que no sea temeraria. Con la fórmula tal como aparece en el pliego, una baja que sea la mitad que la mejor sigue dando unos 39 puntos."
+    },
+    {
+     "name": "Mejora: cambio del césped por uno de más calidad",
+     "pts": 40,
+     "kind": "fórmula",
+     "how": "0,032 puntos por cada m² de césped que ofrezcas cambiar sin coste. Máximo 40 puntos (se alcanzarían con 1.250 m²). El césped mejorado debe cumplir las características mínimas del pliego."
+    },
+    {
+     "name": "Técnico a pie de obra",
+     "pts": 10,
+     "kind": "fórmula",
+     "how": "10 puntos si te comprometes a tener a jornada completa un ingeniero, ingeniero técnico, arquitecto o arquitecto técnico durante toda la obra. Si no, 0 puntos. No hay puntos intermedios."
+    }
+   ],
+   "cite": "PCAP 10–14",
+   "items": [
+    [
+     "Juicio de valor",
+     "Ninguno: los 100 puntos son automáticos.",
+     "PCAP 10"
+    ],
+    [
+     "Mejora del césped, en detalle",
+     "Se ofrece sustituir el césped «Low35» del proyecto por otro antiestático con recebado de 8 kg/m² de arena de sílice, fibra de 30 mm mínimo y 2.500 g/m² de peso total. En obra, la dirección facultativa puede aplicar la mejora a otras unidades de obra a 36,3 €/m² (precio de ejecución material), sin indemnización.",
+     "PCAP 11–12"
+    ],
+    [
+     "Técnico a pie de obra",
+     "Hay que aportar en el sobre una declaración firmada, el título oficial y la prueba del vínculo laboral (contrato, alta en la Seguridad Social o compromiso vinculante de contratación). Es obligación esencial: cambiarlo exige autorización previa y otro técnico de igual titulación y dedicación.",
+     "PCAP 13–14"
+    ],
+    [
+     "Baja anormal o temeraria (art. 85 RGLCAP)",
+     "Con 1 licitador: más de 25 puntos por debajo del presupuesto. Con 2: más de 20 puntos por debajo de la otra oferta. Con 3: más de 10 puntos por debajo de la media (y siempre más de 25 puntos por debajo del presupuesto). Con 4 o más: más de 10 puntos por debajo de la media, recalculada sin las ofertas que superan la media en más de 10 puntos. Tienes 5 días hábiles para justificarla.",
+     "PCAP 14–15"
+    ],
+    [
+     "Desempate",
+     "El pliego no lo indica.",
+     "PCAP 10–14"
+    ]
+   ],
+   "insight": "Casi todos ofrecerán la mejora completa del césped y el técnico, así que los 40 + 10 puntos se reparten por igual. Pero el proyecto solo tiene 1.240 m² de césped, así que con esa superficie se llega a 39,68 de los 40 puntos. La diferencia está en el precio: gana quien baje más sin entrar en baja temeraria."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Hasta el 17 de diciembre de 2026 a las 23:59, solo por la Plataforma de Contratación del Sector Público. El pliego fija 20 días naturales desde el día siguiente a la publicación del anuncio; la fecha de publicación (27 de noviembre de 2026) se ha deducido de ese cómputo, no figura escrita en el pliego.",
+     "PCAP 15"
+    ],
+    [
+     "Preguntas",
+     "El pliego no fija plazo ni vía para dudas. Conviene preguntar por la Plataforma cuanto antes.",
+     "PCAP 15"
+    ],
+    [
+     "Sobre único",
+     "Declaración responsable (o DEUC), DACI (Anexo I), proposición económica con el texto literal del pliego, oferta de mejora con su texto literal y declaración de compromiso del técnico adscrito (con título y vínculo laboral).",
+     "PCAP 15–17"
+    ],
+    [
+     "Garantía provisional",
+     "El pliego no la exige.",
+     "PCAP 19"
+    ],
+    [
+     "Garantía definitiva",
+     "5 % del importe de adjudicación.",
+     "PCAP 19"
+    ],
+    [
+     "Apertura y propuesta",
+     "La Mesa califica la declaración, abre la proposición económica, puntúa y propone la adjudicación en la misma sesión.",
+     "PCAP 17"
+    ],
+    [
+     "Tras la propuesta",
+     "La mejor oferta tiene 7 días hábiles para aportar la garantía definitiva y el resto de documentación. Si no lo hace, se entiende que retira la oferta y se le exige el 3 % del presupuesto base sin IVA (7.364,91 €).",
+     "PCAP 18"
+    ],
+    [
+     "Adjudicación y firma",
+     "Adjudicación en los 5 días hábiles siguientes a recibir la documentación. Formalización dentro de los 15 días hábiles siguientes a la notificación (penalidad del 3 % del presupuesto base si es culpa del adjudicatario).",
+     "PCAP 18–19"
+    ],
+    [
+     "Visita",
+     "El pliego no prevé visita previa.",
+     "PCAP 15"
+    ],
+    [
+     "Recurso",
+     "Contra los acuerdos cabe recurso de reposición y recurso contencioso-administrativo. No se menciona el recurso especial del art. 44 LCSP, que además no procede en obras por debajo de 3 M€.",
+     "PCAP 5"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro",
+     "items": [
+      [
+       "Certificaciones mensuales",
+       "Se certifica cada mes como abono a cuenta. El pago sigue los plazos del art. 198 LCSP.",
+       "PCAP 23"
+      ],
+      [
+       "Certificación final",
+       "La medición se hace en el mes siguiente a la recepción y el órgano aprueba la certificación final en los 3 meses desde la recepción.",
+       "PCAP 27"
+      ],
+      [
+       "Solo se paga lo ejecutado",
+       "Solo se abona lo realizado según proyecto, oferta y órdenes escritas del director de obra. No se pagan unidades no recogidas en el proyecto.",
+       "PCAP 22"
+      ],
+      [
+       "Riesgo y ventura",
+       "La obra es a riesgo y ventura del contratista.",
+       "PCAP 21"
+      ],
+      [
+       "Gastos a tu cargo",
+       "Licencias, permisos, seguros, ensayos, tasas e impuestos. El IVA se indica como partida aparte en la oferta.",
+       "PCAP 23"
+      ]
+     ]
+    },
+    {
+     "h": "Plazos y penalidades",
+     "items": [
+      [
+       "Demora",
+       "0,60 € por cada 1.000 € del precio sin IVA y por día de retraso (unos 147 € al día al precio de licitación). El Ayuntamiento puede optar por resolver el contrato.",
+       "PCAP 6"
+      ],
+      [
+       "Resolución",
+       "Entre otras causas: retraso injustificado de más del 50 % del plazo de ejecución e incumplimiento grave de las prestaciones.",
+       "PCAP 26"
+      ],
+      [
+       "Penalidades por no firmar a tiempo",
+       "3 % del presupuesto base sin IVA si retiras la oferta tras el requerimiento o no formalizas por tu culpa.",
+       "PCAP 18–19"
+      ],
+      [
+       "Garantía y vicios ocultos",
+       "1 año de garantía con conservación a tu cargo. Responsabilidad por vicios ocultos durante 15 años desde la recepción.",
+       "PCAP 28–29"
+      ]
+     ]
+    },
+    {
+     "h": "Obligaciones",
+     "items": [
+      [
+       "Obra junto a un campo en uso",
+       "No puedes interferir con entrenamientos, competiciones ni el uso del recinto. Debes poner vallado perimetral continuo, acceso independiente para maquinaria si es posible, medidas contra polvo y ruido, y presentar antes de empezar un protocolo de coordinación de interferencias.",
+       "PCAP 19–20"
+      ],
+      [
+       "Condiciones especiales de ejecución",
+       "Cumplir la normativa laboral, de prevención de riesgos, los convenios colectivos y la protección de datos. Son obligaciones esenciales y también las deben cumplir los subcontratistas. Su incumplimiento permite penalidades o la resolución del contrato.",
+       "PCAP 19–20 · PCAP 23–24"
+      ],
+      [
+       "Plan de seguridad y gestión de residuos",
+       "El contratista debe redactar el Plan de Seguridad y Salud y el Plan de Gestión de Residuos antes de empezar. El proyecto prevé hasta 8 trabajadores a la vez.",
+       "PPT 73 · PPT 52"
+      ],
+      [
+       "Aviso de terminación",
+       "Hay que avisar por escrito con 5 días de antelación de la fecha prevista de terminación.",
+       "PCAP 26"
+      ]
+     ]
+    },
+    {
+     "h": "Subcontratación y cesión",
+     "items": [
+      [
+       "Subcontratación",
+       "Se permite subcontratar parcialmente. Hay que indicar en la oferta la parte a subcontratar, su importe y el nombre o el perfil de los subcontratistas. Responsabilidad total ante el Ayuntamiento y sin acción directa del subcontratista contra él.",
+       "PCAP 21"
+      ],
+      [
+       "Cesión",
+       "Posible si las cualidades del cedente no fueron decisivas para adjudicar y se cumple el art. 214.2 LCSP.",
+       "PCAP 21"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Superficie de césped y puntos de mejora",
+     "Los 40 puntos se alcanzarían con 1.250 m² (0,032 × 1.250), pero el proyecto solo prevé 1.240 m² de césped (máximo realista: 39,68 puntos).",
+     "PCAP 12 · PPT 9 · PPT 101"
+    ],
+    [
+     "Total del capítulo 8",
+     "El presupuesto parcial del capítulo 8 suma 109.549,56 €, pero el resumen y la suma de sus partidas dan 107.349,56 €. Hay 2.200 € de diferencia.",
+     "PPT 181 · PPT 196"
+    ],
+    [
+     "Partidas 5.5, 5.6 y 5.7",
+     "Aparecen en el presupuesto (arqueta de bombeo, impulsión de 40 m y clausura de fosa séptica, 2.200 € en total) pero no en las mediciones, el cuadro de precios ni la memoria.",
+     "PPT 173 · PPT 95"
+    ],
+    [
+     "Césped: dos versiones",
+     "El cuadro de precios incluye una partida 8.1 de césped «no infill» con recebado que no figura en el presupuesto. La memoria dice que el césped Low35 no lleva recebado de sílice.",
+     "PPT 124 · PPT 11"
+    ],
+    [
+     "Pavimento sintético",
+     "La memoria cuenta 110 m² de zonas de salto (total 1.628 m²), mientras el presupuesto mide 395 m² (total 1.913 m²).",
+     "PPT 6 · PPT 100"
+    ],
+    [
+     "Colchoneta de salto de altura",
+     "La memoria hablaba de 6 × 4 m y el presupuesto de 8 × 4 × 0,8 m (el proyecto confirma esta última).",
+     "PPT 31 · PPT 69"
+    ],
+    [
+     "Resistencia al desgaste",
+     "El pliego técnico dice que no se fija umbral, pero el cuadro de precios de la partida 8.2 fija una pérdida de masa inferior a 4,0 g.",
+     "PPT 68 · PPT 125"
+    ],
+    [
+     "Nombre del complejo",
+     "El PCAP habla de «José Soriano Chacón» y el proyecto de «José Soriano Espinosa».",
+     "PCAP 20 · PPT 5"
+    ],
+    [
+     "Garantía y penalidades",
+     "El pliego técnico dice que no fija garantía ni penalidades. Sí las fija el PCAP (1 año de garantía y 0,60 € por 1.000 € y día de demora).",
+     "PPT 71 · PCAP 6 · PCAP 28"
+    ]
+   ],
+   "advice": "Pregunta por la Plataforma antes de ofertar: cuántos m² de césped se pueden ofrecer (por encima de 1.240 no puntúa nada más), si el recebado de sílice forma parte de la mejora exigida y qué partidas son las que cuentan en caso de discrepancia entre medición y presupuesto."
+  }
+ ],
+ "headline": "Pista de atletismo de 200 m en Mula: obra de 245.497 €",
+ "headline_em": "pista de atletismo de 200 m",
+ "lede": "El Ayuntamiento de Mula licita la construcción de una pista de atletismo exterior con pavimento sintético, césped artificial y alumbrado. Un solo contrato de obras de 3 meses y 100 puntos con fórmula.",
+ "crumbs": "Licitaciones › España › Ayuntamientos › Región de Murcia",
+ "max_lots_per_bidder": 1,
+ "updated": "2026-11-27",
+ "files": [
+  {
+   "name": "Pliego de cláusulas administrativas particulares (PCAP)",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 31,
+   "bytes": 286845
+  },
+  {
+   "name": "Proyecto técnico: memoria, pliego de condiciones, seguridad y salud, presupuesto y planos",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 204,
+   "bytes": 15858383
+  },
+  {
+   "name": "2026-3aa5bb4b-23d5-49e1-825c-535a7988e1c4",
+   "file": "03_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ],
+ "not_read": [
+  "PPT desde la página 204 de 204"
+ ]
+}
