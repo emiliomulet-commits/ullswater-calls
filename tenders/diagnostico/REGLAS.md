@@ -41,4 +41,4 @@ La IA conversa y redacta, pero las cuentas las hace siempre `engine.js` con esta
 
 ## Envío al equipo
 
-Cuando alguien pide el informe completo o pulsa «Reservar», la página avisa al Worker (`POST /diagnostico`), que lo guarda 12 meses y, si está configurado el secreto `DIAG_WEBHOOK`, lo reenvía al script `tools/diagnostico_setup.gs`, que escribe en una hoja privada y manda un email a **tenders@ullswaterinvestments.com**.
+Cuando alguien pide el informe completo o pulsa «Reservar», la página avisa al Worker (`POST /diagnostico`), que lo guarda 12 meses y pide al Worker `ullswater-fichas` (enlace interno `MAILER`, el mismo que ya envía los emails de las fichas con Resend) que mande un email a **tenders@ullswaterinvestments.com** con respuesta directa a la empresa.

@@ -980,7 +980,7 @@ async function benchmarkContact(req, env) {
 
 // Free tender diagnoses (tenders.ullswaterinvestments.com/es/espana/licitacion/<id>/diagnostico/): the visitor gives name,
 // company and email (with consent) to see the full report. Stored RETENTION_MONTHS (purged by the daily cron) and, when the
-// DIAG_WEBHOOK secret is set, forwarded to the Apps Script in tools/diagnostico_setup.gs, which emails tenders@.
+// emailed to tenders@ullswaterinvestments.com by the ullswater-fichas Worker (service binding MAILER).
 async function diagnostico(req, env, ctx) {
   const b = await req.json().catch(() => ({}));
   const clean = (v, n) => String(v || "").replace(/[\r\n\t<>]/g, " ").trim().slice(0, n);
@@ -998,8 +998,8 @@ async function diagnostico(req, env, ctx) {
       .bind(row.tender, row.ref, row.name, row.org, row.email, row.cif, row.lang, row.marketing, row.save_profile, row.event, row.page, row.country, summary, answers)
       .run().catch(e => console.log("diag db: " + (e.message || e)));
   }
-  if (env.DIAG_WEBHOOK) ctx.waitUntil(fetch(env.DIAG_WEBHOOK, { method: "POST", headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ...row, result: b.result || {}, answers: b.answers || {}, token: env.DIAG_TOKEN || "" }) }).catch(e => console.log("diag hook: " + (e.message || e))));
+  // email to tenders@ through the ullswater-fichas Worker (service binding MAILER, which already sends with Resend)
+  if (env.MAILER) ctx.waitUntil(env.MAILER.send({ ...row, result: b.result || {} }).catch(e => console.log("diag mail: " + (e.message || e))));
   return json({ ok: true }, req);
 }
 

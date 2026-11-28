@@ -21,3 +21,10 @@ database_id = "5d2c792c-7fb2-4f6a-91ef-5b717e216266"
 # Daily purge of the questions log older than 12 months (RETENTION_MONTHS in ullswater-ai.js)
 [triggers]
 crons = ["17 3 * * *"]
+
+# Emails of the free tender diagnosis: sent by the ullswater-fichas Worker (it holds the Resend key) through its
+# DiagMail entrypoint, which is not reachable from the internet. Deploy ullswater-fichas first.
+[[services]]
+binding = "MAILER"
+service = "ullswater-fichas"
+entrypoint = "DiagMail"
