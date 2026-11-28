@@ -277,8 +277,19 @@ def call_cf(system, messages, usage):
     for attempt in range(3):
         try:
             req = urllib.request.Request(url, data=body, headers={"x-key": key, "Content-Type": "application/json", "User-Agent": "ullswater-fichas"})
-            with urllib.request.urlopen(req, timeout=900) as r:
-                j = json.loads(r.read())
+            text, u = [], {}
+            with urllib.request.urlopen(req, timeout=1800) as r:
+                for line in r:
+                    line = line.decode("utf-8", "replace").strip()
+                    if not line.startswith("data:") or line[5:].strip() == "[DONE]":
+                        continue
+                    try:
+                        ev = json.loads(line[5:])
+                    except ValueError:
+                        continue
+                    text.append(ev.get("response") or "")
+                    u = ev.get("usage") or u
+            j = {"result": {"response": "".join(text), "usage": u}}
             break
         except urllib.error.HTTPError as e:
             msg = e.read().decode("utf-8", "replace")[:400]
