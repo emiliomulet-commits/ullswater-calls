@@ -999,8 +999,11 @@ async function diagnostico(req, env, ctx) {
       .run().catch(e => console.log("diag db: " + (e.message || e)));
   }
   // email to tenders@ through the ullswater-fichas Worker (service binding MAILER, which already sends with Resend)
-  if (env.MAILER) ctx.waitUntil(env.MAILER.send({ ...row, result: b.result || {} }).catch(e => console.log("diag mail: " + (e.message || e))));
-  return json({ ok: true }, req);
+  // the page never waits for this (keepalive fetch); waiting here lets us report whether the email was accepted
+  let mail = "off";
+  if (env.MAILER) mail = await Promise.race([env.MAILER.send({ ...row, result: b.result || {} }).then(() => "sent"),
+    new Promise(r => setTimeout(() => r("pending"), 8000))]).catch(e => { console.log("diag mail: " + (e.message || e)); return "error: " + String(e.message || e).slice(0, 160); });
+  return json({ ok: true, mail }, req);
 }
 
 // ---------- Benchmark Compliance 2027: answers only from the benchmark knowledge base ----------

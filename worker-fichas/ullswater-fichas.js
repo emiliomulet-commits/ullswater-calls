@@ -270,7 +270,7 @@ export class DiagMail extends WorkerEntrypoint {
       + row("Brechas", (r.gaps || []).join(" · ")) + row("Acepta comunicaciones", d.marketing ? "sí" : "no") + row("Guardar perfil", d.save_profile ? "sí" : "no") + row("Página", d.page)
       + `</table><p style="font-size:12px;color:#4b5563;margin-top:16px">Responde a este email para contestar directamente a la empresa. Si otra empresa ya contrató el servicio de pago para esta licitación, solo podemos ofrecerle el diagnóstico gratuito.</p></div>`;
     const subject = `${kind}: ${d.org || ""} · ${d.ref || d.tender}${r.verdict ? " · " + r.verdict : ""}`.slice(0, 200);
-    await sendMail(this.env, DIAG_TO, subject, html, { from: "Ullswater Licitaciones <tenders@ullswaterinvestments.com>", replyTo: EMAIL_RE.test(d.email || "") ? d.email : undefined });
+    await sendMail(this.env, DIAG_TO, subject, html, { from: "Ullswater Licitaciones <diagnostico@ullswaterinvestments.com>", replyTo: EMAIL_RE.test(d.email || "") ? d.email : undefined });
     return true;
   }
 }
