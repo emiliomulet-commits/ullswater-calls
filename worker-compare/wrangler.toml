@@ -1,0 +1,9 @@
+# Temporary Worker for the free-model comparison (fichas-ai.yml deploys it for one run and deletes it afterwards).
+# The GitHub token cannot call Workers AI over the REST API, but a Worker with the AI binding can.
+name = "ullswater-ai-compare"
+main = "compare.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+[ai]
+binding = "AI"

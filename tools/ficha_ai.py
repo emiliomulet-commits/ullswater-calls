@@ -269,14 +269,14 @@ def price(usage):
 def call_cf(system, messages, usage):
     """Cloudflare Workers AI (free tier) through the REST API, same prompts."""
     import urllib.request
-    acc, tok = os.environ["CLOUDFLARE_ACCOUNT_ID"], os.environ["CLOUDFLARE_API_TOKEN"]
+    import urllib.error
+    url, key = os.environ["COMPARE_URL"], os.environ["COMPARE_KEY"]
     flat = [{"role": "system", "content": system}] + [
         {"role": m["role"], "content": m["content"] if isinstance(m["content"], str) else "".join(b["text"] for b in m["content"])} for m in messages]
-    body = json.dumps({"messages": flat, "max_tokens": 16000, "temperature": 0.1}).encode()
+    body = json.dumps({"model": MODEL, "messages": flat, "max_tokens": 16000}).encode()
     for attempt in range(3):
         try:
-            req = urllib.request.Request(f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/{MODEL}", data=body,
-                                         headers={"Authorization": f"Bearer {tok}", "Content-Type": "application/json"})
+            req = urllib.request.Request(url, data=body, headers={"x-key": key, "Content-Type": "application/json", "User-Agent": "ullswater-fichas"})
             with urllib.request.urlopen(req, timeout=900) as r:
                 j = json.loads(r.read())
             break
@@ -440,6 +440,9 @@ def process(client, system, item):
             status = "error: " + "; ".join(problems)[:300]
             for x in ("ficha.json", "reglas.json"):
                 (d / x).unlink(missing_ok=True)
+            if FICHAS != ROOT / "tenders" / "fichas":  # comparison: keep what the model wrote, to show it
+                d.mkdir(parents=True, exist_ok=True)
+                (d / "raw_output.txt").write_text(out or "", encoding="utf-8")
         else:
             d.mkdir(parents=True, exist_ok=True)
             if problems:  # ficha fine, diagnosis rules not: publish the ficha without the diagnosis
