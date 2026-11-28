@@ -442,7 +442,9 @@ def build_fichas(write, page, ctx):
         out = site / "docs" / "es" / i
         out.mkdir(parents=True, exist_ok=True)
         names = {}
-        for x in idx["docs"]:
+        for x in idx["docs"]:  # AI fichas keep no copy (they link to the Plataforma); the hand-made example does
+            if not x.get("file"):
+                continue
             src = d / "docs" / x["file"]
             if not src.exists():
                 continue
@@ -456,10 +458,10 @@ def build_fichas(write, page, ctx):
         shutil.copyfile(d / "ficha.pdf", out / f"ficha-ullswater-{i}.pdf")
         (site / "data" / "es" / "fichas").mkdir(parents=True, exist_ok=True)
         f2 = dict(f, url=ctx["base"] + ficha_path(i), pdf=ctx["base"] + f"/docs/es/{i}/ficha-ullswater-{i}.pdf",
-                  documents=[dict(label=x.get("name"), local=ctx["base"] + names.get(x["file"], ""), official=x.get("uri"), pages=x.get("pages"))
-                             for x in idx["docs"] if x["file"] in names])
+                  documents=[dict(label=x.get("name"), local=(ctx["base"] + names[x["file"]]) if x.get("file") in names else None, official=x.get("uri"), pages=x.get("pages"))
+                             for x in idx["docs"] if x.get("file")])
         (site / "data" / "es" / "fichas" / f"{i}.json").write_text(json.dumps(f2, ensure_ascii=False), encoding="utf-8")
-        inner = R.body(f, idx, local=lambda x: names.get(x["file"], f["official_url"]), logo=False, pdf_url=f"/docs/es/{i}/ficha-ullswater-{i}.pdf")
+        inner = R.body(f, idx, local=lambda x: names.get(x["file"]) or next((y.get("uri") for y in idx["docs"] if y.get("file") == x["file"]), None) or f["official_url"], logo=False, pdf_url=f"/docs/es/{i}/ficha-ullswater-{i}.pdf")
         inner = inner.replace("Licitaciones › España", '<a href="/es/">Licitaciones</a> › <a href="/es/espana/">España</a>', 1)
         qs = ["¿Qué solvencia piden y cómo la acredito?", "¿Cómo se reparten los 100 puntos?", "¿Qué pasa si oferto un precio muy bajo?", "¿A cuántos lotes me puedo presentar?"]
         strip = ('<section class="fx-ask" id="pregunta"><div class="in"><h2>Pregunta al asistente sobre esta licitación</h2>'

@@ -67,23 +67,42 @@ def body(f, idx, pdf=False, local=None, logo=True, pdf_url=None, today=None):
     docs_url = {}
     by_file = {d.get("file"): d for d in idx["docs"]}
     for k, d in f["docs"].items():
-        docs_url[k] = by_file.get(d["file"], {}).get("uri", "")
+        docs_url[k] = by_file.get(d.get("file"), {}).get("uri", "")
     pub, dl = date.fromisoformat(f["published"]), date.fromisoformat(f["deadline"])
     today = today or (date.fromisoformat(f["reviewed"]) if pdf else date.today())
     days = max((dl - today).days, 0)
     v = f["verdict"]
     secs = {s["key"]: s for s in f["sections"]}
     lots = secs["lots"]
-    tot_fee, tot_w = sum(x["fee"] for x in lots["lots"]), sum(x["works"] for x in lots["lots"])
-    n_lots, max_w = len(lots["lots"]), max(x["works"] for x in lots["lots"])
-    max_lots = f.get("max_lots_per_bidder", 2)
+    tot_fee, tot_w = sum(x["fee"] for x in lots["lots"]), sum(x.get("works") or 0 for x in lots["lots"])
+    n_lots = len(lots["lots"])
+    has_w = all(x.get("works") for x in lots["lots"])
+    max_w = max(((x.get("works") if has_w else x["fee"]) or 1) for x in lots["lots"])
+    max_lots = f.get("max_lots_per_bidder") or n_lots
     win = secs["win"]
     total_pts = sum(c["pts"] for c in win["criteria"]) or 100
     risk = secs["risk"]
     risk_html = "".join(f'<div class="rg"><h3>{e(g["h"])}</h3><dl>{rows(g["items"], docs_url, pdf)}</dl></div>' for g in risk["groups"])
-    err = secs["errors"]
+    err = secs.get("errors") or {"h": "Incoherencias en los pliegos", "items": [], "advice": ""}
+    judge_pts = sum(c["pts"] for c in win["criteria"] if "juicio" in (c.get("kind") or "").lower())
+    auto_pts = total_pts - judge_pts
+    NW = {1: "Un", 2: "Dos", 3: "Tres", 4: "Cuatro", 5: "Cinco", 6: "Seis", 7: "Siete", 8: "Ocho", 9: "Nueve", 10: "Diez"}
+    nw = lambda n: NW.get(n, str(n))  # noqa: E731
+    if n_lots == 1:
+        lots_h, lots_sub = "Un solo lote", f"Importe sin IVA: {eur(tot_fee)}."
+    else:
+        lots_h = f"{nw(n_lots)} lotes" + ("" if max_lots >= n_lots else f", elige {nw(max_lots).lower()}")
+        lots_sub = f"Importe sin IVA de cada lote. Total: {eur(tot_fee)}" + (f" y {f'{tot_w / 1e6:.2f}'.replace('.', ',')} M€ de obra." if has_w else ".")
+    pts_sub = f.get("points_sub") or ("Sin memoria técnica ni juicio de valor: cada punto sale de una fórmula." if not judge_pts
+                                      else f"{auto_pts:g} puntos salen de una fórmula y {judge_pts:g} dependen de la valoración técnica (juicio de valor).")
+    crumbs = f.get("crumbs") or ("Licitaciones › España" + "".join(" › " + e(x) for x in [(f.get("tags") or {}).get("level")] if x))
+    third = (f'<b>{max_lots} de {n_lots}</b><span>lotes como máximo<br>por empresa</span>' if n_lots > 1 and max_lots < n_lots
+             else f'<b>{n_lots}</b><span>lotes<br>puedes ir a todos</span>' if n_lots > 1
+             else f'<b>{auto_pts:g} de {total_pts:g}</b><span>puntos con<br>fórmula</span>')
+    ab = {k: d.get("label", k) for k, d in f["docs"].items()}
+    n_pages = sum(d.get("pages") or 0 for d in f["docs"].values())
     files = "".join(
-        f'<tr><td>{e(x["name"])}</td><td>{e(x["type"])}{" · " + str(x["pages"]) + " págs." if x.get("pages") else ""}</td><td class="num">{x["bytes"] / 1e3:,.0f} KB</td>'
+        f'<tr><td>{e(x["name"])}</td><td>{e(x.get("type") or "")}{" · " + str(x["pages"]) + " págs." if x.get("pages") else ""}</td><td class="num">{(x.get("bytes") or 0) / 1e3:,.0f} KB</td>'
         + ("" if pdf else f'<td><a class="dl" href="{e(local(x) if local else by_file.get(x["file"], {}).get("uri", f["official_url"]))}" target="_blank" rel="noopener">Descargar</a></td>') + "</tr>"
         for x in f["files"])
     MS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
@@ -102,8 +121,11 @@ def body(f, idx, pdf=False, local=None, logo=True, pdf_url=None, today=None):
            f'<ol class="evl">' + "".join(f'<li class="{c}{" past" if d < today else ""}"><b>{"Hoy, " if d == today else ""}{short(d)}</b> {e(t)}</li>' for d, t, c in ev) + "</ol></div></section>")
     stack = "".join(f'<div style="width:{c["pts"] / total_pts * 100:.2f}%;background:{COLORS[i % 6]}">{c["pts"]}</div>' for i, c in enumerate(win["criteria"]))
     legend = "".join(f'<div style="border-color:{COLORS[i % 6]}"><b>{e(c["name"])} · {c["pts"]}</b><span>{e(c["how"])}</span></div>' for i, c in enumerate(win["criteria"]))
-    tiles = "".join(f'<div class="lot"><div class="lk">LOTE {x["n"]}</div><b>{num(x["fee"])} €</b><div class="c">{e(x["centres"])}</div>'
-                    f'<div class="h"><i style="width:{x["works"] / max_w * 100:.0f}%"></i></div><div class="m">{ic("crane", 14)} {num(x["works"])} € de obra · {x["months"]} meses</div></div>' for x in lots["lots"])
+    def meta(x):
+        bits = ([f'{num(x["works"])} € de obra'] if x.get("works") else []) + ([f'{x["months"]} meses'] if x.get("months") else [])
+        return f'<div class="m">{ic("crane", 14) if x.get("works") else ""} {" · ".join(bits)}</div>' if bits else ""
+    tiles = "".join(f'<div class="lot"><div class="lk">LOTE {e(str(x["n"]))}</div><b>{num(x["fee"])} €</b><div class="c">{e(x.get("centres") or x.get("label") or "")}</div>'
+                    f'<div class="h"><i style="width:{((x.get("works") if has_w else x["fee"]) or 0) / max_w * 100:.0f}%"></i></div>{meta(x)}</div>' for x in lots["lots"])
     lvl = {"alta": "hi", "media": "mid", "baja": "lo"}
     first_err = err["items"][0] if err.get("items") else None
     btns = "" if pdf else ('<div class="cta-row"><a class="btn" href="#pregunta">Pregunta al asistente</a>'
@@ -115,7 +137,7 @@ def body(f, idx, pdf=False, local=None, logo=True, pdf_url=None, today=None):
     return f"""
 <header class="hero"><div class="in hg"><div class="l">
  {'<img class="logo" src="' + LOGO + '" alt="Ullswater Investments">' if logo else ''}
- <p class="crumbs">Licitaciones › España › Ayuntamientos › Andalucía</p>
+ <p class="crumbs">{crumbs}</p>
  <span class="kick">{ic("target", 14)} Oportunidad {e(v['opportunity'])} · Dificultad {e(v['difficulty'])}</span>
  <h1>{hl}</h1>
  <p class="lede">{e(f.get('lede') or f['summary'][0])}</p>
@@ -124,16 +146,16 @@ def body(f, idx, pdf=False, local=None, logo=True, pdf_url=None, today=None):
 </div><div class="r">
  <div class="big gold"><b>{days} {"día" if days == 1 else "días"}</b><span>para presentar<br>{short(dl)} · {e(f['deadline_time'])} h</span></div>
  <div class="big"><b>{num(tot_fee)} €</b><span>sin IVA<br>en {n_lots} lotes</span></div>
- <div class="big last"><b>{max_lots} de {n_lots}</b><span>lotes como máximo<br>por empresa</span></div>
+ <div class="big last">{third}</div>
 </div></div></header>
 <!--ASK-->
 {cal}
 <main class="in">
- <section class="sec0"><h2>Así se ganan los {total_pts} puntos</h2><p class="sub">{e(f.get('points_sub') or 'Sin memoria técnica ni juicio de valor: cada punto sale de una fórmula.')} {cites(win['cite'], docs_url, pdf)}</p>
+ <section class="sec0"><h2>Así se ganan los {total_pts} puntos</h2><p class="sub">{e(pts_sub)} {cites(win['cite'], docs_url, pdf)}</p>
   <div class="stack">{stack}</div><div class="leg">{legend}</div>
-  <p class="insight"><b>Dónde se decide.</b> {e(win['insight'])}</p></section>
- <section class="sec0"><h2>{"Cinco" if n_lots == 5 else n_lots} lotes, elige {"dos" if max_lots == 2 else max_lots}</h2><p class="sub">Honorarios sin IVA y obra que dirigirías en cada uno. Total: {eur(tot_fee)} de honorarios y {f"{tot_w / 1e6:.2f}".replace(".", ",")} M€ de obra.</p>
-  <div class="lots">{tiles}</div><p class="note">{e(lots['note'])} {cites(lots['cite'], docs_url, pdf)}</p></section>
+  <p class="insight"><b>Dónde se decide.</b> {e(win.get('insight') or '')}</p></section>
+ <section class="sec0"><h2>{lots_h}</h2><p class="sub">{e(f.get("lots_sub") or lots_sub)}</p>
+  <div class="lots" style="grid-template-columns:repeat({min(max(n_lots, 1), 5)},minmax(0,1fr))">{tiles}</div><p class="note">{e(lots.get('note') or '')} {cites(lots.get('cite'), docs_url, pdf)}</p></section>
  {f'<div class="alert">{ic("alert", 26, "#e46a4f")}<div><b>Hemos encontrado {len(err["items"])} incoherencias en los pliegos.</b> {e(first_err[0])}: {e(first_err[1])} <a href="#incoherencias">Ver todas</a></div></div>' if first_err else ''}
  <section class="verd"><h2>Nuestra lectura</h2><div class="lights"><span class="lt {lvl[v['opportunity']]}">Oportunidad {e(v['opportunity'])}</span><span class="lt {lvl[v['difficulty']]}">Dificultad {e(v['difficulty'])}</span></div><p>{e(v['text'])}</p></section>
  <section><h2>{e(secs['what']['h'])}</h2><dl>{rows(secs['what']['items'], docs_url, pdf)}</dl></section>
@@ -142,13 +164,13 @@ def body(f, idx, pdf=False, local=None, logo=True, pdf_url=None, today=None):
  <section><h2>La letra pequeña de la puntuación</h2><dl>{rows(win['items'], docs_url, pdf)}</dl></section>
  <section><h2>{e(secs['when']['h'])}</h2><dl>{rows(secs['when']['items'], docs_url, pdf)}</dl></section>
  <section><h2>{e(risk['h'])}</h2><div class="rgs">{risk_html}</div></section>
- <section class="errs" id="incoherencias"><h2>{e(err['h'])}</h2><dl>{rows(err['items'], docs_url, pdf)}</dl><p class="note">{e(err['advice'])}</p></section>
+ {f'<section class="errs" id="incoherencias"><h2>{e(err["h"])}</h2><dl>{rows(err["items"], docs_url, pdf)}</dl><p class="note">{e(err.get("advice") or "")}</p></section>' if err.get("items") else ''}
  <section><h2>Documentos oficiales</h2><p class="note">Copia de los documentos publicados en la Plataforma de Contratación del Sector Público. La versión válida es siempre la de la Plataforma.</p>
   <div class="tw"><table class="files"><thead><tr><th>Documento</th><th>Formato</th><th class="num">Tamaño</th>{'' if pdf else '<th></th>'}</tr></thead><tbody>{files}</tbody></table></div>
   <p class="note">Anuncio, pliegos y rectificaciones en la <a href="{e(f['official_url'])}" target="_blank" rel="noopener">ficha oficial de la licitación</a>.</p></section>
  <section class="cta"><h2>¿Te presentas?</h2><p>Hacemos gratis un primer diagnóstico de esta licitación con tu empresa: si cumples la solvencia, qué puntuación puedes esperar y qué precio te deja opciones. Después, si quieres, un consultor te ayuda a preparar la oferta.</p>
   <p><a class="btn" href="https://www.ullswaterinvestments.com/es/contacto/" target="_blank" rel="noopener">Pedir diagnóstico gratuito</a></p></section>
- <p class="disc">Resumen elaborado con IA a partir de los {len(f['docs'])} documentos principales del expediente (PCAP, PPT y anexos; {sum(d['pages'] for d in f['docs'].values())} páginas). Revisado el {fd(f['reviewed'])}. Prevalecen siempre los pliegos y el anuncio oficial. Cada dato indica el documento y la página de donde sale: PCAP = pliego administrativo, PPT = pliego técnico, ANX = anexos al PCAP.</p>
+ <p class="disc">Resumen elaborado con IA a partir de los {len(f['docs'])} documentos principales del expediente{f" ({n_pages} páginas)" if n_pages else ""}. Revisado el {fd(f['reviewed'])}. Prevalecen siempre los pliegos y el anuncio oficial. Cada dato indica el documento y la página de donde sale: {e("; ".join(f"{k} = {v}" for k, v in ab.items()))}.</p>
 </main>"""
 
 
@@ -256,7 +278,7 @@ def main(d):
     d = Path(d)
     f = json.loads((d / "ficha.json").read_text(encoding="utf-8"))
     idx = json.loads((d / "index.json").read_text(encoding="utf-8"))
-    head = '<title>Dirección de obras en colegios de Sevilla</title><meta name="claude:viewport-fit-sides" content="cover">'
+    head = f'<title>{e(f.get("headline") or f["title"])}</title><meta name="claude:viewport-fit-sides" content="cover">'
     fonts = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">'
     (d / "ficha.html").write_text(f"{head}{fonts}<style>{CSS}</style>{body(f, idx)}", encoding="utf-8")
     html = f'<!doctype html><html lang="es"><head><meta charset="utf-8"><style>{CSS}{PDF_CSS}</style></head><body>{body(f, idx, pdf=True)}</body></html>'

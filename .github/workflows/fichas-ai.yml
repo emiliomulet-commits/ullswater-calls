@@ -1,0 +1,50 @@
+name: AI factsheets for Spanish tenders (read every official document, write ficha + diagnosis)
+
+on:
+  workflow_dispatch:
+    inputs:
+      n: { description: "How many new tenders (ignored if ids is set)", required: false, default: "10" }
+      ids: { description: "PLACSP entry ids, comma separated (optional)", required: false }
+      model: { description: "Claude model", required: false, default: "claude-opus-5-5" }
+      effort: { description: "Effort (low | medium | high)", required: false, default: "high" }
+  push:
+    branches: ["claude/**"]
+    paths: [".github/workflows/fichas-ai.yml"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fichas-ai-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fichas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - run: |
+          sudo apt-get install -y -q poppler-utils libpango-1.0-0 libpangoft2-1.0-0 fonts-inter >/dev/null || sudo apt-get install -y -q poppler-utils libpango-1.0-0 libpangoft2-1.0-0 >/dev/null
+          pip install -q "anthropic>=1.0" weasyprint || pip install -q anthropic weasyprint
+      - name: Read the documents and write the fichas
+        env:
+          PYTHONUNBUFFERED: "1"
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FICHA_N: ${{ github.event.inputs.n || '3' }}
+          FICHA_IDS: ${{ github.event.inputs.ids }}
+          FICHA_MODEL: ${{ github.event.inputs.model || 'claude-opus-5-5' }}
+          FICHA_EFFORT: ${{ github.event.inputs.effort || 'high' }}
+        run: python tools/ficha_ai.py
+      - name: Commit the fichas to this branch (the tenders site rebuilds from them)
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tenders/fichas tenders/fichas_batches
+          git commit -m "fichas: AI factsheets for Spanish tenders" || exit 0
+          git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push -q origin HEAD:"${GITHUB_REF_NAME}"
