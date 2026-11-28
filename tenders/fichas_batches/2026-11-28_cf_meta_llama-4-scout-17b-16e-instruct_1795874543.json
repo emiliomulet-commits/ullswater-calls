@@ -1,0 +1,36 @@
+{
+ "date": "2026-11-28",
+ "model": "@cf/meta/llama-4-scout-17b-16e-instruct",
+ "effort": "high",
+ "tenders": 3,
+ "ok": 0,
+ "cost_usd": 0,
+ "cost_eur": 0.0,
+ "avg_cost_eur_per_ok": 0.0,
+ "results": [
+  {
+   "model": "@cf/meta/llama-4-scout-17b-16e-instruct",
+   "effort": "high",
+   "doc_chars": 240896,
+   "doc_pages": 94,
+   "status": "error: RuntimeError: Workers AI 401: {\"result\":null,\"success\":false,\"errors\":[{\"code\":10000,\"message\":\"Authentication error\"}],\"messages\":[]}",
+   "id": "21017434"
+  },
+  {
+   "model": "@cf/meta/llama-4-scout-17b-16e-instruct",
+   "effort": "high",
+   "doc_chars": 277934,
+   "doc_pages": 235,
+   "status": "error: RuntimeError: Workers AI 401: {\"result\":null,\"success\":false,\"errors\":[{\"code\":10000,\"message\":\"Authentication error\"}],\"messages\":[]}",
+   "id": "21017437"
+  },
+  {
+   "model": "@cf/meta/llama-4-scout-17b-16e-instruct",
+   "effort": "high",
+   "doc_chars": 280202,
+   "doc_pages": 143,
+   "status": "error: RuntimeError: Workers AI 401: {\"result\":null,\"success\":false,\"errors\":[{\"code\":10000,\"message\":\"Authentication error\"}],\"messages\":[]}",
+   "id": "21017439"
+  }
+ ]
+}
