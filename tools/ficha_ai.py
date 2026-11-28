@@ -430,7 +430,15 @@ def process(client, system, item):
 
 def main():
     import anthropic
-    client = anthropic.Anthropic(max_retries=4, timeout=1800)
+    key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    print("ANTHROPIC_API_KEY:", "set" if key else "NOT SET", flush=True)
+    if not key:
+        sys.exit("ANTHROPIC_API_KEY is empty: add it in GitHub › Settings › Secrets › Actions")
+    client = anthropic.Anthropic(api_key=key, max_retries=4, timeout=1800)
+    try:  # one tiny call first, so a bad key stops the run before any download
+        client.messages.create(model=MODEL, max_tokens=16, messages=[{"role": "user", "content": "ok"}])
+    except anthropic.AuthenticationError:
+        sys.exit("The Claude API rejects ANTHROPIC_API_KEY (401): the key in GitHub secrets is not valid")
     ids = [x.strip() for x in os.environ.get("FICHA_IDS", "").split(",") if x.strip()]
     items = by_ids(ids) if ids else candidates(int(os.environ.get("FICHA_N", "10")))
     system = system_prompt()
