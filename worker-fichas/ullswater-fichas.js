@@ -1,3 +1,4 @@
+import { WorkerEntrypoint } from "cloudflare:workers";
 /**
  * ullswater-fichas — email-verified download of the PDF factsheets ("fichas") of calls.ullswaterinvestments.com
  *
@@ -129,12 +130,12 @@ function mailBody(lang, link, title, unsub) {
 <a href="https://www.ullswaterinvestments.com" style="color:#233567">ullswaterinvestments.com</a> · <a href="${PRIVACY_URL}" style="color:#233567">${es ? "Privacidad" : "Privacy"}</a>${unsub ? ` · <a href="${unsub}" style="color:#233567">${t.u}</a>` : ""}</td></tr>
 </table></td></tr></table></body></html>`;
 }
-async function sendMail(env, to, subject, html) {
+async function sendMail(env, to, subject, html, opts = {}) {
   if (env.MAIL_DRY_RUN === "1") { console.log("DRY RUN mail to", to, html.match(/href="([^"]+verify[^"]+)"/)?.[1]); return; } // local tests only
   const r = await fetch("https://api.resend.com/emails", {
     method: "POST", headers: { "Authorization": "Bearer " + env.RESEND_API_KEY, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: env.MAIL_FROM || "Ullswater Investments <fichas@ullswaterinvestments.com>", to: [to], subject, html,
-      reply_to: "eufunding@ullswaterinvestments.com" }),
+    body: JSON.stringify({ from: opts.from || env.MAIL_FROM || "Ullswater Investments <fichas@ullswaterinvestments.com>", to: [to], subject, html,
+      reply_to: opts.replyTo || "eufunding@ullswaterinvestments.com" }),
   });
   if (!r.ok) throw new Error("Resend " + r.status + " " + (await r.text()).slice(0, 200));
 }
@@ -250,6 +251,28 @@ async function unsubscribe(req, env) {
   await schema(env);
   await env.DB.prepare("UPDATE ficha_leads SET marketing = 0, marketing_at = ?2 WHERE id = ?1").bind(l, now()).run();
   return page("Baja confirmada · Unsubscribed", "No volverá a recibir novedades de Ullswater Investments. Las fichas que ya ha descargado siguen disponibles.<br><br>You will not receive news from Ullswater Investments any more.");
+}
+
+// ---------------------------------------------------------------- free tender diagnosis notices
+// Called only by the ullswater-ai Worker through a service binding (RPC entrypoint, not reachable from the internet):
+// every diagnosis or booking request from tenders.ullswaterinvestments.com becomes an email to tenders@ (reply-to = the company).
+const DIAG_TO = "tenders@ullswaterinvestments.com";
+export class DiagMail extends WorkerEntrypoint {
+  async send(d) {
+    const r = d.result || {}, row = (k, v) => v === undefined || v === null || v === "" ? "" :
+      `<tr><td style="padding:4px 14px 4px 0;color:#4b5563;vertical-align:top">${esc(k)}</td><td style="padding:4px 0"><b>${esc(v)}</b></td></tr>`;
+    const prob = r.prob != null ? `${r.prob} % (entre ${r.low} y ${r.high} %, confianza ${r.conf || ""})` : "";
+    const kind = d.event === "reserva" ? "Quiere reservar una cita" : "Nuevo diagnóstico gratuito";
+    const html = `<div style="font-family:Arial,sans-serif;font-size:14px;color:#0b1f3a"><h2 style="color:#233567;margin:0 0 12px">${kind}</h2><table>`
+      + row("Licitación", d.title || d.tender) + row("Expediente", d.ref) + row("Empresa", d.org + (d.cif ? " (" + d.cif + ")" : "")) + row("Persona", d.name)
+      + row("Email", d.email) + row("Veredicto", r.verdict) + row("Puntuación de decisión", r.score != null ? r.score + " / 100" : "") + row("Probabilidad por lote", prob)
+      + row("Lotes", (r.lots || []).join(", ")) + row("Rebaja prevista / recomendada", r.mine != null ? r.mine + " % / " + (r.rec || []).join(" y ") + " %" : "")
+      + row("Brechas", (r.gaps || []).join(" · ")) + row("Acepta comunicaciones", d.marketing ? "sí" : "no") + row("Guardar perfil", d.save_profile ? "sí" : "no") + row("Página", d.page)
+      + `</table><p style="font-size:12px;color:#4b5563;margin-top:16px">Responde a este email para contestar directamente a la empresa. Si otra empresa ya contrató el servicio de pago para esta licitación, solo podemos ofrecerle el diagnóstico gratuito.</p></div>`;
+    const subject = `${kind}: ${d.org || ""} · ${d.ref || d.tender}${r.verdict ? " · " + r.verdict : ""}`.slice(0, 200);
+    await sendMail(this.env, DIAG_TO, subject, html, { from: "Ullswater Licitaciones <tenders@ullswaterinvestments.com>", replyTo: EMAIL_RE.test(d.email || "") ? d.email : undefined });
+    return true;
+  }
 }
 
 export default {
