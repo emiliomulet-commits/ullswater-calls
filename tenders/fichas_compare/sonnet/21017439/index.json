@@ -1,0 +1,156 @@
+{
+ "id": "21017439",
+ "title": "Suministro de gasóleo para calefacción para la Base Discontinua Tte. Flomesta (Melilla). Tramitación anticipada 2027",
+ "buyer": "Jefatura de Asuntos Económicos del CG de la Comandancia Gral. de Melilla",
+ "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9yNe%2F6qYGw1%2FP7lJ7Fu0SA%3D%3D",
+ "docs": [
+  {
+   "kind": "Legal",
+   "name": "PCAP TIPO SARA 1402.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=9BJBQ8/lfq%2B0db6NonevRz23ykZnj3QX5mPHEA8EmCcfGcMrfNKJZYEXEFs9GD3j5LMm0djMh77IUz0InLtqd%2B%2Bx9tXoR83pHVs6dZlhbIt45ClyWkoJ44mKM70IFcOu",
+   "file": "01_Legal.pdf",
+   "bytes": 2867243,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261124102119PCAP TIPO SARA 1402.pdf",
+   "codes": [
+    "PCAP"
+   ],
+   "pages": 139
+  },
+  {
+   "kind": "Technical",
+   "name": "Ppt expte gasoleo usbad.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=VGAgVLk8r61QiU5no7HyXPkwMbyw00bicEG5ExIzkeZ0sroYaNdghJib/DkwA/x6QxUgnRAcAghFxpy6ttR%2BhZqrR5KG06CsOua93bvp5SZt/o8fNevwsujgRzaBbugn",
+   "file": "02_Technical.pdf",
+   "bytes": 178326,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261124102504Ppt expte gasoleo usbad.pdf",
+   "codes": [
+    "PPT"
+   ],
+   "pages": 4
+  },
+  {
+   "kind": "Additional",
+   "name": "ANEXO IV GRUPO EMPRESAS 1402.docx",
+   "type": "XML",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=wfjk5gMrbOuQzkQJwKaEY6tq2ds4ZhgNlOqI7T1WBt6ryhpj0N2El%2BeKi9p7GATrEz20Ep%2BbIlXf%2BSn%2BeuRH6YnqFZ6mA9aIE0teN82Zz2TDdQD9RyhUmzT4jZ2In4zL",
+   "file": "03_Additional.zip",
+   "bytes": 3240567,
+   "content_type": "application/vnd.openxmlformatsofficedocument.wordprocessingml.document",
+   "disposition": "inline;filename=DOC20261125105941ANEXO IV GRUPO EMPRESAS 1402.docx"
+  },
+  {
+   "kind": "Additional",
+   "name": "ANEXO VIII SUBCONTRATACION 1402.docx",
+   "type": "XML",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=o5t6G95y7ftVTkhfQTmWOjXZyEn5TTZmYhOX2G4zEufqkd7r6r8QYBxp/Pd8j3xX18mafp4F5HNvTYRDTkfJGIApGkAB6y2s8qzEu/19M7P6CYyL7SIrUOBFfNf52ZqA",
+   "file": "04_Additional.zip",
+   "bytes": 3931548,
+   "content_type": "application/vnd.openxmlformatsofficedocument.wordprocessingml.document",
+   "disposition": "inline;filename=DOC20261125110542ANEXO VIII SUBCONTRATACION 1402.docx"
+  },
+  {
+   "kind": "Additional",
+   "name": "ANEXO XV C ETICO 1402.docx",
+   "type": "XML",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=fJhPQJ%2BTNlUfJQu0vL7loOmCvrlR91AuWmJXyffmcmKzjJSqxnAXxRv3uQVklJUrJyawr8Ont8ILhelRG%2Bia7aFimvPDhEg%2Bif99u6QUJb36CYyL7SIrUOBFfNf52ZqA",
+   "file": "05_Additional.zip",
+   "bytes": 3093540,
+   "content_type": "application/vnd.openxmlformatsofficedocument.wordprocessingml.document",
+   "disposition": "inline;filename=DOC20261125110612ANEXO XV C ETICO 1402.docx"
+  },
+  {
+   "kind": "Additional",
+   "name": "ANEXO VII SOLVENCIA CON MEDIOS EXTERNOS 1402.docx",
+   "type": "XML",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=bzmt%2Bzp0I3t5dvjGb/DYz5Xl/V3ZXMRTvvshHPTvkHTDKfinpiDLeAAZ6HBYmNYjt%2BxZezoTim/ECmvj4njZRtYEPCxX%2BCoYmadPrrxWt7tt/o8fNevwsujgRzaBbugn",
+   "file": "06_Additional.zip",
+   "bytes": 3240407,
+   "content_type": "application/vnd.openxmlformatsofficedocument.wordprocessingml.document",
+   "disposition": "inline;filename=DOC20261125110529ANEXO VII SOLVENCIA CON MEDIOS EXTERNOS 1402.docx"
+  },
+  {
+   "kind": "Additional",
+   "name": "ANEXO XII DEUC 1402.docx",
+   "type": "XML",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=wijkqwWoUD8ItVBTZqfk11NHz2ORkY%2BnzMqSVi%2BJ15xKI5Lfc8x4YtwZElDiI%2BD5tKyfIaYbr1QkJW%2Bt5Ul%2BO7b3I6X1vuhr9RGe%2Bf%2Bvi0OHAj0WEJrB5sP7amrh2jBD",
+   "file": "07_Additional.zip",
+   "bytes": 4646599,
+   "content_type": "application/vnd.openxmlformatsofficedocument.wordprocessingml.document",
+   "disposition": "inline;filename=DOC20261125110557ANEXO XII DEUC 1402.docx"
+  },
+  {
+   "kind": "Additional",
+   "name": "ANEXO VI DOS POR CIENTO 1402.docx",
+   "type": "XML",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=XUDuZE/yifaNkysA51dUj8gGYjGfF7Gm/NRwASOyHnpEB9OVeTZvIY6Df28dLdn87MaCb%2BL9mz0g9fERDt0tr4eeXZJ%2BLcq%2BrqM1fQ1bfO6Cx2e6p7hqtlp2aFupgHMr",
+   "file": "08_Additional.zip",
+   "bytes": 3254624,
+   "content_type": "application/vnd.openxmlformatsofficedocument.wordprocessingml.document",
+   "disposition": "inline;filename=DOC20261125110048ANEXO VI DOS POR CIENTO 1402.docx"
+  },
+  {
+   "kind": "Additional",
+   "name": "ANEXO V ADSCRIPCION DE MEDIOS 1402.docx",
+   "type": "XML",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=da%2BfWJddKKMZUdKMPuOElshZYYeW7AHDQZ1eXDTj8sFEFCy3g2aQk6S08gr/loJ3Dab4eq8vUEFIxmLTGX3VTA9ne9oUS5mruFMWlC68111JOVDbGCDM%2BMigrvuVS7Rv",
+   "file": "09_Additional.zip",
+   "bytes": 3240687,
+   "content_type": "application/vnd.openxmlformatsofficedocument.wordprocessingml.document",
+   "disposition": "inline;filename=DOC20261125110031ANEXO V ADSCRIPCION DE MEDIOS 1402.docx"
+  },
+  {
+   "kind": "Additional",
+   "name": "DECLARACION NO BAJA IAE.docx",
+   "type": "XML",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=ejeSAHOXupoJTi1WdjcnDsUfwQHH20mAdd7gxiQ%2BeiHvGSUHXuLlTmOch5jqkx5i0pD4cbc8pz5GArONTAFfeHZ5sZUbXmbHF5zGySAhDt/6CYyL7SIrUOBFfNf52ZqA",
+   "file": "10_Additional.zip",
+   "bytes": 152326,
+   "content_type": "application/vnd.openxmlformatsofficedocument.wordprocessingml.document",
+   "disposition": "inline;filename=DOC20261125110628DECLARACION NO BAJA IAE.docx"
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-7b8a185a-25ed-442e-8733-0b13cae1a2af",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-7b8a185a-25ed-442e-8733-0b13cae1a2af",
+   "file": "11_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-3caa3262-fd6f-44d6-af47-c9d1a751aa4b",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-3caa3262-fd6f-44d6-af47-c9d1a751aa4b",
+   "file": "12_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-1a0653e1-4392-45c9-b1d2-b9c55ee4e2c8",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-1a0653e1-4392-45c9-b1d2-b9c55ee4e2c8",
+   "file": "13_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-de73e4f6-2492-4084-b4b8-8f9cecad298a",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-de73e4f6-2492-4084-b4b8-8f9cecad298a",
+   "file": "14_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  }
+ ]
+}

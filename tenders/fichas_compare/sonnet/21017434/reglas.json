@@ -1,0 +1,325 @@
+{
+ "schema": 1,
+ "id": "21017434",
+ "reviewed": "2026-11-28",
+ "title": "Programa de actividades deportivas en el gimnasio municipal de Firgas",
+ "buyer": "Ayuntamiento de Firgas",
+ "buyer_key": "Alcaldía del Ayuntamiento de la Villa de Firgas",
+ "province": "Las Palmas",
+ "cpv": "92000000",
+ "ref": "3995/2026",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=lSxHz3%2FX%2BgPN3k3tjedSGw%3D%3D",
+ "deadline": "2026-12-15",
+ "deadline_time": "01:00",
+ "questions_until": null,
+ "questions_cite": "El pliego no lo indica",
+ "opening_days": null,
+ "opening_cite": "PCAP p.28–29",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 2,
+ "judgement_pts": 0,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Programa de actividades deportivas y atención en sala (3 monitores, 1 año)",
+   "budget": 94003.96,
+   "months": 12
+  }
+ ],
+ "lots_cite": "PCAP p.8",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": "No hay lotes: es un único contrato.",
+ "lots_rule_cite": "PCAP p.8",
+ "requirements": [
+  {
+   "id": "turnover",
+   "kind": "number_min",
+   "min": 301935.39,
+   "label": "Solvencia económica",
+   "rule": "Facturación de al menos 301.935,39 € sin IGIC en el mejor de los 3 últimos años cerrados, en el ámbito del contrato",
+   "question": "¿Cuál fue tu facturación anual, en servicios como este, en tu mejor año entre 2023 y 2025?",
+   "unit": "€",
+   "cite": "PCAP p.16",
+   "proof": "Cuentas anuales depositadas en el Registro Mercantil"
+  },
+  {
+   "id": "similar",
+   "kind": "number_min",
+   "min": 140903.18,
+   "label": "Solvencia técnica",
+   "rule": "Servicios similares de los 3 últimos años: el año de mayor ejecución debe sumar al menos 140.903,18 €",
+   "question": "¿Cuánto facturaste en servicios deportivos similares (actividades dirigidas, sala de musculación) en tu mejor año de los 3 últimos?",
+   "unit": "€",
+   "cite": "PCAP p.16–17",
+   "proof": "Relación firmada de servicios y certificados de los clientes"
+  },
+  {
+   "id": "team",
+   "kind": "yesno",
+   "label": "Equipo mínimo",
+   "rule": "3 monitores/as multidisciplinares con titulación de grado medio, FP de primer grado o superior en acondicionamiento físico o animación sociodeportiva (TSAF, TESEAS o equivalente)",
+   "question": "¿Puedes adscribir 3 monitores/as con una de estas titulaciones (TSAF, TESEAS o equivalente) a jornada completa?",
+   "cite": "PCAP p.14 · PCAP p.17 · PPT p.8",
+   "proof": "Títulos y compromiso de adscripción de medios (Anexo VI)"
+  },
+  {
+   "id": "minors",
+   "kind": "yesno",
+   "label": "Requisitos con menores",
+   "rule": "El personal debe cumplir el art. 57 de la Ley Orgánica 8/2021 cuando sea exigible, también el sustituto",
+   "question": "¿Puedes acreditar los requisitos del art. 57 de la Ley Orgánica 8/2021 para todo el personal, incluido el de sustitución?",
+   "cite": "PPT p.8–10",
+   "proof": "Certificados del personal"
+  },
+  {
+   "id": "insurance",
+   "kind": "yesno",
+   "label": "Seguro de responsabilidad civil",
+   "rule": "Póliza con justificante de pago o certificado de la aseguradora (el pliego no fija importe mínimo)",
+   "question": "¿Tienes un seguro de responsabilidad civil en vigor que cubra esta actividad?",
+   "cite": "PCAP p.33 · PPT p.13",
+   "proof": "Póliza y recibo pagado"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Precio",
+   "pts": 30,
+   "formula": "proportional",
+   "exponent_root": 6,
+   "how": "Xi = 30 × ((A − B)/(A − C))^(1/6), con A = presupuesto sin IGIC, B = tu oferta y C = la más baja. Con el presupuesto, 0 puntos",
+   "cite": "PCAP p.18–19",
+   "note": "No es una proporción lineal: la raíz sexta suaviza las diferencias. El motor debe aplicar el exponente 1/6."
+  },
+  {
+   "id": "equipment",
+   "kind": "choice",
+   "name": "Material adicional sin coste",
+   "pts": 32,
+   "question": "¿Cuántos de estos 4 tipos de material puedes poner sin coste durante todo el contrato? TRX (mín. 5), kettlebells de distintos pesos (mín. 5), bandas elásticas (mín. 10) y pelotas de masaje o movilidad (mín. 10)",
+   "options": [
+    {
+     "label": "Ninguno",
+     "pts": 0
+    },
+    {
+     "label": "1 tipo",
+     "pts": 8
+    },
+    {
+     "label": "2 tipos",
+     "pts": 16
+    },
+    {
+     "label": "3 tipos",
+     "pts": 24
+    },
+    {
+     "label": "Los 4 tipos",
+     "pts": 32
+    }
+   ],
+   "cite": "PCAP p.19–20"
+  },
+  {
+   "id": "training",
+   "kind": "choice",
+   "name": "Formación del personal",
+   "pts": 20,
+   "question": "¿Cuántas acciones de formación al año (de al menos 5 horas cada una) puedes comprometer para el personal del servicio?",
+   "options": [
+    {
+     "label": "Ninguna",
+     "pts": 0
+    },
+    {
+     "label": "1 acción",
+     "pts": 5
+    },
+    {
+     "label": "2 acciones",
+     "pts": 10
+    },
+    {
+     "label": "3 acciones",
+     "pts": 15
+    },
+    {
+     "label": "4 acciones",
+     "pts": 20
+    }
+   ],
+   "cite": "PCAP p.20–21"
+  },
+  {
+   "id": "events",
+   "kind": "choice",
+   "name": "Jornadas deportivas abiertas al público",
+   "pts": 18,
+   "question": "¿Cuántas jornadas deportivas al año (de al menos 3 horas, con personal y material incluidos) puedes comprometer?",
+   "options": [
+    {
+     "label": "Ninguna",
+     "pts": 0
+    },
+    {
+     "label": "1 jornada",
+     "pts": 6
+    },
+    {
+     "label": "2 jornadas",
+     "pts": 12
+    },
+    {
+     "label": "3 jornadas",
+     "pts": 18
+    }
+   ],
+   "cite": "PCAP p.21"
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 10,
+  "single_pct": 20,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.29",
+  "note": "El pliego solo remite al art. 85 del RGLCAP y no da cifras propias; el 10 y el 20 % son los de ese artículo y conviene confirmarlos. Plazo para justificar: 5 días hábiles."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": 5256,
+  "note": "Horas anuales de personal previstas en el presupuesto (3 monitores × 1.752 horas)",
+  "cite": "PCAP p.9"
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 0,
+  "cite": "PCAP p.2 · PCAP p.23"
+ },
+ "risk_flags": [
+  {
+   "id": "subrogation",
+   "label": "Posible subrogación de 3 monitores (coste total 69.153,78 € al año) y poca claridad sobre si procede",
+   "cite": "PCAP p.11 · PCAP p.62 · PPT p.9",
+   "weight": 3
+  },
+  {
+   "id": "wages",
+   "label": "Sin revisión de precios y con convenio denunciado: el presupuesto usa el salario mínimo previsto para 2027",
+   "cite": "PCAP p.12 · PCAP p.14",
+   "weight": 3
+  },
+  {
+   "id": "penalties",
+   "label": "Penalidades de hasta el 75 % del precio mensual (infracciones muy graves) y del 100 % si no se presta el servicio por falta de personal",
+   "cite": "PCAP p.44–46",
+   "weight": 2
+  },
+  {
+   "id": "modification",
+   "label": "Modificación obligatoria de hasta el 10 % (más horas o actividades), sin precios nuevos",
+   "cite": "PCAP p.47",
+   "weight": 1
+  },
+  {
+   "id": "coverage",
+   "label": "Cobertura de 7:30 a 21:30 de lunes a viernes con sustituciones inmediatas",
+   "cite": "PPT p.7–8 · PPT p.13",
+   "weight": 1
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se admite apoyarse en otras entidades; la otra empresa también presenta DEUC",
+  "ute": true,
+  "subcontracting": true,
+  "cite": "PCAP p.17 · PCAP p.41–42"
+ },
+ "specific_checks": [
+  {
+   "text": "Ofertar por encima del presupuesto base sin IGIC (94.003,96 €) excluye la oferta",
+   "cite": "PCAP p.13 · PCAP p.18"
+  },
+  {
+   "text": "El precio se ofrece como total del año (no por hora), en letra y número",
+   "cite": "PCAP p.27"
+  },
+  {
+   "text": "Solo una proposición por licitador y no puedes ir además en una UTE",
+   "cite": "PCAP p.25"
+  },
+  {
+   "text": "La oferta debe ir firmada digitalmente; una UTE, por todos sus miembros",
+   "cite": "PCAP p.27"
+  },
+  {
+   "text": "Lo ofertado (material, formación, jornadas) debe mantenerse durante todo el contrato; incumplirlo puede suponer resolución o penalización del 10 %",
+   "cite": "PCAP p.14 · PCAP p.44"
+  },
+  {
+   "text": "El material adicional ofertado no pasa a ser propiedad municipal y debe estar siempre a disposición del servicio",
+   "cite": "PPT p.10"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -10,
+   "task": "Rellena y firma el DEUC (con las instrucciones del Anexo I) y la declaración responsable del Anexo II (archivo 1)",
+   "cite": "PCAP p.26 · PCAP p.52–53",
+   "help": "Borrador del DEUC (próximamente)"
+  },
+  {
+   "when": -7,
+   "task": "Reúne cuentas anuales y la relación de servicios similares con certificados, para comprobar la solvencia exigida",
+   "cite": "PCAP p.16–17",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -5,
+   "task": "Calcula tu coste real (3 monitores, subrogación, sustituciones, material y formación) y decide el precio",
+   "cite": "PCAP p.9–12",
+   "help": "Rebaja recomendada"
+  },
+  {
+   "when": -3,
+   "task": "Rellena el Anexo III: precio en letra y número, material, acciones formativas y jornadas (archivo 2)",
+   "cite": "PCAP p.54–55",
+   "help": "Qué compromisos te conviene ofrecer"
+  },
+  {
+   "when": -1,
+   "task": "Firma digitalmente y sube los 2 archivos a la Plataforma antes del cierre",
+   "cite": "PCAP p.24–25",
+   "help": ""
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "El cuadro resumen aplica un IGIC del 7 %, pero el cálculo y la cláusula 6 usan el 3 %",
+   "cite": "PCAP p.1 · PCAP p.11"
+  },
+  {
+   "text": "No está claro si hay subrogación real: son trabajadores de un programa de empleo que acaba a finales de 2026, y el Anexo IX cita el salario mínimo de 2026 en el PCAP y el de 2027 en el Anexo IX publicado aparte",
+   "cite": "PCAP p.62 · ANX p.1 · PPT p.2"
+  },
+  {
+   "text": "La solvencia técnica (140.903,18 €) aplica el 70 % al valor estimado total y no a la anualidad media; conviene preguntar",
+   "cite": "PCAP p.16"
+  },
+  {
+   "text": "El pliego no indica fecha ni hora de cierre ni plazo para preguntas: se usa el anuncio, que fija el 15/12/2026 a las 01:00; hay que confirmarlo en la Plataforma",
+   "cite": "PCAP p.24"
+  },
+  {
+   "text": "El pliego no fija el precio de la prórroga ni dice si el acto de apertura es público",
+   "cite": "PCAP p.10 · PCAP p.28–29"
+  }
+ ]
+}
