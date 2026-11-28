@@ -1,0 +1,263 @@
+{
+ "id": "21017439",
+ "ref": "2026/ETSAE0287/00001402E",
+ "title": "Suministro de gasóleo para calefacción para la Base Discontinua Tte. Flomesta (Melilla). Tramitación anticipada 2027",
+ "title_official": "Suministro de gasóleo para calefacción para la Base Discontinua Tte. Flomesta (Melilla). Tramitación anticipada 2027",
+ "buyer": "Jefatura de Asuntos Económicos del CG de la Comandancia Gral. de Melilla",
+ "unit": "",
+ "place": "Melilla (Melilla)",
+ "deadline": "2026-12-16",
+ "deadline_time": "08:00",
+ "questions_until": null,
+ "published": "2026-11-28",
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de cláusulas administrativas (PCAP)",
+   "file": "01_Legal.pdf",
+   "pages": 139
+  },
+  "PPT": {
+   "label": "Pliego de prescripciones técnicas (PPT)",
+   "file": "02_Technical.pdf",
+   "pages": 4
+  }
+ },
+ "tags": {
+  "level": "Ministerio",
+  "where": "Melilla",
+  "contract": "Suministros",
+  "sector": "Energía y combustibles (CPV 09134100)",
+  "size": "Pequeño (180.000 €)",
+  "deadline": "Cierra en 19 días",
+  "procedure": "Abierto",
+  "funds": "Sin fondos europeos",
+  "lots": "Lote único",
+  "award": "Precio (fórmula)"
+ },
+ "verdict": {
+  "opportunity": "media",
+  "difficulty": "baja",
+  "text": "Oportunidad media para empresas de suministro de gasóleo con experiencia en contratos públicos. La solvencia económica es asequible y el criterio de adjudicación es el precio."
+ },
+ "summary": [
+  "El Ministerio de Defensa busca un suministrador de gasóleo para calefacción para la Base Discontinua Tte. Flomesta en Melilla.",
+  "El contrato tiene un presupuesto base de 180.000 € sin IVA y un valor estimado de 600.000 €, con un plazo de ejecución hasta el 30 de junio de 2027.",
+  "El criterio de adjudicación es el precio por litro, con un baremo del 100 % sobre el tipo publicado en el Weekly Oil Bulletin de la Unión Europea.",
+  "La oferta se presenta en un sobre electrónico a través de la Plataforma de Contratación del Sector Público."
+ ],
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Suministro de gasóleo para calefacción para la Base Discontinua Tte. Flomesta (Melilla).",
+     "PCAP p.1"
+    ],
+    [
+     "Órgano",
+     "Jefatura de Asuntos Económicos del CG de la Comandancia Gral. de Melilla.",
+     "PCAP p.2"
+    ],
+    [
+     "Lugar",
+     "Melilla (Melilla).",
+     "PCAP p.55"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Gasóleo para instalaciones",
+     "fee": 180000,
+     "cite": "PCAP p.54"
+    }
+   ],
+   "note": "Lote único.",
+   "items": []
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base",
+     "180.000 € sin IVA (180.000 € con IVA).",
+     "PCAP p.56"
+    ],
+    [
+     "Valor estimado",
+     "600.000 €.",
+     "PCAP p.4"
+    ],
+    [
+     "Duración",
+     "Desde la formalización hasta el 30 de junio de 2027.",
+     "PCAP p.3"
+    ],
+    [
+     "Prórrogas",
+     "Sí, hasta 31 de diciembre de 2027.",
+     "PCAP p.12"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Solvencia económica",
+     "Volumen anual de negocios de al menos 180.000 € en el mejor de los últimos 3 años.",
+     "PCAP p.59"
+    ],
+    [
+     "Solvencia técnica",
+     "Relación de principales suministros realizados de igual o similar naturaleza en los últimos 3 años.",
+     "PCAP p.59"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Precio por litro",
+     "pts": 100,
+     "kind": "fórmula",
+     "how": "Porcentaje de descuento sobre el tipo publicado en el Weekly Oil Bulletin de la Unión Europea."
+    }
+   ],
+   "cite": "PCAP p.61",
+   "items": []
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Hasta el 16 de diciembre de 2026 a las 08:00.",
+     "Anuncio de licitación"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos",
+   "items": [],
+   "groups": [],
+   "criteria": [],
+   "lots": []
+  }
+ ],
+ "files": [
+  {
+   "name": "Pliego de cláusulas administrativas particulares (PCAP), con el Anexo I de características y los modelos",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 139,
+   "bytes": 2867243
+  },
+  {
+   "name": "Pliego de prescripciones técnicas (PPT)",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 4,
+   "bytes": 178326
+  },
+  {
+   "name": "ANEXO IV GRUPO EMPRESAS 1402.docx",
+   "file": "03_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 3240567
+  },
+  {
+   "name": "ANEXO VIII SUBCONTRATACION 1402.docx",
+   "file": "04_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 3931548
+  },
+  {
+   "name": "ANEXO XV C ETICO 1402.docx",
+   "file": "05_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 3093540
+  },
+  {
+   "name": "ANEXO VII SOLVENCIA CON MEDIOS EXTERNOS 1402.docx",
+   "file": "06_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 3240407
+  },
+  {
+   "name": "ANEXO XII DEUC 1402.docx",
+   "file": "07_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 4646599
+  },
+  {
+   "name": "ANEXO VI DOS POR CIENTO 1402.docx",
+   "file": "08_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 3254624
+  },
+  {
+   "name": "ANEXO V ADSCRIPCION DE MEDIOS 1402.docx",
+   "file": "09_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 3240687
+  },
+  {
+   "name": "DECLARACION NO BAJA IAE.docx",
+   "file": "10_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 152326
+  },
+  {
+   "name": "2026-7b8a185a-25ed-442e-8733-0b13cae1a2af",
+   "file": "11_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-3caa3262-fd6f-44d6-af47-c9d1a751aa4b",
+   "file": "12_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-1a0653e1-4392-45c9-b1d2-b9c55ee4e2c8",
+   "file": "13_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-de73e4f6-2492-4084-b4b8-8f9cecad298a",
+   "file": "14_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ],
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9yNe%2F6qYGw1%2FP7lJ7Fu0SA%3D%3D",
+ "reviewed": "2026-11-28",
+ "_model": "Llama 4 Scout en Cloudflare, gratuito"
+}
