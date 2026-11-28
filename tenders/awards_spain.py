@@ -125,7 +125,12 @@ def read_month(name, url, ym):
                 if not chunk:
                     break
                 tmp.write(chunk)
+            ctype, status = r.headers.get("Content-Type", ""), r.status
         size = tmp.tell()
+        tmp.seek(0)
+        if not zipfile.is_zipfile(tmp):
+            tmp.seek(0)
+            raise ValueError(f"not a zip (HTTP {status}, {ctype}, {size} bytes): {tmp.read(300)!r}")
         tmp.seek(0)
         zf = zipfile.ZipFile(tmp)
         for m in (m for m in zf.namelist() if m.endswith(".atom")):
@@ -223,7 +228,7 @@ def main():
     now = datetime.now(timezone.utc)
     months = F.months_back(now, MONTHS_BACK * 31)[-MONTHS_BACK:]
     current = months[-1]
-    t0, done = time.time(), 0
+    t0, done, fails = time.time(), 0, 0
     for ym in reversed(months):
         for name, url in F.FEEDS.items():
             f = CACHE / f"{name}_{ym}.json"
@@ -234,11 +239,15 @@ def main():
             if time.time() - t0 > TIME_BUDGET:
                 print("  time budget reached; the rest next run")
                 break
+            if fails >= 4:
+                break
             try:
                 f.write_text(json.dumps(read_month(name, url, ym), ensure_ascii=False), encoding="utf-8")
                 done += 1
-            except Exception as e:  # a missing or broken month must not stop the others
-                print(f"  {name} {ym}: {e}", file=sys.stderr)
+                fails = 0
+            except Exception as e:  # a missing or broken month must not stop the others, but stop hammering a blocked source
+                fails += 1
+                print(f"  {name} {ym}: {e}" + ("; stopping for this run" if fails >= 4 else ""), file=sys.stderr)
     seen, records = {}, []
     for f in sorted(CACHE.glob("*_*.json")):
         for eid, a in json.loads(f.read_text(encoding="utf-8")).items():
