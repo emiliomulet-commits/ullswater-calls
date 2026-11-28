@@ -128,7 +128,7 @@ def body(f, idx, pdf=False, local=None, logo=True, pdf_url=None, today=None):
                     f'<div class="h"><i style="width:{((x.get("works") if has_w else x["fee"]) or 0) / max_w * 100:.0f}%"></i></div>{meta(x)}</div>' for x in lots["lots"])
     lvl = {"alta": "hi", "media": "mid", "baja": "lo"}
     first_err = err["items"][0] if err.get("items") else None
-    btns = "" if pdf else ('<div class="cta-row"><a class="btn" href="#pregunta">Pregunta al asistente</a>'
+    btns = "" if pdf else ('<div class="cta-row"><a class="btn" href="#diagnostico">¿Te presentas? Diagnóstico gratis</a><a class="btn g" href="#pregunta">Pregunta al asistente</a>'
                            + (f'<a class="btn g" href="{e(pdf_url)}" download>Descargar ficha PDF</a>' if pdf_url else "") + "</div>")
     headline = f.get("headline") or f["title"]
     hl = e(headline)
@@ -148,6 +148,14 @@ def body(f, idx, pdf=False, local=None, logo=True, pdf_url=None, today=None):
  <div class="big"><b>{num(tot_fee)} €</b><span>sin IVA<br>{"lote único" if n_lots == 1 else f"en {n_lots} lotes"}</span></div>
  <div class="big last">{third}</div>
 </div></div></header>
+<section class="diag" id="diagnostico"><div class="in dg">
+ <div class="dl1"><span class="dtag">Gratis · 5 minutos · sin compromiso</span>
+  <h2>¿Te presentas? <span>Descubre si tu empresa puede ganar esta licitación.</span></h2>
+  <ul class="dpts"><li><b>¿Cumples la solvencia?</b> Comparamos tus cifras con lo que exige el pliego.</li><li><b>¿Qué puntuación puedes sacar?</b> Criterio a criterio, sobre los {total_pts} puntos.</li><li><b>¿Qué precio te deja opciones?</b> Y dónde está el riesgo de baja anormal.</li></ul></div>
+ <div class="dr1"><a class="dbtn" href="https://www.ullswaterinvestments.com/es/contacto/" target="_blank" rel="noopener">Pedir diagnóstico gratuito</a>
+  <p>Resultado al momento y en PDF. Si quieres, después un consultor de Ullswater te ayuda a preparar la oferta.</p>
+  <p class="durl">ullswaterinvestments.com · diagnóstico gratuito de licitaciones</p></div>
+</div></section>
 <!--ASK-->
 {cal}
 <main class="in">
@@ -168,8 +176,6 @@ def body(f, idx, pdf=False, local=None, logo=True, pdf_url=None, today=None):
  <section><h2>Documentos oficiales</h2><p class="note">Copia de los documentos publicados en la Plataforma de Contratación del Sector Público. La versión válida es siempre la de la Plataforma.</p>
   <div class="tw"><table class="files"><thead><tr><th>Documento</th><th>Formato</th><th class="num">Tamaño</th>{'' if pdf else '<th></th>'}</tr></thead><tbody>{files}</tbody></table></div>
   <p class="note">Anuncio, pliegos y rectificaciones en la <a href="{e(f['official_url'])}" target="_blank" rel="noopener">ficha oficial de la licitación</a>.</p></section>
- <section class="cta"><h2>¿Te presentas?</h2><p>Hacemos gratis un primer diagnóstico de esta licitación con tu empresa: si cumples la solvencia, qué puntuación puedes esperar y qué precio te deja opciones. Después, si quieres, un consultor te ayuda a preparar la oferta.</p>
-  <p><a class="btn" href="https://www.ullswaterinvestments.com/es/contacto/" target="_blank" rel="noopener">Pedir diagnóstico gratuito</a></p></section>
  <p class="disc">Resumen elaborado con IA a partir de los {len(f['docs'])} documentos principales del expediente{f" ({n_pages} páginas)" if n_pages else ""}. Revisado el {fd(f['reviewed'])}. Prevalecen siempre los pliegos y el anuncio oficial. Cada dato indica el documento y la página de donde sale: {e("; ".join(f"{k} = {v}" for k, v in ab.items()))}.</p>
 </main>"""
 
@@ -245,9 +251,22 @@ main section.sec0{border-bottom:0;padding-top:34px}.sec0 h2{font-size:clamp(24px
 .leg{grid-template-columns:repeat(2,minmax(0,1fr))}.lots{grid-template-columns:repeat(2,minmax(0,1fr))}.stack div{font-size:16px}
 .track{display:none}.evl{display:grid;list-style:none;margin:0;padding:0 0 0 18px;border-left:3px solid var(--line);gap:10px}.evl li{position:relative;font-size:14px}.evl li::before{content:"";position:absolute;left:-26px;top:4px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:3px solid #23356b}
 .evl li.past::before{background:#23356b}.evl li.end::before{background:#c9a227;border-color:#c9a227}.evl li.q::before{border-color:#e46a4f}}
+/* free diagnosis, right under the hero */
+.diag{background:linear-gradient(120deg,#e9c75a 0%,#c9a227 55%,#b8901c 100%);color:#0b1f3a;border-bottom:0}
+.dg{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px;align-items:center;padding-top:34px;padding-bottom:34px}
+.dtag{display:inline-block;background:#0b1f3a;color:#e9c75a;font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.diag h2{font-size:clamp(28px,3.6vw,40px);line-height:1.08;font-weight:900;letter-spacing:-.025em;margin:14px 0 16px;color:#0b1f3a}.diag h2 span{display:block;font-size:.62em;font-weight:800;letter-spacing:-.01em;margin-top:6px}
+.dpts{list-style:none;margin:0;padding:0;display:grid;gap:8px}.dpts li{position:relative;padding-left:30px;font-size:15.5px;line-height:1.45}
+.dpts li::before{content:"✓";position:absolute;left:0;top:0;width:21px;height:21px;border-radius:50%;background:#0b1f3a;color:#e9c75a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center}
+.dr1{background:#0b1f3a;border-radius:18px;padding:26px;box-shadow:0 18px 40px rgba(11,31,58,.35);color:#d3d9e8}
+.dbtn{display:block;text-align:center;background:#e9c75a;color:#0b1f3a;font-weight:900;font-size:19px;text-decoration:none;border-radius:12px;padding:18px 16px;box-shadow:0 6px 0 #8a6b10;transition:transform .1s}
+.dbtn:hover{transform:translateY(-2px)}.dbtn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.dr1 p{margin:14px 0 0;font-size:14px;line-height:1.5}.dr1 .durl{display:none}
+@media (max-width:820px){.dg{grid-template-columns:minmax(0,1fr);gap:20px;padding-top:26px;padding-bottom:26px}.dr1{padding:20px}}
 """
 
 PDF_CSS = """
+.diag{break-inside:avoid;border-radius:8px;margin-top:8px}.dg{padding:14px 16px;gap:14px}.diag h2{font-size:16pt;margin:8px 0}.dpts li{font-size:9pt}.dbtn{display:none}.dr1{padding:12px;box-shadow:none}.dr1 p{margin:0 0 6px;font-size:8.5pt}.dr1 .durl{display:block;color:#e9c75a;font-weight:700}
 @page{size:A4;margin:16mm 15mm 16mm 15mm;@bottom-left{content:"Ullswater Investments · ficha de licitación · www.ullswaterinvestments.com";font:7.5pt Inter,sans-serif;color:#6b7280}
  @bottom-right{content:counter(page) " / " counter(pages);font:7.5pt Inter,sans-serif;color:#6b7280}}
 body{font-size:9.6pt;line-height:1.45}.in{max-width:none;padding:0}.hero{margin:0;padding:14px 16px 16px;border-radius:6px}h1{font-size:17pt;max-width:none}

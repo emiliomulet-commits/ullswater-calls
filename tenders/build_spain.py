@@ -488,7 +488,7 @@ def build_fichas(write, page, ctx):
                                   f'<b>Prueba de comparación:</b> esta ficha la ha escrito Claude. <a href="{ficha_path(i + "-gratis")}">Ver la misma licitación hecha con un modelo gratuito</a>.</div><section class="fx-ask"', 1)
         if D.has_rules(fdir, i) and D.build(write, page, ctx, fdir, i, f, ficha_path(i)):
             inner = inner.replace('href="https://www.ullswaterinvestments.com/es/contacto/" target="_blank" rel="noopener">Pedir diagnóstico gratuito',
-                                  f'href="{D.diag_path(i)}">Hacer el diagnóstico gratuito (5 minutos)', 1)
+                                  f'href="{D.diag_path(i)}">Hacer el diagnóstico gratuito', 1).replace('href="#diagnostico">', f'href="{D.diag_path(i)}">', 1)
         css = ".fx-ask{background:#fbf8f1;border-bottom:1px solid #efe6d2}.fx-ask .in{padding-top:26px;padding-bottom:22px}.fx-ask h2{margin:0 0 4px;font-size:20px}.fx-ask p{margin:0 0 14px;color:#4b5563}.fx-ask .fx-pdf{margin:14px 0 0}"
         body = f'<main><style>{R.scoped_css()}{css}</style><div class="fx">{inner}</div></main>'
         ld = {"@context": "https://schema.org", "@type": "Article", "headline": f["title"], "inLanguage": "es", "url": ctx["base"] + ficha_path(i),
