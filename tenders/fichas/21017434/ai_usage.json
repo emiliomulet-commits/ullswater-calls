@@ -1,0 +1,18 @@
+{
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "doc_chars": 240896,
+ "doc_pages": 94,
+ "input_tokens": 13875,
+ "output_tokens": 41350,
+ "cache_creation_input_tokens": 116178,
+ "cache_read_input_tokens": 116178,
+ "calls": 2,
+ "rules_check": "21017434: OK · revisar: 7 contradicción(es) entre documentos: revisar",
+ "cost_usd": 1.4866,
+ "seconds": 355,
+ "status": "ok",
+ "problems": [],
+ "not_read": [],
+ "cost_eur": 1.3677
+}

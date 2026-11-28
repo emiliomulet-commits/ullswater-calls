@@ -1,0 +1,260 @@
+{
+ "schema": 1,
+ "id": "21017439",
+ "reviewed": "2026-11-28",
+ "title": "Gasóleo de calefacción para la Base Teniente Flomesta (Melilla) en 2027",
+ "buyer": "Ministerio de Defensa – Comandancia General de Melilla",
+ "buyer_key": "Jefatura de Asuntos Económicos del CG de la Comandancia Gral. de Melilla",
+ "province": "Melilla",
+ "cpv": "09134100",
+ "ref": "2026/ETSAE0287/00001402E",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=9yNe%2F6qYGw1%2FP7lJ7Fu0SA%3D%3D",
+ "published": "2026-11-23",
+ "published_note": "Fecha de firma del pliego y de la resolución de urgencia. Los documentos no indican la fecha exacta de publicación.",
+ "deadline": "2027-06-30",
+ "deadline_time": "08:00",
+ "deadline_note": "Fecha tomada de los datos del anuncio. Coincide con el fin del contrato (PCAP p.58) y probablemente es un error: hay que confirmarla en la Plataforma.",
+ "questions_until": null,
+ "questions_cite": "PCAP p.21",
+ "questions_note": "Hay que preguntar al menos 12 días antes del cierre. La respuesta llega al menos 4 días antes, por ser un contrato armonizado y urgente. No calculamos la fecha porque el cierre está por confirmar.",
+ "opening_days": null,
+ "opening_cite": "PCAP p.59 · PCAP p.32",
+ "opening_note": "Apertura en acto privado electrónico, sin fecha fijada en el pliego. Adjudicación en un máximo de 15 días desde la apertura.",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 2,
+ "judgement_pts": 0,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Gasóleo para instalaciones (calefacción), código TF-03",
+   "budget": 180000.0
+  }
+ ],
+ "lots_cite": "PCAP p.54 · PCAP p.56",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": "Lote único: no se divide por ser una unidad funcional indivisible.",
+ "lots_rule_cite": "PCAP p.54",
+ "requirements": [
+  {
+   "id": "turnover",
+   "kind": "number_min",
+   "min": 900000,
+   "label": "Solvencia económica",
+   "rule": "Facturación del mejor de los 3 últimos ejercicios. El pliego no da cifra: solo dice que no puede pasar de 1,5 veces el valor estimado (900.000 €). Si llegas a esa cifra, cumples seguro; si no, pregunta al órgano.",
+   "question": "¿Cuál fue tu facturación en tu mejor año de los 3 últimos ejercicios cerrados?",
+   "unit": "€",
+   "cite": "PCAP p.59",
+   "proof": "Cuentas anuales aprobadas y depositadas en el Registro Mercantil",
+   "note": "Cifra prudente: es el tope legal, no un mínimo expreso. Ver known_issues."
+  },
+  {
+   "id": "similar",
+   "kind": "yesno",
+   "label": "Solvencia técnica",
+   "rule": "Lista de los principales suministros de gasóleo o combustibles similares hechos en, como máximo, los 3 últimos años, con importe, fecha y cliente. No se fija importe mínimo.",
+   "question": "¿Has suministrado gasóleo u otros combustibles a clientes públicos o privados en los 3 últimos años y puedes conseguir certificados de esos clientes?",
+   "cite": "PCAP p.60",
+   "proof": "Certificados del cliente (visados por el órgano si es público) o declaración propia con documentos de respaldo si es privado"
+  },
+  {
+   "id": "iso9001",
+   "kind": "yesno",
+   "label": "Certificado de calidad",
+   "rule": "ISO 9001 o equivalente",
+   "question": "¿Tu empresa tiene en vigor el certificado ISO 9001 o uno equivalente?",
+   "cite": "PCAP p.60",
+   "proof": "Certificado ISO 9001 en vigor"
+  },
+  {
+   "id": "iso14001",
+   "kind": "yesno",
+   "label": "Certificado de gestión ambiental",
+   "rule": "ISO 14001 o equivalente. Además, es condición especial de ejecución: incumplirla resuelve el contrato.",
+   "question": "¿Tu empresa tiene en vigor el certificado ISO 14001 o uno equivalente?",
+   "cite": "PCAP p.60 · PCAP p.68",
+   "proof": "Certificado ISO 14001 en vigor"
+  },
+  {
+   "id": "trucks",
+   "kind": "yesno",
+   "label": "Medios de entrega en Melilla",
+   "rule": "Camiones cisterna con autorización para mercancías peligrosas (ADR) y contador volumétrico homologado con registrador, capaces de entregar en la base en menos de 72 horas desde la petición.",
+   "question": "¿Dispones en Melilla de camiones cisterna ADR con contador homologado para servir en menos de 72 horas? Pueden ser propios o subcontratados (hasta el 30 %).",
+   "cite": "PPT p.2–3",
+   "proof": "Documentación ADR de los vehículos y certificado del contador"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Precio (porcentaje de descuento sobre el Weekly Oil Bulletin)",
+   "pts": 100,
+   "formula": "linear_min",
+   "vrv_pct": 25,
+   "how": "Ofreces un descuento sobre el precio con impuestos del gasóleo en España del boletín petrolero europeo. Puntos = 100 × tu descuento / el mayor entre 25 % y el mejor descuento. Gana el mayor descuento.",
+   "cite": "PCAP p.61–62",
+   "note": "La fórmula del pliego usa el presupuesto en euros, con un valor de referencia del 75 % del presupuesto. La traducimos a descuentos; conviene confirmarlo. Máximo 2 decimales. Se descarta la oferta si el precio resultante supera el de surtidor esa semana."
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 15,
+  "single_pct": 30,
+  "two_pct": 20,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.63–64",
+  "note": "Con 1 oferta: más de 30 puntos por debajo del presupuesto. Con 2: más de 20 puntos por debajo de la otra. Con 3 o más: más de 15 puntos por debajo de la media. Se aplica sobre el precio por litro; con los descuentos típicos en combustible es poco probable alcanzarla."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": 12,
+  "note": "Estimación nuestra para preparar los 2 sobres (DEUC, anexos y oferta de descuento). No incluye el coste de hacer las entregas."
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 0,
+  "cite": "PCAP p.67 · PCAP p.34",
+  "note": "El cuadro fija «5 % (25.000,00 €)», cifra que no cuadra con el presupuesto (9.000 €) ni con el valor estimado (30.000 €)."
+ },
+ "risk_flags": [
+  {
+   "id": "no_volume",
+   "label": "Sin consumo garantizado: 180.000 € son un máximo y se factura solo lo que pida la base",
+   "cite": "PCAP p.56 · PCAP p.70",
+   "weight": 3
+  },
+  {
+   "id": "fast_delivery",
+   "label": "Entregas en menos de 72 horas en Melilla con camiones ADR y contador homologado",
+   "cite": "PPT p.2–3",
+   "weight": 2
+  },
+  {
+   "id": "termination",
+   "label": "Resolución del contrato si incumples la adscripción de medios, la condición ambiental (ISO 14001) o las obligaciones sociales y laborales",
+   "cite": "PCAP p.68–69 · PCAP p.74",
+   "weight": 2
+  },
+  {
+   "id": "price_reference",
+   "label": "Margen ligado al precio semanal del boletín (referencia de automoción para un gasóleo de calefacción) y descarte si supera el precio de surtidor",
+   "cite": "PCAP p.61–62 · PCAP p.70",
+   "weight": 2
+  },
+  {
+   "id": "credit_2027",
+   "label": "Contrato condicionado a que haya crédito en 2027",
+   "cite": "PCAP p.58",
+   "weight": 1
+  },
+  {
+   "id": "guarantee_amount",
+   "label": "Garantía definitiva de 25.000,00 € según el cuadro, alta para el importe del contrato",
+   "cite": "PCAP p.67",
+   "weight": 1
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se admite con compromiso escrito de la otra empresa (Anexo VII). Para la solvencia económica pueden exigir responsabilidad solidaria.",
+  "ute": true,
+  "subcontracting": true,
+  "subcontracting_note": "Hasta el 30 % del importe del contrato, sin pago directo al subcontratista",
+  "cite": "PCAP p.16 · PCAP p.29 · PCAP p.71"
+ },
+ "specific_checks": [
+  {
+   "text": "El descuento debe tener como máximo 2 decimales y presentarse en el modelo del Anexo II",
+   "cite": "PCAP p.62 · PCAP p.76"
+  },
+  {
+   "text": "Si con tu descuento el precio de esa semana supera el precio de surtidor, la oferta se descarta",
+   "cite": "PCAP p.62"
+  },
+  {
+   "text": "Solo una proposición por empresa: no puedes ir a la vez sola y en UTE, ni en dos UTE",
+   "cite": "PCAP p.20"
+  },
+  {
+   "text": "Debes estar registrado en la Plataforma con los datos adicionales completos y firmar con certificado electrónico",
+   "cite": "PCAP p.20"
+  },
+  {
+   "text": "El correo del DEUC debe coincidir con el de comunicaciones en la Plataforma",
+   "cite": "PCAP p.20"
+  },
+  {
+   "text": "Si ganas y no entregas la documentación en 10 días hábiles, te piden el 3 % del presupuesto (5.400 €)",
+   "cite": "PCAP p.28 · PCAP p.32"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -14,
+   "task": "Revisa tu registro en la Plataforma y envía tus preguntas sobre la fecha de cierre, el valor estimado, la garantía y el precio de referencia",
+   "cite": "PCAP p.20–21",
+   "help": "Preguntas sugeridas en known_issues"
+  },
+  {
+   "when": -8,
+   "task": "Reúne los certificados ISO 9001 e ISO 14001, las cuentas anuales y los certificados de suministros similares",
+   "cite": "PCAP p.59–60",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -6,
+   "task": "Rellena y firma el DEUC y los Anexos III (si hay UTE), IV, V y VI (sobre 1)",
+   "cite": "PCAP p.21–23",
+   "help": "Borrador del DEUC (próximamente)"
+  },
+  {
+   "when": -3,
+   "task": "Calcula tu descuento frente al último Weekly Oil Bulletin y al precio de surtidor, y rellena el Anexo II (sobre 3)",
+   "cite": "PCAP p.61–62 · PCAP p.76",
+   "help": "Descuento recomendado"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "La fecha de cierre del anuncio (30/06/2027 08:00) coincide con el fin del contrato; probablemente es un error",
+   "cite": "PCAP p.58"
+  },
+  {
+   "text": "Los documentos no indican la fecha de publicación; usamos la de firma del pliego (23/11/2026)",
+   "cite": "PCAP p.1 · PCAP p.58"
+  },
+  {
+   "text": "El valor estimado es 600.000,00 € en el pliego y 180.000 € en el anuncio",
+   "cite": "PCAP p.3 · PCAP p.56"
+  },
+  {
+   "text": "Las prórrogas, de 6 meses como máximo, se valoran en 420.000,00 €, más del doble del contrato inicial",
+   "cite": "PCAP p.56 · PCAP p.58"
+  },
+  {
+   "text": "La garantía definitiva de «5 % (25.000,00 €)» no cuadra con el presupuesto ni con el valor estimado",
+   "cite": "PCAP p.67 · PCAP p.34"
+  },
+  {
+   "text": "Se compra gasóleo de calefacción, pero el precio de referencia es el de automoción y el gravamen citado es el del gasóleo A",
+   "cite": "PCAP p.61–62 · PPT p.1"
+  },
+  {
+   "text": "La fórmula del precio usa euros del presupuesto, pero la oferta es un porcentaje de descuento",
+   "cite": "PCAP p.62"
+  },
+  {
+   "text": "No se fija una cifra mínima de facturación, solo el tope de 1,5 veces el valor estimado",
+   "cite": "PCAP p.59"
+  },
+  {
+   "text": "El pliego técnico habla de suministro hasta el 31/12/2027 y el administrativo, hasta el 30/06/2027 prorrogable",
+   "cite": "PPT p.1 · PCAP p.58"
+  }
+ ]
+}
