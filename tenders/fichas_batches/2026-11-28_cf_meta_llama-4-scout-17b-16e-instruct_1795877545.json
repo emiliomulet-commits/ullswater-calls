@@ -1,0 +1,77 @@
+{
+ "date": "2026-11-28",
+ "model": "@cf/meta/llama-4-scout-17b-16e-instruct",
+ "effort": "high",
+ "tenders": 3,
+ "ok": 0,
+ "cost_usd": 0.1,
+ "cost_eur": 0.09,
+ "avg_cost_eur_per_ok": 0.09,
+ "results": [
+  {
+   "model": "@cf/meta/llama-4-scout-17b-16e-instruct",
+   "effort": "high",
+   "doc_chars": 240896,
+   "doc_pages": 94,
+   "input_tokens": 0,
+   "output_tokens": 2,
+   "calls": 2,
+   "cost_usd": 0.0,
+   "seconds": 611,
+   "status": "error: el JSON no es válido (Expecting value: line 11 column 21 (char 472); stop=end)",
+   "problems": [
+    "el JSON no es válido (Expecting value: line 11 column 21 (char 472); stop=end)"
+   ],
+   "not_read": [],
+   "cost_eur": 0.0,
+   "id": "21017434",
+   "title": "Servicio de desarrollo de programa de actividades deportivas en el gimnasio municipal de Firgas.",
+   "buyer": "Alcaldía del Ayuntamiento de la Villa de Firgas"
+  },
+  {
+   "model": "@cf/meta/llama-4-scout-17b-16e-instruct",
+   "effort": "high",
+   "doc_chars": 277934,
+   "doc_pages": 235,
+   "input_tokens": 175728,
+   "output_tokens": 2808,
+   "calls": 2,
+   "cost_usd": 0.0498,
+   "seconds": 395,
+   "status": "error: el JSON no es válido (Expecting value: line 11 column 21 (char 404); stop=end)",
+   "problems": [
+    "el JSON no es válido (Expecting value: line 11 column 21 (char 404); stop=end)"
+   ],
+   "not_read": [
+    "PPT desde la página 102 de 204"
+   ],
+   "cost_eur": 0.0458,
+   "id": "21017437",
+   "title": "Construcción de pista de atletismo exterior de 200m. en la Ciudad de Mula",
+   "buyer": "Junta de Gobierno del Ayuntamiento de Mula"
+  },
+  {
+   "model": "@cf/meta/llama-4-scout-17b-16e-instruct",
+   "effort": "high",
+   "doc_chars": 280202,
+   "doc_pages": 143,
+   "input_tokens": 169850,
+   "output_tokens": 3088,
+   "calls": 2,
+   "cost_usd": 0.0485,
+   "seconds": 457,
+   "status": "error: el JSON no es válido (Expecting value: line 11 column 21 (char 549); stop=end)",
+   "problems": [
+    "el JSON no es válido (Expecting value: line 11 column 21 (char 549); stop=end)"
+   ],
+   "not_read": [
+    "PCAP desde la página 126 de 139",
+    "PPT desde la página 1 de 4"
+   ],
+   "cost_eur": 0.0446,
+   "id": "21017439",
+   "title": "Suministro de gasóleo para calefacción para la Base Discontinua Tte. Flomesta (Melilla). Tramitación anticipada 2027",
+   "buyer": "Jefatura de Asuntos Económicos del CG de la Comandancia Gral. de Melilla"
+  }
+ ]
+}

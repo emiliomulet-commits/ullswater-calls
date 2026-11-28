@@ -1,0 +1,177 @@
+{"ficha": {
+  "id": "21017434",
+  "ref": "3995/2026",
+  "title": "Servicio de desarrollo de programa de actividades deportivas en el gimnasio municipal de Firgas",
+  "title_official": "Servicio de desarrollo de programa de actividades deportivas en el gimnasio municipal de Firgas.",
+  "buyer": "Ayuntamiento de la Villa de Firgas",
+  "unit": "Alcaldía",
+  "place": "Firgas (Islas Canarias)",
+  "deadline": "2026-12-15",
+  "deadline_time": "01:00:00",
+  "questions_until":,
+  "published": "2026-11-28",
+  "docs": {
+    "PCAP": {"label": "Pliego de cláusulas administrativas particulares"},
+    "ANX": {"label": "Anexos al PCAP"}
+  },
+  "tags": {
+    "level": "Ayuntamiento",
+    "where": "Islas Canarias",
+    "contract": "Servicios",
+    "sector": "Servicios de esparcimiento, culturales y deportivos (CPV 92000000)",
+    "size": "Mediano",
+    "deadline": "Cierra en 17 días",
+    "procedure": "Abierto",
+    "funds": "Sin fondos europeos",
+    "lots": "No",
+    "award": "Precio y calidad"
+  },
+  "verdict": {
+    "opportunity": "media",
+    "difficulty": "baja",
+    "text": "Oportunidad media para empresas de servicios deportivos. El contrato es por 1 año con posibilidad de prórroga por otro año. El presupuesto base es de 96.824,08 € con IVA incluido."
+  },
+  "summary": [
+    "El Ayuntamiento de Firgas busca un servicio de desarrollo de programa de actividades deportivas para el gimnasio municipal.",
+    "El contrato incluye la organización, planificación y desarrollo de un programa de actividades deportivas de acondicionamiento físico y tonificación muscular, además de orientación y supervisión técnica en la sala de musculación.",
+    "El presupuesto base de licitación es de 96.824,08 € con IVA incluido.",
+    "El contrato tendrá una duración de 1 año, prorrogable por otro año."
+  ],
+  "sections": {
+    "what": {
+      "key": "what",
+      "h": "Qué se contrata y para quién",
+      "items": [
+        ["Objeto", "Servicio de desarrollo de programa de actividades deportivas en el gimnasio municipal de Firgas.", "PCAP p.1"],
+        ["Contrato complementario", "No se prevé.", "PCAP p.1"],
+        ["Órgano", "Alcaldía del Ayuntamiento de la Villa de Firgas.", "PCAP p.1"],
+        ["Lugar", "Gimnasio Municipal de Firgas, Barrio del Lomo el Pino.", "PCAP p.1"]
+      ]
+    },
+    "lots": {
+      "key": "lots",
+      "h": "Lotes",
+      "lots": [],
+      "cite": "",
+      "note": "No hay lotes."
+    },
+    "money": {
+      "key": "money",
+      "h": "Cuánto vale",
+      "items": [
+        ["Presupuesto base", "96.824,08 € con IVA incluido (94.003,96 € sin IVA).", "PCAP p.10"],
+        ["Valor estimado", "201.290,26 €.", "PCAP p.9"],
+        ["Duración", "1 año, prorrogable por 1 año más.", "PCAP p.8"],
+        ["Prórrogas", "Sí, por 1 año.", "PCAP p.8"],
+        ["Revisión de precios", "No.", "PCAP p.13"],
+        ["Modificaciones previstas", "No.", "PCAP p.13"]
+      ]
+    },
+    "can": {
+      "key": "can",
+      "h": "¿Puedo presentarme?",
+      "items": [
+        ["Clasificación", "No se exige.", "PCAP p.15"],
+        ["Solvencia económica", "Volumen anual de negocios de al menos 301.935,39 €.", "PCAP p.16"],
+        ["Solvencia técnica", "Servicios similares en los últimos 3 años por al menos 140.903,18 €.", "PCAP p.16"],
+        ["Habilitaciones", "No se indican."]
+      ]
+    },
+    "win": {
+      "key": "win",
+      "h": "Cómo se gana",
+      "criteria": [
+        {
+          "name": "Criterio económico",
+          "pts": 30,
+          "kind": "fórmula",
+          "how": "Menor precio ofertado."
+        },
+        {
+          "name": "Adscripción de ayudas técnicas",
+          "pts": 32,
+          "kind": "juicio de valor",
+          "how": "Disponibilidad y adscripción al contrato de ayudas técnicas adicionales."
+        },
+        {
+          "name": "Compromiso de formación",
+          "pts": 20,
+          "kind": "juicio de valor",
+          "how": "Compromiso de formación del personal a adscribir al contrato."
+        },
+        {
+          "name": "Compromiso de ejecución de jornadas deportivas",
+          "pts": 18,
+          "kind": "juicio de valor",
+          "how": "Compromiso de ejecución de jornadas deportivas durante la ejecución del contrato."
+        }
+      ],
+      "cite": "PCAP p.18-22",
+      "items": [],
+      "insight": "La adjudicación se basa en la mejor relación calidad-precio."
+    },
+    "when": {
+      "key": "when",
+      "h": "Qué entregar y cuándo",
+      "items": [
+        ["Plazo", "Hasta el 15 de diciembre de 2026 a las 01:00.", "PCAP p.24"],
+        ["Preguntas", "En la Plataforma de Contratación del Sector Público.", "PCAP p.25"],
+        ["Sobre 1", "DEUC y documentación administrativa.", "PCAP p.25"],
+        ["Sobre 2", "Oferta económica y criterios de adjudicación.", "PCAP p.25"],
+        ["Garantías", "Provisional: no. Definitiva: 5%.", "PCAP p.23"]
+      ]
+    },
+    "risk": {
+      "key": "risk",
+      "h": "Riesgos y letra pequeña",
+      "groups": [
+        {
+          "h": "Cobro",
+          "items": [
+            ["Pago", "Contra factura, expedida a mes vencido.", "PCAP p.35"]
+          ]
+        },
+        {
+          "h": "Ejecución y penalidades",
+          "items": [
+            ["Penalidades", "Por incumplimiento de plazos o defectuosa ejecución.", "PCAP p.44-45"]
+          ]
+        }
+      ]
+    },
+    "errors": {
+      "items": [],
+      "advice":    }
+  },
+  "headline": "Firgas busca servicio de actividades deportivas",
+  "headline_em": "actividades deportivas",
+  "lede": "El Ayuntamiento de Firgas contrata un servicio de desarrollo de programa de actividades deportivas para el gimnasio municipal.",
+  "crumbs": "Licitaciones › España › Islas Canarias › Ayuntamiento › Servicios"
+}, "reglas": {
+  "id": "21017434",
+  "title": "Servicio de desarrollo de programa de actividades deportivas en el gimnasio municipal de Firgas",
+  "schema": 1,
+  "deadline": "2026-12-15T01:00:00",
+  "envelopes": 2,
+  "judgement_pts": 0,
+  "lots": [],
+  "max_lots_award": 0,
+  "max_lots_per_team": 0,
+  "lots_rule": "",
+  "requirements": [
+    {
+      "id": "turnover",
+      "kind": "number_vs_lot",
+      "basis": "budget",
+      "factor": 1.0,
+      "label": "Solvencia económica",
+      "rule": "Facturación del mejor de los 3 últimos años de al menos el importe del contrato",
+      "question": "¿Cuál fue tu facturación en tu mejor año entre 2023 y 2025?",
+      "unit": "€",
+      "cite": "PCAP p.16",
+      "proof": "Cuentas anuales depositadas en el Registro Mercantil"
+    },
+    {
+      "id": "similar",
+      "kind": "number_vs_lot",
+      "basis": "

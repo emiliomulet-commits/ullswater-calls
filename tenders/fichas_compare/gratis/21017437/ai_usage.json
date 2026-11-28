@@ -1,0 +1,19 @@
+{
+ "model": "@cf/meta/llama-4-scout-17b-16e-instruct",
+ "effort": "high",
+ "doc_chars": 277934,
+ "doc_pages": 235,
+ "input_tokens": 175728,
+ "output_tokens": 2808,
+ "calls": 2,
+ "cost_usd": 0.0498,
+ "seconds": 395,
+ "status": "error: el JSON no es válido (Expecting value: line 11 column 21 (char 404); stop=end)",
+ "problems": [
+  "el JSON no es válido (Expecting value: line 11 column 21 (char 404); stop=end)"
+ ],
+ "not_read": [
+  "PPT desde la página 102 de 204"
+ ],
+ "cost_eur": 0.0458
+}

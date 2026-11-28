@@ -1,0 +1,17 @@
+{
+ "model": "@cf/meta/llama-4-scout-17b-16e-instruct",
+ "effort": "high",
+ "doc_chars": 240896,
+ "doc_pages": 94,
+ "input_tokens": 0,
+ "output_tokens": 2,
+ "calls": 2,
+ "cost_usd": 0.0,
+ "seconds": 611,
+ "status": "error: el JSON no es válido (Expecting value: line 11 column 21 (char 472); stop=end)",
+ "problems": [
+  "el JSON no es válido (Expecting value: line 11 column 21 (char 472); stop=end)"
+ ],
+ "not_read": [],
+ "cost_eur": 0.0
+}
