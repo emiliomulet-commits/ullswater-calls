@@ -287,7 +287,8 @@ def call_cf(system, messages, usage):
                         ev = json.loads(line[5:])
                     except ValueError:
                         continue
-                    text.append(ev.get("response") or "")
+                    piece = ev.get("response")
+                    text.append("" if piece is None else str(piece))
                     u = ev.get("usage") or u
             j = {"result": {"response": "".join(text), "usage": u}}
             break
