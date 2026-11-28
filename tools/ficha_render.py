@@ -104,7 +104,7 @@ def body(f, idx, pdf=False, local=None, logo=True, pdf_url=None, today=None):
     files = "".join(
         f'<tr><td>{e(x["name"])}</td><td>{e(x.get("type") or "")}{" · " + str(x["pages"]) + " págs." if x.get("pages") else ""}</td><td class="num">{(x.get("bytes") or 0) / 1e3:,.0f} KB</td>'
         + ("" if pdf else f'<td><a class="dl" href="{e(local(x) if local else by_file.get(x["file"], {}).get("uri", f["official_url"]))}" target="_blank" rel="noopener">Descargar</a></td>') + "</tr>"
-        for x in f["files"])
+        for x in f["files"] if not ((x.get("type") or "").upper() == "HTML" and (x.get("bytes") or 0) < 5000))  # PLACSP placeholder pages, not documents
     MS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
     short = lambda d: f"{d.day} {MS[d.month - 1]}"  # noqa: E731
     # calendar: published -> last day for questions -> answers due -> deadline, with today's marker
