@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "id": "20957771",
+  "reviewed": "2026-11-28",
+  "title": "Dirección facultativa de las obras de Infantil en 13 colegios de Sevilla",
+  "buyer": "Ayuntamiento de Sevilla",
+  "buyer_key": "Junta de Gobierno del Ayuntamiento de Sevilla",
+  "province": "Sevilla",
+  "cpv": "71000000",
+  "ref": "2026/ASE/001096",
+  "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=arkmOeyJA9dVq4S9zvaQpQ%3D%3D",
+  "deadline": "2026-12-09",
+  "deadline_time": "23:59",
+  "questions_until": "2026-11-27",
+  "questions_cite": "PCAP p.9",
+  "opening_days": 20,
+  "opening_cite": "ANX p.26–27",
+  "platform": "Plataforma de Contratación del Sector Público",
+  "envelopes": 2,
+  "judgement_pts": 0,
+
+  "lots": [
+    {"n": 1, "label": "CEIP El Manantial, CEIP María Zambrano", "budget": 31429.43, "works": 828923, "buildings": 2, "months": 10},
+    {"n": 2, "label": "CEIP Los Azahares, CEIP Pedro Garfias, CEIP Calvo Sotelo, CEIP Fernando Villalón", "budget": 32375.68, "works": 853880, "buildings": 4, "months": 8},
+    {"n": 3, "label": "CEI Argote de Molina, CEI Julio César, CEI Lope de Rueda", "budget": 30768.41, "works": 811489, "buildings": 3, "months": 8},
+    {"n": 4, "label": "CEI Toribio de Velasco, CEI Martín de Gainza", "budget": 33971.47, "works": 895967, "buildings": 2, "months": 10},
+    {"n": 5, "label": "CEIP Teodosio, CEIP Joaquín Turina", "budget": 30133.10, "works": 794734, "buildings": 2, "months": 10}
+  ],
+  "lots_cite": "ANX p.1–8",
+  "max_lots_award": 2,
+  "max_lots_per_team": 2,
+  "lots_rule": "Si una empresa gana más de 2 lotes, se queda con los 2 que más ahorran al Ayuntamiento.",
+  "lots_rule_cite": "ANX p.2",
+
+  "requirements": [
+    {"id": "turnover", "kind": "number_vs_lot", "basis": "budget", "factor": 1.0,
+     "label": "Solvencia económica", "rule": "Facturación del mejor de los 3 últimos años de al menos el importe del lote",
+     "question": "¿Cuál fue tu facturación en tu mejor año entre 2023 y 2025?", "unit": "€", "cite": "ANX p.15–16",
+     "proof": "Cuentas anuales depositadas en el Registro Mercantil"},
+    {"id": "similar", "kind": "number_vs_lot", "basis": "budget", "factor": 0.8,
+     "label": "Solvencia técnica", "rule": "Trabajos similares (CPV 710) facturados entre 2023 y 2026 por al menos el 80 % del lote",
+     "question": "¿Cuánto has facturado en trabajos de arquitectura o ingeniería entre 2023 y 2026?", "unit": "€", "cite": "ANX p.16–17",
+     "proof": "Certificados de buena ejecución de los clientes"},
+    {"id": "team", "kind": "yesno",
+     "label": "Equipo mínimo", "rule": "Arquitecto (dirección de obra) y arquitecto técnico (dirección de ejecución), personas distintas, y coordinador de seguridad y salud, cada uno con 5 años de experiencia",
+     "question": "¿Tienes un arquitecto, un arquitecto técnico (otra persona) y un coordinador de seguridad y salud, cada uno con 5 años de experiencia en dirección de obras de edificación?", "cite": "ANX p.18–19",
+     "proof": "Títulos, certificados de las obras y nombramientos"},
+    {"id": "team_works", "kind": "roles_vs_lot", "basis": "works", "factor": 1.0,
+     "label": "Experiencia mínima del equipo", "rule": "Cada técnico, obra de edificación dirigida entre 2021 y 2026 por al menos el presupuesto de obra del lote",
+     "cite": "ANX p.18–19", "proof": "Certificados con importe, fechas y nombramiento"},
+    {"id": "energy", "kind": "number_min", "min": 3,
+     "label": "Certificados energéticos", "rule": "Al menos 3 certificados energéticos de obras equivalentes en los últimos 5 años",
+     "question": "¿Cuántos certificados energéticos de edificios ha hecho tu equipo en los últimos 5 años?", "unit": "", "cite": "ANX p.18",
+     "proof": "Copias de los certificados registrados"},
+    {"id": "insurance", "kind": "yesno",
+     "label": "Seguro de responsabilidad civil", "rule": "100.000 € por técnico, con franquicia máxima de 1.000 €",
+     "question": "¿Cada técnico tiene un seguro de responsabilidad civil de al menos 100.000 € con franquicia de 1.000 € o menos?", "cite": "ANX p.12",
+     "proof": "Pólizas y recibos"}
+  ],
+  "classification": null,
+
+  "roles": [
+    {"id": "do", "label": "Director de obra (arquitecto)", "short": "dirección de obra"},
+    {"id": "de", "label": "Director de ejecución (arquitecto técnico)", "short": "dirección de ejecución"},
+    {"id": "css", "label": "Coordinador de seguridad y salud", "short": "coordinación de seguridad"}
+  ],
+  "roles_question": "¿Cuánta obra de edificación (presupuesto de ejecución material, sin IVA) ha dirigido cada técnico entre 2021 y 2026?",
+
+  "criteria": [
+    {"id": "price", "kind": "price", "name": "Oferta económica", "pts": 49, "formula": "mean_k", "k_pct": 15, "single_k_pct": 20,
+     "how": "0 puntos si ofreces el presupuesto; el máximo para la oferta un 15 % por debajo de la media (o la más baja si hay alguna aún más baja)", "cite": "ANX p.23–24"},
+    {"id": "exp_do", "kind": "role_excess", "role": "do", "basis": "works", "name": "Experiencia extra, dirección de obra", "pts": 9,
+     "steps": [[0.25, 3], [0.5, 6], [1.0, 9]], "how": "3, 6 o 9 puntos si supera el mínimo en un 25 %, 50 % o 100 %", "cite": "ANX p.24–25"},
+    {"id": "exp_de", "kind": "role_excess", "role": "de", "basis": "works", "name": "Experiencia extra, dirección de ejecución", "pts": 9,
+     "steps": [[0.25, 3], [0.5, 6], [1.0, 9]], "how": "3, 6 o 9 puntos si supera el mínimo en un 25 %, 50 % o 100 %", "cite": "ANX p.24–25"},
+    {"id": "exp_css", "kind": "role_excess", "role": "css", "basis": "works", "name": "Experiencia extra, coordinación de seguridad", "pts": 9,
+     "steps": [[0.25, 3], [0.5, 6], [1.0, 9]], "how": "3, 6 o 9 puntos si supera el mínimo en un 25 %, 50 % o 100 %", "cite": "ANX p.24–25"},
+    {"id": "response", "kind": "choice", "name": "Tiempo de respuesta en obra", "pts": 12,
+     "question": "¿En cuánto tiempo puede estar tu equipo en la obra si el Ayuntamiento lo pide?",
+     "options": [{"label": "4 horas (el mínimo)", "pts": 0}, {"label": "3 horas", "pts": 6}, {"label": "2 horas", "pts": 12}], "cite": "ANX p.25–26"},
+    {"id": "hours", "kind": "choice", "name": "Horas extra de presencia por colegio", "pts": 12,
+     "question": "¿Cuántas horas semanales extra de presencia en cada colegio puedes comprometer?",
+     "options": [{"label": "Ninguna (6 h de dirección y 3 h de seguridad, el mínimo)", "pts": 0, "hours_week": 9},
+                 {"label": "+2 h de dirección y +1 h de seguridad", "pts": 6, "hours_week": 12},
+                 {"label": "+4 h de dirección y +2 h de seguridad", "pts": 12, "hours_week": 15}], "cite": "ANX p.25–26"}
+  ],
+
+  "abnormal": {"kind": "below_mean_pp", "pp": 15, "single_pct": 20, "accept_rate": 0.5, "cite": "ANX p.22",
+               "note": "Interpretamos «15 unidades porcentuales» sobre la rebaja media; conviene confirmarlo con el órgano."},
+
+  "effort": {"kind": "presence", "weeks_per_building": 22, "default_hours_week": 9,
+             "note": "Obras de unos 5 meses por colegio (la ficha indica de 4 a 6); horas de presencia según el compromiso elegido"},
+
+  "guarantee": {"definitive_pct": 5, "abnormal_extra_pct": 5, "cite": "ANX p.12"},
+  "risk_flags": [
+    {"id": "milestones", "label": "Cobro por hitos: 40 % cuando la obra pasa del 50 % y 60 % tras la recepción", "cite": "ANX p.10", "weight": 3},
+    {"id": "penalties", "label": "Penalidades por retraso en informes y por incumplir los compromisos ofertados", "cite": "ANX p.27–28", "weight": 2},
+    {"id": "warranty", "label": "Informes durante 36 meses de garantía, con penalidad del 40 % si llegan tarde", "cite": "ANX p.11 · ANX p.29", "weight": 2}
+  ],
+  "solvency_paths": {"integration": true, "integration_note": "Se admite; una empresa no puede completar la solvencia de dos licitadores", "ute": true, "subcontracting": null, "cite": "ANX p.17 · PCAP p.6"},
+  "specific_checks": [
+    {"text": "El equipo del compromiso de adscripción es el que de verdad dedicarás; cambiarlo sin permiso puede resolver el contrato", "cite": "ANX p.19"},
+    {"text": "No puedes dirigir una obra que haya ganado tu empresa o una vinculada", "cite": "PCAP p.7"}
+  ],
+  "docs_envelopes": [
+    {"when": -8, "task": "Revisa y firma el DEUC y el Anexo IV con las declaraciones (sobre 1)", "cite": "ANX p.13–14", "help": "Borrador del DEUC (próximamente)"},
+    {"when": -5, "task": "Rellena el Anexo III de cada lote con el precio y los compromisos (sobre 2)", "cite": "ANX p.13", "help": "Rebaja recomendada por lote"},
+    {"when": -4, "task": "Prepara la lista de actuaciones y los certificados de la experiencia extra de cada técnico (sobre 2)", "cite": "ANX p.25–26", "help": "Lo que te falta según este diagnóstico"}
+  ],
+  "known_issues": [
+    {"text": "El Anexo I y el pliego técnico no coinciden en qué colegio va en el lote 1", "cite": "ANX p.1 · PPT p.1"}
+  ]
+}

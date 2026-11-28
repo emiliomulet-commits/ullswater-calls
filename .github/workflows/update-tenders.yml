@@ -39,6 +39,13 @@ jobs:
           PYTHONUNBUFFERED: "1"
         run: python tenders/fetch_spain.py
 
+      - name: Spanish contract awards (competition data for the free diagnosis)
+        continue-on-error: true
+        timeout-minutes: 60
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: python tenders/awards_spain.py
+
       - name: Build the site (EN + ES)
         run: python tenders/build_tenders.py
 
