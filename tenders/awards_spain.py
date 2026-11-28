@@ -5,7 +5,7 @@ Source: the same PLACSP open-data feeds as fetch_spain.py, monthly zips <feed>_Y
 ADJ (adjudicada) or RES (resuelta) and keep, per lot: buyer, province, CPV group, budget, offers received, lowest and highest
 offer and the winning amount. The winner's NIF is never stored in clear: only sha256("ES"+NIF).
 
-Incremental: each month is read once into .cache/tenders/awards/<feed>_<YYYYMM>.json (the current month is read again every
+Incremental: each month is read once (the PLACSP firewall sometimes blocks a run; it simply continues next run) into .cache/tenders/awards/<feed>_<YYYYMM>.json (the current month is read again every
 run). At most AWARDS_MONTHS_PER_RUN new months per run, newest first, back to AWARDS_MONTHS_BACK months.
 
 Writes .cache/tenders/awards_out/ (copied into the site by tenders/diagnostico/diag_build.py):
@@ -36,7 +36,7 @@ import fetch_spain as F  # noqa: E402
 CACHE = F.CACHE / "awards"
 OUT = F.CACHE / "awards_out"
 MONTHS_BACK = int(os.environ.get("AWARDS_MONTHS_BACK", "36"))
-PER_RUN = int(os.environ.get("AWARDS_MONTHS_PER_RUN", "3"))
+PER_RUN = int(os.environ.get("AWARDS_MONTHS_PER_RUN", "1"))  # each monthly file is 150–300 MB (~10 min)
 TIME_BUDGET = int(os.environ.get("AWARDS_TIME_BUDGET", "2400"))
 DONE = {"ADJ", "RES"}
 
@@ -114,7 +114,7 @@ def award(entry):
     return eid, upd, {"buyer": buyer, "prov": prov, "cpv3": cpv[:3], "lots": lots}
 
 
-def read_month(name, url, ym):
+def read_month(name, url, ym, retry=True):
     zurl = url.replace(".atom", f"_{ym}.zip")
     best = {}
     with tempfile.TemporaryFile() as tmp:
@@ -129,6 +129,12 @@ def read_month(name, url, ym):
         size = tmp.tell()
         tmp.seek(0)
         if not zipfile.is_zipfile(tmp):
+            tmp.seek(0)
+            head = tmp.read(300)
+            if retry and b"Firewall" in head:  # the PLACSP firewall blocks some runs for a while: one late retry
+                print(f"  {name} {ym}: blocked by the PLACSP firewall, retrying in 90 s")
+                time.sleep(90)
+                return read_month(name, url, ym, retry=False)
             tmp.seek(0)
             raise ValueError(f"not a zip (HTTP {status}, {ctype}, {size} bytes): {tmp.read(300)!r}")
         tmp.seek(0)
@@ -232,8 +238,8 @@ def main():
     for ym in reversed(months):
         for name, url in F.FEEDS.items():
             f = CACHE / f"{name}_{ym}.json"
-            if f.exists() and ym != current:
-                continue
+            if f.exists() and (ym != current or time.time() - f.stat().st_mtime < 6 * 86400):
+                continue  # past months never change; the current one is refreshed weekly
             if ym != current and done >= PER_RUN * len(F.FEEDS):
                 continue
             if time.time() - t0 > TIME_BUDGET:
