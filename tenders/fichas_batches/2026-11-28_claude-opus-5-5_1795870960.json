@@ -1,0 +1,36 @@
+{
+ "date": "2026-11-28",
+ "model": "claude-opus-5-5",
+ "effort": "high",
+ "tenders": 3,
+ "ok": 0,
+ "cost_usd": 0,
+ "cost_eur": 0.0,
+ "avg_cost_eur_per_ok": 0.0,
+ "results": [
+  {
+   "model": "claude-opus-5-5",
+   "effort": "high",
+   "doc_chars": 240896,
+   "doc_pages": 94,
+   "status": "error: AuthenticationError: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'Invalid bearer token'}, 'request_id': 'req_011ChVNQrBi1h9Gzn54u9haz'}",
+   "id": "21017434"
+  },
+  {
+   "model": "claude-opus-5-5",
+   "effort": "high",
+   "doc_chars": 516565,
+   "doc_pages": 235,
+   "status": "error: AuthenticationError: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'Invalid bearer token'}, 'request_id': 'req_011ChVNRiiXSHCUs1bVecPQb'}",
+   "id": "21017437"
+  },
+  {
+   "model": "claude-opus-5-5",
+   "effort": "high",
+   "doc_chars": 315945,
+   "doc_pages": 143,
+   "status": "error: AuthenticationError: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'Invalid bearer token'}, 'request_id': 'req_011ChVNUt5viek7GpsFDvW8a'}",
+   "id": "21017439"
+  }
+ ]
+}
