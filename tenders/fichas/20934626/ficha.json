@@ -1,0 +1,588 @@
+{
+ "id": "20934626",
+ "ref": "@2026/39640",
+ "reviewed": "2026-11-28",
+ "title": "Mantenimiento, reposición, gestión y legalización de la red de helipuertos y puntos de toma para helicópteros sanitarios de Castilla-La Mancha",
+ "title_official": "Mantenimiento, reposición, gestión y legalización de la Red de Infraestructuras heliportuarias destinadas a emergencias sanitarias en Castilla-La Mancha",
+ "buyer": "Secretaría General del Servicio de Salud de Castilla-La Mancha (SESCAM)",
+ "unit": "Gerencia de Urgencias, Emergencias y Transporte Sanitario (GUETS)",
+ "place": "Toledo (Castilla-La Mancha)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=qDZ2e7P8kxU7u6%2B%2FR7DUoA%3D%3D",
+ "published": "2026-11-28",
+ "deadline": "2026-12-16",
+ "deadline_time": "12:00",
+ "questions_until": "2026-12-04",
+ "headline": "Castilla-La Mancha busca quien cuide sus helipuertos sanitarios",
+ "headline_em": "helipuertos sanitarios",
+ "lede": "El SESCAM contrata el mantenimiento, la reposición, la gestión aeronáutica y la legalización de su red de helipuertos para emergencias, más la evolución del sistema informático que los controla. Son 2,79 M€ sin IVA.",
+ "crumbs": "Licitaciones › España › Comunidades autónomas › Castilla-La Mancha",
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de cláusulas administrativas (PCAP): modelo general, con el cuadro de características en blanco",
+   "file": "01_Legal.pdf",
+   "pages": 147
+  },
+  "ANX": {
+   "label": "Cuadro de características anexo al PCAP (el texto del PDF está dañado y casi no se lee)",
+   "file": "03_Additional.pdf",
+   "pages": 71
+  },
+  "ANX2": {
+   "label": "Resolución que aprueba el expediente y el gasto",
+   "file": "04_Additional.pdf",
+   "pages": 2
+  },
+  "ANX3": {
+   "label": "Documento de inicio del expediente (texto casi ilegible)",
+   "file": "05_Additional.pdf",
+   "pages": 3
+  },
+  "ANX4": {
+   "label": "Informe de insuficiencia de medios del SESCAM",
+   "file": "06_Additional.pdf",
+   "pages": 1
+  },
+  "PPT": {
+   "label": "Pliego de prescripciones técnicas (PPT) (solo se han recibido 70 de sus 89 páginas)",
+   "file": "02_Technical.pdf",
+   "pages": 89
+  }
+ },
+ "tags": {
+  "level": "Comunidad autónoma",
+  "where": "Castilla-La Mancha (toda la región)",
+  "contract": "Servicios",
+  "sector": "Mantenimiento de instalaciones (CPV 50000000)",
+  "size": "Grande (más de 1 M€)",
+  "deadline": "Cierra en 18 días",
+  "procedure": "Abierto",
+  "funds": "No consta (cuadro ilegible)",
+  "lots": "Sin lotes",
+  "award": "Precio y calidad (reparto no legible)"
+ },
+ "verdict": {
+  "opportunity": "media",
+  "difficulty": "alta",
+  "text": "Es un contrato grande y muy especializado. Exige a la vez mantenimiento eléctrico y de obra civil por toda la región, un ingeniero aeronáutico que actúe como gestor de helipuertos ante AESA y un equipo informático que modernice un sistema antiguo en 24 meses. Encaja con empresas de mantenimiento integral que se unan en UTE con una ingeniería aeronáutica y una empresa de software. Una pyme sola lo tiene difícil. Antes de decidir, hay que leer el cuadro de características original: los criterios de adjudicación, la solvencia, la duración y las penalidades no se leen en el PDF recibido."
+ },
+ "summary": [
+  "El SESCAM busca una empresa que mantenga, reponga y legalice su red de helipuertos y puntos de toma para helicópteros sanitarios, que opera 24 horas, 365 días.",
+  "También debe hacerse cargo del sistema que los controla (SIGA) y modernizarlo en un máximo de 24 meses, y asumir la gestión aeronáutica de la red ante AESA (la agencia estatal de seguridad aérea).",
+  "El presupuesto es de 2.787.404,83 € sin IVA (3.372.759,84 € con IVA), en un único contrato.",
+  "Las ofertas se presentan por la Plataforma de Contratación hasta el 16 de diciembre de 2026 a las 12:00.",
+  "La duración, la solvencia, los criterios de puntuación, las garantías y las penalidades están en un cuadro anexo cuyo PDF no se puede leer. Hay que consultarlo en la Plataforma antes de ofertar."
+ ],
+ "max_lots_per_bidder": 1,
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Mantenimiento preventivo y correctivo, reposición, gestión técnica y legalización de la red de infraestructuras heliportuarias del SESCAM: bases de helicópteros, helipuertos de hospitales y puntos de toma HEMS (puntos de aterrizaje de emergencia). Incluye estaciones meteorológicas, cámaras, megafonía, balizas e iluminación, y el sistema de control remoto SIGA.",
+     "PPT 3–4"
+    ],
+    [
+     "Reparaciones incluidas",
+     "Los daños por clima o vandalismo, las obras para poner un punto en uso nocturno, el vallado, las zanjas y los generadores eléctricos con su combustible.",
+     "PPT 4 · PPT 8–9"
+    ],
+    [
+     "Sistema SIGA",
+     "Mantenimiento completo, disponibilidad mínima anual del 99,5 % y evolución tecnológica en 24 meses. Todo lo que se desarrolle pasa a ser propiedad del SESCAM.",
+     "PPT 13–15"
+    ],
+    [
+     "Gestión aeronáutica",
+     "La empresa asume las funciones de «gestor» de las infraestructuras ante AESA, incluida la coordinación con drones, y regulariza una lista de helipuertos y bases.",
+     "PPT 20–23"
+    ],
+    [
+     "Legalización y estudios",
+     "Asistencia para legalizar y regularizar infraestructuras ante AESA, y estudios de viabilidad de nuevos emplazamientos: 72 horas si es urgente y 15 días naturales si es ordinario.",
+     "PPT 6 · PPT 19"
+    ],
+    [
+     "Nuevas infraestructuras",
+     "Las que se construyan durante el contrato entran en él de forma inmediata.",
+     "PPT 6"
+    ],
+    [
+     "Por qué se contrata",
+     "El SESCAM informa de que no puede hacerlo con sus medios por la especialización, la dispersión geográfica y el coste.",
+     "ANX4 1"
+    ],
+    [
+     "Órgano",
+     "Secretaría General del Servicio de Salud de Castilla-La Mancha. Gestiona la Gerencia de Urgencias, Emergencias y Transporte Sanitario.",
+     "ANX2 1 · ANX4 1"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Contrato único: toda la red de infraestructuras heliportuarias",
+     "fee": 2787404.83
+    }
+   ],
+   "cite": "ANX2 1",
+   "note": "La resolución aprueba un único importe y el PPT trata la red como un solo servicio. El apartado de lotes del cuadro anexo no se lee, así que conviene confirmarlo. Duración y plazos: el pliego no se lee."
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base",
+     "2.787.404,83 € sin IVA. IVA: 585.355,01 €. Total: 3.372.759,84 €.",
+     "ANX2 1"
+    ],
+    [
+     "Valor estimado",
+     "Según el anuncio, 2.787.404,83 €, igual al presupuesto sin IVA. Eso indica que no se han sumado prórrogas ni modificaciones, pero hay que confirmarlo en el cuadro anexo.",
+     "ANX2 1"
+    ],
+    [
+     "Partida presupuestaria",
+     "61037000/G412D/21300. El reparto por anualidades no aparece legible.",
+     "ANX2 1"
+    ],
+    [
+     "Duración y prórrogas",
+     "El pliego recibido no permite leerlo. El modelo de PCAP limita los contratos de servicios a 5 años con prórrogas incluidas.",
+     "PCAP 11"
+    ],
+    [
+     "Sistema de precio",
+     "El pliego no se lee. El PPT habla de un servicio integral con reposición de materiales incluida. La mejora tecnológica de un elemento no puede encarecerlo más de un 30 %.",
+     "PPT 28"
+    ],
+    [
+     "Revisión de precios",
+     "El pliego no se lee. El modelo solo la admite si el cuadro la recoge.",
+     "PCAP 9"
+    ],
+    [
+     "Modificaciones previstas",
+     "El pliego no se lee. El PPT dice que las nuevas infraestructuras se integran «dentro de los límites previstos» y según el régimen de modificaciones del PCAP. El modelo fija un máximo del 20 % para modificaciones no previstas.",
+     "PPT 3 · PCAP 69"
+    ],
+    [
+     "Subrogación de personal",
+     "El pliego no se lee, así que no sabemos si hay trabajadores a subrogar. El PPT dice que el SESCAM no tiene relación laboral con el personal adscrito.",
+     "PPT 26 · PCAP 24"
+    ],
+    [
+     "IVA",
+     "21 %: 585.355,01 € sobre 2.787.404,83 €.",
+     "ANX2 1"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Clasificación",
+     "El pliego no se lee. El modelo la admite como alternativa a la solvencia solo si el cuadro la fija.",
+     "PCAP 96"
+    ],
+    [
+     "Solvencia económica",
+     "Las cifras del cuadro no se leen. El modelo prevé volumen anual de negocios del mejor de los 3 últimos años, acreditado con cuentas anuales, y un seguro de responsabilidad civil profesional.",
+     "PCAP 94"
+    ],
+    [
+     "Solvencia técnica",
+     "Las cifras del cuadro no se leen. El modelo prevé una relación de servicios similares de los últimos 3 años, con certificados de buena ejecución.",
+     "PCAP 95"
+    ],
+    [
+     "Responsable de mantenimiento",
+     "Un técnico «grupo A» a tiempo completo: ingeniero superior con al menos 1 año de experiencia en mantenimiento, o equivalente.",
+     "PPT 25"
+    ],
+    [
+     "Gestor aeronáutico",
+     "Un ingeniero aeronáutico a tiempo completo que haya sido gestor de al menos 2 helipuertos, acreditado con la resolución de inicio de actividades donde figure su nombramiento. La empresa debe gestionar su reconocimiento por AESA.",
+     "PPT 25 · PPT 20"
+    ],
+    [
+     "Operarios",
+     "Al menos 3 a tiempo completo y 1 a tiempo parcial: un electricista con certificado de cualificación y 3 polivalentes. Se sustituyen las bajas de más de 3 días y las vacaciones de junio a septiembre.",
+     "PPT 25–26"
+    ],
+    [
+     "Informático y respaldo",
+     "Un técnico informático para el software del SIGA y personal de respaldo los 365 días.",
+     "PPT 26"
+    ],
+    [
+     "Medios materiales",
+     "Oficina y almacén en Castilla-La Mancha, herramientas y al menos 2 furgonetas.",
+     "PPT 26"
+    ],
+    [
+     "Adscripción de medios",
+     "La empresa debe comprometerse a adscribir estos medios (modelo Anexo III del PCAP). El pliego recibido no dice si es obligación esencial.",
+     "PCAP 22 · PCAP 115"
+    ],
+    [
+     "Habilitación",
+     "El pliego no se lee. Sí se pide formación acreditada de PRL, aptitud médica y cumplir el Esquema Nacional de Seguridad.",
+     "PPT 30–31 · PPT 68"
+    ],
+    [
+     "UTE e integración de solvencia",
+     "Se admiten las UTE y apoyarse en la solvencia de otras entidades, con compromiso de disposición. Cada miembro de la UTE debe acreditar su solvencia.",
+     "PCAP 20–21 · PCAP 42"
+    ],
+    [
+     "Información confidencial",
+     "El Anexo técnico con el detalle de los puntos se entrega solo tras firmar un acuerdo de confidencialidad. Hay que pedirlo por correo a contratacion@sescam.jccm.es dentro del plazo de licitación.",
+     "PPT 33"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [],
+   "cite": "PCAP 18–19 · PCAP 99",
+   "items": [
+    [
+     "Reparto de puntos",
+     "El apartado 17 del cuadro anexo (criterios automáticos, juicio de valor y umbrales) no se lee en el PDF recibido. No hay puntos ni fórmula que podamos copiar.",
+     "PCAP 98–99"
+    ],
+    [
+     "Juicio de valor",
+     "No se puede confirmar. Si pesara más que los criterios automáticos, el modelo exige un comité de al menos 3 expertos y un 51 % mínimo de calidad en contratos intelectuales.",
+     "PCAP 18 · PCAP 36"
+    ],
+    [
+     "Fórmula del precio",
+     "El pliego no se lee.",
+     "PCAP 99"
+    ],
+    [
+     "Baja anormal",
+     "El pliego no se lee. El modelo permite justificar la oferta en un plazo que fija la mesa. Si no se justifica, se excluye.",
+     "PCAP 38–39"
+    ],
+    [
+     "Desempate",
+     "El pliego no se lee. Si no hay criterios, se aplica el art. 147.2 LCSP.",
+     "PCAP 19"
+    ],
+    [
+     "Puntuación de calidad en la ejecución",
+     "Aparte de la adjudicación, el PPT mide la calidad con 100 puntos: incidencias fuera de plazo, disponibilidad del SIGA, visitas preventivas y otros indicadores. El 1 % de la financiación anual depende de cumplirlos.",
+     "PPT 28–30"
+    ]
+   ],
+   "insight": "No podemos decir dónde se decide la adjudicación sin el cuadro anexo. Por el tipo de servicio, lo que más pesará será demostrar el equipo exigido (gestor aeronáutico, informático) y un plan creíble de evolución del SIGA. Confirmarlo es lo primero que hay que hacer."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Hasta el 16 de diciembre de 2026 a las 12:00, por la Plataforma de Contratación del Sector Público con la herramienta de preparación de ofertas. Hace falta certificado electrónico reconocido por @firma.",
+     "PCAP 12–14"
+    ],
+    [
+     "Preguntas",
+     "Si preguntas al menos 12 días antes del cierre (4 de diciembre), deben responderte al menos 6 días antes del cierre (10 de diciembre). Es el modelo general; el cuadro puede cambiarlo.",
+     "PCAP 23"
+    ],
+    [
+     "Notificaciones",
+     "Hay que estar dado de alta en la plataforma de notificaciones de la Junta (www.jccm.es) antes de que acabe el plazo de ofertas.",
+     "PCAP 16"
+    ],
+    [
+     "Sobre 1",
+     "DEUC (declaración responsable), Anexo II (grupo empresarial, pyme, discapacidad e igualdad), compromiso de adscripción de medios (Anexo III) y, si hay UTE, compromiso de constituirla (Anexo XI).",
+     "PCAP 26–28"
+    ],
+    [
+     "Sobres 2 y 3",
+     "El número de sobres lo fija el cuadro anexo y no se lee: 2 o 3. El modelo describe la oferta económica en el sobre 3 y el juicio de valor en el sobre 2. Si hay sobre 2, se abre en los 20 días siguientes al cierre.",
+     "PCAP 25–26 · PCAP 36 · PCAP 98"
+    ],
+    [
+     "Memoria del equipo",
+     "El PPT pide una memoria con el currículum del equipo y sus horas anuales y mensuales, junto al Anexo VI del cuadro. No queda claro en qué sobre va.",
+     "PPT 24–25"
+    ],
+    [
+     "Garantía provisional",
+     "No procede salvo justificación excepcional. El cuadro no se lee.",
+     "PCAP 45"
+    ],
+    [
+     "Garantía definitiva",
+     "El pliego no se lee. El modelo propone un 5 % del precio final sin IVA y, como opción, una complementaria de hasta el 5 %.",
+     "PCAP 45 · PCAP 100–101"
+    ],
+    [
+     "Mantener la oferta",
+     "2 meses desde la apertura si hay varios criterios.",
+     "PCAP 33"
+    ],
+    [
+     "Visita",
+     "El pliego recibido no la prevé.",
+     ""
+    ],
+    [
+     "Recurso especial",
+     "Cabe recurso especial en materia de contratación (art. 44 LCSP) por superar los 100.000 € de valor estimado. Se presenta ante el Tribunal Administrativo Central de Recursos Contractuales en 15 días hábiles desde la publicación del anuncio o la notificación.",
+     "PCAP 82–83 · PCAP 50"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro",
+     "items": [
+      [
+       "Forma de pago",
+       "El cuadro no se lee. El modelo dice que las facturas se presentan electrónicamente en los 30 días siguientes al periodo facturado y la Administración paga a los 30 días de conformarlas.",
+       "PCAP 67–68"
+      ],
+      [
+       "Parte del pago en juego",
+       "El 1 % de la financiación anual queda ligado a cumplir los indicadores de calidad. Se reduce en proporción a los objetivos no alcanzados.",
+       "PPT 30"
+      ],
+      [
+       "Coste de reposición",
+       "El material de reposición va incluido en el precio. No hay límite económico por elemento salvo el 30 % para actualizaciones tecnológicas.",
+       "PPT 28"
+      ]
+     ]
+    },
+    {
+     "h": "Plazos y obligaciones técnicas",
+     "items": [
+      [
+       "Primeros meses",
+       "Planes de mantenimiento en 60 días. Cronograma de renovación de cámaras en 60 días. Procedimiento de supervisión del gestor en 30 días.",
+       "PPT 4 · PPT 10 · PPT 21"
+      ],
+      [
+       "Estaciones meteorológicas",
+       "Todas revisadas, calibradas y operativas en los primeros 12 meses. Después, calibración preventiva al menos cada 18 meses.",
+       "PPT 13"
+      ],
+      [
+       "Evolución del SIGA",
+       "24 meses, con hitos en los meses 3, 6, 12, 18 y 24. El sistema actual usa tecnología muy antigua (Java 1.6, Windows XP y Windows Server 2003) y el nuevo debe seguir las normas de la Dirección General de Salud Digital.",
+       "PPT 15 · PPT 60–64"
+      ],
+      [
+       "Cámaras",
+       "Las instaladas hace más de 5 años se renuevan en 24 meses, con Full HD, visión nocturna y protección IP66.",
+       "PPT 10"
+      ],
+      [
+       "Tiempos de resolución",
+       "Según gravedad y zona: de 8 horas (muy alta, zona crítica) a 80 horas (baja, zona no crítica). Atención 24/7 para incidencias críticas. Se exige stock mínimo de repuestos críticos.",
+       "PPT 16–18 · PPT 24"
+      ],
+      [
+       "Informes",
+       "Hoja de trabajo en 2 días hábiles tras cada visita, informe mensual de indicadores en los 10 primeros días, informes semestrales de estaciones y 3 informes al año de gestión aeronáutica.",
+       "PPT 7 · PPT 18 · PPT 12 · PPT 22"
+      ],
+      [
+       "Cambio de adjudicatario",
+       "La empresa entrante debe asumir la transición sin coste adicional.",
+       "PPT 15"
+      ]
+     ]
+    },
+    {
+     "h": "Penalidades y resolución",
+     "items": [
+      [
+       "Penalidades",
+       "El apartado de penalidades del cuadro no se lee. El modelo limita cada penalidad al 10 % del precio y el total al 50 %. La demora es de 0,60 € diarios por cada 1.000 € de precio salvo que el cuadro diga otra cosa.",
+       "PCAP 75–76"
+      ],
+      [
+       "Incumplimientos que el PPT marca",
+       "Falta reiterada de hojas de trabajo, informes mensuales tardíos o inexactos e incumplimientos de PRL pueden ser incumplimiento contractual. Los de PRL graves y reiterados son esenciales.",
+       "PPT 7 · PPT 19 · PPT 30"
+      ],
+      [
+       "Resolución",
+       "Causas añadidas: impago de salarios del convenio e incumplir protección de datos.",
+       "PCAP 81"
+      ]
+     ]
+    },
+    {
+     "h": "Personal y datos",
+     "items": [
+      [
+       "Convenio y condiciones",
+       "Cumplir el convenio colectivo y pagar los salarios a tiempo. Los costes de cualquier mejora salarial los asume la empresa.",
+       "PCAP 58–59 · PPT 27"
+      ],
+      [
+       "Propiedad del trabajo",
+       "Todo lo desarrollado sobre el SIGA es del SESCAM: código, documentación y arquitectura.",
+       "PPT 14"
+      ],
+      [
+       "Datos y seguridad",
+       "Esquema Nacional de Seguridad, designar un punto de contacto de seguridad (Anexo IX) y notificar incidentes en 24 horas.",
+       "PCAP 88–89 · PPT 68"
+      ],
+      [
+       "Subcontratación",
+       "El cuadro no se lee. El modelo exige comunicar los subcontratos y pagar a subcontratistas en plazo. El PPT pide exigirles la misma PRL.",
+       "PCAP 71–74 · PPT 31"
+      ],
+      [
+       "Condiciones especiales de ejecución",
+       "El cuadro no se lee. El modelo exige al menos una social, más recogida selectiva de residuos si se marca la medioambiental. La empresa debe cumplir el convenio.",
+       "PCAP 65 · PCAP 102–103"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Cuadro anexo ilegible",
+     "El PDF del cuadro de características tiene la fuente dañada. No se pueden leer sus cifras, plazos ni criterios. El PCAP recibido es el modelo general, con el Anexo I en blanco.",
+     "ANX 1–71 · PCAP 90–111"
+    ],
+    [
+     "Documento de inicio",
+     "También está casi ilegible.",
+     "ANX3 1–3"
+    ],
+    [
+     "Fecha de publicación",
+     "Los documentos no indican cuándo se publicó el anuncio. En «published» figura la fecha de revisión de esta ficha (28-11-2026), no la de publicación. La resolución de aprobación del expediente es del 13-11-2026.",
+     "ANX2 1"
+    ],
+    [
+     "Referencia cruzada",
+     "El PPT remite al «apartado 1.3.1» para los plazos de reparación, pero los tiempos están en el 1.3.3. Al fijar la frecuencia de visitas, remite al 1.3.1 para las infraestructuras críticas, que no se listan ahí.",
+     "PPT 11 · PPT 22 · PPT 16–18"
+    ],
+    [
+     "Título",
+     "El PPT habla de «puntos de toma HEMS» y el anuncio, de «infraestructuras heliportuarias». Se refieren al mismo servicio.",
+     "PPT 1"
+    ],
+    [
+     "Texto incompleto",
+     "Solo se han recibido 70 de las 89 páginas del PPT. Faltan los anexos finales.",
+     "PPT 70"
+    ],
+    [
+     "Anexo técnico",
+     "Los datos técnicos de los puntos se dan solo a quien firma un acuerdo de confidencialidad. El PPT dice a la vez que la información de red se dará tras la adjudicación.",
+     "PPT 33 · PPT 51"
+    ]
+   ],
+   "advice": "Antes de ofertar, descarga el cuadro de características en una versión legible desde la Plataforma. Pregunta por duración, solvencia, criterios y penalidades hasta el 4 de diciembre y pide el Anexo técnico."
+  }
+ ],
+ "updated": "2026-11-27",
+ "files": [
+  {
+   "name": "Pliego de cláusulas administrativas (PCAP): modelo general, con el cuadro de características en blanco",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 147,
+   "bytes": 1610447
+  },
+  {
+   "name": "Pliego de prescripciones técnicas (PPT) (solo se han recibido 70 de sus 89 páginas)",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 89,
+   "bytes": 1861282
+  },
+  {
+   "name": "Cuadro de características anexo al PCAP (el texto del PDF está dañado y casi no se lee)",
+   "file": "03_Additional.pdf",
+   "type": "PDF",
+   "pages": 71,
+   "bytes": 1069550
+  },
+  {
+   "name": "Resolución que aprueba el expediente y el gasto",
+   "file": "04_Additional.pdf",
+   "type": "PDF",
+   "pages": 2,
+   "bytes": 423408
+  },
+  {
+   "name": "Documento de inicio del expediente (texto casi ilegible)",
+   "file": "05_Additional.pdf",
+   "type": "PDF",
+   "pages": 3,
+   "bytes": 683448
+  },
+  {
+   "name": "Informe de insuficiencia de medios del SESCAM",
+   "file": "06_Additional.pdf",
+   "type": "PDF",
+   "pages": 1,
+   "bytes": 255741
+  },
+  {
+   "name": "2026-4d7f7c0a-13bd-4b1d-bb52-011ab8eb93f4",
+   "file": "07_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-15197c6d-e668-4f52-9604-d0e7d88e987d",
+   "file": "08_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-9cc6ff70-3709-4d4f-b72f-d8a58895d43b",
+   "file": "09_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-e8e26296-2efa-4e97-afaf-71ec711d7529",
+   "file": "10_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ],
+ "not_read": [
+  "PPT desde la página 71 de 89"
+ ]
+}

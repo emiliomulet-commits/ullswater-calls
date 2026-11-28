@@ -1,0 +1,682 @@
+{
+ "id": "21017532",
+ "ref": "2026-043229 (I y II)",
+ "reviewed": "2026-11-28",
+ "title": "Compra de la madera quemada en 17 lotes de montes públicos de Guadalajara tras el incendio de La Mierla (lotes 1 a 17)",
+ "title_official": "Aprovechamiento de madera quenada en los montes de utilidad pública afectados por el incendio de la Mierla (Guadalajara)-Lotes 1 a 17",
+ "buyer": "Secretaría General de la Consejería de Desarrollo Sostenible de la Junta de Comunidades de Castilla-La Mancha",
+ "unit": "Departamento de contratación de la Secretaría General de Desarrollo Sostenible",
+ "place": "Guadalajara (Castilla-La Mancha)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=6%2FRZXn43uK3I8aL3PRS10Q%3D%3D",
+ "published": "2026-11-27",
+ "deadline": "2026-12-17",
+ "deadline_time": "23:59",
+ "questions_until": "2026-12-11",
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de cláusulas administrativas particulares (PCAP) y anexos",
+   "file": "01_Legal.pdf",
+   "pages": 81
+  },
+  "PPT": {
+   "label": "Pliegos de prescripciones técnicas (PPT), uno por lote",
+   "file": "02_Technical.pdf",
+   "pages": 647
+  },
+  "ANX": {
+   "label": "Memoria justificativa de la licitación",
+   "file": "03_Additional.pdf",
+   "pages": 29
+  },
+  "ANX2": {
+   "label": "Informe resumen de la licitación de los aprovechamientos",
+   "file": "05_Additional.pdf",
+   "pages": 6
+  },
+  "ANX3": {
+   "label": "Resolución de aprobación del expediente",
+   "file": "06_Additional.pdf",
+   "pages": 4
+  },
+  "ANX4": {
+   "label": "Resolución de inicio del expediente",
+   "file": "07_Additional.pdf",
+   "pages": 6
+  }
+ },
+ "tags": {
+  "level": "Comunidad Autónoma",
+  "where": "Guadalajara, Castilla-La Mancha",
+  "contract": "Contrato administrativo especial (aprovechamiento forestal)",
+  "sector": "Madera y tala de árboles (CPV 03410000 y 77211400)",
+  "size": "Grande (más de 1 M€)",
+  "deadline": "Cierra en 19 días",
+  "procedure": "Abierto",
+  "funds": "No aplica: la Junta cobra, no paga",
+  "lots": "17 lotes",
+  "award": "Solo precio, al alza"
+ },
+ "headline": "Madera quemada de La Mierla: 17 lotes en subasta al alza",
+ "headline_em": "subasta al alza",
+ "lede": "La Junta de Castilla-La Mancha vende la madera quemada de 17 lotes de montes públicos de Guadalajara. Gana quien más ofrece sobre el precio mínimo, desde 23.956 € hasta 241.006 € por lote.",
+ "verdict": {
+  "opportunity": "alta",
+  "difficulty": "media",
+  "text": "Buena oportunidad para empresas de corta, saca y transporte de madera con maquinaria propia y un cliente industrial que compre madera quemada. Aquí tú pagas a la Administración: gana la oferta más alta, así que el margen sale de lo que te pague la industria menos tus costes de extracción. Hay lotes de 24.000 € a 241.000 €, sin límite de lotes, y no hace falta ofrecer nada más que dinero. Lo difícil es tener liquidez (garantía del 3 % para ofertar y pago íntegro antes de empezar), cumplir la trazabilidad digital y calcular bien un volumen que es solo una estimación. Ojo: el pliego y el anuncio no coinciden en el valor estimado."
+ },
+ "summary": [
+  "La Junta de Castilla-La Mancha vende el derecho a cortar y sacar la madera quemada por el incendio de La Mierla (julio de 2026) en montes de utilidad pública de Guadalajara. Esta licitación recoge los lotes 1 a 17.",
+  "Es una subasta al alza: el precio de salida es un mínimo (2.210.795,61 € sin IVA en total, de 23.956,40 € a 241.006,14 € por lote) y gana la oferta más alta de cada lote. Las ofertas por debajo del mínimo se rechazan.",
+  "Se puede ofertar a uno, varios o todos los lotes y no hay límite de lotes ganados, pero si ganas varios tendrás que acreditar solvencia por la suma de todos.",
+  "Para ofertar hay que depositar una garantía provisional del 3 % del precio mínimo de los lotes elegidos. Quien gana paga el precio entero (más 21 % de IVA) antes de obtener la licencia, sin fraccionar, y tiene 12 meses para ejecutar.",
+  "Las ofertas se presentan solo por la Plataforma de Contratación del Sector Público hasta el 17 de diciembre de 2026 a las 23:59."
+ ],
+ "max_lots_per_bidder": 17,
+ "crumbs": "Licitaciones › España › Comunidades Autónomas › Castilla-La Mancha",
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "La Junta adjudica el aprovechamiento extraordinario de la madera de pinos quemados: corta, desembosque (sacar la madera del monte) y extracción de los pies dañados por el incendio. La empresa ganadora se queda con la madera y paga el precio ofertado a la Junta.",
+     "PCAP 4 · ANX 6"
+    ],
+    [
+     "Calificación",
+     "Contrato administrativo especial, no es un contrato de obras ni de servicios. Se rige por el PCAP, los PPT y la normativa de montes de Castilla-La Mancha.",
+     "PCAP 6 · PCAP 33"
+    ],
+    [
+     "Qué se licita aquí",
+     "Lotes 1 a 17 de los 34 que tramita la Secretaría General. El expediente se llama «2026-043229 (I y II)», pero este anuncio solo cubre los lotes 1 a 17.",
+     "ANX4 2–3 · PCAP 7–9"
+    ],
+    [
+     "Qué ha pasado",
+     "Incendio iniciado el 16 de julio de 2026, con 34.447,9 ha afectadas, sobre todo pino negral, silvestre y laricio. Se quiere sacar la madera pronto porque pierde valor y favorece plagas de escolítidos (insectos perforadores).",
+     "ANX 4 · ANX2 1–2"
+    ],
+    [
+     "Especies",
+     "Pinus pinaster, Pinus sylvestris, Pinus nigra y mezcla de coníferas.",
+     "PCAP 5"
+    ],
+    [
+     "Quién controla",
+     "El Servicio de Medio Natural y Biodiversidad de Guadalajara actúa como responsable del contrato y dirección facultativa. Tendrás que nombrar un representante con capacidad para decidir.",
+     "PCAP 38 · PCAP 70–72"
+    ],
+    [
+     "A quién va dirigido",
+     "A empresas y profesionales de aprovechamientos forestales y explotación maderera con solvencia y medios materiales.",
+     "ANX2 2"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Monte Fraguas (Monasterio). 235,4 ha afectadas, 18.538,93 m³ con corteza a 13 €/m³",
+     "fee": 241006.14,
+     "months": 12
+    },
+    {
+     "n": 2,
+     "label": "Monte Muriel Sacedoncillo (Tamajón). 285,0 ha, 15.995,70 m³ a 11 €/m³",
+     "fee": 175952.75,
+     "months": 12
+    },
+    {
+     "n": 3,
+     "label": "Monte Robredarcas y otros (Semillas). 161,3 ha, 17.087,70 m³ a 12 €/m³",
+     "fee": 205052.42,
+     "months": 12
+    },
+    {
+     "n": 4,
+     "label": "Monte Jocar (Arbancón). 153,0 ha, 15.592,99 m³ a 12 €/m³",
+     "fee": 187115.86,
+     "months": 12
+    },
+    {
+     "n": 5,
+     "label": "Montes Las Cabezadas y El Reajo (Semillas/Arroyo de las Fraguas). 73,9 ha, 4.785,68 m³ a 13 €/m³",
+     "fee": 62213.84,
+     "months": 12
+    },
+    {
+     "n": 6,
+     "label": "Monte Jocar (Arbancón). 104,4 ha, 13.815,36 m³ a 13 €/m³",
+     "fee": 179599.72,
+     "months": 12
+    },
+    {
+     "n": 7,
+     "label": "Monte Robredarcas y otros (Semillas). 246,9 ha, 14.656,77 m³ a 12 €/m³",
+     "fee": 175881.24,
+     "months": 12
+    },
+    {
+     "n": 8,
+     "label": "Monte Valsordo (Albendiego). 310,2 ha, 9.494,45 m³ a 9 €/m³",
+     "fee": 85450.06,
+     "months": 12
+    },
+    {
+     "n": 9,
+     "label": "Monte Robredarcas y otros (Semillas). 109,4 ha, 13.788,19 m³ a 10 €/m³",
+     "fee": 137881.86,
+     "months": 12
+    },
+    {
+     "n": 10,
+     "label": "Monte Almiruete (Tamajón). 41,4 ha, 4.548,20 m³ a 12 €/m³",
+     "fee": 54578.4,
+     "months": 12
+    },
+    {
+     "n": 11,
+     "label": "Montes Las Cabezadas y Solana de Valdetrillo (Semillas/Zarzuela de Jadraque). 679,0 ha, 28.475,88 m³ a 8 €/m³",
+     "fee": 227807.03,
+     "months": 12
+    },
+    {
+     "n": 12,
+     "label": "Monte Las Navas, Espinarejo y otros (Miedes de Atienza). 310,2 ha, 18.171,71 m³ a 8 €/m³",
+     "fee": 145373.7,
+     "months": 12
+    },
+    {
+     "n": 13,
+     "label": "Monte Agua Fría (Zarzuela de Jadraque). 154,6 ha, 6.941,35 m³ a 12 €/m³",
+     "fee": 83296.21,
+     "months": 12
+    },
+    {
+     "n": 14,
+     "label": "Monte Agua Fría (Zarzuela de Jadraque). 91,8 ha, 8.186,87 m³ a 12 €/m³",
+     "fee": 98242.39,
+     "months": 12
+    },
+    {
+     "n": 15,
+     "label": "Monte La Mierla (La Mierla). 34,6 ha, 3.327,37 m³ a 12 €/m³",
+     "fee": 39928.49,
+     "months": 12
+    },
+    {
+     "n": 16,
+     "label": "Monte Pinar y Dehesa (Condemios de Abajo). 42,3 ha, 1.996,37 m³ a 12 €/m³",
+     "fee": 23956.4,
+     "months": 12
+    },
+    {
+     "n": 17,
+     "label": "Monte La Matilla de Miedes (Miedes de Atienza). 243,0 ha, 12.494,16 m³ a 7 €/m³",
+     "fee": 87459.1,
+     "months": 12
+    }
+   ],
+   "cite": "PCAP 5–22 · ANX 14–15",
+   "note": "Los importes son el precio mínimo de salida sin IVA. Los lotes se numeran del 1 al 34 en el PCAP; el PPT usa otra numeración (por ejemplo, el lote 1 del PCAP es el «lote 3» del PPT). Cada lote es un contrato independiente. Puedes ofertar a uno, varios o todos, sin límite de lotes ganados (PCAP 10 · PCAP 39 · PCAP 57)."
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Cómo funciona el dinero",
+     "Al revés que en otras licitaciones: la Junta cobra. El «presupuesto base» es el precio mínimo que tienes que ofrecer por la madera; puedes ofrecer más, nunca menos. Cada lote tiene un precio por m³ con corteza (de 7 € a 13 €).",
+     "PCAP 12"
+    ],
+    [
+     "Precio mínimo, lotes 1 a 17",
+     "2.210.795,61 € sin IVA, según el anuncio. Coincide con la suma de los 17 lotes del PCAP.",
+     "Anuncio · PCAP 12–21"
+    ],
+    [
+     "Valor estimado",
+     "El anuncio dice 2.161.695,61 €. El PCAP dice 3.277.697,59 € (los 34 lotes). No cuadran entre sí (ver incoherencias).",
+     "Anuncio · PCAP 32"
+    ],
+    [
+     "IVA",
+     "21 % sobre el precio de adjudicación, como partida aparte. Por ejemplo, el lote 1 son 241.006,14 € más 50.611,29 € de IVA.",
+     "PCAP 13 · PCAP 34"
+    ],
+    [
+     "Volumen",
+     "Es una estimación hecha con LiDAR y satélite, «no vinculante». La liquidación es final: se paga según la medición real de la madera extraída. Si al terminar sale menos madera que la licitada y ejecutaste todo, te devuelven la parte proporcional y no puedes reclamar más madera.",
+     "PPT 2 · PPT 9 · ANX 25"
+    ],
+    [
+     "Duración",
+     "12 meses. El PCAP los cuenta desde la formalización del contrato; el PPT, desde la adjudicación firme. No empiezas hasta que se firme el acta de entrega.",
+     "PCAP 10 · PPT 1"
+    ],
+    [
+     "Prórrogas",
+     "No hay prórrogas ordinarias. Solo se amplía el plazo si hay retrasos no imputables a ti y lo acuerda el órgano de contratación.",
+     "PCAP 11"
+    ],
+    [
+     "Revisión de precios",
+     "El pliego no lo indica. El precio ofertado es el que pagas.",
+     "PCAP 34"
+    ],
+    [
+     "Modificaciones previstas",
+     "No se prevén modificaciones.",
+     "PCAP 63"
+    ],
+    [
+     "Subrogación de personal",
+     "El pliego no lo indica: no hay trabajadores que subrogar. El personal que uses depende solo de ti.",
+     "PCAP 59"
+    ],
+    [
+     "Tasas",
+     "Además del precio pagas las tasas de señalamiento, cubicación y reconocimiento final, salvo exención. Ejemplo del lote 1: 4.563,45 €. Cada PPT indica las de su lote.",
+     "PCAP 35 · PPT 1"
+    ],
+    [
+     "Destino del dinero",
+     "Los ingresos van al Fondo 419 de la Junta, anualidades 2026 y 2027, y se dedican preferentemente a restaurar el monte quemado.",
+     "PCAP 35 · ANX 15"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Quién puede",
+     "Personas físicas o jurídicas, españolas o extranjeras, o UTE (unión temporal de empresas), con capacidad de obrar, sin prohibición de contratar y con actividad que encaje en sus estatutos.",
+     "PCAP 39–40"
+    ],
+    [
+     "Clasificación",
+     "El pliego no exige clasificación; pide solo solvencia.",
+     "PCAP 41–44"
+    ],
+    [
+     "Solvencia económica",
+     "Seguro de indemnización por riesgos profesionales de 250.000 €, con compromiso de renovarlo durante todo el contrato. Se acredita con certificado de la aseguradora (importes, riesgos y vencimiento).",
+     "PCAP 42"
+    ],
+    [
+     "Solvencia técnica",
+     "Relación de trabajos de igual o similar naturaleza de los últimos 3 años completos, con importe, fecha y destinatario. En tu mejor año tienes que haber ejecutado al menos el 70 % del precio base del lote. Ejemplos: lote 1, 168.704,30 €; lote 5, 43.549,69 €; lote 16, 16.769,48 €.",
+     "PCAP 42–43"
+    ],
+    [
+     "Cómo se acredita",
+     "Certificados de buena ejecución con importe, fechas y lugar. Si el cliente es público, expedidos o visados por él; si es privado, certificado suyo o declaración tuya con documentos que lo prueben.",
+     "PCAP 44"
+    ],
+    [
+     "Si ganas varios lotes",
+     "Tienes que acreditar solvencia por la suma de todos los lotes que ganes, no lote a lote.",
+     "PCAP 44 · ANX 28"
+    ],
+    [
+     "Maquinaria y medios",
+     "El PCAP dice que puede exigirse experiencia y maquinaria adecuadas, pero no fija ninguna cifra ni lista. Toda la maquinaria debe someterse a aprobación de la Administración antes de usarla.",
+     "PCAP 41 · PCAP 65"
+    ],
+    [
+     "Seguro de responsabilidad civil",
+     "Mínimo 250.000 € frente a terceros.",
+     "ANX 25"
+    ],
+    [
+     "Herramienta de trazabilidad",
+     "Obligatoria durante todo el aprovechamiento (propia o de un tercero). Hay que declararla al pedir la licencia de corta; sin declaración no hay licencia.",
+     "PPT 4–6"
+    ],
+    [
+     "UTE",
+     "Se admiten. Cada empresa presenta su declaración responsable y todas se obligan solidariamente. Compromiso de UTE según el Anexo IV; la escritura solo se exige si ganan.",
+     "PCAP 40 · PCAP 57"
+    ],
+    [
+     "Subcontratación y cesión",
+     "Prohibidas expresamente. Si se producen, son causa de resolución del contrato.",
+     "PCAP 63"
+    ],
+    [
+     "Habilitaciones",
+     "Licencia de aprovechamiento (la pides tras la adjudicación, en 20 días hábiles) y acta de entrega antes de empezar. Alta en la plataforma de notificaciones de la Junta antes del cierre.",
+     "PCAP 35 · PCAP 36 · PCAP 10"
+    ],
+    [
+     "Una sola oferta",
+     "No puedes presentar más de una proposición ni ir en UTE si ya ofertas solo o en otra UTE: se anulan todas.",
+     "PCAP 39"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Oferta económica (precio al alza)",
+     "pts": 100,
+     "kind": "fórmula",
+     "how": "Cada lote se puntúa aparte. La oferta más alta admitida recibe 100 puntos y la que coincide con el precio mínimo, 0. Las intermedias: 100 × (tu oferta − precio mínimo) ÷ (oferta más alta − precio mínimo). Si ninguna oferta supera el mínimo, todas reciben 100 y se aplica el desempate."
+    }
+   ],
+   "cite": "PCAP 50 · ANX 14",
+   "items": [
+    [
+     "Juicio de valor",
+     "Ninguno. Es el único criterio de adjudicación y es automático.",
+     "PCAP 50 · ANX4 4"
+    ],
+    [
+     "Quién gana",
+     "La Mesa propone a quien presente la oferta más alta en cada lote.",
+     "PCAP 50"
+    ],
+    [
+     "Ofertas rechazadas",
+     "Las ofertas por debajo del precio mínimo, las que no indiquen cifra concreta y las condicionadas o comparativas. Se usan dos decimales; si pones más, se truncan.",
+     "PCAP 12 · PCAP 50"
+    ],
+    [
+     "Baja anormal",
+     "No procede: la Junta ingresa dinero y el pliego dice expresamente que no se consideran ofertas anormalmente bajas.",
+     "PCAP 32"
+    ],
+    [
+     "Desempate",
+     "Primero, la empresa con más del 2 % de trabajadores con discapacidad; si varias, la de mayor porcentaje de fijos con discapacidad; después, la que tenga medidas de igualdad entre mujeres y hombres.",
+     "PCAP 52–53"
+    ],
+    [
+     "Retirada de oferta",
+     "No puedes retirarla en los 15 días siguientes a la apertura. Si lo haces, pierdes la garantía provisional y puedes quedar vetado para contratar.",
+     "PCAP 39 · PCAP 46"
+    ]
+   ],
+   "insight": "Se decide solo por dinero: gana quien más paga por cada lote. La clave es calcular cuánto vale esa madera quemada para tu industria, restando costes de corta, saca, transporte y trazabilidad. Quien subestime esos costes o sobreestime el volumen estimado pagará de más."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Hasta el 17 de diciembre de 2026 a las 23:59, solo electrónicamente por la Plataforma de Contratación del Sector Público. No se admiten ofertas manuales. El PCAP fija 20 días naturales desde el día siguiente a la publicación, lo que sitúa la publicación el 27 de noviembre de 2026.",
+     "Anuncio · PCAP 36–37 · PCAP 46 · ANX3 3"
+    ],
+    [
+     "Preguntas",
+     "Hasta 6 días antes del cierre (11 de diciembre de 2026). La Junta responde hasta 3 días antes. Se hacen por la Plataforma.",
+     "PCAP 38"
+    ],
+    [
+     "Registro previo",
+     "Hay que estar registrado en la Plataforma (datos básicos y adicionales), añadir la licitación a «Mis licitaciones» y estar dado de alta en la plataforma de notificaciones de la Junta antes del cierre. Hace falta firma electrónica.",
+     "PCAP 36 · PCAP 47"
+    ],
+    [
+     "Sobre 1",
+     "Declaración responsable (Anexo I), Anexo II si vas en UTE o por pertenencia a grupo, justificante de la garantía provisional y compromiso de UTE (Anexo IV) si procede. Sin documentos de solvencia en esta fase.",
+     "PCAP 47–49"
+    ],
+    [
+     "Sobre 3",
+     "Solo la oferta económica (Anexo III), en euros y con dos decimales, con la leyenda indicada en el pliego. No lleva nada más. El pliego no prevé sobre 2.",
+     "PCAP 47 · PCAP 49–50"
+    ],
+    [
+     "Garantía provisional",
+     "3 % del precio base sin IVA de cada lote al que ofertes (suma de lotes). Se deposita en la Caja General de Depósitos de la Junta (efectivo con modelo 801; aval o seguro de caución con modelo 400/802).",
+     "PCAP 45–46"
+    ],
+    [
+     "Garantía definitiva",
+     "5 % del precio de adjudicación, sin IVA. Se presenta con la documentación previa a la adjudicación. Puedes aplicar la provisional a la definitiva.",
+     "PCAP 53 · PCAP 46"
+    ],
+    [
+     "Tras la oferta",
+     "Mesa de contratación: abre primero el sobre 1 (3 días naturales para subsanar) y luego el sobre 3. El pliego no fija fecha de apertura; la composición de la mesa se publica al menos 7 días antes.",
+     "PCAP 51 · ANX 28"
+    ],
+    [
+     "Documentación previa",
+     "Al mejor oferente se le piden, en 10 días hábiles: capacidad, representación, solvencia, certificados fiscales y de Seguridad Social, IAE y garantía definitiva. Si no lo cumples, se entiende retirada la oferta y pierdes la garantía provisional (3 %).",
+     "PCAP 55–56"
+    ],
+    [
+     "Adjudicación y firma",
+     "Adjudicación en 5 días hábiles tras recibir la documentación. El contrato no se formaliza antes de 15 días hábiles desde la notificación; luego tienes 5 días naturales para firmarlo. Si no firmas, 3 % de penalidad.",
+     "PCAP 52 · PCAP 57"
+    ],
+    [
+     "Licencia y pago",
+     "Tras la adjudicación firme, 20 días hábiles para obtener la licencia: pago íntegro del precio (modelo 046, concepto 6048) y de las tasas. Sin aplazamiento ni fraccionamiento, y no empiezas antes de pagar.",
+     "PCAP 35 · PPT 3"
+    ],
+    [
+     "Visita",
+     "Los pliegos no prevén visita previa. Las existencias son estimaciones; se valoran las condiciones reales en el acta de entrega.",
+     "PPT 8"
+    ],
+    [
+     "Recurso especial",
+     "Procede (art. 44 LCSP) por ser un contrato especial de valor estimado superior a 100.000 €. Plazo de 15 días hábiles. Lo resuelve el TACRC (Tribunal Administrativo Central de Recursos Contractuales). Es gratuito.",
+     "PCAP 73–74"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Dinero y liquidez",
+     "items": [
+      [
+       "Garantía para ofertar",
+       "3 % del precio mínimo de los lotes elegidos antes de saber si ganas. Para los 17 lotes serían unos 66.000 € inmovilizados (3 % de 2.210.795,61 €).",
+       "PCAP 45"
+      ],
+      [
+       "Pago por adelantado",
+       "El precio completo más IVA, antes de la licencia y de empezar a cortar. Sin aplazamiento. Por ejemplo, el lote 1 son 291.617,43 € con IVA al precio mínimo.",
+       "PCAP 35"
+      ],
+      [
+       "Volumen estimado",
+       "Las existencias son valores no vinculantes; el pago final depende de la medición real. Una parte del lote puede no ser aprovechable o ser inaccesible (por ejemplo, el PPT del lote 6 del PCAP excluye unas 19 ha de bosquetes).",
+       "PPT 2 · PPT 102"
+      ],
+      [
+       "Riesgo y ventura",
+       "Si no puedes aprovechar la madera por el motivo que sea, no puedes rescindir ni reclamar indemnización ni rebaja del precio.",
+       "PCAP 63"
+      ],
+      [
+       "Suspensiones",
+       "La Administración puede suspender los trabajos por fauna protegida, incendios, daños al suelo u otras causas motivadas, sin compensación prevista y sin ampliar el plazo en caso de fallo de la trazabilidad.",
+       "PCAP 11 · PPT 6 · PPT 9"
+      ]
+     ]
+    },
+    {
+     "h": "Ejecución y penalidades",
+     "items": [
+      [
+       "Plazos de saca",
+       "Los fustes deben salir del monte en 20 días desde la corta (1 abril–30 septiembre) o 60 días (resto del año). Si se incumple, expediente sancionador y tratamiento de plagas a tu costa en un radio de 500 m.",
+       "PPT 8–9"
+      ],
+      [
+       "Trazabilidad",
+       "Herramienta automática: aviso previo por cada orden de carga, fichero diario (.xlsx), ficha mensual en PDF y fotos con coordenadas y hora en monte y en fábrica. Conservación 5 años. Cargar sin aviso se considera no autorizado.",
+       "PPT 4–6 · ANX 17"
+      ],
+      [
+       "Personal",
+       "Siempre al menos dos operarios a la vez en el tajo.",
+       "PPT 6 · ANX 24"
+      ],
+      [
+       "Penalidades por defectos",
+       "Entre el 0,5 % y el 10 % del importe de adjudicación del lote según la infracción (daños al arbolado, restos, caminos, maquinaria no aprobada, residuos…). Diferencias de medición superiores al 5 %: el doble del valor de la diferencia.",
+       "PCAP 64–66"
+      ],
+      [
+       "Demora",
+       "0,60 € al día por cada 1.000 € del precio sin IVA. Cada penalidad, como máximo el 10 % del precio, y el total, como máximo el 50 %.",
+       "PCAP 64 · PCAP 66"
+      ],
+      [
+       "Trazabilidad e integridad",
+       "Hasta el 5 % del precio por no mantener la trazabilidad y hasta el 3 % por incumplir integridad y transparencia.",
+       "PCAP 67"
+      ],
+      [
+       "Condiciones especiales de ejecución",
+       "Recogida selectiva de residuos y retirada de envases. Incumplirlo es causa de resolución. La memoria añade reutilización de envases y mínima generación de residuos.",
+       "PCAP 62 · ANX 25"
+      ],
+      [
+       "Resolución",
+       "Por impago, renuncia, abandono (con 5 días para regularizar), subcontratar o ceder, o reincidencia en infracciones graves.",
+       "PCAP 63 · PCAP 69"
+      ],
+      [
+       "Garantía del contrato",
+       "1 año tras la recepción definitiva. Hay que reponer la garantía definitiva en 15 días si se ejecuta.",
+       "PCAP 70 · PCAP 54"
+      ],
+      [
+       "Zonas protegidas",
+       "Si el lote está en el Parque Natural de la Sierra Norte de Guadalajara, se aplican sus normas de conservación.",
+       "PPT 7"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Valor estimado",
+     "El anuncio indica 2.161.695,61 € para estos lotes; la suma de sus precios mínimos es 2.210.795,61 € y el PCAP fija 3.277.697,59 € para los 34 lotes.",
+     "Anuncio · PCAP 32 · ANX4 3"
+    ],
+    [
+     "Número de lotes",
+     "El PCAP y la resolución de inicio hablan de 34 lotes; la memoria y el informe hablan de 47 lotes viables, 34 por Servicios Centrales. El anuncio solo recoge los lotes 1 a 17.",
+     "PCAP 7–9 · ANX 12 · ANX4 2"
+    ],
+    [
+     "Inicio del plazo de 12 meses",
+     "El PCAP lo cuenta desde la formalización; el PPT, desde la adjudicación firme.",
+     "PCAP 10 · PPT 1"
+    ],
+    [
+     "Pago",
+     "El pliego exige pago íntegro previo sin fraccionar, pero también habla de «anualidades» del precio y la imputación a 2026 y 2027.",
+     "PCAP 35 · PCAP 63 · ANX 15"
+    ],
+    [
+     "Subcontratación",
+     "El PCAP la prohíbe, pero la memoria prevé penalidades por medios «subcontratados» y por impagos a subcontratistas.",
+     "PCAP 63 · ANX 18–19"
+    ],
+    [
+     "Sobres",
+     "El pliego habla de «sobre 3» para la oferta y «sobre 1» para la documentación, sin sobre 2. Es habitual preguntar cómo aparecen en la Plataforma.",
+     "PCAP 47–49"
+    ],
+    [
+     "Penalidad parcial",
+     "El PCAP calcula las penalidades parciales sobre el importe del lote; la memoria dice la anualidad en curso.",
+     "PCAP 66 · ANX 19"
+    ],
+    [
+     "Cifras de lotes",
+     "El informe resumen da 9.494,4506 m³ al lote 8 del PCAP (el PCAP dice 9.494,4515) y tasa a 8 €/m³ el lote 36 que el PCAP tasa a 10 €.",
+     "ANX2 3 · PCAP 16 · PCAP 30"
+    ],
+    [
+     "Alcance de la revisión",
+     "Solo hemos podido leer los PPT de los lotes 3 a 10 del PPT (lotes 1 a 7 del PCAP). El resto no estaba incluido.",
+     "PPT 1–116"
+    ]
+   ],
+   "advice": "Pregunta por la Plataforma antes del 11 de diciembre sobre: valor estimado, desde cuándo cuentan los 12 meses, qué lotes concretos cubre este anuncio y si se admite pagar en anualidades. Revisa el PPT de cada lote al que ofertes."
+  }
+ ],
+ "errors_note": null,
+ "updated": "2026-11-27",
+ "files": [
+  {
+   "name": "Pliego de cláusulas administrativas particulares (PCAP) y anexos",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 81,
+   "bytes": 5138075
+  },
+  {
+   "name": "Pliegos de prescripciones técnicas (PPT), uno por lote",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 647,
+   "bytes": 22560555
+  },
+  {
+   "name": "Memoria justificativa de la licitación",
+   "file": "03_Additional.pdf",
+   "type": "PDF",
+   "pages": 29,
+   "bytes": 745280
+  },
+  {
+   "name": "Anexos.docx",
+   "file": "04_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 53744
+  },
+  {
+   "name": "Informe resumen de la licitación de los aprovechamientos",
+   "file": "05_Additional.pdf",
+   "type": "PDF",
+   "pages": 6,
+   "bytes": 565353
+  },
+  {
+   "name": "Resolución de aprobación del expediente",
+   "file": "06_Additional.pdf",
+   "type": "PDF",
+   "pages": 4,
+   "bytes": 239265
+  },
+  {
+   "name": "Resolución de inicio del expediente",
+   "file": "07_Additional.pdf",
+   "type": "PDF",
+   "pages": 6,
+   "bytes": 241215
+  }
+ ],
+ "not_read": [
+  "PPT desde la página 118 de 647"
+ ]
+}

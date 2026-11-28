@@ -1,0 +1,359 @@
+{
+ "schema": 1,
+ "id": "16016456",
+ "reviewed": "2026-11-28",
+ "title": "Sistema dinámico de adquisición de reparto de paquetería de Correos Express",
+ "buyer": "Correos Express Paquetería Urgente",
+ "buyer_key": "Consejo de Administración de Correos Express Paquetería Urgente, S.A. - S.M.E.",
+ "province": "Madrid",
+ "cpv": "60100000",
+ "ref": "CO20240017",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=FD4SImF2N14zjChw4z%2FXvw%3D%3D",
+ "deadline": "2028-12-31",
+ "deadline_time": "13:00",
+ "questions_until": null,
+ "questions_cite": "PCAP p.43",
+ "opening_days": null,
+ "opening_cite": "PCAP p.40",
+ "platform": "Portal de Licitación Electrónica de Sistemas Dinámicos de Correos",
+ "envelopes": 1,
+ "judgement_pts": 0,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Zona 1: Galicia, Asturias y Castilla y León (salvo Soria)",
+   "budget": 149792912.78,
+   "months": 48
+  },
+  {
+   "n": 2,
+   "label": "Zona 2: País Vasco, Cantabria, Navarra, La Rioja, Aragón y Soria",
+   "budget": 120558924.33,
+   "months": 48
+  },
+  {
+   "n": 3,
+   "label": "Zona 3: Comunidad Valenciana, Murcia y Baleares",
+   "budget": 152802822.15,
+   "months": 48
+  },
+  {
+   "n": 4,
+   "label": "Zona 4: Madrid, Castilla-La Mancha y Extremadura",
+   "budget": 248503723.49,
+   "months": 48
+  },
+  {
+   "n": 5,
+   "label": "Zona 5: Andalucía, Ceuta y Melilla",
+   "budget": 174824750.27,
+   "months": 48
+  },
+  {
+   "n": 6,
+   "label": "Zona 6: Canarias",
+   "budget": 8123308.52,
+   "months": 48
+  },
+  {
+   "n": 7,
+   "label": "Zona 7: Cataluña",
+   "budget": 174393558.46,
+   "months": 48
+  }
+ ],
+ "lots_cite": "PCAP p.19–24",
+ "max_lots_award": 7,
+ "max_lots_per_team": 7,
+ "lots_rule": "El SDA no limita las zonas. Cada contrato específico podrá limitar cuántos lotes se ofertan o se ganan, y pedirá un orden de preferencia.",
+ "lots_rule_cite": "PCAP p.7",
+ "requirements": [
+  {
+   "id": "turnover",
+   "kind": "number_min",
+   "min": 18000,
+   "label": "Solvencia económica",
+   "rule": "Volumen anual de negocios en transporte o paquetería, en el mejor de los 3 últimos ejercicios, de al menos 18.000 € si pides una sola zona. Si pides más de una zona, 54.000 €",
+   "question": "¿Cuál fue tu facturación en transporte o paquetería en tu mejor año de los 3 últimos?",
+   "unit": "€",
+   "cite": "PCAP p.33–34",
+   "proof": "Cuentas anuales depositadas en el Registro Mercantil"
+  },
+  {
+   "id": "similar",
+   "kind": "number_min",
+   "min": 9000,
+   "label": "Solvencia técnica",
+   "rule": "Al menos 2 certificados de buena ejecución de transporte o paquetería de 9.000 € cada uno (18.000 € cada uno si pides más de una zona). Un autónomo solo necesita un certificado",
+   "question": "¿Cuál es el importe del menor de tus dos mejores certificados de buena ejecución en transporte o paquetería (de los 3 últimos años)?",
+   "unit": "€",
+   "cite": "PCAP p.31–32",
+   "proof": "Certificados de buena ejecución de los clientes o declaración del empresario con documentos que lo acrediten"
+  },
+  {
+   "id": "lott",
+   "kind": "yesno",
+   "label": "Autorización de transporte",
+   "rule": "Autorización de Transporte Público de Mercancías por Carretera en vigor",
+   "question": "¿Tienes en vigor una Autorización de Transporte Público de Mercancías por Carretera?",
+   "cite": "PCAP p.33",
+   "proof": "Copia de la autorización"
+  },
+  {
+   "id": "insurance",
+   "kind": "yesno",
+   "label": "Seguro de responsabilidad civil",
+   "rule": "Póliza de responsabilidad civil profesional de al menos 30.000 €, con vigencia de un año como mínimo y posibilidad de prórroga",
+   "question": "¿Tienes una póliza de responsabilidad civil de al menos 30.000 € con recibo pagado?",
+   "cite": "PCAP p.34",
+   "proof": "Copia de la póliza, último recibo y declaración responsable"
+  },
+  {
+   "id": "fleet",
+   "kind": "yesno",
+   "label": "Vehículos adecuados",
+   "rule": "Vehículos con menos de 8 años, tarjeta de transporte a tu nombre y seguro de mercancías (12.000 € por siniestro hasta 3.500 kg). Valen propiedad, leasing, renting o proforma",
+   "question": "¿Tienes, o puedes tener a tiempo, furgonetas de menos de 8 años con tarjeta de transporte y seguro de mercancías de 12.000 € por siniestro?",
+   "cite": "PCAP p.8–10",
+   "proof": "Permiso de circulación, ITV, tarjeta de transporte, póliza de mercancías y seguro obligatorio, o factura proforma"
+  },
+  {
+   "id": "compliance",
+   "kind": "yesno",
+   "label": "Al corriente de obligaciones",
+   "rule": "Sin prohibición de contratar y al corriente con Hacienda y la Seguridad Social. Con 50 o más trabajadores, plan de igualdad y 2 % de personas con discapacidad",
+   "question": "¿Estás al corriente con Hacienda y la Seguridad Social y, si tienes 50 o más trabajadores, cumples plan de igualdad y cuota de discapacidad?",
+   "cite": "PCAP p.35–36 · PCAP p.81",
+   "proof": "Certificados oficiales y Anexos II y III"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica",
+   "pts": 60,
+   "formula": "linear_min",
+   "single_k_pct": 25,
+   "how": "El precio más bajo saca 60 puntos. Las demás pierden puntos según su distancia al precio más bajo, medida sobre el presupuesto de licitación",
+   "cite": "PCAP p.47",
+   "note": "La fórmula es 60 × (1 − (tu precio − precio más bajo) / presupuesto de licitación)."
+  },
+  {
+   "id": "delivery",
+   "kind": "choice",
+   "name": "Plazo de puesta a disposición de los vehículos",
+   "pts": 10,
+   "question": "¿Qué plazo de puesta a disposición ofreces frente al más corto de la competencia?",
+   "options": [
+    {
+     "label": "El más corto de todos",
+     "pts": 10
+    },
+    {
+     "label": "El doble del más corto",
+     "pts": 5
+    },
+    {
+     "label": "El triple del más corto",
+     "pts": 3.3
+    }
+   ],
+   "cite": "PCAP p.44",
+   "note": "Fórmula relativa: 10 × (menor plazo / tu plazo). Las opciones son aproximaciones. Si en la zona hay subrogación, este criterio vale 15 puntos."
+  },
+  {
+   "id": "age",
+   "kind": "choice",
+   "name": "Antigüedad de los vehículos",
+   "pts": 10,
+   "question": "¿Qué antigüedad tiene tu flota frente a la más nueva de la competencia?",
+   "options": [
+    {
+     "label": "La más nueva de todas",
+     "pts": 10
+    },
+    {
+     "label": "El doble de antigua",
+     "pts": 5
+    },
+    {
+     "label": "El triple de antigua",
+     "pts": 3.3
+    }
+   ],
+   "cite": "PCAP p.45",
+   "note": "Fórmula relativa: 10 × (menor antigüedad / tu antigüedad). Máximo 8 años. Con subrogación, vale 15 puntos."
+  },
+  {
+   "id": "label",
+   "kind": "choice",
+   "name": "Etiqueta medioambiental",
+   "pts": 5,
+   "question": "¿Qué etiqueta de la DGT tienen tus vehículos?",
+   "options": [
+    {
+     "label": "Euro 5",
+     "pts": 1
+    },
+    {
+     "label": "Euro 6",
+     "pts": 3
+    },
+    {
+     "label": "0 emisiones",
+     "pts": 5
+    }
+   ],
+   "cite": "PCAP p.45",
+   "note": "Con subrogación de personal, vale 10 puntos (10, 5 y 3)."
+  },
+  {
+   "id": "experience",
+   "kind": "choice",
+   "name": "Experiencia de los conductores en reparto de paquetería",
+   "pts": 15,
+   "question": "¿Qué experiencia acreditada tienen tus conductores frente a la mejor de la competencia?",
+   "options": [
+    {
+     "label": "La mayor de todas",
+     "pts": 15
+    },
+    {
+     "label": "La mitad de la mayor",
+     "pts": 7.5
+    },
+    {
+     "label": "Un tercio de la mayor",
+     "pts": 5
+    }
+   ],
+   "cite": "PCAP p.45",
+   "note": "Fórmula relativa: 15 × (tu experiencia / la mayor). No puntúa si hay subrogación de personal. Se exigen al menos 6 de los 40 puntos de calidad."
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 10,
+  "single_pct": 25,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.25–26",
+  "note": "Con 2 ofertas el límite es 20 puntos por debajo de la otra. Con 3 ofertas, además, más de 25 puntos bajo el presupuesto es siempre desproporcionada."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": null,
+  "note": "El pliego no indica dedicación. Los contratos específicos darán rutas y volumen."
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 1,
+  "cite": "PCAP p.26–27"
+ },
+ "risk_flags": [
+  {
+   "id": "penalties",
+   "label": "Penalidades acumulables: hasta un 10 % del precio cada una y un 50 % en total",
+   "cite": "PCAP p.65",
+   "weight": 3
+  },
+  {
+   "id": "subrogation",
+   "label": "Subrogación del personal de la empresa saliente según convenio",
+   "cite": "PCAP p.67–68",
+   "weight": 3
+  },
+  {
+   "id": "payment",
+   "label": "Cobro por confirming a 60 días y sin revisión de precios",
+   "cite": "PCAP p.69 · PCAP p.85",
+   "weight": 2
+  },
+  {
+   "id": "fleet",
+   "label": "Flota exclusiva, rotulada y con indumentaria a tu cargo",
+   "cite": "PCAP p.12 · PCAP p.14",
+   "weight": 2
+  },
+  {
+   "id": "modification",
+   "label": "Modificación obligatoria de hasta el 20 % del importe",
+   "cite": "PCAP p.24–25",
+   "weight": 2
+  }
+ ],
+ "solvency_paths": {
+  "integration": null,
+  "integration_note": "El pliego no menciona la integración de solvencia con medios de otra empresa",
+  "ute": true,
+  "subcontracting": true,
+  "cite": "PCAP p.5 · PCAP p.66"
+ },
+ "specific_checks": [
+  {
+   "text": "Si pides más de una zona, la solvencia económica sube a 54.000 € y cada certificado de buena ejecución a 18.000 €",
+   "cite": "PCAP p.32–33"
+  },
+  {
+   "text": "No puedes presentarte solo y también en UTE, ni en más de una UTE: se excluyen todas tus solicitudes",
+   "cite": "PCAP p.36"
+  },
+  {
+   "text": "Un cero en cualquier pregunta del cuestionario de protección de datos (Anexo IV) excluye la solicitud",
+   "cite": "PCAP p.91"
+  },
+  {
+   "text": "Una oferta por encima del presupuesto del contrato, o con precios unitarios superiores, queda excluida",
+   "cite": "PCAP p.22"
+  },
+  {
+   "text": "Con menos de 6 de los 40 puntos de calidad no se valora el precio",
+   "cite": "PCAP p.47"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -30,
+   "task": "Reúne cuentas anuales, certificados de buena ejecución y autorización de transporte",
+   "cite": "PCAP p.31–34",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -15,
+   "task": "Prepara la póliza de responsabilidad civil de 30.000 € y la documentación de los vehículos",
+   "cite": "PCAP p.34 · PCAP p.10",
+   "help": "Lista de documentos por vehículo"
+  },
+  {
+   "when": -7,
+   "task": "Regístrate en el Portal de Sistemas Dinámicos de Correos y rellena los Anexos I a IV",
+   "cite": "PCAP p.35–36 · PCAP p.86–94",
+   "help": "Borrador de declaraciones (próximamente)"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "El anuncio fija el 31-12-2028 como plazo, pero el pliego habla de 30 días iniciales y de admisión abierta durante los 4 años",
+   "cite": "PCAP p.16 · PCAP p.35"
+  },
+  {
+   "text": "El pliego dice que no hay prórrogas ni modificaciones, pero los contratos específicos prevén prórrogas y modificaciones de hasta el 20 %",
+   "cite": "PCAP p.16 · PCAP p.24"
+  },
+  {
+   "text": "El Anexo II pide servicios de «9.000 € anuales», mientras la sección 14 pide 2 certificados de 9.000 € cada uno",
+   "cite": "PCAP p.32 · PCAP p.88"
+  },
+  {
+   "text": "El Anexo VIII incluye convenios caducados y con fechas erróneas (Ceuta, Melilla, Jaén, Murcia)",
+   "cite": "PCAP p.125 · PCAP p.128 · PCAP p.130"
+  },
+  {
+   "text": "El PPT es una copia del PCTP: no hay pliego técnico independiente",
+   "cite": "PPT p.1"
+  }
+ ]
+}

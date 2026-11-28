@@ -1,0 +1,94 @@
+{
+ "id": "21017635",
+ "title": "Asistencia técnica para la intervención socioeducativa con menores",
+ "buyer": "Junta de Gobierno del Ayuntamiento de Logroño",
+ "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=yxeHusHRHf9xseVhcqrkhw%3D%3D",
+ "docs": [
+  {
+   "kind": "Legal",
+   "name": "PCAP.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=4BqaMfwMdM3IzrHeFZ2mxyYJsFw%2BpG0sJV0ic%2B9M53kAjJ7e8oz9Qfe6Z/7dpvHsIkVw5hZsnzMnRYFUjtZgjKwKtneM3mTjsukWrNGx5yO1aXEvq3KHa/AEHgtDrQw0",
+   "file": "01_Legal.pdf",
+   "bytes": 881827,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261126112315PCAP.pdf",
+   "codes": [
+    "PCAP"
+   ],
+   "pages": 46
+  },
+  {
+   "kind": "Technical",
+   "name": "PPT.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=cYyf1Pqv625SNDWGL3HyOxvj0Vnzw4VQEZUnpY4jCnpC4/KWTsVwW72dCb5sc0rZdsT/w09eLvDegAABCfW6pdQe%2Bz%2BVg3ZQDR4fStKeHef6CYyL7SIrUOBFfNf52ZqA",
+   "file": "02_Technical.pdf",
+   "bytes": 568995,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261126112238PPT.pdf",
+   "codes": [
+    "PPT"
+   ],
+   "pages": 22
+  },
+  {
+   "kind": "Additional",
+   "name": "LISTADOSUBROGACIONCASCOANTIGUO.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=usrb3cXZLXX5IkwtOsR6BW3cMe9Br%2Bddlfzd8E2wMAp%2BzcxwIpDTcB%2BvQMORc%2BnuClvLgc5ulvSFffB9YR8Hk%2BhhofeHYwc6/KTyp4%2BvfJXVTD3T98KC0nSgQFM0q%2B5s",
+   "file": "03_Additional.pdf",
+   "bytes": 27829,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261126112321LISTADOSUBROGACIONCASCOANTIGUO.pdf",
+   "codes": [
+    "ANX"
+   ],
+   "pages": 2
+  },
+  {
+   "kind": "Additional",
+   "name": "LISTADOSUBROGACIONLOTESIIIYIV.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=VHdXhiQ1P0FXpdRWBT1oVC30JT62NSMSuNgCfZ2AwSkXqgNm3dmP6LLwTtLBSL8Yf6Ze93XsqoRpC5Krldj3iIuMNrMHY0Q8hS%2Bkgmrf/3XfdyQgZAdTm3EfcUAC7CJ6",
+   "file": "04_Additional.pdf",
+   "bytes": 175867,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261126112327LISTADOSUBROGACIONLOTESIIIYIV.pdf",
+   "codes": [
+    "ANX2"
+   ],
+   "pages": 1
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-b8679fe5-6bd4-4472-8b05-0256a0196c5e",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-b8679fe5-6bd4-4472-8b05-0256a0196c5e",
+   "file": "05_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-0e411d5a-47a2-4ad5-adae-c7c6f5ae2951",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-0e411d5a-47a2-4ad5-adae-c7c6f5ae2951",
+   "file": "06_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-6610e5f6-43a2-4651-853d-f336d56ed871",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-6610e5f6-43a2-4651-853d-f336d56ed871",
+   "file": "07_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  }
+ ]
+}

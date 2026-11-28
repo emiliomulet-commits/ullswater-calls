@@ -1,0 +1,340 @@
+{
+ "schema": 1,
+ "id": "21017678",
+ "reviewed": "2026-11-28",
+ "title": "Prolongación de las vías de tren de la nueva terminal de contenedores del puerto de Cádiz (fase 2)",
+ "buyer": "Autoridad Portuaria de la Bahía de Cádiz",
+ "buyer_key": "Presidencia de la Autoridad Portuaria de la Bahía de Cádiz",
+ "province": "Cádiz",
+ "cpv": "45234116",
+ "ref": "CA-123-26",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=co1ez1mBsh28ebB%2FXTwy0A%3D%3D",
+ "deadline": "2027-01-11",
+ "deadline_time": "14:00",
+ "questions_until": "2026-12-30",
+ "questions_cite": "PCAP p.6",
+ "opening_days": 20,
+ "opening_cite": "PCAP p.28",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 3,
+ "judgement_pts": 50,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Obra completa de prolongación de ramales de ferrocarril",
+   "budget": 1998891.5,
+   "months": 6
+  }
+ ],
+ "lots_cite": "PCAP p.5",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": "No hay lotes: es un único contrato.",
+ "lots_rule_cite": "PCAP p.5",
+ "requirements": [
+  {
+   "id": "classification",
+   "kind": "yesno",
+   "label": "Clasificación",
+   "rule": "Estar clasificado en Grupo D (Ferrocarriles), subgrupo 1 (Tendido de vías), categoría 4",
+   "question": "¿Tu empresa (o tu UTE sumando clasificaciones) tiene la clasificación D-1 categoría 4 (tendido de vías)?",
+   "cite": "PCAP p.8 · PCAP p.9–10",
+   "proof": "Certificado del Registro Oficial de Contratistas o del ROLECE"
+  },
+  {
+   "id": "site_manager",
+   "kind": "yesno",
+   "label": "Delegado y jefe de obra",
+   "rule": "Ingeniero de Caminos (o equivalente) con 10 años de experiencia y, como jefe de obra en obras ferroviarias, 5 M€ de ejecución material acumulados. El jefe de obra tiene plena dedicación",
+   "question": "¿Tienes un ingeniero de caminos con 10 años de experiencia y al menos 5 M€ de obra ferroviaria como jefe de obra, que pueda dedicarse por completo a esta obra?",
+   "cite": "PCAP p.10",
+   "proof": "CV, título y certificados nominales emitidos por la dirección facultativa o el promotor"
+  },
+  {
+   "id": "production",
+   "kind": "yesno",
+   "label": "Jefe de producción de estructuras de hormigón",
+   "rule": "Ingeniero civil, técnico de obras públicas o de caminos con 5 años de experiencia y experiencia ferroviaria como jefe de producción o de obra. Plena dedicación",
+   "question": "¿Tienes un técnico (ingeniero civil, de obras públicas o de caminos) con 5 años de experiencia y obra ferroviaria como jefe de producción o de obra?",
+   "cite": "PCAP p.10",
+   "proof": "CV con trabajos, importes y nivel de responsabilidad"
+  },
+  {
+   "id": "quality",
+   "kind": "yesno",
+   "label": "Responsable de calidad",
+   "rule": "Técnico competente con al menos 2 años de experiencia en control de calidad de obras civiles",
+   "question": "¿Tienes un responsable de calidad con al menos 2 años de experiencia en control de calidad de obras civiles?",
+   "cite": "PCAP p.10",
+   "proof": "CV con trabajos y nivel de responsabilidad"
+  },
+  {
+   "id": "safety",
+   "kind": "yesno",
+   "label": "Responsable de seguridad y salud",
+   "rule": "Técnico de nivel superior en PRL con 5 años como responsable de seguridad y salud en obras, solo para esa función",
+   "question": "¿Tienes un técnico de nivel superior en prevención de riesgos laborales con 5 años como responsable de seguridad y salud en obra, que se dedique solo a esa tarea?",
+   "cite": "PCAP p.10–11",
+   "proof": "Título habilitante y CV"
+  },
+  {
+   "id": "bim",
+   "kind": "yesno",
+   "label": "Modelo BIM",
+   "rule": "Entregar modelo BIM «as built» con nivel de desarrollo mínimo L.O.D. 200",
+   "question": "¿Puedes entregar el modelo BIM de la obra terminada con al menos nivel L.O.D. 200?",
+   "cite": "PCAP p.11",
+   "proof": "Compromiso en la oferta; plan BIM a los 45 días de firmar el contrato"
+  },
+  {
+   "id": "insurance",
+   "kind": "yesno",
+   "label": "Seguros",
+   "rule": "Seguro a todo riesgo de construcción por 2.000.000 € y de responsabilidad civil por 1.500.000 € por siniestro, antes de formalizar",
+   "question": "¿Tienes (o puedes contratar antes de firmar) un seguro a todo riesgo de construcción de 2.000.000 € y uno de responsabilidad civil de 1.500.000 €?",
+   "cite": "PCAP p.16 · PCAP p.43–44",
+   "proof": "Pólizas o certificado de la aseguradora"
+  }
+ ],
+ "classification": {
+  "group": "D",
+  "subgroup": "1",
+  "category": 4,
+  "cite": "PCAP p.9–10",
+  "note": "Obligatoria porque el valor estimado es de 500.000 € o más."
+ },
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica",
+   "pts": 47.5,
+   "formula": "linear_min",
+   "floor_pts": 22.5,
+   "how": "Si ofreces el presupuesto ya sumas 22,5 puntos. La oferta más barata admitida suma 47,5. El resto se reparte según su baja respecto a la mayor baja. Se excluyen ofertas por encima del presupuesto.",
+   "cite": "PCAP p.13 · PCAP p.34",
+   "note": "En el pliego vale 95 de 100 puntos de fórmula, con el 50 %. Fórmula: 50 × baja / baja máxima + 45, y luego se pondera al 50 %."
+  },
+  {
+   "id": "bim_up",
+   "kind": "choice",
+   "name": "Modelo BIM de nivel superior",
+   "pts": 2.5,
+   "question": "¿Qué nivel de desarrollo BIM puedes comprometer para la obra terminada?",
+   "options": [
+    {
+     "label": "Sin compromiso o nivel 200 (el mínimo)",
+     "pts": 0
+    },
+    {
+     "label": "Nivel 300 o superior",
+     "pts": 2.5
+    }
+   ],
+   "cite": "PCAP p.13 · PCAP p.36"
+  },
+  {
+   "id": "jv_memory",
+   "kind": "judgement",
+   "name": "Memoria descriptiva del proceso de ejecución",
+   "pts": 27.5,
+   "how": "Pesa 55 de 100 puntos de juicio de valor. Se valora metodología, conocimiento del proyecto y de la zona, suministros y minimización del impacto en Navantia y la terminal.",
+   "cite": "PCAP p.12 · PCAP p.75"
+  },
+  {
+   "id": "jv_program",
+   "kind": "judgement",
+   "name": "Programa de trabajos y plazo de ejecución",
+   "pts": 7.5,
+   "how": "Pesa 15 de 100. Se valoran rendimientos, Gantt con red de precedencias, lista de actividades y reducción del plazo total.",
+   "cite": "PCAP p.12 · PCAP p.75"
+  },
+  {
+   "id": "jv_quality",
+   "kind": "judgement",
+   "name": "Plan de calidad",
+   "pts": 5,
+   "how": "Pesa 10 de 100. Se valoran medidas de calidad, programa de puntos de inspección y organización del control.",
+   "cite": "PCAP p.12 · PCAP p.76"
+  },
+  {
+   "id": "jv_env",
+   "kind": "judgement",
+   "name": "Programa de actuaciones medioambientales",
+   "pts": 5,
+   "how": "Pesa 10 de 100. Se valoran identificación de impactos, organización de la obra, gestión de tierras y residuos y materiales reciclados.",
+   "cite": "PCAP p.12 · PCAP p.76"
+  },
+  {
+   "id": "jv_rd",
+   "kind": "judgement",
+   "name": "Tecnología e I+D+i",
+   "pts": 2.5,
+   "how": "Pesa 5 de 100. Se valoran las tecnologías propuestas y el uso de I+D+i propia acreditada.",
+   "cite": "PCAP p.12 · PCAP p.76"
+  },
+  {
+   "id": "jv_social",
+   "kind": "judgement",
+   "name": "Memoria de actuaciones sociales",
+   "pts": 2.5,
+   "how": "Pesa 5 de 100. Se valoran integración de personas vulnerables, igualdad, estabilidad en el empleo y criterios éticos.",
+   "cite": "PCAP p.12 · PCAP p.76"
+  }
+ ],
+ "judgement_threshold": {
+  "pct": 50,
+  "cite": "PCAP p.13",
+  "note": "Hay que sacar al menos el 50 % del conjunto de puntos de juicio de valor para no quedar excluido."
+ },
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 4,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.13 · PCAP p.37–38",
+  "note": "Con 5 o más ofertas la referencia es la «baja de referencia» (media de las bajas dentro de una desviación típica de la media), no la media simple. El pliego no indica regla para una sola oferta."
+ },
+ "effort": {
+  "kind": "presence",
+  "weeks_per_building": 26,
+  "default_hours_week": 40,
+  "note": "Obra de 6 meses; el jefe de obra y el jefe de producción tienen plena dedicación (PCAP p.10)."
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 0,
+  "cite": "PCAP p.11–12",
+  "note": "La garantía complementaria aparece con texto del 5 % pero con la casilla «No se exige»; conviene confirmarlo."
+ },
+ "risk_flags": [
+  {
+   "id": "short_term",
+   "label": "Plazo de ejecución de solo 6 meses, con penalidad por demora de 0,60 € al día por cada 1.000 € de precio",
+   "cite": "PCAP p.14 · PCAP p.41",
+   "weight": 3
+  },
+  {
+   "id": "no_revision",
+   "label": "Sin revisión de precios, con costes a cargo del contratista (ensayos, señalización, adaptación a normativa hasta el 5 %)",
+   "cite": "PCAP p.14 · PCAP p.43 · PCAP p.49",
+   "weight": 2
+  },
+  {
+   "id": "penalties",
+   "label": "Penalidades por programa de trabajos (2,5 % mensual de la diferencia) e incumplimiento de lo ofertado",
+   "cite": "PCAP p.45–47",
+   "weight": 2
+  },
+  {
+   "id": "fixed_team",
+   "label": "Equipo comprometido con plena dedicación, sin poder sustituirlo sin autorización",
+   "cite": "PCAP p.10 · PCAP p.48",
+   "weight": 2
+  },
+  {
+   "id": "ptp_missing",
+   "label": "No se ha revisado el pliego técnico: pueden existir condicionantes adicionales",
+   "cite": "PCAP p.19",
+   "weight": 1
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se admite con responsabilidad solidaria; el compromiso debe elevarse a escritura pública antes de formalizar",
+  "ute": true,
+  "subcontracting": true,
+  "cite": "PCAP p.10 · PCAP p.30 · PCAP p.40 · PCAP p.48"
+ },
+ "specific_checks": [
+  {
+   "text": "No metas ningún dato del precio en el sobre 1 ni en el sobre 2: causa de exclusión",
+   "cite": "PCAP p.29 · PCAP p.69"
+  },
+  {
+   "text": "Respeta el formato del sobre 2 (A4, Arial 11, márgenes de 2 cm) y las páginas máximas de cada apartado: lo que se pase no se valora y puede excluirte",
+   "cite": "PCAP p.69 · PCAP p.73"
+  },
+  {
+   "text": "Para no ser excluido hay que llegar al 50 % de la puntuación de juicio de valor",
+   "cite": "PCAP p.13 · PCAP p.33"
+  },
+  {
+   "text": "No ofrezcas un precio por encima del presupuesto base sin IVA (1.998.891,50 €): se excluye",
+   "cite": "PCAP p.34"
+  },
+  {
+   "text": "Aporta el DACI (ausencia de conflicto de intereses) y la declaración complementaria del DEUC (Anexo I)",
+   "cite": "PCAP p.7–8 · PCAP p.54–56"
+  },
+  {
+   "text": "Si no aportas a tiempo los documentos que te pidan, se entiende que retiras la oferta y te exigen el 3 % del presupuesto sin IVA",
+   "cite": "PCAP p.29"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -21,
+   "task": "Comprueba tu clasificación D-1 categoría 4 y confirma el equipo exigido (jefe de obra, producción, calidad y seguridad)",
+   "cite": "PCAP p.9–11",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -14,
+   "task": "Envía las dudas por la Plataforma antes del 30 de diciembre de 2026 (revisión de precios, garantía complementaria, adscripción de medios)",
+   "cite": "PCAP p.6",
+   "help": "Preguntas sugeridas"
+  },
+  {
+   "when": -10,
+   "task": "Prepara el sobre 1: DEUC, declaración complementaria (Anexo I), DACI y compromiso de UTE si lo hay",
+   "cite": "PCAP p.7–8 · PCAP p.54–56",
+   "help": "Borrador del DEUC (próximamente)"
+  },
+  {
+   "when": -7,
+   "task": "Redacta las memorias del sobre 2 respetando páginas y formato, sin datos de precio",
+   "cite": "PCAP p.69–76",
+   "help": "Guía de las memorias"
+  },
+  {
+   "when": -3,
+   "task": "Rellena el Anexo IV del sobre 3 (precio sin IVA, plazo, compromisos y nivel BIM) y firma todo",
+   "cite": "PCAP p.63–64",
+   "help": "Rebaja recomendada"
+  },
+  {
+   "when": -1,
+   "task": "Sube las ofertas a la Plataforma con margen y comprueba la firma electrónica",
+   "cite": "PCAP p.23–24",
+   "help": "Lista de comprobación"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "La revisión de precios tiene marcada la casilla «No procede», pero el texto de justificación habla de duración de 12 meses y de que sí procede",
+   "cite": "PCAP p.14"
+  },
+  {
+   "text": "La adscripción de medios se exige en 8.4 pero aparece como «No» en las condiciones especiales de ejecución (21.2)",
+   "cite": "PCAP p.10 · PCAP p.16"
+  },
+  {
+   "text": "La garantía complementaria muestra el texto del 5 % pero con la casilla «No se exige»",
+   "cite": "PCAP p.11–12"
+  },
+  {
+   "text": "El límite por incumplir el programa de trabajos es del 20 % en el cuadro y del 30 % en la cláusula 42",
+   "cite": "PCAP p.13 · PCAP p.46"
+  },
+  {
+   "text": "La experiencia exigida al responsable de calidad (2 años) y al jefe de obra (10 años) en el cuadro no coincide con la del Anexo IX (3 años)",
+   "cite": "PCAP p.10 · PCAP p.83–84"
+  },
+  {
+   "text": "El CPV del pliego (45236200-2) no coincide con el del anuncio (45234116)",
+   "cite": "PCAP p.2"
+  }
+ ]
+}

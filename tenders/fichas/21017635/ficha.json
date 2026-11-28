@@ -1,0 +1,595 @@
+{
+ "id": "21017635",
+ "ref": "CTR-CON21-2026/0338",
+ "reviewed": "2026-11-28",
+ "title": "Servicio de educadores sociales para la intervención con menores en cuatro barrios de Logroño",
+ "title_official": "Asistencia técnica para la intervención socioeducativa con menores",
+ "buyer": "Junta de Gobierno del Ayuntamiento de Logroño",
+ "unit": "Dirección General de Contratación, Responsabilidad Social y Servicios Comunitarios",
+ "place": "Logroño (La Rioja)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=yxeHusHRHf9xseVhcqrkhw%3D%3D",
+ "published": "2026-11-28",
+ "deadline": "2026-12-28",
+ "deadline_time": "23:59",
+ "questions_until": null,
+ "headline": "Logroño busca educadores sociales para 4 barrios (3,2 M€)",
+ "headline_em": "educadores sociales para 4 barrios",
+ "lede": "El Ayuntamiento de Logroño contrata equipos de educación social que trabajen en la calle con menores en riesgo. Son 4 lotes por barrios, 2 años de contrato y hasta 2 prórrogas de 1 año.",
+ "crumbs": "Licitaciones › España › Ayuntamientos › La Rioja",
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de cláusulas administrativas (PCAP) con el Anexo I de especificaciones y los modelos",
+   "file": "01_Legal.pdf",
+   "pages": 46
+  },
+  "PPT": {
+   "label": "Pliego de prescripciones técnicas (PPT) con el proyecto de intervención",
+   "file": "02_Technical.pdf",
+   "pages": 22
+  },
+  "ANX": {
+   "label": "Listado de personal a subrogar del lote Casco Antiguo",
+   "file": "03_Additional.pdf",
+   "pages": 2
+  },
+  "ANX2": {
+   "label": "Listado de personal a subrogar de los proyectos municipales de menores (titulado «lotes III y IV»)",
+   "file": "04_Additional.pdf",
+   "pages": 1
+  }
+ },
+ "tags": {
+  "level": "Ayuntamiento",
+  "where": "Logroño, La Rioja",
+  "contract": "Servicios",
+  "sector": "Servicios sociales: educación social con menores (CPV 85311300)",
+  "size": "Grande (más de 1 M€)",
+  "deadline": "Cierra en 30 días",
+  "procedure": "Abierto, regulación armonizada",
+  "funds": "Sin fondos europeos",
+  "lots": "4 lotes",
+  "award": "Calidad y precio (49 puntos de juicio de valor)"
+ },
+ "verdict": {
+  "opportunity": "alta",
+  "difficulty": "media",
+  "text": "Buena oportunidad para entidades y empresas de intervención social que ya tengan o puedan montar equipos de educadores sociales con presencia en Logroño. Es un contrato de 2 años con 2 prórrogas y 4 lotes que se pueden ganar todos. Hay que subrogar a la plantilla actual, tener local de unos 80 m² por lote y cumplir el convenio colectivo. Casi todo el margen está en los costes de personal, así que la baja de precio es limitada. Se gana con un proyecto muy bien redactado (49 puntos, mínimo 25 para que se mire el precio) y una oferta económica realista."
+ },
+ "summary": [
+  "El Ayuntamiento de Logroño contrata la intervención socioeducativa con menores en riesgo: educación de calle, atención individual y grupal, trabajo con familias y con el barrio.",
+  "Son 4 lotes por barrios (Madre de Dios-San José, Centro-Sur-Oeste, Casco Antiguo y La Estrella). El presupuesto base es de 1.340.197,41 € sin IVA y el valor estimado, con prórrogas y modificaciones, de 3.216.473,85 €.",
+  "Se puede ofertar y ganar los 4 lotes. Cada lote exige entre 2 y 4 puestos de jornada completa y subrogar al personal actual.",
+  "Puntúa el proyecto técnico (49 puntos, de juicio de valor, con un mínimo de 25), el precio (40 puntos), las horas de formación extra (6) y los precios por hora para ampliaciones (5).",
+  "Las ofertas se presentan por la Plataforma hasta el 28 de diciembre de 2026 a las 23:59, en 3 sobres electrónicos."
+ ],
+ "max_lots_per_bidder": 4,
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Asistencia técnica para la intervención socioeducativa con menores. Es una actuación preventiva y compensatoria: relación educativa entre educadores sociales y menores en dificultad social, orientación a las familias y trabajo comunitario en el barrio.",
+     "PCAP 30 · PPT 2"
+    ],
+    [
+     "Actuaciones",
+     "Educación de calle, intervención individual y grupal, actuaciones específicas (unas tres al año), seguimiento de escolarización, actuación comunitaria y presencia educativa en redes sociales.",
+     "PPT 16–19"
+    ],
+    [
+     "Órgano",
+     "Junta de Gobierno Local del Ayuntamiento de Logroño. El perfil de contratante está en la Plataforma de Contratación del Sector Público.",
+     "PCAP 4–5"
+    ],
+    [
+     "Lugar",
+     "Logroño: barrios Madre de Dios-San José, Centro-Sur-Oeste, Casco Antiguo y La Estrella.",
+     "PPT 2"
+    ],
+    [
+     "Calendario del servicio",
+     "Todo el año, de lunes a viernes sin festivos, salvo urgencias del servicio. Hay actividades de tarde y en vacaciones escolares.",
+     "PPT 8 · PPT 17"
+    ],
+    [
+     "Regulación armonizada",
+     "Sí. El pliego marca el contrato como sujeto a regulación armonizada y a recurso especial.",
+     "PCAP 1"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Madre de Dios-San José: 3 puestos a jornada completa",
+     "fee": 349759.23,
+     "months": 24
+    },
+    {
+     "n": 2,
+     "label": "Centro-Sur-Oeste de Logroño: 4 puestos a jornada completa",
+     "fee": 454460.17,
+     "months": 24
+    },
+    {
+     "n": 3,
+     "label": "Casco Antiguo: 2 puestos a jornada completa y 1 de 16 a 20 h",
+     "fee": 283286.15,
+     "months": 24
+    },
+    {
+     "n": 4,
+     "label": "La Estrella: 2 puestos a jornada completa",
+     "fee": 252691.86,
+     "months": 24
+    }
+   ],
+   "cite": "PCAP 30–33 · PPT 8–9",
+   "note": "Importes sin IVA para los 2 años iniciales. Se puede licitar a los 4 lotes y ganarlos todos (PCAP 30). La garantía definitiva se constituye por lote (PCAP 35). El modelo de oferta pone 349.759,25 € en el lote 1, dos céntimos más que el resto del pliego (PCAP 42)."
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base",
+     "1.340.197,41 € sin IVA (1.474.217,16 € con IVA). Cubre solo los 2 años iniciales y es el máximo que se puede ofertar.",
+     "PCAP 32 · PPT 3"
+    ],
+    [
+     "Valor estimado",
+     "3.216.473,85 € sin IVA. Incluye los 2 años iniciales, las 2 prórrogas y las modificaciones del 20 %. Se calcula por estimación directa de costes.",
+     "PCAP 30–32 · PPT 3–5"
+    ],
+    [
+     "IVA",
+     "10 % (134.019,75 € sobre el presupuesto base). Si la empresa está exenta, debe acreditarlo con certificado.",
+     "PPT 3 · PPT 5–6"
+    ],
+    [
+     "Costes del presupuesto",
+     "Lote 1: costes directos 157.549,22 € e indirectos 17.330,41 €. Lote 2: 204.711,79 € y 22.518,30 €. Lote 3: 127.606,37 € y 14.036,70 €. Lote 4: 113.825,13 € y 12.520,77 €. Los salarios, incluidos en los directos, son 138.049,22 €, 185.211,79 €, 115.606,37 € y 94.325,13 €. El pliego no dice si son importes anuales. La suma de directos e indirectos coincide con la anualidad media de cada lote.",
+     "PCAP 33"
+    ],
+    [
+     "Duración",
+     "2 años desde el Acta de inicio. Las anualidades previstas van de febrero de 2027 a enero de 2029.",
+     "PCAP 33 · PPT 6"
+    ],
+    [
+     "Prórrogas",
+     "2 prórrogas expresas de 1 año cada una (hasta enero de 2032).",
+     "PCAP 34 · PPT 6"
+    ],
+    [
+     "Revisión de precios",
+     "No procede.",
+     "PCAP 34"
+    ],
+    [
+     "Modificaciones previstas",
+     "Sí, hasta el 20 % del precio inicial, para subir o bajar las horas de profesionales o las actividades. Se justifica porque los Servicios Sociales no pueden prever cuántos menores necesitarán intervención. No puede haber precios unitarios nuevos. Importes del 20 %: lote 1, 139.903,69 €; lote 2, 181.784,07 €; lote 3, 113.314,46 €; lote 4, 101.076,76 € (sin IVA).",
+     "PCAP 40 · PPT 5"
+    ],
+    [
+     "Subrogación de personal",
+     "Sí. Hay que adscribir a los trabajadores de los anteriores adjudicatarios. Los listados incluyen 13 personas: Casco Antiguo 4 (ANX 1), Madre de Dios-San José 3, Centro-Sur-Oeste 4 y La Estrella 2 (ANX2 1). Dan antigüedad, tipo de contrato, jornada, horario, salario bruto anual y Seguridad Social a cargo de la empresa. Los salarios brutos de jornada completa van de 23.720,76 € a 28.517,94 €. La integradora social del Casco Antiguo trabaja 20 h y cobra 12.290,96 €. Dos personas tienen «plus coordinación» y una del Casco Antiguo tiene contrato de sustitución.",
+     "PCAP 40 · PPT 8 · ANX 1 · ANX2 1"
+    ],
+    [
+     "Financiación",
+     "Presupuesto municipal, aplicación 231.00 227.99. Sin fondos europeos. Es tramitación anticipada: la adjudicación depende de que exista crédito suficiente.",
+     "PCAP 33 · PCAP 40"
+    ],
+    [
+     "Precios unitarios para ampliaciones",
+     "Máximos sin IVA: educador 16,33 € e integrador social 14,79 € (por hora, según el contexto del pliego). Con IVA 10 %: 17,96 € y 16,27 €.",
+     "PCAP 38 · PPT 10–11"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Clasificación",
+     "El pliego no la exige. La solvencia se acredita por los medios indicados abajo.",
+     "PCAP 36"
+    ],
+    [
+     "Habilitación",
+     "No procede.",
+     "PCAP 36"
+    ],
+    [
+     "Solvencia económica",
+     "Volumen anual de negocios del mejor de los 3 últimos años cerrados de al menos 1 vez el valor anual medio del contrato, porque dura más de un año. El pliego no dice si ese valor anual es el del contrato inicial o el del valor estimado. Con los 2 años iniciales sale aproximadamente: lote 1, 174.880 €; lote 2, 227.230 €; lote 3, 141.643 €; lote 4, 126.346 €. Es un cálculo nuestro, conviene confirmarlo. Se declara en el DEUC (declaración responsable europea) y se acredita con la inscripción en el Registro Oficial de Licitadores o, si no consta, antes de la adjudicación.",
+     "PCAP 36"
+    ],
+    [
+     "Solvencia técnica",
+     "Servicios de características similares en los últimos 3 años, con importe anual acumulado en el año de mayor ejecución de al menos el 70 % de la anualidad media. Con los 2 años iniciales sale aproximadamente: lote 1, 122.416 €; lote 2, 159.061 €; lote 3, 99.150 €; lote 4, 88.442 € (cálculo nuestro). Se acredita con certificados de buena ejecución del órgano público, o del cliente privado o declaración responsable del licitador. La vía para empresas de menos de 5 años (títulos del equipo) se limita a contratos no armonizados, y este sí es armonizado.",
+     "PCAP 1 · PCAP 36–37"
+    ],
+    [
+     "Equipo mínimo por lote",
+     "Lote 1: 3 puestos a jornada completa, 2 con Grado o Diplomatura en Educación Social y 1 con ese título o Técnico Superior en Integración Social. Lote 2: 4 puestos, 3 con Educación Social y 1 con Educación Social o Integración Social. Lote 3: 2 puestos con Educación Social y 1 puesto de 16 a 20 h con Educación Social o Integración Social. Lote 4: 2 puestos con Educación Social. La jornada es partida, con al menos 4 horas por la tarde, y deben poder atender demandas fuera de horario.",
+     "PCAP 37–38 · PPT 8–9"
+    ],
+    [
+     "Compromiso de adscripción",
+     "Se declara en el DEUC. El adjudicatario debe asignar a las personas de su oferta, y cambiarlas exige aceptación del Ayuntamiento. Es condición esencial: incumplirla permite resolver el contrato. El personal a dedicación completa no puede intervenir en otro trabajo.",
+     "PCAP 8 · PCAP 23 · PCAP 37"
+    ],
+    [
+     "Certificado de delitos sexuales",
+     "Todo el personal adscrito debe aportar certificación negativa del Registro Central de Delincuentes Sexuales.",
+     "PPT 8"
+    ],
+    [
+     "Oficina y local",
+     "Oficina abierta con organización administrativa en Logroño en la fecha de inicio, con teléfono y correo en horario permanente. En cada lote, un local de unos 80 m² en la zona, con licencia municipal y mobiliario y seguridad adecuados. El pliego no dice si el local puede estar en un barrio concreto.",
+     "PPT 6 · PPT 9 · PPT 21"
+    ],
+    [
+     "Seguro",
+     "Responsabilidad civil de la empresa y de su personal, con cuantía no inferior a 601.000 €. El PCAP añade que debe cubrirse sin franquicia durante la ejecución y el plazo de garantía.",
+     "PPT 6 · PCAP 9"
+    ],
+    [
+     "Plantilla de 50 o más trabajadores",
+     "Si tienes 50 o más, debes cumplir la cuota de un 2 % de empleados con discapacidad. Si tienes más de 50, además un plan de igualdad inscrito. Se declara con el Anexo VI.",
+     "PCAP 5 · PCAP 24 · PCAP 46"
+    ],
+    [
+     "UTE e integración de solvencia",
+     "Se admiten uniones de empresas (UTE), con compromiso firmado y respondiendo todas solidariamente. Se puede acreditar la solvencia con medios de otras entidades, si se demuestra que se dispone de ellos y se indica en el DEUC.",
+     "PCAP 5 · PCAP 23 · PCAP 44"
+    ],
+    [
+     "Subcontratación",
+     "No se admite. El personal debe ser de la empresa. El PCAP general, en cambio, prevé un trámite de autorización previa (véase «Incoherencias»).",
+     "PCAP 39 · PCAP 10"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Oferta económica",
+     "pts": 40,
+     "kind": "fórmula",
+     "how": "Puntos = 40 × baja × K. Con K=6, se logran los 40 puntos con una baja del 16,66 % sobre el presupuesto del lote (sin IVA). Menos baja da menos puntos de forma proporcional. Si la baja máxima ofertada supera ese rango, K se recalcula con una fórmula que no se lee en el texto del pliego. Dos decimales."
+    },
+    {
+     "name": "Formación extra del personal",
+     "pts": 6,
+     "kind": "fórmula",
+     "how": "1 punto por cada 10 horas por encima de las 25 horas obligatorias, hasta 6 puntos (60 horas extra). Materias: intervención comunitaria, interculturalidad, menores y familias en dificultad social. Hay que presentar un dosier con objeto, horas, horarios y periodos del primer año, adaptación al perfil de los trabajadores y formadores."
+    },
+    {
+     "name": "Precios unitarios para ampliaciones",
+     "pts": 5,
+     "kind": "fórmula",
+     "how": "Hasta 3 puntos por el precio del educador (máximo 16,33 €) y hasta 2 por el del integrador social (máximo 14,79 €), sin IVA. El pliego no explica cómo se reparten los puntos entre ofertas."
+    },
+    {
+     "name": "Proyecto: fundamentación, objetivos y actuaciones",
+     "pts": 23,
+     "kind": "juicio de valor",
+     "how": "Hasta 23 puntos: justificación de la intervención, objetivos y desarrollo de cada área ajustado al punto 5 del Anexo I del PPT."
+    },
+    {
+     "name": "Proyecto: metodología, organización y gestión",
+     "pts": 14,
+     "kind": "juicio de valor",
+     "how": "Hasta 14 puntos: metodología, calendario, jornada tipo, trabajo de calle, actuaciones con familias, actividades complementarias y organización del personal, con protocolos y apoyos de supervisión."
+    },
+    {
+     "name": "Proyecto: evaluación y coordinación",
+     "pts": 12,
+     "kind": "juicio de valor",
+     "how": "Hasta 12 puntos: sistema de coordinación interna y externa, evaluación y documentación, y recursos y materiales."
+    }
+   ],
+   "cite": "PCAP 38–39 · PPT 9–11",
+   "items": [
+    [
+     "Juicio de valor",
+     "49 puntos sobre 100. El proyecto no puede pasar de 50 páginas A4 a una cara, interlineado sencillo, Arial 11 y márgenes de 2 cm.",
+     "PCAP 38"
+    ],
+    [
+     "Umbral mínimo",
+     "El proyecto debe sumar al menos 25 puntos (sobre 49) para que se valore la oferta económica. Si no llega, quedas fuera.",
+     "PCAP 39"
+    ],
+    [
+     "Sobres",
+     "3: A (documentación administrativa), B (juicio de valor) y C (fórmulas: oferta, formación y precios unitarios). El dosier de formación va con la oferta económica, es decir, en el sobre C.",
+     "PCAP 20 · PCAP 24 · PCAP 38"
+    ],
+    [
+     "Baja anormal",
+     "El pliego remite al art. 85 del Reglamento General de la Ley de Contratos (RGLCAP) y no da cifras. Si la mejor oferta parece anormal, se pide justificación y la propuesta pasa por informes técnicos. Conviene preguntar qué umbral se aplicará.",
+     "PCAP 36 · PCAP 21–22"
+    ],
+    [
+     "Desempate",
+     "Por orden: mayor porcentaje de trabajadores con discapacidad o en exclusión social, menor porcentaje de contratos temporales, mayor porcentaje de mujeres en plantilla y sorteo. Se acredita cuando se produzca el empate.",
+     "PCAP 19"
+    ],
+    [
+     "Apertura",
+     "El sobre B se abre en acto público, con fecha avisada con al menos 1 día hábil de antelación en el perfil de contratante. Después se abre el sobre C, también en acto público.",
+     "PCAP 21 · PCAP 39"
+    ]
+   ],
+   "insight": "Los 49 puntos del proyecto pesan casi tanto como todo lo demás, y con menos de 25 ni se mira el precio. Con el 79 % del coste en salarios y un convenio que cumplir, la baja es limitada, así que la diferencia la marca la calidad del proyecto."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Hasta el 28 de diciembre de 2026 a las 23:59, solo por la Plataforma de Contratación del Sector Público. El PCAP lo define como el día 30 natural desde el envío del anuncio a la Oficina de Publicaciones de la UE, y si cae en día inhábil se pasa al siguiente hábil. Contando 30 días hacia atrás, el anuncio se envió el 28 de noviembre de 2026 (fecha de publicación que usamos; es un cálculo nuestro). Se puede enviar primero la huella electrónica y la oferta completa en un máximo de 24 horas.",
+     "PCAP 20 · PCAP 39"
+    ],
+    [
+     "Preguntas",
+     "El pliego no indica un plazo propio. Por ley (art. 138.3 LCSP), si preguntas al menos 12 días antes del cierre te contestan al menos 6 días antes. Para este cierre, el 16 de diciembre sería el último día con respuesta garantizada. Es un cálculo nuestro.",
+     "PCAP 20"
+    ],
+    [
+     "Sobre A",
+     "Índice de documentos, solicitud de admisión (Anexo II), DEUC (uno por empresa si hay UTE), compromiso de adscripción de medios, compromiso de UTE si lo hay (Anexo IV), declaración de discapacidad (Anexo VI), pertenencia a grupo y, si se quiere, designación de documentos confidenciales (Anexo V). Los defectos subsanables se corrigen en máximo 3 días naturales.",
+     "PCAP 20–24 · PCAP 41–46"
+    ],
+    [
+     "Sobre B",
+     "Proyecto de organización y gestión del servicio, máximo 50 páginas. No se puede incluir ningún dato de precio o de fórmulas, o pueden desechar la oferta.",
+     "PCAP 24 · PCAP 38"
+    ],
+    [
+     "Sobre C",
+     "Oferta económica por cada lote (Anexo III), con base e IVA por separado, horas de formación con su dosier y precios unitarios de educador e integrador. No se aceptan ofertas con errores, tachaduras o que cambien el modelo. Si letra y número no coinciden, vale la letra.",
+     "PCAP 24–25 · PCAP 42–43"
+    ],
+    [
+     "Garantías",
+     "Provisional: no. Definitiva: 5 % del importe de adjudicación, sin IVA, por cada lote. Complementaria: no procede. Plazo de garantía del servicio: 6 meses.",
+     "PCAP 35–36"
+    ],
+    [
+     "Tras la mejor oferta",
+     "10 días hábiles para aportar documentación, garantía definitiva, certificados de Hacienda y Seguridad Social, medios adscritos y compromiso de mantener las condiciones de trabajo. Si no lo haces, se entiende que retiras la oferta y pagas el 3 % del presupuesto base sin IVA.",
+     "PCAP 25–26"
+    ],
+    [
+     "Formalización",
+     "No antes de 15 días hábiles desde la notificación de la adjudicación. Luego, máximo 5 días desde el requerimiento.",
+     "PCAP 27"
+    ],
+    [
+     "Visita",
+     "Los pliegos no prevén visita previa.",
+     ""
+    ],
+    [
+     "Recurso especial",
+     "Procede (art. 44 LCSP): contrato de servicios con valor estimado superior a 100.000 €. Plazo de 15 días hábiles, ante el Tribunal Administrativo Central de Recursos Contractuales.",
+     "PCAP 5–6"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro",
+     "items": [
+      [
+       "Facturas mensuales",
+       "Se factura cada mes, con conformidad de los servicios municipales. El Ayuntamiento paga en 30 días desde la aprobación de la factura, que a su vez puede tardar hasta 30 días tras la prestación.",
+       "PCAP 12 · PCAP 33"
+      ],
+      [
+       "Justificantes con cada factura",
+       "Hay que adjuntar justificantes de pago de nóminas, Seguridad Social e IRPF. Si no se cumple, penalidad del 5 % del precio. Si se repite, causa de resolución.",
+       "PCAP 28"
+      ],
+      [
+       "Sin revisión de precios",
+       "Los costes de personal no se actualizan, aunque el convenio colectivo suba salarios en los 2 años iniciales y en las prórrogas.",
+       "PCAP 34"
+      ],
+      [
+       "Tramitación anticipada",
+       "La adjudicación queda sujeta a que haya crédito adecuado y suficiente.",
+       "PCAP 33"
+      ]
+     ]
+    },
+    {
+     "h": "Ejecución y penalidades",
+     "items": [
+      [
+       "Penalidades especiales",
+       "Leves hasta 4.000 €, graves de 4.001 a 8.000 € y muy graves de 8.001 a 12.000 €. Dos faltas muy graves en un año permiten resolver el contrato. El Ayuntamiento puede retener el pago.",
+       "PCAP 35"
+      ],
+      [
+       "Penalidades generales",
+       "Condiciones especiales de ejecución: 1 %, 5 % o 10 % del precio de adjudicación según la gravedad. Ejecución defectuosa o no aportar el equipo ofertado: 1 %. No informar sobre la subrogación: 3 %. Incumplir un criterio de adjudicación: 5 %, 7 % o 10 %. Si las penalidades superan el 50 % del precio, se resuelve el contrato.",
+       "PCAP 13–14"
+      ],
+      [
+       "Demora",
+       "Se aplican las penalidades del art. 193 LCSP, con posible indemnización además.",
+       "PCAP 8 · PCAP 14"
+      ],
+      [
+       "Responsabilidad",
+       "El contratista responde de la calidad técnica, de los daños a terceros y de las reclamaciones por protección de datos. Es encargado de tratamiento de datos de menores y debe cumplir las auditorías del Ayuntamiento.",
+       "PCAP 6–12"
+      ],
+      [
+       "Materiales y actividades",
+       "Los materiales del proyecto y los gastos de las actividades complementarias son por cuenta de la empresa.",
+       "PPT 21"
+      ],
+      [
+       "Memoria y control",
+       "Memoria anual, reuniones de evaluación semestrales y control de la Dirección General de Familia, Servicios Sociales y Discapacidad.",
+       "PPT 7 · PPT 22"
+      ]
+     ]
+    },
+    {
+     "h": "Personal",
+     "items": [
+      [
+       "Subrogación",
+       "Adscribir al personal de los anteriores adjudicatarios. Si los costes reales resultan mayores que los informados, hay acción directa contra el antiguo contratista. Si no se facilita bien la información, 3 % de penalidad.",
+       "PCAP 14 · PCAP 16–17 · PPT 8"
+      ],
+      [
+       "Convenio",
+       "Cumplir las condiciones salariales del convenio sectorial. El listado de personal se refiere al III Convenio Colectivo Estatal de Acción e Intervención Social 2026-2029. Pagar mal o tarde es falta grave o muy grave.",
+       "PCAP 5 · PCAP 13 · ANX2 1"
+      ],
+      [
+       "Condición especial de ejecución",
+       "Todo el personal adscrito debe tener formación sobre igualdad y no discriminación antes de acabar el contrato, dentro de las actividades de formación (mínimo 25 horas). El justificante se entrega al final del contrato.",
+       "PCAP 40 · PPT 7"
+      ],
+      [
+       "Estabilidad del equipo",
+       "Cambios solo por motivos justificados y con aceptación del Ayuntamiento. Hay que designar un coordinador responsable entre los profesionales.",
+       "PCAP 7–8 · PPT 21"
+      ],
+      [
+       "Voluntariado",
+       "Se permite reforzar con personal voluntario, con autorización previa y sin sustituir a los profesionales.",
+       "PPT 21"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Fórmula de precio",
+     "El Anexo I remite a la «cláusula 25ª», pero la fórmula está en la 24ª (la 25ª es el desempate). La fórmula de la baja (Boe) y la de K fuera del rango del 16,66 % no se leen en el texto del pliego.",
+     "PCAP 38 · PCAP 18–19"
+    ],
+    [
+     "Subrogación",
+     "El PPT dice que los puestos a subrogar se concretan en su Anexo I, pero ese anexo es el proyecto de intervención y no los lista. El listado titulado «lotes III y IV» recoge en realidad los proyectos de los lotes 1, 2 y 4. El del lote 3 es aparte y tiene 3 educadoras a jornada completa y 1 integradora a 20 h, mientras que el pliego pide 2 puestos completos y 1 de 16 a 20 h.",
+     "PPT 8 · ANX2 1 · ANX 1 · PCAP 37"
+    ],
+    [
+     "Subcontratación",
+     "El Anexo I no admite subcontratar. La cláusula 20 habla de un límite que fijaría el Anexo I, y la cláusula 12 prevé pedir autorización para subcontratar.",
+     "PCAP 39 · PCAP 16 · PCAP 10"
+    ],
+    [
+     "Presentación de la factura",
+     "El Anexo I prevé facturas mensuales, pero dice que la factura se presenta «junto con el acta de recepción».",
+     "PCAP 33–34"
+    ],
+    [
+     "Baja anormal",
+     "El Anexo I remite al art. 85 del RGLCAP sin dar cifras.",
+     "PCAP 36"
+    ],
+    [
+     "Sustitución de personal",
+     "El PPT dice que «no se sustituirán vacaciones», pero también exige personal suficiente sin que valga el absentismo. El PCAP exige garantizar la continuidad con independencia de bajas y vacaciones.",
+     "PPT 7–8 · PCAP 7"
+    ],
+    [
+     "Referencias cruzadas erróneas",
+     "El Anexo II cita una «cláusula 34ª» que no existe (el pliego llega a la 31ª). La cláusula 27 cita un «ANEXO IV» como modelo de oferta, que es el Anexo III.",
+     "PCAP 41 · PCAP 24"
+    ],
+    [
+     "Nota del 26-11-2026",
+     "Se suprime el apartado 5º de la cláusula 26ª sobre presentación no electrónica. El texto publicado sigue incluyendo un apartado 5 sobre los tres sobres, que es el que aplica.",
+     "PCAP 1 · PCAP 20"
+    ],
+    [
+     "Importe del lote 1",
+     "El Anexo III pone 349.759,25 € y el resto del pliego, 349.759,23 €.",
+     "PCAP 42 · PCAP 30"
+    ]
+   ],
+   "advice": "Conviene preguntar por la Plataforma, con 12 días de antelación al cierre, sobre la fórmula completa de precio, el umbral de baja anormal, el reparto de los 5 puntos de precios unitarios y el listado de subrogación de cada lote, antes de calcular la oferta."
+  }
+ ],
+ "updated": "2026-11-27",
+ "files": [
+  {
+   "name": "Pliego de cláusulas administrativas (PCAP) con el Anexo I de especificaciones y los modelos",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 46,
+   "bytes": 881827
+  },
+  {
+   "name": "Pliego de prescripciones técnicas (PPT) con el proyecto de intervención",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 22,
+   "bytes": 568995
+  },
+  {
+   "name": "Listado de personal a subrogar del lote Casco Antiguo",
+   "file": "03_Additional.pdf",
+   "type": "PDF",
+   "pages": 2,
+   "bytes": 27829
+  },
+  {
+   "name": "Listado de personal a subrogar de los proyectos municipales de menores (titulado «lotes III y IV»)",
+   "file": "04_Additional.pdf",
+   "type": "PDF",
+   "pages": 1,
+   "bytes": 175867
+  },
+  {
+   "name": "2026-b8679fe5-6bd4-4472-8b05-0256a0196c5e",
+   "file": "05_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-0e411d5a-47a2-4ad5-adae-c7c6f5ae2951",
+   "file": "06_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-6610e5f6-43a2-4651-853d-f336d56ed871",
+   "file": "07_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ]
+}

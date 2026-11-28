@@ -1,0 +1,345 @@
+{
+ "schema": 1,
+ "id": "20677117",
+ "reviewed": "2026-11-28",
+ "title": "Suministro de 80 monitores desfibriladores con conectividad para el SAMUR de Madrid",
+ "buyer": "Ayuntamiento de Madrid (SAMUR-Protección Civil)",
+ "buyer_key": "Área de Gobierno de Vicealcaldía, Portavoz, Seguridad y Emergencias del Ayuntamiento de Madrid",
+ "province": "Madrid",
+ "cpv": "33190000",
+ "ref": "300/2026/03077",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=xh4Na9pZ1htrSd8H4b2soA%3D%3D",
+ "deadline": "2028-03-31",
+ "deadline_time": "23:59",
+ "questions_until": null,
+ "questions_cite": "PCAP p.66",
+ "opening_days": null,
+ "opening_cite": "PCAP p.21",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 2,
+ "judgement_pts": 0,
+ "lots": [
+  {
+   "n": 1,
+   "label": "80 monitores desfibriladores multiparamétricos con conectividad",
+   "budget": 1173520,
+   "months": 11
+  }
+ ],
+ "lots_cite": "PCAP p.46 · PCAP p.48",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": "No hay lotes: un único contrato para los 80 equipos.",
+ "lots_rule_cite": "PCAP p.46",
+ "requirements": [
+  {
+   "id": "turnover",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 1.5,
+   "label": "Solvencia económica",
+   "rule": "Facturación en el ámbito del contrato, en el mejor de los 3 últimos ejercicios, de al menos 1.760.280 € sin IVA (1,5 veces el valor estimado)",
+   "question": "¿Cuál fue tu facturación anual en este tipo de suministros en tu mejor ejercicio de los 3 últimos cerrados?",
+   "unit": "€",
+   "cite": "PCAP p.51–52",
+   "proof": "Declaración responsable del representante legal sobre el volumen de negocios de los 3 últimos ejercicios"
+  },
+  {
+   "id": "similar",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 0.7,
+   "label": "Solvencia técnica: suministros similares",
+   "rule": "En el año de mayor ejecución de los 3 últimos, suministros de CPV 331 por al menos el 70 % del precio: 821.464 € sin IVA",
+   "question": "¿Cuánto suministraste en equipos similares (CPV 331) en tu mejor año de los 3 últimos?",
+   "unit": "€",
+   "cite": "PCAP p.52",
+   "proof": "Relación firmada de suministros con importe, fecha y destinatario"
+  },
+  {
+   "id": "datasheet",
+   "kind": "yesno",
+   "label": "Ficha técnica del equipo",
+   "rule": "Ficha técnica del fabricante y memoria o catálogo con fotos, en castellano, que demuestre las características del PPT",
+   "question": "¿Tienes un monitor desfibrilador que cumpla los mínimos del pliego técnico y su ficha técnica en castellano?",
+   "cite": "PCAP p.53–54 · PPT p.2–6",
+   "proof": "Ficha técnica y catálogo del fabricante con los datos del PPT señalados"
+  },
+  {
+   "id": "certs",
+   "kind": "yesno",
+   "label": "Certificados del equipo",
+   "rule": "Certificados IEC 60601-2-4 y «apto para transporte» UNE-EN 1789; el PPT añade marcado CE (MDR), IEC 60601-1 e IEC 60068-2-27 y 60068-2-6",
+   "question": "¿Tu equipo tiene los certificados IEC 60601-2-4, UNE-EN 1789 y marcado CE (MDR), con ensayos de vibración e impacto?",
+   "cite": "PCAP p.54–55 · PPT p.2",
+   "proof": "Certificados oficiales o fichas oficiales del fabricante"
+  },
+  {
+   "id": "third_country",
+   "kind": "yesno",
+   "label": "Empresa de la UE o de país con acuerdo",
+   "rule": "Las empresas de terceros países sin acuerdo de contratación pública con la UE no pueden participar",
+   "question": "¿Tu empresa está establecida en la UE, el EEE o un país con acuerdo de contratación pública con la UE?",
+   "cite": "PCAP p.46–47",
+   "proof": "Documentos de capacidad de obrar y registro"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica",
+   "pts": 35,
+   "formula": "linear_min",
+   "single_k_pct": 25,
+   "how": "35 puntos al menor importe sin IVA y 0 al presupuesto base; el resto con la fórmula del pliego 35 × (menor oferta / tu oferta) elevado a 1/5",
+   "cite": "PCAP p.59"
+  },
+  {
+   "id": "m_energy",
+   "kind": "choice",
+   "name": "Terapia eléctrica de 2 J a 360 J",
+   "pts": 10,
+   "question": "¿Tu equipo llega a 360 J de energía?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí, de 2 J a 360 J",
+     "pts": 10
+    }
+   ],
+   "cite": "PCAP p.59"
+  },
+  {
+   "id": "m_channels",
+   "kind": "choice",
+   "name": "Visualización de 7 o más canales",
+   "pts": 10,
+   "question": "¿Tu equipo muestra 7 o más canales a la vez en pantalla?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí",
+     "pts": 10
+    }
+   ],
+   "cite": "PCAP p.59"
+  },
+  {
+   "id": "m_screen",
+   "kind": "choice",
+   "name": "Pantalla táctil capacitiva de 9 pulgadas o más",
+   "pts": 7.5,
+   "question": "¿Tu equipo tiene pantalla táctil capacitiva de 9 pulgadas o más?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí",
+     "pts": 7.5
+    }
+   ],
+   "cite": "PCAP p.59"
+  },
+  {
+   "id": "m_printer",
+   "kind": "choice",
+   "name": "Impresora con salida frontal de 110 mm o más",
+   "pts": 10,
+   "question": "¿Tu equipo tiene impresora integrada con salida frontal de papel de 110 mm o más?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí",
+     "pts": 10
+    }
+   ],
+   "cite": "PCAP p.60"
+  },
+  {
+   "id": "m_cpr",
+   "kind": "choice",
+   "name": "Feedback de frecuencia y profundidad de compresiones por los parches",
+   "pts": 7.5,
+   "question": "¿Tu equipo mide frecuencia y profundidad de las compresiones a través de los parches desechables?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí",
+     "pts": 7.5
+    }
+   ],
+   "cite": "PCAP p.60"
+  },
+  {
+   "id": "m_battery",
+   "kind": "choice",
+   "name": "Autonomía con dos baterías de 440 choques o 12 horas o más",
+   "pts": 10,
+   "question": "¿Con dos baterías tu equipo alcanza 440 choques o 12 horas?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí",
+     "pts": 10
+    }
+   ],
+   "cite": "PCAP p.60"
+  },
+  {
+   "id": "m_charge",
+   "kind": "choice",
+   "name": "Tiempo de carga hasta 200 J de 3 segundos o menos",
+   "pts": 10,
+   "question": "¿Tu equipo carga hasta 200 J en 3 segundos o menos?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí",
+     "pts": 10
+    }
+   ],
+   "cite": "PCAP p.60"
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 10,
+  "single_pct": 25,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.61",
+  "note": "Con 3 o más ofertas: más de 10 puntos por debajo de la media. Con 2 ofertas: más de 20 puntos por debajo de la otra. Con una: más de 25 puntos por debajo del presupuesto."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": null,
+  "note": "El pliego no fija horas de dedicación: es un suministro con dos entregas (40 unidades antes del 30-11-2027 y 40 entre enero y marzo de 2028), formación y garantía total de 36 meses"
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 1,
+  "cite": "PCAP p.55–56"
+ },
+ "risk_flags": [
+  {
+   "id": "warranty",
+   "label": "Garantía total todo incluido de 36 meses y repuestos durante 12 años",
+   "cite": "PPT p.8–9 · PPT p.11",
+   "weight": 3
+  },
+  {
+   "id": "deadlines",
+   "label": "Plazos parciales improrrogables (40 unidades antes del 30-11-2027 y 40 entre enero y marzo de 2028)",
+   "cite": "PCAP p.50",
+   "weight": 2
+  },
+  {
+   "id": "licences",
+   "label": "Prohibidas las licencias recurrentes y obligación de dar software de streaming e integración con la historia clínica",
+   "cite": "PPT p.5–6",
+   "weight": 2
+  },
+  {
+   "id": "penalties",
+   "label": "Penalidades del 3 % al 10 % del precio, incluso por no cumplir las mejoras ofertadas",
+   "cite": "PCAP p.63–65",
+   "weight": 2
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se admite, pero la experiencia solo puede completarse con otra entidad si hace instalación, y el pliego dice que no hay instalación",
+  "ute": true,
+  "subcontracting": true,
+  "cite": "PCAP p.10 · PCAP p.17–18 · PCAP p.62–63"
+ },
+ "specific_checks": [
+  {
+   "text": "El importe ofertado no puede superar el presupuesto base de 1.173.520 € sin IVA, y el IVA debe ir como partida aparte",
+   "cite": "PCAP p.20"
+  },
+  {
+   "text": "Las mejoras se marcan en el Anexo II: lo que se ofrece se convierte en obligación (penalidad del 10 % si no se cumple)",
+   "cite": "PCAP p.64 · PCAP p.67–68"
+  },
+  {
+   "text": "El monitor debe cumplir todos los mínimos del PPT (IP55, menos de 7,9 kg, 12 derivaciones, Wifi y Bluetooth, HL7)",
+   "cite": "PPT p.3–5"
+  },
+  {
+   "text": "El embalaje debe ser de cartón reciclado o con certificado FSC, PEFC o ecolabel UE",
+   "cite": "PCAP p.62"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -10,
+   "task": "Prepara la ficha técnica, los certificados y la memoria del monitor ofertado, en castellano y con los datos del PPT señalados",
+   "cite": "PCAP p.53–55",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -8,
+   "task": "Revisa y firma el DEUC y las declaraciones del Anexo VI (sobre 1)",
+   "cite": "PCAP p.16–19 · PCAP p.75–77",
+   "help": "Borrador del DEUC (próximamente)"
+  },
+  {
+   "when": -6,
+   "task": "Redacta la relación firmada de suministros y la declaración del volumen de negocios",
+   "cite": "PCAP p.52",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -4,
+   "task": "Rellena el Anexo II con el precio, el IVA aparte y las mejoras que sí cumples (sobre 2)",
+   "cite": "PCAP p.67–68",
+   "help": "Rebaja recomendada"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "Los pliegos no indican la fecha y hora de cierre; se usa la del anuncio (31-03-2028, 23:59), que coincide con el fin de ejecución del contrato. Hay que confirmarla en la Plataforma.",
+   "cite": "PCAP p.50 · PPT p.11"
+  },
+  {
+   "text": "La fórmula del precio se llama lineal y da 0 puntos al presupuesto base, pero la fórmula escrita, 35·(Xmin/Xv)^(1/5), no es lineal y no da 0 al presupuesto base",
+   "cite": "PCAP p.57 · PCAP p.59"
+  },
+  {
+   "text": "El PCAP dice que no incluye mantenimiento, pero el PPT exige garantía total de 36 meses con mantenimiento y revisiones sin coste",
+   "cite": "PCAP p.49 · PPT p.8 · PPT p.11"
+  },
+  {
+   "text": "El PCAP dice que no hay instalación, pero el objeto y el segundo plazo parcial hablan de instalación y puesta en funcionamiento",
+   "cite": "PCAP p.44 · PCAP p.50 · PCAP p.62"
+  },
+  {
+   "text": "No se aclara en qué sobre se presentan la ficha técnica y los certificados de solvencia técnica",
+   "cite": "PCAP p.53–55 · PCAP p.56"
+  }
+ ]
+}

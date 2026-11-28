@@ -1,0 +1,370 @@
+{
+ "schema": 1,
+ "id": "21017491",
+ "reviewed": "2026-11-28",
+ "title": "Reparación de los caminos rurales de Picanya afectados por la DANA",
+ "buyer": "Ayuntamiento de Picanya",
+ "buyer_key": "Junta de Gobierno del Ayuntamiento de Picanya",
+ "province": "Valencia",
+ "cpv": "45233140",
+ "ref": "3082380J",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=FuIGK0dQtTkQyBAnWzHfCg%3D%3D",
+ "deadline": "2026-12-10",
+ "deadline_time": "23:59",
+ "questions_until": "2026-12-02",
+ "questions_cite": "ANX3 p.14",
+ "opening_days": null,
+ "opening_cite": "El pliego no lo indica",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 3,
+ "judgement_pts": 45,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Obra completa de reparación de caminos rurales",
+   "budget": 2475085.11,
+   "months": 6
+  }
+ ],
+ "lots_cite": "ANX3 p.4 · ANX3 p.5",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": "No hay lotes: un único contrato.",
+ "lots_rule_cite": "ANX3 p.4",
+ "requirements": [
+  {
+   "id": "classification",
+   "kind": "yesno",
+   "label": "Clasificación como contratista de obras",
+   "rule": "Grupo G (Viales y pistas), subgrupo 4 (firmes de mezclas bituminosas), categoría 4",
+   "question": "¿Tu empresa está clasificada en el grupo G, subgrupo 4, con categoría 4 o superior?",
+   "cite": "ANX3 p.15",
+   "proof": "Certificado de clasificación o inscripción en el ROLECE"
+  },
+  {
+   "id": "turnover",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 1.5,
+   "label": "Solvencia económica (en lugar de la clasificación, para empresas no españolas)",
+   "rule": "Facturación del mejor de los 3 últimos años cerrados de al menos 1,5 veces el valor estimado (3.712.627,66 €)",
+   "question": "¿Cuál fue tu facturación en tu mejor año de los 3 últimos cerrados?",
+   "unit": "€",
+   "cite": "ANX3 p.15",
+   "proof": "Cuentas anuales depositadas en el Registro Mercantil",
+   "alt_to": "classification"
+  },
+  {
+   "id": "similar",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 1.0,
+   "label": "Solvencia técnica (en lugar de la clasificación, para empresas no españolas)",
+   "rule": "En el año de mayor ejecución de los últimos 5, obras del mismo grupo o subgrupo por al menos el valor estimado (2.475.085,11 €)",
+   "question": "¿Cuánto facturaste en obras de firmes bituminosos (grupo G, subgrupo 4) en tu mejor año de los últimos 5?",
+   "unit": "€",
+   "cite": "ANX3 p.15–16",
+   "proof": "Certificados de buena ejecución con importe, fechas y lugar",
+   "alt_to": "classification"
+  },
+  {
+   "id": "rea",
+   "kind": "yesno",
+   "label": "Inscripción en el REA",
+   "rule": "Estar inscrita en el Registro de Empresas Acreditadas",
+   "question": "¿Estás inscrito en el Registro de Empresas Acreditadas (REA)?",
+   "cite": "ANX3 p.16",
+   "proof": "Certificado de inscripción en el REA"
+  },
+  {
+   "id": "insurance",
+   "kind": "yesno",
+   "label": "Seguro de responsabilidad civil",
+   "rule": "Capital asegurado de al menos 1.000.000 €, a aportar con póliza y recibo antes de empezar la obra",
+   "question": "¿Tienes o puedes contratar un seguro de responsabilidad civil de al menos 1.000.000 €?",
+   "cite": "ANX3 p.18",
+   "proof": "Póliza y recibo vigente"
+  }
+ ],
+ "classification": {
+  "group": "G",
+  "subgroup": "4",
+  "category": 4,
+  "cite": "ANX3 p.15",
+  "note": "El importe del contrato supera 2.400.000 € de la categoría 4; conviene confirmarlo con el órgano."
+ },
+ "roles": [],
+ "roles_question": "",
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Baja de la oferta económica",
+   "pts": 20,
+   "formula": "proportional",
+   "how": "P = 20 × oferta más baja no anormal ÷ tu oferta (sin IVA). Sin baja, 0 puntos",
+   "cite": "ANX3 p.11–12",
+   "note": "Fórmula proporcional inversa, no lineal con la baja: una baja pequeña apenas cambia los puntos."
+  },
+  {
+   "id": "warranty",
+   "kind": "choice",
+   "name": "Ampliación del plazo de garantía",
+   "pts": 20,
+   "question": "¿Cuántos años de garantía extra puedes asumir sobre el año mínimo?",
+   "options": [
+    {
+     "label": "Ninguno (1 año)",
+     "pts": 0
+    },
+    {
+     "label": "+1 año (2 en total)",
+     "pts": 5
+    },
+    {
+     "label": "+2 años (3 en total)",
+     "pts": 10
+    },
+    {
+     "label": "+3 años (4 en total)",
+     "pts": 15
+    },
+    {
+     "label": "+4 años (5 en total)",
+     "pts": 20
+    }
+   ],
+   "cite": "ANX3 p.12"
+  },
+  {
+   "id": "asphalt",
+   "kind": "choice",
+   "name": "Compromiso con proveedor de asfalto o productos bituminosos",
+   "pts": 8,
+   "question": "¿Puedes aportar el Anexo III firmado con un proveedor que cubra el 100 % del material bituminoso?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí, con el Anexo III firmado",
+     "pts": 8
+    }
+   ],
+   "cite": "ANX3 p.12 · ANX6 p.1"
+  },
+  {
+   "id": "materials",
+   "kind": "choice",
+   "name": "Compromiso con proveedores del resto de materiales",
+   "pts": 7,
+   "question": "¿Puedes aportar el Anexo IV firmado con proveedores por al menos el 40 % del presupuesto restante (sin asfalto)?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí, con el Anexo IV firmado",
+     "pts": 7
+    }
+   ],
+   "cite": "ANX3 p.12–13 · ANX4 p.1"
+  },
+  {
+   "id": "j1",
+   "kind": "judgement",
+   "name": "Memoria: organización y desarrollo de las obras",
+   "pts": 15,
+   "how": "12 puntos por recursos y medios, 3 por medidas innovadoras o sostenibles. Máximo 4 páginas",
+   "cite": "ANX3 p.9"
+  },
+  {
+   "id": "j2",
+   "kind": "judgement",
+   "name": "Memoria: planificación temporal (Gantt)",
+   "pts": 3,
+   "how": "Diagrama de Gantt con los recursos de cada fase. Máximo 1 página",
+   "cite": "ANX3 p.9"
+  },
+  {
+   "id": "j3",
+   "kind": "judgement",
+   "name": "Memoria: particularidades de la obra",
+   "pts": 15,
+   "how": "Anticipar problemas y soluciones. Máximo 4 páginas",
+   "cite": "ANX3 p.9–10"
+  },
+  {
+   "id": "j4",
+   "kind": "judgement",
+   "name": "Memoria: implantación de fases y circulaciones",
+   "pts": 6,
+   "how": "Métodos, fases con mínima interrupción y accesos seguros. Máximo 2 páginas",
+   "cite": "ANX3 p.10"
+  },
+  {
+   "id": "j5",
+   "kind": "judgement",
+   "name": "Memoria: programa medioambiental",
+   "pts": 3,
+   "how": "Vigilancia ambiental, gestión de residuos y certificados. Máximo 2 páginas",
+   "cite": "ANX3 p.10–11"
+  },
+  {
+   "id": "j6",
+   "kind": "judgement",
+   "name": "Memoria: seguridad y salud",
+   "pts": 3,
+   "how": "Organización preventiva, formación y emergencias. Máximo 2 páginas",
+   "cite": "ANX3 p.11"
+  }
+ ],
+ "judgement_min_pts": 22.5,
+ "judgement_min_cite": "ANX3 p.9",
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 10,
+  "accept_rate": 0.5,
+  "cite": "ANX3 p.12 · ANX3 p.13",
+  "note": "El pliego solo remite al art. 85 del Reglamento general de la LCAP sin dar cifras. Suponemos 10 puntos porcentuales bajo la media. Hay que confirmarlo con el órgano. No hay umbral de anormalidad para los criterios 2.2, 2.3 y 2.4."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": 60,
+  "note": "Estimación nuestra, el pliego no fija horas: memoria técnica con Gantt, dos acuerdos con proveedores, DEUC y anexos"
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 0,
+  "cite": "ANX3 p.7"
+ },
+ "risk_flags": [
+  {
+   "id": "short_deadline",
+   "label": "Plazo de oferta de solo 13 días naturales por urgencia",
+   "cite": "ANX3 p.13",
+   "weight": 3
+  },
+  {
+   "id": "warranty_cost",
+   "label": "Años extra de garantía (hasta 4) corren por cuenta del contratista",
+   "cite": "ANX3 p.12 · PCAP p.35",
+   "weight": 3
+  },
+  {
+   "id": "delay_penalty",
+   "label": "Penalidad diaria de 0,60 € por cada 1.000 € del precio, desde el primer mes",
+   "cite": "PCAP p.31",
+   "weight": 3
+  },
+  {
+   "id": "duration",
+   "label": "Obra de 6 meses con arranque rápido y planes en 7–8 días tras formalizar",
+   "cite": "ANX3 p.4 · PCAP p.25",
+   "weight": 2
+  },
+  {
+   "id": "hidden_defects",
+   "label": "Responsabilidad por vicios ocultos durante 15 años",
+   "cite": "PCAP p.36",
+   "weight": 2
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se admite recurrir a la solvencia de otras entidades con compromiso por escrito y su DEUC",
+  "ute": true,
+  "subcontracting": true,
+  "cite": "PCAP p.19–20 · ANX3 p.14 · ANX3 p.17"
+ },
+ "specific_checks": [
+  {
+   "text": "No incluir datos de los criterios automáticos (precio, años de garantía) en el archivo 1 ni en el 2: supone la exclusión",
+   "cite": "PCAP p.13"
+  },
+  {
+   "text": "Los Anexos III y IV deben ir firmados por la empresa y el proveedor y dentro del archivo 3, o el compromiso no cuenta",
+   "cite": "ANX3 p.13 · ANX2 p.2"
+  },
+  {
+   "text": "La memoria debe respetar formato (A4/A3, Arial 11, márgenes 2,5 cm) y límite de páginas por apartado; lo que sobra no se valora",
+   "cite": "ANX3 p.8–11"
+  },
+  {
+   "text": "Hace falta al menos 22,5 puntos en la memoria técnica para seguir en la licitación",
+   "cite": "ANX3 p.9"
+  },
+  {
+   "text": "No usar escudos ni elementos gráficos institucionales del Ayuntamiento en sobres ni documentos",
+   "cite": "PCAP p.16"
+  },
+  {
+   "text": "Anexos V y VI firmados, por ser fondos de la UE",
+   "cite": "ANX3 p.14"
+  },
+  {
+   "text": "Inscripción en el REA acreditada",
+   "cite": "ANX3 p.16"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -8,
+   "task": "Envía por la Plataforma las dudas sobre el pliego (último día: 2 de diciembre) y descarga el proyecto técnico",
+   "cite": "ANX3 p.14",
+   "help": "Preguntas sugeridas según este diagnóstico"
+  },
+  {
+   "when": -7,
+   "task": "Prepara y firma el DEUC y los Anexos V y VI (archivo 1)",
+   "cite": "ANX3 p.14",
+   "help": "Borrador del DEUC (próximamente)"
+  },
+  {
+   "when": -6,
+   "task": "Cierra y firma los acuerdos con proveedores: Anexo III (asfalto, 100 %) y Anexo IV (resto, al menos 40 %)",
+   "cite": "ANX3 p.13 · ANX6 p.1 · ANX4 p.1",
+   "help": "Modelo de acuerdo con proveedor"
+  },
+  {
+   "when": -3,
+   "task": "Redacta y firma la memoria técnica con Gantt respetando formato y páginas (archivo 2)",
+   "cite": "ANX3 p.8–11",
+   "help": "Lista de comprobación de la memoria"
+  },
+  {
+   "when": -1,
+   "task": "Rellena el Anexo II con precio y años de garantía y súbelo con los Anexos III y IV (archivo 3)",
+   "cite": "ANX2 p.1–2",
+   "help": "Baja y años de garantía recomendados"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "La portada del PCAP habla de infraestructuras viarias del casco urbano (Fase I, expediente 2716783K), mientras que el Anexo I y el anuncio hablan de caminos rurales (expediente 3082380J)",
+   "cite": "PCAP p.1 · ANX3 p.1"
+  },
+  {
+   "text": "El PCAP admite recurso especial (art. 44 LCSP) y el Anexo I solo recurso administrativo; el importe de 2.475.085,11 € no llega al umbral de obras",
+   "cite": "PCAP p.4 · ANX3 p.2"
+  },
+  {
+   "text": "Se exige categoría 4 de clasificación (hasta 2.400.000 €) para un contrato de 2.475.085,11 € en 6 meses",
+   "cite": "ANX3 p.15"
+  },
+  {
+   "text": "El umbral de baja anormal remite al art. 85 RGLCAP sin dar cifras",
+   "cite": "ANX3 p.12–13"
+  },
+  {
+   "text": "El pliego no indica fecha de apertura de sobres ni la fecha de publicación del anuncio; esta última (27-11-2026) está deducida del plazo de 13 días naturales que termina el 10-12-2026",
+   "cite": "PCAP p.17 · ANX3 p.13"
+  },
+  {
+   "text": "La solvencia económica y técnica del Anexo I figura «en sustitución de la clasificación» para empresas no españolas; para empresas españolas rige la clasificación",
+   "cite": "ANX3 p.15–16"
+  }
+ ]
+}

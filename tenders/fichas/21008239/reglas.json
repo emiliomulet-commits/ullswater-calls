@@ -1,0 +1,250 @@
+{
+ "schema": 1,
+ "id": "21008239",
+ "reviewed": "2026-11-28",
+ "title": "Renovación de cables de media tensión en el túnel de Abdalajís (LAV Córdoba-Málaga)",
+ "buyer": "ADIF Alta Velocidad",
+ "buyer_key": "ADIF Alta Velocidad - Presidencia",
+ "province": "Málaga",
+ "cpv": "31300000",
+ "ref": "3.26/20810.0094",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=KE93rXfpI6zmnwcj%2BxbdTg%3D%3D",
+ "deadline": "2027-01-11",
+ "deadline_time": "11:00",
+ "questions_until": "2026-12-30",
+ "questions_cite": "PCAP p.5–6",
+ "opening_days": null,
+ "opening_cite": "PCAP p.31",
+ "platform": "Portal del Licitador de ADIF (elicitadores.adif.es)",
+ "envelopes": 2,
+ "judgement_pts": 0,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Contrato único: cable MT, soportación, empalmes y ensayos",
+   "budget": 3903038.52,
+   "months": 24
+  }
+ ],
+ "lots_cite": "PCAP p.3 · PCAP p.11",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": "No hay lotes.",
+ "lots_rule_cite": "PCAP p.11",
+ "requirements": [
+  {
+   "id": "turnover",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 0.75,
+   "label": "Solvencia económica",
+   "rule": "Facturación del mejor de los 3 últimos años de al menos 2.927.278,89 € (1,5 veces la anualidad media)",
+   "question": "¿Cuál fue tu facturación en tu mejor año de los 3 últimos cerrados?",
+   "unit": "€",
+   "cite": "PCAP p.6–7",
+   "proof": "Cuentas anuales depositadas en el Registro Mercantil"
+  },
+  {
+   "id": "cables",
+   "kind": "number_min",
+   "min": 830613,
+   "label": "Experiencia en suministro de cables",
+   "rule": "En tu mejor año de los últimos 3, al menos 830.613 € en suministros de hilos y cables aislados (CPV 313)",
+   "question": "¿Cuánto facturaste, en tu mejor año de los 3 últimos, en suministro de cables aislados?",
+   "unit": "€",
+   "cite": "PCAP p.7",
+   "proof": "Relación de trabajos y certificados de buena ejecución"
+  },
+  {
+   "id": "rail_services",
+   "kind": "number_min",
+   "min": 535450.48,
+   "label": "Experiencia en servicios ferroviarios",
+   "rule": "En tu mejor año de los últimos 3, al menos 535.450,48 € en reparación y mantenimiento ferroviario (CPV 502)",
+   "question": "¿Cuánto facturaste, en tu mejor año de los 3 últimos, en servicios de mantenimiento o instalaciones ferroviarias?",
+   "unit": "€",
+   "cite": "PCAP p.7",
+   "proof": "Relación de trabajos y certificados de buena ejecución"
+  },
+  {
+   "id": "team_lead",
+   "kind": "yesno",
+   "label": "Jefe de equipo",
+   "rule": "Un jefe de equipo con grado universitario, 3 años de experiencia en control de trabajos en subestaciones o túneles y dedicación exclusiva",
+   "question": "¿Tienes un jefe de equipo con grado universitario, 3 años de experiencia en subestaciones o túneles, y que pueda dedicarse en exclusiva al contrato?",
+   "cite": "PCAP p.7–8",
+   "proof": "Currículum firmado, título y compromiso de disponibilidad"
+  },
+  {
+   "id": "omi",
+   "kind": "yesno",
+   "label": "Operador de maquinaria de infraestructura",
+   "rule": "Un operador con habilitación según la Orden FOM/2872/2010, 2 años de experiencia y dedicación exclusiva",
+   "question": "¿Tienes un operador de maquinaria de infraestructura habilitado (Orden FOM/2872/2010), con 2 años de experiencia y dedicación exclusiva?",
+   "cite": "PCAP p.8",
+   "proof": "Habilitación, currículum y compromiso de disponibilidad"
+  },
+  {
+   "id": "vehicles",
+   "kind": "yesno",
+   "label": "Dresina y plataforma de tendido",
+   "rule": "Una dresina (≥ 80 km/h, con plataforma y grúa) y una plataforma de tendido con gatos portabobinas (≥ 40 km/h), ambas autorizadas para la red ferroviaria",
+   "question": "¿Dispones (en propiedad, alquiler o cesión) de una dresina y una plataforma de tendido autorizadas para circular por la red ferroviaria de interés general?",
+   "cite": "PCAP p.8–9",
+   "proof": "Ficha técnica, autorización de circulación, inspecciones IS e IM y marcado CE"
+  },
+  {
+   "id": "insurance",
+   "kind": "yesno",
+   "label": "Seguros exigidos",
+   "rule": "Seguro de accidentes de 300.000 € por víctima y de responsabilidad civil por el precio de adjudicación",
+   "question": "¿Puedes contratar un seguro de accidentes de 300.000 € por víctima y un seguro de responsabilidad civil por el importe de tu oferta?",
+   "cite": "PCAP p.13–14",
+   "proof": "Declaración responsable y certificado del asegurador (1 mes tras formalizar)"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Precio",
+   "pts": 100,
+   "formula": "lowest",
+   "how": "Gana la oferta admitida más barata sin IVA; no hay reparto de puntos ni otros criterios",
+   "cite": "PCAP p.12 · PCAP p.32",
+   "note": "El pliego no usa fórmula de puntos: el precio es el único criterio y gana el importe más bajo."
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 10,
+  "single_pct": 25,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.32–33",
+  "note": "Con 4 o más ofertas, baja anormal si supera en más de 10 puntos porcentuales la media (se recalcula sin las ofertas más de 10 puntos por encima de la media). Con 1 oferta, más de 25 puntos bajo el presupuesto; con 2, más de 20 puntos bajo la otra; con 3, más de 10 bajo la media y siempre más de 25."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": null,
+  "note": "El pliego no indica las horas de dedicación. El plazo es de 24 meses con jefe de equipo y operador en exclusiva."
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 5,
+  "cite": "PCAP p.10"
+ },
+ "risk_flags": [
+  {
+   "id": "penalties",
+   "label": "Penalidades por retrasos de trenes (0,1 % por tren), averías por negligencia (coste + 25 %) y limitaciones de velocidad",
+   "cite": "PCAP p.15–16",
+   "weight": 4
+  },
+  {
+   "id": "exclusive",
+   "label": "Jefe de equipo y operador en dedicación exclusiva durante 24 meses",
+   "cite": "PCAP p.7–8",
+   "weight": 3
+  },
+  {
+   "id": "annual_cap",
+   "label": "No se puede cobrar en un año más que la anualidad de 1.951.519,26 € sin IVA",
+   "cite": "PCAP p.3 · PCAP p.40",
+   "weight": 2
+  },
+  {
+   "id": "price_only",
+   "label": "Solo cuenta el precio, con precios unitarios máximos y partida alzada sin baja",
+   "cite": "PCAP p.12",
+   "weight": 2
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se admite, con indicación en el DEUC y responsabilidad solidaria sobre la solvencia económica",
+  "ute": true,
+  "subcontracting": true,
+  "cite": "PCAP p.6 · PCAP p.10 · PCAP p.45"
+ },
+ "specific_checks": [
+  {
+   "text": "Ofertar todas las partidas con las mediciones exactas del pliego; omitir una o cambiar una medición excluye la oferta",
+   "cite": "PCAP p.12"
+  },
+  {
+   "text": "La partida alzada de 50.000 € no admite baja y ningún precio unitario puede superar el de licitación",
+   "cite": "PCAP p.12 · PCAP p.52"
+  },
+  {
+   "text": "No incluir datos del precio en el sobre 1",
+   "cite": "PCAP p.29"
+  },
+  {
+   "text": "No presentar más de una oferta, ni sola y en UTE a la vez",
+   "cite": "PCAP p.12"
+  },
+  {
+   "text": "Declarar si la empresa o una vinculada participó en preparar los documentos del contrato",
+   "cite": "PCAP p.11"
+  },
+  {
+   "text": "Registrarse con antelación en el Portal del Licitador de ADIF y firmar con certificado cualificado o avanzado",
+   "cite": "PCAP p.19–20"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -21,
+   "task": "Regístrate en el Portal del Licitador de ADIF y completa los datos adicionales",
+   "cite": "PCAP p.19",
+   "help": "Sin registro no se puede ofertar"
+  },
+  {
+   "when": -14,
+   "task": "Reúne la documentación de la dresina y la plataforma de tendido, y de los dos perfiles de personal",
+   "cite": "PCAP p.7–9",
+   "help": "Se exigirá a la mejor oferta, con 10 días hábiles de plazo"
+  },
+  {
+   "when": -12,
+   "task": "Envía tus preguntas por correo o por la Plataforma (último día: 30 de diciembre de 2026)",
+   "cite": "PCAP p.5–6",
+   "help": "Solvencia técnica por CPV y fecha de apertura"
+  },
+  {
+   "when": -8,
+   "task": "Rellena y firma el DEUC (solo sección α de la parte IV) y el Anejo 2 (sobre 1)",
+   "cite": "PCAP p.28–29",
+   "help": "Borrador del DEUC (próximamente)"
+  },
+  {
+   "when": -5,
+   "task": "Prepara el Anejo 1 con el importe ofertado y el Anejo 1 Bis con todos los precios unitarios (sobre 2)",
+   "cite": "PCAP p.12 · PCAP p.51–52",
+   "help": "Rebaja recomendada"
+  },
+  {
+   "when": -2,
+   "task": "Sube y firma todos los sobres en el Portal; no firmes el envío hasta tener todo listo",
+   "cite": "PCAP p.20",
+   "help": "Deja margen para fallos técnicos"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "El plazo de garantía cuenta desde el certificado de correcta ejecución en el cuadro y desde la recepción en la cláusula 37",
+   "cite": "PCAP p.18 · PCAP p.49"
+  },
+  {
+   "text": "El reparto de la solvencia técnica entre los dos CPV y el año que cuenta no están del todo claros",
+   "cite": "PCAP p.7"
+  },
+  {
+   "text": "El plazo de adjudicación difiere entre el cuadro (15 días) y la cláusula 21 (5 días hábiles tras la documentación)",
+   "cite": "PCAP p.13 · PCAP p.37"
+  }
+ ]
+}

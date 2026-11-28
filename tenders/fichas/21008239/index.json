@@ -1,0 +1,168 @@
+{
+ "id": "21008239",
+ "title": "Renovación de los cables de media tensión en el túnel de Abdalajís mediante instalación perchada en hastial y configuración en doble acometida en la LAV Córdoba-Málaga.",
+ "buyer": "ADIF Alta Velocidad - Presidencia",
+ "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=KE93rXfpI6zmnwcj%2BxbdTg%3D%3D",
+ "docs": [
+  {
+   "kind": "Legal",
+   "name": "PliegoDeClausulasAdministrativas.PDF",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=vIv0fyIYnXXG8NxFbRVIS3FYLXXzFTOOdY6EcdHLRMzIzt3/zRmfcjk1ZiRE/G%2BFpht193GC6rP%2BRvVDRT0h6tgB3a6zyTUFY%2B8n0CACqFeB0nvVKRzfe4rpHcnlPhSZ",
+   "file": "01_Legal.pdf",
+   "bytes": 1636253,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261125163629PliegoDeClausulasAdministrativas.PDF",
+   "codes": [
+    "PCAP"
+   ],
+   "pages": 74
+  },
+  {
+   "kind": "Technical",
+   "name": "PliegoDePrescripcionesTecnicas.PDF",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=tp7Xb0/Edf16M/X/rg7Ll3%2BA9PwiITTIizQFnsliFrKh9PyvqKuGXET6Il6JdZh02YXeBfuoJN9PU6GkCTP/sOTXPO3hRnKAkaUCIrG0zW6HAj0WEJrB5sP7amrh2jBD",
+   "file": "02_Technical.pdf",
+   "bytes": 685721,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261125163633PliegoDePrescripcionesTecnicas.PDF",
+   "codes": [
+    "PPT"
+   ],
+   "pages": 48
+  },
+  {
+   "kind": "Additional",
+   "name": "Pop16.PDF",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=GIhaVuc7eyhGnjAqjoH6lCkj8a9fOx7ZEAG2dkuq3Z3jXokKP4Gu%2BAfWeVaCe82N50CQbUAJqacuI9tZy/LywETWsgyPDfAxFLpTiPbQAvp45ClyWkoJ44mKM70IFcOu",
+   "file": "03_Additional.pdf",
+   "bytes": 406429,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261125163700Pop16.PDF",
+   "codes": [
+    "ANX"
+   ],
+   "pages": 19
+  },
+  {
+   "kind": "Additional",
+   "name": "Pop12.PDF",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=wloRipRzZmMzeaTEGcEVoqr2wRYiEYwVO9YOMzDl7294QNe0te8SMBslKo52Bb4RX7vINwtnm%2BQLTB2PPUcaQzB3F1k1m4MPow8m/PWotjDVTD3T98KC0nSgQFM0q%2B5s",
+   "file": "04_Additional.pdf",
+   "bytes": 242875,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261125163649Pop12.PDF",
+   "codes": [
+    "ANX2"
+   ],
+   "pages": 48
+  },
+  {
+   "kind": "Additional",
+   "name": "FormularioDeuc.PDF",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=Zg/wSvTV0yGqo6UDyONve9OJx6lbFyKWwek8HT6hJYclbC3H3%2BbqSDPTQ6fdFevGk0L50%2B2zfvpKwq%2BkO%2B8iEpEoAnpHs2J9fXuxAczKFA945ClyWkoJ44mKM70IFcOu",
+   "file": "05_Additional.pdf",
+   "bytes": 1180145,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261125163643FormularioDeuc.PDF",
+   "codes": [
+    "ANX3"
+   ],
+   "pages": 13
+  },
+  {
+   "kind": "Additional",
+   "name": "Pg22.PDF",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=vpMvbkgKHPDiwBIlANuFC6%2BH1dVh8aRbCXGoEVjZMZSlpYlflvyuglS85RdOLDyv3cCzRvLzTaYnzhzg8f9uTGlS872lFDPOUPGOkGNhLeLfdyQgZAdTm3EfcUAC7CJ6",
+   "file": "06_Additional.pdf",
+   "bytes": 481497,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261125163647Pg22.PDF",
+   "codes": [
+    "ANX4"
+   ],
+   "pages": 87
+  },
+  {
+   "kind": "Additional",
+   "name": "AnexoCgServicios.PDF",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=pANNB4PBDTm9UO%2Bo1iVbZ9FB8iwWLsBz2wM/VbMpBMljXn%2BeTM9ub2OziQ3uJajbAGnLnxsaWH2bBH0m/THp/AJ5KdR9EJt7CTvKLuarqSiB0nvVKRzfe4rpHcnlPhSZ",
+   "file": "07_Additional.pdf",
+   "bytes": 281284,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261125140806AnexoCgServicios.PDF",
+   "codes": [
+    "ANX5"
+   ],
+   "pages": 36
+  },
+  {
+   "kind": "Additional",
+   "name": "AnexoCgSuministros.PDF",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=GLirAHj5AeX%2B1UOw1HzsoyCTV2Hjv8P3uh9oqXrAnxbQ7fIDzzq5PBuOw18OrYEOZvowRGlmiuYHVyCswtoksCxyUBhTZZb2fLZ9N7pOPFx45ClyWkoJ44mKM70IFcOu",
+   "file": "08_Additional.pdf",
+   "bytes": 13811309,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261125141114AnexoCgSuministros.PDF",
+   "codes": [
+    "ANX6"
+   ],
+   "pages": 40
+  },
+  {
+   "kind": "Additional",
+   "name": "BoeDeuc.PDF",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=XoUpnGm5oG7aqzrTTetVJscwlmf/FgVQjOBeyT7o9qaXMA5zBcXTCbyFBOPRrNfmI7QtL4zDcP92zyvGDWczNIdwqldpPcOfLPo2eOl9pKCCx2e6p7hqtlp2aFupgHMr",
+   "file": "09_Additional.pdf",
+   "bytes": 249360,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261125163636BoeDeuc.PDF",
+   "codes": [
+    "ANX7"
+   ],
+   "pages": 9
+  },
+  {
+   "kind": "Additional",
+   "name": "Pop12Anexos.PDF",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=%2BeNM1B6ocsXhH4YlqI%2BkwiRit06smxAzIq2DYkTI/D6MPaYwRDAwaDr5i3GRo9Y/amcVtbpc8gdjuHw8CdjA8o5EutpI/iS1Z5tlHgjB2TSCx2e6p7hqtlp2aFupgHMr",
+   "file": "10_Additional.pdf",
+   "bytes": 88273,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261125163651Pop12Anexos.PDF",
+   "codes": [
+    "ANX8"
+   ],
+   "pages": 12
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-1c5ed28b-ad34-4476-adce-73e09169b3f5",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-1c5ed28b-ad34-4476-adce-73e09169b3f5",
+   "file": "11_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-d13e1770-1c11-46bc-a8aa-2a3443033de7",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-d13e1770-1c11-46bc-a8aa-2a3443033de7",
+   "file": "12_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  }
+ ]
+}

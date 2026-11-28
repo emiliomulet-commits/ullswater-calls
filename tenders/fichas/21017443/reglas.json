@@ -1,0 +1,367 @@
+{
+ "schema": 1,
+ "id": "21017443",
+ "reviewed": "2026-11-28",
+ "title": "Compra de un edificio céntrico en Son Servera para servicios municipales",
+ "buyer": "Ayuntamiento de Son Servera",
+ "buyer_key": "Alcaldía del Ajuntament de Son Servera",
+ "province": "Illes Balears",
+ "cpv": "70120000",
+ "ref": "9705/2026",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=N6AP%2FHraEikIYE3ZiZ%2BxmQ%3D%3D",
+ "deadline": "2027-02-28",
+ "deadline_time": "14:00",
+ "questions_until": "2027-02-16",
+ "questions_cite": "PCAP p.4",
+ "opening_days": null,
+ "opening_cite": "PCAP p.9",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 3,
+ "judgement_pts": 40,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Compra de un único inmueble (sin lotes)",
+   "budget": 1400000,
+   "months": null
+  }
+ ],
+ "lots_cite": "PCAP p.2",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": "No hay lotes. Cada licitador solo puede presentar una oferta.",
+ "lots_rule_cite": "PCAP p.3",
+ "requirements": [
+  {
+   "id": "ownership",
+   "kind": "yesno",
+   "label": "Titularidad y libre de cargas",
+   "rule": "Inmueble con escritura, inscrito en el Registro de la Propiedad y libre de cargas, gravámenes, arrendatarios y ocupantes",
+   "question": "¿Eres propietario del inmueble (con todos los copropietarios dispuestos a firmar la oferta) y está inscrito y libre de cargas y de ocupantes?",
+   "cite": "PCAP p.2 · PPT p.2",
+   "proof": "Nota simple actualizada del Registro de la Propiedad y ficha catastral"
+  },
+  {
+   "id": "distance",
+   "kind": "yesno",
+   "label": "Ubicación",
+   "rule": "Núcleo urbano de Son Servera, a 200 m o menos del Ayuntamiento, con uso administrativo permitido",
+   "question": "¿Está el inmueble en el centro de Son Servera, a 200 m o menos del Ayuntamiento, y su uso administrativo está permitido?",
+   "cite": "PPT p.1 · ANX p.1–3",
+   "proof": "Plano de emplazamiento y memoria descriptiva"
+  },
+  {
+   "id": "built",
+   "kind": "number_min",
+   "min": 800,
+   "label": "Superficie construida mínima",
+   "rule": "Al menos 800 m² construidos (o equivalente funcionalmente)",
+   "question": "¿Cuántos m² construidos tiene el inmueble?",
+   "unit": "m²",
+   "cite": "PPT p.1",
+   "proof": "Cuadro de superficies de la memoria y ficha catastral"
+  },
+  {
+   "id": "plot",
+   "kind": "number_min",
+   "min": 650,
+   "label": "Superficie del solar mínima",
+   "rule": "Al menos 650 m² de solar",
+   "question": "¿Cuántos m² tiene el solar?",
+   "unit": "m²",
+   "cite": "PPT p.1",
+   "proof": "Ficha catastral y nota simple"
+  },
+  {
+   "id": "open",
+   "kind": "number_min",
+   "min": 250,
+   "label": "Espacio libre mínimo",
+   "rule": "Al menos 250 m² de espacio libre de parcela",
+   "question": "¿Cuántos m² de espacio libre de parcela tiene?",
+   "unit": "m²",
+   "cite": "PPT p.1",
+   "proof": "Cuadro de superficies de la memoria"
+  },
+  {
+   "id": "habitability",
+   "kind": "yesno",
+   "label": "Cédula de habitabilidad o final de obra",
+   "rule": "Cédula de habitabilidad y/o final de obra, suelo urbano calificación intensiva A y situación jurídica y urbanística regular",
+   "question": "¿Tiene cédula de habitabilidad y/o final de obra, y suelo urbano «intensiva A» con situación regular?",
+   "cite": "PPT p.1 · PCAP p.5",
+   "proof": "Cédula o final de obra y documentación urbanística"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica (€/m² construido)",
+   "pts": 40,
+   "formula": "proportional",
+   "k_pct": null,
+   "single_k_pct": null,
+   "how": "Puntos = precio unitario más bajo ÷ tu precio unitario × 40. Sin rebaja sobre 1.750 €/m² obtienes 0 puntos",
+   "cite": "PCAP p.6"
+  },
+  {
+   "id": "evaluation",
+   "kind": "judgement",
+   "name": "Evaluación del inmueble",
+   "pts": 40,
+   "how": "Valoración técnica conjunta y comparada: accesibilidad, planta a pie de calle, distribución, estructura, estado, instalaciones, compatibilidad urbanística y carácter arquitectónico. Sin umbral ni reparto por aspecto",
+   "cite": "PCAP p.6–7",
+   "note": "El pliego no da fórmula ni umbral mínimo; no se puede calcular de antemano"
+  },
+  {
+   "id": "distance_pts",
+   "kind": "choice",
+   "name": "Cercanía al Ayuntamiento",
+   "pts": 10,
+   "question": "¿A qué distancia del Ayuntamiento está el inmueble?",
+   "options": [
+    {
+     "label": "Menos de 50 m",
+     "pts": 10
+    },
+    {
+     "label": "De 51 a 100 m",
+     "pts": 5
+    },
+    {
+     "label": "De 101 a 200 m",
+     "pts": 2
+    }
+   ],
+   "cite": "PCAP p.7"
+  },
+  {
+   "id": "built_pts",
+   "kind": "choice",
+   "name": "Superficie construida",
+   "pts": 3,
+   "question": "¿Cuántos m² construidos tiene?",
+   "options": [
+    {
+     "label": "800 m² o menos",
+     "pts": 0
+    },
+    {
+     "label": "Más de 800 y hasta 850 m²",
+     "pts": 1
+    },
+    {
+     "label": "Más de 850 y hasta 900 m²",
+     "pts": 2
+    },
+    {
+     "label": "Más de 900 m²",
+     "pts": 3
+    }
+   ],
+   "cite": "PCAP p.8"
+  },
+  {
+   "id": "open_pts",
+   "kind": "choice",
+   "name": "Espacio abierto",
+   "pts": 2,
+   "question": "¿Cuántos m² de espacio abierto tiene?",
+   "options": [
+    {
+     "label": "250 m² o menos",
+     "pts": 0
+    },
+    {
+     "label": "Más de 250 y hasta 300 m²",
+     "pts": 1
+    },
+    {
+     "label": "Más de 300 m²",
+     "pts": 2
+    }
+   ],
+   "cite": "PCAP p.8"
+  },
+  {
+   "id": "plot_pts",
+   "kind": "choice",
+   "name": "Superficie del solar",
+   "pts": 2,
+   "question": "¿Cuántos m² tiene el solar?",
+   "options": [
+    {
+     "label": "650 m² o menos",
+     "pts": 0
+    },
+    {
+     "label": "Más de 650 y hasta 800 m²",
+     "pts": 1
+    },
+    {
+     "label": "Más de 800 m²",
+     "pts": 2
+    }
+   ],
+   "cite": "PCAP p.8"
+  },
+  {
+   "id": "energy_pts",
+   "kind": "choice",
+   "name": "Calificación energética",
+   "pts": 3,
+   "question": "¿Qué calificación energética tiene el inmueble (certificado presentado)?",
+   "options": [
+    {
+     "label": "F, G o sin certificado",
+     "pts": 0
+    },
+    {
+     "label": "D o E",
+     "pts": 1
+    },
+    {
+     "label": "C",
+     "pts": 2
+    },
+    {
+     "label": "A o B",
+     "pts": 3
+    }
+   ],
+   "cite": "PCAP p.8"
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": null,
+  "single_pct": null,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.6",
+  "note": "El pliego no regula la baja anormal. Se usa un supuesto orientativo."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": 30,
+  "note": "Estimación nuestra: nota simple, ficha catastral, memoria con planos y fotos, certificado energético y firma de todos los propietarios. El pliego no la indica."
+ },
+ "guarantee": {
+  "definitive_pct": 0,
+  "abnormal_extra_pct": 0,
+  "cite": "PCAP p.10",
+  "note": "Garantía definitiva: el mejor licitador está eximido. Garantía provisional: el pliego no la exige."
+ },
+ "risk_flags": [
+  {
+   "id": "penalty_offer",
+   "label": "Penalidad del 3 % (42.000 €) si no presentas la documentación previa o no la corriges",
+   "cite": "PCAP p.10",
+   "weight": 3
+  },
+  {
+   "id": "penalty_deed",
+   "label": "Penalidad del 3 % (42.000 €) si no firmas la escritura en 2 meses por causa tuya",
+   "cite": "PCAP p.11",
+   "weight": 3
+  },
+  {
+   "id": "clean_title",
+   "label": "Debes dejar el inmueble libre de cargas y ocupantes, cancelar cargas y ajustar linderos a tu costa",
+   "cite": "PCAP p.11",
+   "weight": 3
+  },
+  {
+   "id": "price_cap",
+   "label": "No está claro si 1.400.000 € es tope total aunque superes 800 m²",
+   "cite": "PCAP p.2 · PCAP p.8",
+   "weight": 2
+  }
+ ],
+ "solvency_paths": {
+  "integration": null,
+  "integration_note": "No se exige solvencia económica ni técnica",
+  "ute": null,
+  "subcontracting": false,
+  "cite": "PCAP p.3"
+ },
+ "specific_checks": [
+  {
+   "text": "La oferta económica debe ir firmada por todos los propietarios del inmueble o sus representantes",
+   "cite": "PCAP p.4"
+  },
+  {
+   "text": "Las propuestas fuera del radio de 200 m o sin uso administrativo en las normas subsidiarias quedan excluidas",
+   "cite": "PPT p.1"
+  },
+  {
+   "text": "Sin certificado de eficiencia energética no hay puntos de calificación energética; la cédula de habitabilidad y/o final de obra también debe aportarse",
+   "cite": "PCAP p.5 · PCAP p.8"
+  },
+  {
+   "text": "Cada licitador solo puede presentar una oferta",
+   "cite": "PCAP p.3"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -30,
+   "task": "Pide la nota simple actualizada y la ficha catastral, y revisa que coincidan superficies y linderos (sobre 3)",
+   "cite": "PCAP p.5",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -20,
+   "task": "Prepara la memoria descriptiva con cuadro de superficies, fotos y planos, y consigue la cédula de habitabilidad y el certificado energético (sobre 3)",
+   "cite": "PCAP p.5 · PPT p.2",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -12,
+   "task": "Envía por la Plataforma tus dudas al órgano si quieres respuesta garantizada",
+   "cite": "PCAP p.4",
+   "help": "Lista de preguntas sugeridas"
+  },
+  {
+   "when": -5,
+   "task": "Firma la declaración responsable (Anexo 1) y acredita la representación (sobre 1)",
+   "cite": "PCAP p.4 · PCAP p.14",
+   "help": "Borrador del Anexo 1 (próximamente)"
+  },
+  {
+   "when": -3,
+   "task": "Fija el precio por m² con todos los propietarios y firma el Anexo 2 (sobre 2)",
+   "cite": "PCAP p.4–5 · PCAP p.16",
+   "help": "Rebaja recomendada según competencia"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "El pliego fija el cierre en 16 días naturales desde la publicación, pero el anuncio lo sitúa el 28/02/2027 a las 14:00. Se usa la fecha del anuncio",
+   "cite": "PCAP p.3"
+  },
+  {
+   "text": "No queda claro si 1.400.000 € es tope total del precio cuando la superficie supera 800 m² (a 1.750 €/m²)",
+   "cite": "PCAP p.2 · PCAP p.8"
+  },
+  {
+   "text": "La fórmula de precio da puntos a una oferta sin rebaja, pero el pliego dice que sin rebaja son 0 puntos",
+   "cite": "PCAP p.6"
+  },
+  {
+   "text": "El Anexo 1 remite a cláusulas 20.2 y 20.3 que no existen y habla de solvencia que no se define",
+   "cite": "PCAP p.14"
+  },
+  {
+   "text": "La escala de distancia no cubre exactamente 50 m y no explica cómo se mide",
+   "cite": "PCAP p.7"
+  },
+  {
+   "text": "El pliego no define baja anormal, desempate ni fecha de apertura de ofertas",
+   "cite": "PCAP p.6 · PCAP p.9"
+  }
+ ]
+}

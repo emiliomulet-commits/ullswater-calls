@@ -1,0 +1,96 @@
+{
+ "id": "20780339",
+ "title": "Servicios para la redacción de la adaptación del proyecto constructivo de reforma integral de la estación de La Serna y paso inferior urbano, Fuenlabrada (Madrid).",
+ "buyer": "ADIF - Presidencia",
+ "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=qxNsc92BLDzi0Kd8%2Brcp6w%3D%3D",
+ "docs": [
+  {
+   "kind": "Legal",
+   "name": "pcap.PDF",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=jSGhh7mJcraMTQ9v%2BLRANzMGTcqg01eIxvSTyOS3FBEKYm1eP82U5ndNZjG5g8YQW3Ba6gzx5mc0fgSMMjzo%2BnAtJwIP1GwOFylCdaEDqhXDdQD9RyhUmzT4jZ2In4zL",
+   "file": "01_Legal.pdf",
+   "bytes": 3699919,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261127132029pcap.PDF",
+   "codes": [
+    "PCAP"
+   ],
+   "pages": 104
+  },
+  {
+   "kind": "Technical",
+   "name": "PliegoDePrescripcionesTecnicas.PDF",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=AWsmtDKHDuGYRFlWy9kYxABCPdEVycYtIHzRI696dzRIJtVzeQoY/Ww2mCNKM12fS44KNnCnwKUa4laYQvwINNkGjPu3l6VNPciDWcS6thEZyAJWGsSt0OzTSTyw9JAs",
+   "file": "02_Technical.pdf",
+   "bytes": 7706112,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261127131656PliegoDePrescripcionesTecnicas.PDF",
+   "codes": [
+    "PPT"
+   ],
+   "pages": 308
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-c5f989fa-4be6-4ecd-a7bf-8a23d35c32d1",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-c5f989fa-4be6-4ecd-a7bf-8a23d35c32d1",
+   "file": "03_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-80835f62-cdd5-4ae3-9717-47ae7395c0f6",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-80835f62-cdd5-4ae3-9717-47ae7395c0f6",
+   "file": "04_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-ba584b4e-3a37-44c1-bf0c-56ef6a2c52f5",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-ba584b4e-3a37-44c1-bf0c-56ef6a2c52f5",
+   "file": "05_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-0f2bdf6f-1ec4-4387-aa27-55ef772ceaff",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-0f2bdf6f-1ec4-4387-aa27-55ef772ceaff",
+   "file": "06_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-7870d2a1-2fae-4c1d-902a-d48b32207915",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-7870d2a1-2fae-4c1d-902a-d48b32207915",
+   "file": "07_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-8a79c793-17fa-44a9-9058-52dc484414bd",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-8a79c793-17fa-44a9-9058-52dc484414bd",
+   "file": "08_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  }
+ ]
+}

@@ -1,0 +1,649 @@
+{
+ "id": "21017444",
+ "ref": "2027-A-06",
+ "reviewed": "2026-11-28",
+ "title": "Limpieza de los edificios de la Universidad Autónoma de Madrid (lote 1) y control de plagas (lote 2)",
+ "title_official": "Servicios de limpieza, desinfección, desratización, desinsectación y control integrado de plagas en los edificios y demás dependencias de la Universidad Autónoma de Madrid.",
+ "buyer": "Rectorado de la Universidad Autónoma de Madrid",
+ "unit": "Dirección de Seguridad y Asuntos Generales (responsable del contrato)",
+ "place": "Madrid (Comunidad de Madrid)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=ORBq%2BpaRDU8adbH3CysQuQ%3D%3D",
+ "published": "2026-11-25",
+ "updated": "2026-11-27",
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de cláusulas administrativas (PCAP) con Anexo I de características y modelos de oferta",
+   "file": "01_Legal.pdf",
+   "pages": 70
+  },
+  "PPT": {
+   "label": "Pliego de prescripciones técnicas (PPT)",
+   "file": "02_Technical.pdf",
+   "pages": 49
+  },
+  "ANX": {
+   "label": "Documento de oposición a la consulta de la Seguridad Social",
+   "file": "03_Additional.pdf",
+   "pages": 1
+  },
+  "ANX2": {
+   "label": "Declaración de sometimiento a los tribunales españoles (empresas extranjeras)",
+   "file": "05_Additional.pdf",
+   "pages": 1
+  },
+  "ANX3": {
+   "label": "Modelo del DEUC (declaración responsable europea)",
+   "file": "06_Additional.pdf",
+   "pages": 23
+  }
+ },
+ "deadline": "2027-01-07",
+ "deadline_time": "23:59",
+ "questions_until": "2026-12-26",
+ "tags": {
+  "level": "Universidad pública",
+  "where": "Madrid, Comunidad de Madrid",
+  "contract": "Servicios",
+  "sector": "Limpieza de edificios y control de plagas (CPV 90911200)",
+  "size": "Grande (más de 1 M€)",
+  "deadline": "Cierra en 40 días",
+  "procedure": "Abierto",
+  "funds": "Sin fondos europeos indicados",
+  "lots": "2 lotes",
+  "award": "Precio y mejoras (todo con fórmula)"
+ },
+ "verdict": {
+  "opportunity": "media",
+  "difficulty": "alta",
+  "text": "El lote 1 (4,52 M€ sin IVA al año) es solo para empresas de limpieza grandes: exige facturar 6,78 M€ al año, haber ejecutado 3,16 M€ en un año, ISO 9001 e ISO 14001 y asumir una plantilla subrogada de la que el pliego no da datos. El lote 2 (12.397 € sin IVA) es una buena puerta de entrada para empresas de control de plagas inscritas en el ROESB, con 85 puntos de precio y 15 por guardia 24 h. Todo se puntúa con fórmula, sin juicio de valor. El lote 1 se gana con una baja fuerte y con las mejoras que suman 50 puntos. Ojo a las deducciones por horas no ejecutadas y a las penalidades."
+ },
+ "summary": [
+  "La Universidad Autónoma de Madrid contrata la limpieza de 27 dependencias (331.100,56 m²) y, aparte, el control de plagas de sus campus.",
+  "Son 2 lotes: limpieza (4.520.661,16 € sin IVA al año, 5.694 horas semanales) y plagas (12.396,69 € sin IVA al año). Presupuesto total: 4.533.057,85 € sin IVA; valor estimado con prórroga y modificación: 9.970.247,94 €.",
+  "Duración de 1 año desde el 1 de marzo de 2027 (o desde la formalización, si es posterior), con una prórroga posible de hasta 12 meses.",
+  "Los 100 puntos son automáticos. En limpieza: 50 por precio y 50 por mejoras (bolsa de horas, vacunación, protocolo de violencia de género, aspiradores, plataforma digital, sustitución de dispensadores). En plagas: 85 por precio y 15 por guardia 24 h.",
+  "Las ofertas se presentan por la Plataforma de Contratación del Sector Público hasta el 7 de enero de 2027 a las 23:59, con un sobre por lote. Se puede recurrir con recurso especial, porque el contrato es de regulación armonizada."
+ ],
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Limpieza, desinfección, desratización, desinsectación y control integrado de plagas en los edificios y dependencias de la UAM, con criterios de sostenibilidad e igualdad.",
+     "PCAP 39"
+    ],
+    [
+     "Lote 1: limpieza",
+     "Limpieza integral de 27 dependencias (331.100,56 m²) con 5.694 horas semanales (296.088 horas retribuidas al año). Incluye consumibles, contenedores higiénicos, retirada de residuos peligrosos de laboratorios y limpiezas de emergencia en 2 horas. Excluye el Colegio Mayor Juan Luis Vives.",
+     "PCAP 39 · PPT 4–6 · PPT 19–25"
+    ],
+    [
+     "Lote 2: plagas",
+     "Visitas presenciales como mínimo cada 15 días y dos por semana de abril a junio. Estudio técnico en el primer mes y actuación en 24 horas ante una infestación. Incluye el Colegio Mayor Juan Luis Vives y las zonas exteriores.",
+     "PPT 32–34"
+    ],
+    [
+     "Órgano",
+     "La Rectora de la UAM es el órgano de contratación. La persona responsable del contrato es el director de Seguridad y Asuntos Generales.",
+     "PCAP 44 · PCAP 48"
+    ],
+    [
+     "Lugar",
+     "Campus de Cantoblanco y de Medicina, y el Centro Cultural La Corrala (Madrid).",
+     "PPT 4–5 · PPT 23"
+    ],
+    [
+     "Habilitaciones",
+     "Lote 2: inscripción vigente en el ROESB (Registro Oficial de Establecimientos y Servicios Biocidas) válida para actuar en Madrid.",
+     "PCAP 60"
+    ],
+    [
+     "Reservas sociales",
+     "El pliego no indica que el contrato esté reservado a centros especiales de empleo ni a empresas de inserción.",
+     "PCAP 39–40"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Limpieza de edificios y dependencias (5.694 h/semana)",
+     "fee": 4520661.16,
+     "months": 12
+    },
+    {
+     "n": 2,
+     "label": "Desratización, desinsectación y control integrado de plagas",
+     "fee": 12396.69,
+     "months": 12
+    }
+   ],
+   "cite": "PCAP 39–40",
+   "note": "Puedes presentarte a uno o a los dos lotes, con un sobre por lote. No hay límite de lotes por empresa. Cada lote es un contrato distinto. Importes sin IVA."
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base",
+     "4.533.057,85 € sin IVA. El IVA son 951.942,15 € (el 21 %, cálculo nuestro) y el total con IVA es 5.485.000 €. El pliego escribe «5.485.00,00», que es un error de imprenta.",
+     "PCAP 40"
+    ],
+    [
+     "Por lotes (sin IVA)",
+     "Lote 1: 4.520.661,16 € (5.470.000 € con IVA). Lote 2: 12.396,69 € (15.000 € con IVA).",
+     "PCAP 40"
+    ],
+    [
+     "Valor estimado",
+     "9.970.247,94 €. Lote 1: 9.945.454,55 € (periodo inicial, prórroga de 12 meses y modificación máxima del 20 %, 904.132,23 €). Lote 2: 24.793,39 € (periodo inicial y prórroga).",
+     "PCAP 43–44"
+    ],
+    [
+     "Precio y oferta máxima",
+     "Precio anual cerrado a tanto alzado, pagado en 12 mensualidades iguales. Las ofertas deben ser iguales o inferiores al presupuesto base, sin IVA. Precio máximo de la hora retribuida: 15,27 € sin IVA.",
+     "PCAP 42–43 · PCAP 6"
+    ],
+    [
+     "Reparto del lote 1",
+     "Costes salariales 4.211.366,18 €, absentismo 168.454,65 €, otros costes directos 42.135,78 €, gastos generales 48.345,08 € y beneficio 50.359,47 €.",
+     "PCAP 40–41"
+    ],
+    [
+     "Anualidades",
+     "2027: 4.570.833,33 € con IVA. 2028: 914.166,67 € con IVA.",
+     "PCAP 43"
+    ],
+    [
+     "Duración",
+     "1 año desde el 1 de marzo de 2027, o desde el día siguiente a la formalización si esta es posterior. El máximo legal es de 5 años con prórrogas.",
+     "PCAP 44 · PCAP 7"
+    ],
+    [
+     "Prórrogas",
+     "Sí, hasta 12 meses más. Es obligatoria para la empresa si se avisa con al menos 2 meses de antelación.",
+     "PCAP 44 · PCAP 8"
+    ],
+    [
+     "Revisión de precios",
+     "No.",
+     "PCAP 51"
+    ],
+    [
+     "Modificaciones previstas",
+     "Solo el lote 1, con tope acumulado del 20 % del precio inicial, en más o en menos. Motivos: nuevos edificios, cierres o cesiones, cambio de uso, pandemia o jubilaciones sin reposición. Se valora por horas, al precio de la hora efectiva de adjudicación. El lote 2 no tiene modificaciones con efecto económico.",
+     "PCAP 51"
+    ],
+    [
+     "Subrogación de personal",
+     "Sí, en el lote 1: hay que subrogar a la plantilla actual del convenio. El pliego no da el número de trabajadores ni su coste, porque la hoja del Anexo VI está en blanco.",
+     "PCAP 42 · PCAP 69 · PPT 47"
+    ],
+    [
+     "Financiación",
+     "Presupuesto de la UAM. El pliego no menciona cofinanciación ni fondos europeos.",
+     "PCAP 44"
+    ],
+    [
+     "Plazo de garantía",
+     "3 meses.",
+     "PCAP 52"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Capacidad",
+     "Personalidad jurídica, objeto social que cubra el servicio, no tener prohibición de contratar, y solvencia a la fecha de cierre y de formalización.",
+     "PCAP 21–22"
+    ],
+    [
+     "Clasificación",
+     "No es obligatoria si acreditas la solvencia con los medios del pliego.",
+     "PCAP 60"
+    ],
+    [
+     "Solvencia económica",
+     "Volumen anual de negocios, en el mejor de los 3 últimos ejercicios, de al menos 1,5 veces el valor anual del lote: lote 1, 6.780.991,74 €; lote 2, 18.595,04 €. Se acredita con las cuentas anuales depositadas en el Registro Mercantil.",
+     "PCAP 56–57"
+    ],
+    [
+     "Solvencia técnica, lote 1",
+     "Servicios similares (mismos 3 primeros dígitos del CPV, 909) por un importe anual, en el mejor de los 3 últimos años, de al menos 3.164.462,81 € (el 70 % del valor anual). Además, certificados ISO 9001 (calidad) e ISO 14001 o EMAS (medio ambiente), o equivalentes.",
+     "PCAP 57"
+    ],
+    [
+     "Solvencia técnica, lote 2",
+     "Servicios de plagas en los 3 últimos años por un importe anual, en el mejor año, de al menos 8.677,68 € (el 70 %). Entre ellos, al menos un servicio en instalaciones sensibles (laboratorios, centros sanitarios, docentes, alimentarios, archivos, museos y similares).",
+     "PCAP 58"
+    ],
+    [
+     "Medios que hay que adscribir (lote 1)",
+     "Personal para 5.694 h semanales, con al menos 10 mandos intermedios y 2 personas formadas para residuos peligrosos. Maquinaria: 3 hidrolimpiadoras, 4 fregadoras a pie, 1 fregadora con conductor, 1 barredora, 12 rotativas, 11 aspiradores de agua y polvo, 1 aspirador mochila, 1 pértiga de agua ionizada y un furgón eléctrico de menos de 5 años. Además, un sistema informático de fichaje sin biometría. Es obligación esencial.",
+     "PCAP 59 · PPT 36"
+    ],
+    [
+     "Medios que hay que adscribir (lote 2)",
+     "Responsable técnico con titulación universitaria superior (Biología, Ciencias Ambientales, Farmacia, Química o equivalente) y experiencia en espacios sensibles. Aplicadores con capacitación oficial. Declaración de vehículos y equipos. Es obligación esencial.",
+     "PCAP 59–60"
+    ],
+    [
+     "Seguro de responsabilidad civil",
+     "Lote 1: 1.000.000 €. Lote 2: 300.000 € por siniestro. Es obligación de ejecución, no requisito de solvencia.",
+     "PCAP 57 · PPT 15"
+    ],
+    [
+     "UTE e integración de solvencia",
+     "Se admiten las UTE y completar la solvencia con medios de otras empresas, que presentan su propio DEUC y un compromiso por escrito. Para la solvencia económica el compromiso debe ser solidario.",
+     "PCAP 22–23 · PCAP 29"
+    ],
+    [
+     "Empresas extranjeras",
+     "Deben presentar la declaración de sometimiento a los tribunales españoles. Las no comunitarias, además, deben abrir sucursal en España.",
+     "PCAP 24 · ANX2 1"
+    ],
+    [
+     "Visita (lote 1)",
+     "Voluntaria, no es requisito. Al menos 2 convocatorias en los 10 primeros días naturales del plazo, en las fechas que indique la Plataforma.",
+     "PCAP 60 · PPT 6"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Precio (lote 1)",
+     "pts": 50,
+     "kind": "fórmula",
+     "how": "Puntos = (tu baja ÷ la mayor baja) × 50. Baja sobre el presupuesto sin IVA, con 2 decimales. Si no bajas, 0 puntos. La oferta con más baja se lleva los 50."
+    },
+    {
+     "name": "Bolsa de horas sin coste (lote 1)",
+     "pts": 10,
+     "kind": "fórmula",
+     "how": "1.500 h/año = 3 puntos, 3.000 h/año = 6, 4.500 h/año = 10. Solo para limpieza, con orden previa. Las horas no gastadas pasan al año siguiente."
+    },
+    {
+     "name": "Vacunación antigripal voluntaria (lote 1)",
+     "pts": 10,
+     "kind": "fórmula",
+     "how": "10 puntos por una campaña anual pagada por la empresa, para el personal adscrito. Se acredita con declaración responsable y descripción de calendario, canal y medios."
+    },
+    {
+     "name": "Protocolo contra la violencia de género (lote 1)",
+     "pts": 10,
+     "kind": "fórmula",
+     "how": "10 puntos por un protocolo adicional y adaptado al contrato, con responsable, canal confidencial, formación inicial y anual, y seguimiento. Se acredita con compromiso y memoria descriptiva."
+    },
+    {
+     "name": "Aspiradores de agua y polvo adicionales (lote 1)",
+     "pts": 6,
+     "kind": "fórmula",
+     "how": "1 punto por unidad sobre los 11 exigidos, hasta 6 puntos. Deben ser funcionales y no contar para el mínimo."
+    },
+    {
+     "name": "Plataforma: carga diaria con foto (lote 1)",
+     "pts": 5,
+     "kind": "fórmula",
+     "how": "5 puntos por cargar el mismo día las tareas y los informes, con evidencia fotográfica fechada y consulta en tiempo real."
+    },
+    {
+     "name": "Plataforma: incidencias de los centros (lote 1)",
+     "pts": 5,
+     "kind": "fórmula",
+     "how": "5 puntos por dar acceso a los administradores gerentes para registrar incidencias, con aviso automático y trazabilidad de plazos."
+    },
+    {
+     "name": "Sustitución de dispensadores y escobillas (lote 1)",
+     "pts": 4,
+     "kind": "fórmula",
+     "how": "4 puntos por sustituir sin coste, al terminar el contrato, los dispensadores de papel y secamanos y las escobillas deterioradas."
+    }
+   ],
+   "cite": "PCAP 53–55",
+   "items": [
+    [
+     "Lote 2",
+     "Precio: 85 puntos, con la misma fórmula (tu baja ÷ la mayor baja × 85). Guardia 24 horas los 365 días para urgencias de desinfección: 15 puntos, sí o no.",
+     "PCAP 55 · PCAP 63"
+    ],
+    [
+     "Juicio de valor",
+     "Ninguno: los 100 puntos de cada lote son automáticos. Solo hay dos sobres.",
+     "PCAP 53"
+    ],
+    [
+     "Mejoras",
+     "Todas las mejoras ofertadas pasan a ser obligaciones del contrato. Si no las cumples, te penalizan como cualquier otra obligación.",
+     "PCAP 55"
+    ],
+    [
+     "Baja anormal",
+     "Se mira lote por lote. El PCAP remite al artículo 85 del Reglamento de la Ley de Contratos (RGLCAP) y no da cifras. Antes de excluir, hay que pedir justificación y dar audiencia (art. 149 LCSP).",
+     "PCAP 25 · PCAP 56"
+    ],
+    [
+     "Desempate",
+     "Primero, mayor porcentaje de personas con discapacidad o en exclusión social por encima del mínimo legal. Después, más personas con discapacidad con contrato fijo o más personas en inclusión social.",
+     "PCAP 56"
+    ],
+    [
+     "Garantía provisional",
+     "No procede.",
+     "PCAP 56"
+    ]
+   ],
+   "insight": "La fórmula de precio da todos los puntos a la mayor baja y reparte el resto en proporción, así que gana quien más baja, hasta el límite de la baja anormal. En el lote 1 los otros 50 puntos son mejoras medibles y la mayoría están al alcance de cualquier gran empresa. En el lote 2 el precio pesa 85 de 100 y la guardia 24 h es fácil de ofrecer."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Hasta el 7 de enero de 2027 a las 23:59, por la Herramienta de Preparación y Presentación de ofertas de la Plataforma. Se puede enviar la oferta en una fase (recomendada) o enviar primero la huella electrónica y la oferta completa en las 24 horas siguientes.",
+     "Anuncio · PCAP 25"
+    ],
+    [
+     "Preguntas",
+     "Por el perfil de contratante en la Plataforma. Si preguntas al menos 12 días antes del cierre (26 de diciembre de 2026), deben responderte al menos 6 días antes. Las respuestas son públicas y vinculantes.",
+     "PCAP 9"
+    ],
+    [
+     "Sobre A",
+     "Por cada lote al que te presentes: oferta económica según el Anexo II (sin IVA, el IVA aparte) y la propuesta sobre las mejoras automáticas.",
+     "PCAP 28 · PCAP 62–63"
+    ],
+    [
+     "Sobre B",
+     "DEUC firmado (el modelo está incluido), con declaración de solvencia, designación de correo electrónico para notificaciones y compromiso de UTE si lo hay. Si completas solvencia con otra empresa, su DEUC también.",
+     "PCAP 28–30 · ANX3 1–23"
+    ],
+    [
+     "Sobre C",
+     "No se presenta, porque no hay criterios de juicio de valor.",
+     "PCAP 26 · PCAP 30"
+    ],
+    [
+     "Si resultas el mejor",
+     "Tienes 10 días hábiles para presentar: escrituras y poderes, solvencia, certificados de Hacienda y Seguridad Social, garantía definitiva, declaración de plantilla y plan de igualdad si tienes más de 50 trabajadores.",
+     "PCAP 31–34"
+    ],
+    [
+     "Garantías",
+     "Provisional: no. Definitiva: 5 % del importe de adjudicación sin IVA (hasta unos 226.000 € en el lote 1 al presupuesto base, cálculo nuestro). Complementaria: no.",
+     "PCAP 56"
+    ],
+    [
+     "Formalización",
+     "15 días hábiles desde la notificación. Si el contrato admite recurso especial, 5 días tras el requerimiento, pasados 15 días hábiles sin recurso.",
+     "PCAP 35"
+    ],
+    [
+     "Apertura de ofertas",
+     "El pliego no indica fecha ni lugar de apertura.",
+     "—"
+    ],
+    [
+     "Recurso especial (art. 44 LCSP)",
+     "Cabe: el contrato es de regulación armonizada. Plazo: 15 días hábiles.",
+     "PCAP 60 · PCAP 37"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro",
+     "items": [
+      [
+       "Pago mensual",
+       "Doce mensualidades iguales y vencidas, facturadas por FACe, con informe mensual, exportación íntegra del control de presencia y conciliación de horas. Sin ese informe completo la factura no se conforma. El pliego remite al art. 198 LCSP para el plazo de pago y no da los días.",
+       "PCAP 49–50 · PPT 35"
+      ],
+      [
+       "Deducción por horas no ejecutadas",
+       "Las horas programadas que no se hagan ni se recuperen en el mes siguiente se descuentan de la factura al precio de la hora efectiva (17,81 € sin IVA menos tu baja). No es una sanción y se suma a las penalidades.",
+       "PCAP 49–50 · PPT 10–13"
+      ],
+      [
+       "Huelga",
+       "Se paga solo la parte proporcional de los servicios prestados. Si no se cumplen los servicios mínimos, no se paga el periodo sin servicio.",
+       "PPT 9"
+      ],
+      [
+       "Subidas salariales",
+       "Cualquier mejora laboral o salarial corre por cuenta de la empresa. Solo se han tenido en cuenta las subidas del convenio de 2027 y 2028.",
+       "PPT 7–8"
+      ]
+     ]
+    },
+    {
+     "h": "Penalidades",
+     "items": [
+      [
+       "Reglas generales",
+       "Hay penalidades en porcentaje de la factura mensual sin IVA. Si hay reincidencia en 6 meses se multiplican por 1,5 la primera vez y por 2 las siguientes. Cada penalidad no puede superar el 10 % del precio y el total el 50 %.",
+       "PCAP 47"
+      ],
+      [
+       "Retraso en el plazo total",
+       "0,60 € por cada 1.000 € de precio, IVA excluido, al día. Al llegar a cada múltiplo del 5 % del precio, la Universidad puede resolver el contrato.",
+       "PCAP 14–15"
+      ],
+      [
+       "Lote 1",
+       "0,05 % de la factura mensual por persona y jornada sin cubrir. 0,50 % si se repiten las horas no recuperadas (2 meses en 6, o 3 o más dependencias en un mes). También se penalizan fichajes manipulados, correturnos, traslados sin permiso y plan de vacaciones no ajustado a los cierres.",
+       "PCAP 48"
+      ],
+      [
+       "Lote 2",
+       "Falta de parte o informe mensual: 2 %. Visita no hecha: 10 %. Infestación sin atender en 24 h: 5 % por día. Estudio técnico fuera de plazo: 5 % por semana. Biocidas no autorizados o pérdida del ROESB: 10 %.",
+       "PCAP 48"
+      ],
+      [
+       "No presentar documentos o no formalizar",
+       "3 % del presupuesto base sin IVA (unos 135.620 € en el lote 1, cálculo nuestro) y la oferta se da por retirada.",
+       "PCAP 34 · PCAP 35"
+      ]
+     ]
+    },
+    {
+     "h": "Obligaciones y personal",
+     "items": [
+      [
+       "Obligaciones esenciales",
+       "Su incumplimiento puede resolver el contrato: mantener el control de presencia accesible, no manipular registros, mantener los medios adscritos, cumplir el convenio y la igualdad retributiva, y proteger los datos. En el lote 2, mantener el ROESB y usar solo biocidas autorizados.",
+       "PCAP 60–61"
+      ],
+      [
+       "Plantilla estable",
+       "Plantilla fija por dependencia, sin correturnos. Cualquier cambio de personal o de horas necesita autorización escrita de la UAM. Convenio colectivo de limpieza de edificios y locales de la Comunidad de Madrid.",
+       "PPT 8 · PPT 13–15"
+      ],
+      [
+       "Condiciones especiales de ejecución",
+       "Lote 1: registro mensual de productos químicos y envases, desviaciones del 15 % con medidas correctoras, y equipos estables con sustituciones registradas. Lote 2: biocidas solo si hacen falta, y retirada de residuos y dispositivos. Para todos: igualdad retributiva y protección de datos en los sistemas de fichaje. Se añaden criterios medioambientales generales.",
+       "PCAP 44–47 · PCAP 36"
+      ],
+      [
+       "Subcontratación",
+       "Se permite con autorización previa del órgano de contratación y comunicación (Anexo V). No hay partes prohibidas. La empresa sigue siendo la única responsable.",
+       "PCAP 60 · PCAP 17–18 · PCAP 68"
+      ],
+      [
+       "Subrogación sin datos",
+       "Hay que subrogar a la plantilla actual, pero el pliego no da su número, antigüedad ni coste. Pídelos antes de ofertar.",
+       "PCAP 42 · PCAP 69"
+      ],
+      [
+       "Cierres",
+       "La UAM cierra al menos 31 días naturales al año. Esas vacaciones están incluidas en el precio y no se recuperan.",
+       "PPT 9–10"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Importe total",
+     "El Anexo I escribe el total con IVA como «5.485.00,00». La suma de los lotes es 5.485.000 €.",
+     "PCAP 40"
+    ],
+    [
+     "Personal a subrogar",
+     "El Anexo I remite al «Anexo VI del PCAP» y el PPT al «Anexo III del PCAP». El Anexo III del PCAP trata de datos personales y el Anexo VI está en blanco.",
+     "PCAP 42 · PCAP 64 · PCAP 69 · PPT 47"
+    ],
+    [
+     "Precio de la hora",
+     "El precio máximo de la hora retribuida es 15,27 € sin IVA, pero para deducciones y modificaciones se usa una «ratio máxima» de 17,81 € sin IVA. No se explica de dónde sale.",
+     "PCAP 42 · PCAP 49"
+    ],
+    [
+     "Baja anormal",
+     "El Anexo I dice que los parámetros están en el PCAP, pero el PCAP solo remite al artículo 85 del RGLCAP sin dar cifras.",
+     "PCAP 25 · PCAP 56"
+    ],
+    [
+     "Número de apartado",
+     "Los modelos de oferta (Anexo II) hablan del «apartado 14» para los criterios automáticos, que están en el apartado 15.",
+     "PCAP 62–63"
+    ],
+    [
+     "Datos personales",
+     "El Anexo I dice que no hay acceso a datos personales, pero el contrato incluye sistemas de fichaje y la cláusula 10.3 da a la empresa el papel de encargada del tratamiento.",
+     "PCAP 52 · PCAP 10"
+    ],
+    [
+     "Fecha de publicación",
+     "Los pliegos no indican la fecha de publicación. En «published» usamos el 25 de noviembre de 2026, día en que la Rectora firma el PCAP, como referencia.",
+     "PCAP 38"
+    ]
+   ],
+   "advice": "Conviene preguntar por la Plataforma antes del 26 de diciembre de 2026, sobre todo por la plantilla a subrogar, el precio de la hora (15,27 € o 17,81 €) y el límite de baja anormal."
+  }
+ ],
+ "headline": "La UAM licita 4,5 M€ de limpieza y control de plagas",
+ "headline_em": "limpieza y control de plagas",
+ "lede": "La Universidad Autónoma de Madrid contrata la limpieza de 27 dependencias y, aparte, el control de plagas de sus campus. Dos lotes, todo puntuado con fórmula, y un lote 1 solo para empresas grandes.",
+ "crumbs": "Licitaciones › España › Universidades › Comunidad de Madrid",
+ "max_lots_per_bidder": 2,
+ "files": [
+  {
+   "name": "Pliego de cláusulas administrativas (PCAP) con Anexo I de características y modelos de oferta",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 70,
+   "bytes": 1778058
+  },
+  {
+   "name": "Pliego de prescripciones técnicas (PPT)",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 49,
+   "bytes": 701394
+  },
+  {
+   "name": "Documento de oposición a la consulta de la Seguridad Social",
+   "file": "03_Additional.pdf",
+   "type": "PDF",
+   "pages": 1,
+   "bytes": 105219
+  },
+  {
+   "name": "DEUC 2027-A-06.xml",
+   "file": "04_Additional.bin",
+   "type": "XML",
+   "pages": null,
+   "bytes": 133896
+  },
+  {
+   "name": "Declaración de sometimiento a los tribunales españoles (empresas extranjeras)",
+   "file": "05_Additional.pdf",
+   "type": "PDF",
+   "pages": 1,
+   "bytes": 85594
+  },
+  {
+   "name": "Modelo del DEUC (declaración responsable europea)",
+   "file": "06_Additional.pdf",
+   "type": "PDF",
+   "pages": 23,
+   "bytes": 82857
+  },
+  {
+   "name": "2026-c03bcf1e-0560-44ec-a3f4-65e7ff87eb1d",
+   "file": "07_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-75453c95-d9bb-4dbe-a090-28fb2a4fcf07",
+   "file": "08_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-eca6a4fc-0eba-4b17-bd7b-6a6e1c818455",
+   "file": "09_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-0be0c824-15f7-4747-8f6b-697addedc646",
+   "file": "10_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-b2f62acd-39e5-4da5-b9ec-2a0e2e8b6845",
+   "file": "11_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-62010e21-5806-4f8f-abed-aa87d2ab2ba8",
+   "file": "12_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-399d293a-5bec-4482-bbe5-f2874c4c87a8",
+   "file": "13_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-f72fdbb4-1f99-4e7b-82bd-7019d5f1154d",
+   "file": "14_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ]
+}
