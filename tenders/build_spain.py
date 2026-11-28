@@ -17,6 +17,9 @@ from pathlib import Path
 
 FICHAS_DIR = Path(__file__).resolve().parent / "fichas"
 FICHAS = sorted(d.name for d in FICHAS_DIR.glob("*") if (d / "ficha.json").exists()) if FICHAS_DIR.exists() else []
+# temporary side-by-side test asked by Emilio (28-11-2026): the same tenders written by a free model, at /es/espana/licitacion/<id>-gratis/
+COMPARE_DIR = FICHAS_DIR.parent / "fichas_compare" / "gratis"
+COMPARE = sorted((d.name + "-gratis", d) for d in COMPARE_DIR.glob("*") if (d / "ficha.json").exists()) if COMPARE_DIR.exists() else []
 FICHA_LBL = {"en": "Ullswater factsheet (ES)", "es": "Ficha Ullswater"}
 EXT = {".zip": None, ".bin": ".xml"}  # PLACSP serves .odt annexes as zip and the DEUC as octet-stream
 
@@ -428,15 +431,20 @@ def build_fichas(write, page, ctx):
     if not FICHAS:
         return
     (ctx["site_dir"] / "data" / "es" / "fichas").mkdir(parents=True, exist_ok=True)
-    (ctx["site_dir"] / "data" / "es" / "fichas" / "index.json").write_text(json.dumps(FICHAS), encoding="utf-8")
+    (ctx["site_dir"] / "data" / "es" / "fichas" / "index.json").write_text(json.dumps(FICHAS + [c for c, _ in COMPARE]), encoding="utf-8")
     sys.path.insert(0, str(FICHAS_DIR.parent.parent / "tools"))
     import ficha_render as R
     sys.path.insert(0, str(FICHAS_DIR.parent / "diagnostico"))
     import diag_build as D
     site = ctx["site_dir"]
     D.publish_assets(site)
-    for i in FICHAS:
-        d = FICHAS_DIR / i
+    import tempfile
+    tmp = Path(tempfile.mkdtemp())
+    for i, d in [(x, FICHAS_DIR / x) for x in FICHAS] + COMPARE:
+        fdir = FICHAS_DIR
+        if d.parent != FICHAS_DIR:  # comparison copy: the diagnosis builder expects <dir>/<slug>/reglas.json
+            (tmp / i).symlink_to(d.resolve(), target_is_directory=True)
+            fdir = tmp
         f = json.loads((d / "ficha.json").read_text(encoding="utf-8"))
         idx = json.loads((d / "index.json").read_text(encoding="utf-8"))
         out = site / "docs" / "es" / i
@@ -470,7 +478,15 @@ def build_fichas(write, page, ctx):
                  '</div></section>')
         inner = inner.replace("<!--ASK-->", strip, 1)
         # free diagnosis: the "¿Te presentas?" button opens it instead of the contact page
-        if D.has_rules(FICHAS_DIR, i) and D.build(write, page, ctx, FICHAS_DIR, i, f, ficha_path(i)):
+        if d.parent != FICHAS_DIR:
+            real = d.name
+            inner = inner.replace('<section class="fx-ask"', '<div style="background:#fff4d6;border-bottom:1px solid #f0d58a;padding:12px 16px;text-align:center;font-size:15px">'
+                                  f'<b>Prueba de comparación:</b> esta ficha la ha escrito un modelo de IA gratuito ({escape(f.get("_model", "Llama 4 Scout en Cloudflare"))}). '
+                                  f'<a href="{ficha_path(real)}">Ver la misma licitación hecha con Claude</a>.</div><section class="fx-ask"', 1)
+        elif any(c == i + "-gratis" for c, _ in COMPARE):
+            inner = inner.replace('<section class="fx-ask"', '<div style="background:#eef4ff;border-bottom:1px solid #c9d8f5;padding:12px 16px;text-align:center;font-size:15px">'
+                                  f'<b>Prueba de comparación:</b> esta ficha la ha escrito Claude. <a href="{ficha_path(i + "-gratis")}">Ver la misma licitación hecha con un modelo gratuito</a>.</div><section class="fx-ask"', 1)
+        if D.has_rules(fdir, i) and D.build(write, page, ctx, fdir, i, f, ficha_path(i)):
             inner = inner.replace('href="https://www.ullswaterinvestments.com/es/contacto/" target="_blank" rel="noopener">Pedir diagnóstico gratuito',
                                   f'href="{D.diag_path(i)}">Hacer el diagnóstico gratuito (5 minutos)', 1)
         css = ".fx-ask{background:#fbf8f1;border-bottom:1px solid #efe6d2}.fx-ask .in{padding-top:26px;padding-bottom:22px}.fx-ask h2{margin:0 0 4px;font-size:20px}.fx-ask p{margin:0 0 14px;color:#4b5563}.fx-ask .fx-pdf{margin:14px 0 0}"
