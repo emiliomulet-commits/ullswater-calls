@@ -145,7 +145,7 @@ def body(f, idx, pdf=False, local=None, logo=True, pdf_url=None, today=None):
  {btns}
 </div><div class="r">
  <div class="big gold"><b>{days} {"día" if days == 1 else "días"}</b><span>para presentar<br>{short(dl)} · {e(f['deadline_time'])} h</span></div>
- <div class="big"><b>{num(tot_fee)} €</b><span>sin IVA<br>en {n_lots} lotes</span></div>
+ <div class="big"><b>{num(tot_fee)} €</b><span>sin IVA<br>{"lote único" if n_lots == 1 else f"en {n_lots} lotes"}</span></div>
  <div class="big last">{third}</div>
 </div></div></header>
 <!--ASK-->
