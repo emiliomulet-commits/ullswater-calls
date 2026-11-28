@@ -265,7 +265,7 @@ lots[].budget sin IVA y que cuadre con la ficha, deadline igual que en la ficha.
 
 def price(usage):
     if MODEL.startswith("kimi"):  # Moonshot list price, $ per million tokens (override with KIMI_PRICES="in,out,cache")
-        pin, pout, pc = (float(x) for x in os.environ.get("KIMI_PRICES", "0.60,2.50,0.15").split(","))
+        pin, pout, pc = (float(x) for x in os.environ.get("KIMI_PRICES", "2.00,10.00,0.20").split(","))
         c = usage.get("cache_read_input_tokens", 0)
         return round(((usage.get("input_tokens", 0) - c) * pin + c * pc + usage.get("output_tokens", 0) * pout) / 1e6, 4)
     if MODEL.startswith("@cf/"):  # Workers AI: free daily allowance, then ~0.27 $/M input and 0.85 $/M output (llama-4-scout)
