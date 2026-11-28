@@ -30,8 +30,8 @@ sys.path.insert(0, str(ROOT / "tools"))
 import sample_ficha as S  # noqa: E402  (feed reading and document download, already proven against PLACSP's WAF)
 import ficha_render as R  # noqa: E402
 
-FICHAS = ROOT / "tenders" / "fichas"
-EXAMPLE = FICHAS / "20957771"
+EXAMPLE = ROOT / "tenders" / "fichas" / "20957771"
+FICHAS = ROOT / os.environ.get("FICHA_OUT", "tenders/fichas")  # comparisons with other models go elsewhere
 MODEL = os.environ.get("FICHA_MODEL", "claude-opus-5-5")
 EFFORT = os.environ.get("FICHA_EFFORT", "high")
 MAX_CHARS = int(os.environ.get("FICHA_MAX_CHARS", "520000"))  # ~150k tokens of document text per tender
@@ -57,7 +57,7 @@ def candidates(n):
             if cfs is None or S.first(cfs, "ContractFolderStatusCode") != "PUB":
                 continue
             eid = S.first(entry, "id").rsplit("/", 1)[-1]
-            if (FICHAS / eid / "ficha.json").exists():
+            if (ROOT / "tenders" / "fichas" / eid / "ficha.json").exists():
                 continue
             dl = S.first(cfs, "EndDate")[:10]
             if not dl or dl < (date.today() + timedelta(days=10)).isoformat():
@@ -258,13 +258,48 @@ lots[].budget sin IVA y que cuadre con la ficha, deadline igual que en la ficha.
 
 
 def price(usage):
+    if MODEL.startswith("@cf/"):  # Workers AI: free daily allowance, then ~0.27 $/M input and 0.85 $/M output (llama-4-scout)
+        return round((usage.get("input_tokens", 0) * 0.27 + usage.get("output_tokens", 0) * 0.85) / 1e6, 4)
     pin, pout, pcache = PRICES.get(MODEL, PRICES["claude-opus-5-5"])
     u = usage
     usd = (u["input_tokens"] * pin + u["cache_creation_input_tokens"] * pin * 1.25 + u["cache_read_input_tokens"] * pcache + u["output_tokens"] * pout) / 1e6
     return round(usd, 4)
 
 
+def call_cf(system, messages, usage):
+    """Cloudflare Workers AI (free tier) through the REST API, same prompts."""
+    import urllib.request
+    acc, tok = os.environ["CLOUDFLARE_ACCOUNT_ID"], os.environ["CLOUDFLARE_API_TOKEN"]
+    flat = [{"role": "system", "content": system}] + [
+        {"role": m["role"], "content": m["content"] if isinstance(m["content"], str) else "".join(b["text"] for b in m["content"])} for m in messages]
+    body = json.dumps({"messages": flat, "max_tokens": 16000, "temperature": 0.1}).encode()
+    for attempt in range(3):
+        try:
+            req = urllib.request.Request(f"https://api.cloudflare.com/client/v4/accounts/{acc}/ai/run/{MODEL}", data=body,
+                                         headers={"Authorization": f"Bearer {tok}", "Content-Type": "application/json"})
+            with urllib.request.urlopen(req, timeout=900) as r:
+                j = json.loads(r.read())
+            break
+        except urllib.error.HTTPError as e:
+            msg = e.read().decode("utf-8", "replace")[:400]
+            print("workers ai error", e.code, msg, flush=True)
+            if attempt == 2 or e.code in (400, 401, 403):
+                raise RuntimeError(f"Workers AI {e.code}: {msg}")
+            time.sleep(30)
+    res = j.get("result") or {}
+    u = res.get("usage") or {}
+    usage["input_tokens"] = usage.get("input_tokens", 0) + (u.get("prompt_tokens") or 0)
+    usage["output_tokens"] = usage.get("output_tokens", 0) + (u.get("completion_tokens") or 0)
+    usage["calls"] = usage.get("calls", 0) + 1
+    out = res.get("response")
+    if not isinstance(out, str):
+        out = json.dumps(out, ensure_ascii=False) if out is not None else ""
+    return out, "end"
+
+
 def call(client, system, messages, usage):
+    if MODEL.startswith("@cf/"):
+        return call_cf(system, messages, usage)
     params = dict(model=MODEL, max_tokens=64000, output_config={"effort": EFFORT},
                   system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}], messages=messages)
     for attempt in range(4):
@@ -348,7 +383,7 @@ def check_ficha(f, idx):
 
 
 def check_rules(eid):
-    r = subprocess.run(["node", str(ROOT / "tenders" / "diagnostico" / "check.js"), eid], capture_output=True, text=True)
+    r = subprocess.run(["node", str(ROOT / "tenders" / "diagnostico" / "check.js"), eid], capture_output=True, text=True, env=dict(os.environ, FICHAS_DIR=str(FICHAS)))
     return r.returncode == 0, (r.stdout + r.stderr).strip()
 
 
@@ -429,16 +464,21 @@ def process(client, system, item):
 
 
 def main():
-    import anthropic
-    key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
-    print("ANTHROPIC_API_KEY:", "set" if key else "NOT SET", flush=True)
-    if not key:
-        sys.exit("ANTHROPIC_API_KEY is empty: add it in GitHub › Settings › Secrets › Actions")
-    client = anthropic.Anthropic(api_key=key, max_retries=4, timeout=1800)
-    try:  # one tiny call first, so a bad key stops the run before any download
-        client.messages.create(model=MODEL, max_tokens=16, messages=[{"role": "user", "content": "ok"}])
-    except anthropic.AuthenticationError:
-        sys.exit("The Claude API rejects ANTHROPIC_API_KEY (401): the key in GitHub secrets is not valid")
+    global MAX_CHARS
+    client = None
+    if MODEL.startswith("@cf/"):  # free comparison: Cloudflare Workers AI reads at most ~131k tokens
+        MAX_CHARS = min(MAX_CHARS, int(os.environ.get("FICHA_CF_MAX_CHARS", "280000")))
+    else:
+        import anthropic
+        key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+        print("ANTHROPIC_API_KEY:", "set" if key else "NOT SET", flush=True)
+        if not key:
+            sys.exit("ANTHROPIC_API_KEY is empty: add it in GitHub › Settings › Secrets › Actions")
+        client = anthropic.Anthropic(api_key=key, max_retries=4, timeout=1800)
+        try:  # one tiny call first, so a bad key stops the run before any download
+            client.messages.create(model=MODEL, max_tokens=16, messages=[{"role": "user", "content": "ok"}])
+        except anthropic.AuthenticationError:
+            sys.exit("The Claude API rejects ANTHROPIC_API_KEY (401): the key in GitHub secrets is not valid")
     ids = [x.strip() for x in os.environ.get("FICHA_IDS", "").split(",") if x.strip()]
     items = by_ids(ids) if ids else candidates(int(os.environ.get("FICHA_N", "10")))
     system = system_prompt()
@@ -451,7 +491,7 @@ def main():
            "avg_cost_eur_per_ok": round(tot * EUR_PER_USD / max(len(ok), 1), 3), "results": res}
     out = ROOT / "tenders" / "fichas_batches"
     out.mkdir(exist_ok=True)
-    (out / f"{date.today().isoformat()}_{MODEL}_{int(time.time())}.json").write_text(json.dumps(rep, ensure_ascii=False, indent=1), encoding="utf-8")
+    (out / f"{date.today().isoformat()}_{MODEL.replace('/', '_').lstrip('@_')}_{int(time.time())}.json").write_text(json.dumps(rep, ensure_ascii=False, indent=1), encoding="utf-8")
     lines = [f"## Fichas IA: {len(ok)} de {len(res)} hechas · modelo {MODEL} ({EFFORT})", "",
              f"Coste total: **{rep['cost_eur']} €** ({rep['cost_usd']} $) · media por ficha: **{rep['avg_cost_eur_per_ok']} €**", "",
              "| id | órgano | págs. | tokens entrada | tokens salida | € | estado |", "|---|---|---|---|---|---|---|"]
