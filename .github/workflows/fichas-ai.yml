@@ -7,6 +7,8 @@ on:
       ids: { description: "PLACSP entry ids, comma separated (optional)", required: false }
       model: { description: "Claude model", required: false, default: "claude-opus-5-5" }
       effort: { description: "Effort (low | medium | high)", required: false, default: "high" }
+      batch: { description: "Use the Batch API (half price, slower): yes | no", required: false, default: "no" }
+      workers: { description: "Tenders processed at the same time", required: false, default: "3" }
       out: { description: "Output folder (tenders/fichas publishes; anything else is a comparison)", required: false, default: "tenders/fichas" }
 
 permissions:
@@ -19,7 +21,7 @@ concurrency:
 jobs:
   fichas:
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -47,6 +49,8 @@ jobs:
           FICHA_IDS: ${{ github.event.inputs.ids }}
           FICHA_MODEL: ${{ github.event.inputs.model || 'claude-opus-5-5' }}
           FICHA_EFFORT: ${{ github.event.inputs.effort || 'high' }}
+          FICHA_BATCH: ${{ github.event.inputs.batch || 'no' }}
+          FICHA_WORKERS: ${{ github.event.inputs.workers || '3' }}
           FICHA_OUT: ${{ github.event.inputs.out || 'tenders/fichas' }}
         run: python tools/ficha_ai.py
       - name: Delete the temporary Worker

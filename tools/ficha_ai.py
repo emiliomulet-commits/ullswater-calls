@@ -34,6 +34,7 @@ EXAMPLE = ROOT / "tenders" / "fichas" / "20957771"
 FICHAS = ROOT / os.environ.get("FICHA_OUT", "tenders/fichas")  # comparisons with other models go elsewhere
 MODEL = os.environ.get("FICHA_MODEL", "claude-opus-5-5")
 EFFORT = os.environ.get("FICHA_EFFORT", "high")
+BATCH = os.environ.get("FICHA_BATCH", "") in ("1", "true", "yes")  # Message Batches API: half price, answer within hours
 MAX_CHARS = int(os.environ.get("FICHA_MAX_CHARS", "520000"))  # ~150k tokens of document text per tender
 PRICES = {  # $ per million tokens: input, output, cache read (cache write = 1.25 x input)
     "claude-opus-5-5": (4.0, 20.0, 0.20), "claude-sonnet-5-5": (2.0, 10.0, 0.10), "claude-haiku-5-5": (0.10, 0.50, 0.01),
@@ -263,7 +264,34 @@ def price(usage):
     pin, pout, pcache = PRICES.get(MODEL, PRICES["claude-opus-5-5"])
     u = usage
     usd = (u["input_tokens"] * pin + u["cache_creation_input_tokens"] * pin * 1.25 + u["cache_read_input_tokens"] * pcache + u["output_tokens"] * pout) / 1e6
+    if BATCH:
+        usd /= 2
     return round(usd, 4)
+
+
+def call_batch(client, params, usage):
+    """One request through the Message Batches API (50 % off). Each tender runs in its own thread, so many wait in parallel."""
+    import uuid
+    b = client.messages.batches.create(requests=[{"custom_id": "f-" + uuid.uuid4().hex[:20], "params": params}])
+    t0 = time.time()
+    while True:
+        time.sleep(30)
+        try:
+            b = client.messages.batches.retrieve(b.id)
+        except Exception as e:  # noqa: BLE001
+            print("batch poll retry", type(e).__name__, flush=True)
+            continue
+        if b.processing_status == "ended":
+            break
+        if time.time() - t0 > 5 * 3600:
+            client.messages.batches.cancel(b.id)
+            raise RuntimeError("batch took more than 5 h")
+    for r in client.messages.batches.results(b.id):
+        if r.result.type != "succeeded":
+            raise RuntimeError(f"batch {r.result.type}: {str(getattr(r.result, 'error', ''))[:200]}")
+        usage["batch_seconds"] = usage.get("batch_seconds", 0) + int(time.time() - t0)
+        return r.result.message
+    raise RuntimeError("batch without results")
 
 
 def call_cf(system, messages, usage):
@@ -315,6 +343,9 @@ def call(client, system, messages, usage):
     params = dict(model=MODEL, max_tokens=64000, output_config={"effort": EFFORT},
                   system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}], messages=messages)
     for attempt in range(4):
+        if BATCH:
+            msg = call_batch(client, params, usage)
+            break
         try:
             try:
                 with client.beta.messages.stream(betas=["server-side-fallback-2026-07-01"], fallbacks="default", **params) as st:
@@ -501,13 +532,13 @@ def main():
         res = list(ex.map(lambda it: process(client, system, it), items))
     tot = sum(r.get("cost_usd") or 0 for r in res)
     ok = [r for r in res if str(r.get("status", "")).startswith("ok")]
-    rep = {"date": date.today().isoformat(), "model": MODEL, "effort": EFFORT, "tenders": len(res), "ok": len(ok),
+    rep = {"date": date.today().isoformat(), "model": MODEL, "effort": EFFORT, "batch": BATCH, "tenders": len(res), "ok": len(ok),
            "cost_usd": round(tot, 2), "cost_eur": round(tot * EUR_PER_USD, 2),
            "avg_cost_eur_per_ok": round(tot * EUR_PER_USD / max(len(ok), 1), 3), "results": res}
     out = ROOT / "tenders" / "fichas_batches"
     out.mkdir(exist_ok=True)
     (out / f"{date.today().isoformat()}_{MODEL.replace('/', '_').lstrip('@_')}_{int(time.time())}.json").write_text(json.dumps(rep, ensure_ascii=False, indent=1), encoding="utf-8")
-    lines = [f"## Fichas IA: {len(ok)} de {len(res)} hechas · modelo {MODEL} ({EFFORT})", "",
+    lines = [f"## Fichas IA: {len(ok)} de {len(res)} hechas · modelo {MODEL} ({EFFORT}{', por lotes -50 %' if BATCH else ''})", "",
              f"Coste total: **{rep['cost_eur']} €** ({rep['cost_usd']} $) · media por ficha: **{rep['avg_cost_eur_per_ok']} €**", "",
              "| id | órgano | págs. | tokens entrada | tokens salida | € | estado |", "|---|---|---|---|---|---|---|"]
     for r in res:
