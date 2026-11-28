@@ -1,0 +1,317 @@
+{
+ "schema": 1,
+ "id": "21017499",
+ "reviewed": "2026-11-28",
+ "title": "Venta de 12 parcelas para vivienda protegida en Retamar de la Huerta (Alcorcón)",
+ "buyer": "Ayuntamiento de Alcorcón",
+ "buyer_key": "Junta de Gobierno del Ayuntamiento de Alcorcón",
+ "province": "Madrid",
+ "cpv": "70320000",
+ "ref": "108/26P",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=kbtyeYhphL2AAM7L03kM8A%3D%3D",
+ "deadline": "2026-12-16",
+ "deadline_time": "23:59",
+ "questions_until": null,
+ "questions_cite": "El pliego no indica plazo de preguntas",
+ "opening_days": 5,
+ "opening_cite": "PCAP p.22",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 2,
+ "judgement_pts": 0,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Lote 1: VMA12, VMA13, VMB06 y VMB07 (184 viviendas máx.)",
+   "budget": 3289781.64,
+   "buildings": 4,
+   "homes": 184,
+   "months": 24
+  },
+  {
+   "n": 2,
+   "label": "Lote 2: VMB01, VMB02 y VMB03 (129 viviendas máx.)",
+   "budget": 2302316.94,
+   "buildings": 3,
+   "homes": 129,
+   "months": 24
+  },
+  {
+   "n": 3,
+   "label": "Lote 3: VMMB10 y VMMB11 (106 viviendas máx.)",
+   "budget": 1909163.25,
+   "buildings": 2,
+   "homes": 106,
+   "months": 24
+  },
+  {
+   "n": 4,
+   "label": "Lote 4: VMB09 (43 viviendas máx.)",
+   "budget": 767438.98,
+   "buildings": 1,
+   "homes": 43,
+   "months": 24
+  },
+  {
+   "n": 5,
+   "label": "Lote 5: VMB08 (43 viviendas máx.)",
+   "budget": 767438.98,
+   "buildings": 1,
+   "homes": 43,
+   "months": 24
+  },
+  {
+   "n": 6,
+   "label": "Lote 6: VMA-11a (29 viviendas máx.)",
+   "budget": 516048.79,
+   "buildings": 1,
+   "homes": 29,
+   "months": 24
+  }
+ ],
+ "lots_cite": "PCAP p.12–13 · PCAP p.45–46",
+ "max_lots_award": 6,
+ "max_lots_per_team": 6,
+ "lots_rule": "Puedes ofertar a los lotes que quieras y cada lote es un contrato. El pliego no limita cuántos puedes ganar, pero dice a la vez que no se puede presentar más de una proposición por empresario (ver incoherencias).",
+ "lots_rule_cite": "PCAP p.14 · PCAP p.19",
+ "requirements": [
+  {
+   "id": "vpp_promos",
+   "kind": "number_min",
+   "min": 2,
+   "label": "Experiencia en vivienda protegida",
+   "rule": "Al menos 2 promociones de vivienda protegida terminadas, con calificación definitiva en los últimos 10 años, de 25 viviendas o más cada una",
+   "question": "¿Cuántas promociones de vivienda protegida de 25 viviendas o más has terminado, con calificación definitiva, en los últimos 10 años?",
+   "unit": "",
+   "cite": "PCAP p.11",
+   "proof": "Calificaciones definitivas y certificados de las promociones. El pliego no detalla el tipo de documento: conviene preguntarlo."
+  },
+  {
+   "id": "guarantee_provisional",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 0.03,
+   "label": "Garantía provisional",
+   "rule": "Aval, seguro de caución o cheque bancario por el 3 % del precio mínimo de cada lote (intervenido por notario si es aval o seguro)",
+   "question": "¿Qué importe de aval o seguro de caución puedes constituir ahora mismo para la garantía provisional?",
+   "unit": "€",
+   "cite": "PCAP p.14–15 · PCAP p.39–41",
+   "proof": "Aval o certificado de seguro de caución intervenido por notario, o cheque bancario nominativo"
+  },
+  {
+   "id": "clean",
+   "kind": "yesno",
+   "label": "Sin prohibiciones ni deudas",
+   "rule": "No estar en concurso ni insolvente, no tener prohibición de contratar y estar al corriente con Hacienda, Seguridad Social y Ayuntamiento (o deudas garantizadas, aplazadas o fraccionadas)",
+   "question": "¿Tu empresa está al corriente de pagos con Hacienda, Seguridad Social y el Ayuntamiento de Alcorcón y no está en concurso ni inhabilitada?",
+   "cite": "PCAP p.11 · PCAP p.21",
+   "proof": "Declaración responsable (Anexo IV) y certificados o autorización (Anexo V)"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica",
+   "pts": 80,
+   "formula": "proportional",
+   "direction": "higher_is_better",
+   "base": "tipo",
+   "k_pct": null,
+   "single_k_pct": null,
+   "how": "0 puntos si ofreces el precio mínimo del lote y 80 puntos la oferta más alta. El resto, proporcional: 80 × (tu oferta − mínimo) / (oferta más alta − mínimo). Gana quien más paga.",
+   "cite": "PCAP p.17"
+  },
+  {
+   "id": "term",
+   "kind": "choice",
+   "name": "Plazo de ejecución de las obras",
+   "pts": 20,
+   "question": "¿En cuántos meses puedes comprometerte a llevar la obra, desde que te notifican la licencia hasta solicitar la calificación definitiva?",
+   "options": [
+    {
+     "label": "24 meses (el máximo)",
+     "pts": 0
+    },
+    {
+     "label": "De 21 a 23 meses",
+     "pts": 5
+    },
+    {
+     "label": "De 18 a 20 meses",
+     "pts": 10
+    },
+    {
+     "label": "De 15 a 17 meses",
+     "pts": 15
+    },
+    {
+     "label": "14 meses o menos",
+     "pts": 20
+    }
+   ],
+   "note": "Es automático, pero hay que justificar los métodos o medios. Si no se justifica bien, 0 puntos. El compromiso es vinculante.",
+   "cite": "PCAP p.17–18"
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 0,
+  "single_pct": 0,
+  "accept_rate": 0,
+  "cite": "PCAP p.14 · PCAP p.22",
+  "note": "No hay baja anormal: las ofertas por debajo del precio mínimo del lote se rechazan. Aquí no se premia bajar, sino pagar más."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": 60,
+  "note": "Estimación nuestra (no figura en el pliego): preparar el aval notarial, los sobres de cada lote y el compromiso de plazo con su justificación"
+ },
+ "guarantee": {
+  "provisional_pct": 3,
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 0,
+  "cite": "PCAP p.14–16"
+ },
+ "risk_flags": [
+  {
+   "id": "urbanization",
+   "label": "Suelo sin urbanizar: asumes las cargas de la Junta de Compensación y esperas a que avance la urbanización",
+   "cite": "PCAP p.3 · PPT p.2 · PPT p.30",
+   "weight": 3
+  },
+  {
+   "id": "resolution",
+   "label": "Condición resolutoria: indemnización igual al precio de la vivienda si no se vende a los sorteados",
+   "cite": "PCAP p.31 · PCAP p.34",
+   "weight": 3
+  },
+  {
+   "id": "title",
+   "label": "Derecho reversionista inscrito (lotes 3 y 6) y limitación de licencia condicionada (lotes 4, 5 y 6)",
+   "cite": "PPT p.129–130 · PPT p.144–145 · PPT p.171–172 · PPT p.184–186",
+   "weight": 3
+  },
+  {
+   "id": "payment",
+   "label": "Pago del 60 % más el IVA de todo el precio al firmar, y 40 % en 6 meses",
+   "cite": "PCAP p.27–28",
+   "weight": 2
+  },
+  {
+   "id": "term_commit",
+   "label": "Plazo de obra ofertado vinculante, con riesgo de resolución si no se cumple",
+   "cite": "PCAP p.22 · PCAP p.33",
+   "weight": 2
+  },
+  {
+   "id": "preemption",
+   "label": "Tanteo y retracto del Ayuntamiento durante toda la vida del edificio",
+   "cite": "PCAP p.32",
+   "weight": 1
+  },
+  {
+   "id": "deadline_shift",
+   "label": "El plazo de ofertas puede suspenderse si hay alegaciones en la información pública",
+   "cite": "PCAP p.18",
+   "weight": 1
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se admite basarse en la solvencia y medios de otras entidades si se demuestra que se dispone de ellos",
+  "ute": true,
+  "subcontracting": null,
+  "cite": "PCAP p.19 · PCAP p.21"
+ },
+ "specific_checks": [
+  {
+   "text": "Presentar una garantía provisional por cada lote, intervenida por notario si es aval o seguro; sin ella, la Mesa excluye la oferta",
+   "cite": "PCAP p.14–15"
+  },
+  {
+   "text": "Ninguna oferta puede estar por debajo del precio mínimo del lote (base sin IVA), ni incluir alternativas, tachaduras u omisiones",
+   "cite": "PCAP p.14 · PCAP p.17 · PCAP p.22"
+  },
+  {
+   "text": "Marcar una sola casilla de plazo en el Anexo II (si se marcan varias, vale la de menos reducción)",
+   "cite": "PCAP p.37"
+  },
+  {
+   "text": "Una declaración responsable, una solicitud (Anexos I y IV) y una proposición económica (Anexo II) por cada lote",
+   "cite": "PCAP p.36–37 · PCAP p.43"
+  },
+  {
+   "text": "En UTE, cada miembro presenta todos los documentos y se adjunta el compromiso de compra en copropiedad con porcentajes y representante único",
+   "cite": "PCAP p.20–21"
+  },
+  {
+   "text": "Cumplir el compromiso de 2 promociones de 25 viviendas o más con calificación definitiva en los últimos 10 años",
+   "cite": "PCAP p.11"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -10,
+   "task": "Pide el aval o seguro de caución para la garantía provisional (3 % de cada lote) y llévalo a notario",
+   "cite": "PCAP p.14–15 · PCAP p.39–41",
+   "help": "Importe de garantía por lote"
+  },
+  {
+   "when": -8,
+   "task": "Reúne las calificaciones definitivas de tus 2 promociones de vivienda protegida de 25 viviendas o más",
+   "cite": "PCAP p.11 · PCAP p.24",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -6,
+   "task": "Rellena la solicitud (Anexo I) y la declaración responsable (Anexo IV) de cada lote (sobre 1)",
+   "cite": "PCAP p.20–21 · PCAP p.36 · PCAP p.43",
+   "help": "Borrador de declaración responsable (próximamente)"
+  },
+  {
+   "when": -4,
+   "task": "Decide el precio por lote y el plazo de obra, y prepara la justificación de métodos y medios (sobre 2)",
+   "cite": "PCAP p.17–18 · PCAP p.37",
+   "help": "Precio recomendado por lote"
+  },
+  {
+   "when": -2,
+   "task": "Rellena el Anexo II de cada lote con precio en letra y cifra, base e IVA, desglose por parcela y casilla de plazo; presenta ambos sobres por la Plataforma",
+   "cite": "PCAP p.20–22 · PCAP p.37–38",
+   "help": "Revisión final de la oferta"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "La superficie de la parcela VMB-11 (lote 3) aparece como 3.191,5953 m² en una tabla del PCAP y como 4.567,25 m² en otra tabla y en el Registro",
+   "cite": "PCAP p.4 · PCAP p.6 · PPT p.170"
+  },
+  {
+   "text": "El PPT dice que solo el lote 6 tiene limitación para pedir licencia, pero las notas registrales de los lotes 4 y 5 también recogen una limitación condicionada",
+   "cite": "PPT p.2 · PPT p.129–130 · PPT p.144–145"
+  },
+  {
+   "text": "Las ofertas se presentan por la Plataforma, pero la garantía debe constituirse en la Tesorería y el Anexo III habla de la Asesoría Jurídica: no se explica cómo se aporta el justificante",
+   "cite": "PCAP p.15 · PCAP p.39"
+  },
+  {
+   "text": "El pliego prohíbe más de una proposición por empresario, pero permite ofertar a varios lotes y pide una proposición por lote en los anexos",
+   "cite": "PCAP p.14 · PCAP p.19 · PCAP p.36–37"
+  },
+  {
+   "text": "La garantía definitiva del 5 % se liga a «haber ofertado mejoras» en la cláusula 5 y se exige a todo adjudicatario en la cláusula 12",
+   "cite": "PCAP p.16 · PCAP p.25"
+  },
+  {
+   "text": "El plazo de ofertas es de 20 días y la información pública dura 30; si hay alegaciones la fecha de cierre puede cambiar",
+   "cite": "PCAP p.18–19"
+  },
+  {
+   "text": "Los sobres deben rotularse «108/29P» según la cláusula décima, pero el expediente es 108/26P",
+   "cite": "PCAP p.1 · PCAP p.20"
+  }
+ ]
+}

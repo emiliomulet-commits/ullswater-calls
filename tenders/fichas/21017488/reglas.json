@@ -1,0 +1,387 @@
+{
+ "schema": 1,
+ "id": "21017488",
+ "reviewed": "2026-11-28",
+ "title": "Reforma de la climatización de las oficinas de Agricultura en Jinámar (Las Palmas de Gran Canaria)",
+ "buyer": "Gobierno de Canarias · Consejería de Agricultura",
+ "buyer_key": "Secretaría General Técnica de la Consejería de Agricultura, Ganadería, Pesca y Soberanía Alimentaria del Gobierno de Canarias",
+ "province": "Las Palmas",
+ "cpv": "45331000",
+ "ref": "ANTIC/OBRA/SGT/4-2026",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=av%2FykzsC6WbjHF5qKI4aaw%3D%3D",
+ "deadline": "2026-12-21",
+ "deadline_time": "23:59",
+ "questions_until": "2026-12-13",
+ "questions_cite": "PCAP p.13",
+ "opening_days": null,
+ "opening_cite": "PCAP p.16",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 1,
+ "judgement_pts": 0,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Obra completa: Fase 1 (8 meses) y Fase 2 (4 meses)",
+   "budget": 1055246.06,
+   "months": 12
+  }
+ ],
+ "lots_cite": "PCAP p.1 · PCAP p.6 · PCAP p.8",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": null,
+ "lots_rule_cite": "PCAP p.1",
+ "requirements": [
+  {
+   "id": "rolece",
+   "kind": "yesno",
+   "label": "Inscripción en el ROLECE",
+   "rule": "Estar inscrita en el Registro Oficial de Licitadores y Empresas Clasificadas en la fecha final de presentación",
+   "question": "¿Está tu empresa inscrita en el ROLECE con los datos vigentes?",
+   "cite": "PCAP p.3",
+   "proof": "Certificado del ROLECE"
+  },
+  {
+   "id": "class",
+   "kind": "yesno",
+   "label": "Clasificación J-2-4",
+   "rule": "Grupo J, subgrupo 2, categoría 4",
+   "question": "¿Tiene tu empresa la clasificación de contratista de grupo J, subgrupo 2, categoría 4 (o superior)?",
+   "cite": "PCAP p.5",
+   "proof": "Certificado de clasificación o ROLECE"
+  },
+  {
+   "id": "rite",
+   "kind": "yesno",
+   "label": "Empresa instaladora RITE",
+   "rule": "Inscrita como empresa instaladora térmica en la Dirección General de Industria de Canarias",
+   "question": "¿Está tu empresa inscrita como instaladora de instalaciones térmicas (RITE) en Canarias?",
+   "cite": "PCAP p.5",
+   "proof": "Certificado de inscripción en el registro de empresas instaladoras"
+  },
+  {
+   "id": "fgas",
+   "kind": "yesno",
+   "label": "Gases fluorados",
+   "rule": "Certificada como empresa manipuladora de gases fluorados (RD 115/2017)",
+   "question": "¿Tiene tu empresa el certificado de manipulación de gases fluorados?",
+   "cite": "PCAP p.5",
+   "proof": "Certificado de la Dirección General de Industria"
+  },
+  {
+   "id": "reaa",
+   "kind": "yesno",
+   "label": "Registro de Empresas Acreditadas",
+   "rule": "Inscrita en el Registro de Empresas Acreditadas del sector de la construcción (Ley 32/2006)",
+   "question": "¿Está tu empresa inscrita en el Registro de Empresas Acreditadas (REA)?",
+   "cite": "PCAP p.5",
+   "proof": "Certificado de inscripción en el REA"
+  },
+  {
+   "id": "team",
+   "kind": "yesno",
+   "label": "Equipo mínimo",
+   "rule": "Jefe de obra (33 %), operario con carné RITE (100 %, sin ser jefe de obra), oficial de climatización (100 %), 2 peones (100 %) y responsable de calidad (33 %, distinto del jefe de obra)",
+   "question": "¿Puedes adscribir un jefe de obra, un operario con carné RITE en exclusiva, un oficial de climatización, 2 peones y un responsable de calidad distinto del jefe?",
+   "cite": "PCAP p.4–5",
+   "proof": "Declaración responsable; títulos, certificados y currículos si eres propuesta como adjudicataria"
+  },
+  {
+   "id": "jefe",
+   "kind": "yesno",
+   "label": "Jefe de obra",
+   "rule": "Ingeniero industrial superior o técnico (nivel 2 MECES o superior) con 3 años en obras análogas de presupuesto igual o superior al importe de licitación",
+   "question": "¿Tiene tu jefe de obra titulación de ingeniero industrial y 3 años en obras de climatización de importe igual o superior a 1.055.246 €?",
+   "cite": "PCAP p.4",
+   "proof": "Título y certificados de buena ejecución"
+  },
+  {
+   "id": "quality",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 1.0,
+   "label": "Responsable de control de calidad",
+   "rule": "En los últimos 3 años, tareas de control de calidad en actuaciones análogas por un importe acumulado igual o superior al importe de licitación",
+   "question": "¿Qué importe acumulado de obras análogas ha controlado tu responsable de calidad en los últimos 3 años?",
+   "unit": "€",
+   "cite": "PCAP p.5",
+   "proof": "Certificados de las obras con importe y fechas"
+  }
+ ],
+ "classification": {
+  "group": "J",
+  "subgroup": "2",
+  "category": 4,
+  "cite": "PCAP p.5"
+ },
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica",
+   "pts": 45,
+   "formula": "proportional",
+   "k_pct": null,
+   "single_k_pct": null,
+   "how": "Puntos = 45 × mejor oferta ÷ tu oferta. La oferta más baja saca los 45",
+   "cite": "PCAP p.12"
+  },
+  {
+   "id": "exp_jefe",
+   "kind": "choice",
+   "name": "Experiencia del jefe de obra",
+   "pts": 10,
+   "question": "¿En cuántas obras similares de más de 1.000.000 € de ejecución ha sido jefe de obra la persona que propones?",
+   "options": [
+    {
+     "label": "Ninguna",
+     "pts": 0
+    },
+    {
+     "label": "1 o 2 obras",
+     "pts": 5
+    },
+    {
+     "label": "3 o más obras",
+     "pts": 10
+    }
+   ],
+   "cite": "PCAP p.9–10"
+  },
+  {
+   "id": "exp_operario",
+   "kind": "choice",
+   "name": "Experiencia del operario con carné RITE",
+   "pts": 10,
+   "question": "¿En cuántas obras similares de más de 500.000 € ha actuado como operario RITE la persona que propones?",
+   "options": [
+    {
+     "label": "Menos de 3 obras",
+     "pts": 0
+    },
+    {
+     "label": "3 o 4 obras",
+     "pts": 5
+    },
+    {
+     "label": "5 o más obras",
+     "pts": 10
+    }
+   ],
+   "cite": "PCAP p.10–11"
+  },
+  {
+   "id": "extra_elec",
+   "kind": "choice",
+   "name": "Oficial electricista adicional",
+   "pts": 7.5,
+   "question": "¿Puedes añadir un oficial electricista (1ª o 2ª) extra a dedicación exclusiva?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí",
+     "pts": 7.5
+    }
+   ],
+   "cite": "PCAP p.11"
+  },
+  {
+   "id": "extra_varios",
+   "kind": "choice",
+   "name": "Oficial de oficios varios adicional",
+   "pts": 7.5,
+   "question": "¿Puedes añadir un oficial de oficios varios (1ª o 2ª) extra a dedicación exclusiva?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí",
+     "pts": 7.5
+    }
+   ],
+   "cite": "PCAP p.11"
+  },
+  {
+   "id": "social",
+   "kind": "choice",
+   "name": "Contratar a una persona con dificultades de acceso al empleo",
+   "pts": 10,
+   "question": "¿Puedes contratar a jornada completa, durante la obra, a una persona con dificultades de acceso al mercado laboral?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí, a 1 persona",
+     "pts": 10
+    }
+   ],
+   "cite": "PCAP p.11–12"
+  },
+  {
+   "id": "warranty",
+   "kind": "choice",
+   "name": "Ampliación del periodo de garantía",
+   "pts": 10,
+   "question": "¿Cuántos años puedes ampliar la garantía sobre el año legal?",
+   "options": [
+    {
+     "label": "Ninguno",
+     "pts": 0
+    },
+    {
+     "label": "4 años más (5 en total, el máximo que puntúa)",
+     "pts": 10
+    }
+   ],
+   "cite": "PCAP p.12"
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 10,
+  "single_pct": 15,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.16",
+  "note": "Con 3 o más ofertas: más de un 10 % por debajo de la media aritmética (lo leemos como porcentaje sobre la media). Con 2 ofertas: más de un 15 % por debajo de la otra. Con una: más de un 15 % por debajo del presupuesto base. El pliego no aclara si se mide con IGIC o sin él. Conviene preguntar."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": 9700,
+  "note": "Estimación nuestra: el pliego no da horas. Equipo mínimo de unas 4,66 personas a jornada completa (0,33 + 1 + 1 + 2 + 0,33) × 40 h × 52 semanas. Los oficiales extra comprometidos se suman"
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 3,
+  "cite": "PCAP p.17"
+ },
+ "risk_flags": [
+  {
+   "id": "penalties",
+   "label": "Penalidades: 0,60 € por cada 1.000 € y día de retraso, 5 % por incumplimiento y 100 € diarios por incidencias de obra",
+   "cite": "PCAP p.23–24",
+   "weight": 3
+  },
+  {
+   "id": "annuity",
+   "label": "Cobro limitado por anualidad (2027 y 2028): lo que exceda se paga al año siguiente",
+   "cite": "PCAP p.6 · PCAP p.22",
+   "weight": 3
+  },
+  {
+   "id": "staff",
+   "label": "Equipo de unas 4,7 personas a tiempo completo, sin poder cambiarlo sin permiso",
+   "cite": "PCAP p.4–5",
+   "weight": 3
+  },
+  {
+   "id": "social",
+   "label": "Contratación social obligatoria con penalidad del 10 % del precio si se incumple",
+   "cite": "PCAP p.11–12",
+   "weight": 2
+  },
+  {
+   "id": "warranty",
+   "label": "Garantía ampliada hasta 5 años y 15 años de responsabilidad por vicios ocultos",
+   "cite": "PCAP p.12 · PCAP p.29",
+   "weight": 2
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "El Anexo I prevé acudir a medios de otras empresas; hay que indicar la empresa, los medios y el porcentaje que aportan",
+  "ute": true,
+  "subcontracting": true,
+  "cite": "PCAP p.14 · PCAP p.24–25 · ANX2 p.1"
+ },
+ "specific_checks": [
+  {
+   "text": "Estar inscrita en el ROLECE en la fecha de cierre; si no, no puedes concurrir",
+   "cite": "PCAP p.3"
+  },
+  {
+   "text": "Tener las tres habilitaciones: instaladora RITE en Canarias, gases fluorados y Registro de Empresas Acreditadas",
+   "cite": "PCAP p.5"
+  },
+  {
+   "text": "El operario RITE debe dedicarse en exclusiva y no puede ser el jefe de obra; el responsable de calidad no puede ser el jefe de obra",
+   "cite": "PCAP p.5"
+  },
+  {
+   "text": "El precio no puede superar el presupuesto de licitación y debe incluir el IGIC como partida aparte; los errores o tachaduras en la oferta hacen que se rechace",
+   "cite": "PCAP p.14"
+  },
+  {
+   "text": "Una sola proposición por empresa, sin variantes; si vas en UTE no puedes presentar otra oferta",
+   "cite": "PCAP p.13"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -14,
+   "task": "Comprueba que el ROLECE, la clasificación J-2-4 y las habilitaciones están vigentes",
+   "cite": "PCAP p.3 · PCAP p.5",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -9,
+   "task": "Envía por la Plataforma tus preguntas sobre la escala de garantía y la baja anormal (último día: 13 de diciembre)",
+   "cite": "PCAP p.13",
+   "help": "Lista de dudas del pliego"
+  },
+  {
+   "when": -5,
+   "task": "Define el equipo y las mejoras que puedes cumplir (oficiales extra, contratación social, garantía)",
+   "cite": "PCAP p.9–12",
+   "help": "Puntos que puedes sumar y su coste"
+  },
+  {
+   "when": -3,
+   "task": "Rellena y firma el Anexo I (oferta y declaraciones) y, si hay UTE, el Anexo II, y súbelo todo en un único archivo",
+   "cite": "PCAP p.14 · ANX2 p.1",
+   "help": "Rebaja recomendada"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "La tabla de puntos de la ampliación de garantía no aparece en el PCAP; solo se conoce el tope de 5 años totales y 10 puntos",
+   "cite": "PCAP p.12"
+  },
+  {
+   "text": "Los criterios social y de garantía se llaman D y E, luego D y D, y en el Anexo I C y D",
+   "cite": "PCAP p.9 · PCAP p.11–12 · ANX2 p.1"
+  },
+  {
+   "text": "La cláusula social dice 1 persona a jornada completa, pero el Anexo I pide indicar un número de personas",
+   "cite": "PCAP p.11 · ANX2 p.1"
+  },
+  {
+   "text": "El PPT remite a un criterio de plazos de ejecución (cláusula 13.1.1.1) que no existe en el PCAP",
+   "cite": "PPT p.1–2 · PCAP p.9"
+  },
+  {
+   "text": "El replanteo es en un mes según el PCAP y en 5 días naturales según el PPT",
+   "cite": "PCAP p.18 · PPT p.1"
+  },
+  {
+   "text": "No se aclara si la baja anormal se mide sobre el precio con IGIC o sin IGIC",
+   "cite": "PCAP p.6–7 · PCAP p.16"
+  },
+  {
+   "text": "El PCAP cita una cláusula 26.8 de condiciones especiales de ejecución que no existe",
+   "cite": "PCAP p.23"
+  },
+  {
+   "text": "El modelo de confidencialidad para la visita no figura entre los anexos del PCAP y los pliegos no indican la fecha de publicación del anuncio, de la que cuentan los 6 días para pedir visita (usamos como referencia la firma del PCAP, 17/11/2026)",
+   "cite": "PCAP p.1 · PCAP p.13–14 · PCAP p.30–39"
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "id": "21017499",
+ "title": "Enajenación por compraventa de parcelas de titularidad municipal pertenecientes al Sector \"Retamar de la Huerta\" de Alcorcón, divididas en 6 lotes, mediante concurso público",
+ "buyer": "Junta de Gobierno del Ayuntamiento de Alcorcón",
+ "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=kbtyeYhphL2AAM7L03kM8A%3D%3D",
+ "docs": [
+  {
+   "kind": "Legal",
+   "name": "11 PCAP 2026108 enajenacion lotes parcelas RETAMAR.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=knRiZDfH3nwOdqxEbh2DCG5qmWFimcTM4px1vtdGwHyd7kJG87u8GDVQf9lhhIEi3LXpHgvMT/hcevcmhT7w4QOd5ai%2BuaxMO4cptVK8lskZyAJWGsSt0OzTSTyw9JAs",
+   "file": "01_Legal.pdf",
+   "bytes": 1123535,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC2026112710481111 PCAP 2026108 enajenacion lotes parcelas RETAMAR.pdf",
+   "codes": [
+    "PCAP"
+   ],
+   "pages": 46
+  },
+  {
+   "kind": "Technical",
+   "name": "08 PPT RETAMAR 12 parcelas CON ANEXOS signed.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=LiB6Ni/EcrH8o8NyIzdnQpoxMkq2vlOhy1HDM9u8Wyp%2BVkp0Wk%2BQbhWb/a4Flxdkh14nHWHW/LZzNWalqtV9Y9bi5k4A6%2BnIbGXrl7J6M7CB0nvVKRzfe4rpHcnlPhSZ",
+   "file": "02_Technical.pdf",
+   "bytes": 6800976,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC2026112710422408 PPT RETAMAR 12 parcelas CON ANEXOS signed.pdf",
+   "codes": [
+    "PPT"
+   ],
+   "pages": 197
+  }
+ ]
+}

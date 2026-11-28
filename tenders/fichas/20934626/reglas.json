@@ -1,0 +1,231 @@
+{
+ "schema": 1,
+ "id": "20934626",
+ "reviewed": "2026-11-28",
+ "needs_review": true,
+ "title": "Mantenimiento y gestión de la red de helipuertos sanitarios de Castilla-La Mancha",
+ "buyer": "SESCAM",
+ "buyer_key": "Secretaría General del Servicio de Salud de Castilla-La Mancha",
+ "province": "Toledo",
+ "cpv": "50000000",
+ "ref": "@2026/39640",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=qDZ2e7P8kxU7u6%2B%2FR7DUoA%3D%3D",
+ "deadline": "2026-12-16",
+ "deadline_time": "12:00",
+ "questions_until": "2026-12-04",
+ "questions_cite": "PCAP p.23",
+ "opening_days": 20,
+ "opening_cite": "PCAP p.36",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": null,
+ "judgement_pts": 0,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Contrato único: red de infraestructuras heliportuarias del SESCAM",
+   "budget": 2787404.83
+  }
+ ],
+ "lots_cite": "ANX2 p.1",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": "El pliego recibido no indica división en lotes.",
+ "lots_rule_cite": "ANX2 p.1",
+ "requirements": [
+  {
+   "id": "solvency",
+   "kind": "yesno",
+   "label": "Solvencia económica y técnica",
+   "rule": "Cifras de volumen de negocios y trabajos similares fijadas en el cuadro anexo (no legibles)",
+   "question": "¿Cumples la solvencia económica y técnica que fija el cuadro de características (volumen anual de negocios y servicios similares de los últimos 3 años)?",
+   "cite": "PCAP p.94–95",
+   "proof": "Cuentas anuales y certificados de buena ejecución"
+  },
+  {
+   "id": "gestor",
+   "kind": "number_min",
+   "min": 2,
+   "label": "Gestor aeronáutico con experiencia",
+   "rule": "Ingeniero aeronáutico que haya sido gestor de al menos 2 helipuertos",
+   "question": "¿En cuántos helipuertos ha sido nombrado gestor tu ingeniero aeronáutico?",
+   "unit": "",
+   "cite": "PPT p.25",
+   "proof": "Resolución de inicio de actividades aéreas con su nombramiento"
+  },
+  {
+   "id": "maint_lead",
+   "kind": "yesno",
+   "label": "Responsable de mantenimiento",
+   "rule": "Ingeniero superior a tiempo completo con al menos 1 año en mantenimiento, o equivalente",
+   "question": "¿Tienes un ingeniero superior con al menos 1 año de experiencia en mantenimiento, dedicado a tiempo completo?",
+   "cite": "PPT p.25",
+   "proof": "Título y currículum"
+  },
+  {
+   "id": "field_team",
+   "kind": "yesno",
+   "label": "Operarios y electricista",
+   "rule": "3 operarios a tiempo completo y 1 a tiempo parcial, uno de ellos electricista con certificado de cualificación",
+   "question": "¿Puedes adscribir 3 operarios a tiempo completo y 1 a tiempo parcial, con un electricista con certificado?",
+   "cite": "PPT p.25",
+   "proof": "Contratos y certificados"
+  },
+  {
+   "id": "it",
+   "kind": "yesno",
+   "label": "Técnico informático del SIGA",
+   "rule": "Un técnico informático dedicado al software del sistema",
+   "question": "¿Tienes un técnico informático que pueda mantener y evolucionar un sistema como el SIGA?",
+   "cite": "PPT p.26",
+   "proof": "Currículum"
+  },
+  {
+   "id": "base",
+   "kind": "yesno",
+   "label": "Sede y vehículos",
+   "rule": "Oficina y almacén en Castilla-La Mancha y al menos 2 furgonetas",
+   "question": "¿Tienes oficina y almacén en Castilla-La Mancha y al menos 2 furgonetas?",
+   "cite": "PPT p.26",
+   "proof": "Contrato de alquiler o escrituras y permisos de circulación"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": "",
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica (provisional)",
+   "pts": 100,
+   "formula": "proportional",
+   "how": "Reparto real de puntos no legible en el cuadro anexo. Se pone 100 puntos al precio solo para que el cálculo funcione; hay que sustituirlo tras revisión humana",
+   "cite": "PCAP p.99"
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": null,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.100",
+  "note": "Los parámetros del apartado 18 no son legibles. Hay que revisarlos antes de publicar."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": null,
+  "note": "Contrato continuo con equipo a tiempo completo: 2 técnicos grupo A, 3 operarios más 1 parcial y 1 informático, más respaldo 24/7 (PPT p.25–26). Duración no legible."
+ },
+ "guarantee": {
+  "definitive_pct": null,
+  "abnormal_extra_pct": null,
+  "cite": "PCAP p.100–101",
+  "note": "El modelo propone un 5 % del precio final sin IVA, pero el cuadro anexo no se lee."
+ },
+ "risk_flags": [
+  {
+   "id": "siga",
+   "label": "Evolución del SIGA en 24 meses sobre tecnología muy antigua y con propiedad del código para el SESCAM",
+   "cite": "PPT p.15 · PPT p.62–64",
+   "weight": 3
+  },
+  {
+   "id": "sla",
+   "label": "Atención 24/7 y tiempos de resolución desde 8 horas, con stock mínimo de repuestos",
+   "cite": "PPT p.16–18",
+   "weight": 3
+  },
+  {
+   "id": "quality",
+   "label": "El 1 % de la financiación anual depende de 100 puntos de indicadores de calidad",
+   "cite": "PPT p.28–30",
+   "weight": 2
+  },
+  {
+   "id": "manager",
+   "label": "Responsabilidad legal como gestor aeronáutico ante AESA",
+   "cite": "PPT p.20–21",
+   "weight": 2
+  },
+  {
+   "id": "transition",
+   "label": "Transición al siguiente adjudicatario sin coste y reposiciones incluidas en el precio",
+   "cite": "PPT p.15 · PPT p.28",
+   "weight": 2
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se admite con compromiso de disposición. En titulaciones y experiencia, solo si esa entidad presta esos servicios.",
+  "ute": true,
+  "subcontracting": null,
+  "cite": "PCAP p.20–22 · PCAP p.71"
+ },
+ "specific_checks": [
+  {
+   "text": "Solicitar el Anexo técnico confidencial a contratacion@sescam.jccm.es dentro del plazo de licitación, tras firmar el acuerdo de confidencialidad",
+   "cite": "PPT p.33"
+  },
+  {
+   "text": "El gestor aeronáutico debe ser reconocido por AESA y acreditar su experiencia con la resolución de inicio de actividades",
+   "cite": "PPT p.20 · PPT p.25"
+  },
+  {
+   "text": "Estar dado de alta en la plataforma de notificaciones de la Junta antes del cierre",
+   "cite": "PCAP p.16"
+  },
+  {
+   "text": "Presentar la memoria del equipo con currículum y horas anuales y mensuales junto al Anexo VI del cuadro",
+   "cite": "PPT p.24–25"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -14,
+   "task": "Descarga una versión legible del cuadro de características y pide por correo el Anexo técnico confidencial",
+   "cite": "PPT p.33",
+   "help": "Confirma duración, solvencia, criterios y penalidades"
+  },
+  {
+   "when": -12,
+   "task": "Envía tus preguntas por la Plataforma: son 12 días antes del cierre para tener respuesta garantizada",
+   "cite": "PCAP p.23",
+   "help": "Último día para preguntar con respuesta garantizada"
+  },
+  {
+   "when": -8,
+   "task": "Prepara el DEUC, el Anexo II y el compromiso de adscripción de medios (sobre 1) y, si vas en UTE, el Anexo XI",
+   "cite": "PCAP p.26–28",
+   "help": "Borrador del DEUC (próximamente)"
+  },
+  {
+   "when": -5,
+   "task": "Reúne los currículums y certificados del equipo (gestor aeronáutico, mantenimiento, electricista e informático)",
+   "cite": "PPT p.24–26",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -2,
+   "task": "Prepara la oferta económica y las propuestas que pida el cuadro; sube todo con certificado electrónico",
+   "cite": "PCAP p.12–14",
+   "help": "Rebaja recomendada"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "El cuadro de características anexo (ANX) tiene la fuente dañada y no se leen presupuesto por lotes, duración, solvencia, criterios de adjudicación, baja anormal, garantías ni penalidades. El PCAP es el modelo con el Anexo I vacío. Los criterios y la baja anormal de esta hoja son provisionales y requieren revisión humana.",
+   "cite": "ANX p.1–71 · PCAP p.90–111"
+  },
+  {
+   "text": "El número de sobres (2 o 3) no se puede confirmar. El PPT pide una memoria del equipo sin indicar claramente el sobre.",
+   "cite": "PCAP p.98 · PPT p.24"
+  },
+  {
+   "text": "El PPT remite a un apartado 1.3.1 para plazos y para infraestructuras críticas, pero esos contenidos están en el 1.3.3",
+   "cite": "PPT p.11 · PPT p.22 · PPT p.16–18"
+  },
+  {
+   "text": "Solo se han recibido 70 de las 89 páginas del PPT",
+   "cite": "PPT p.70"
+  }
+ ]
+}

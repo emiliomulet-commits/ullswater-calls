@@ -1,0 +1,420 @@
+{
+ "schema": 1,
+ "id": "21007949",
+ "reviewed": "2026-11-28",
+ "title": "Construcción del nuevo Centro de Salud Vila-Real IV, en Vila-real (Castellón)",
+ "buyer": "Conselleria de Sanidad",
+ "buyer_key": "Dirección General de Gestión Económica, Contratación e Infraestructuras de la Conselleria de Sanidad",
+ "province": "Castellón",
+ "cpv": "45215100",
+ "ref": "1690/2026",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=89uvFVOZ2FekU02jNGj1Fw%3D%3D",
+ "deadline": "2027-01-11",
+ "deadline_time": "14:00",
+ "questions_until": "2026-12-30",
+ "questions_cite": "PCAP p.13–14",
+ "opening_days": 20,
+ "opening_cite": "PCAP p.21",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 3,
+ "judgement_pts": 10,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Obra única: nuevo Centro de Salud Vila-Real IV",
+   "budget": 3407218.21,
+   "works": 2863208.58,
+   "buildings": 1,
+   "months": 15
+  }
+ ],
+ "lots_cite": "ANX10 p.2 · ANX10 p.8",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": "No hay lotes: es una obra única.",
+ "lots_rule_cite": "ANX10 p.2",
+ "requirements": [
+  {
+   "id": "classification",
+   "kind": "yesno",
+   "label": "Clasificación de contratista",
+   "rule": "Grupo C, categoría 5 (el pliego no indica subgrupo). En una UTE, todas las empresas deben estar clasificadas y se suman.",
+   "question": "¿Tu empresa (o tu UTE) tiene la clasificación de contratista de obras grupo C, categoría 5?",
+   "cite": "ANX10 p.13 · PCAP p.8",
+   "proof": "Certificado de clasificación (ROLECE o registro autonómico)"
+  },
+  {
+   "id": "team",
+   "kind": "yesno",
+   "label": "Equipo mínimo adscrito",
+   "rule": "Jefe de obra exclusivo (titulado en edificación o con experiencia acreditada), encargado exclusivo, ayudante de instalaciones y jefe de producción al 30 %, oficial, topógrafo, peón y administrativo",
+   "question": "¿Puedes comprometer un equipo con un jefe de obra y un encargado en exclusiva, más un ayudante de instalaciones (ingeniero industrial) y un jefe de producción al 30 %, y el resto del equipo mínimo?",
+   "cite": "ANX10 p.15–16 · ANX6 p.1",
+   "proof": "Titulaciones, vida laboral o contratos y certificados de obras del jefe de obra"
+  },
+  {
+   "id": "insurance",
+   "kind": "yesno",
+   "label": "Seguros TRC y responsabilidad civil",
+   "rule": "Cuantía no inferior al PEM (2.863.208,58 €) y al menos el 10 % del PEM por siniestro y año, con la Conselleria como beneficiaria o asegurada adicional",
+   "question": "¿Puedes contratar un seguro todo riesgo construcción y otro de responsabilidad civil por al menos 2.863.208,58 € cada uno, y entregarlos en 5 días hábiles tras la adjudicación?",
+   "cite": "ANX10 p.40",
+   "proof": "Certificados de las pólizas y compromiso de renovación"
+  },
+  {
+   "id": "social",
+   "kind": "yesno",
+   "label": "Condición especial de ejecución del equipo",
+   "rule": "Al menos una: 1 mujer en el equipo, 20 % de dedicación de personas de 50 años o más, o 1 persona de 35 años o menos",
+   "question": "¿Tu equipo incluye al menos a una mujer, o a una persona de 35 años o menos, o dedicación del 20 % de personas de 50 años o más?",
+   "cite": "ANX10 p.38–39",
+   "proof": "Designación del equipo con los perfiles que cumplen la condición"
+  }
+ ],
+ "classification": {
+  "group": "C",
+  "subgroup": null,
+  "category": 5,
+  "cite": "ANX10 p.13",
+  "note": "El pliego no indica subgrupo. Las empresas de la UE/EEE sin clasificación acreditan solvencia: volumen anual en obras ≥ 4.439.575,54 € y obras de los últimos 5 años con importe anual acumulado ≥ 2.098.846,42 € (ANX10 p.13–14)."
+ },
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica",
+   "pts": 65,
+   "formula": "proportional",
+   "exponent": "Bmax/5",
+   "how": "La mayor baja de todas las ofertas saca 65 puntos. Las demás se reparten con P = 65 × [1 − (Bmáx − Bi)/Bmáx] elevado a Bmáx/5. Hasta una baja máxima del 5 % es lineal; con bajas mayores, el resto pierde puntos más rápido",
+   "cite": "ANX10 p.18–19",
+   "note": "Fórmula con exponente según el texto del pliego (formato roto). No encaja exactamente en las fórmulas estándar; se aproxima con «proportional» más el exponente."
+  },
+  {
+   "id": "bim",
+   "kind": "choice",
+   "name": "Planos as built en BIM (LOD 400)",
+   "pts": 1,
+   "question": "¿Puedes entregar mensualmente los planos as built en BIM a nivel LOD 400 a partir del modelo LOD 350 de la Administración?",
+   "options": [
+    {
+     "label": "No",
+     "pts": 0
+    },
+    {
+     "label": "Sí",
+     "pts": 1
+    }
+   ],
+   "cite": "ANX10 p.20"
+  },
+  {
+   "id": "cameras",
+   "kind": "choice",
+   "name": "Cámaras de vídeo en directo Full HD",
+   "pts": 3,
+   "question": "¿Cuántas cámaras de vídeo en directo Full HD puedes instalar en la obra?",
+   "options": [
+    {
+     "label": "Ninguna",
+     "pts": 0
+    },
+    {
+     "label": "1 cámara",
+     "pts": 1
+    },
+    {
+     "label": "2 cámaras",
+     "pts": 1.5
+    },
+    {
+     "label": "3 cámaras",
+     "pts": 2
+    },
+    {
+     "label": "4 cámaras",
+     "pts": 3
+    }
+   ],
+   "cite": "ANX10 p.20"
+  },
+  {
+   "id": "timelapse",
+   "kind": "choice",
+   "name": "Cámaras time-lapse 4K",
+   "pts": 2,
+   "question": "¿Cuántas cámaras time-lapse Ultra HD 4K puedes instalar?",
+   "options": [
+    {
+     "label": "Ninguna",
+     "pts": 0
+    },
+    {
+     "label": "1 cámara",
+     "pts": 1
+    },
+    {
+     "label": "2 cámaras",
+     "pts": 2
+    }
+   ],
+   "cite": "ANX10 p.20–21"
+  },
+  {
+   "id": "video",
+   "kind": "choice",
+   "name": "Vídeo editado de la obra",
+   "pts": 3,
+   "question": "¿Con qué frecuencia puedes entregar un vídeo editado a pie de obra (mínimo 5 minutos, Full HD)?",
+   "options": [
+    {
+     "label": "No lo ofrezco",
+     "pts": 0
+    },
+    {
+     "label": "Semestral",
+     "pts": 1
+    },
+    {
+     "label": "Trimestral",
+     "pts": 2
+    },
+    {
+     "label": "Mensual",
+     "pts": 3
+    }
+   ],
+   "cite": "ANX10 p.21"
+  },
+  {
+   "id": "warranty",
+   "kind": "choice",
+   "name": "Incremento del plazo de garantía",
+   "pts": 9,
+   "question": "¿Cuánto puedes ampliar la garantía de 1 año de la obra?",
+   "options": [
+    {
+     "label": "No la amplío",
+     "pts": 0
+    },
+    {
+     "label": "+6 meses",
+     "pts": 4
+    },
+    {
+     "label": "+12 meses",
+     "pts": 9
+    }
+   ],
+   "cite": "ANX10 p.22"
+  },
+  {
+   "id": "ecolabel",
+   "kind": "choice",
+   "name": "Etiquetado ecológico de materiales",
+   "pts": 7,
+   "question": "¿Qué porcentaje de materiales y productos (sobre el máximo fijado, 10 unidades) puedes suministrar con etiqueta ecológica?",
+   "options": [
+    {
+     "label": "10 % o menos",
+     "pts": 0
+    },
+    {
+     "label": "Más del 10 % hasta el 20 %",
+     "pts": 1
+    },
+    {
+     "label": "Más del 20 % hasta el 40 %",
+     "pts": 3
+    },
+    {
+     "label": "Más del 40 % hasta el 60 %",
+     "pts": 4
+    },
+    {
+     "label": "Más del 60 % hasta el 80 %",
+     "pts": 5
+    },
+    {
+     "label": "Más del 80 %",
+     "pts": 7
+    }
+   ],
+   "cite": "ANX10 p.23",
+   "note": "El pliego no explica cómo se cuentan las «10 unidades»; conviene preguntar."
+  },
+  {
+   "id": "knowledge",
+   "kind": "judgement",
+   "name": "Conocimiento de la obra",
+   "pts": 7,
+   "how": "Estudio de la intervención (4 puntos) y de la planificación con diagrama de trabajos (3). Máximo 4 hojas A3 por una cara. La Mesa asigna un tramo de calidad de 0 % a 100 %",
+   "cite": "ANX10 p.24–25"
+  },
+  {
+   "id": "warranty_plan",
+   "kind": "judgement",
+   "name": "Actuaciones durante el periodo de garantía",
+   "pts": 3,
+   "how": "Protocolo de conservación, inspecciones, mantenimiento, recursos y tiempos de asistencia. Máximo 2 hojas A3 por una cara. No puede citar la duración de la garantía ofertada",
+   "cite": "ANX10 p.25–26"
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 10,
+  "single_pct": 10,
+  "accept_rate": 0.5,
+  "cite": "ANX10 p.28",
+  "note": "Con 3 o más ofertas, la presunción exige dos condiciones a la vez: precio más de un 10 % por debajo de la media y puntuación de calidad más de un 10 % por encima de la media de puntuaciones. Con una sola oferta: más de un 10 % bajo el presupuesto y calidad por encima del 90 % de los puntos. Con dos ofertas: más de un 10 % bajo la media y calidad más de un 25 % superior. El pliego habla de porcentaje sobre la media, no de puntos porcentuales."
+ },
+ "effort": {
+  "kind": "presence",
+  "weeks_per_building": 65,
+  "default_hours_week": 40,
+  "note": "Obra única de 15 meses (unas 65 semanas, cálculo nuestro) con jefe de obra y encargado en dedicación exclusiva"
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 5,
+  "cite": "ANX10 p.30 · PCAP p.23",
+  "note": "El Anexo I calcula el 5 % sobre el presupuesto base sin IVA; el PCAP lo calcula sobre el precio final ofertado."
+ },
+ "risk_flags": [
+  {
+   "id": "warranty_cost",
+   "label": "Garantía de 1 año ampliable hasta 2, con reparaciones y revisiones legales de las instalaciones a cargo del contratista",
+   "cite": "ANX10 p.22 · ANX10 p.36–37",
+   "weight": 3
+  },
+  {
+   "id": "penalties",
+   "label": "Penalidades por demora (0,60 € por 1.000 € y día) y por incumplir los compromisos ofertados",
+   "cite": "PCAP p.29 · ANX10 p.34",
+   "weight": 3
+  },
+  {
+   "id": "insurance",
+   "label": "Seguros TRC y de responsabilidad civil por al menos el PEM, a entregar en 5 días hábiles",
+   "cite": "ANX10 p.40",
+   "weight": 2
+  },
+  {
+   "id": "credit",
+   "label": "Tramitación anticipada: la adjudicación depende de que haya crédito en el presupuesto",
+   "cite": "ANX10 p.4",
+   "weight": 2
+  },
+  {
+   "id": "price_formula",
+   "label": "Fórmula de precio que castiga a las ofertas que no se acercan a la baja máxima",
+   "cite": "ANX10 p.18–19",
+   "weight": 2
+  },
+  {
+   "id": "essential",
+   "label": "Equipo adscrito y condiciones sociales son obligaciones esenciales: incumplirlas puede resolver el contrato",
+   "cite": "ANX10 p.15–16 · ANX10 p.39",
+   "weight": 2
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se admite apoyarse en otras entidades con compromiso escrito. Para la experiencia solo si esas entidades ejecutan esa parte. Si hay clasificación exigida, en UTE todas las empresas deben estar clasificadas.",
+  "ute": true,
+  "subcontracting": true,
+  "cite": "PCAP p.6–8 · ANX10 p.31"
+ },
+ "specific_checks": [
+  {
+   "text": "El jefe de obra no debe tener otro trabajo: se exige dedicación exclusiva, igual que el encargado",
+   "cite": "ANX10 p.15"
+  },
+  {
+   "text": "En el sobre 2 no puede aparecer ningún dato económico ni la duración de la garantía ofertada: supone exclusión",
+   "cite": "ANX10 p.25–26"
+  },
+  {
+   "text": "Un documento en un sobre que no le corresponde conlleva la exclusión de la oferta",
+   "cite": "PCAP p.15 · ANX10 p.6"
+  },
+  {
+   "text": "Una oferta por encima del presupuesto base (3.407.218,21 € sin IVA) se excluye automáticamente",
+   "cite": "PCAP p.11"
+  },
+  {
+   "text": "El equipo designado debe cumplir al menos una condición especial de ejecución (mujer, empleo senior o empleo juvenil)",
+   "cite": "ANX10 p.38–39"
+  },
+  {
+   "text": "Si no cumples el requerimiento tras la propuesta de adjudicación, pagas el 3 % del presupuesto sin IVA (102.216,55 €)",
+   "cite": "PCAP p.25"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -40,
+   "task": "Descarga el proyecto técnico (el enlace caduca cada 7 días) y revisa mediciones y plazos",
+   "cite": "PPT p.1",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -12,
+   "task": "Envía tus preguntas por la Plataforma (último día con respuesta garantizada)",
+   "cite": "PCAP p.13–14",
+   "help": "Preguntas sugeridas sobre las incoherencias"
+  },
+  {
+   "when": -10,
+   "task": "Prepara las memorias del sobre 2 (conocimiento de la obra, 4 hojas A3; garantía, 2 hojas A3) sin datos económicos",
+   "cite": "ANX10 p.24–26",
+   "help": "Guía de contenidos"
+  },
+  {
+   "when": -8,
+   "task": "Firma el DEUC (Parte IV, opción α), Anexo II, Anexo III (UTE o no) y Anexo VI con el equipo mínimo (sobre 1)",
+   "cite": "ANX10 p.5 · ANX6 p.1",
+   "help": "Borrador del DEUC (próximamente)"
+  },
+  {
+   "when": -5,
+   "task": "Rellena el Anexo V con el precio y los compromisos de cámaras, BIM, garantía y etiquetado ecológico (sobre 3)",
+   "cite": "ANX10 p.6",
+   "help": "Rebaja recomendada"
+  },
+  {
+   "when": -3,
+   "task": "Revisa el tamaño de los archivos (menos de 8 MB cada uno) y sube la oferta con margen",
+   "cite": "ANX9 p.1",
+   "help": "Lista de comprobación final"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "La garantía definitiva es el 5 % del precio ofertado según el PCAP y el 5 % del presupuesto base según el Anexo I",
+   "cite": "PCAP p.23 · ANX10 p.30"
+  },
+  {
+   "text": "El Anexo I cita un «Anexo IV» de adscripción de medios y un «Anexo VIII» de seguros que no corresponden a los anexos del PCAP, y el modelo de compromiso de seguros no está en los documentos",
+   "cite": "ANX10 p.15 · ANX10 p.40"
+  },
+  {
+   "text": "El criterio de etiquetado ecológico habla de «10 unidades» sin explicar cómo se cuentan, y falta el anexo modelo del compromiso",
+   "cite": "ANX10 p.23 · ANX10 p.6"
+  },
+  {
+   "text": "El exponente de la fórmula de precio aparece con formato roto; se interpreta como Bmáx/5",
+   "cite": "ANX10 p.18–19"
+  },
+  {
+   "text": "La cifra de solvencia económica para empresas extranjeras (4.439.575,54 €) no coincide con 1,5 veces el valor anual medio que resulta del pliego",
+   "cite": "ANX10 p.14"
+  },
+  {
+   "text": "El Anexo I no amplía el plazo por visitas pero anuncia una visita programada sin decir si es obligatoria",
+   "cite": "ANX10 p.7–8"
+  }
+ ]
+}

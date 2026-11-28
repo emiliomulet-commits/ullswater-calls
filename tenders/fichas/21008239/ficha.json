@@ -1,0 +1,610 @@
+{
+ "id": "21008239",
+ "ref": "3.26/20810.0094",
+ "reviewed": "2026-11-28",
+ "title": "Renovación de los cables de media tensión del túnel de Abdalajís (línea de alta velocidad Córdoba-Málaga): suministro, instalación y pruebas",
+ "title_official": "Renovación de los cables de media tensión en el túnel de Abdalajís mediante instalación perchada en hastial y configuración en doble acometida en la LAV Córdoba-Málaga.",
+ "buyer": "ADIF Alta Velocidad - Presidencia",
+ "unit": "ADIF-AV (Administrador de Infraestructuras Ferroviarias - Alta Velocidad)",
+ "place": "Málaga (Andalucía)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=KE93rXfpI6zmnwcj%2BxbdTg%3D%3D",
+ "published": "2026-11-28",
+ "deadline": "2027-01-11",
+ "deadline_time": "11:00",
+ "questions_until": "2026-12-30",
+ "headline": "ADIF renueva los cables de media tensión del túnel de Abdalajís",
+ "headline_em": "túnel de Abdalajís",
+ "lede": "ADIF Alta Velocidad licita por 3,9 M€ (sin IVA) cambiar los cables eléctricos de media tensión del túnel de Abdalajís por un tendido colgado en la pared. Gana el precio más bajo, pero se exige maquinaria ferroviaria propia y personal habilitado.",
+ "crumbs": "Licitaciones › España › Entidades estatales › Andalucía",
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de condiciones particulares (PCAP) con cuadro de características y anejos",
+   "file": "01_Legal.pdf",
+   "pages": 74
+  },
+  "ANX": {
+   "label": "Procedimiento de prevención POP 16: directrices para empresas que trabajan en centros de ADIF",
+   "file": "03_Additional.pdf",
+   "pages": 19
+  },
+  "ANX2": {
+   "label": "Procedimiento de prevención POP 12: coordinación de actividades empresariales",
+   "file": "04_Additional.pdf",
+   "pages": 48
+  },
+  "ANX4": {
+   "label": "Procedimiento general PG-22 de gestión ambiental de ADIF",
+   "file": "06_Additional.pdf",
+   "pages": 87
+  },
+  "ANX5": {
+   "label": "Anexo de condiciones generales para contratos de servicios de ADIF-AV",
+   "file": "07_Additional.pdf",
+   "pages": 36
+  },
+  "PPT": {
+   "label": "PliegoDePrescripcionesTecnicas.PDF",
+   "file": "02_Technical.pdf",
+   "pages": 48
+  },
+  "ANX3": {
+   "label": "FormularioDeuc.PDF",
+   "file": "05_Additional.pdf",
+   "pages": 13
+  },
+  "ANX6": {
+   "label": "AnexoCgSuministros.PDF",
+   "file": "08_Additional.pdf",
+   "pages": 40
+  },
+  "ANX7": {
+   "label": "BoeDeuc.PDF",
+   "file": "09_Additional.pdf",
+   "pages": 9
+  },
+  "ANX8": {
+   "label": "Pop12Anexos.PDF",
+   "file": "10_Additional.pdf",
+   "pages": 12
+  }
+ },
+ "tags": {
+  "level": "Entidad pública estatal (ADIF)",
+  "where": "Málaga, Andalucía",
+  "contract": "Mixto: suministro y servicios",
+  "sector": "Cables aislados y mantenimiento ferroviario (CPV 31300000 y 50220000)",
+  "size": "Grande (1 M€ – 5 M€)",
+  "deadline": "Cierra en 44 días",
+  "procedure": "Abierto (regulación armonizada)",
+  "funds": "Sin fondos europeos",
+  "lots": "Sin lotes",
+  "award": "Solo precio (el más bajo gana)"
+ },
+ "verdict": {
+  "opportunity": "media",
+  "difficulty": "alta",
+  "text": "Es una buena oportunidad para instaladores eléctricos con experiencia en ferrocarril o túneles que ya tengan (o puedan contratar) una dresina y una plataforma de tendido autorizadas para la red ferroviaria, y personal habilitado. Para una pyme sin esos medios es difícil entrar. El contrato es grande (3,9 M€), exige una facturación de 2,93 M€ en un año y el único criterio es el precio: se gana con una oferta muy afinada, sin margen para diferenciarse por calidad. Ojo a las penalidades por retrasos de trenes y al límite de cobro por año."
+ },
+ "summary": [
+  "ADIF Alta Velocidad quiere sustituir los cables de media tensión del túnel de Abdalajís, que están metidos en hormigón y se han averiado varias veces, por un nuevo tendido colgado en la pared y con doble alimentación.",
+  "El presupuesto es de 3.903.038,52 € sin IVA (4.722.676,61 € con IVA), sin lotes, con 24 meses de plazo desde el acta de inicio.",
+  "Solo puntúa el precio: gana la oferta admitida más barata. Hay que ofertar todas las partidas con las mediciones del pliego, y los precios unitarios son precios máximos.",
+  "Se exige una facturación de al menos 2.927.278,89 € en el mejor de los últimos 3 años, experiencia en cables (≥ 830.613 €) y en mantenimiento ferroviario (≥ 535.450,48 €), un jefe de equipo, un operador de maquinaria de infraestructura, una dresina y una plataforma de tendido.",
+  "Las ofertas se presentan en el Portal del Licitador de ADIF hasta el 11 de enero de 2027 a las 11:00, en 2 sobres electrónicos. No hay garantía provisional; la definitiva es del 5 %."
+ ],
+ "max_lots_per_bidder": 1,
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Suministrar, instalar, conectar, probar y poner en servicio un nuevo sistema de cables de media tensión (MT) en el túnel de Abdalajís. Va colgado en la pared (perchado en hastial) y con doble acometida, es decir, con dos entradas de alimentación para el mismo circuito. Incluye empalmes, ensayos, puesta en tensión y documentación final.",
+     "PCAP 1"
+    ],
+    [
+     "Por qué se contrata",
+     "Los cables actuales están embebidos en hormigón o bajo solera y no admiten los movimientos del túnel. Esto ha provocado averías que afectan al bombeo, drenaje y sistemas de seguridad.",
+     "PCAP 2"
+    ],
+    [
+     "Tipo de contrato",
+     "Mixto de suministros y servicios. La prestación principal es el suministro (60,80 % del presupuesto).",
+     "PCAP 1 · PCAP 3"
+    ],
+    [
+     "Órgano",
+     "ADIF Alta Velocidad. Se rige por el Real Decreto-ley 3/2020 (sectores especiales), no por la LCSP directamente. Regulación armonizada: sí.",
+     "PCAP 1 · PCAP 5 · ANX5 2"
+    ],
+    [
+     "Lugar",
+     "Túnel de Abdalajís, línea de alta velocidad Córdoba-Málaga (provincia de Málaga).",
+     "PCAP 1–2"
+    ],
+    [
+     "Lotes",
+     "No hay división en lotes. El pliego dice que la prestación es técnicamente unitaria.",
+     "PCAP 11"
+    ],
+    [
+     "Fecha de publicación",
+     "Los pliegos no indican la fecha de publicación del anuncio. La ficha usa como referencia la fecha en que se ha analizado la licitación (28 de noviembre de 2026).",
+     ""
+    ],
+    [
+     "Pliego técnico (PPT)",
+     "No se ha incluido en el texto analizado para esta ficha. Conviene leerlo antes de ofertar (especificaciones del cable, soportación, ensayos, plazos parciales).",
+     ""
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Contrato único: suministro e instalación de cable MT, soportación, empalmes, ensayos y documentación",
+     "fee": 3903038.52,
+     "months": 24
+    }
+   ],
+   "note": "No hay lotes. El presupuesto se reparte entre suministros (2.373.180 €) y servicios (1.529.858,52 €), todo sin IVA.",
+   "cite": "PCAP 3 · PCAP 11"
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base",
+     "3.903.038,52 € sin IVA. IVA (21 %): 819.638,09 €. Total con IVA: 4.722.676,61 €.",
+     "PCAP 3"
+    ],
+    [
+     "Valor estimado",
+     "3.903.038,52 € sin IVA. No hay importes por modificaciones, prórrogas ni suministros aportados.",
+     "PCAP 4"
+    ],
+    [
+     "Anualidades",
+     "2027: 1.951.519,26 € sin IVA. 2028: 1.951.519,26 € sin IVA. No se puede cobrar en un año más que la anualidad correspondiente.",
+     "PCAP 3 · PCAP 40"
+    ],
+    [
+     "Cómo se calcula",
+     "Precios unitarios por medición prevista. Partidas principales: cable (48.000 m a 43,76 €), soportación (30.000 u a 9,09 € suministro y 31,85 € instalación), instalación de cable en hastial (16.000 m a 20,70 €), tendido con dresina (16.000 m a 6,37 €), 120 empalmes (577,58 €) y una partida alzada de 50.000 €. Gastos generales 9 % y beneficio industrial 6 % ya incluidos.",
+     "PCAP 3–4"
+    ],
+    [
+     "Duración",
+     "24 meses a partir del acta de inicio. Plazos parciales, según el pliego técnico.",
+     "PCAP 13"
+    ],
+    [
+     "Prórrogas",
+     "No se prevén.",
+     "PCAP 13"
+    ],
+    [
+     "Revisión de precios",
+     "No procede.",
+     "PCAP 13"
+    ],
+    [
+     "Modificaciones previstas",
+     "No. Solo caben modificaciones no previstas (arts. 111 y 112 del RDL 3/2020), hasta el 20 % del precio y sin precios unitarios nuevos fuera de la base de precios de ADIF.",
+     "PCAP 16 · PCAP 44–45"
+    ],
+    [
+     "Subrogación de personal",
+     "El pliego no indica trabajadores a subrogar ni coste. Solo recuerda que, si una norma o convenio la impone, se aplica el art. 130 LCSP.",
+     "PCAP 48"
+    ],
+    [
+     "Gastos a cargo del adjudicatario",
+     "Publicidad de la licitación hasta 3.000 €. Escritura pública solo si la pide el adjudicatario. Tributos, permisos y licencias de la ejecución.",
+     "PCAP 10 · PCAP 46 · ANX5 4"
+    ],
+    [
+     "Financiación",
+     "Sin cofinanciación europea.",
+     "PCAP 18"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Clasificación",
+     "El cuadro de características no la exige: la solvencia se acredita por los medios que siguen.",
+     "PCAP 6–7"
+    ],
+    [
+     "Solvencia económica",
+     "Volumen anual de negocios, en el mejor de los últimos 3 años concluidos, de al menos 2.927.278,89 € (1,5 veces la anualidad media). Se acredita con las cuentas anuales depositadas en el Registro Mercantil.",
+     "PCAP 6–7"
+    ],
+    [
+     "Solvencia técnica",
+     "Trabajos de los últimos 3 años. En el año de mayor ejecución, al menos 830.613 € en suministros de cables aislados (CPV 313) y al menos 535.450,48 € en servicios ferroviarios (CPV 502). Se acredita con relación de trabajos y certificados de buena ejecución con importes, fechas y lugar.",
+     "PCAP 7"
+    ],
+    [
+     "Cómo se acredita al presentar",
+     "Basta con el DEUC (declaración europea de solvencia) y la declaración complementaria (Anejo 2). Los documentos reales se piden solo a la mejor oferta.",
+     "PCAP 6–7 · PCAP 28–29"
+    ],
+    [
+     "Equipo mínimo",
+     "1 jefe de equipo (titulación universitaria de grado, p. ej. ingeniería técnica industrial eléctrica, 3 años de experiencia como jefe de equipo en subestaciones o túneles, dedicación exclusiva) y 1 operador de maquinaria de infraestructura (habilitación según Orden FOM/2872/2010, 2 años de experiencia, dedicación exclusiva).",
+     "PCAP 7–8"
+    ],
+    [
+     "Medios materiales",
+     "1 vehículo de vía (dresina) autorizado para la red ferroviaria de interés general, con velocidad mínima de 80 km/h, plataforma y grúa, y 1 plataforma de tendido con gatos portabobinas (mínimo 40 km/h). Hay que aportar ficha técnica, autorización de circulación, inspecciones IS e IM y marcado CE.",
+     "PCAP 8–9"
+    ],
+    [
+     "Habilitación empresarial",
+     "Ninguna en especial.",
+     "PCAP 9"
+    ],
+    [
+     "UTE e integración de solvencia",
+     "Se admiten UTE (se acumula la solvencia de los miembros). Se puede recurrir a otras empresas, pero hay que indicarlo en el DEUC y responden solidariamente de la solvencia económica.",
+     "PCAP 6 · PCAP 10"
+    ],
+    [
+     "Incompatibilidad",
+     "No pueden presentarse empresas (ni vinculadas) que hayan participado en preparar las especificaciones o documentos del contrato.",
+     "PCAP 11"
+    ],
+    [
+     "Documentación a la mejor oferta",
+     "10 días hábiles para presentar capacidad, representación, solvencia, medios, certificados de Hacienda y Seguridad Social, y resguardo de garantía definitiva. Si no se cumple: pierdes la oferta y se exige una penalidad del 3 % del presupuesto sin IVA.",
+     "PCAP 34–36"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Precio",
+     "pts": 100,
+     "kind": "fórmula",
+     "how": "No hay puntos: gana la oferta admitida de menor importe sin IVA. Hay que ofertar todas las partidas con las mediciones del pliego, sin modificar la partida alzada (50.000 €), y los precios unitarios no pueden superar los de licitación."
+    }
+   ],
+   "cite": "PCAP 11–12 · PCAP 32",
+   "items": [
+    [
+     "Juicio de valor",
+     "Ninguno. No hay sobre 3 ni umbral mínimo de calidad.",
+     "PCAP 11–13"
+    ],
+    [
+     "Baja anormal",
+     "Con una sola oferta, más de 25 puntos porcentuales por debajo del presupuesto. Con dos, más de 20 puntos por debajo de la otra. Con tres o más, más de 10 puntos por debajo de la media (se excluyen del cálculo las ofertas más de 10 puntos por encima de la media). Con tres ofertas, en todo caso es anormal una baja superior a 25 puntos. Si te señalan, tienes hasta 5 días hábiles para justificar.",
+     "PCAP 32–33"
+    ],
+    [
+     "Desempate",
+     "Criterios sociales del art. 66.11 del RDL 3/2020, con documentación que se pide en el momento del empate.",
+     "PCAP 34"
+    ],
+    [
+     "Una sola proposición",
+     "No se puede presentar más de una oferta, ni sola y en UTE a la vez. Se excluyen todas. Tampoco hay variantes.",
+     "PCAP 12 · PCAP 20"
+    ]
+   ],
+   "insight": "Se decide solo por precio, con la baja anormal en torno al 10 % bajo la media como límite práctico. Se gana quien tiene los medios ferroviarios propios y mejor coste de compra del cable (el 54 % del presupuesto es cable y soportación)."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Hasta el 11 de enero de 2027 a las 11:00, solo por el Portal del Licitador de ADIF (elicitadores.adif.es). Hay que estar registrado y completar los datos adicionales. Firma electrónica cualificada o avanzada.",
+     "PCAP 19–20 · PCAP 6"
+    ],
+    [
+     "Preguntas",
+     "Hasta 12 días naturales antes del cierre (30 de diciembre de 2026), por correo o por la Plataforma. ADIF responde como máximo 6 días antes del cierre (5 de enero de 2027). Las respuestas son vinculantes y públicas.",
+     "PCAP 5–6"
+    ],
+    [
+     "Sobre 1",
+     "DEUC (solo la sección α de la parte IV), Anejo 2 de declaración complementaria y, si es UTE, Anejo 4 de compromiso. No puede incluir datos del precio.",
+     "PCAP 28–29"
+    ],
+    [
+     "Sobre 2",
+     "Anejo 1 con el importe ofertado sin IVA (con el IVA aparte) y Anejo 1 Bis con la relación de precios unitarios, el presupuesto por capítulos y el comparado en formato editable. Precios con 2 decimales.",
+     "PCAP 12 · PCAP 51–52"
+    ],
+    [
+     "Sobre 3",
+     "No procede.",
+     "PCAP 13"
+    ],
+    [
+     "Garantías",
+     "Provisional: no. Definitiva: 5 % del importe de adjudicación sin IVA. Complementaria: 5 % si tu oferta fue inicialmente anormalmente baja.",
+     "PCAP 10"
+    ],
+    [
+     "Apertura",
+     "El sobre 2 se abre en acto privado, en el día y hora del anuncio. El pliego no lo indica en lo leído.",
+     "PCAP 31"
+    ],
+    [
+     "Fallo y formalización",
+     "Adjudicación en el plazo del cuadro (15 días). La formalización no puede ser antes de 15 días hábiles desde la notificación y se firma en un máximo de 5 días tras el requerimiento.",
+     "PCAP 13 · PCAP 37"
+    ],
+    [
+     "Fallos al subir ficheros",
+     "Si un documento no se ve, tienes 24 horas para reenviarlo idéntico. Si cambia, te excluyen.",
+     "PCAP 19–20"
+    ],
+    [
+     "Visita",
+     "El pliego no prevé visita previa.",
+     ""
+    ],
+    [
+     "Recurso",
+     "Reclamación en materia de contratación (arts. 119 y ss. del RDL 3/2020), no el recurso especial del art. 44 LCSP.",
+     "PCAP 50"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro",
+     "items": [
+      [
+       "Pago",
+       "Según relación valorada del responsable del contrato, con facturas electrónicas. Plazos de pago y abonos a cuenta, en el Anexo de condiciones generales (no incluido en lo leído).",
+       "PCAP 18 · PCAP 40 · ANX5 4"
+      ],
+      [
+       "Tope anual",
+       "No se puede cobrar en un año más que la anualidad (1.951.519,26 € sin IVA), aunque se ejecute más rápido.",
+       "PCAP 40"
+      ],
+      [
+       "Partida alzada",
+       "50.000 €. Se justifica con la instrucción de ADIF de 12 de julio de 2022. No se puede ofertar a la baja.",
+       "PCAP 12 · PCAP 18"
+      ]
+     ]
+    },
+    {
+     "h": "Penalidades",
+     "items": [
+      [
+       "Puntualidad",
+       "Desde 3 trenes retrasados en un día, 0,1 % del importe de adjudicación por tren con más de 15 minutos de retraso causado por los equipos del contrato.",
+       "PCAP 15–16"
+      ],
+      [
+       "Averías por negligencia",
+       "Coste total de la reparación más un 25 % de recargo. Si se repite, otro 0,5 % del importe de adjudicación por avería.",
+       "PCAP 16"
+      ],
+      [
+       "Limitaciones de velocidad (LTV)",
+       "0,25 % del importe por incumplimiento, acumulable hasta el 10 %. Máximo 3 LTV por semana por negligencia. Se deben retirar en menos de 7 días (si es >160 km/h) o 48 horas.",
+       "PCAP 16"
+      ],
+      [
+       "Límites",
+       "Cada penalidad, máximo el 10 % del precio, y el total no puede pasar del 50 %.",
+       "PCAP 16"
+      ],
+      [
+       "Demora",
+       "0,60 € por cada 1.000 € de precio sin IVA y por día, o resolución con pérdida de la garantía.",
+       "PCAP 44"
+      ],
+      [
+       "Condiciones de ejecución y cumplimiento defectuoso",
+       "1 % del precio, hasta el 5 % o el 10 % si es grave o muy grave.",
+       "PCAP 43"
+      ],
+      [
+       "Integridad y lucha contra el fraude",
+       "Hasta el 10 % del precio por incumplimiento, con un máximo del 50 %, o resolución.",
+       "PCAP 43"
+      ]
+     ]
+    },
+    {
+     "h": "Obligaciones y personal",
+     "items": [
+      [
+       "Adscripción exclusiva",
+       "Jefe de equipo y operador de maquinaria con dedicación completa. Cambiarlos exige autorización del responsable del contrato.",
+       "PCAP 7–8"
+      ],
+      [
+       "Seguros",
+       "Seguro de accidentes: 300.000 € por víctima, para personal de ADIF-AV. Seguro de responsabilidad civil: suma asegurada igual al precio de adjudicación. Se acreditan en el primer mes tras formalizar.",
+       "PCAP 13–14 · PCAP 39–40"
+      ],
+      [
+       "Condiciones sociales",
+       "Al menos un 20 % de trabajadores fijos y un 1 % de personas con discapacidad, y mujeres en nuevos empleos al menos en la media del sector (si el mercado laboral lo permite).",
+       "PCAP 15"
+      ],
+      [
+       "Plazo de garantía",
+       "1 año desde el certificado de correcta ejecución, según el cuadro.",
+       "PCAP 18"
+      ],
+      [
+       "Prevención",
+       "Informe de seguridad con la oferta o contrato, parte de iniciación de trabajos, y cumplimiento de las normas de ADIF (POP 12 y POP 16).",
+       "ANX2 21–23 · ANX 3–5"
+      ],
+      [
+       "Datos y seguridad de la información",
+       "Tratamiento de datos personales como encargado y requisitos de seguridad de la información, que cuentan como obligaciones esenciales.",
+       "PCAP 24–27 · PCAP 67–73"
+      ],
+      [
+       "Informes ambientales",
+       "Los contratos de obra y mantenimiento deben informar a ADIF de residuos, agua y energía consumidos.",
+       "ANX4 29 · ANX4 56"
+      ],
+      [
+       "Subcontratación",
+       "Permitida, sin porcentaje máximo fijado, con comunicación previa y pago a los subcontratistas en plazo. Penalidad del 5 % del subcontrato si se incumple.",
+       "PCAP 16 · PCAP 45"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Garantía y recepción",
+     "El cuadro dice que el plazo de garantía de 1 año cuenta desde el certificado de correcta ejecución; la cláusula 37 dice que cuenta desde la recepción.",
+     "PCAP 18 · PCAP 49"
+    ],
+    [
+     "Plazo de adjudicación",
+     "El cuadro dice «plazo general de 15 días», pero la cláusula 21 habla de 5 días hábiles tras recibir la documentación y de 15 días naturales para notificar.",
+     "PCAP 13 · PCAP 37"
+    ],
+    [
+     "Referencias cruzadas",
+     "Se citan apartados que no coinciden con el cuadro (por ejemplo II.3.3 para la habilitación y «cláusula 20.C).3»). Hay una errata «RDL 3/2022».",
+     "PCAP 3 · PCAP 9–10"
+    ],
+    [
+     "Solvencia técnica",
+     "Habla de «tres últimos años» pero mide el año de mayor ejecución y reparte la cifra del 70 % de la anualidad media entre dos CPV sin explicar el reparto.",
+     "PCAP 7"
+    ],
+    [
+     "Presupuesto",
+     "El reparto suministros/servicios se expresa como porcentaje del «PEM» pero coincide con el del presupuesto base sin IVA.",
+     "PCAP 3"
+    ]
+   ],
+   "advice": "Pregunta antes del 30 de diciembre de 2026 por el reparto de la solvencia técnica por CPV, qué experiencia en un solo año cuenta, y la fecha del acto de apertura del sobre 2. Revisa también el PPT, que no hemos analizado."
+  }
+ ],
+ "errors_note": null,
+ "updated": "2026-11-27",
+ "files": [
+  {
+   "name": "Pliego de condiciones particulares (PCAP) con cuadro de características y anejos",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 74,
+   "bytes": 1636253
+  },
+  {
+   "name": "PliegoDePrescripcionesTecnicas.PDF",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 48,
+   "bytes": 685721
+  },
+  {
+   "name": "Procedimiento de prevención POP 16: directrices para empresas que trabajan en centros de ADIF",
+   "file": "03_Additional.pdf",
+   "type": "PDF",
+   "pages": 19,
+   "bytes": 406429
+  },
+  {
+   "name": "Procedimiento de prevención POP 12: coordinación de actividades empresariales",
+   "file": "04_Additional.pdf",
+   "type": "PDF",
+   "pages": 48,
+   "bytes": 242875
+  },
+  {
+   "name": "FormularioDeuc.PDF",
+   "file": "05_Additional.pdf",
+   "type": "PDF",
+   "pages": 13,
+   "bytes": 1180145
+  },
+  {
+   "name": "Procedimiento general PG-22 de gestión ambiental de ADIF",
+   "file": "06_Additional.pdf",
+   "type": "PDF",
+   "pages": 87,
+   "bytes": 481497
+  },
+  {
+   "name": "Anexo de condiciones generales para contratos de servicios de ADIF-AV",
+   "file": "07_Additional.pdf",
+   "type": "PDF",
+   "pages": 36,
+   "bytes": 281284
+  },
+  {
+   "name": "AnexoCgSuministros.PDF",
+   "file": "08_Additional.pdf",
+   "type": "PDF",
+   "pages": 40,
+   "bytes": 13811309
+  },
+  {
+   "name": "BoeDeuc.PDF",
+   "file": "09_Additional.pdf",
+   "type": "PDF",
+   "pages": 9,
+   "bytes": 249360
+  },
+  {
+   "name": "Pop12Anexos.PDF",
+   "file": "10_Additional.pdf",
+   "type": "PDF",
+   "pages": 12,
+   "bytes": 88273
+  },
+  {
+   "name": "2026-1c5ed28b-ad34-4476-adce-73e09169b3f5",
+   "file": "11_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-d13e1770-1c11-46bc-a8aa-2a3443033de7",
+   "file": "12_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ],
+ "not_read": [
+  "ANX5 desde la página 5 de 36",
+  "ANX6 desde la página 1 de 40",
+  "ANX7 desde la página 1 de 9",
+  "ANX8 desde la página 3 de 12",
+  "PPT desde la página 1 de 48"
+ ]
+}

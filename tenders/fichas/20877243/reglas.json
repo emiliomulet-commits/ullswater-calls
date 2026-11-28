@@ -1,0 +1,426 @@
+{
+ "schema": 1,
+ "id": "20877243",
+ "reviewed": "2026-11-28",
+ "title": "Servicio de ayuda a domicilio para personas dependientes en Ayamonte",
+ "buyer": "Ayuntamiento de Ayamonte",
+ "buyer_key": "Pleno del Ayuntamiento de Ayamonte",
+ "province": "Huelva",
+ "cpv": "85312000",
+ "ref": "19309/2026",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=rMToyvdJGrEzjChw4z%2FXvw%3D%3D",
+ "deadline": "2026-12-09",
+ "deadline_time": "19:00",
+ "questions_until": "2026-11-27",
+ "questions_cite": "PCAP p.19",
+ "opening_days": 20,
+ "opening_cite": "PCAP p.36",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 3,
+ "judgement_pts": 45,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Servicio completo de ayuda a domicilio en Ayamonte (sin lotes, 2 años)",
+   "budget": 14678810.9,
+   "months": 24
+  }
+ ],
+ "lots_cite": "PCAP p.2 · PCAP p.6",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": "No hay lotes: se licita el servicio completo.",
+ "lots_rule_cite": "PCAP p.6",
+ "requirements": [
+  {
+   "id": "turnover",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 0.75,
+   "label": "Solvencia económica",
+   "rule": "Facturación del mejor de los 3 últimos años cerrados de al menos 11.009.108,18 € (1,5 veces la anualidad media)",
+   "question": "¿Cuál fue tu facturación en tu mejor año de los 3 últimos cerrados?",
+   "unit": "€",
+   "cite": "PCAP p.14–15",
+   "proof": "Cuentas anuales depositadas en el Registro Mercantil"
+  },
+  {
+   "id": "similar",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 0.35,
+   "label": "Solvencia técnica",
+   "rule": "En el año de mayor ejecución de los últimos 3, servicios de ayuda a domicilio o similares por al menos 5.137.583,82 € (70 % de la anualidad media)",
+   "question": "¿Cuánto facturaste en servicios de ayuda a domicilio o similares en tu mejor año de los últimos 3?",
+   "unit": "€",
+   "cite": "PCAP p.15",
+   "proof": "Certificados de los clientes (públicos o privados) o declaración del empresario si no hay certificado privado"
+  },
+  {
+   "id": "habilitation",
+   "kind": "yesno",
+   "label": "Habilitación como empresa de ayuda a domicilio",
+   "rule": "Acreditación como entidad prestadora del SAD e inscripción en el Registro de Entidades, Servicios y Centros Sociales de Andalucía",
+   "question": "¿Tu empresa está acreditada e inscrita como entidad prestadora de ayuda a domicilio en Andalucía?",
+   "cite": "PCAP p.14 · PCAP p.21",
+   "proof": "Certificado de acreditación e inscripción registral"
+  },
+  {
+   "id": "ens",
+   "kind": "yesno",
+   "label": "Certificación de seguridad de la información",
+   "rule": "ENS categoría media como mínimo o ISO/IEC 27001, en vigor el último día de presentación, con alcance sobre el servicio",
+   "question": "¿Tienes certificado ENS (categoría media o superior) o ISO 27001 vigente que cubra este servicio?",
+   "cite": "PCAP p.14 · PPT p.9",
+   "proof": "Certificado en vigor"
+  },
+  {
+   "id": "team",
+   "kind": "yesno",
+   "label": "Equipo mínimo",
+   "rule": "2 coordinadores/as en Trabajo Social, 2 ayudantes de coordinación (Técnico Superior en Integración Social o similar), 1 oficial y 1 auxiliar administrativo, más auxiliares con la titulación exigida por la Junta",
+   "question": "¿Puedes comprometer el equipo mínimo (2 coordinadores/as, 2 ayudantes de coordinación, 1 oficial y 1 auxiliar administrativo) y auxiliares titulados?",
+   "cite": "PCAP p.15–17 · PPT p.28–30",
+   "proof": "Compromiso de adscripción de medios y títulos del personal"
+  },
+  {
+   "id": "insurance",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 2.0,
+   "label": "Seguro de responsabilidad civil",
+   "rule": "Importe igual o superior al valor estimado (29.357.621,80 €); la póliza se presenta antes de formalizar",
+   "question": "¿Qué importe cubre tu seguro de responsabilidad civil profesional (o puedes contratarlo)?",
+   "unit": "€",
+   "cite": "PPT p.13",
+   "proof": "Póliza y justificante de pago"
+  },
+  {
+   "id": "office",
+   "kind": "yesno",
+   "label": "Local en Ayamonte",
+   "rule": "Local accesible en Ayamonte como base operativa, con placa exterior; se acredita antes de formalizar",
+   "question": "¿Dispones o puedes disponer de un local en Ayamonte antes de formalizar el contrato?",
+   "cite": "PPT p.31",
+   "proof": "Contrato de alquiler o escritura de propiedad"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica (sin puntos)",
+   "pts": 0,
+   "formula": "fixed",
+   "how": "El precio por hora está fijado en 17,24 € sin IVA y no da puntos. No puede superar el presupuesto de licitación.",
+   "cite": "PCAP p.11 · PCAP p.22 · PCAP p.37",
+   "note": "Ningún criterio del pliego puntúa el precio; todos los puntos dependen de proyecto y mejoras."
+  },
+  {
+   "id": "project",
+   "kind": "judgement",
+   "name": "Proyecto técnico de ejecución del servicio",
+   "pts": 45,
+   "how": "Hasta 45 puntos por juicio de valor: organización y puesta en marcha 6, metodología 7, coordinación 6, calidad 6, recursos humanos 7, tecnología 6 y estrategias e incentivos 7. El pliego no fija umbral mínimo.",
+   "cite": "PCAP p.25–28"
+  },
+  {
+   "id": "director",
+   "kind": "choice",
+   "name": "Mejora A: director/a del servicio",
+   "pts": 5,
+   "question": "¿Qué jornada de director/a del servicio puedes incorporar, además del equipo mínimo?",
+   "options": [
+    {
+     "label": "Ninguna",
+     "pts": 0
+    },
+    {
+     "label": "Media jornada (0,50)",
+     "pts": 2.5
+    },
+    {
+     "label": "Tres cuartos de jornada (0,75)",
+     "pts": 3.75
+    },
+    {
+     "label": "Jornada completa (1,00)",
+     "pts": 5
+    }
+   ],
+   "cite": "PCAP p.30–31"
+  },
+  {
+   "id": "aids",
+   "kind": "choice",
+   "name": "Mejora B: ayudas técnicas gratuitas",
+   "pts": 15,
+   "question": "¿Qué parte de las ayudas técnicas máximas por año puedes ofrecer? (4 camas, 4 colchones, 4 grúas, 5 sillas, 5 andadores, 5 cojines y 8 ayudas de baño)",
+   "options": [
+    {
+     "label": "Ninguna",
+     "pts": 0
+    },
+    {
+     "label": "Aproximadamente la mitad",
+     "pts": 7.5
+    },
+    {
+     "label": "El máximo de todas",
+     "pts": 15
+    }
+   ],
+   "cite": "PCAP p.31–32",
+   "note": "El pliego reparte los puntos por unidades ofertadas de cada tipo; aquí se simplifica en tramos. La tabla de la silla de ruedas es incoherente."
+  },
+  {
+   "id": "services",
+   "kind": "choice",
+   "name": "Mejora C: servicios adicionales gratuitos",
+   "pts": 14,
+   "question": "¿Qué parte de los servicios adicionales máximos por año puedes ofrecer? (75 h de podología, 60 h de peluquería, 80 limpiezas de choque, 50 taxis, 50 acompañamientos y 80 h de fumigaciones)",
+   "options": [
+    {
+     "label": "Ninguno",
+     "pts": 0
+    },
+    {
+     "label": "Aproximadamente la mitad",
+     "pts": 7
+    },
+    {
+     "label": "El máximo de todos",
+     "pts": 14
+    }
+   ],
+   "cite": "PCAP p.32",
+   "note": "El pliego aplica regla de tres por servicio; aquí se simplifica en tramos."
+  },
+  {
+   "id": "training",
+   "kind": "choice",
+   "name": "Mejora D: formación adicional",
+   "pts": 6,
+   "question": "¿Cuántas horas extra de formación por persona y año puedes ofrecer? (máximo 20 h a auxiliares y 15 h al resto)",
+   "options": [
+    {
+     "label": "Ninguna",
+     "pts": 0
+    },
+    {
+     "label": "Aproximadamente la mitad",
+     "pts": 3
+    },
+    {
+     "label": "El máximo",
+     "pts": 6
+    }
+   ],
+   "cite": "PCAP p.32–33",
+   "note": "Regla de tres en el pliego; aquí se simplifica en tramos."
+  },
+  {
+   "id": "hours_bank",
+   "kind": "choice",
+   "name": "Mejora E: bolsa de horas gratuitas",
+   "pts": 14,
+   "question": "¿Cuántas horas gratuitas por año puedes ofrecer? (máximo valorado: 800 horas)",
+   "options": [
+    {
+     "label": "Ninguna",
+     "pts": 0
+    },
+    {
+     "label": "400 horas",
+     "pts": 7
+    },
+    {
+     "label": "800 horas o más",
+     "pts": 14
+    }
+   ],
+   "cite": "PCAP p.33",
+   "note": "Regla de tres en el pliego; aquí se simplifica en tramos."
+  },
+  {
+   "id": "certs",
+   "kind": "choice",
+   "name": "Mejora F: certificaciones de calidad",
+   "pts": 1,
+   "question": "¿Cuántas de estas certificaciones tienes? ISO 9001:2015, UNE-EN 158301:2015, SGE 21:2017 y UNE-EN ISO 45001:2023",
+   "options": [
+    {
+     "label": "Ninguna",
+     "pts": 0
+    },
+    {
+     "label": "1",
+     "pts": 0.25
+    },
+    {
+     "label": "2",
+     "pts": 0.5
+    },
+    {
+     "label": "3",
+     "pts": 0.75
+    },
+    {
+     "label": "Las 4",
+     "pts": 1
+    }
+   ],
+   "cite": "PCAP p.33"
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": null,
+  "single_pct": null,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.34",
+  "note": "El pliego remite al art. 85 del RGLCAP y al art. 149 LCSP sin fijar umbral. Como el precio no puntúa, no hay una regla clara aplicable; conviene preguntar al órgano."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": 150,
+  "note": "Estimación nuestra del trabajo de preparar la oferta, no un dato del pliego: proyecto de hasta 40 páginas, cálculo de mejoras y documentación de solvencia."
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 0,
+  "cite": "PCAP p.3 · PCAP p.38"
+ },
+ "risk_flags": [
+  {
+   "id": "subrogation",
+   "label": "Subrogación de unas 332 personas en activo (347 filas, 15 en excedencia), con coste laboral a tu cargo",
+   "cite": "PCAP p.40–41 · ANX p.1–5",
+   "weight": 3
+  },
+  {
+   "id": "demand",
+   "label": "Horas por demanda: sin mínimo garantizado y sin indemnización si baja el presupuesto",
+   "cite": "PCAP p.11–12",
+   "weight": 3
+  },
+  {
+   "id": "convenio",
+   "label": "Contrato supeditado a la prórroga del convenio con la Junta, que termina el 24 de octubre de 2027",
+   "cite": "PCAP p.12",
+   "weight": 2
+  },
+  {
+   "id": "margin",
+   "label": "Margen previsto del 4 %, mientras 55 puntos dependen de mejoras gratuitas que hay que costear",
+   "cite": "PCAP p.9 · PCAP p.30–33",
+   "weight": 3
+  },
+  {
+   "id": "penalties",
+   "label": "Penalidades de hasta el 2 %, 5 % y 10 % del presupuesto anual, y resolución por incumplir la oferta",
+   "cite": "PCAP p.48–50 · PCAP p.52–53",
+   "weight": 2
+  },
+  {
+   "id": "payment",
+   "label": "Sin informe favorable de cumplimiento laboral no se tramita la factura",
+   "cite": "PCAP p.46",
+   "weight": 2
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se admite recurrir a medios de otras empresas (art. 75 LCSP); cada una presenta su declaración responsable",
+  "ute": true,
+  "subcontracting": false,
+  "cite": "PCAP p.20 · PCAP p.47"
+ },
+ "specific_checks": [
+  {
+   "text": "Mencionar en el archivo C las mejoras del archivo B o las certificaciones de calidad es causa de exclusión",
+   "cite": "PCAP p.25 · PCAP p.33–34"
+  },
+  {
+   "text": "Superar el presupuesto de licitación o poner precio distinto en letra y en número hace que se rechace la oferta",
+   "cite": "PCAP p.37"
+  },
+  {
+   "text": "El certificado ENS o ISO 27001 debe haberse obtenido antes de terminar el plazo de presentación",
+   "cite": "PCAP p.21"
+  },
+  {
+   "text": "El compromiso de adscripción de medios es obligación esencial: incumplirlo permite resolver el contrato",
+   "cite": "PCAP p.22"
+  },
+  {
+   "text": "Hay que subir la oferta en dos fases si se usa la huella: la oferta completa debe llegar en un máximo de 24 horas",
+   "cite": "PCAP p.19"
+  },
+  {
+   "text": "Una empresa no puede presentar oferta sola y en UTE, ni estar en más de una UTE",
+   "cite": "PCAP p.18"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -12,
+   "task": "Confirma que tienes ENS o ISO 27001, la inscripción como entidad de SAD y el seguro de responsabilidad civil",
+   "cite": "PCAP p.14 · PPT p.13",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -8,
+   "task": "Prepara el DEUC, el Anexo I y el compromiso de adscripción de medios (archivo A)",
+   "cite": "PCAP p.20–22",
+   "help": "Borrador del DEUC (próximamente)"
+  },
+  {
+   "when": -6,
+   "task": "Decide y calcula el coste de las mejoras A a F y rellena el modelo de oferta (archivo B)",
+   "cite": "PCAP p.22–24 · PCAP p.30–33",
+   "help": "Cuánto cuesta cada punto de mejora"
+  },
+  {
+   "when": -4,
+   "task": "Redacta el proyecto técnico de máximo 40 páginas sin mencionar las mejoras ni las certificaciones (archivo C)",
+   "cite": "PCAP p.24–27",
+   "help": "Revisión del proyecto"
+  },
+  {
+   "when": -1,
+   "task": "Firma y envía la huella de la oferta y, en un máximo de 24 horas, la oferta completa",
+   "cite": "PCAP p.19",
+   "help": "Lista final de comprobación"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "El pliego fija 17,93 €/hora con IVA, pero dice que debe fijarse el precio de la Junta de 17,46 € con IVA",
+   "cite": "PCAP p.11 · PPT p.25–26"
+  },
+  {
+   "text": "Los ayudantes de coordinación exigen dedicación del 80 % en el PCAP y del 75 % en el PPT; prevalece el PCAP",
+   "cite": "PCAP p.16 · PPT p.29"
+  },
+  {
+   "text": "En la mejora de ayudas técnicas, la silla de ruedas da 1,5 puntos por unidad con 5 unidades pero un máximo de 1,50 puntos",
+   "cite": "PCAP p.32"
+  },
+  {
+   "text": "Ningún criterio puntúa el precio y no se fija umbral de baja anormal",
+   "cite": "PCAP p.22 · PCAP p.34"
+  },
+  {
+   "text": "El pliego pide a la vez un «compromiso de disponer» del certificado de seguridad y haberlo obtenido antes del cierre",
+   "cite": "PCAP p.14 · PCAP p.21"
+  },
+  {
+   "text": "El PCAP remite a un Anexo II del PPT para la subrogación, pero el PPT no lo contiene",
+   "cite": "PCAP p.40"
+  }
+ ]
+}

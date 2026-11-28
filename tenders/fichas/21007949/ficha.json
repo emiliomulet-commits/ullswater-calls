@@ -1,0 +1,667 @@
+{
+ "id": "21007949",
+ "ref": "1690/2026",
+ "reviewed": "2026-11-28",
+ "title": "Construcción del nuevo Centro de Salud Vila-Real IV, en Vila-real (Castellón)",
+ "title_official": "Contrato de obras para la nueva construcción del Centro de Salud Vila-Real IV (Castellón)",
+ "buyer": "Conselleria de Sanidad (Generalitat Valenciana)",
+ "unit": "Dirección General de Gestión Económica, Contratación e Infraestructuras",
+ "place": "Vila-real (Comunitat Valenciana)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=89uvFVOZ2FekU02jNGj1Fw%3D%3D",
+ "published": "2026-11-28",
+ "deadline": "2027-01-11",
+ "deadline_time": "14:00",
+ "questions_until": "2026-12-30",
+ "headline": "Vila-real licita su nuevo centro de salud: obra de 3,4 M€",
+ "headline_em": "obra de 3,4 M€",
+ "lede": "La Conselleria de Sanidad busca constructora para levantar el Centro de Salud Vila-Real IV en 15 meses. Se exige clasificación en el grupo C, categoría 5. El precio vale 65 puntos con una fórmula muy exigente.",
+ "crumbs": "Licitaciones › España › Comunidades autónomas › Comunitat Valenciana",
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de cláusulas administrativas generales (PCAP) y modelos de anexos",
+   "file": "01_Legal.pdf",
+   "pages": 73
+  },
+  "PPT": {
+   "label": "Nota informativa con el enlace al proyecto técnico (el pliego técnico no está en los documentos)",
+   "file": "02_Technical.pdf",
+   "pages": 1
+  },
+  "ANX": {
+   "label": "Anexo III: compromiso de constitución de UTE",
+   "file": "03_Additional.zip",
+   "pages": 1
+  },
+  "ANX2": {
+   "label": "Anexo II: declaración responsable",
+   "file": "03_Additional.zip",
+   "pages": 1
+  },
+  "ANX3": {
+   "label": "Anexo IV: cláusula de confidencialidad",
+   "file": "03_Additional.zip",
+   "pages": 1
+  },
+  "ANX4": {
+   "label": "Autorización de acceso a datos tributarios (ATV e IAE)",
+   "file": "03_Additional.zip",
+   "pages": 1
+  },
+  "ANX5": {
+   "label": "Anexo V: modelo de proposición económica",
+   "file": "03_Additional.zip",
+   "pages": 1
+  },
+  "ANX6": {
+   "label": "Anexo VI: compromiso de adscripción de medios (equipo mínimo)",
+   "file": "03_Additional.zip",
+   "pages": 1
+  },
+  "ANX7": {
+   "label": "Declaración responsable de incremento del plazo de garantía",
+   "file": "03_Additional.zip",
+   "pages": 1
+  },
+  "ANX8": {
+   "label": "Compromiso de seguimiento y control de obra con nuevas tecnologías",
+   "file": "03_Additional.zip",
+   "pages": 1
+  },
+  "ANX9": {
+   "label": "Aviso sobre límites de tamaño de la oferta en la Plataforma",
+   "file": "04_Additional.pdf",
+   "pages": 2
+  },
+  "ANX10": {
+   "label": "Anexo I al PCAP: cuadro de características particulares de esta obra",
+   "file": "05_Additional.pdf",
+   "pages": 43
+  },
+  "ANX11": {
+   "label": "DEUC (documento europeo único de contratación) de esta licitación",
+   "file": "06_Additional.zip",
+   "pages": 23
+  }
+ },
+ "tags": {
+  "level": "Comunidad autónoma (Conselleria)",
+  "where": "Vila-real, Comunitat Valenciana",
+  "contract": "Obras",
+  "sector": "Construcción de edificios sanitarios (CPV 45215100)",
+  "size": "Grande (1 M€ – 5 M€)",
+  "deadline": "Cierra en 44 días",
+  "procedure": "Abierto",
+  "funds": "Sin fondos europeos",
+  "lots": "Sin lotes",
+  "award": "Precio y calidad (90 puntos con fórmula, 10 de juicio de valor)"
+ },
+ "verdict": {
+  "opportunity": "media",
+  "difficulty": "media",
+  "text": "Buena oportunidad para constructoras de tamaño medio que ya tengan la clasificación del grupo C, categoría 5. Quien no la tenga solo puede entrar en UTE (unión temporal de empresas) con una empresa que sí la tenga. El precio pesa 65 puntos con una fórmula que castiga a quien no hace una de las bajas más fuertes. Otros 25 puntos salen de compromisos automáticos (cámaras, garantía ampliada, materiales con etiqueta ecológica). Solo 10 puntos dependen de memorias cortas. Se gana con un precio muy afinado y asumiendo bien el coste de ampliar la garantía y el mantenimiento. Ojo: no hemos podido leer el proyecto técnico, que solo está en un enlace."
+ },
+ "summary": [
+  "La Conselleria de Sanidad contrata la obra completa del nuevo Centro de Salud Vila-Real IV, en la calle Solades 25 de Vila-real. No hay lotes.",
+  "El presupuesto base es de 3.407.218,21 € sin IVA (4.122.734,03 € con IVA). El valor estimado es de 3.747.940,03 €, porque incluye un 10 % posible de exceso de mediciones.",
+  "La obra dura 15 meses, más 1 año de garantía como mínimo. Se exige clasificación grupo C, categoría 5, y un equipo mínimo con jefe de obra en dedicación exclusiva.",
+  "Puntúan el precio (65 puntos), cámaras y BIM (9), garantía ampliada (9), etiquetado ecológico (7) y dos memorias de juicio de valor (7 y 3).",
+  "Las ofertas se presentan por la Plataforma en 3 sobres hasta el 11 de enero de 2027 a las 14:00. No se pide garantía provisional."
+ ],
+ "max_lots_per_bidder": 1,
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Ejecución de las obras del Nuevo Centro de Salud Vila-Real IV, según el Proyecto Básico y de Ejecución aprobado el 2 de junio de 2026. Es una obra única, no se divide en lotes.",
+     "ANX10 1–2"
+    ],
+    [
+     "Órgano",
+     "Conselleria de Sanidad. Contrata el Director General de Gestión Económica, Contratación e Infraestructuras, por delegación del Conseller. Seguimiento a cargo del Servicio de Infraestructuras.",
+     "ANX10 3–4 · ANX10 33"
+    ],
+    [
+     "Lugar",
+     "Calle Solades nº 25, Vila-real (Castellón). Código NUTS ES522.",
+     "ANX10 2"
+    ],
+    [
+     "Por qué se contrata",
+     "La Conselleria no tiene medios propios. Responde al Plan Funcional del Departamento de Salud de la Plana, de 30 de abril de 2025.",
+     "ANX10 1"
+    ],
+    [
+     "Tipo de contrato",
+     "Obras. Procedimiento abierto, sin regulación armonizada (SARA), con tramitación anticipada: la adjudicación depende de que haya crédito aprobado.",
+     "ANX10 2 · ANX10 4"
+    ],
+    [
+     "Proyecto técnico",
+     "El proyecto se descarga de un enlace que caduca a los 7 días (se publica uno nuevo cuando caduca). El original con sello puede consultarse en C/ Micer Mascó 31, planta 4ª, Valencia.",
+     "PPT 1 · ANX10 42"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Obra única: nuevo Centro de Salud Vila-Real IV",
+     "fee": 3407218.21,
+     "months": 15
+    }
+   ],
+   "note": "No hay lotes. La Conselleria lo justifica en que dividir la obra dificultaría la coordinación y encarecería el conjunto.",
+   "cite": "ANX10 2"
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base",
+     "3.407.218,21 € sin IVA. Incluye presupuesto de ejecución material (PEM) de 2.863.208,58 €, gastos generales de 372.217,12 € y beneficio industrial de 171.792,51 €. Las ofertas por encima del presupuesto se excluyen.",
+     "ANX10 8 · PCAP 11"
+    ],
+    [
+     "IVA y total",
+     "IVA 21 %: 715.515,82 €. Total con IVA: 4.122.734,03 €.",
+     "ANX10 8"
+    ],
+    [
+     "Valor estimado",
+     "3.747.940,03 € sin IVA: el presupuesto más 340.721,82 € por un posible exceso de mediciones de hasta el 10 %.",
+     "ANX10 9"
+    ],
+    [
+     "Sistema de precio",
+     "Precios unitarios del proyecto. No es tanto alzado.",
+     "ANX10 9"
+    ],
+    [
+     "Anualidades",
+     "2026: 0 €. 2027: 2.725.774,57 € sin IVA. 2028: 681.443,64 € sin IVA. Los años siguientes dependen de que haya crédito.",
+     "ANX10 8–9"
+    ],
+    [
+     "Duración",
+     "15 meses de obra, desde lo que indique el artículo 237 LCSP (la fecha se publica con la formalización). Hay que presentar programa de trabajo en 30 días. Después, plazo de garantía de 1 año más lo que se oferte, y liquidación.",
+     "ANX10 32 · ANX10 36"
+    ],
+    [
+     "Prórrogas",
+     "El pliego no prevé prórrogas. Solo ampliación de plazo si el retraso no es culpa del contratista.",
+     "PCAP 30"
+    ],
+    [
+     "Revisión de precios",
+     "Sí. Fórmula 811 (edificación general) del Real Decreto 1359/2011. Solo opera cuando se ha ejecutado al menos el 20 % del importe y ha pasado un año desde la formalización. Mano de obra, gastos generales y beneficio quedan fuera.",
+     "ANX10 10–12"
+    ],
+    [
+     "Modificaciones previstas",
+     "No. El pliego solo contempla el exceso de mediciones de hasta el 10 %. Las modificaciones no previstas siguen el artículo 205 LCSP y son obligatorias hasta el 20 % del precio.",
+     "ANX10 9 · ANX10 30 · PCAP 37"
+    ],
+    [
+     "Subrogación de personal",
+     "No procede.",
+     "ANX10 32"
+    ],
+    [
+     "Financiación",
+     "Presupuesto de la Generalitat (aplicación G0110.02.04 GESC000.412B21.632.99 ER12000052). Sin fondos europeos.",
+     "ANX10 8 · ANX10 10"
+    ],
+    [
+     "Variantes",
+     "No se admiten.",
+     "ANX10 12"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Clasificación",
+     "Obligatoria: grupo C, categoría 5. El pliego no indica subgrupo. En una UTE, todas las empresas deben estar clasificadas como empresa de obras y se suman sus clasificaciones.",
+     "ANX10 13 · PCAP 8"
+    ],
+    [
+     "Solvencia económica y técnica",
+     "La clasificación sustituye a la solvencia. Se acredita con el certificado de clasificación.",
+     "ANX10 13"
+    ],
+    [
+     "Empresas de otros países UE/EEE",
+     "No necesitan clasificación. Deben acreditar un volumen anual de negocios en obras de al menos 4.439.575,54 € y obras ejecutadas en 5 años con un importe anual acumulado de al menos 2.098.846,42 €. Se prueba con cuentas anuales y certificados de buena ejecución.",
+     "ANX10 13–14"
+    ],
+    [
+     "Habilitación empresarial",
+     "No se exige una específica. Se entiende recogida en el DEUC y el Anexo II.",
+     "ANX10 14"
+    ],
+    [
+     "Equipo mínimo (compromiso en el sobre 1)",
+     "Un jefe de obra (arquitecto, arquitecto técnico o titulación equivalente), exclusivo. Un encargado, exclusivo. Un ayudante de jefe de obra para instalaciones (ingeniero industrial o técnico, mecánica y eléctrica), al 30 %. Un jefe de producción al 30 %. También un oficial, un topógrafo, un peón de limpieza y un administrativo.",
+     "ANX10 15–16 · ANX6 1"
+    ],
+    [
+     "Jefe de obra sin titulación de edificación",
+     "Debe acreditar trabajos de jefe de obra del mismo tipo en los últimos 5 años, con certificados de administraciones o promotores.",
+     "ANX10 16"
+    ],
+    [
+     "Adscripción de medios",
+     "Es obligación esencial. Si se sustituye a alguien sin autorización previa, pueden resolver el contrato. El equipo puede ampliarse.",
+     "ANX10 15–16 · PCAP 7"
+    ],
+    [
+     "Seguros",
+     "Seguro todo riesgo construcción (TRC) y de responsabilidad civil, ambos con cuantía no inferior al PEM (2.863.208,58 €) y mínimo por siniestro y año del 10 % del PEM. Certificados en 5 días hábiles tras la adjudicación.",
+     "ANX10 40"
+    ],
+    [
+     "UTE e integración de solvencia",
+     "Se admiten. Se puede apoyar la solvencia en otras entidades con compromiso escrito. Para la experiencia solo si esas entidades ejecutan esa parte.",
+     "PCAP 6–7 · ANX 1"
+    ],
+    [
+     "Condición especial de ejecución",
+     "El equipo designado debe cumplir al menos una: al menos 1 mujer, o 20 % de dedicación de personas de 50 años o más, o al menos 1 persona de 35 años o menos.",
+     "ANX10 38–39"
+    ],
+    [
+     "Garantía provisional",
+     "No se exige.",
+     "ANX10 12"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Oferta económica",
+     "pts": 65,
+     "kind": "fórmula",
+     "how": "P = 65 × [1 − (Bmáx − Bi) / Bmáx] elevado a Bmáx/5. Bmáx es la mayor baja (%) entre todas las ofertas y Bi la baja de la tuya. La mayor baja saca 65 puntos. Si Bmáx es del 5 % o menos, el reparto es lineal. Si hay bajas mayores, las demás pierden puntos más rápido que en proporción."
+    },
+    {
+     "name": "Seguimiento y control de obra con nuevas tecnologías",
+     "pts": 9,
+     "kind": "fórmula",
+     "how": "Planos as built en BIM LOD 400: 1 punto. Cámaras de vídeo en directo Full HD: 1 ud = 1, 2 = 1,5, 3 = 2, 4 = 3 puntos. Cámaras time-lapse 4K: 1 ud = 1, 2 = 2. Vídeo editado a pie de obra: semestral 1, trimestral 2, mensual 3. Casillas vacías = 0 puntos."
+    },
+    {
+     "name": "Incremento del plazo de garantía",
+     "pts": 9,
+     "kind": "fórmula",
+     "how": "Garantía base de 1 año. +6 meses = 4 puntos. +12 meses = 9 puntos."
+    },
+    {
+     "name": "Etiquetado ecológico de materiales",
+     "pts": 7,
+     "kind": "fórmula",
+     "how": "Según el porcentaje de materiales con etiqueta ecológica sobre el máximo (10 unidades): hasta 10 % = 0. De 10 a 20 % = 1. De 20 a 40 % = 3. De 40 a 60 % = 4. De 60 a 80 % = 5. Más del 80 % = 7."
+    },
+    {
+     "name": "Conocimiento de la obra",
+     "pts": 7,
+     "kind": "juicio de valor",
+     "how": "Estudio de la intervención (4: memoria de procesos 3 y análisis del entorno 1) y planificación con diagrama de trabajos (3). Máximo 4 hojas A3 por una cara, Arial 10. La Mesa asigna un tramo T0–T10 (0 % a 100 %)."
+    },
+    {
+     "name": "Actuaciones durante el periodo de garantía",
+     "pts": 3,
+     "kind": "juicio de valor",
+     "how": "Protocolo de conservación, inspecciones, gestión del mantenimiento, recursos humanos y materiales, tiempos de asistencia y nuevas tecnologías. Máximo 2 hojas A3. No puede decir cuánto dura la garantía."
+    }
+   ],
+   "cite": "ANX10 17–27",
+   "items": [
+    [
+     "Juicio de valor",
+     "Son 10 puntos. Se valoran por originalidad, calidad y concreción, comparando las ofertas. La Mesa puede dar 0 si te pasas de páginas. No hay umbral mínimo ni comité de expertos.",
+     "ANX10 26–27"
+    ],
+    [
+     "Baja anormal",
+     "Se presume con 3 o más ofertas si se dan las dos condiciones: precio más de un 10 % por debajo de la media y puntuación de calidad más de un 10 % por encima de la media de puntuaciones. Con 1 oferta: más de un 10 % bajo el presupuesto y calidad por encima del 90 % de sus puntos. Con 2 ofertas: más de un 10 % bajo la media y calidad más de un 25 % superior.",
+     "ANX10 28"
+    ],
+    [
+     "Si tu oferta es anormal",
+     "Debes justificarla. Si resultas adjudicatario después de estar en presunción de anormalidad, aportas una garantía complementaria del 5 %.",
+     "PCAP 22 · ANX10 30"
+    ],
+    [
+     "Desempate",
+     "Por orden: más trabajadores con discapacidad; empresas con plan de igualdad registrado (o no obligadas); calificación de entidad valenciana socialmente responsable.",
+     "ANX10 28–30"
+    ]
+   ],
+   "insight": "El precio decide: 65 puntos con una fórmula que premia a quien hace la baja más alta y castiga a los demás en cuanto esa baja pasa del 5 %. Los 25 puntos de compromisos automáticos son alcanzables para todos pero cuestan dinero, sobre todo los 12 meses extra de garantía. Los 10 puntos de memoria separan poco, salvo que alguien se pase de páginas."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Hasta el 11 de enero de 2027 a las 14:00, solo por la Plataforma de Contratación del Sector Público. El pliego fija un mínimo de 26 días naturales.",
+     "Anuncio · ANX10 7 · PCAP 14"
+    ],
+    [
+     "Preguntas",
+     "Solo por la Plataforma. Si preguntas al menos 12 días antes del cierre, te responden al menos 6 días antes. Para este cierre, el último día con respuesta garantizada es el 30 de diciembre de 2026 (fecha calculada por nosotros). Las respuestas son vinculantes.",
+     "PCAP 13–14 · ANX10 5–6"
+    ],
+    [
+     "Sobre 1",
+     "DEUC (Parte IV, opción α), Anexo II, Anexo III (UTE, siempre, indicando si hay o no UTE) y Anexo VI de adscripción de medios.",
+     "ANX10 5 · ANX11 22"
+    ],
+    [
+     "Sobre 2",
+     "Proposición técnica de los dos criterios de juicio de valor y Anexo IV de confidencialidad. No puede aparecer ningún dato económico ni la duración de la garantía: supone exclusión.",
+     "ANX10 5 · ANX10 25–26"
+    ],
+    [
+     "Sobre 3",
+     "Anexo V de proposición económica, compromiso de nuevas tecnologías, compromiso de incremento de garantía y compromiso de etiquetado ecológico. La documentación en un sobre equivocado supone exclusión.",
+     "ANX10 6 · PCAP 15"
+    ],
+    [
+     "Tamaño de la oferta",
+     "Recomiendan documentos de menos de 8 MB y no esperar al último día. El conjunto de la oferta no debería pasar de unos 27 MB (Java 32 bits) o 38 MB (Java 64 bits).",
+     "ANX9 1"
+    ],
+    [
+     "Apertura",
+     "Hasta 20 días tras el cierre se abre el sobre 2. El sobre 3 se abre el día que indique la convocatoria. No es acto público.",
+     "PCAP 20–22"
+    ],
+    [
+     "Tras la propuesta",
+     "Quien tenga la mejor oferta tiene 10 días hábiles para presentar documentación, garantía definitiva y designación del equipo. Si no lo hace, pagará el 3 % del presupuesto sin IVA (102.216,55 €) y se pasa al siguiente.",
+     "PCAP 24–25"
+    ],
+    [
+     "Adjudicación y formalización",
+     "Hasta 2 meses desde la apertura (más 15 días hábiles si hay ofertas anormales). Cabe recurso especial, así que la formalización espera 15 días hábiles y luego hay 5 días para firmar.",
+     "PCAP 25 · PCAP 26"
+    ],
+    [
+     "Garantías",
+     "Provisional: no. Definitiva: 5 % (ver incoherencias sobre la base de cálculo). Complementaria: otro 5 % si estás inicialmente en baja anormal.",
+     "ANX10 12 · ANX10 30 · PCAP 23"
+    ],
+    [
+     "Visita",
+     "El pliego dice que se publicará una fecha de visita programada durante los 5 primeros días del plazo. No aclara si es obligatoria y no amplía el plazo.",
+     "ANX10 7–8"
+    ],
+    [
+     "Recurso especial (art. 44 LCSP)",
+     "Sí cabe: el valor estimado supera 3 M€ en obras. Lo resuelve el Tribunal Administrativo Central de Recursos Contractuales (TACRC).",
+     "PCAP 45–46"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro",
+     "items": [
+      [
+       "Certificaciones mensuales",
+       "La dirección de obra certifica cada mes. La Administración las tramita en los primeros 10 días del mes siguiente y paga en 30 días desde su aprobación. Hay abonos a cuenta. No se prevén abonos por acopios.",
+       "PCAP 35 · ANX10 37"
+      ],
+      [
+       "Pago en el pliego (ICIO y licencias)",
+       "El ICIO y la tasa de licencia los paga el contratista. La certificación nº 3 no se tramita sin el justificante. La última certificación exige los boletines de legalización de instalaciones.",
+       "PCAP 31–32"
+      ],
+      [
+       "Mediciones",
+       "Pueden pagarse hasta un 10 % más de unidades sobre las previstas. Si se suprimen unidades, no hay indemnización.",
+       "ANX10 9 · PCAP 37"
+      ],
+      [
+       "Crédito",
+       "Tramitación anticipada: la adjudicación depende de que haya crédito adecuado y suficiente en el presupuesto del ejercicio. No hay gasto en 2026.",
+       "ANX10 4 · ANX10 8"
+      ],
+      [
+       "Revisión de precios limitada",
+       "No cuenta el primer 20 % ejecutado ni lo ejecutado en el primer año. La mano de obra queda fuera.",
+       "ANX10 11"
+      ]
+     ]
+    },
+    {
+     "h": "Ejecución y penalidades",
+     "items": [
+      [
+       "Demora en el plazo total",
+       "0,60 € por cada 1.000 € de precio y día (unos 2.044 € al día con el presupuesto base). Cada 5 % acumulado permite resolver el contrato.",
+       "PCAP 29–30"
+      ],
+      [
+       "Partidas defectuosas",
+       "10 % del valor de cada partida no subsanada en plazo. Si se duplica el plazo, puede haber resolución o penalidad doble.",
+       "ANX10 33–34"
+      ],
+      [
+       "Compromisos de la oferta",
+       "0,025 € por cada 1.000 € de precio y día natural (unos 85 € al día con el presupuesto base). Afecta a cámaras, protocolo de garantía, medios de garantía y etiquetado ecológico.",
+       "ANX10 34"
+      ],
+      [
+       "Documentación final de obra",
+       "0,05 € por cada 1.000 € de precio y día hábil de retraso.",
+       "ANX10 34"
+      ],
+      [
+       "Límites",
+       "Cada penalidad de incumplimiento parcial: máximo 10 % del precio. Todas juntas: máximo 50 %.",
+       "PCAP 29 · ANX10 34"
+      ],
+      [
+       "Informe semestral social",
+       "Cada 6 meses, informe de cumplimiento de las condiciones especiales. Si falta: 0,02 € por cada 1.000 € de precio y día natural.",
+       "ANX10 35 · ANX10 39"
+      ],
+      [
+       "Subcontratistas",
+       "Penalidad de hasta el 50 % del subcontrato si se incumplen las condiciones. Por impago acreditado, hasta el 5 % del precio, repetible cada mes hasta el 50 %. Hay que justificar pagos si se pide.",
+       "ANX10 31–32 · ANX10 35"
+      ]
+     ]
+    },
+    {
+     "h": "Obligaciones",
+     "items": [
+      [
+       "Garantía y mantenimiento",
+       "El año de garantía (más lo ofertado) incluye reparaciones, revisiones legales de ascensores, protección contra incendios, instalaciones eléctricas, térmicas, gases medicinales, etc. Si hace falta contrato de mantenimiento, lo paga el contratista, con respuesta a averías en 24 horas como máximo.",
+       "ANX10 36–37 · ANX10 39–40"
+      ],
+      [
+       "Control de calidad y energía",
+       "El control de calidad va incluido en la obra y lo paga el contratista. Si hay control externo de eficiencia energética, también.",
+       "ANX10 39 · ANX10 41 · PCAP 32"
+      ],
+      [
+       "Residuos",
+       "Hay que presentar un Plan de Gestión de Residuos aprobado antes de generar residuos. Sin él se paralizan las unidades afectadas, sin ampliar el plazo.",
+       "ANX10 41"
+      ],
+      [
+       "Equipo",
+       "Todo el equipo mínimo debe mantenerse durante la ejecución. Las condiciones sociales del equipo son obligación esencial.",
+       "ANX10 16 · ANX10 39"
+      ],
+      [
+       "Cesión",
+       "Se permite la cesión del contrato según el artículo 214 LCSP.",
+       "ANX10 30"
+      ],
+      [
+       "Cartel y señalización",
+       "El contratista paga los carteles de obra y la señalización de la obra.",
+       "PCAP 33"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Base de la garantía definitiva",
+     "El PCAP dice 5 % del precio final ofertado, sin IVA. El Anexo I dice 5 % del presupuesto base de licitación sin IVA (170.360,91 €).",
+     "PCAP 23 · ANX10 30"
+    ],
+    [
+     "Importes en letra",
+     "En gastos generales y beneficio industrial, las cifras y las letras no coinciden. Las cifras (372.217,12 € y 171.792,51 €) cuadran con el presupuesto total; las letras no.",
+     "ANX10 8"
+    ],
+    [
+     "Números de anexos",
+     "El Anexo I cita el «Anexo IV» como compromiso de adscripción de medios y un «Anexo VIII» de mantenimiento de seguros. En el PCAP, el IV es la confidencialidad, el VI es la adscripción y el VIII es el modelo de aval. El modelo de compromiso de seguros no está en los documentos.",
+     "ANX10 15 · ANX10 40 · PCAP 2"
+    ],
+    [
+     "Solvencia de empresas extranjeras",
+     "La cifra de 4.439.575,54 € no coincide con una vez y media el valor anual medio que resulta del propio pliego (3.747.940,03 € en 15 meses da unos 2.998.352 € al año, y 1,5 veces son unos 4.497.528 €). Solo afecta a empresas de la UE/EEE.",
+     "ANX10 14"
+    ],
+    [
+     "Etiquetado ecológico",
+     "El criterio habla de un «máximo establecido (10 unidades)» sin explicar cómo se cuenta. Además, el modelo de anexo del compromiso no está entre los documentos.",
+     "ANX10 23 · ANX10 6"
+    ],
+    [
+     "Visita",
+     "El Anexo I dice que no se amplía el plazo por visitas, pero anuncia una visita programada sin aclarar si es obligatoria.",
+     "ANX10 7–8"
+    ],
+    [
+     "Regulación armonizada y recurso",
+     "El Anexo I dice que no es regulación armonizada. Aun así, el valor estimado supera 3 M€ y cabe recurso especial.",
+     "ANX10 2 · PCAP 45"
+    ],
+    [
+     "Fórmula del precio",
+     "El texto del pliego muestra el exponente Bmáx/5 con formato roto. Conviene confirmarlo preguntando.",
+     "ANX10 18–19"
+    ]
+   ],
+   "advice": "Pregunta por la Plataforma antes del 30 de diciembre de 2026, sobre todo por la base de la garantía definitiva, el etiquetado ecológico y la fórmula del precio. Además, descarga el proyecto técnico cuanto antes: el enlace caduca cada 7 días."
+  }
+ ],
+ "updated": "2026-11-27",
+ "files": [
+  {
+   "name": "Pliego de cláusulas administrativas generales (PCAP) y modelos de anexos",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 73,
+   "bytes": 706487
+  },
+  {
+   "name": "Nota informativa con el enlace al proyecto técnico (el pliego técnico no está en los documentos)",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 1,
+   "bytes": 205835
+  },
+  {
+   "name": "Anexo III: compromiso de constitución de UTE",
+   "file": "03_Additional.zip",
+   "type": "ZIP",
+   "pages": null,
+   "bytes": 348537
+  },
+  {
+   "name": "Aviso sobre límites de tamaño de la oferta en la Plataforma",
+   "file": "04_Additional.pdf",
+   "type": "PDF",
+   "pages": 2,
+   "bytes": 128937
+  },
+  {
+   "name": "Anexo I al PCAP: cuadro de características particulares de esta obra",
+   "file": "05_Additional.pdf",
+   "type": "PDF",
+   "pages": 43,
+   "bytes": 716591
+  },
+  {
+   "name": "DEUC (documento europeo único de contratación) de esta licitación",
+   "file": "06_Additional.zip",
+   "type": "ZIP",
+   "pages": null,
+   "bytes": 85024
+  },
+  {
+   "name": "ANEXO OBLIGAC TRIBUTARIAS.docx",
+   "file": "07_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 39081
+  },
+  {
+   "name": "Anexo IV_Confidencialidad.docx",
+   "file": "08_Additional.zip",
+   "type": "XML",
+   "pages": null,
+   "bytes": 34185
+  },
+  {
+   "name": "2026-7df1be58-c26c-4bde-9dfa-080ec14850df",
+   "file": "09_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-6cc45c39-f2fd-449e-a72b-7eea3de62f10",
+   "file": "10_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-5400d154-42a2-4489-a692-f213fbdebebb",
+   "file": "11_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-5c5116ae-d8b1-41e2-86ce-a73499e5ecec",
+   "file": "12_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ]
+}

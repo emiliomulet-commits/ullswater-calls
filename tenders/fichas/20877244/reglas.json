@@ -1,0 +1,329 @@
+{
+ "schema": 1,
+ "id": "20877244",
+ "reviewed": "2026-11-28",
+ "title": "Servicio de alimentación a pacientes de los dos hospitales de Albacete",
+ "buyer": "SESCAM - Gerencia de Atención Integrada de Albacete",
+ "buyer_key": "Gerencia de Atención Integrada de Albacete",
+ "province": "Albacete",
+ "cpv": "55322000",
+ "ref": "2026/040058 (2026-0-15)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=YBPhlRs9cQiqb7rCcv76BA%3D%3D",
+ "deadline": "2026-12-19",
+ "deadline_time": "14:00",
+ "questions_until": "2026-12-07",
+ "questions_cite": "ANX p.6 · PCAP p.23",
+ "opening_days": 20,
+ "opening_cite": "PCAP p.36",
+ "platform": "Plataforma de Contratación del Sector Público",
+ "envelopes": 3,
+ "judgement_pts": 48,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Servicio único de alimentación a pacientes (Hospital General y Perpetuo Socorro)",
+   "budget": 7119924.32,
+   "buildings": 2,
+   "months": 48
+  }
+ ],
+ "lots_cite": "ANX p.5 · ANX p.13",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": null,
+ "lots_rule_cite": null,
+ "requirements": [
+  {
+   "id": "turnover",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 0.25,
+   "label": "Solvencia económica",
+   "rule": "Facturación del mejor de los 3 últimos años de al menos 1.779.981,08 € sin IVA",
+   "question": "¿Cuál fue tu facturación en tu mejor año de los últimos tres?",
+   "unit": "€",
+   "cite": "ANX p.21–22",
+   "proof": "Cuentas anuales depositadas en el Registro Mercantil y declaración responsable"
+  },
+  {
+   "id": "similar",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 0.175,
+   "label": "Solvencia técnica",
+   "rule": "Servicios similares por al menos 1.245.986,76 € sin IVA en el año de mayor ejecución de los últimos 3",
+   "question": "¿Cuánto facturaste en servicios de alimentación o restauración colectiva en tu mejor año de los últimos tres?",
+   "unit": "€",
+   "cite": "ANX p.22",
+   "proof": "Certificados de buena ejecución (el pliego dice 2 certificados)"
+  },
+  {
+   "id": "iso",
+   "kind": "yesno",
+   "label": "Certificaciones ISO",
+   "rule": "ISO 9001:2015, ISO 14001:2015, ISO 45001 e ISO 22000:2018 vigentes, o equivalentes",
+   "question": "¿Tienes vigentes las certificaciones ISO 9001, 14001, 45001 y 22000?",
+   "cite": "ANX p.24 · PPT p.3",
+   "proof": "Certificados vigentes"
+  },
+  {
+   "id": "team",
+   "kind": "yesno",
+   "label": "Equipo mínimo adscrito",
+   "rule": "1 encargado, 6 dietistas (FP2 Dietética-Nutrición o superior, con manipulador de alimentos) y 3 almaceneros, en jornada completa equivalente",
+   "question": "¿Puedes aportar o subrogar el equipo mínimo: 1 encargado, 6 dietistas y 3 almaceneros?",
+   "cite": "PPT p.23–24 · ANX p.23",
+   "proof": "Compromiso de adscripción de medios (Anexo III) y fichas del personal"
+  },
+  {
+   "id": "insurance",
+   "kind": "yesno",
+   "label": "Seguro de responsabilidad civil",
+   "rule": "1.000.000 € por siniestro y 300.000 € por víctima",
+   "question": "¿Tienes o puedes contratar un seguro de responsabilidad civil de 1.000.000 € por siniestro y 300.000 € por víctima?",
+   "cite": "ANX p.34",
+   "proof": "Certificado de la aseguradora"
+  },
+  {
+   "id": "dept",
+   "kind": "yesno",
+   "label": "Departamento propio de Dietética, Nutrición y Calidad",
+   "rule": "La empresa debe tener un departamento propio con personal cualificado",
+   "question": "¿Tu empresa tiene un departamento propio de dietética, nutrición y calidad?",
+   "cite": "PPT p.19",
+   "proof": "Organigrama y titulaciones"
+  }
+ ],
+ "classification": {
+  "group": "M",
+  "subgroup": 6,
+  "category": 5,
+  "optional": true,
+  "cite": "ANX p.23"
+ },
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica (precio de dietas y extras)",
+   "pts": 45,
+   "formula": "quadratic_min",
+   "exponent": 2,
+   "how": "En cada dieta o extra: puntos = peso − peso × [(tu oferta − oferta más baja) / (precio de licitación − oferta más baja)]². La oferta más baja saca el máximo y el precio de licitación saca 0. 40 puntos por dietas y 5 por extras.",
+   "cite": "ANX p.28–29",
+   "note": "El pliego no aclara con qué año de precios se aplica la fórmula."
+  },
+  {
+   "id": "improvements",
+   "kind": "choice",
+   "name": "Mejoras técnicas",
+   "pts": 7,
+   "question": "¿Qué valor de mejoras técnicas (mobiliario, almacenaje, dispensadores de agua...) puedes ofrecer durante el contrato?",
+   "options": [
+    {
+     "label": "Ninguna mejora",
+     "pts": 0
+    },
+    {
+     "label": "Mejoras por unos 15.000 € (la mitad del valor de referencia)",
+     "pts": 3.5
+    },
+    {
+     "label": "Mejoras por 30.000 € o más (valor de referencia)",
+     "pts": 7
+    }
+   ],
+   "cite": "ANX p.29–30",
+   "note": "El pliego da 7 puntos a la mejor oferta y el resto «inversamente proporcional». Los puntos de las opciones son orientativos."
+  },
+  {
+   "id": "jv_quality",
+   "kind": "judgement",
+   "name": "Calidad del servicio ofertado (fichas, menús, organización, proveedores)",
+   "pts": 39,
+   "threshold": 19,
+   "how": "Fichas técnicas 27, memoria de organización 6, dietas terapéuticas extra 3, gestión de proveedores 3. Umbral de 19 puntos.",
+   "cite": "ANX p.25–28"
+  },
+  {
+   "id": "jv_warehouse",
+   "kind": "judgement",
+   "name": "Programa de gestión de almacén",
+   "pts": 3,
+   "how": "Plataforma informática, trazabilidad y compatibilidad con el sistema de la Gerencia",
+   "cite": "ANX p.26–27"
+  },
+  {
+   "id": "jv_training",
+   "kind": "judgement",
+   "name": "Plan de formación del personal",
+   "pts": 3,
+   "how": "Cursos, cronograma y sustituciones",
+   "cite": "ANX p.27"
+  },
+  {
+   "id": "jv_contingency",
+   "kind": "judgement",
+   "name": "Plan de contingencia",
+   "pts": 3,
+   "how": "Garantizar almuerzo y cena ante fallos de suministro",
+   "cite": "ANX p.27"
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 25,
+  "reference": "budget",
+  "single_pct": null,
+  "accept_rate": 0.5,
+  "cite": "ANX p.30",
+  "note": "No funciona sobre la media: es oferta anormal si el precio ≤ (5 % × C + 75 %) × presupuesto, con C la proporción de puntos de calidad. El umbral va del 75 % (25 puntos por debajo) al 80 % (20 puntos) del presupuesto según la calidad. 25 es el caso más bajo."
+ },
+ "umbrals": {
+  "judgement_min": 19,
+  "global_min": 28,
+  "global_scope": "juicio de valor y mejoras técnicas (sin precio)",
+  "cite": "ANX p.30"
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": 150,
+  "note": "Estimación de Ullswater (memoria de hasta 200 páginas, fichas de platos, DEUC, anexos y precios por año), no es un dato del pliego"
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": null,
+  "cite": "ANX p.31"
+ },
+ "risk_flags": [
+  {
+   "id": "price_fixed",
+   "label": "Precios fijados con subida del 3 % anual y extras invariables, sin fórmula de revisión legible",
+   "cite": "ANX p.18 · ANX p.20",
+   "weight": 3
+  },
+  {
+   "id": "penalties",
+   "label": "Penalidades acumulables: 5 % de la facturación mensual por incumplir criterios ofertados, y 5 % o 10 % por actas de no conformidad",
+   "cite": "ANX p.36–37",
+   "weight": 3
+  },
+  {
+   "id": "staff",
+   "label": "Subrogación de la plantilla actual y obligación de cubrir ausencias, con convenio sin actualizar",
+   "cite": "ANX p.4–7 · PPT p.25",
+   "weight": 3
+  },
+  {
+   "id": "volume",
+   "label": "Se cobra por dieta servida; el volumen de 170.000 dietas es una previsión",
+   "cite": "ANX p.14 · PPT p.10",
+   "weight": 2
+  },
+  {
+   "id": "nosub",
+   "label": "Prohibida la subcontratación de cualquier parte del servicio",
+   "cite": "ANX p.35",
+   "weight": 2
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se admite recurrir a la solvencia de otras entidades con su compromiso y con DEUC de cada una",
+  "ute": true,
+  "subcontracting": false,
+  "cite": "PCAP p.20–22 · ANX p.35"
+ },
+ "specific_checks": [
+  {
+   "text": "Los precios unitarios de cada dieta, año y extra no pueden superar los máximos; superarlos es causa de exclusión o resolución",
+   "cite": "ANX p.46 · ANX p.51–52"
+  },
+  {
+   "text": "El sobre 2 no puede contener datos de precio (exclusión)",
+   "cite": "PCAP p.30"
+  },
+  {
+   "text": "Certificados ISO 9001, 14001, 45001 y 22000 vigentes al presentar la oferta",
+   "cite": "ANX p.24"
+  },
+  {
+   "text": "Certificado de visita técnica y Anexo A (cumplimiento del PPT) en el sobre 1",
+   "cite": "ANX p.40"
+  },
+  {
+   "text": "Superar los umbrales de 19 puntos (juicio de valor) y 28 puntos (sin precio) para que se abra tu precio",
+   "cite": "ANX p.30"
+  },
+  {
+   "text": "Compromiso de adscripción de medios: es obligación esencial",
+   "cite": "ANX p.23 · ANX p.37"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -12,
+   "task": "Último día para pedir aclaraciones por la Plataforma: visita técnica, año de precios que se puntúa y mejoras técnicas",
+   "cite": "ANX p.6",
+   "help": "Preguntas sugeridas"
+  },
+  {
+   "when": -10,
+   "task": "Reúne cuentas anuales, certificados de buena ejecución, ISO 9001, 14001, 45001 y 22000 y la póliza de responsabilidad civil",
+   "cite": "ANX p.21–24 · ANX p.34",
+   "help": "Lo que te falta según este diagnóstico"
+  },
+  {
+   "when": -9,
+   "task": "Pide y confirma la visita técnica y su certificado, si es obligatoria",
+   "cite": "ANX p.40",
+   "help": "Pendiente de confirmar"
+  },
+  {
+   "when": -7,
+   "task": "Redacta la memoria de calidad (máximo 200 páginas) y las fichas de los platos (sobre 2)",
+   "cite": "ANX p.25–28",
+   "help": "Estructura por criterios"
+  },
+  {
+   "when": -4,
+   "task": "Rellena el Anexo IV con precios por año y extras, y el Anexo V con las mejoras técnicas (sobre 3)",
+   "cite": "ANX p.29–30 · ANX p.46–52",
+   "help": "Rebaja recomendada"
+  },
+  {
+   "when": -2,
+   "task": "Prepara el DEUC, Anexo II, Anexo III, Anexo A, Anexo D y Anexo XI si hay UTE (sobre 1)",
+   "cite": "ANX p.40–41",
+   "help": "Borrador del DEUC (próximamente)"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "El PPT exige ISO 9001 y 14001; el cuadro del PCAP añade ISO 45001 e ISO 22000",
+   "cite": "PPT p.3 · ANX p.24"
+  },
+  {
+   "text": "No se aclara con qué año de precios (2027 a 2031) se aplica la fórmula de precio",
+   "cite": "ANX p.28–29 · ANX p.46–50"
+  },
+  {
+   "text": "Las mejoras técnicas puntúan «inversamente proporcional» sin aclarar cómo se mide la mejor oferta ni si hay tope sobre los 30.000 €",
+   "cite": "ANX p.30"
+  },
+  {
+   "text": "El cacao en polvo figura de 18 g en el criterio de precio y de 15 g en la lista de precios",
+   "cite": "ANX p.29 · ANX p.10"
+  },
+  {
+   "text": "El certificado de visita técnica remite al apartado 12 del PPT, que no está en las páginas leídas (1 a 28 de 92)",
+   "cite": "ANX p.40"
+  },
+  {
+   "text": "Varias casillas del cuadro no se leen (revisión de precios, garantías provisional y complementaria, regulación armonizada, menores)",
+   "cite": "ANX p.20 · ANX p.31 · ANX p.39"
+  }
+ ]
+}

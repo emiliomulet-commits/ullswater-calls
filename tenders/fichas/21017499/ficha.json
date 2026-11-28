@@ -1,0 +1,559 @@
+{
+ "id": "21017499",
+ "ref": "108/26P",
+ "reviewed": "2026-11-28",
+ "title": "Venta de 12 parcelas municipales para vivienda protegida en Retamar de la Huerta (Alcorcón), en 6 lotes",
+ "title_official": "Enajenación por compraventa de parcelas de titularidad municipal pertenecientes al Sector «Retamar de la Huerta» de Alcorcón, divididas en 6 lotes, mediante concurso público.",
+ "buyer": "Junta de Gobierno Local del Ayuntamiento de Alcorcón",
+ "unit": "Servicio de Contratación y Patrimonio",
+ "place": "Alcorcón (Comunidad de Madrid)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=kbtyeYhphL2AAM7L03kM8A%3D%3D",
+ "published": "2026-11-26",
+ "updated": "2026-11-27",
+ "deadline": "2026-12-16",
+ "deadline_time": "23:59",
+ "questions_until": null,
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de condiciones administrativas, jurídicas y económicas (PCAP) con anexos",
+   "file": "01_Legal.pdf",
+   "pages": 46
+  },
+  "PPT": {
+   "label": "Pliego de prescripciones técnicas (PPT) con convenio de urbanización, notas simples y fichas catastrales",
+   "file": "02_Technical.pdf",
+   "pages": 197
+  }
+ },
+ "tags": {
+  "level": "Ayuntamiento",
+  "where": "Alcorcón, Comunidad de Madrid",
+  "contract": "Venta de suelo (contrato patrimonial)",
+  "sector": "Suelo residencial para vivienda protegida (CPV 70320000)",
+  "size": "Grande (más de 1 M€)",
+  "deadline": "Cierra en 18 días",
+  "procedure": "Abierto (concurso)",
+  "funds": "El pliego no indica fondos europeos",
+  "lots": "6 lotes",
+  "award": "Precio y plazo de obra (todo con fórmula)"
+ },
+ "verdict": {
+  "opportunity": "media",
+  "difficulty": "alta",
+  "text": "Es una compra de suelo, no un servicio. Solo interesa a promotoras, cooperativas y constructoras que ya hayan terminado al menos 2 promociones de vivienda protegida de 25 viviendas o más en los últimos 10 años. Los lotes 4 y 5 (767.438,98 € cada uno, 43 viviendas) son los más asequibles. El suelo aún no está urbanizado, hay que pagar la parte de urbanización de la Junta de Compensación y las viviendas se adjudican por sorteo municipal. Se gana ofreciendo más precio que el resto (80 puntos) y comprometiendo un plazo de obra de 14 meses o menos (20 puntos). Ese compromiso es vinculante y su incumplimiento puede acabar en resolución."
+ },
+ "summary": [
+  "El Ayuntamiento de Alcorcón vende 12 parcelas del sector Retamar de la Huerta, agrupadas en 6 lotes, para construir 534 viviendas con protección pública como máximo. Los precios mínimos suman 9.552.188,58 € sin IVA.",
+  "Cada lote es un contrato distinto y se puede ofertar a uno, a varios o a todos. Hay que acreditar 2 promociones de vivienda protegida terminadas, de al menos 25 viviendas cada una, en los últimos 10 años.",
+  "Los puntos son todos automáticos: 80 por precio (gana quien ofrece más, siempre sobre el mínimo) y 20 por el plazo de obra comprometido, que puede bajar de 24 a 14 meses o menos.",
+  "Hay que presentar una garantía provisional del 3 % por lote (286.565,66 € si se ofertan los 6) y, al ganar, una garantía definitiva del 5 %. El precio puede pagarse al contado o con un 60 % al firmar la escritura y un 40 % en 6 meses.",
+  "Las viviendas deben adjudicarse por sorteo municipal entre inscritos en el registro de demandantes. Si el comprador incumple, el pliego prevé resolución e indemnización.",
+  "Las ofertas se presentan por la Plataforma hasta el 16 de diciembre de 2026 a las 23:59, en 2 sobres electrónicos. Ese plazo puede suspenderse si hay alegaciones en la información pública."
+ ],
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Venta de 12 parcelas del patrimonio municipal del suelo del sector «Retamar de la Huerta», en 6 lotes. Se entregan como «cuerpo cierto»: tal como están, sin reclamar por diferencias de superficie, de edificabilidad ni por el subsuelo.",
+     "PCAP 3 · PCAP 6"
+    ],
+    [
+     "Qué hay que construir",
+     "Solo vivienda protegida, sin usos alternativos. El número de viviendas por parcela no puede ser inferior al máximo indicado. Tipologías de 2 y 3 dormitorios, con un mínimo del 20 % de 2 dormitorios por lote. Cada vivienda lleva una plaza de aparcamiento y un trastero.",
+     "PCAP 5 · PCAP 30 · PPT 5"
+    ],
+    [
+     "Naturaleza del contrato",
+     "Contrato patrimonial, excluido de la LCSP (art. 9.2). Se rige por la legislación patrimonial y el derecho privado, y la LCSP se aplica solo para resolver dudas y lagunas.",
+     "PCAP 9–10"
+    ],
+    [
+     "Órgano y unidad",
+     "Junta de Gobierno Local, con el Servicio de Contratación y Patrimonio como unidad tramitadora. Servicio promotor: Concejalía de Agenda Urbana, Planificación, Desarrollo y Mantenimiento de la Ciudad.",
+     "PCAP 10–11"
+    ],
+    [
+     "Lugar",
+     "Sector Retamar de la Huerta, Alcorcón (Madrid). Suelo urbanizable sectorizado, claves de ordenanza 14 (grados 2 y 3) y 16 (grado 2).",
+     "PCAP 5 · PPT 5"
+    ],
+    [
+     "Para qué se vende",
+     "Aumentar la oferta de vivienda protegida. Los compradores finales se eligen por sorteo entre inscritos en el Registro Público Municipal de Demandantes de Vivienda Protegida.",
+     "PCAP 7–8 · PCAP 29 · PPT 1"
+    ],
+    [
+     "Procedimiento",
+     "Concurso por procedimiento abierto (art. 178.1.a de la Ley del Suelo de Madrid). Si queda desierto, el Ayuntamiento puede vender directamente durante 1 año.",
+     "PCAP 16"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "VMA12, VMA13, VMB06 y VMB07 (4 parcelas, 184 viviendas máx.)",
+     "fee": 3289781.64,
+     "months": 24
+    },
+    {
+     "n": 2,
+     "label": "VMB01, VMB02 y VMB03 (3 parcelas, 129 viviendas máx.)",
+     "fee": 2302316.94,
+     "months": 24
+    },
+    {
+     "n": 3,
+     "label": "VMMB10 y VMMB11 (2 parcelas, 106 viviendas máx.)",
+     "fee": 1909163.25,
+     "months": 24
+    },
+    {
+     "n": 4,
+     "label": "VMB09 (1 parcela, 43 viviendas máx.)",
+     "fee": 767438.98,
+     "months": 24
+    },
+    {
+     "n": 5,
+     "label": "VMB08 (1 parcela, 43 viviendas máx.)",
+     "fee": 767438.98,
+     "months": 24
+    },
+    {
+     "n": 6,
+     "label": "VMA-11a (1 parcela, 29 viviendas máx.)",
+     "fee": 516048.79,
+     "months": 24
+    }
+   ],
+   "cite": "PCAP 3–5 · PCAP 12–13 · PCAP 45–46 · PPT 3",
+   "note": "En total son 12 parcelas y 534 viviendas máximas. «Fee» es el precio mínimo de venta sin IVA y «months» es el plazo máximo de obra, desde la licencia hasta la solicitud de calificación definitiva. Se puede ofertar a los lotes que se quiera, y cada lote es un contrato. El pliego no limita cuántos lotes puede ganar una empresa. El lote 6 tiene la solicitud de licencia limitada hasta que se levante la restricción del convenio de urbanización."
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Precio mínimo (tipo de licitación)",
+     "9.552.188,58 € sin IVA en total, desglosado por lote. No se admiten ofertas por debajo del tipo de su lote, y las ofertas inferiores se rechazan.",
+     "PCAP 12–14 · PCAP 45–46"
+    ],
+    [
+     "Valor estimado",
+     "9.552.188,58 €, igual al presupuesto base según los datos del anuncio.",
+     ""
+    ],
+    [
+     "Precio por m² edificable",
+     "Unos 182 € por m² de techo en todas las parcelas (cálculo nuestro a partir de los importes del pliego).",
+     "PCAP 45–46"
+    ],
+    [
+     "IVA",
+     "Se suma al precio y debe figurar como partida independiente en la oferta. El pliego no indica el tipo: se aplica el legalmente vigente. Si se aplaza el pago, el IVA del precio total se abona al firmar la escritura.",
+     "PCAP 14 · PCAP 28 · PCAP 46"
+    ],
+    [
+     "Cargas de urbanización",
+     "El precio se calcula como suelo urbanizado descontando las cargas de urbanización pendientes. El comprador entra en la Junta de Compensación con la cuota de participación de cada parcela (de 0,6675 a 1,2384 por parcela; lote 1: 4,2598 en total) y asume esas cargas. El presupuesto 2026 de la Junta es de 117.717.064,18 €. El Ayuntamiento ya ha pagado 10.427.916,86 € en derramas y eso no se descuenta del precio.",
+     "PCAP 3 · PCAP 8 · PPT 2"
+    ],
+    [
+     "Forma de pago",
+     "Al contado, o aplazado con interés legal del dinero: 60 % al firmar la escritura (más el IVA de todo el precio) y 40 % como máximo a los 6 meses, siempre antes de pedir la licencia de obras.",
+     "PCAP 27–28"
+    ],
+    [
+     "Garantía del pago aplazado",
+     "Condición resolutoria explícita, hipoteca, aval, seguro de caución u otra garantía suficiente.",
+     "PCAP 29"
+    ],
+    [
+     "Gastos a cargo del comprador",
+     "Escritura, copias, Registro de la Propiedad, impuestos y la parte proporcional de los tributos del ejercicio que haya pagado el Ayuntamiento. También los anuncios, con un máximo aproximado de 500 € por lote, a pagar antes de la escritura.",
+     "PCAP 26–28"
+    ],
+    [
+     "Revisión del precio",
+     "Hay una revisión al alza si la licencia concede más edificabilidad (hasta +20 % de edificabilidad y +30 % de densidad según la Ley autonómica 2/2026). Se calcula con el valor residual adjudicado (€/m² techo) por el aumento de m². Se paga por acta notarial en 1 mes desde que se comunica la licencia (a comunicar en 15 días naturales), y la licencia no surte efecto hasta que se acredita el pago.",
+     "PCAP 8–9 · PCAP 32"
+    ],
+    [
+     "Duración y prórrogas",
+     "No es un contrato de duración. La escritura se firma en 40 días naturales, la solicitud de licencia se hace en 6 meses desde la escritura y la obra tiene un plazo máximo de 24 meses desde la licencia. No hay prórrogas.",
+     "PCAP 27 · PCAP 31–32"
+    ],
+    [
+     "Modificaciones previstas",
+     "No procede: es una compraventa. El pliego solo prevé la revisión del precio por mayor edificabilidad.",
+     "PCAP 32"
+    ],
+    [
+     "Subrogación de personal",
+     "No procede. El pliego no menciona personal que subrogar.",
+     ""
+    ],
+    [
+     "Financiación",
+     "El pliego no indica fondos europeos. Si los compradores finales usan ayudas del Plan Estatal de Vivienda 2026-2030 (RD 326/2026), deben cumplir también sus condiciones.",
+     "PPT 2"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Quién puede",
+     "Personas físicas o jurídicas, españolas o extranjeras, con plena capacidad, solas o en UTE (unión temporal de empresas). Pueden presentarse varias personas conjuntamente si se obligan solidariamente.",
+     "PCAP 11 · PCAP 18–19"
+    ],
+    [
+     "Requisito específico de experiencia",
+     "Haber ejecutado y terminado, con calificación definitiva obtenida en los últimos 10 años, al menos 2 promociones de vivienda protegida de un mínimo de 25 viviendas cada una.",
+     "PCAP 11"
+    ],
+    [
+     "Cómo se acredita",
+     "Se declara en el sobre 1 y se acredita con documentación (el pliego dice «documento que acredite la solvencia técnica») cuando el Ayuntamiento lo pide al primer clasificado, en 10 días hábiles. El pliego no detalla el tipo de certificado.",
+     "PCAP 20 · PCAP 23–24"
+    ],
+    [
+     "Solvencia económica",
+     "El pliego no exige cifra de facturación ni otro requisito económico.",
+     ""
+    ],
+    [
+     "Clasificación",
+     "No se exige.",
+     ""
+    ],
+    [
+     "Habilitaciones",
+     "El pliego no exige ninguna.",
+     ""
+    ],
+    [
+     "Exclusiones",
+     "No pueden presentarse quienes estén en concurso o insolventes, tengan prohibición de contratar (arts. 71 y ss. LCSP) o incurran en el art. 95 del Reglamento de la Ley de Patrimonio. Tampoco quienes tengan deudas en periodo ejecutivo con el Ayuntamiento, salvo que estén garantizadas, fraccionadas o aplazadas.",
+     "PCAP 11 · PCAP 18"
+    ],
+    [
+     "UTE",
+     "Se admite. Cada miembro presenta todos los documentos, más un escrito de compromiso de compra en copropiedad con porcentajes y representante único. Responden solidariamente.",
+     "PCAP 19–21"
+    ],
+    [
+     "Integración de solvencia",
+     "Puede basarse en la solvencia y los medios de otras entidades, si demuestra que dispone realmente de ellos.",
+     "PCAP 19"
+    ],
+    [
+     "Garantía provisional",
+     "3 % del tipo de cada lote: 98.693,45 € (lote 1), 69.069,51 € (lote 2), 57.274,90 € (lote 3), 23.023,17 € (lotes 4 y 5) y 15.481,46 € (lote 6). Si se ofertan los 6 lotes suma 286.565,66 € (cálculo nuestro). Se admite aval, seguro de caución o cheque bancario. El aval y el seguro deben ir intervenidos por notario.",
+     "PCAP 14–15 · PCAP 39–41"
+    ],
+    [
+     "Una oferta por empresa",
+     "El pliego dice que cada empresario no puede presentar más de una proposición, individual o en UTE, y que incumplirlo supone inadmitir todas sus proposiciones. Los anexos piden una proposición por lote (ver incoherencias).",
+     "PCAP 19 · PCAP 36–37"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Oferta económica",
+     "pts": 80,
+     "kind": "fórmula",
+     "how": "Y = 80 × (X − X1) / (X2 − X1). X es tu oferta, X1 el tipo de licitación del lote y X2 la oferta más alta. 0 puntos si ofreces exactamente el tipo y 80 la oferta más alta. Gana quien más paga. No se admiten ofertas por debajo del tipo ni alternativas."
+    },
+    {
+     "name": "Plazo de ejecución de las obras",
+     "pts": 20,
+     "kind": "fórmula",
+     "how": "Plazo desde que se notifica la licencia hasta la solicitud de calificación definitiva. 24 meses = 0 puntos. De 21 a 23 meses = 5. De 18 a 20 = 10. De 15 a 17 = 15. 14 meses o menos = 20. Hay que justificar los métodos o medios. Si no se presenta o no se acredita bien, 0 puntos."
+    }
+   ],
+   "cite": "PCAP 16–18 · PCAP 37",
+   "items": [
+    [
+     "Juicio de valor",
+     "Ninguno: los 100 puntos son automáticos. Eso sí, el compromiso de plazo debe ir justificado con métodos o medios y, si no se acredita correctamente, puntúa 0.",
+     "PCAP 17–18"
+    ],
+    [
+     "Baja anormal o temeraria",
+     "No aplica: las ofertas solo pueden estar por encima del tipo, y las inferiores se rechazan.",
+     "PCAP 14 · PCAP 22"
+    ],
+    [
+     "Cómo se evalúa",
+     "Cada lote se clasifica por separado. La Mesa de Contratación propone y la Junta de Gobierno Local adjudica con acuerdo motivado. Antes de adjudicar, el Ayuntamiento puede declarar improcedente la venta de uno o de todos los lotes.",
+     "PCAP 23 · PCAP 25–26"
+    ],
+    [
+     "Desempate",
+     "Gana la oferta con mayor importe de compra. Si hay igualdad, sorteo.",
+     "PCAP 23"
+    ],
+    [
+     "Plazo marcado en el Anexo II",
+     "En el anexo se marca una sola casilla. Si se marcan varias, vale la de menos reducción de plazo. La oferta de plazo es vinculante y pasa a ser parte del contrato.",
+     "PCAP 22 · PCAP 37"
+    ]
+   ],
+   "insight": "El precio decide con la regla «el más alto se lleva los 80 puntos». El plazo vale hasta 20 puntos, así que comprometer 14 meses o menos pesa mucho y compensa una pequeña diferencia de precio. Hay que comprometerlo solo si la obra se puede cumplir de verdad, porque es vinculante."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Hasta el 16 de diciembre de 2026 a las 23:59, por la Plataforma de Contratación del Sector Público. El pliego fija 20 días naturales desde la publicación. El expediente está 30 días en información pública y, si hay alegaciones, el plazo de licitación se suspende y se retoma después de resolverlas.",
+     "PCAP 18–19"
+    ],
+    [
+     "Preguntas",
+     "El pliego no indica plazo ni canal de preguntas.",
+     ""
+    ],
+    [
+     "Sobre 1: documentación administrativa",
+     "Declaración responsable (Anexo IV, una por lote). Solicitud de participación (Anexo I, una por lote, con dirección de notificaciones). Justificante de la garantía provisional de cada lote. Declaración de conocer los pliegos. Declaración de estar al corriente con Hacienda, Seguridad Social y Hacienda municipal. En UTE, todo lo anterior de cada miembro más el compromiso de compra en copropiedad.",
+     "PCAP 20–21 · PCAP 36 · PCAP 43"
+    ],
+    [
+     "Sobre 2: proposición económica y plazo",
+     "Anexo II por lote, con el precio en letra y cifra, base e IVA separados, desglose por parcela y casilla del plazo de ejecución. Se excluyen ofertas por debajo del tipo, y si hay omisiones, errores o tachaduras que impidan conocer la oferta, no se aceptan. Si letra y cifra no coinciden, vale la letra.",
+     "PCAP 21–22 · PCAP 37–38"
+    ],
+    [
+     "Apertura",
+     "La Mesa se constituye en 5 días tras el cierre y abre el sobre 1. Los defectos subsanables se corrigen en 3 días naturales como máximo. El sobre 2 se abre en acto público en la siguiente sesión de la Mesa.",
+     "PCAP 22–23"
+    ],
+    [
+     "Documentación del primer clasificado",
+     "10 días hábiles desde el requerimiento: capacidad de obrar, solvencia técnica, poderes, justificantes tributarios y de Seguridad Social (o autorización según el Anexo V) y garantía definitiva.",
+     "PCAP 23–25"
+    ],
+    [
+     "Garantía definitiva",
+     "5 % del precio de adjudicación sin IVA. Puede constituirse completando la provisional. Con pago aplazado, se devuelve cuando se haya pagado el 100 % del precio del lote.",
+     "PCAP 16 · PCAP 25"
+    ],
+    [
+     "Escritura",
+     "En 40 días naturales desde la adjudicación o su notificación, ante el notario que designe el Ayuntamiento. Pago por cheque bancario o transferencia.",
+     "PCAP 27 · PCAP 31"
+    ],
+    [
+     "Visita",
+     "Los pliegos no prevén visita previa.",
+     ""
+    ],
+    [
+     "Regulación armonizada (SARA) y recurso especial",
+     "No es contrato LCSP. El pliego no menciona el recurso especial del art. 44 LCSP y remite a la vía contencioso-administrativa para preparación y adjudicación, y a la civil para efectos y extinción.",
+     "PCAP 9 · PCAP 35"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Dinero y garantías",
+     "items": [
+      [
+       "Garantía provisional con aval notarial",
+       "El aval o seguro debe ir intervenido por notario y constituirse en la Tesorería. Si falta o no llega a la cuantía, la Mesa excluye la oferta automáticamente.",
+       "PCAP 14–15"
+      ],
+      [
+       "Pagos",
+       "Si se paga al contado, todo el precio más IVA al firmar. Si se aplaza, 60 % más el IVA total al firmar y 40 % en 6 meses como máximo.",
+       "PCAP 27–28"
+      ],
+      [
+       "Falta de pago",
+       "El Ayuntamiento notifica la resolución por notario y da 20 días naturales para pagar. Si no se paga, se pierde la garantía y se puede reclamar daños. Se constituye condición resolutoria inscrita en el Registro.",
+       "PCAP 33–34"
+      ],
+      [
+       "Costes añadidos",
+       "Cargas de urbanización de la Junta de Compensación, anuncios (hasta unos 500 €/lote), notaría, registro e impuestos, y la parte proporcional de los tributos del ejercicio.",
+       "PCAP 26–28 · PPT 2"
+      ]
+     ]
+    },
+    {
+     "h": "Suelo y plazos",
+     "items": [
+      [
+       "Suelo sin urbanizar",
+       "Las fincas constan sin obras de urbanización ejecutadas y pendientes del inicio de su ejecución. Hay que esperar a que avance la urbanización de la Junta de Compensación.",
+       "PPT 30"
+      ],
+      [
+       "Limitación de licencia",
+       "El lote 6 tiene limitada la solicitud de licencia hasta que se recojan las obras de la fase 2 o se aumente la garantía de la Junta al 100 %. El plazo de 6 meses para pedir la licencia empieza cuando se levante la limitación. Los registros de las parcelas VMB-08 y VMB-09 (lotes 5 y 4) recogen otra limitación condicionada al acceso este.",
+       "PCAP 31 · PPT 2 · PPT 129–130 · PPT 144–145 · PPT 185–186"
+      ],
+      [
+       "Derecho reversionista",
+       "Las fincas VMMB-11 (lote 3) y VMA-11a (lote 6) tienen inscrito un derecho preferente de reversión a favor de antiguos propietarios expropiados, en el caso del lote 3 con un titular en concurso de acreedores. Conviene revisar el alcance con un abogado.",
+       "PPT 171–172 · PPT 184–185"
+      ],
+      [
+       "Plazo de obra vinculante",
+       "El plazo máximo es de 24 meses desde la licencia. El compromiso de plazo ofertado pasa a ser parte del contrato, y no cumplirlo puede dar lugar a resolución.",
+       "PCAP 22 · PCAP 32–33"
+      ],
+      [
+       "Plazos de arranque",
+       "Propuesta vinculante de prehorizontalidad en 15 días naturales desde la adjudicación. Licencia en 6 meses desde la escritura.",
+       "PCAP 30–31"
+      ],
+      [
+       "Daños en vía pública",
+       "El adjudicatario responde de daños a personas o cosas, de desperfectos por acumulación de tierras y de la limpieza diaria (vallas, marquesinas y personal auxiliar).",
+       "PPT 7"
+      ]
+     ]
+    },
+    {
+     "h": "Venta de las viviendas y resolución",
+     "items": [
+      [
+       "Sorteo municipal",
+       "Los compradores finales salen de un sorteo público de la Oficina de Vivienda y Agenda Urbana entre inscritos en el registro de demandantes. El Ayuntamiento entrega la lista en 1 mes desde la escritura. El promotor no puede pedir más del 20 % a cuenta antes de la escritura.",
+       "PCAP 29–30"
+      ],
+      [
+       "Derecho de tanteo y retracto",
+       "El Ayuntamiento se reserva el tanteo y retracto sobre todas las viviendas, locales, garajes y trasteros durante toda la vida útil del edificio.",
+       "PCAP 32"
+      ],
+      [
+       "Régimen de protección",
+       "Las viviendas por exceso de edificabilidad tienen el régimen del acuerdo plenario de 30/09/2026, con protección de carácter permanente e indescalificable.",
+       "PCAP 8–9 · PCAP 32"
+      ],
+      [
+       "Indemnización por incumplimiento",
+       "Si no se adjudican las viviendas a los sorteados, el comprador de la parcela paga al Ayuntamiento un importe igual al precio de venta de la vivienda (sin impuestos). Si el adquirente conocía el incumplimiento, se reparte al 50 % entre vendedor y adquirente. Se suman intereses y gastos.",
+       "PCAP 31 · PCAP 34"
+      ],
+      [
+       "Precios máximos",
+       "Solo vivienda protegida a precio básico, máximo 110 m² construidos (150 m² si es familia numerosa).",
+       "PCAP 7 · PPT 1"
+      ],
+      [
+       "Renuncia o no comparecer",
+       "Pérdida de la garantía y posible adjudicación al segundo clasificado, más daños y perjuicios.",
+       "PCAP 26–28"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Superficie del lote 3",
+     "Para la parcela VMB-11, la tabla registral del PCAP dice 3.191,5953 m². La tabla de parámetros del PCAP dice 4.567,25 m² y el Registro (PPT) dice 4.567,2461 m². Probablemente sea un error de la tabla.",
+     "PCAP 4 · PCAP 6 · PPT 170"
+    ],
+    [
+     "Lotes con limitación de licencia",
+     "El PPT dice que solo el lote 6 está afectado por la limitación para pedir licencia. Las notas registrales de las parcelas de los lotes 4 y 5 también recogen una limitación condicionada al acceso este.",
+     "PPT 2 · PPT 129–130 · PPT 144–145"
+    ],
+    [
+     "Fecha del acuerdo de convenio",
+     "El PPT habla del convenio «aprobado por acuerdo de 27/03/2024». El PCAP y el PPT también citan el acuerdo plenario de 27/03/2026 (acuerdo 6/36) y el convenio está firmado el 15/07/2024.",
+     "PPT 2 · PPT 9 · PCAP 31"
+    ],
+    [
+     "Número de expediente",
+     "El PCAP encabeza el expediente como 108/26P, pero la cláusula décima pide rotular los sobres con «108/29P».",
+     "PCAP 1 · PCAP 20"
+    ],
+    [
+     "Una oferta por empresa o una por lote",
+     "El PCAP dice que no se puede presentar más de una proposición por empresario y, a la vez, permite ofertar a varios lotes. Los Anexos I, II y IV piden una por lote.",
+     "PCAP 14 · PCAP 19 · PCAP 36–37 · PCAP 43"
+    ],
+    [
+     "Garantía definitiva",
+     "La cláusula 5.b la liga a que el primer clasificado «haya ofertado mejoras». La cláusula 12 exige el justificante de garantía definitiva a todo adjudicatario.",
+     "PCAP 16 · PCAP 25"
+    ],
+    [
+     "Qué plazo de 24 meses",
+     "El criterio mide el plazo hasta la solicitud de calificación definitiva. La condición 3.2 habla de «finalizar las obras» en 24 meses desde la licencia.",
+     "PCAP 16–17 · PCAP 32"
+    ],
+    [
+     "Dónde se entrega la garantía",
+     "La cláusula 5 dice que la garantía se constituye en la Tesorería (Plaza de los Reyes de España, 1). El Anexo III habla de presentarla ante la Asesoría Jurídica (Plaza de España, 1). Las ofertas son electrónicas y el pliego no explica cómo se aporta el justificante.",
+     "PCAP 15 · PCAP 39"
+    ],
+    [
+     "Garantía provisional total",
+     "La tabla de garantías pone como «Total» 9.552.188,58 €, que es la suma de los precios mínimos. Las garantías del 3 % suman 286.565,66 € (cálculo nuestro).",
+     "PCAP 14–15"
+    ],
+    [
+     "Plazo de escritura",
+     "Se cuentan 40 días desde el día siguiente a la notificación (cláusula 16) o desde la adjudicación (cláusula 19).",
+     "PCAP 27 · PCAP 31"
+    ],
+    [
+     "Plazo de la licitación e información pública",
+     "El plazo de ofertas es de 20 días naturales, pero el expediente está 30 días en información pública. Si hay alegaciones, la fecha de cierre puede cambiar.",
+     "PCAP 18–19"
+    ]
+   ],
+   "advice": "Conviene preguntar al Ayuntamiento antes de presentar la oferta, sobre todo por la superficie del lote 3, las limitaciones de licencia de los lotes 4 y 5, el justificante de la garantía provisional en oferta electrónica y si se puede presentar una oferta por lote. El pliego no indica plazo de preguntas, así que hay que preguntar cuanto antes. Si se prevé aplazar el pago, hay que consultar también a un abogado sobre las condiciones resolutorias y el derecho reversionista."
+  }
+ ],
+ "headline": "Alcorcón vende suelo para 534 viviendas protegidas",
+ "headline_em": "534 viviendas protegidas",
+ "lede": "El Ayuntamiento de Alcorcón saca a concurso 12 parcelas de Retamar de la Huerta en 6 lotes, desde 516.048,79 € hasta 3.289.781,64 €. Solo pueden optar promotoras con 2 promociones de vivienda protegida terminadas.",
+ "crumbs": "Licitaciones › España › Ayuntamientos › Comunidad de Madrid",
+ "max_lots_per_bidder": 6,
+ "files": [
+  {
+   "name": "Pliego de condiciones administrativas, jurídicas y económicas (PCAP) con anexos",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 46,
+   "bytes": 1123535
+  },
+  {
+   "name": "Pliego de prescripciones técnicas (PPT) con convenio de urbanización, notas simples y fichas catastrales",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 197,
+   "bytes": 6800976
+  }
+ ]
+}

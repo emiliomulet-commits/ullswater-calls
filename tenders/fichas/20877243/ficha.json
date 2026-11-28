@@ -1,0 +1,665 @@
+{
+ "id": "20877243",
+ "ref": "19309/2026",
+ "reviewed": "2026-11-28",
+ "title": "Servicio de ayuda a domicilio para personas dependientes en Ayamonte (Huelva)",
+ "title_official": "Contrato de servicios de ayuda a domicilio en las modalidades de dependencia y libre concurrencia en el término municipal de Ayamonte",
+ "buyer": "Pleno del Ayuntamiento de Ayamonte",
+ "unit": "Servicios Sociales y Oficialía Mayor",
+ "place": "Ayamonte (Andalucía)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=rMToyvdJGrEzjChw4z%2FXvw%3D%3D",
+ "published": "2026-10-23",
+ "deadline": "2026-12-09",
+ "deadline_time": "19:00",
+ "questions_until": "2026-11-27",
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de cláusulas administrativas particulares (PCAP)",
+   "file": "01_Legal.pdf",
+   "pages": 62
+  },
+  "PPT": {
+   "label": "Pliego de prescripciones técnicas (PPT)",
+   "file": "02_Technical.pdf",
+   "pages": 48
+  },
+  "ANX": {
+   "label": "Listado de personal a subrogar (trabajadores del contrato actual)",
+   "file": "03_Additional.pdf",
+   "pages": 5
+  }
+ },
+ "tags": {
+  "level": "Ayuntamiento",
+  "where": "Ayamonte, Andalucía",
+  "contract": "Servicios",
+  "sector": "Servicios sociales (CPV 85312000)",
+  "size": "Grande (más de 5 M€)",
+  "deadline": "Cierra en 11 días",
+  "procedure": "Abierto (regulación armonizada)",
+  "funds": "Junta de Andalucía 97,38 %",
+  "lots": "Sin lotes",
+  "award": "Calidad (45 pts) y mejoras gratuitas (55 pts), sin puntos por precio"
+ },
+ "verdict": {
+  "opportunity": "media",
+  "difficulty": "alta",
+  "text": "Contrato grande y recurrente, solo apto para operadores de ayuda a domicilio ya consolidados y con tamaño: exige 11 M€ de facturación, un seguro de 29,4 M€, una certificación de seguridad de la información y asumir una plantilla de unas 332 personas en activo. El precio por hora está fijado y no puntúa. La adjudicación se decide con el proyecto técnico (45 puntos) y con mejoras que se regalan al Ayuntamiento (55 puntos). El margen previsto por el propio pliego es del 4 %, así que cada mejora ofertada se paga con ese margen. Es una buena oportunidad para quien ya conozca el servicio en Andalucía. Para el resto es muy exigente."
+ },
+ "summary": [
+  "El Ayuntamiento de Ayamonte contrata el servicio de ayuda a domicilio (SAD) para personas en situación de dependencia y para libre concurrencia en todo el municipio. No hay lotes.",
+  "El presupuesto base es de 14.678.810,90 € sin IVA por 2 años (15.265.963,34 € con IVA al 4 %). Con dos prórrogas anuales, el valor estimado llega a 29.357.621,80 €.",
+  "El precio por hora está fijado en 17,24 € sin IVA (17,93 € con IVA) y no da puntos. Se puntúan un proyecto técnico (45 puntos) y mejoras automáticas (55 puntos): ayudas técnicas, servicios adicionales, bolsa de horas gratuitas, formación, director del servicio y certificaciones.",
+  "Hay que subrogar al personal actual: el listado trae 347 filas, de ellas 15 en excedencia. Se exige solvencia económica de 11.009.108,18 € y un seguro de responsabilidad civil de al menos el valor estimado.",
+  "Las ofertas se presentan por la Plataforma de Contratación del Sector Público hasta el 9 de diciembre de 2026 a las 19:00, en 3 archivos electrónicos (A, B y C)."
+ ],
+ "max_lots_per_bidder": 1,
+ "headline": "Ayamonte licita su ayuda a domicilio: 29 M€ a 4 años",
+ "headline_em": "ayuda a domicilio",
+ "lede": "El Ayuntamiento de Ayamonte busca empresa para atender en casa a personas dependientes durante 2 años, prorrogables 2 más. El precio por hora está fijado, así que se gana con proyecto y mejoras.",
+ "crumbs": "Licitaciones › España › Ayuntamientos › Andalucía",
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Servicio de ayuda a domicilio (SAD) en las modalidades de dependencia y libre concurrencia, en el término municipal de Ayamonte. Incluye atención doméstica y atención personal (aseo, movilidad, alimentación, acompañamiento).",
+     "PCAP 2 · PCAP 5 · PPT 4–6"
+    ],
+    [
+     "Lotes",
+     "No hay lotes. El pliego dice que las prestaciones forman una unidad funcional y que dividirlas dificultaría la coordinación.",
+     "PCAP 2 · PCAP 6 · PPT 4"
+    ],
+    [
+     "Quién es el cliente",
+     "Pleno del Ayuntamiento de Ayamonte. El seguimiento lo hacen los Servicios Sociales municipales y Oficialía Mayor. El responsable del contrato es un técnico municipal.",
+     "PCAP 1 · PCAP 54–55 · PPT 9"
+    ],
+    [
+     "Horario",
+     "Todos los días laborables del año: lunes a viernes de 7:00 a 22:00 y sábados de 7:00 a 15:00. La atención debe garantizarse los 365 días del año.",
+     "PPT 8 · PPT 12"
+    ],
+    [
+     "Volumen estimado",
+     "425.721 horas al año, calculadas con la facturación de enero a julio de 2026.",
+     "PCAP 9 · PPT 22"
+    ],
+    [
+     "Qué queda fuera",
+     "Limpieza de escaleras comunitarias, animales, jardines, reparaciones que requieran un profesional y tareas sanitarias, entre otras.",
+     "PPT 6–7"
+    ],
+    [
+     "Por qué se contrata",
+     "El Ayuntamiento dice que no tiene medios propios para prestar el servicio y lo gestiona de forma indirecta.",
+     "PCAP 6"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Servicio completo de ayuda a domicilio en el municipio (2 años)",
+     "fee": 14678810.9,
+     "months": 24
+    }
+   ],
+   "cite": "PCAP 2 · PCAP 6",
+   "note": "Un único lote. Importe sin IVA para los 2 años: 14.678.810,90 €, es decir, 7.339.405,45 € al año."
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base",
+     "14.678.810,90 € sin IVA por 2 años. IVA del 4 %: 587.152,44 €. Total con IVA: 15.265.963,34 €.",
+     "PCAP 2 · PCAP 7"
+    ],
+    [
+     "Valor estimado",
+     "29.357.621,80 € sin IVA (2 años más 2 prórrogas anuales).",
+     "PCAP 2 · PCAP 10"
+    ],
+    [
+     "IVA",
+     "4 %, porque el servicio se paga por un concurso administrativo. Solo estaría exento si acreditas ser entidad privada de carácter social.",
+     "PCAP 10"
+    ],
+    [
+     "Precio por hora",
+     "17,24 € sin IVA (17,93 € con IVA). Es hora efectiva de servicio y no incluye los desplazamientos. Incluye personal, gastos de gestión, formación y la aportación municipal al incentivo salarial.",
+     "PCAP 11 · PPT 25"
+    ],
+    [
+     "Cómo se calcula el presupuesto",
+     "Partidas anuales: personal 6.860.386,26 €, gastos generales 1,85 % (128.274,92 €) y beneficio industrial 4 % (277.351,17 €).",
+     "PCAP 9"
+    ],
+    [
+     "Precio por demanda",
+     "El presupuesto depende de las horas que se pidan y puede subir o bajar. El pliego no garantiza un mínimo de horas ni prevé indemnización si baja.",
+     "PCAP 11–12 · PPT 22–23"
+    ],
+    [
+     "Duración",
+     "2 años desde el día siguiente a la formalización.",
+     "PCAP 3 · PCAP 12"
+    ],
+    [
+     "Prórrogas",
+     "2 prórrogas de 1 año, obligatorias para el contratista si las acuerda el Ayuntamiento. Máximo total: 4 años. Además, hasta 9 meses extra si el nuevo contrato no está listo a tiempo (art. 29.4 LCSP).",
+     "PCAP 3 · PCAP 12–13"
+    ],
+    [
+     "Dependencia del convenio",
+     "La duración está «supeditada» a la prórroga del convenio con la Junta de Andalucía, que termina el 24 de octubre de 2027.",
+     "PCAP 12 · PPT 3"
+    ],
+    [
+     "Revisión de precios",
+     "Sí. El precio se revisa según la variación del coste/hora que fije la Junta de Andalucía, por resolución publicada en el BOJA.",
+     "PCAP 12 · PPT 27"
+    ],
+    [
+     "Modificaciones previstas",
+     "«No se prevén». Solo cabe modificar por interés público según los arts. 203–207 LCSP.",
+     "PCAP 47 · PCAP 3"
+    ],
+    [
+     "Subrogación de personal",
+     "Sí. El listado trae 347 filas (trabajadores 1 a 347). 15 están en excedencia (333–347) y 4 de ellas sin datos. Casi todo el personal es auxiliar de ayuda a domicilio (nivel 7). También hay 1 coordinador, 1 responsable de coordinación, 1 ayudante de coordinación, 1 oficial administrativo y 1 auxiliar administrativo. Un auxiliar a jornada completa figura con 17.094 € de salario anual. Varios contratos tienen fecha de fin entre noviembre de 2026 y enero de 2027. El listado no da el coste total.",
+     "ANX 1–5 · PCAP 40–41"
+    ],
+    [
+     "Convenio aplicable",
+     "I Convenio Colectivo del Sector de Ayuda a Domicilio de Andalucía. El adjudicatario responde de los salarios y las cuotas pendientes de los subrogados.",
+     "PCAP 40–41 · PPT 30"
+    ],
+    [
+     "Financiación",
+     "Comunidad Autónoma de Andalucía 97,38 % y Ayuntamiento 2,62 %. Partidas 2313.227.23 y 2314480 del presupuesto municipal.",
+     "PCAP 2 · PCAP 10–11"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Clasificación",
+     "No se exige. Se puede acreditar la solvencia con los requisitos específicos del pliego o con la clasificación correspondiente.",
+     "PCAP 18"
+    ],
+    [
+     "Habilitación como empresa de SAD",
+     "Estar acreditada como entidad prestadora del servicio de ayuda a domicilio e inscrita en el Registro de Entidades, Servicios y Centros Sociales de Andalucía.",
+     "PCAP 14 · PCAP 21"
+    ],
+    [
+     "Seguridad de la información",
+     "Certificación ENS (categoría media como mínimo) o ISO/IEC 27001, en vigor al terminar el plazo de presentación. El alcance debe cubrir el servicio.",
+     "PCAP 14 · PPT 9"
+    ],
+    [
+     "Solvencia económica",
+     "Volumen anual de negocios del mejor de los 3 últimos años cerrados de al menos 1,5 veces la anualidad media: 11.009.108,18 €. Se acredita con las cuentas anuales depositadas en el Registro Mercantil.",
+     "PCAP 14–15"
+    ],
+    [
+     "Solvencia técnica",
+     "Servicios similares de los últimos 3 años. En el año de mayor ejecución, el importe acumulado debe ser al menos el 70 % de la anualidad media: 5.137.583,82 €. Se acredita con certificados del cliente (público o privado) o, a falta de certificado privado, con declaración del empresario.",
+     "PCAP 15"
+    ],
+    [
+     "Equipo mínimo",
+     "2 coordinadores/as (Grado o Diplomatura en Trabajo Social), 2 ayudantes de coordinación (Técnico Superior en Integración Social o similar), 1 oficial administrativo y 1 auxiliar administrativo. Por cada 600 casos, 2 coordinadores a tiempo completo y 2 ayudantes con dedicación mínima del 80 %. Por cada 300 casos nuevos, se suma 1 más a media jornada. Auxiliares con la titulación que exija la Junta de Andalucía.",
+     "PCAP 15–17 · PPT 28–30"
+    ],
+    [
+     "Compromiso de adscripción de medios",
+     "Hay que comprometer en el archivo A los medios personales y materiales. Es obligación esencial: incumplirlo permite resolver el contrato.",
+     "PCAP 22"
+    ],
+    [
+     "Seguro de responsabilidad civil",
+     "Importe igual o superior al valor estimado del contrato (29.357.621,80 €) durante todo el servicio. La póliza se presenta antes de formalizar.",
+     "PPT 13"
+    ],
+    [
+     "Local en Ayamonte",
+     "Local accesible en Ayamonte como base operativa, con placa exterior. Se acredita antes de formalizar con contrato de alquiler o escritura.",
+     "PPT 31"
+    ],
+    [
+     "UTE e integración de solvencia",
+     "Se admiten uniones temporales y el recurso a medios de otras empresas (art. 75 LCSP). Cada empresa presenta su propio DEUC (declaración responsable europea). Una empresa no puede presentar oferta sola y en UTE, ni estar en dos UTE.",
+     "PCAP 18 · PCAP 20"
+    ],
+    [
+     "Plazo para tenerlo todo",
+     "Capacidad, solvencia, habilitación y certificados deben cumplirse el último día de presentación. Se puede subsanar un documento, pero no la falta del requisito.",
+     "PCAP 15 · PCAP 21"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Proyecto técnico de ejecución del servicio",
+     "pts": 45,
+     "kind": "juicio de valor",
+     "how": "Hasta 45 puntos, repartidos así. Organización y puesta en marcha: 6. Metodología de atención: 7. Coordinación, comunicación e incidencias: 6. Calidad, seguimiento y evaluación: 6. Organización de recursos humanos: 7. Tecnología, seguridad y continuidad de la información: 6. Estrategias e incentivos al personal: 7 (hasta 5 por un sistema de incentivos con 10 objetivos y 2 por otro complemento a cargo de la empresa). El pliego no fija umbral mínimo."
+    },
+    {
+     "name": "Mejora A: director/a del servicio",
+     "pts": 5,
+     "kind": "fórmula",
+     "how": "Jornada 0,50 = 2,50 puntos. Jornada 0,75 = 3,75. Jornada 1,00 = 5. Debe ser Diplomado, Graduado o Licenciado y trabajar solo en este servicio."
+    },
+    {
+     "name": "Mejora B: ayudas técnicas",
+     "pts": 15,
+     "kind": "fórmula",
+     "how": "Por año de contrato, con un máximo de unidades por tipo. Cama articulada: 4 uds. (4 pts). Colchón antiescaras: 4 uds. (2 pts). Grúas de transferencia: 4 uds. (4 pts). Silla de ruedas: 5 uds. (1,5 pts). Andadores: 5 uds. (1 pt). Cojín antiescara: 5 uds. (0,5 pts). Ayuda de baño o transferencia: 8 uds. (2 pts). Se entregan al día siguiente de formalizar."
+    },
+    {
+     "name": "Mejora C: servicios adicionales",
+     "pts": 14,
+     "kind": "fórmula",
+     "how": "Regla de tres por año de contrato sobre el máximo. Podología: 75 h (3 pts). Peluquería: 60 h (3 pts). Limpiezas de choque: 80 (2 pts). Taxi o taxi adaptado: 50 servicios (2 pts). Acompañamiento puntual: 50 servicios (2 pts). Fumigaciones: 80 h (2 pts)."
+    },
+    {
+     "name": "Mejora D: formación adicional",
+     "pts": 6,
+     "kind": "fórmula",
+     "how": "Regla de tres. Auxiliares: hasta 20 h extra por persona y año (4 pts). Resto de personal: hasta 15 h extra por persona y año (2 pts). Solo cuenta formación extra, vinculada al SAD y sin coste para el personal."
+    },
+    {
+     "name": "Mejora E: bolsa de horas gratuitas",
+     "pts": 14,
+     "kind": "fórmula",
+     "how": "Regla de tres sobre un máximo de 800 horas por año de contrato. No se facturan; las pide el Ayuntamiento previo informe de Servicios Sociales."
+    },
+    {
+     "name": "Mejora F: certificaciones de calidad",
+     "pts": 1,
+     "kind": "fórmula",
+     "how": "0,25 puntos por cada certificación: ISO 9001:2015, UNE-EN 158301:2015, SGE 21:2017 y UNE-EN ISO 45001:2023."
+    }
+   ],
+   "cite": "PCAP 25–33 · PPT 39–48",
+   "items": [
+    [
+     "Juicio de valor",
+     "45 puntos, en el archivo C: proyecto de máximo 40 páginas DIN A4 a una cara, Arial 11, interlineado 1,15, márgenes de 2 cm. Portada e índice (2 páginas como máximo) no cuentan; los anexos sí. No se valora lo que pase del límite. No puntúan copiar los pliegos, descripciones genéricas, medios no adscritos al contrato ni declaraciones sin procedimiento.",
+     "PCAP 24–26"
+    ],
+    [
+     "Exclusión por adelantar contenido",
+     "Mencionar en el proyecto (archivo C) las mejoras del archivo B o las certificaciones de calidad supone la exclusión.",
+     "PCAP 25 · PCAP 33–34"
+    ],
+    [
+     "Precio",
+     "La oferta económica es el precio hora de auxiliar de ayuda a domicilio, pero el pliego no le da puntos. Se rechazan las ofertas que superen el presupuesto máximo de licitación.",
+     "PCAP 22 · PCAP 37"
+    ],
+    [
+     "Baja anormal",
+     "El pliego remite al art. 85 del Reglamento (RD 1098/2001) y al art. 149 LCSP, sin fijar un umbral propio. Como el precio no puntúa, no está claro cómo se aplicará.",
+     "PCAP 34"
+    ],
+    [
+     "Desempate",
+     "Prefiere a la empresa con al menos un 2 % de personas con discapacidad en plantilla. Si varias empatan, la que tenga mayor porcentaje de fijos con discapacidad. Si nadie aporta documentación, sorteo.",
+     "PCAP 34 · PCAP 37"
+    ],
+    [
+     "Orden de apertura",
+     "Primero el archivo A, después el C (juicio de valor) y por último el B (mejoras y precio). Se da a conocer la puntuación del C antes de abrir el B.",
+     "PCAP 36"
+    ]
+   ],
+   "insight": "Como el precio es fijo, la diferencia está en el proyecto técnico (45 puntos) y en cuánto regalas en mejoras (55 puntos). Cada mejora sale del beneficio industrial previsto, que son 277.351,17 € al año (4 %), así que hay que calcular cuánto cuesta cada punto antes de ofertar el máximo."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Hasta el 9 de diciembre de 2026 a las 19:00, solo por la Plataforma de Contratación del Sector Público. Esta fecha y hora vienen del anuncio de la Plataforma. El pliego dice «30 días naturales desde el envío del anuncio al DOUE» y no da fecha concreta.",
+     "PCAP 18"
+    ],
+    [
+     "Fecha de publicación",
+     "Los pliegos no indican la fecha de publicación del anuncio. Como referencia usamos la fecha de firma de los pliegos: 23 de octubre de 2026.",
+     "PCAP 1"
+    ],
+    [
+     "Envío en dos fases",
+     "Se puede enviar primero la huella electrónica de la oferta y la oferta completa en un máximo de 24 horas. Si no llega, se considera retirada. Todo debe ir firmado electrónicamente.",
+     "PCAP 19"
+    ],
+    [
+     "Preguntas",
+     "Por la dirección o la Plataforma indicadas en el anuncio. Si preguntas al menos 12 días antes del cierre, deben responderte al menos 6 días antes. El 27 de noviembre de 2026 fue el último día para ello (ya ha pasado).",
+     "PCAP 19"
+    ],
+    [
+     "Archivo A",
+     "DEUC firmado, Anexo I (declaración responsable), inscripción en el Registro de Entidades de servicios sociales, certificado ENS o ISO 27001 y compromiso de adscripción de medios.",
+     "PCAP 20–22"
+    ],
+    [
+     "Archivo B",
+     "Oferta económica (modelo con precio hora, IVA y total) y las mejoras A a F para valoración automática. Lo del archivo B no se puede subsanar.",
+     "PCAP 22–24 · PCAP 37"
+    ],
+    [
+     "Archivo C",
+     "Proyecto técnico de máximo 40 páginas, con los 7 apartados A a G.",
+     "PCAP 24–27"
+    ],
+    [
+     "Garantías",
+     "Provisional: no. Definitiva: 5 % del precio final ofertado sin IVA, en efectivo, aval o seguro de caución. Si no hay descuento, serían unos 733.940,55 € (cálculo nuestro sobre 14.678.810,90 €).",
+     "PCAP 3 · PCAP 25 · PCAP 38"
+    ],
+    [
+     "Apertura y subsanación",
+     "La Mesa de Contratación abre las ofertas en un máximo de 20 días desde el cierre. Los defectos subsanables se corrigen en un máximo de 3 días naturales.",
+     "PCAP 36"
+    ],
+    [
+     "Tras la oferta",
+     "A la mejor oferta se le pide documentación en 10 días hábiles. Si no cumple, se le exige el 3 % del presupuesto base sin IVA (440.364,33 €, cálculo nuestro). Después, adjudicación en 5 días hábiles y formalización tras 15 días hábiles desde la notificación.",
+     "PCAP 37–40"
+    ],
+    [
+     "Justificar las ayudas técnicas",
+     "En los mismos 10 días hábiles hay que acreditar con facturas o albaranes que dispones de las ayudas técnicas ofertadas.",
+     "PCAP 31"
+    ],
+    [
+     "Visita",
+     "El pliego no prevé visita previa.",
+     "PCAP 18–25"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro y demanda",
+     "items": [
+      [
+       "Facturación y pago",
+       "Factura en el plazo máximo de 10 días desde la prestación (servicios de tracto sucesivo). El Ayuntamiento paga en 30 días desde la conformidad y debe aprobarla en los 30 días siguientes al servicio.",
+       "PCAP 43–44"
+      ],
+      [
+       "Pago condicionado",
+       "Sin informe favorable sobre el cumplimiento laboral y de Seguridad Social, no se tramita la factura y se abre expediente de penalización o resolución.",
+       "PCAP 46"
+      ],
+      [
+       "Horas sin garantía",
+       "El presupuesto varía con la demanda y la disponibilidad presupuestaria. Las subidas y bajadas no dan derecho a indemnización.",
+       "PCAP 11–12"
+      ],
+      [
+       "Convenio con la Junta",
+       "El convenio con la Junta de Andalucía termina el 24 de octubre de 2027. El contrato dura 2 años desde la formalización y está supeditado a la prórroga de ese convenio.",
+       "PCAP 12 · PPT 3"
+      ],
+      [
+       "Incentivo salarial",
+       "El incentivo (200.000 € el primer año) se factura una vez al año por separado. El complemento adicional lo paga la empresa y no se factura.",
+       "PCAP 28–30"
+      ]
+     ]
+    },
+    {
+     "h": "Personal y arranque",
+     "items": [
+      [
+       "Subrogación",
+       "Hay que subrogar al personal según el convenio, con una relación de personal y copia de los contratos al inicio. Si los costes reales son mayores que los informados, solo hay acción contra la empresa saliente.",
+       "PCAP 40–42 · ANX 1–5"
+      ],
+      [
+       "Plantilla congelada",
+       "No se puede aumentar ni reducir la plantilla ni los puestos por categoría sin autorización escrita. Los costes de nuevas contrataciones autorizadas no se repercuten en el precio.",
+       "PCAP 42–43 · PPT 14"
+      ],
+      [
+       "Control laboral",
+       "Relación mensual de personal, declaración semestral y justificantes de nóminas y Seguros Sociales. Hay que responder en 5 días si el Ayuntamiento lo pide.",
+       "PCAP 42 · PCAP 46"
+      ],
+      [
+       "Arranque inmediato",
+       "Las ayudas técnicas ofertadas se entregan al día siguiente de formalizar. Hay que dejar en cada domicilio las ayudas que ya usaba la persona.",
+       "PCAP 31 · PPT 16"
+      ],
+      [
+       "Certificación de prevención",
+       "En el primer mes hay que acreditar la norma OHSAS 18001 o ISO 45001.",
+       "PCAP 41"
+      ],
+      [
+       "Menores",
+       "Certificado negativo del Registro Central de Delincuentes Sexuales del personal con contacto habitual con menores.",
+       "PCAP 52"
+      ]
+     ]
+    },
+    {
+     "h": "Penalidades y resolución",
+     "items": [
+      [
+       "Penalidades por ejecución defectuosa",
+       "Leves: hasta el 2 % del presupuesto anual (hasta 146.788,11 €). Graves: hasta el 5 % (366.970,27 €). Muy graves: hasta el 10 % (733.940,55 €). Importes calculados por nosotros sobre 7.339.405,45 €. El pliego no precisa si «presupuesto anual» lleva IVA.",
+       "PCAP 48–50"
+      ],
+      [
+       "Penalidad por demora",
+       "Según el art. 193 LCSP.",
+       "PCAP 48"
+      ],
+      [
+       "Muy grave",
+       "Incumplir la oferta, impagar salarios o cuotas, subcontratar lo no permitido, abandonar el servicio o reiterar tres faltas graves en 6 meses.",
+       "PCAP 50"
+      ],
+      [
+       "Resolución",
+       "Se puede resolver el contrato por incumplir la oferta, impagar salarios o no mantener los medios adscritos. Si los salarios adeudados a personal subrogado superan el 5 % del precio, el Ayuntamiento puede resolver de oficio.",
+       "PCAP 45 · PCAP 52–53"
+      ],
+      [
+       "Plazos de servicio",
+       "Altas ordinarias en 3 días naturales y urgentes en 24 horas. Quejas al Ayuntamiento en 24 horas e informe en 7 días. Máximo 4 auxiliares distintos por usuario.",
+       "PPT 17–19"
+      ],
+      [
+       "Garantía",
+       "Plazo de garantía de 1 año tras el fin del contrato. La garantía definitiva responde de las penalidades y hay que reponerla en 15 días si se ejecuta.",
+       "PCAP 39 · PCAP 46 · PCAP 51"
+      ]
+     ]
+    },
+    {
+     "h": "Subcontratación y otras obligaciones",
+     "items": [
+      [
+       "Subcontratación",
+       "El PCAP dice «No procede». El PPT prohíbe subcontratar la prestación principal en los domicilios. Subcontratar servidores o servicios asociados debe declararse en el Anexo I.",
+       "PCAP 47 · PPT 28 · PCAP 56"
+      ],
+      [
+       "Cesión",
+       "Solo con autorización previa, si ya se ha ejecutado el 20 % del importe y se formaliza en escritura pública.",
+       "PCAP 48"
+      ],
+      [
+       "Condiciones especiales de ejecución",
+       "Igualdad entre mujeres y hombres, cumplimiento del convenio y de la prevención de riesgos, subrogación del personal, no ampliar ni reducir la plantilla. Incumplirlas es falta muy grave.",
+       "PCAP 3 · PCAP 41–43"
+      ],
+      [
+       "Datos personales",
+       "Eres encargado del tratamiento. Se prohíbe sacar datos del Espacio Económico Europeo y hay que declarar dónde están los servidores antes de formalizar.",
+       "PCAP 55–56"
+      ],
+      [
+       "Actividades obligatorias",
+       "3 actividades anuales de convivencia, 3 talleres anuales para familiares y cuidadores, con vehículo para el traslado. Memoria anual antes del 1 de febrero.",
+       "PPT 17"
+      ],
+      [
+       "Huelga",
+       "Hay que informar al Ayuntamiento y cubrir los servicios mínimos. Se deduce de la factura lo que no se preste.",
+       "PPT 35"
+      ],
+      [
+       "Recurso especial",
+       "Procede recurso especial en materia de contratación (art. 44 LCSP) en 15 días hábiles, ante el Tribunal Administrativo de Contratación Pública de la Diputación de Huelva. Es un contrato sujeto a regulación armonizada.",
+       "PCAP 2 · PCAP 58"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Precio por hora",
+     "El pliego fija 17,93 €/hora con IVA, pero también dice que el precio de la Junta de Andalucía (17,46 € con IVA) «es el que debe fijarse». La diferencia parece ser la aportación municipal de 0,45 €/hora, pero el pliego no la explica así.",
+     "PCAP 7 · PCAP 11 · PPT 25–26"
+    ],
+    [
+     "Dedicación de ayudantes de coordinación",
+     "El PCAP exige una dedicación mínima del 80 % y el PPT del 75 %. En caso de discrepancia prevalece el PCAP.",
+     "PCAP 16 · PCAP 58 · PPT 29"
+    ],
+    [
+     "Puntos de la silla de ruedas",
+     "La tabla da 1,5 puntos por unidad y 5 unidades, pero el máximo es 1,50 puntos (no 7,5). Parece un error de la tabla.",
+     "PCAP 32 · PPT 46"
+    ],
+    [
+     "Letras de las mejoras",
+     "La lista numera dos mejoras como «C», salta la «B» y llama «H» a la de certificaciones. El PCAP remite al «punto 10» para el personal mínimo, que está en el apartado 8.4.",
+     "PCAP 30–33"
+    ],
+    [
+     "Precio sin puntos",
+     "El modelo de oferta pide un precio por hora, pero todos los criterios automáticos son mejoras. No se dice cómo se aplica la baja anormal.",
+     "PCAP 22 · PCAP 30–34"
+    ],
+    [
+     "Control de calidad externo",
+     "El pliego habla de una mejora de «Control de Calidad Externo» que no está entre los criterios puntuables.",
+     "PCAP 46 · PPT 20"
+    ],
+    [
+     "Anexo de subrogación",
+     "El PCAP dice que la información de subrogación está en el Anexo II del PPT. El PPT no tiene ese anexo y el listado llega como documento aparte.",
+     "PCAP 40 · ANX 1"
+    ],
+    [
+     "Certificado de seguridad",
+     "Se pide «compromiso de disponer del certificado» y a la vez que se haya obtenido antes de la fecha límite de presentación.",
+     "PCAP 14 · PCAP 21"
+    ],
+    [
+     "Órgano de contratación",
+     "El cuadro resumen dice Pleno de la Corporación y la cláusula de facturación dice Teniente de Alcalde Delegado.",
+     "PCAP 1 · PCAP 44"
+    ],
+    [
+     "Subcontratación",
+     "Dice «No procede», pero se prevé declarar la subcontratación de servidores y de servicios asociados.",
+     "PCAP 47 · PCAP 56"
+    ]
+   ],
+   "advice": "El plazo de preguntas garantizado terminó el 27 de noviembre. Aun así, conviene preguntar por la Plataforma sobre el precio hora, la baja anormal y el certificado de seguridad antes de presentar la oferta."
+  }
+ ],
+ "updated": "2026-11-27",
+ "files": [
+  {
+   "name": "Pliego de cláusulas administrativas particulares (PCAP)",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 62,
+   "bytes": 1119923
+  },
+  {
+   "name": "Pliego de prescripciones técnicas (PPT)",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 48,
+   "bytes": 838417
+  },
+  {
+   "name": "Listado de personal a subrogar (trabajadores del contrato actual)",
+   "file": "03_Additional.pdf",
+   "type": "PDF",
+   "pages": 5,
+   "bytes": 267087
+  },
+  {
+   "name": "2026-39a4a7db-3898-4b65-b635-8b006a012288",
+   "file": "04_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-6b5c4af7-aba2-45dc-aef1-796ea339411a",
+   "file": "05_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-9e9debb9-44ca-4b3d-958f-4b6c5351ce3f",
+   "file": "06_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-51eb9fae-9280-46ef-9328-93baea8fe28c",
+   "file": "07_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-ceef197e-de06-48eb-aed2-f2f0ffc851b3",
+   "file": "08_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ]
+}

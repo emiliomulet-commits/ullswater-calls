@@ -1,0 +1,386 @@
+{
+ "schema": 1,
+ "id": "20780339",
+ "reviewed": "2026-11-28",
+ "title": "Redacción del proyecto de la estación de La Serna y nuevo paso inferior (Fuenlabrada)",
+ "buyer": "ADIF",
+ "buyer_key": "ADIF - Presidencia",
+ "province": "Madrid",
+ "cpv": "71242000",
+ "ref": "3.26/06110.0236 – P 014/26",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=qxNsc92BLDzi0Kd8%2Brcp6w%3D%3D",
+ "deadline": "2027-01-14",
+ "deadline_time": "13:00",
+ "questions_until": "2027-01-02",
+ "questions_cite": "PCAP p.35",
+ "opening_days": 20,
+ "opening_cite": "PCAP p.46",
+ "platform": "Portal del Licitador de ADIF (elicitadores.adif.es)",
+ "envelopes": 3,
+ "judgement_pts": 49,
+ "lots": [
+  {
+   "n": 1,
+   "label": "Contrato único: Etapa 1 (18 meses) + Etapa 2 (12 meses, importe máximo)",
+   "budget": 1198576.85,
+   "months": 30
+  }
+ ],
+ "lots_cite": "PCAP p.5 · PCAP p.17",
+ "max_lots_award": 1,
+ "max_lots_per_team": 1,
+ "lots_rule": "No hay lotes: el contrato es único.",
+ "lots_rule_cite": "PCAP p.17",
+ "requirements": [
+  {
+   "id": "turnover",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 0.6,
+   "label": "Solvencia económica",
+   "rule": "Facturación del mejor de los 3 últimos años de al menos 719.146,11 € (1,5 veces la anualidad media)",
+   "question": "¿Cuál fue tu facturación en tu mejor año de los 3 últimos?",
+   "unit": "€",
+   "cite": "PCAP p.9",
+   "proof": "Cuentas anuales depositadas en el Registro Mercantil (o seguro de responsabilidad profesional por 1.198.576,85 €)"
+  },
+  {
+   "id": "similar",
+   "kind": "number_vs_lot",
+   "basis": "budget",
+   "factor": 0.28,
+   "label": "Solvencia técnica",
+   "rule": "En el año de mayor ejecución de los últimos 5, trabajos del mismo tipo (CPV 712) por al menos 335.601,52 €",
+   "question": "¿Cuánto facturaste en tu mejor año de los últimos 5 en proyectos de ingeniería o arquitectura (CPV 712)?",
+   "unit": "€",
+   "cite": "PCAP p.10",
+   "proof": "Certificados de buena ejecución de los clientes"
+  },
+  {
+   "id": "author_years",
+   "kind": "number_min",
+   "min": 15,
+   "label": "Autor del proyecto",
+   "rule": "Titulado universitario (máster o equivalente) con al menos 15 años redactando proyectos y obras ferroviarias",
+   "question": "¿Cuántos años de experiencia ferroviaria tiene tu autor del proyecto?",
+   "unit": "años",
+   "cite": "PCAP p.11",
+   "proof": "Título, currículum y relación de trabajos"
+  },
+  {
+   "id": "coauthor",
+   "kind": "yesno",
+   "label": "Coautor arquitecto",
+   "rule": "Arquitecto con al menos 15 años en proyectos y obras de estaciones ferroviarias, capacitado para firmar el proyecto",
+   "question": "¿Tienes un arquitecto con 15 años o más en estaciones ferroviarias?",
+   "cite": "PCAP p.11",
+   "proof": "Título, currículum y certificados"
+  },
+  {
+   "id": "leads",
+   "kind": "yesno",
+   "label": "Jefes de equipo (15 especialidades)",
+   "rule": "Calidad, estructuras, geotecnia, medio ambiente, drenaje, catenaria, topografía, riesgos, interoperabilidad, arquitectura, instalaciones, protección y seguridad, reposiciones, factibilidad y CMS/telecom, con entre 2 y 10 años cada uno",
+   "question": "¿Tienes o puedes aliarte con jefes de equipo para las 15 especialidades exigidas, con los años pedidos?",
+   "cite": "PCAP p.11–14",
+   "proof": "Relación nominal de personal con títulos y CV"
+  },
+  {
+   "id": "advisers",
+   "kind": "yesno",
+   "label": "Asesores especializados",
+   "rule": "Asesor acústico, de arquitectura de género, de sostenibilidad y energía (máster), de megafonía y de patologías y restauración (máster)",
+   "question": "¿Dispones de los 5 asesores especializados con titulación y experiencia exigidas?",
+   "cite": "PCAP p.14–15",
+   "proof": "Títulos, másteres y CV"
+  },
+  {
+   "id": "rail_safety",
+   "kind": "yesno",
+   "label": "Seguridad ferroviaria",
+   "rule": "Coordinador de seguridad y salud, piloto de seguridad habilitado (Orden FOM/2872/2010) y responsable técnico habilitado por ADIF",
+   "question": "¿Tienes un piloto de seguridad y un responsable técnico con habilitación en vigor y un coordinador de seguridad y salud?",
+   "cite": "PCAP p.15–16",
+   "proof": "Copia de las habilitaciones en vigor"
+  },
+  {
+   "id": "bim",
+   "kind": "yesno",
+   "label": "Equipo BIM",
+   "rule": "Responsable BIM (3 años o 2 con máster), coordinador BIM, coordinador de disciplina, 2 modeladores y gestor de información",
+   "question": "¿Tienes un equipo BIM de 6 personas con la experiencia pedida?",
+   "cite": "PCAP p.15–16",
+   "proof": "CV y certificados de formación BIM"
+  },
+  {
+   "id": "insurance",
+   "kind": "yesno",
+   "label": "Seguro de responsabilidad civil",
+   "rule": "Póliza por el importe de adjudicación durante toda la ejecución",
+   "question": "¿Puedes contratar o ampliar un seguro de responsabilidad civil por el importe de adjudicación?",
+   "cite": "PCAP p.27",
+   "proof": "Declaración responsable y certificado del asegurador"
+  }
+ ],
+ "classification": null,
+ "roles": [],
+ "roles_question": null,
+ "criteria": [
+  {
+   "id": "price",
+   "kind": "price",
+   "name": "Oferta económica (Etapa 1 + Etapa 2)",
+   "pts": 49,
+   "formula": "linear_min",
+   "how": "0 puntos si ofreces el presupuesto y el máximo la oferta más barata admitida; reparto lineal entre ambas. La baja de la Etapa 1 y la de la Etapa 2 se ponderan por su peso en el presupuesto",
+   "cite": "PCAP p.21–22",
+   "note": "El pliego dice «fórmula parabólica» pero describe interpolación lineal; hemos usado la lineal."
+  },
+  {
+   "id": "exp_author",
+   "kind": "choice",
+   "name": "Experiencia extra del autor del proyecto",
+   "pts": 1,
+   "question": "¿Tu autor del proyecto acredita 20 años o más redactando proyectos y obras ferroviarias?",
+   "options": [
+    {
+     "label": "No, menos de 20 años",
+     "pts": 0
+    },
+    {
+     "label": "Sí, 20 años o más",
+     "pts": 1
+    }
+   ],
+   "cite": "PCAP p.22"
+  },
+  {
+   "id": "exp_arch",
+   "kind": "choice",
+   "name": "Experiencia extra del jefe de arquitectura",
+   "pts": 0.5,
+   "question": "¿Tu jefe de equipo de arquitectura acredita 10 años o más en proyectos de estaciones ferroviarias?",
+   "options": [
+    {
+     "label": "No, menos de 10 años",
+     "pts": 0
+    },
+    {
+     "label": "Sí, 10 años o más",
+     "pts": 0.5
+    }
+   ],
+   "cite": "PCAP p.22"
+  },
+  {
+   "id": "exp_bim",
+   "kind": "choice",
+   "name": "Experiencia extra del responsable BIM",
+   "pts": 0.5,
+   "question": "¿Tu responsable BIM acredita 5 años o más en proyectos con metodología BIM?",
+   "options": [
+    {
+     "label": "No, menos de 5 años",
+     "pts": 0
+    },
+    {
+     "label": "Sí, 5 años o más",
+     "pts": 0.5
+    }
+   ],
+   "cite": "PCAP p.22"
+  },
+  {
+   "id": "jv_memoria",
+   "kind": "judgement",
+   "name": "Memoria técnica",
+   "pts": 34,
+   "how": "Máx. 20 páginas: comprensión de la actuación (4), análisis del proyecto de 2022 (10), integración urbana (4), factibilidad constructiva (6), coordinación institucional (3), calidad arquitectónica (5), sostenibilidad (2)",
+   "cite": "PCAP p.24–25"
+  },
+  {
+   "id": "jv_bim",
+   "kind": "judgement",
+   "name": "Propuesta de metodología BIM",
+   "pts": 2,
+   "how": "Máx. 5 páginas: plan de ejecución BIM, modelos y encaje con el entorno común de datos de ADIF",
+   "cite": "PCAP p.25"
+  },
+  {
+   "id": "jv_risk",
+   "kind": "judgement",
+   "name": "Gestión de riesgos y seguridad en la circulación",
+   "pts": 3,
+   "how": "Riesgos de la obra junto a vía en servicio, medidas preventivas y Reglamento UE 402/2013",
+   "cite": "PCAP p.25"
+  },
+  {
+   "id": "jv_program",
+   "kind": "judgement",
+   "name": "Programa de trabajos",
+   "pts": 5,
+   "how": "Máx. 5 páginas, con diagrama y camino crítico; plazos de 18 y 12 meses como máximo",
+   "cite": "PCAP p.23 · PCAP p.25"
+  },
+  {
+   "id": "jv_env",
+   "kind": "judgement",
+   "name": "Actuaciones medioambientales",
+   "pts": 5,
+   "how": "Máx. 10 páginas: condicionantes ambientales, legislación y propuesta de documentos previos",
+   "cite": "PCAP p.23 · PCAP p.25–26"
+  }
+ ],
+ "abnormal": {
+  "kind": "below_mean_pp",
+  "pp": 5,
+  "pp_formula": "100/(2·BM)",
+  "single_pct": null,
+  "accept_rate": 0.5,
+  "cite": "PCAP p.18–20",
+  "note": "El margen depende de la baja media: con menos de 5 ofertas, baja > BM + 100/(2·BM); con 5 o más, > BR + 100/(2·BR). El valor de 5 puntos es orientativo y equivale a una baja media del 10 %. Hay que confirmar la fórmula con ADIF, porque está mal maquetada en el pliego."
+ },
+ "effort": {
+  "kind": "hours",
+  "hours": null,
+  "note": "El pliego no indica horas de dedicación. Se trata de 30 meses de trabajo con unos 25 perfiles, varios a dedicación completa y exclusiva."
+ },
+ "guarantee": {
+  "definitive_pct": 5,
+  "abnormal_extra_pct": 5,
+  "cite": "PCAP p.16–17"
+ },
+ "risk_flags": [
+  {
+   "id": "convenio",
+   "label": "El convenio con el Ayuntamiento de Fuenlabrada está pendiente y puede condicionar el alcance y el inicio de los proyectos",
+   "cite": "PPT p.14–15 · PPT p.23",
+   "weight": 3
+  },
+  {
+   "id": "team",
+   "label": "Equipo de unos 25 perfiles con exclusividad y cambios solo con permiso; cambiarlos sin autorización puede resolver el contrato",
+   "cite": "PCAP p.10 · PCAP p.71",
+   "weight": 3
+  },
+  {
+   "id": "payment",
+   "label": "Pago por certificaciones limitado a la anualidad y con 30 días extra de plazo de pago",
+   "cite": "PCAP p.58",
+   "weight": 2
+  },
+  {
+   "id": "stage2",
+   "label": "Etapa 2 sin garantía de encargo y con correcciones de proyecto sin coste",
+   "cite": "PCAP p.3",
+   "weight": 2
+  },
+  {
+   "id": "penalties",
+   "label": "Penalidades de hasta el 10 % por incumplimiento, con un tope total del 50 %",
+   "cite": "PCAP p.28 · PCAP p.62–63",
+   "weight": 2
+  },
+  {
+   "id": "rail",
+   "label": "Campaña geotécnica y trabajos junto a vía en servicio, con personal de seguridad a cargo del consultor",
+   "cite": "PPT p.52",
+   "weight": 1
+  },
+  {
+   "id": "visa",
+   "label": "Visado del Colegio profesional con coste a cargo del adjudicatario",
+   "cite": "PCAP p.30",
+   "weight": 1
+  }
+ ],
+ "solvency_paths": {
+  "integration": true,
+  "integration_note": "Se admite apoyarse en otras empresas, con responsabilidad solidaria solo para la solvencia económica; hay que declararlo en el DEUC desde el principio",
+  "ute": true,
+  "subcontracting": true,
+  "cite": "PCAP p.9 · PCAP p.16 · PCAP p.65"
+ },
+ "specific_checks": [
+  {
+   "text": "En el sobre 3 no puede aparecer precio ni años de experiencia adicional: puede suponer la exclusión",
+   "cite": "PCAP p.22–23"
+  },
+  {
+   "text": "Respeta los límites de páginas (memoria 20, BIM 5, programa 5, medio ambiente 10): lo que sobra no se valora",
+   "cite": "PCAP p.23"
+  },
+  {
+   "text": "Con menos de 25 puntos de los 49 de juicio de valor, tu oferta queda fuera y no se abre su sobre de precio",
+   "cite": "PCAP p.18 · PCAP p.47–48"
+  },
+  {
+   "text": "Los plazos del programa de trabajos no pueden superar 18 meses (Etapa 1) y 12 meses (Etapa 2)",
+   "cite": "PCAP p.23"
+  },
+  {
+   "text": "Si usas solvencia de otra empresa, indícalo en el DEUC; si no, no se admite después",
+   "cite": "PCAP p.16"
+  },
+  {
+   "text": "Una sola oferta por empresa: no puedes presentarte solo y en UTE a la vez",
+   "cite": "PCAP p.21 · PCAP p.33"
+  }
+ ],
+ "docs_envelopes": [
+  {
+   "when": -20,
+   "task": "Cierra el equipo de unos 25 perfiles, comprueba sus títulos y años de experiencia y firma el compromiso de adscripción",
+   "cite": "PCAP p.10–16",
+   "help": "Lista de perfiles y carencias según este diagnóstico"
+  },
+  {
+   "when": -12,
+   "task": "Envía tus preguntas a ADIF (convenio, fórmula de baja anormal, subcontratación) antes del 2 de enero",
+   "cite": "PCAP p.35",
+   "help": "Preguntas sugeridas"
+  },
+  {
+   "when": -14,
+   "task": "Redacta la memoria técnica (20 págs.), la metodología BIM (5), el programa (5) y el documento medioambiental (10) para el sobre 3",
+   "cite": "PCAP p.22–23",
+   "help": "Estructura según los subcriterios de puntuación"
+  },
+  {
+   "when": -7,
+   "task": "Prepara el DEUC (solo la sección α de selección), el Anejo 2 y, si hay UTE, el Anejo 4 para el sobre 1",
+   "cite": "PCAP p.44–45",
+   "help": "Borrador del DEUC (próximamente)"
+  },
+  {
+   "when": -4,
+   "task": "Rellena el Anejo 1 (precio de la Etapa 1, baja única de la Etapa 2 y experiencia adicional) y el Anejo 1 bis con precios unitarios para el sobre 2",
+   "cite": "PCAP p.20–21 · PCAP p.73–75",
+   "help": "Rebaja recomendada"
+  },
+  {
+   "when": -1,
+   "task": "Firma y envía los 3 sobres por el Portal del Licitador; el cierre es el 14 de enero a las 13:00",
+   "cite": "PCAP p.32–34",
+   "help": "Lista de comprobación final"
+  }
+ ],
+ "known_issues": [
+  {
+   "text": "El pliego habla de fórmula parabólica para el precio pero describe una interpolación lineal",
+   "cite": "PCAP p.21–22"
+  },
+  {
+   "text": "La fórmula de baja anormal (UT = 100/(2·BR) o 100/(2·BM)) está mal maquetada y conviene confirmar su interpretación",
+   "cite": "PCAP p.18–20"
+  },
+  {
+   "text": "La garantía complementaria aparece como «SÍ» pero solo se explica para baja anormal o fondos europeos",
+   "cite": "PCAP p.17"
+  },
+  {
+   "text": "El PPT solo se ha leído hasta la página 69 de 307; faltan el cuadro de precios y las cláusulas BIM",
+   "cite": "PPT p.69"
+  }
+ ]
+}

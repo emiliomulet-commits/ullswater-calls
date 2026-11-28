@@ -1,0 +1,21 @@
+{
+ "model": "claude-sonnet-5-5",
+ "effort": "medium",
+ "doc_chars": 519288,
+ "doc_pages": 313,
+ "batch_seconds": 240,
+ "input_tokens": 11888,
+ "output_tokens": 27893,
+ "cache_creation_input_tokens": 246112,
+ "cache_read_input_tokens": 246112,
+ "calls": 2,
+ "rules_check": "20934626: OK · revisar: 4 contradicción(es) entre documentos: revisar",
+ "cost_usd": 0.4713,
+ "seconds": 270,
+ "status": "ok",
+ "problems": [],
+ "not_read": [
+  "PPT desde la página 71 de 89"
+ ],
+ "cost_eur": 0.4336
+}

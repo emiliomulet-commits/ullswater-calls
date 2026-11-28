@@ -1,0 +1,132 @@
+{
+ "id": "20934626",
+ "title": "Mantenimiento, reposición, gestión y legalización de la Red de Infraestructuras heliportuarias destinadas a emergencias sanitarias en Castilla-La Mancha",
+ "buyer": "Secretaria General del Servicio de Salud de Castilla-La Mancha",
+ "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=qDZ2e7P8kxU7u6%2B%2FR7DUoA%3D%3D",
+ "docs": [
+  {
+   "kind": "Legal",
+   "name": "Pcap.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=GV4tI/BOdFM1V5WCWPEFkCAWqWbMRWBypfscejMLbXpntPalmSY42etzbXhDdO0gjkeuYoby/rAfMGbgNqu1wr3cgBydtAX37z9wdVrXjoF7QB3HKyQaFUExmUVQCerk",
+   "file": "01_Legal.pdf",
+   "bytes": 1610447,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261116132633Pcap.pdf",
+   "codes": [
+    "PCAP"
+   ],
+   "pages": 147
+  },
+  {
+   "kind": "Technical",
+   "name": "ppt.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=yrutaLgx5K4UldpwT6eC8opHGfIt62hFBeVS3D6APCBSonrNtBPahgxO97wdGb31dH27WbXPVMEM3h10o3xPEWgq7/sMlAWh99lt1mlXRCWB0nvVKRzfe4rpHcnlPhSZ",
+   "file": "02_Technical.pdf",
+   "bytes": 1861282,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261116132638ppt.pdf",
+   "codes": [
+    "PPT"
+   ],
+   "pages": 89
+  },
+  {
+   "kind": "Additional",
+   "name": "CuadroanexoPCAPmantemientohelisuperficies.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=lP%2BAgZBdbdwvXYmIf6YMUaIvIS%2BVIzBLcknoPUJbX3usBpWYnpCAkfwIdboC7v3bfJxdgdSUwaTqX23rf0rcZVMf30H8I49scEMe8JzJPJ3DdQD9RyhUmzT4jZ2In4zL",
+   "file": "03_Additional.pdf",
+   "bytes": 1069550,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261116132635CuadroanexoPCAPmantemientohelisuperficies.pdf",
+   "codes": [
+    "ANX"
+   ],
+   "pages": 71
+  },
+  {
+   "kind": "Additional",
+   "name": "Resolucionaprobacionreport1.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=S2TpWP5lrkMmABP7SgS73cs4q88EjR308gyp9S8wz0YuNgDn4I%2BOBhoh4yOp%2BKamRM1DgOXy6/6eI3xKZErA84NuUugjJtNdSQv3uKqXUhMZyAJWGsSt0OzTSTyw9JAs",
+   "file": "04_Additional.pdf",
+   "bytes": 423408,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261116132644Resolucionaprobacionreport1.pdf",
+   "codes": [
+    "ANX2"
+   ],
+   "pages": 2
+  },
+  {
+   "kind": "Additional",
+   "name": "Riniciomanthelisreport.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=e7%2Bh9OMmyNZAkBcNAbaEoe0b2GdaVjY%2BjKcuna9EP26Rqf4WyCOI0858v86XBEZKjxDp9xtxFjvyKPA8zRVPiG1ReEMNlKAl6OUygLUB/QuHAj0WEJrB5sP7amrh2jBD",
+   "file": "05_Additional.pdf",
+   "bytes": 683448,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261116132641Riniciomanthelisreport.pdf",
+   "codes": [
+    "ANX3"
+   ],
+   "pages": 3
+  },
+  {
+   "kind": "Additional",
+   "name": "informeinsuficienciademediosreport.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=paqSEXqPj8VdPYEKBY54s2yIaEREptGwbnAlNxQduQkX7b9iIe4cD1wbS9CZj2VY9LqhoUHMs785ASRYzzy2qzGTwvUZfZLkNDqXxKWDpcJt/o8fNevwsujgRzaBbugn",
+   "file": "06_Additional.pdf",
+   "bytes": 255741,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC20261116132642informeinsuficienciademediosreport.pdf",
+   "codes": [
+    "ANX4"
+   ],
+   "pages": 1
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-4d7f7c0a-13bd-4b1d-bb52-011ab8eb93f4",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-4d7f7c0a-13bd-4b1d-bb52-011ab8eb93f4",
+   "file": "07_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-15197c6d-e668-4f52-9604-d0e7d88e987d",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-15197c6d-e668-4f52-9604-d0e7d88e987d",
+   "file": "08_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-9cc6ff70-3709-4d4f-b72f-d8a58895d43b",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-9cc6ff70-3709-4d4f-b72f-d8a58895d43b",
+   "file": "09_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-e8e26296-2efa-4e97-afaf-71ec711d7529",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-e8e26296-2efa-4e97-afaf-71ec711d7529",
+   "file": "10_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  }
+ ]
+}

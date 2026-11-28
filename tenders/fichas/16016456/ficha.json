@@ -1,0 +1,1553 @@
+{
+ "id": "16016456",
+ "ref": "CO20240017",
+ "reviewed": "2026-11-28",
+ "title": "Sistema abierto para ser proveedor de reparto de paquetería de Correos Express en toda España (7 zonas)",
+ "title_official": "Sistema dinámico de adquisición para la contratación de servicios de recogida, transporte y distribución de paquetería en el ámbito nacional.",
+ "buyer": "Consejo de Administración de Correos Express Paquetería Urgente, S.A. - S.M.E.",
+ "unit": "Dirección de Operaciones (Subdirección de Transporte)",
+ "place": "Coslada (Comunidad de Madrid)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=FD4SImF2N14zjChw4z%2FXvw%3D%3D",
+ "published": "2024-09-26",
+ "deadline": "2028-12-31",
+ "deadline_time": "13:00",
+ "questions_until": null,
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de condiciones técnicas y particulares (PCTP), con anexos I–VIII",
+   "file": "01_Legal.pdf",
+   "pages": 135
+  },
+  "PPT": {
+   "label": "Copia del mismo pliego (el PPT repite el texto del PCTP)",
+   "file": "02_Technical.pdf",
+   "pages": 135
+  }
+ },
+ "tags": {
+  "level": "Empresa pública",
+  "where": "Coslada, Madrid (ámbito nacional)",
+  "contract": "Servicios",
+  "sector": "Transporte y paquetería (CPV 60100000)",
+  "size": "Muy grande (1.029 M€ en 4 años)",
+  "deadline": "Abierto hasta 31-12-2028 (según el anuncio)",
+  "procedure": "Sistema dinámico de adquisición",
+  "funds": "El pliego no indica fondos europeos",
+  "lots": "7 zonas",
+  "award": "Precio y calidad (todo con fórmula)"
+ },
+ "headline": "Correos Express abre su reparto a nuevos transportistas",
+ "headline_em": "nuevos transportistas",
+ "lede": "Correos Express crea un sistema abierto durante 4 años para contratar repartidores de paquetería en 7 zonas de España. Entrar cuesta poco, pero lo que se gana se decide después, en cada contrato concreto.",
+ "crumbs": "Licitaciones › España › Empresas públicas › Comunidad de Madrid",
+ "verdict": {
+  "opportunity": "alta",
+  "difficulty": "media",
+  "text": "Buena oportunidad para transportistas y pequeñas empresas de reparto con autorización de transporte, furgonetas propias o en renting y experiencia en paquetería. Entrar en el sistema pide poco: 18.000 € de facturación y dos certificados de 9.000 €. Es una lista abierta, sin plazo de cierre real. Lo difícil viene después: cada contrato concreto se gana con flota nueva y limpia (puntos por antigüedad y etiqueta ambiental), conductores con experiencia y precio. La letra pequeña es dura: rotulación de vehículos, exclusividad de la flota, penalidades de hasta el 50 % del precio, subrogación de personal y cobro a 60 días."
+ },
+ "summary": [
+  "Correos Express (grupo Correos) crea un sistema dinámico de adquisición (SDA): una lista de proveedores admitidos, abierta durante 4 años, a la que luego invita a ofertar en cada contrato concreto.",
+  "Cubre toda España en 7 zonas. El valor estimado es de 1.029.000.000 € sin IVA (1.243.952.736,80 € con IVA), repartido entre zonas de entre 8,1 M€ (Canarias) y 248,5 M€ (Madrid, Castilla-La Mancha y Extremadura).",
+  "Para entrar basta con declarar que se cumplen los requisitos: 18.000 € de volumen anual de negocio, dos certificados de buena ejecución de 9.000 € cada uno, autorización de transporte público de mercancías y seguro de responsabilidad civil de 30.000 €. Si te adhieres a más de una zona, las cifras suben a 54.000 € y 18.000 €.",
+  "Cada contrato concreto se puntúa normalmente con 100 puntos automáticos: 60 de precio y 40 de calidad (plazo de puesta a disposición de vehículos, antigüedad de la flota, etiqueta ambiental y experiencia de los conductores). Se exigen al menos 6 de los 40 puntos de calidad.",
+  "El anuncio indica el 31 de diciembre de 2028 a las 13:00 como fecha límite. El pliego dice que el plazo inicial es de 30 días desde la publicación y que después se puede pedir la admisión en cualquier momento. Todo se hace por el Portal de Licitación Electrónica de Sistemas Dinámicos de Correos."
+ ],
+ "max_lots_per_bidder": 7,
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Servicio de recogida, transporte y distribución de paquetería de Correos Express a través de un sistema dinámico de adquisición (SDA).",
+     "PCAP 3"
+    ],
+    [
+     "Qué es un SDA",
+     "Un proceso totalmente electrónico, de 4 años de duración, abierto a cualquier empresa que cumpla los requisitos. Entrar en la lista no te da trabajo asegurado: solo te invitan a ofertar en los contratos específicos de tus zonas.",
+     "PCAP 5 · PCAP 16"
+    ],
+    [
+     "Zonas",
+     "Zona 1: Galicia, Asturias y Castilla y León (salvo Soria). Zona 2: País Vasco, Cantabria, Navarra, La Rioja, Aragón y Soria. Zona 3: Comunidad Valenciana, Murcia y Baleares. Zona 4: Madrid, Castilla-La Mancha y Extremadura. Zona 5: Andalucía, Ceuta y Melilla. Zona 6: Canarias. Zona 7: Cataluña.",
+     "PCAP 3"
+    ],
+    [
+     "Zonas de explotación",
+     "Cada zona de explotación (conjunto de códigos postales) la atiende un único proveedor, que asume todo su volumen. Si el volumen pasa del 30 % sobre lo previsto, Correos Express puede dar el exceso a otro proveedor. Las empresas del Grupo Correos pueden repartir sin romper la exclusividad.",
+     "PCAP 7"
+    ],
+    [
+     "Órgano",
+     "Consejo de Administración de Correos Express Paquetería Urgente, S.A., S.M.E. La dirección corre a cargo de la Subdirección de Transporte.",
+     "PCAP 17"
+    ],
+    [
+     "Lugar",
+     "Ámbito nacional. Domicilio de Correos Express: Avda. de Europa 8, Centro de Transportes de Coslada (Madrid).",
+     "PCAP 3 · PCAP 70"
+    ],
+    [
+     "Régimen jurídico",
+     "La preparación y adjudicación se rigen por el pliego y por el RD-ley 3/2020. Los efectos, el cumplimiento y la extinción se rigen por el Derecho privado.",
+     "PCAP 29–30"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes (zonas)",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Zona 1: Galicia, Asturias y Castilla y León (salvo Soria)",
+     "fee": 149792912.78,
+     "months": 48
+    },
+    {
+     "n": 2,
+     "label": "Zona 2: País Vasco, Cantabria, Navarra, La Rioja, Aragón y Soria",
+     "fee": 120558924.33,
+     "months": 48
+    },
+    {
+     "n": 3,
+     "label": "Zona 3: Comunidad Valenciana, Murcia y Baleares",
+     "fee": 152802822.15,
+     "months": 48
+    },
+    {
+     "n": 4,
+     "label": "Zona 4: Madrid, Castilla-La Mancha y Extremadura",
+     "fee": 248503723.49,
+     "months": 48
+    },
+    {
+     "n": 5,
+     "label": "Zona 5: Andalucía, Ceuta y Melilla",
+     "fee": 174824750.27,
+     "months": 48
+    },
+    {
+     "n": 6,
+     "label": "Zona 6: Canarias (con IGIC en lugar de IVA)",
+     "fee": 8123308.52,
+     "months": 48
+    },
+    {
+     "n": 7,
+     "label": "Zona 7: Cataluña",
+     "fee": 174393558.46,
+     "months": 48
+    }
+   ],
+   "cite": "PCAP 17–24",
+   "note": "Los importes son el valor estimado de cada zona sin IVA para los 4 años del SDA. Los contratos específicos podrán dividirse en lotes por zonas de explotación y limitar cuántos lotes puede ofertar o ganar cada empresa. En ese caso hay que presentar un orden de preferencia de lotes (PCAP 7). La duración de 48 meses es la del SDA, no la de cada contrato."
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base",
+     "1.243.952.736,80 € con impuestos: 1.029.000.000,00 € de base imponible más 214.952.736,80 € de impuestos indirectos. Son 310.988.184,20 € al año, de 2025 a 2028.",
+     "PCAP 17–18"
+    ],
+    [
+     "Valor estimado",
+     "1.029.000.000,00 € sin impuestos. No es un compromiso firme de gasto: los contratos se adjudican según las necesidades reales, y Correos Express no tiene que repartirlo a partes iguales entre los proveedores.",
+     "PCAP 22–23"
+    ],
+    [
+     "Reparto por zonas (con impuestos)",
+     "Zona 1: 181.249.424,46 €. Zona 2: 145.876.298,44 €. Zona 3: 184.891.414,80 €. Zona 4: 300.689.505,42 €. Zona 5: 211.537.947,83 €. Zona 6: 8.691.940,12 €. Zona 7: 211.016.205,74 €.",
+     "PCAP 19–22"
+    ],
+    [
+     "IVA",
+     "21 % en las zonas 1, 2, 3, 4, 5 y 7. IGIC del 7 % en Canarias (zona 6). Es un total de 53.596.026,30 € al año de IVA y 142.157,90 € de IGIC.",
+     "PCAP 18"
+    ],
+    [
+     "Estructura de costes",
+     "Costes directos sin salarios 20 %, salarios 60 %, costes indirectos 12 % y beneficio industrial 8 %. Se calculó con 53 convenios colectivos provinciales y una única categoría profesional: conductor/repartidor.",
+     "PCAP 18"
+    ],
+    [
+     "Sistema de precio",
+     "Lo fija cada contrato específico. Una oferta por encima del presupuesto de licitación, o con precios unitarios superiores a los fijados, queda excluida.",
+     "PCAP 22"
+    ],
+    [
+     "Duración",
+     "El SDA dura 4 años desde el día siguiente a aprobarse la primera lista de proveedores. Cada contrato específico dura como máximo 5 años desde la firma del acta de inicio.",
+     "PCAP 16"
+    ],
+    [
+     "Prórrogas",
+     "El SDA no tiene prórrogas ni modificaciones. En los contratos específicos se prevén prórrogas «en las condiciones de cada contrato».",
+     "PCAP 16"
+    ],
+    [
+     "Revisión de precios",
+     "No procede.",
+     "PCAP 85"
+    ],
+    [
+     "Modificaciones previstas",
+     "Correos Express puede pedir subir o bajar el contrato hasta un 20 % del importe de adjudicación, por cambios de zona o de volumen. Solo hay compensación económica si el cambio supera el 10 % en kilómetros. No se pueden crear precios nuevos.",
+     "PCAP 24–25"
+    ],
+    [
+     "Subrogación de personal",
+     "Sí, cuando lo prevea el convenio colectivo: hay que asumir al personal de la empresa saliente. El número de trabajadores y su coste se detallarán en cada contrato específico. El pliego no da cifras.",
+     "PCAP 67–68"
+    ],
+    [
+     "Financiación",
+     "El pliego no indica fondos europeos.",
+     ""
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Quién puede",
+     "Personas físicas o jurídicas con capacidad de obrar, sin prohibición de contratar y que cumplan los criterios de selección. Se admiten UTE (uniones temporales de empresas).",
+     "PCAP 4–5"
+    ],
+    [
+     "Clasificación",
+     "No se exige clasificación. Se acredita la solvencia con cifras y certificados.",
+     "PCAP 4 · PCAP 31–34"
+    ],
+    [
+     "Habilitación",
+     "Autorización de Transporte Público de Mercancías por Carretera en vigor (LOTT y ROTT).",
+     "PCAP 33"
+    ],
+    [
+     "Solvencia económica",
+     "Volumen anual de negocios en transporte o paquetería (CPV 60100000 y 60161000), en el mejor de los 3 últimos ejercicios: 18.000 € si te adhieres a una sola zona. Si te adhieres a más de una zona (da igual cuáles): 54.000 €. Se acredita con cuentas anuales depositadas en el Registro Mercantil.",
+     "PCAP 33–34"
+    ],
+    [
+     "Solvencia técnica",
+     "Relación de servicios similares de los últimos 3 años y al menos 2 certificados de buena ejecución de 9.000 € cada uno (una zona) o de 18.000 € cada uno (más de una zona). Un autónomo unipersonal solo necesita un certificado. Las empresas con menos de 5 años de antigüedad se acogen al art. 90.4 LCSP.",
+     "PCAP 31–32"
+    ],
+    [
+     "Seguro de responsabilidad civil",
+     "Póliza de responsabilidad civil profesional de al menos 30.000 €, con vigencia de un año como mínimo y posibilidad de prórroga. Se aporta copia de la póliza, último recibo y declaración responsable.",
+     "PCAP 34"
+    ],
+    [
+     "Vehículos (al ofertar cada contrato)",
+     "Permiso de circulación de servicio público, ITV, tarjeta de transporte a nombre del licitador y seguro de mercancías: 12.000 € por siniestro hasta 3.500 kg, 90.000 € hasta 7.500 kg y 180.000 € por encima. Antigüedad máxima: 8 años. Si aún no tienes el vehículo, vale una factura proforma.",
+     "PCAP 8–10 · PCAP 41–42"
+    ],
+    [
+     "Qué se presenta para entrar",
+     "Anexo I (zonas elegidas), Anexo II (declaración de capacidad y solvencia), Anexo III (plan de igualdad o menos de 50 trabajadores) y Anexo IV (cuestionario de protección de datos). Un 0 en cualquier pregunta del Anexo IV excluye.",
+     "PCAP 35–36 · PCAP 91"
+    ],
+    [
+     "Documentos tras ser propuesto",
+     "En 10 días hábiles: escrituras o alta de autónomo, pliego firmado, solvencias, alta del IAE y certificados de estar al corriente con Hacienda y la Seguridad Social.",
+     "PCAP 31 · PCAP 37–38"
+    ],
+    [
+     "UTE e integración de solvencia",
+     "UTE admitidas. Si te presentas solo, no puedes ir también en una UTE, ni estar en más de una UTE: se excluyen todas las solicitudes. El pliego no menciona la integración de solvencia con medios de otra empresa.",
+     "PCAP 5 · PCAP 36"
+    ],
+    [
+     "Subcontratación",
+     "Se permite con comunicación previa a Correos Express. El pliego no limita su porcentaje. Subcontratar sin comunicarlo se penaliza con el 5 % del precio.",
+     "PCAP 66 · PCAP 64"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Oferta económica",
+     "pts": 60,
+     "kind": "fórmula",
+     "how": "PS = 60 × (1 − (tu precio − precio más bajo) / presupuesto de licitación). La oferta más barata saca 60. Las demás pierden puntos según su distancia a la más barata, medida sobre el presupuesto de licitación. Se excluye cualquier oferta por encima del presupuesto o con precios unitarios superiores."
+    },
+    {
+     "name": "Plazo de puesta a disposición de los vehículos",
+     "pts": 10,
+     "kind": "fórmula",
+     "how": "El menor plazo ofertado saca 10. El resto, 10 × (menor plazo / tu plazo). No se puede superar el máximo del contrato. Con varios vehículos, media ponderada."
+    },
+    {
+     "name": "Antigüedad de los vehículos",
+     "pts": 10,
+     "kind": "fórmula",
+     "how": "La flota más nueva saca 10. El resto, 10 × (menor antigüedad / tu antigüedad). Máximo 8 años. Con varios vehículos, media ponderada."
+    },
+    {
+     "name": "Etiqueta medioambiental",
+     "pts": 5,
+     "kind": "fórmula",
+     "how": "0 emisiones: 5 puntos. Euro 6: 3 puntos. Euro 5: 1 punto. Con varios vehículos, media ponderada."
+    },
+    {
+     "name": "Experiencia de los conductores en reparto de paquetería",
+     "pts": 15,
+     "kind": "fórmula",
+     "how": "La mayor experiencia acreditada saca 15. El resto, 15 × (tu experiencia / la mayor). Se acredita con cotizaciones, nóminas, contratos o cartas de empleo. Media ponderada del equipo."
+    }
+   ],
+   "cite": "PCAP 44–47",
+   "items": [
+    [
+     "Juicio de valor",
+     "Ninguno: los 100 puntos son automáticos. Hay un umbral: hay que sacar al menos 6 de los 40 puntos de calidad para que se abra la valoración del precio.",
+     "PCAP 31 · PCAP 47"
+    ],
+    [
+     "Si hay subrogación de personal",
+     "Si en esa zona el convenio prevé subrogación, los 40 puntos de calidad cambian: plazo de vehículos 15, antigüedad 15 y etiqueta ambiental 10. No hay puntos de experiencia de conductores. El precio sigue valiendo 60.",
+     "PCAP 46"
+    ],
+    [
+     "Alternativa de solo precio",
+     "De forma excepcional y justificada, un contrato puede adjudicarse solo por precio: 100 × (1 − (tu precio − precio más bajo) / presupuesto de licitación).",
+     "PCAP 30–31 · PCAP 48"
+    ],
+    [
+     "Baja anormal",
+     "Con 1 oferta: más de 25 puntos porcentuales por debajo del presupuesto. Con 2: más de 20 puntos por debajo de la otra. Con 3: más de 10 puntos por debajo de la media (y siempre desproporcionada si pasa de 25). Con 4 o más: más de 10 puntos por debajo de la media, descartando antes las ofertas más de 10 puntos por encima de ella. Tienes 5 días hábiles para justificar. Si ganas con baja anormal, se exige una garantía complementaria de hasta el 1 %.",
+     "PCAP 25–26"
+    ],
+    [
+     "Desempate",
+     "Los criterios por defecto del art. 66.11 del RD-ley 3/2020. El pliego no los detalla.",
+     "PCAP 44"
+    ]
+   ],
+   "insight": "Lo que decide cada contrato es la flota y los conductores: 40 de los 100 puntos se reparten por plazo, antigüedad, etiqueta y experiencia, y se puntúan en relación con el mejor competidor. Con 60 puntos de precio en una fórmula lineal, ofertar vehículos eléctricos o recién matriculados vale casi tanto como bajar el precio."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Fecha de referencia",
+     "El anuncio no indica la fecha de publicación. Como referencia usamos la fecha de firma del pliego: 26 de septiembre de 2024.",
+     "PCAP 85"
+    ],
+    [
+     "Plazo",
+     "El anuncio fija el 31 de diciembre de 2028 a las 13:00. El pliego dice que el plazo inicial es de 30 días naturales desde la publicación y que después se puede pedir la admisión en cualquier momento durante los 4 años. Todo por el Portal de Licitación Electrónica de Sistemas Dinámicos de Correos.",
+     "PCAP 16 · PCAP 35"
+    ],
+    [
+     "Preguntas",
+     "Para el SDA, el pliego no fija plazo. En cada contrato específico, consultas vinculantes por la plataforma hasta 3 días naturales antes del cierre.",
+     "PCAP 43"
+    ],
+    [
+     "Sobre para entrar en el SDA",
+     "Un único sobre electrónico con los Anexos I a IV. Lo que no se presente por el Portal se excluye automáticamente.",
+     "PCAP 35–36"
+    ],
+    [
+     "Sobres de cada contrato específico",
+     "Sobre 1: documentación de los vehículos (o factura proforma). Sobre 2: plazo, antigüedad y etiqueta de los vehículos, experiencia de los conductores y propuesta económica, en documentos separados.",
+     "PCAP 41–43"
+    ],
+    [
+     "Plazo de cada contrato específico",
+     "Normalmente 10 días naturales desde el envío de la invitación. Cada licitador presenta una sola proposición.",
+     "PCAP 40"
+    ],
+    [
+     "Garantías",
+     "Provisional: el pliego no la exige. Definitiva: 5 % del importe de adjudicación sin IVA, en 10 días hábiles, por metálico o aval. Puede reducirse o eximirse en zonas rurales o turísticas, o en contratos de hasta 12 meses y menos de 150.000 €. Complementaria: hasta un 1 % si ganas con baja anormal (total máximo 6 %).",
+     "PCAP 26–28"
+    ],
+    [
+     "Si no aportas la garantía",
+     "Retiras tu oferta y pueden exigirte el 3 % del presupuesto de licitación sin IVA. Además, hasta 6 meses de suspensión para nuevos contratos del SDA.",
+     "PCAP 27 · PCAP 49"
+    ],
+    [
+     "Formalización",
+     "Hay que firmar el contrato de adhesión en un máximo de 5 días naturales desde el requerimiento. No se puede participar en contratos sin haberlo formalizado.",
+     "PCAP 39"
+    ],
+    [
+     "Visita",
+     "El pliego no prevé visita previa.",
+     ""
+    ],
+    [
+     "Recurso",
+     "El pliego prevé una reclamación en 15 días desde la publicación (arts. 119 y ss. del RD-ley 3/2020). No cita el recurso especial del art. 44 LCSP.",
+     "PCAP 30"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro",
+     "items": [
+      [
+       "Pago a 60 días",
+       "Se factura mensualmente y se paga por confirming a 60 días naturales desde la recepción de la factura. No se admite factoring ni cesión de créditos como medio de pago.",
+       "PCAP 69"
+      ],
+      [
+       "Sin revisión de precios",
+       "Con contratos de hasta 5 años, el precio no se revisa.",
+       "PCAP 85"
+      ],
+      [
+       "Cuota de equipo de reparto",
+       "Si te dan una PDA en lugar de exigirte smartphone Android, pagas una cuota de 23,69 € al mes más IVA, con posibles subidas de hasta 10 €.",
+       "PCAP 13"
+      ],
+      [
+       "Bonus",
+       "Más del 97 % de calidad en entregas da 50 € por ruta al mes (mínimo 70 entregas diarias de media y 15 días al mes).",
+       "PCAP 15"
+      ]
+     ]
+    },
+    {
+     "h": "Ejecución y penalidades",
+     "items": [
+      [
+       "Pérdida, robo o rotura",
+       "Se te imputa lo que pague Correos Express al cliente más 150 € la primera vez, 200 € la segunda y 300 € la tercera en el mismo año, con posible resolución. Falsificar una firma de entrega: 300 € y posible resolución inmediata.",
+       "PCAP 57–60"
+      ],
+      [
+       "Calidad semanal",
+       "Penalizaciones por fórmula si no entregas o recoges más del 5 % de los envíos. Envío sin asignar: 2,5 € por envío. Resolución posible a la tercera reiteración.",
+       "PCAP 60–62"
+      ],
+      [
+       "Incumplimientos diarios",
+       "No cerrar el día de ruta: 50 € por ruta y día. No poner vehículos ofertados: 50 € al día. No prestar servicio sin causa: 150 € al día. No asumir hasta un 30 % de picos de volumen: 75 € al día. Sin candado: 60 € por día y unidad.",
+       "PCAP 62–63"
+      ],
+      [
+       "Imagen",
+       "Rotular tarde: 150 € por vehículo y semana. Vehículo sucio o mal rotulado: 150 €. No retirar el logotipo al terminar: 500 €. Indumentaria o calzado S1P incorrecto: 30 € por día y conductor.",
+       "PCAP 63–64"
+      ],
+      [
+       "Otros (5 % del precio)",
+       "Ceder o subcontratar sin comunicarlo, incumplir normativa laboral o falsear datos de personal se penaliza con el 5 % del precio sin IVA.",
+       "PCAP 64"
+      ],
+      [
+       "Topes",
+       "Cada penalidad puede llegar al 10 % del precio y el total, al 50 %. Son acumulables con la indemnización de daños y se cobran de facturas o garantía.",
+       "PCAP 65"
+      ]
+     ]
+    },
+    {
+     "h": "Obligaciones y personal",
+     "items": [
+      [
+       "Flota exclusiva y rotulada",
+       "Los vehículos del servicio solo pueden llevar paquetes de Correos Express. Hay que rotularlos (plazo de 30 días desde el acta de inicio) y pagar la rotulación, la indumentaria y los equipos de protección.",
+       "PCAP 12 · PCAP 14"
+      ],
+      [
+       "No competir por clientes",
+       "No puedes ofrecer servicios a clientes de Correos Express en tu zona de explotación.",
+       "PCAP 14"
+      ],
+      [
+       "Subrogación",
+       "Si el convenio lo prevé, asumes al personal de la empresa saliente con sus condiciones. No subrogar es causa de resolución. Correos Express puede pedir apartar a personal subrogado con informes de incumplimiento.",
+       "PCAP 67–68 · PCAP 77"
+      ],
+      [
+       "Documentación laboral mensual",
+       "Cada mes, RNT y RLC, y cumplir el convenio y nóminas. Tras el contrato, 3 meses para acreditar los meses pendientes. La garantía solo se devuelve cuando todo está acreditado.",
+       "PCAP 51 · PCAP 54"
+      ],
+      [
+       "Resolución",
+       "Causas imputables: no tener vehículos a tiempo, no reponer la garantía en 15 días hábiles, incumplir normativa laboral, concurso de acreedores, etc. Conlleva pérdida de la garantía y 1.000 € de penalización.",
+       "PCAP 77–79"
+      ],
+      [
+       "Condiciones especiales de ejecución",
+       "Recogida selectiva de residuos y retirada de embalajes (declaración responsable) y plan de formación en prevención de riesgos para los empleados adscritos.",
+       "PCAP 79–80"
+      ],
+      [
+       "Protección de datos",
+       "Contrato de encargo de tratamiento (Anexo VII), medidas de seguridad y notificación de brechas en 24 horas.",
+       "PCAP 71 · PCAP 111"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Plazo",
+     "El anuncio da el 31-12-2028 a las 13:00. El pliego fija 30 días iniciales y luego admisión abierta sin plazo límite.",
+     "PCAP 16 · PCAP 35"
+    ],
+    [
+     "Procedimiento",
+     "El pliego propone un «procedimiento restringido», pero admite a todas las empresas que cumplan los requisitos (SDA abierto).",
+     "PCAP 30"
+    ],
+    [
+     "Prórrogas y modificaciones",
+     "Se dice que no se prevén prórrogas ni modificaciones, pero luego los contratos específicos permiten prórrogas y modificaciones de hasta el 20 %. El SDA dura 4 años y cada contrato, hasta 5.",
+     "PCAP 16 · PCAP 24"
+    ],
+    [
+     "Solvencia técnica",
+     "La sección 14 pide 2 certificados de 9.000 € cada uno. El Anexo II habla de servicios de «9.000 € anuales».",
+     "PCAP 32 · PCAP 88"
+    ],
+    [
+     "Sobres",
+     "En los contratos específicos el «sobre administrativo» contiene documentación técnica de vehículos. El de fórmulas contiene los datos de calidad y la oferta económica.",
+     "PCAP 41–43"
+    ],
+    [
+     "Facturación",
+     "Se habla de facturas mensuales en los tres primeros días laborales del mes siguiente, y también de factura tras la recepción de conformidad con pago a 60 días.",
+     "PCAP 69"
+    ],
+    [
+     "Convenios colectivos",
+     "El Anexo VIII incluye convenios con vigencias ya agotadas (Ceuta 2019, Melilla 2014) y datos erróneos (publicación «00 de enero de 1900» en Jaén y Murcia). El pliego dice que usó 53 convenios.",
+     "PCAP 18 · PCAP 125 · PCAP 128 · PCAP 130"
+    ],
+    [
+     "Régimen legal",
+     "El pliego se rige por el RD-ley 3/2020 (sectores especiales) y cita artículos de la LCSP. El plazo de reclamación es de 15 días, no el del recurso especial del art. 44 LCSP.",
+     "PCAP 29–30"
+    ],
+    [
+     "Documentos",
+     "El PPT es una copia exacta del PCTP: no hay prescripciones técnicas separadas. Parte del Anexo V (rotulado) son páginas de imagen sin texto.",
+     "PPT 1 · PCAP 95–105"
+    ]
+   ],
+   "advice": "Antes de pedir la adhesión, conviene preguntar por la plataforma qué plazo manda (anuncio o pliego) y si el SDA sigue admitiendo solicitudes en 2026. En cada contrato específico, lee con lupa el máximo de plazo de puesta a disposición de vehículos y si hay subrogación."
+  }
+ ],
+ "updated": "2026-11-27",
+ "files": [
+  {
+   "name": "Pliego de condiciones técnicas y particulares (PCTP), con anexos I–VIII",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 135,
+   "bytes": 2783990
+  },
+  {
+   "name": "Copia del mismo pliego (el PPT repite el texto del PCTP)",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 135,
+   "bytes": 2783990
+  },
+  {
+   "name": "2025-460f6c0e-6345-4823-868f-61352ffb7ea4",
+   "file": "03_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-2508b21d-1e37-4ff5-bda1-2e08cbcc1053",
+   "file": "04_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-0472dca0-a2ae-4866-b8ec-8283a32494ce",
+   "file": "05_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-f8d87b6a-46f9-4292-89fe-9f96c80a2c6f",
+   "file": "06_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-51082009-bffe-4e7c-867b-6cec4b727559",
+   "file": "07_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-a536f9b4-228a-4c55-a0cf-eec940247557",
+   "file": "08_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-d9898b52-1026-434f-bce5-eae4f0d80137",
+   "file": "09_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-c9a4590a-0b01-44d4-8b77-c26021d80453",
+   "file": "10_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-8f096624-4cef-4d02-bb0f-9d04db5ee610",
+   "file": "11_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-81fdc848-6fe8-4a0e-a9ba-6c5a7bba02c3",
+   "file": "12_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-0f96b75b-29fc-42b9-979a-6ab08b167763",
+   "file": "13_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-2ce36216-f543-4531-b560-8bf12a34007d",
+   "file": "14_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-b777d159-04a2-4661-8d9d-da5b9bc2b858",
+   "file": "15_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-91abec78-bc21-4b89-805b-6dacc33ff4bd",
+   "file": "16_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-33885cef-8031-41c2-ab81-0e2efef5b420",
+   "file": "17_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-2316d833-ea3a-44cb-82ef-f2ccebe0b6f1",
+   "file": "18_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-68c486c9-b568-4056-a231-0fd14fccad96",
+   "file": "19_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-e64e87bc-7f4f-44a2-8507-855ef3d609d3",
+   "file": "20_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-6d4d9cb7-ec40-45d9-808b-d085a4abf3dc",
+   "file": "21_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-4b2992a6-73c6-4fa4-99f7-b4542b49eb79",
+   "file": "22_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-fa2de190-104a-4c9a-b9a6-031a80d532b4",
+   "file": "23_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-6e3bae44-0c89-45ca-bf4d-8f26272b79a8",
+   "file": "24_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-9ea8e562-4d6e-46d1-a8ce-bc094b20538b",
+   "file": "25_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-99e61c09-a2cf-4c1e-8c6a-76abb85b556d",
+   "file": "26_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-e13e9cc3-9782-4cb1-a07c-8c8ea31fec0f",
+   "file": "27_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-1b46fb20-a97e-4c22-8342-63a783ad80c8",
+   "file": "28_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-fea308d7-1fc0-4a80-95eb-6cfb3753b62b",
+   "file": "29_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-82138fa3-7a11-40a1-8c71-c61a08c596ab",
+   "file": "30_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-eab8fd43-1911-4c36-9a86-44e6ed262379",
+   "file": "31_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-6098a80c-f698-44d4-9133-65e0b785e28e",
+   "file": "32_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-98c6c00d-d495-42e8-9f03-4010f152b084",
+   "file": "33_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-6f59fa08-ccee-4825-87e8-8ba3aec558d5",
+   "file": "34_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-8e56dbd3-f396-44cc-a7d5-fc6e3b48a35b",
+   "file": "35_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-b3b8d03a-9f14-4400-9ef1-643ece10597d",
+   "file": "36_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-af155cf6-c630-49a0-b426-66b38117ba9c",
+   "file": "37_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-0c22eb3a-37b0-46ce-b7a9-8cfedeece668",
+   "file": "38_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-3445aadf-996b-4cef-a3cd-91d63335d89b",
+   "file": "39_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-8313f614-a1d6-496d-9228-8b4077dba6ef",
+   "file": "40_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-cef86afe-c5b7-403b-99a8-b15499e5eb3e",
+   "file": "41_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-9eecc158-77c2-4767-8db8-eeceb91b4a2b",
+   "file": "42_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-6d34b7d2-1955-4cb4-a016-5dc5371f696b",
+   "file": "43_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-c8a9cfaa-41aa-4ada-b474-bdd4600d3422",
+   "file": "44_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-1d79d0a7-bc17-44c9-b5c8-22316586d4a0",
+   "file": "45_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-8aef9d49-4d46-48c8-9b2f-7d56eeffc695",
+   "file": "46_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-54dbdb82-9b07-4f06-9cb8-0363c36364ab",
+   "file": "47_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-38bc859d-5911-4412-8289-2ebdb336ef11",
+   "file": "48_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-52c59084-bf4d-4f9b-b71a-1d06690ef644",
+   "file": "49_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-0fa590cc-a9aa-44ca-b3e3-5fa4dd6e8bb0",
+   "file": "50_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-564f63bd-3e3d-46b5-ac03-a904ec18f368",
+   "file": "51_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-59b3536d-bfba-4d35-9f1f-f8c9b7dfc17c",
+   "file": "52_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-19cf3d7b-38c3-45a6-9d24-a8752e362d41",
+   "file": "53_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-5c1cb465-6292-4049-8b39-c83aaa7a1c9e",
+   "file": "54_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-f2252ebc-ae6c-4034-997e-9fe9db4c379d",
+   "file": "55_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-3b052ae5-f7e5-430f-8821-6c342b8421ac",
+   "file": "56_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-c5acd1f3-02b3-4681-b799-6373525c6820",
+   "file": "57_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-6d51ac4c-2207-411c-805d-15d84d5bb112",
+   "file": "58_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-84bb0e55-9a1d-4af4-b539-9fe1a80586b7",
+   "file": "59_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2025-7e4c03a3-52df-43e8-a7f0-53e08bbf96e7",
+   "file": "60_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-89852f4b-c8c5-4846-ab48-183e4887119c",
+   "file": "61_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-c510ce56-c456-47ec-901d-72aa532db637",
+   "file": "62_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-e65f4f36-b405-4f4d-8282-ec86b5dc5d74",
+   "file": "63_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-1b894e61-bd83-478d-a0f5-6805b557645d",
+   "file": "64_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-bdf74cc4-10a3-4961-bf75-5f365bd8cdc2",
+   "file": "65_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-e67170f8-5bdb-4987-9c62-3184fafeb409",
+   "file": "66_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-5306e6e9-a96e-4130-980a-a8212b2fdc05",
+   "file": "67_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-f5f64207-be10-4160-a96e-67699fe9b72f",
+   "file": "68_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-b684fd2d-5e4b-4834-893b-ad8324cb4c37",
+   "file": "69_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-5f260700-d4dd-492b-a063-298f8baf7af8",
+   "file": "70_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-745f8a75-0556-4747-8b2a-cf4cf6c81985",
+   "file": "71_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-f1f428cf-d4a1-454f-a688-2b8e49e043b6",
+   "file": "72_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-7d1dab6e-49c1-4043-8a04-6ebd71a28305",
+   "file": "73_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-c8209bda-bbef-40db-8d31-ae50da73e33a",
+   "file": "74_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-8e510e23-6828-4dea-986a-0727512e6620",
+   "file": "75_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-ffa0b17e-ee6d-4ebc-9b1a-a211b0ac8a72",
+   "file": "76_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-d2f7ed0d-f1b8-47d1-b07f-23ce5d9d8523",
+   "file": "77_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-edb22aac-4145-46ff-90fb-6601987d38a6",
+   "file": "78_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-f8d723b6-1395-4f35-ab98-0dce58ed6ee6",
+   "file": "79_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-1c48d338-c95f-4a87-bedf-54fab82b3b5e",
+   "file": "80_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-c1b3c6b0-3815-4106-8fb0-77b8094e8ac2",
+   "file": "81_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-7247964a-a6eb-4ea9-9203-bec8655d078c",
+   "file": "82_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-0eaa7f61-0a25-4989-8157-a27d6cca92e8",
+   "file": "83_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-7a66aaed-9c5a-4aad-b3f6-860984e4e09d",
+   "file": "84_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-213eaeed-3f6a-4200-baa5-cdfb2c122cea",
+   "file": "85_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-cef6afc4-da6b-4f5c-87d8-65504332b579",
+   "file": "86_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-f8984915-b64c-4581-9c12-95514aaf14ab",
+   "file": "87_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-92b96724-6ca4-412b-81ac-e3ab4fdc57b4",
+   "file": "88_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-46b929c6-6d8e-4275-b3d7-35dea5f16567",
+   "file": "89_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-ed430541-2a47-4a5b-b573-a2a9704b75af",
+   "file": "90_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-5ae03167-d9b5-463b-a212-0ec838197781",
+   "file": "91_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-cd364604-1c04-4ba8-aadc-e49833bb167b",
+   "file": "92_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-7206b587-affb-4362-a37f-e024c8322ef7",
+   "file": "93_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-60c6cc70-4557-4e0d-836d-2b70208d10f8",
+   "file": "94_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-7e4d8683-bcae-4443-9707-a28c017bccf6",
+   "file": "95_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-6951f3bd-9573-43d5-ba83-19163ffeadd1",
+   "file": "96_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-844b3a3d-cb20-4dad-8737-ca2a0afa9faa",
+   "file": "97_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-0927f15e-4a43-4489-8ba8-33e22ecd90de",
+   "file": "98_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-7c67aecf-2112-43c3-bbcb-d68da537d3a8",
+   "file": "99_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-47deec45-6150-4610-bdc7-17dc80bcb22e",
+   "file": "100_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-01f8d75e-57be-4d5f-8873-509f703ecb11",
+   "file": "101_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-667d9c8d-c578-4248-9012-64b664178b67",
+   "file": "102_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-caa9c8a4-b18f-4205-953f-2ba2c943139e",
+   "file": "103_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-ca0929b2-0dc2-4b7f-9737-4de5e84e9928",
+   "file": "104_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-ba44d05b-ca07-4eef-a05e-1dc9c4cc22f9",
+   "file": "105_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-b5b1c95b-9856-47a6-a5d6-bbdcdd2a0a5b",
+   "file": "106_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-3e7d8257-06cd-4a5f-812c-85abd9cf7d43",
+   "file": "107_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-e0c60c8d-2bc6-45a7-9e05-fa8b8b39f258",
+   "file": "108_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-78626cb6-4fa9-4f4f-b7cf-d3a04724ba60",
+   "file": "109_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-1c425eca-feab-40e2-a734-a679e319643c",
+   "file": "110_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-86104573-a786-44c4-8209-1489bbe9d9a4",
+   "file": "111_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-ebaddc64-9a30-41d5-a729-70f98c59b35d",
+   "file": "112_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-51daca61-d9c6-4b1e-8c59-e838e36a13fe",
+   "file": "113_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-50685603-260c-4509-890c-08866443047f",
+   "file": "114_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-f1a6275e-7ccc-4577-8af4-3a1efa0d9f79",
+   "file": "115_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-4720fb4c-d306-46a6-9d48-9b91e5ee13a0",
+   "file": "116_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-ec89ec5d-c9ef-4118-b740-1c71caffd3ae",
+   "file": "117_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-25fcc721-0189-44c7-a956-f948e20c5bf7",
+   "file": "118_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-93ccbc35-90bf-4143-b4d9-41f036ae0484",
+   "file": "119_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-e61463af-8e36-42e5-aaac-c26b695240a3",
+   "file": "120_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-e4dcf0bf-f538-4c54-bc47-e025c14c402f",
+   "file": "121_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-74767ea2-b76b-4f4c-8ea2-05dfc504fb0b",
+   "file": "122_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-38426860-75d1-44c2-b33b-f12f0d600de8",
+   "file": "123_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-f6aa87fd-1f4a-4faf-9c32-2dc5a3110dbf",
+   "file": "124_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-d8345223-fc73-443c-8480-9c29a2c61fee",
+   "file": "125_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-809e209b-0858-4f15-af67-952284298902",
+   "file": "126_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-1e0476cf-f9d3-4e5c-be0c-c9c42e0074c0",
+   "file": "127_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-39c44a7c-67f2-435e-8d20-bb6918125511",
+   "file": "128_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-0b58d1ef-9138-4d67-86c3-1b2457e7a710",
+   "file": "129_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-b8654be3-270f-439d-82c0-aa7d93f3adcf",
+   "file": "130_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-df3b2159-8c7e-415e-bfba-7cd65053ef36",
+   "file": "131_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-2c9d8f6f-ed6f-4455-9857-d430a3c736ed",
+   "file": "132_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-90846da6-7ee7-4ac6-bf2d-8b553012dee0",
+   "file": "133_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-73dda013-e948-4c63-8daf-caf76b0238e3",
+   "file": "134_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-dd4cf014-8421-40e4-8323-39c668e8200a",
+   "file": "135_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-83e29fa2-b5f1-4232-9a27-791ae93fe366",
+   "file": "136_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-436ce6b4-03ce-40c6-b06d-91b66dc7adfb",
+   "file": "137_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-1ea8c84e-0236-420a-a653-b7a774a4e946",
+   "file": "138_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-5e28a033-a113-4305-8d76-d7d790742fe3",
+   "file": "139_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-0211975e-fbf3-42e6-b754-37ca2515f586",
+   "file": "140_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-17722618-7ce6-49e2-af45-ffa4c860da23",
+   "file": "141_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ],
+ "not_read": [
+  "PPT desde la página 118 de 135"
+ ]
+}

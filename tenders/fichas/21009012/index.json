@@ -1,0 +1,76 @@
+{
+ "id": "21009012",
+ "title": "Soporte a la Operación de TI y Mantenimiento de Aplicaciones de desarrollo propio 2027-28",
+ "buyer": "Presidencia de la Autoridad Portuaria de Valencia",
+ "link": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=GXbJuS%2BLZ%2FLI8aL3PRS10Q%3D%3D",
+ "docs": [
+  {
+   "kind": "Legal",
+   "name": "04-03320-PCAP.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=7mBrfvxetZzU8oygntjEbYr6Wl6CEMvIc2WbWLM3LhHQHq9X3qkVX9TT2iTqK/DHUu8519X4Gilveg55k5UrAPHn8hB4JPVUoO/0cicStCz3GVhXrFFqN7yFncy7YfRK",
+   "file": "01_Legal.pdf",
+   "bytes": 1505755,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC2026112408445504-03320-PCAP.pdf",
+   "codes": [
+    "PCAP"
+   ],
+   "pages": 189
+  },
+  {
+   "kind": "Technical",
+   "name": "03-03320-PPT.pdf",
+   "type": "PDF",
+   "uri": "https://contrataciondelestado.es/FileSystem/servlet/GetDocumentByIdServlet?cifrado=QUC1GjXXSiLkydRHJBmbpw%3D%3D&DocumentIdParam=n/HkGZifc31ScVq6mTjsQeUAiypj3GaiWvAMHKCZBcTKm9rBooI0svET6xTyAHPx2ZhNihDH08BtZqRPzG/fZMYJWe0nWwpdMPm8DF6m1Mp7QB3HKyQaFUExmUVQCerk",
+   "file": "02_Technical.pdf",
+   "bytes": 2496125,
+   "content_type": "application/pdf",
+   "disposition": "inline;filename=DOC2026112408171603-03320-PPT.pdf",
+   "codes": [
+    "PPT"
+   ],
+   "pages": 67
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-e916dfcc-95ca-4650-ae96-2382299820e9",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-e916dfcc-95ca-4650-ae96-2382299820e9",
+   "file": "03_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-352534ad-32d3-42fe-b831-fea60bc5bda5",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-352534ad-32d3-42fe-b831-fea60bc5bda5",
+   "file": "04_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-3a165133-63e8-4600-a7da-26d0ee101fd5",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-3a165133-63e8-4600-a7da-26d0ee101fd5",
+   "file": "05_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  },
+  {
+   "kind": "GeneralDocument",
+   "name": "2026-61b224d9-228c-4f9d-ae92-87f5771d728f",
+   "type": "HTML",
+   "uri": "https://contrataciondelestado.es/wps/wcm/connect/PLACE_es/Site/area/docAccCmpnt?srv=cmpnt&cmpntname=GetDocumentsById&source=library&DocumentIdParam=2026-61b224d9-228c-4f9d-ae92-87f5771d728f",
+   "file": "06_GeneralDocument.html",
+   "bytes": 244,
+   "content_type": "text/html",
+   "disposition": ""
+  }
+ ]
+}

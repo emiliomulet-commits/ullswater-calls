@@ -1,0 +1,589 @@
+{
+ "id": "20677117",
+ "ref": "300/2026/03077",
+ "reviewed": "2026-11-28",
+ "title": "Suministro de 80 monitores desfibriladores con conectividad para las ambulancias de soporte vital básico del SAMUR-Protección Civil de Madrid",
+ "title_official": "Suministro monitores desfibriladores multiparamétricos con conectividad para unidades de soporte vital básico de SAMUR-Protección Civil.",
+ "buyer": "Área de Gobierno de Vicealcaldía, Portavoz, Seguridad y Emergencias del Ayuntamiento de Madrid",
+ "unit": "Dirección General de SAMUR-Protección Civil",
+ "place": "Madrid (Comunidad de Madrid)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=xh4Na9pZ1htrSd8H4b2soA%3D%3D",
+ "published": "2026-11-28",
+ "deadline": "2028-03-31",
+ "deadline_time": "23:59",
+ "questions_until": null,
+ "headline": "SAMUR renueva 80 desfibriladores de sus ambulancias",
+ "headline_em": "80 desfibriladores",
+ "lede": "El Ayuntamiento de Madrid compra 80 monitores desfibriladores conectados para las ambulancias básicas del SAMUR por 1,17 M€ sin IVA. Contrato sin lotes: 35 puntos de precio y 65 de mejoras técnicas, todo con fórmula.",
+ "crumbs": "Licitaciones › España › Ayuntamientos › Comunidad de Madrid",
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de cláusulas administrativas particulares (PCAP) con su Anexo I y modelos",
+   "file": "01_Legal.pdf",
+   "pages": 81
+  },
+  "PPT": {
+   "label": "Pliego de prescripciones técnicas (PPT)",
+   "file": "02_Technical.pdf",
+   "pages": 20
+  }
+ },
+ "tags": {
+  "level": "Ayuntamiento",
+  "where": "Madrid, Comunidad de Madrid",
+  "contract": "Suministros",
+  "sector": "Instrumentos y aparatos médicos (CPV 33190000)",
+  "size": "Grande (más de 1 M€)",
+  "deadline": "Cierre según el anuncio: 31-03-2028 (por confirmar)",
+  "procedure": "Abierto (regulación armonizada)",
+  "funds": "Sin fondos europeos",
+  "lots": "Sin lotes",
+  "award": "Precio y mejoras técnicas (todo con fórmula)"
+ },
+ "verdict": {
+  "opportunity": "media",
+  "difficulty": "alta",
+  "text": "Contrato pensado para fabricantes y distribuidores oficiales de electromedicina con facturación alta. Exige 1,76 M€ de facturación anual y haber suministrado 821.464 € en un año; esto deja fuera a la mayoría de pymes si van solas. Los 100 puntos se reparten con fórmula, sin juicio de valor. Se gana con un equipo que ya cumpla las 7 mejoras técnicas (65 puntos) y un precio ajustado. Ojo a la garantía total de 36 meses y a la obligación de dar repuestos 12 años, que no están en el precio de forma clara."
+ },
+ "summary": [
+  "El Ayuntamiento de Madrid compra 80 monitores desfibriladores multiparamétricos con conectividad para las ambulancias de soporte vital básico del SAMUR-Protección Civil.",
+  "El presupuesto es de 1.173.520 € sin IVA (1.419.959,20 € con IVA), a 14.669 € por equipo sin IVA. No hay lotes ni prórrogas.",
+  "Puntúa el precio (35 puntos) y siete mejoras técnicas de sí o no (65 puntos), como llegar a 360 J, pantalla de 9 pulgadas o batería de 12 horas.",
+  "Hay que acreditar 1.760.280 € de facturación anual y 821.464 € de suministros similares en un año. La garantía definitiva es del 5 % sobre el presupuesto sin IVA.",
+  "Los pliegos no indican la fecha límite de ofertas. El anuncio da el 31 de marzo de 2028 a las 23:59, que coincide con el fin de la ejecución, así que hay que confirmarla en la Plataforma. Las entregas son en dos tandas: 40 unidades antes del 30 de noviembre de 2027 y 40 entre enero y marzo de 2028."
+ ],
+ "max_lots_per_bidder": 1,
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Comprar, entregar y poner en funcionamiento 80 monitores desfibriladores multiparamétricos con conectividad integrada para las unidades de soporte vital básico del SAMUR-Protección Civil. Sustituyen a equipos descatalogados o al final de su vida útil.",
+     "PCAP 44–45 · PPT 1"
+    ],
+    [
+     "Qué deben hacer los equipos",
+     "Monitorizar presión arterial, saturación de oxígeno y ECG de 12 derivaciones, y desfibrilar (bifásico, de 2 J a 200 J como mínimo). Deben enviar datos en tiempo real por Wifi, Bluetooth o datos móviles (SIM o eSIM) y cumplir el estándar HL7. Los equipos no pueden tener licencias periódicas.",
+     "PPT 2–6"
+    ],
+    [
+     "Accesorios incluidos",
+     "Cada equipo lleva dos baterías, sensores de SpO2, tres tamaños de manguito, cables de ECG, funda y soporte cargador para ambulancia (norma UNE-EN 1789).",
+     "PPT 6"
+    ],
+    [
+     "Software de transmisión",
+     "El adjudicatario debe facilitar el sistema de «streaming» y almacenamiento histórico para instalarlo en los servidores municipales, y la integración con la historia clínica electrónica.",
+     "PPT 5–6"
+    ],
+    [
+     "Órgano",
+     "Junta de Gobierno de la Ciudad de Madrid; la competencia recae en la Delegada del Área de Vicealcaldía, Portavoz, Seguridad y Emergencias. Lo tramita la Dirección General de SAMUR-Protección Civil.",
+     "PCAP 47"
+    ],
+    [
+     "Lugar de entrega",
+     "Base Central del SAMUR, Ronda de las Provincias 7 (Casa de Campo), Madrid. Solo en días laborables de 09:00 a 13:00, con cita previa.",
+     "PCAP 51 · PPT 8"
+    ],
+    [
+     "Terceros países",
+     "Las empresas de países sin acuerdo de contratación pública con la UE no pueden participar.",
+     "PCAP 46–47"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "80 monitores desfibriladores multiparamétricos con conectividad (contrato único)",
+     "fee": 1173520,
+     "months": 11
+    }
+   ],
+   "note": "No hay lotes. El Ayuntamiento lo justifica porque los equipos deben ser iguales e intercambiables entre ambulancias y compartir la misma conectividad.",
+   "cite": "PCAP 46"
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base",
+     "1.173.520,00 € sin IVA. IVA (21 %): 246.439,20 €. Total con IVA: 1.419.959,20 €.",
+     "PCAP 48"
+    ],
+    [
+     "Valor estimado",
+     "1.173.520,00 € sin IVA, igual al presupuesto (no hay prórrogas ni modificaciones). Sujeto a regulación armonizada.",
+     "PCAP 48"
+    ],
+    [
+     "Precio unitario máximo",
+     "14.669,00 € sin IVA por equipo (17.749,49 € con IVA), 80 unidades. El precio se fija por precios unitarios.",
+     "PCAP 48 · PPT 12"
+    ],
+    [
+     "Anualidades",
+     "2027: 709.979,60 € y 2028: 709.979,60 € (IVA incluido). Contratación anticipada: sí.",
+     "PCAP 49–50"
+    ],
+    [
+     "Duración",
+     "11 meses: del 1 de mayo de 2027 (o el día siguiente a la formalización, si es posterior) al 31 de marzo de 2028.",
+     "PCAP 50"
+    ],
+    [
+     "Plazos parciales",
+     "Primeras 40 unidades antes del 30 de noviembre de 2027. Las otras 40 (suministro, instalación y puesta en marcha) entre el 1 de enero y el 31 de marzo de 2028, plazo improrrogable.",
+     "PCAP 50 · PPT 11"
+    ],
+    [
+     "Prórrogas",
+     "No proceden.",
+     "PCAP 50"
+    ],
+    [
+     "Revisión de precios",
+     "No procede.",
+     "PCAP 49"
+    ],
+    [
+     "Modificaciones previstas",
+     "No proceden. Tampoco se puede aumentar el número de unidades por la baja (0 %) ni hasta el 10 %.",
+     "PCAP 46 · PCAP 49 · PCAP 63"
+    ],
+    [
+     "Subrogación de personal",
+     "El pliego no lo menciona. Es un suministro sin personal adscrito y sin vinculación laboral con el Ayuntamiento.",
+     "PPT 10"
+    ],
+    [
+     "Mantenimiento en el precio",
+     "El PCAP dice «Incluye mantenimiento: NO», pero el PPT exige garantía total de 36 meses con reparaciones y revisiones sin coste (ver «Incoherencias»).",
+     "PCAP 49 · PPT 8 · PPT 11"
+    ],
+    [
+     "Anticipos",
+     "No proceden abonos a cuenta por operaciones preparatorias.",
+     "PCAP 50"
+    ],
+    [
+     "Financiación",
+     "Presupuesto municipal, aplicación 001/120/13510/63300. Sin cofinanciación.",
+     "PCAP 49 · PPT 11–12"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Clasificación",
+     "No se exige clasificación.",
+     "PCAP 51–52"
+    ],
+    [
+     "Solvencia económica",
+     "Volumen anual de negocios en el ámbito del contrato, en el mejor de los 3 últimos ejercicios cerrados, de al menos 1.760.280 € sin IVA (1,5 veces el valor estimado). Se acredita con una declaración responsable del representante legal sobre los 3 últimos ejercicios.",
+     "PCAP 51–52"
+    ],
+    [
+     "Solvencia técnica: experiencia",
+     "Haber suministrado, en el año de mayor ejecución de los 3 últimos (incluido el de la licitación), equipos similares por 821.464 € sin IVA o más (70 % del precio). «Similar» significa CPV con los mismos 3 primeros dígitos (331). Se acredita con una relación firmada con importes, fechas y destinatarios.",
+     "PCAP 52"
+    ],
+    [
+     "Solvencia técnica: ficha del equipo",
+     "Ficha técnica del fabricante y memoria o catálogo con fotos del monitor desfibrilador ofertado, en castellano, con los datos del PPT señalados.",
+     "PCAP 53–54"
+    ],
+    [
+     "Solvencia técnica: certificados",
+     "Certificados de que el equipo cumple la norma IEC 60601-2-4 y está «APTO PARA TRANSPORTE» según UNE-EN 1789 (o equivalentes). El PPT añade marcado CE (MDR), IEC 60601-1 y ensayos IEC 60068-2-27 y 60068-2-6.",
+     "PCAP 54–55 · PPT 2"
+    ],
+    [
+     "Habilitaciones",
+     "No se exige habilitación empresarial. Tampoco compromiso de adscripción de medios ni nombres del personal.",
+     "PCAP 55"
+    ],
+    [
+     "Integración de solvencia",
+     "Se admite recurrir a otras empresas, pero la experiencia solo puede completarse con otra entidad si esta hace trabajos de colocación o instalación, y el contrato dice que no los hay.",
+     "PCAP 10 · PCAP 62"
+    ],
+    [
+     "UTE",
+     "Se admiten. Se suman las solvencias de todos los miembros. Cada empresa presenta su DEUC y un compromiso de constituir la UTE.",
+     "PCAP 17–18"
+    ],
+    [
+     "Empresas vinculadas",
+     "Las del mismo grupo que presenten ofertas distintas deben declararlo (Anexo VI).",
+     "PCAP 18"
+    ],
+    [
+     "Una sola oferta",
+     "No se puede presentar más de una oferta ni ir a la vez solo y en UTE; si no, se rechazan todas.",
+     "PCAP 15"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Oferta económica",
+     "pts": 35,
+     "kind": "fórmula",
+     "how": "35 puntos para el menor importe sin IVA y 0 para quien ofrezca el presupuesto base. El resto: 35 × (Xmin/Xv) elevado a 1/5, con dos decimales (la redacción es ambigua; ver «Incoherencias»)."
+    },
+    {
+     "name": "Capacidad de terapia eléctrica de 2 J a 360 J",
+     "pts": 10,
+     "kind": "fórmula",
+     "how": "10 puntos si te comprometes, sin coste; 0 si no."
+    },
+    {
+     "name": "Visualización de 7 o más canales en pantalla",
+     "pts": 10,
+     "kind": "fórmula",
+     "how": "10 puntos si te comprometes, sin coste; 0 si no."
+    },
+    {
+     "name": "Pantalla táctil capacitiva de 9 pulgadas o más",
+     "pts": 7.5,
+     "kind": "fórmula",
+     "how": "7,5 puntos si te comprometes, sin coste; 0 si no."
+    },
+    {
+     "name": "Impresora integrada con salida frontal de 110 mm o más",
+     "pts": 10,
+     "kind": "fórmula",
+     "how": "10 puntos si te comprometes, sin coste; 0 si no."
+    },
+    {
+     "name": "Feedback de frecuencia y profundidad de compresiones por los parches",
+     "pts": 7.5,
+     "kind": "fórmula",
+     "how": "7,5 puntos si te comprometes, sin coste; 0 si no."
+    },
+    {
+     "name": "Autonomía con dos baterías de 440 choques o 12 horas o más",
+     "pts": 10,
+     "kind": "fórmula",
+     "how": "10 puntos si te comprometes, sin coste; 0 si no."
+    },
+    {
+     "name": "Tiempo de carga hasta 200 J de 3 segundos o menos",
+     "pts": 10,
+     "kind": "fórmula",
+     "how": "10 puntos si te comprometes, sin coste; 0 si no."
+    }
+   ],
+   "cite": "PCAP 56–60",
+   "items": [
+    [
+     "Juicio de valor",
+     "Ninguno: los 100 puntos son automáticos. No hay umbral mínimo ni comité de expertos.",
+     "PCAP 56 · PCAP 62"
+    ],
+    [
+     "Baja anormal",
+     "Con una sola oferta: más de 25 puntos porcentuales por debajo del presupuesto. Con dos: más de 20 puntos por debajo de la otra. Con tres o más: más de 10 puntos por debajo de la media (se excluyen las ofertas más de 10 puntos por encima de la media). Plazo para justificarla: 5 días hábiles.",
+     "PCAP 61"
+    ],
+    [
+     "Desempate",
+     "Por orden: más trabajadores con discapacidad o en exclusión social, menos contratos temporales, más mujeres en plantilla y, por último, sorteo.",
+     "PCAP 21–22"
+    ],
+    [
+     "Oferta rechazable",
+     "Se rechaza la oferta que supere el presupuesto base, tenga errores que impidan conocer lo ofrecido o cambie el modelo del Anexo II.",
+     "PCAP 20"
+    ]
+   ],
+   "insight": "Las siete mejoras valen 65 de 100 puntos y son de sí o no: si tu equipo no las cumple, parte con mucha desventaja, y se deciden por el modelo de monitor, no por la empresa. Si varios equipos las cumplen todas, la adjudicación depende del precio."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo de presentación",
+     "Los pliegos no indican la fecha ni la hora de cierre. El anuncio de la Plataforma da el 31 de marzo de 2028 a las 23:59, pero coincide con el fin de la ejecución del contrato, así que conviene confirmarlo. Se presenta por la Plataforma de Contratación del Sector Público.",
+     "PCAP 15 · PCAP 50"
+    ],
+    [
+     "Preguntas",
+     "Solicitar información adicional al menos 12 días antes del fin del plazo de presentación. El pliego no da fecha concreta.",
+     "PCAP 66"
+    ],
+    [
+     "Sobre 1",
+     "Documentación de requisitos previos: DEUC firmado, compromiso de UTE si lo hay, declaración de empresas vinculadas, declaración sobre discapacidad, igualdad y laboral (Anexo VI), declaración de subvenciones extranjeras y correo electrónico habilitado. El pliego no aclara si la ficha técnica y los certificados del equipo van aquí.",
+     "PCAP 16–20 · PCAP 56"
+    ],
+    [
+     "Sobre 2",
+     "Oferta de criterios valorables en cifras, según el Anexo II: precio, IVA aparte y casillas de sí/no de las 7 mejoras.",
+     "PCAP 20 · PCAP 67–68"
+    ],
+    [
+     "Envío en dos fases",
+     "Se puede enviar primero la huella «hash» y después la oferta, en un máximo de 24 horas. Si no llega, se considera no presentada. Con el hash hay que mandar el archivo en soporte al Registro del Área de Vicealcaldía.",
+     "PCAP 15–16 · PCAP 56"
+    ],
+    [
+     "Garantías",
+     "Provisional: no. Definitiva: 5 % del presupuesto base sin IVA (58.676 €). Complementaria: 1 % del precio final ofertado sin IVA si la oferta es anormalmente baja.",
+     "PCAP 55–56"
+    ],
+    [
+     "Tras la adjudicación",
+     "El mejor ofertador tiene 10 días hábiles para aportar la documentación de capacidad, solvencia, obligaciones fiscales y garantía definitiva. Si no lo hace, se le exige el 3 % del presupuesto sin IVA.",
+     "PCAP 23–24 · PCAP 13"
+    ],
+    [
+     "Adjudicación y formalización",
+     "Adjudicación en un máximo de 2 meses desde la apertura. Formalización tras 15 días hábiles, y en un plazo no superior a 5 días tras el requerimiento.",
+     "PCAP 23 · PCAP 29"
+    ],
+    [
+     "Apertura de ofertas",
+     "El pliego no indica fecha de apertura; se publicará en el perfil de contratante.",
+     "PCAP 21"
+    ],
+    [
+     "Visita",
+     "No hay visita previa. Sí se pueden pedir muestras y pruebas en la entrega.",
+     "PCAP 51"
+    ],
+    [
+     "Regulación armonizada y recurso",
+     "Sí. Cabe recurso especial en 15 días hábiles ante el Tribunal Administrativo de Contratación Pública de la Comunidad de Madrid (art. 44 LCSP).",
+     "PCAP 48 · PCAP 42–43"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro",
+     "items": [
+      [
+       "Pago contra entrega",
+       "Se paga con factura, tras recibir los equipos de conformidad. Se admiten recepciones parciales. Factura electrónica (FACE) si supera 5.000 €.",
+       "PCAP 49–50"
+      ],
+      [
+       "Plazo de pago",
+       "El Ayuntamiento paga en 30 días desde la conformidad. Hay que presentar la factura en 30 días desde la entrega, o los intereses de demora se retrasan.",
+       "PCAP 30"
+      ],
+      [
+       "Riesgo del contratista",
+       "El contrato se ejecuta a riesgo y ventura del contratista. Las pérdidas o averías antes de la entrega son suyas.",
+       "PCAP 33–34"
+      ]
+     ]
+    },
+    {
+     "h": "Ejecución y penalidades",
+     "items": [
+      [
+       "Plazos parciales",
+       "40 unidades antes del 30-11-2027 y 40 entre 1-1-2028 y 31-3-2028 (improrrogable). La demora se penaliza según el art. 193 LCSP. Al llegar a un múltiplo del 5 % del precio, pueden resolver el contrato.",
+       "PCAP 50 · PCAP 63 · PCAP 34"
+      ],
+      [
+       "Penalidades por cumplimiento defectuoso",
+       "Faltas leves: 3 % del precio sin IVA. Falta grave (no dar información de transparencia): 1.000 € por incumplimiento, máximo 5 %. Muy grave (no indemnizar a terceros): 10 %.",
+       "PCAP 63–64"
+      ],
+      [
+       "Incumplir lo ofertado en mejoras",
+       "Se considera falta muy grave: 10 % del precio sin IVA.",
+       "PCAP 64"
+      ],
+      [
+       "Condición especial de ejecución",
+       "El embalaje debe ser de cartón reciclado y reciclable o con certificado FSC, PEFC o ecolabel UE. Su incumplimiento se penaliza con el 5 % del precio.",
+       "PCAP 62 · PCAP 64"
+      ],
+      [
+       "Cláusulas sociales",
+       "Incumplirlas se penaliza con el 10 % del precio sin IVA. Hay que presentar declaraciones responsables en los 7 días siguientes al inicio y 7 días antes del fin.",
+       "PCAP 64–65 · PPT 13"
+      ],
+      [
+       "Garantía total de 36 meses",
+       "Cobertura total todo incluido desde el acta de recepción: averías, revisiones, calibraciones y pruebas de seguridad eléctrica sin coste.",
+       "PPT 8 · PPT 11 · PCAP 65"
+      ],
+      [
+       "Repuestos 12 años",
+       "Hay que garantizar repuestos, accesorios, kits de reparación y consumibles específicos durante 12 años desde la recepción.",
+       "PPT 9"
+      ],
+      [
+       "Sin licencias recurrentes",
+       "El precio debe incluir todos los derechos de uso de conectividad e integración sin pagos adicionales durante la vida útil.",
+       "PPT 5–6"
+      ],
+      [
+       "Equipos nuevos",
+       "Nuevos, de fábrica, con la última versión de software y vida útil remanente superior al 85 %.",
+       "PPT 1 · PPT 7"
+      ],
+      [
+       "Formación",
+       "Formación técnica al servicio de electromedicina y sesiones prácticas al personal sanitario. El cronograma se entrega en la recepción y el Ayuntamiento lo aprueba en 7 días.",
+       "PPT 8–9"
+      ],
+      [
+       "Datos",
+       "Los datos y bases de datos generados son del Ayuntamiento. El contratista debe dar acceso, extracción y entrega final en formato abierto.",
+       "PPT 14–19"
+      ]
+     ]
+    },
+    {
+     "h": "Subcontratación y otros",
+     "items": [
+      [
+       "Subcontratación",
+       "Se permite. No hay pago directo a subcontratistas ni obligación de indicarla en la oferta. Penalidad del 10 % del importe subcontratado por incumplir las condiciones.",
+       "PCAP 63 · PCAP 65"
+      ],
+      [
+       "Cesión",
+       "Se permite la cesión del contrato en los términos del art. 214.1 LCSP.",
+       "PCAP 63"
+      ],
+      [
+       "Confidencialidad",
+       "Dura 5 años desde que se conoce la información.",
+       "PCAP 65"
+      ],
+      [
+       "Seguros",
+       "No se exige póliza específica.",
+       "PCAP 56"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Fecha de cierre",
+     "Los pliegos no incluyen la fecha límite de ofertas. Esta ficha usa la del anuncio (31-03-2028, 23:59), que coincide con el fin de ejecución del contrato, por lo que puede no ser el cierre real.",
+     "PCAP 50 · PPT 11"
+    ],
+    [
+     "Fecha de publicación",
+     "Los pliegos no indican cuándo se publicó la licitación. La fecha de la ficha (28-11-2026) es la de consulta de los documentos, no una fecha oficial de publicación.",
+     "PCAP 11"
+    ],
+    [
+     "Fórmula del precio",
+     "El texto dice que es «lineal» y que el presupuesto base vale 0 puntos, pero la fórmula Pov = 35·(Xmin/Xv)^(1/5) no es lineal y dejaría puntos al presupuesto base. Además habla de «menor precio unitario» y de «menor importe».",
+     "PCAP 57 · PCAP 59"
+    ],
+    [
+     "Mantenimiento",
+     "El PCAP dice que el precio no incluye mantenimiento, pero el PPT exige garantía total de 36 meses con mantenimiento correctivo, revisiones y calibraciones sin coste.",
+     "PCAP 49 · PPT 8 · PPT 11"
+    ],
+    [
+     "Instalación",
+     "El PCAP dice que no hay trabajos de instalación (lo que limita integrar solvencia), pero el objeto y el segundo plazo parcial hablan de «instalación y puesta en funcionamiento».",
+     "PCAP 44 · PCAP 50 · PCAP 62"
+    ],
+    [
+     "Datos personales",
+     "El contrato no trata datos personales, pero los equipos transmiten datos clínicos de pacientes en tiempo real y los integran en la historia clínica.",
+     "PCAP 46 · PPT 5–6 · PPT 14"
+    ],
+    [
+     "Experiencia",
+     "La experiencia se mide como «importe unitario» de uno o varios suministros, y la solvencia económica es «exclusivamente en el ámbito del contrato» pero se acredita con una declaración sobre el volumen global. Convendría aclarar cómo se mide.",
+     "PCAP 51–52"
+    ],
+    [
+     "Sobre de solvencia técnica",
+     "La ficha técnica y los certificados se presentan «como parte de la solvencia técnica», sin decir en qué sobre ni en qué momento.",
+     "PCAP 53–55"
+    ]
+   ],
+   "advice": "Antes de presentar la oferta, conviene confirmar en la Plataforma la fecha de cierre real y preguntar (al menos 12 días antes del cierre) por la fórmula del precio, si el mantenimiento va en el precio y dónde se incluye la ficha técnica."
+  }
+ ],
+ "updated": "2026-11-27",
+ "files": [
+  {
+   "name": "Pliego de cláusulas administrativas particulares (PCAP) con su Anexo I y modelos",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 81,
+   "bytes": 473932
+  },
+  {
+   "name": "Pliego de prescripciones técnicas (PPT)",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 20,
+   "bytes": 389947
+  },
+  {
+   "name": "2026-7404ef3d-7d1f-41e6-86d9-baf091f43027",
+   "file": "03_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-fbc02c0c-da49-4165-aead-943df26f5a13",
+   "file": "04_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-01919afe-c31a-4a6c-9f4d-c036ae263e83",
+   "file": "05_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-9fddb1ff-eaf3-463f-a48b-b70301861729",
+   "file": "06_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-f04d59d7-068d-42f6-a3d2-037036d80a48",
+   "file": "07_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ]
+}

@@ -1,0 +1,593 @@
+{
+ "id": "20877244",
+ "ref": "2026/040058 (2026-0-15)",
+ "reviewed": "2026-11-28",
+ "title": "Servicio de alimentación a pacientes de los dos hospitales de Albacete (SESCAM)",
+ "title_official": "P.A. 2026-0-15 Contratación del servicio de alimentación a pacientes para los Centros sanitarios dependientes de la Gerencia de Atención Integrada de Albacete.",
+ "buyer": "Gerencia de Atención Integrada de Albacete (SESCAM)",
+ "unit": "Servicio de Contratación Administrativa de la GAI de Albacete",
+ "place": "Albacete (Castilla-La Mancha)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=YBPhlRs9cQiqb7rCcv76BA%3D%3D",
+ "published": "2026-11-28",
+ "deadline": "2026-12-19",
+ "deadline_time": "14:00",
+ "questions_until": "2026-12-07",
+ "headline": "Hospitales de Albacete buscan quien alimente a sus pacientes",
+ "headline_em": "alimente a sus pacientes",
+ "lede": "El SESCAM licita 4 años (más 1 de prórroga) del servicio de alimentación de los hospitales de Albacete: 7,1 M€ sin IVA y unas 170.000 dietas al año. La empresa compra, almacena y gestiona la dieta; la cocina la hace personal público.",
+ "crumbs": "Licitaciones › España › Organismos autonómicos › Castilla-La Mancha",
+ "docs": {
+  "PCAP": {
+   "label": "Modelo general de pliego de cláusulas administrativas (PCAP). Su Anexo I está en blanco; el rellenado está en ANX",
+   "file": "01_Legal.pdf",
+   "pages": 147
+  },
+  "ANX": {
+   "label": "Pliego particular de este contrato: Anexo I (cuadro de características) relleno, memoria económica y modelos (Anexos II a D)",
+   "file": "03_Additional.pdf",
+   "pages": 82
+  },
+  "PPT": {
+   "label": "Pliego de prescripciones técnicas (PPT). Solo hemos podido leer las páginas 1 a 28 de 92",
+   "file": "02_Technical.pdf",
+   "pages": 92
+  }
+ },
+ "tags": {
+  "level": "Organismo autonómico",
+  "where": "Albacete, Castilla-La Mancha",
+  "contract": "Servicios",
+  "sector": "Elaboración de comidas (CPV 55322000)",
+  "size": "Grande (más de 1 M€)",
+  "deadline": "Cierra en 21 días",
+  "procedure": "Abierto",
+  "funds": "Sin fondos europeos",
+  "lots": "Sin lotes",
+  "award": "Precio 45 + calidad 55 (48 de juicio de valor)"
+ },
+ "verdict": {
+  "opportunity": "media",
+  "difficulty": "alta",
+  "text": "Contrato grande y estable (4 años más 1 de prórroga) para empresas de restauración colectiva con experiencia hospitalaria, facturación de más de 1,78 M€ al año y las certificaciones ISO. No es para una pyme pequeña, salvo en UTE. Se gana superando los umbrales de calidad (48 puntos de juicio de valor, con memoria de hasta 200 páginas) y ajustando bien los precios de cada dieta. El margen previsto es estrecho (4 % de beneficio industrial), los precios suben una cifra fija cada año y hay que subrogar a la plantilla actual."
+ },
+ "summary": [
+  "El SESCAM contrata la compra de alimentos, el almacén y la gestión dietética de los hospitales General y Perpetuo Socorro de Albacete. El personal público elabora y reparte los platos.",
+  "El presupuesto es de 7.119.924,32 € sin IVA (7.831.916,75 € con IVA) para 48 meses desde el 1 de febrero de 2027. El valor estimado, con 12 meses de prórroga, es de 9.035.263,59 €.",
+  "Se exige un volumen anual de negocios de 1.779.981,08 €, servicios similares por 1.245.986,76 € al año y certificados ISO 9001, 14001, 45001 y 22000. Se admite la clasificación M-6-5 como alternativa.",
+  "Puntúa el precio por tipo de dieta y por extras (45 puntos), 7 puntos de mejoras técnicas con fórmula y 48 de juicio de valor. Hay dos umbrales mínimos, de 19 y 28 puntos, antes de abrir el precio.",
+  "Las ofertas se presentan por la Plataforma hasta el 19 de diciembre de 2026 a las 14:00, en 3 sobres. Hay que subrogar a la plantilla actual y no se puede subcontratar."
+ ],
+ "max_lots_per_bidder": 1,
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Servicio de alimentación a pacientes ingresados. La empresa compra toda la materia prima de los menús de referencia y de los extras, controla proveedores y almacén y aporta el personal técnico (encargado, dietistas y almaceneros). Debe formar a su personal y cumplir el plan de seguridad alimentaria (APPCC).",
+     "ANX 3 · PPT 3–5"
+    ],
+    [
+     "Qué no hace la empresa",
+     "El personal propio del hospital elabora los platos y los reparte a plantas. El hospital pone los locales, la maquinaria, el agua, el gas y la electricidad. La empresa pone ordenadores, impresoras y consumibles.",
+     "PPT 19 · PPT 21–23"
+    ],
+    [
+     "Volumen previsto",
+     "Unas 170.000 dietas al año: 103.000 basales, 43.000 terapéuticas, 18.000 turmix (trituradas) y 6.000 líquidas, más extras. Ocupación media estimada: 360 pacientes en el Hospital General y 120 en el Perpetuo Socorro.",
+     "ANX 4 · PPT 10"
+    ],
+    [
+     "Órgano",
+     "Director Gerente de la Gerencia de Atención Integrada de Albacete (SESCAM), por delegación. Tramita el Servicio de Contratación Administrativa.",
+     "ANX 2"
+    ],
+    [
+     "Lugar",
+     "Cocinas del Hospital General Universitario de Albacete y del Hospital Universitario Nuestra Señora del Perpetuo Socorro.",
+     "ANX 21"
+    ],
+    [
+     "Por qué se contrata",
+     "La actividad ha subido (170.706 dietas facturadas en 2025 frente a las 157.500 previstas). Se amplía la plantilla del servicio con una dietista y un almacenero más, y se actualizan los costes de materia prima y de personal.",
+     "ANX 3–5"
+    ],
+    [
+     "Estado del expediente",
+     "La resolución de inicio figura como «pendiente de autorización de los SS.CC.».",
+     "ANX 2"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Servicio único de alimentación a pacientes (Hospital General y Perpetuo Socorro)",
+     "fee": 7119924.32,
+     "months": 48
+    }
+   ],
+   "cite": "ANX 5 · ANX 13",
+   "note": "No hay lotes: el pliego indica «un único artículo» y no limita lotes."
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base",
+     "7.119.924,32 € sin IVA. IVA al 10 %: 711.992,43 €. Total con IVA: 7.831.916,75 €. Partida 61031000/G412D/2275.",
+     "ANX 6 · ANX 13"
+    ],
+    [
+     "Valor estimado",
+     "9.035.263,59 €: contrato principal más 12 meses de prórroga (1.915.339,27 €). Modificaciones al alza previstas: 0 €.",
+     "ANX 13–14"
+    ],
+    [
+     "Reparto por años",
+     "2027 (11 meses): 1.556.182,16 €. 2028: 1.748.594,22 €. 2029: 1.801.019,35 €. 2030: 1.854.915,40 €. 2031 (1 mes): 159.213,19 €. Importes sin IVA.",
+     "ANX 13"
+    ],
+    [
+     "Sistema de precio",
+     "Precios unitarios: se factura por menú servido y por tipo de dieta. Los precios máximos de 2027 (sin IVA) son: dieta basal 9,598 €, terapéutica 8,104 €, turmix 7,017 € y líquida 3,825 €. Hay además unos 60 precios de extras. El pliego los desglosa por desayuno, comida, merienda y cena.",
+     "ANX 14–15 · ANX 18"
+    ],
+    [
+     "Cómo se calculó el precio",
+     "Por dieta, la materia prima actualizada con el IPC (32,8 % más 3 % en 2026), un 6 % de costes indirectos y 2,33 € de personal. Se suma un 4 % de beneficio industrial.",
+     "ANX 7–9"
+    ],
+    [
+     "Duración",
+     "48 meses, del 1 de febrero de 2027 al 31 de enero de 2031.",
+     "ANX 21"
+    ],
+    [
+     "Prórroga",
+     "Sí, 12 meses.",
+     "ANX 13 · ANX 21"
+    ],
+    [
+     "Revisión de precios",
+     "El cuadro no muestra con claridad si hay revisión y no da fórmula. Los precios de cada año ya están fijados con un 3 % de subida anual, y los extras no cambian durante todo el contrato, prórroga incluida.",
+     "ANX 10 · ANX 18 · ANX 20"
+    ],
+    [
+     "Modificaciones previstas",
+     "El cuadro no deja claro si hay y no indica porcentaje. En el valor estimado figuran 0 €.",
+     "ANX 14 · ANX 35"
+    ],
+    [
+     "Subrogación de personal",
+     "Sí (Anexo VI.B). Plantilla actual: encargado, dietistas y personal de almacén, con 8 plazas según el texto y 9 filas en la tabla (varias a jornada parcial). Coste 2025: 300.691,08 € con Seguridad Social. El presupuesto añade una dietista y un almacenero. Gasto total de plantilla estimado para 2026: 396.155,27 €. Convenio estatal de restauración colectiva.",
+     "ANX 4–7 · ANX 61 · PPT 26"
+    ],
+    [
+     "Financiación",
+     "100 % Junta de Comunidades de Castilla-La Mancha. Sin fondos europeos.",
+     "ANX 20"
+    ],
+    [
+     "Antecedente",
+     "Sustituye al contrato vigente desde 2022, calculado en 2021. Conviene ver en la Plataforma quién se presentó entonces.",
+     "ANX 3 · ANX 5"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Clasificación",
+     "Opcional como alternativa a la solvencia: grupo M, subgrupo 6, categoría 5.",
+     "ANX 23 · PCAP 21"
+    ],
+    [
+     "Solvencia económica",
+     "Volumen anual de negocios, en el mejor de los últimos 3 años, de al menos 1.779.981,08 € sin IVA. Se acredita con las cuentas anuales depositadas en el Registro Mercantil y una declaración responsable.",
+     "ANX 21–22"
+    ],
+    [
+     "Solvencia técnica",
+     "Servicios similares con importe anual acumulado, en el año de mayor ejecución de los últimos 3, de al menos 1.245.986,76 € sin IVA. Se acredita con certificados de buena ejecución (el pliego dice «2 certificados»).",
+     "ANX 22"
+    ],
+    [
+     "Certificaciones",
+     "Certificados vigentes ISO 9001:2015, ISO 14001:2015, ISO 45001 e ISO 22000:2018, o equivalentes. El PPT cita solo ISO 9001 e ISO 14001.",
+     "ANX 24 · PPT 3"
+    ],
+    [
+     "Adscripción de medios",
+     "Obligatoria: medios personales y materiales del PPT. Es obligación esencial y su incumplimiento se penaliza con el 3 %. Dotación mínima: 1 encargado, 6 dietistas y 3 almaceneros (equivalentes a jornada completa).",
+     "ANX 23 · ANX 36–37 · PPT 24"
+    ],
+    [
+     "Titulación del personal",
+     "Dietistas con FP2 en Dietética-Nutrición o superior y carnet de manipulador de alimentos. Responsable técnico con amplia experiencia en restauración colectiva hospitalaria.",
+     "PPT 23"
+    ],
+    [
+     "Departamento propio",
+     "La empresa debe tener un departamento de Dietética, Nutrición y Calidad propio, con personal cualificado.",
+     "PPT 19"
+    ],
+    [
+     "Seguro de responsabilidad civil",
+     "Mínimo 1.000.000 € por siniestro y 300.000 € por víctima. Se presenta con la documentación que se pide al propuesto como adjudicatario.",
+     "ANX 34"
+    ],
+    [
+     "UTE e integración de solvencia",
+     "Se admiten las UTE (compromiso en el Anexo XI) y recurrir a la solvencia de otras empresas con su compromiso. Cada miembro presenta su DEUC.",
+     "PCAP 20–22 · PCAP 27–28"
+    ],
+    [
+     "Habilitaciones",
+     "El cuadro no deja ver si se exige alguna. Autorización sanitaria y registro: el PPT habla de Registro General Sanitario de proveedores.",
+     "ANX 24 · PPT 6"
+    ],
+    [
+     "Visita técnica",
+     "La tabla de documentos pide un «certificado de haber realizado la visita técnica indicada en el apartado 12 del PPT». Esa parte del PPT no está en las páginas leídas: confirma en la Plataforma si es obligatoria.",
+     "ANX 40"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Precio de la dieta completa",
+     "pts": 40,
+     "kind": "fórmula",
+     "how": "Reparto por tipo de dieta: basal 15, terapéutica 14, turmix 8 y líquida 3. En cada una, puntos = peso − peso × [(tu oferta − oferta más baja) / (precio de licitación − oferta más baja)]². La oferta más baja saca el máximo y quien ofrece el precio de licitación saca 0."
+    },
+    {
+     "name": "Precio de alimentos extra",
+     "pts": 5,
+     "kind": "fórmula",
+     "how": "Misma fórmula sobre 12 artículos: bocadillo de fiambre 1, leche desnatada 1, zumo de 1 l 1, y el resto de 0,3 a 0,1 puntos."
+    },
+    {
+     "name": "Mejoras técnicas",
+     "pts": 7,
+     "kind": "fórmula",
+     "how": "Equipamiento y mobiliario de zonas de trabajo, almacenaje, dispensadores de agua, etc. El órgano fija un valor de referencia de 30.000 € durante el contrato. 7 puntos a la mejor oferta y el resto «inversamente proporcional»."
+    },
+    {
+     "name": "Calidad del servicio ofertado",
+     "pts": 39,
+     "kind": "juicio de valor",
+     "how": "Umbral mínimo 19 puntos. Fichas técnicas y escandallos de los platos 27 (ingredientes 5, análisis nutricional 5, aporte medio diario 5, mejoras sobre el Anexo 4 hasta 6, rotación de frutas 1, fichas de elaboración 5). Memoria de organización 6. Dietas terapéuticas no incluidas en los menús de referencia 3. Gestión de proveedores 3."
+    },
+    {
+     "name": "Programa de gestión de almacén",
+     "pts": 3,
+     "kind": "juicio de valor",
+     "how": "Plataforma informática compatible con el sistema de dietas de la Gerencia. Hay que indicar los hospitales donde ya está en uso."
+    },
+    {
+     "name": "Plan de formación del personal",
+     "pts": 3,
+     "kind": "juicio de valor",
+     "how": "Cursos, quién los imparte, duración, contenido, cronograma y sustituciones durante la formación."
+    },
+    {
+     "name": "Plan de contingencia",
+     "pts": 3,
+     "kind": "juicio de valor",
+     "how": "Medidas para garantizar al menos almuerzo y cena si falla el suministro, con los requisitos nutricionales de cada dieta."
+    }
+   ],
+   "cite": "ANX 25–30",
+   "items": [
+    [
+     "Juicio de valor",
+     "48 puntos. Puntuación = máximo del apartado × coeficiente: 0, 0,25, 0,50, 0,75 o 1. Memoria de hasta 200 páginas DIN A4, Arial 11, en PDF, con la misma estructura que los criterios. Las fichas del apartado 1.1 siguen sus cuatro puntos de valoración.",
+     "ANX 28"
+    ],
+    [
+     "Umbrales mínimos",
+     "Fase 1: al menos 19 puntos en juicio de valor y 28 puntos entre juicio de valor y mejoras técnicas (todo salvo el precio). Fase 2: solo se abre el precio de quien supera ambos.",
+     "ANX 30"
+    ],
+    [
+     "Baja anormal",
+     "Oferta anormal si el precio ofertado ≤ (5 % × C + 75 %) × precio de licitación. C es la proporción de puntos de calidad obtenidos sobre los posibles (todos los criterios salvo el precio). El umbral queda entre el 75 % y el 80 % del presupuesto. No se admiten ofertas por debajo de los costes salariales mínimos del convenio.",
+     "ANX 30"
+    ],
+    [
+     "Desempate",
+     "Mayor porcentaje de trabajadores fijos con discapacidad por encima del porcentaje legal.",
+     "ANX 30"
+    ],
+    [
+     "Oferta vinculante",
+     "Las ofertas se mantienen 2 meses desde la apertura.",
+     "ANX 39"
+    ]
+   ],
+   "insight": "La adjudicación se decide en la calidad: hay que pasar dos umbrales y la memoria de 200 páginas pesa 48 puntos. En precio, la fórmula es cuadrática desde la oferta más baja, así que perder poco frente al mejor cuesta pocos puntos. Bajar demasiado por debajo del 75–80 % del presupuesto obliga a justificar la oferta."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Hasta el 19 de diciembre de 2026 a las 14:00, solo por la Plataforma de Contratación del Sector Público, con firma electrónica.",
+     "PCAP 12–14 · ANX 24"
+    ],
+    [
+     "Preguntas",
+     "Hay que pedirlas al menos 12 días antes del cierre (7 de diciembre de 2026). Se responden 6 días antes del cierre (13 de diciembre) como muy tarde.",
+     "ANX 6 · PCAP 23"
+    ],
+    [
+     "Sobre 1",
+     "Declaración responsable (DEUC, Anexo XII), Anexo II (grupo, pyme, discapacidad, igualdad), Anexo III (adscripción de medios), Anexo XI si hay UTE, Anexo A (cumplimiento del PPT), Anexo D (transparencia fiscal), Anexo C (confidencialidad, voluntario) y el certificado de visita técnica si procede.",
+     "ANX 40–41 · PCAP 26–28"
+    ],
+    [
+     "Sobre 2",
+     "Anexo B y la memoria de calidad (hasta 200 páginas) con los criterios de juicio de valor. Sin datos de precio, bajo pena de exclusión.",
+     "ANX 28 · ANX 41 · PCAP 30"
+    ],
+    [
+     "Sobre 3",
+     "Anexo IV (precios unitarios por año y por extra, no pueden superar los máximos) y Anexo V (mejoras técnicas).",
+     "ANX 28–30 · ANX 40 · ANX 46"
+    ],
+    [
+     "Garantías",
+     "Provisional: no se exige. Definitiva: 5 % del presupuesto base sin IVA, 355.996,22 €, con retención en las primeras facturas si se pide. Complementaria: el cuadro no deja ver si se exige.",
+     "ANX 31 · PCAP 45"
+    ],
+    [
+     "Tras la oferta",
+     "Si eres la mejor oferta, tienes 10 días hábiles para aportar la documentación y la garantía. La adjudicación se hace en 2 meses desde la apertura.",
+     "PCAP 40 · PCAP 48 · ANX 39"
+    ],
+    [
+     "Apertura de sobres",
+     "El sobre 2 se abre en los 20 días siguientes al cierre. La apertura económica pública es facultativa.",
+     "PCAP 36–37"
+    ],
+    [
+     "Regulación armonizada",
+     "El cuadro no deja ver la casilla.",
+     "ANX 14"
+    ],
+    [
+     "Recurso especial",
+     "Valor estimado superior a 100.000 €: cabe recurso especial (art. 44 LCSP) ante el Tribunal Administrativo Central de Recursos Contractuales en 15 días hábiles.",
+     "PCAP 34 · PCAP 50 · PCAP 82"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro y precio",
+     "items": [
+      [
+       "Pago mensual",
+       "Se factura cada mes por los menús servidos. La Administración paga a 30 días de la conformidad y se cobra por transferencia. La factura es electrónica y lleva la prueba de estar al corriente en la Seguridad Social.",
+       "ANX 21 · ANX 34 · PCAP 67–68 · PPT 28"
+      ],
+      [
+       "Volumen no garantizado",
+       "El presupuesto es un máximo estimado: se cobra por dieta servida.",
+       "ANX 14"
+      ],
+      [
+       "Precios fijados",
+       "Los precios suben un 3 % al año y los extras no suben nunca. No hay fórmula de revisión legible.",
+       "ANX 18 · ANX 20"
+      ],
+      [
+       "Huelga",
+       "En caso de huelga se suspende el pago hasta acordar niveles de servicio, y se paga en proporción al trabajo hecho.",
+       "PPT 27"
+      ]
+     ]
+    },
+    {
+     "h": "Penalidades",
+     "items": [
+      [
+       "Escalas",
+       "1 % por incumplir la información de subrogación y las obligaciones sociales o laborales. 2 % por cumplimiento defectuoso. 3 % por incumplir la adscripción de medios. 1 % por no prestar el servicio puntualmente (acumulable cada 6 meses).",
+       "ANX 36"
+      ],
+      [
+       "Actas de no conformidad",
+       "Si no se corrige en 3 días: 5 % de la factura mensual, y 10 % desde la tercera.",
+       "ANX 36"
+      ],
+      [
+       "Compromisos ofertados",
+       "Incumplir cualquier criterio valorado: 5 % de la facturación mensual, acumulable.",
+       "ANX 37"
+      ],
+      [
+       "Límites",
+       "Cada penalidad, como máximo el 10 % del precio, y el total no puede pasar del 50 %.",
+       "PCAP 75"
+      ],
+      [
+       "Demora",
+       "Por demora en el plazo total, 0,60 € al día por cada 1.000 € del precio, salvo que se fijen otras.",
+       "PCAP 76 · ANX 36–37"
+      ]
+     ]
+    },
+    {
+     "h": "Obligaciones y personal",
+     "items": [
+      [
+       "Subcontratación",
+       "No se puede subcontratar: toda la prestación se considera tarea crítica.",
+       "ANX 35"
+      ],
+      [
+       "Sustituciones",
+       "Hay que cubrir por cuenta propia bajas, vacaciones y ausencias para mantener siempre el personal ofertado. Los turnos son de mañana y tarde, de lunes a domingo, todo el año.",
+       "PPT 23–25"
+      ],
+      [
+       "Cambios de personal",
+       "Cualquier cambio en la plantilla o en el encargado necesita autorización de la Dirección. No cumplirlo puede ser causa de resolución.",
+       "PPT 25–27"
+      ],
+      [
+       "Convenio colectivo",
+       "Hay que cumplir el convenio estatal de restauración colectiva (en ultraactividad, sin actualizar) y pagar nóminas al día. Es condición especial de ejecución.",
+       "ANX 4 · PCAP 58–59"
+      ],
+      [
+       "Menús y servicios sin coste",
+       "Menús especiales en festivos, postre de cumpleaños y muestras testigo diarias, a cargo de la empresa. También los análisis microbiológicos mensuales, el plan de desperdicio alimentario y las encuestas semestrales.",
+       "PPT 7 · PPT 9 · PPT 15 · PPT 18"
+      ],
+      [
+       "Equipamiento",
+       "La empresa aporta 4 PCs, 3 impresoras y 4 impresoras térmicas, y el software de compras y almacén.",
+       "PPT 22–23"
+      ],
+      [
+       "Datos y seguridad",
+       "La empresa es encargada de tratamiento de datos (Anexo VIII) y debe cumplir el Esquema Nacional de Seguridad.",
+       "ANX 38 · PCAP 88"
+      ],
+      [
+       "Condiciones especiales de ejecución",
+       "Igualdad y lenguaje no sexista, residuos, transparencia fiscal y pago a subcontratistas, entre otras.",
+       "ANX 32–33"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Certificaciones exigidas",
+     "El PPT pide ISO 9001 y 14001 al presentar la oferta. El cuadro del PCAP pide además ISO 45001 e ISO 22000. Prevalece el PCAP.",
+     "PPT 3 · ANX 24 · PCAP 8"
+    ],
+    [
+     "Extra «cacao en polvo»",
+     "El criterio de precio habla de un sobre de 18 g y la lista de precios, de 15 g.",
+     "ANX 29 · ANX 10"
+    ],
+    [
+     "Precio a puntuar",
+     "El pliego no aclara con qué año (2027 a 2031) ni con qué desglose se aplica la fórmula, cuando el Anexo IV pide precios por año y componente.",
+     "ANX 28–29 · ANX 46–50"
+    ],
+    [
+     "Mejoras técnicas",
+     "«7 puntos a la mejor oferta y el resto inversamente proporcional» no aclara cómo se mide la mejor oferta ni si hay tope sobre los 30.000 €.",
+     "ANX 30"
+    ],
+    [
+     "Visita técnica",
+     "La tabla pide su certificado, pero esa parte del PPT no está en las páginas leídas.",
+     "ANX 40"
+    ],
+    [
+     "Referencias de penalidad",
+     "El cuadro cita la cláusula 39.11 del PCAP para la subrogación; esa penalidad está en la 39.12.",
+     "ANX 36 · PCAP 78"
+    ],
+    [
+     "Casillas ilegibles",
+     "Revisión de precios, modificaciones previstas, garantía provisional y complementaria, habilitación, regulación armonizada y contacto con menores no se leen.",
+     "ANX 20 · ANX 31 · ANX 35 · ANX 39"
+    ],
+    [
+     "Plantilla",
+     "El texto dice 8 personas y la tabla de salarios muestra 9 filas, varias a jornada parcial.",
+     "ANX 5 · ANX 7"
+    ]
+   ],
+   "advice": "Pregunta por la Plataforma antes del 7 de diciembre, sobre todo por la visita técnica, el año de precios que se puntúa y las mejoras técnicas."
+  }
+ ],
+ "updated": "2026-11-27",
+ "files": [
+  {
+   "name": "Modelo general de pliego de cláusulas administrativas (PCAP). Su Anexo I está en blanco; el rellenado está en ANX",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 147,
+   "bytes": 1610447
+  },
+  {
+   "name": "Pliego de prescripciones técnicas (PPT). Solo hemos podido leer las páginas 1 a 28 de 92",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 92,
+   "bytes": 809696
+  },
+  {
+   "name": "Pliego particular de este contrato: Anexo I (cuadro de características) relleno, memoria económica y modelos (Anexos II a D)",
+   "file": "03_Additional.pdf",
+   "type": "PDF",
+   "pages": 82,
+   "bytes": 1030150
+  },
+  {
+   "name": "2026-7e6a96b7-5aa6-4856-b66e-418a3d07c6d7",
+   "file": "04_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-7444361d-d228-4106-8212-d9a9ba5cdabf",
+   "file": "05_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-6f838e32-d6f3-4600-9a5f-9b7aedb2217c",
+   "file": "06_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-ac4b1d48-d46f-44a4-9a36-db6eaf0630fc",
+   "file": "07_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-0fe721e2-266d-4a84-a57d-263df42efc9f",
+   "file": "08_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ],
+ "not_read": [
+  "PPT desde la página 29 de 92"
+ ]
+}

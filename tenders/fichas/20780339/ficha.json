@@ -1,0 +1,578 @@
+{
+ "id": "20780339",
+ "ref": "3.26/06110.0236 – P 014/26",
+ "reviewed": "2026-11-28",
+ "title": "Redacción del proyecto de reforma de la estación de La Serna y del nuevo paso inferior urbano en Fuenlabrada (Madrid)",
+ "title_official": "Servicios para la redacción de la adaptación del \"Proyecto constructivo de reforma integral de la estación de La Serna y paso inferior urbano, Fuenlabrada (Madrid)\"",
+ "buyer": "ADIF - Presidencia",
+ "unit": "Dirección de Proyectos de Estaciones (Dirección General de Planificación, Proyectos y Construcción)",
+ "place": "Fuenlabrada (Comunidad de Madrid)",
+ "official_url": "https://contrataciondelestado.es/wps/poc?uri=deeplink:detalle_licitacion&idEvl=qxNsc92BLDzi0Kd8%2Brcp6w%3D%3D",
+ "published": "2026-11-28",
+ "deadline": "2027-01-14",
+ "deadline_time": "13:00",
+ "questions_until": "2027-01-02",
+ "docs": {
+  "PCAP": {
+   "label": "Pliego de cláusulas administrativas particulares con cuadro de características (PCAP) y anejos",
+   "file": "01_Legal.pdf",
+   "pages": 104
+  },
+  "PPT": {
+   "label": "Pliego de prescripciones técnicas particulares (PPT). Solo se ha leído hasta la página 69 de 307",
+   "file": "02_Technical.pdf",
+   "pages": 308
+  }
+ },
+ "tags": {
+  "level": "Entidad pública estatal (ADIF)",
+  "where": "Fuenlabrada, Comunidad de Madrid",
+  "contract": "Servicios",
+  "sector": "Ingeniería y arquitectura ferroviaria (CPV 71242000)",
+  "size": "Grande (más de 1 M€)",
+  "deadline": "Cierra en 47 días",
+  "procedure": "Abierto (regulación armonizada)",
+  "funds": "Posible cofinanciación FEDER",
+  "lots": "Sin lotes",
+  "award": "Juicio de valor 49 + precio 49 + experiencia 2"
+ },
+ "headline": "ADIF busca equipo para rehacer la estación de La Serna",
+ "headline_em": "rehacer la estación de La Serna",
+ "lede": "ADIF contrata la actualización del proyecto de reforma de la estación de Cercanías de La Serna (Fuenlabrada) y de un nuevo paso inferior urbano. Son 1,2 M€ sin IVA, un equipo técnico muy exigente y casi la mitad de los puntos dependen de una memoria valorada por un tribunal.",
+ "crumbs": "Licitaciones › España › Organismos estatales › Comunidad de Madrid",
+ "verdict": {
+  "opportunity": "media",
+  "difficulty": "alta",
+  "text": "Oportunidad para ingenierías y estudios de arquitectura con experiencia ferroviaria, solas o en UTE (unión temporal de empresas). Piden facturar 719.146 € al año, 25 perfiles técnicos y hasta 15 años de experiencia en el autor del proyecto. No es una licitación para una pyme pequeña que vaya sola. Se gana en la memoria técnica (34 de 100 puntos, con mínimo de 25 sobre 49 en juicio de valor) y con un precio ajustado, porque el precio vale 49 puntos. Ojo a que el convenio con el Ayuntamiento sigue pendiente y puede condicionar el alcance."
+ },
+ "summary": [
+  "ADIF quiere actualizar el proyecto de 2022 de reforma integral de la estación de La Serna (Fuenlabrada) y del nuevo paso inferior urbano. Incluye estudio de alternativas, anteproyecto y proyecto de construcción, todo con metodología BIM (modelado digital del edificio).",
+  "El presupuesto es de 1.198.576,85 € sin IVA (1.450.277,99 € con IVA). Etapa 1, de 18 meses, 1.138.648,01 €. Etapa 2, de 12 meses, hasta 59.928,84 € como máximo, y ADIF no está obligada a encargarla entera.",
+  "Para presentarse hay que acreditar una facturación anual de 719.146,11 € y comprometer un equipo de unas 25 personas con títulos y años de experiencia fijados. No se exige clasificación.",
+  "Puntúan la memoria técnica y otros documentos valorados a juicio del tribunal (49 puntos, mínimo 25 para seguir), el precio (49) y la experiencia adicional de tres perfiles (2).",
+  "Las ofertas se presentan en el Portal del Licitador de ADIF hasta el 14 de enero de 2027 a las 13:00, en 3 archivos electrónicos o sobres."
+ ],
+ "max_lots_per_bidder": 1,
+ "sections": [
+  {
+   "key": "what",
+   "h": "Qué se contrata y para quién",
+   "items": [
+    [
+     "Objeto",
+     "Adaptar el proyecto constructivo que Ineco redactó en 2022 para Renfe. Hay cambios de normativa, de criterios técnicos y de precios. El adjudicatario redacta un estudio de alternativas, un anteproyecto y dos proyectos de construcción: la estación (edificios, paso entre andenes, andenes, marquesinas, urbanización) y el nuevo paso inferior de ciudad.",
+     "PCAP 1–3 · PPT 22–25"
+    ],
+    [
+     "Etapa 1 (18 meses)",
+     "Estudio de alternativas (mínimo 3 por especialidad), anteproyecto, campaña geotécnica, topografía con láser escáner, estudios ambientales, acústico, de evacuación e inundabilidad, y proyecto de construcción.",
+     "PCAP 2 · PPT 29–37"
+    ],
+    [
+     "Etapa 2 (12 meses)",
+     "Informes a petición de ADIF tras el proyecto: apoyo en trámites, informe de replanteo, respuesta a consultas y visitas a obra. ADIF no está obligada a pedirlos ni a agotar el importe. Si hay deficiencias en el proyecto, se corrigen sin coste.",
+     "PCAP 3 · PPT 25–26"
+    ],
+    [
+     "Órgano",
+     "ADIF – Presidencia. El contrato lo gestiona la Dirección de Proyectos de Estaciones.",
+     "PPT 1"
+    ],
+    [
+     "Lugar",
+     "Estación de La Serna, Fuenlabrada (Madrid), línea C5 de Cercanías.",
+     "PCAP 3 · PPT 17"
+    ],
+    [
+     "Por qué se contrata",
+     "ADIF no tiene personal propio para un trabajo que exige muchas horas de dedicación exclusiva y especialistas en trazado, estructuras, geotecnia, drenaje y BIM.",
+     "PCAP 4"
+    ],
+    [
+     "Convenio pendiente",
+     "El paso inferior urbano depende de un convenio entre ADIF, Renfe y el Ayuntamiento de Fuenlabrada que está pendiente de firma. Si el estudio de alternativas incluye actuaciones urbanísticas fuera del ámbito ferroviario, no se pueden iniciar los proyectos de construcción sin ese convenio.",
+     "PPT 14–15 · PPT 23"
+    ]
+   ]
+  },
+  {
+   "key": "lots",
+   "h": "Lotes",
+   "lots": [
+    {
+     "n": 1,
+     "label": "Contrato único: Etapa 1 (1.138.648,01 €) + Etapa 2 (hasta 59.928,84 €)",
+     "fee": 1198576.85,
+     "months": 30
+    }
+   ],
+   "note": "No hay lotes: ADIF lo justifica por la necesidad de coordinar todas las prestaciones con un solo contratista.",
+   "cite": "PCAP 5 · PCAP 17"
+  },
+  {
+   "key": "money",
+   "h": "Cuánto vale",
+   "items": [
+    [
+     "Presupuesto base",
+     "1.198.576,85 € sin IVA. Etapa 1: 1.138.648,01 €. Etapa 2: 59.928,84 € (importe máximo).",
+     "PCAP 5"
+    ],
+    [
+     "IVA",
+     "21 %: 251.701,14 €. Total con IVA 1.450.277,99 €.",
+     "PCAP 5"
+    ],
+    [
+     "Valor estimado",
+     "1.198.576,85 €. Sin modificaciones ni prórrogas previstas.",
+     "PCAP 8"
+    ],
+    [
+     "Cómo se calcula el precio",
+     "Por unidades de ejecución (precios unitarios). Etapa 1: precio total ofertado con desglose. Etapa 2: un único porcentaje de baja sobre el cuadro de precios; se aplica a cada certificación.",
+     "PCAP 8 · PCAP 20–21"
+    ],
+    [
+     "Desglose del presupuesto",
+     "PEM 1.042.240,74 € + gastos generales 9 % (93.801,67 €) + beneficio industrial 6 % (62.534,44 €).",
+     "PCAP 6"
+    ],
+    [
+     "Reparto por años (sin IVA)",
+     "2027: 717.917,57 € (Etapa 1). 2028: 420.730,44 € (Etapa 1) + 14.982,21 € (Etapa 2). 2029: 44.946,63 € (Etapa 2).",
+     "PCAP 5"
+    ],
+    [
+     "Duración",
+     "30 meses: 18 la Etapa 1 (desde el acta de inicio) y 12 la Etapa 2 (a continuación). Plazo de garantía: 2 meses tras la recepción.",
+     "PCAP 26 · PCAP 30"
+    ],
+    [
+     "Prórrogas",
+     "No se prevén.",
+     "PCAP 26"
+    ],
+    [
+     "Revisión de precios",
+     "No procede.",
+     "PCAP 26"
+    ],
+    [
+     "Modificaciones previstas",
+     "No. Solo las no previstas del art. 205 LCSP, obligatorias hasta el 20 % del precio.",
+     "PCAP 29 · PCAP 64"
+    ],
+    [
+     "Subrogación de personal",
+     "No hay obligación de subrogar. El pliego no da número de trabajadores ni coste.",
+     "PCAP 27"
+    ],
+    [
+     "Financiación",
+     "El contrato «podrá ser cofinanciado» por FEDER 2021-2027. Si es así, hay obligaciones de publicidad y de no causar perjuicio medioambiental (DNSH).",
+     "PCAP 31"
+    ],
+    [
+     "Gastos a cargo del adjudicatario",
+     "Publicidad de la licitación hasta 3.000 €. Tasas e impuestos. Pago al Colegio profesional por el visado de los trabajos de ingenieros de caminos.",
+     "PCAP 24 · PCAP 30 · PCAP 36"
+    ]
+   ]
+  },
+  {
+   "key": "can",
+   "h": "¿Puedo presentarme?",
+   "items": [
+    [
+     "Clasificación",
+     "No procede.",
+     "PCAP 9"
+    ],
+    [
+     "Solvencia económica",
+     "Volumen anual de negocios del mejor de los 3 últimos ejercicios de al menos 719.146,11 € (1,5 veces la anualidad media). Se prueba con las cuentas depositadas en el Registro Mercantil. En UTE se suman. Alternativa: seguro de responsabilidad profesional por al menos el valor estimado (1.198.576,85 €) o compromiso de suscribirlo.",
+     "PCAP 9–10"
+    ],
+    [
+     "Solvencia técnica",
+     "Trabajos del mismo tipo (mismos 3 primeros dígitos CPV, 712) en los últimos 5 años: en el año de mayor ejecución, al menos 335.601,52 € (70 % de la anualidad media). Se acredita con certificados. Solo lo pide el licitador mejor clasificado.",
+     "PCAP 10"
+    ],
+    [
+     "Equipo mínimo (resumen)",
+     "Autor del proyecto (15 años en proyectos y obras ferroviarias), coautor arquitecto (15 años en estaciones), y 15 jefes de equipo (calidad, estructuras, geotecnia, medio ambiente, drenaje, catenaria, topografía, riesgos, interoperabilidad, arquitectura, instalaciones, protección y seguridad, reposiciones, factibilidad constructiva, CMS y telecomunicaciones), con entre 2 y 10 años cada uno.",
+     "PCAP 11–14"
+    ],
+    [
+     "Asesores y otros perfiles",
+     "Asesor acústico, asesor de arquitectura de género, especialista en sostenibilidad y energía (con máster), especialista en megafonía, especialista en patologías y restauración (con máster), coordinador de seguridad y salud, piloto de seguridad habilitado y responsable técnico habilitado por ADIF.",
+     "PCAP 14–15"
+    ],
+    [
+     "Equipo BIM",
+     "Responsable BIM, coordinador BIM, coordinador de disciplina, 2 modeladores y gestor de información.",
+     "PCAP 15–16"
+    ],
+    [
+     "Adscripción de medios",
+     "Obligatoria y condición especial de ejecución. Los perfiles a dedicación completa son en exclusiva. Cambiar a alguien exige autorización de ADIF.",
+     "PCAP 10 · PCAP 26"
+    ],
+    [
+     "Habilitación",
+     "Ninguna en especial.",
+     "PCAP 16"
+    ],
+    [
+     "UTE e integración de solvencia",
+     "Se admiten UTE (compromiso de constitución firmado por todos) y apoyarse en otras empresas. La responsabilidad solidaria solo se exige para la solvencia económica. Hay que declararlo en el DEUC desde el principio.",
+     "PCAP 16 · PCAP 45"
+    ],
+    [
+     "Incompatibilidad",
+     "No pueden participar quienes hayan intervenido en preparar el contrato, ni sus empresas vinculadas, si falsea la competencia.",
+     "PCAP 17"
+    ]
+   ]
+  },
+  {
+   "key": "win",
+   "h": "Cómo se gana",
+   "criteria": [
+    {
+     "name": "Oferta económica (Etapa 1 + Etapa 2)",
+     "pts": 49,
+     "kind": "fórmula",
+     "how": "Se combinan la baja de la Etapa 1 y el porcentaje de baja único de la Etapa 2, ponderados por su peso en el presupuesto. 0 puntos si ofreces el presupuesto de licitación. Máximo para la oferta más barata admitida. En medio, reparto lineal."
+    },
+    {
+     "name": "Experiencia adicional del equipo",
+     "pts": 2,
+     "kind": "fórmula",
+     "how": "1 punto si el autor del proyecto acredita 20 años o más. 0,5 puntos si el jefe de arquitectura acredita 10 años o más en estaciones ferroviarias. 0,5 puntos si el responsable BIM acredita 5 años o más."
+    },
+    {
+     "name": "Memoria técnica",
+     "pts": 34,
+     "kind": "juicio de valor",
+     "how": "Máx. 20 páginas. Siete apartados: comprensión de la actuación (4), análisis del proyecto de 2022 y propuesta de adaptación (10), integración urbana y accesibilidad (4), factibilidad constructiva y fases (6), coordinación institucional (3), calidad arquitectónica (5) y sostenibilidad (2)."
+    },
+    {
+     "name": "Propuesta de metodología BIM",
+     "pts": 2,
+     "kind": "juicio de valor",
+     "how": "Máx. 5 páginas. Se valora el plan de ejecución BIM, la configuración de modelos y su encaje con el entorno común de datos de ADIF."
+    },
+    {
+     "name": "Gestión de riesgos y seguridad en la circulación",
+     "pts": 3,
+     "kind": "juicio de valor",
+     "how": "Dentro de la memoria. Riesgos técnicos y de obra junto a vía en servicio, medidas preventivas y cumplimiento del Reglamento UE 402/2013."
+    },
+    {
+     "name": "Programa de trabajos",
+     "pts": 5,
+     "kind": "juicio de valor",
+     "how": "Máx. 5 páginas, con diagrama y camino crítico. Plazos totales no superiores a 18 y 12 meses."
+    },
+    {
+     "name": "Actuaciones medioambientales",
+     "pts": 5,
+     "kind": "juicio de valor",
+     "how": "Máx. 10 páginas. Conocimiento de los condicionantes ambientales, legislación aplicable, recorrido de campo y propuesta de documentos previos."
+    }
+   ],
+   "cite": "PCAP 18 · PCAP 20–25",
+   "items": [
+    [
+     "Umbral mínimo",
+     "Hay que sacar al menos 25 puntos de los 49 de juicio de valor. Si no, la oferta no se tiene en cuenta y no se abre su sobre de precio.",
+     "PCAP 18 · PCAP 47–48"
+    ],
+    [
+     "Reparto de juicio de valor",
+     "La mejor oferta recibe el máximo y las demás una puntuación proporcional a su valoración.",
+     "PCAP 48"
+    ],
+    [
+     "Baja anormal",
+     "Con 5 o más ofertas: baja superior a BR + UT, siendo UT = 100/(2·BR) y BR la baja de referencia. Con menos de 5: baja superior a BM + UT, siendo UT = 100/(2·BM) y BM la baja media. Si la tuya cae ahí, tienes un máximo de 5 días hábiles para justificarla.",
+     "PCAP 18–20 · PCAP 49–50"
+    ],
+    [
+     "Desempate",
+     "Por orden, los criterios sociales del art. 147.2 LCSP, que se acreditan solo si hay empate.",
+     "PCAP 51"
+    ],
+    [
+     "Orden de apertura",
+     "Sobre 1 (administración), sobre 3 (juicio de valor, en un máximo de 20 días tras el cierre) y por último sobre 2 (fórmulas), en acto privado.",
+     "PCAP 46–47"
+    ]
+   ],
+   "insight": "La adjudicación se decide en la memoria técnica y en el precio. Los 49 puntos de juicio de valor los reparte el tribunal, y con menos de 25 quedas fuera antes de abrir tu precio. La experiencia adicional pesa solo 2 puntos, así que no compensa contratar perfiles caros solo por eso."
+  },
+  {
+   "key": "when",
+   "h": "Qué entregar y cuándo",
+   "items": [
+    [
+     "Plazo",
+     "Hasta el 14 de enero de 2027 a las 13:00, solo por el Portal del Licitador de ADIF (elicitadores.adif.es). Hay que estar registrado y firmar con certificado electrónico cualificado o avanzado.",
+     "PCAP 32–34 · anuncio"
+    ],
+    [
+     "Preguntas",
+     "Hasta 12 días naturales antes del cierre (2 de enero de 2027). ADIF responde como máximo 6 días antes del cierre. Las respuestas son vinculantes y se publican.",
+     "PCAP 35"
+    ],
+    [
+     "Sobre 1",
+     "DEUC (en criterios de selección solo la sección α), declaración complementaria (Anejo 2) y compromiso de UTE si lo hay (Anejo 4).",
+     "PCAP 44–45"
+    ],
+    [
+     "Sobre 2",
+     "Anejo 1 con el precio de la Etapa 1, el porcentaje de baja único de la Etapa 2 y las respuestas sí/no de experiencia adicional. Anejo 1 bis con los precios unitarios.",
+     "PCAP 20–21 · PCAP 73–75"
+    ],
+    [
+     "Sobre 3",
+     "Memoria técnica (20 págs.), metodología BIM (5), programa de trabajos (5) y documento medioambiental (10). Nada que deje ver precio ni experiencia adicional: puede suponer exclusión.",
+     "PCAP 22–23"
+    ],
+    [
+     "Garantías",
+     "Provisional: no. Definitiva: 5 % del importe de adjudicación sin IVA, en 10 días hábiles. Complementaria: 5 % si tu oferta estuvo inicialmente en baja anormal o si hay fondos UE.",
+     "PCAP 16–17 · PCAP 56"
+    ],
+    [
+     "Tras la propuesta de adjudicación",
+     "10 días hábiles para aportar capacidad, solvencia, relación nominal de personal con CV y habilitaciones, certificados tributarios y de Seguridad Social, y garantía.",
+     "PCAP 51–53"
+    ],
+    [
+     "Subsanación",
+     "3 días naturales para defectos del sobre 1.",
+     "PCAP 46"
+    ],
+    [
+     "Visita",
+     "El pliego no prevé visita previa.",
+     ""
+    ],
+    [
+     "Regulación armonizada y recurso",
+     "Sí es contrato de regulación armonizada. Cabe recurso especial en materia de contratación (art. 44 LCSP).",
+     "PCAP 3 · PCAP 72"
+    ]
+   ]
+  },
+  {
+   "key": "risk",
+   "h": "Riesgos y letra pequeña",
+   "groups": [
+    {
+     "h": "Cobro",
+     "items": [
+      [
+       "Pago por certificaciones",
+       "Según relación valorada del responsable del contrato. No se cobra en un año más que la anualidad prevista.",
+       "PCAP 58"
+      ],
+      [
+       "Plazo de pago ampliado",
+       "Aceptas 30 días naturales más sobre el plazo legal de pago.",
+       "PCAP 58"
+      ],
+      [
+       "Etapa 2 incierta",
+       "El importe es un máximo. ADIF puede no encargar nada. La baja ofertada se aplica a cada certificación.",
+       "PCAP 3"
+      ],
+      [
+       "Correcciones gratis",
+       "Si tras el informe de replanteo hay deficiencias, se corrigen sin coste dentro de la Etapa 2.",
+       "PCAP 3"
+      ]
+     ]
+    },
+    {
+     "h": "Penalidades",
+     "items": [
+      [
+       "Incumplimientos",
+       "Como regla general, 1 % del precio. Hasta 5 % o 10 % si es grave o muy grave. Cada penalidad no pasa del 10 % y el total no pasa del 50 %.",
+       "PCAP 28 · PCAP 62–63"
+      ],
+      [
+       "Demora",
+       "Penalidades del art. 193 LCSP, o resolución con pérdida de garantía.",
+       "PCAP 63"
+      ],
+      [
+       "Integridad y fraude",
+       "Hasta el 10 % del precio por cada incumplimiento. Es obligación esencial.",
+       "PCAP 61"
+      ],
+      [
+       "Subcontratación",
+       "5 % del subcontrato, hasta 10 % o 50 % si es grave o muy grave.",
+       "PCAP 65"
+      ]
+     ]
+    },
+    {
+     "h": "Obligaciones y personal",
+     "items": [
+      [
+       "Condiciones sociales",
+       "Al menos 20 % de plantilla fija, 1 % de personas con discapacidad, mujeres según media del sector y cumplimiento de prevención de riesgos.",
+       "PCAP 28"
+      ],
+      [
+       "Seguros",
+       "Responsabilidad civil por el importe de adjudicación, durante toda la ejecución. Se acredita en el mes siguiente a la formalización.",
+       "PCAP 27 · PCAP 56–59"
+      ],
+      [
+       "Cambio de equipo",
+       "Usar personas distintas de las ofertadas sin permiso es causa de resolución del contrato.",
+       "PCAP 71"
+      ],
+      [
+       "Seguridad ferroviaria",
+       "Trabajos de campo en vía en servicio: personal de seguridad, responsable técnico y pilotos a cargo del consultor.",
+       "PPT 52"
+      ],
+      [
+       "Visado",
+       "Visado del Colegio profesional, con coste a cargo del adjudicatario.",
+       "PCAP 30"
+      ],
+      [
+       "Seguridad de la información",
+       "Anejo con requisitos del Esquema Nacional de Seguridad. Entrega de documentos en el mes siguiente a la formalización.",
+       "PCAP 43 · PCAP 92–103"
+      ],
+      [
+       "Subcontratación",
+       "Permitida con comunicación previa. Si el contrato maneja datos personales, hace falta autorización de ADIF. El pliego no deja claro si una parte debe hacerla el propio licitador (casilla ilegible).",
+       "PCAP 28–29 · PCAP 65–66"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "key": "errors",
+   "h": "Incoherencias en los pliegos",
+   "items": [
+    [
+     "Fórmula del precio",
+     "El pliego habla de «fórmula parabólica» y luego describe una interpolación lineal entre 0 puntos (presupuesto) y el máximo (oferta más barata).",
+     "PCAP 21–22"
+    ],
+    [
+     "Fórmula de baja anormal",
+     "Se define el umbral con BR y BM, pero la fórmula escrita (UT = 100/(2·BR)) y su definición de BO, BM y BR salen mal maquetadas en el documento.",
+     "PCAP 18–20"
+    ],
+    [
+     "Garantía complementaria",
+     "Se marca «SÍ» sin decir si es incondicional. El texto la limita a baja anormal o fondos europeos.",
+     "PCAP 17"
+    ],
+    [
+     "Plazo de formalización",
+     "La cláusula general dice 15 días hábiles tras la notificación. Si hay FEDER, el pliego dice 10 días naturales y prevalece.",
+     "PCAP 31 · PCAP 55"
+    ],
+    [
+     "Referencia cruzada",
+     "El apartado 26.4 se remite a un «apartado 25.4» que no existe.",
+     "PCAP 31"
+    ],
+    [
+     "Plantilla del PPT",
+     "Una cláusula deja una variable sin rellenar: «X paneles resumen A2».",
+     "PPT 33"
+    ],
+    [
+     "Fecha de publicación",
+     "Los pliegos no indican la fecha de publicación del anuncio. En la ficha se usa 2026-11-28, que es la fecha en que se han consultado los documentos.",
+     ""
+    ],
+    [
+     "Documentos sin leer",
+     "Solo se ha analizado el PPT hasta la página 69 de 307. Faltan el cuadro de precios unitarios, el plazo parcial de hitos y las cláusulas BIM.",
+     "PPT 69"
+    ]
+   ],
+   "advice": "Pregunta por la plataforma antes del 2 de enero de 2027, sobre todo por la fórmula de baja anormal y por el estado del convenio con el Ayuntamiento. Lee entero el PPT (307 páginas) antes de decidir."
+  }
+ ],
+ "updated": "2026-11-27",
+ "files": [
+  {
+   "name": "Pliego de cláusulas administrativas particulares con cuadro de características (PCAP) y anejos",
+   "file": "01_Legal.pdf",
+   "type": "PDF",
+   "pages": 104,
+   "bytes": 3699919
+  },
+  {
+   "name": "Pliego de prescripciones técnicas particulares (PPT). Solo se ha leído hasta la página 69 de 307",
+   "file": "02_Technical.pdf",
+   "type": "PDF",
+   "pages": 308,
+   "bytes": 7706112
+  },
+  {
+   "name": "2026-c5f989fa-4be6-4ecd-a7bf-8a23d35c32d1",
+   "file": "03_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-80835f62-cdd5-4ae3-9717-47ae7395c0f6",
+   "file": "04_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-ba584b4e-3a37-44c1-bf0c-56ef6a2c52f5",
+   "file": "05_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-0f2bdf6f-1ec4-4387-aa27-55ef772ceaff",
+   "file": "06_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-7870d2a1-2fae-4c1d-902a-d48b32207915",
+   "file": "07_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  },
+  {
+   "name": "2026-8a79c793-17fa-44a9-9058-52dc484414bd",
+   "file": "08_GeneralDocument.html",
+   "type": "HTML",
+   "pages": null,
+   "bytes": 244
+  }
+ ],
+ "not_read": [
+  "PPT desde la página 71 de 308"
+ ]
+}
