@@ -881,7 +881,7 @@ async function runAgent(env, b, emit) {
   const ayu = ma ? (d.ayudas.find(y => String(y.id) === ma[1] || (y.otros || []).map(String).includes(ma[1])) || { id: ma[1], titulo: "", fin: null }) : null;
   const today = new Date().toISOString().slice(0, 10);
   const ts = await tStats().catch(() => null);
-  const mf = /tenders\./.test(String(page.host || "")) ? String(page.path || "").match(/\/espana\/licitacion\/(\d+(?:-gratis)?)\/?/) : null;
+  const mf = /tenders\./.test(String(page.host || "")) ? String(page.path || "").match(/\/espana\/licitacion\/(\d+(?:-[a-z]+)?)\/?/) : null;
   const mt = /tenders\./.test(String(page.host || "")) && !mf ? String(page.path || "").match(/\/(?:tender|licitacion)\/([^/]+)\/?/) : null;
   const mc = /tenders\./.test(String(page.host || "")) ? String(page.path || "").match(/\/(?:country|pais)\/([a-z]{2})\/?/) : null;
   const host = String(page.host || "calls.ullswaterinvestments.com").replace(/[^a-z0-9.\-]/gi, "").slice(0, 60);

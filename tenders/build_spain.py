@@ -17,9 +17,10 @@ from pathlib import Path
 
 FICHAS_DIR = Path(__file__).resolve().parent / "fichas"
 FICHAS = sorted(d.name for d in FICHAS_DIR.glob("*") if (d / "ficha.json").exists()) if FICHAS_DIR.exists() else []
-# temporary side-by-side test asked by Emilio (28-11-2026): the same tenders written by a free model, at /es/espana/licitacion/<id>-gratis/
-COMPARE_DIR = FICHAS_DIR.parent / "fichas_compare" / "gratis"
-COMPARE = sorted((d.name + "-gratis", d) for d in COMPARE_DIR.glob("*") if (d / "ficha.json").exists()) if COMPARE_DIR.exists() else []
+# temporary side-by-side tests asked by Emilio: the same tenders written by another AI model, at /es/espana/licitacion/<id>-<model>/
+COMPARE_ROOT = FICHAS_DIR.parent / "fichas_compare"
+COMPARE_SHOW = {"kimi": "Kimi (Moonshot AI)"}  # only these comparison folders become pages
+COMPARE = sorted((d.name + "-" + m, d) for m in COMPARE_SHOW for d in (COMPARE_ROOT / m).glob("*") if (d / "ficha.json").exists())
 FICHA_LBL = {"en": "Ullswater factsheet (ES)", "es": "Ficha Ullswater"}
 EXT = {".zip": None, ".bin": ".xml"}  # PLACSP serves .odt annexes as zip and the DEUC as octet-stream
 
@@ -479,13 +480,14 @@ def build_fichas(write, page, ctx):
         inner = inner.replace("<!--ASK-->", strip, 1)
         # free diagnosis: the "¿Te presentas?" button opens it instead of the contact page
         if d.parent != FICHAS_DIR:
-            real = d.name
+            real, m = d.name, d.parent.name
             inner = inner.replace('<section class="fx-ask"', '<div style="background:#fff4d6;border-bottom:1px solid #f0d58a;padding:12px 16px;text-align:center;font-size:15px">'
-                                  f'<b>Prueba de comparación:</b> esta ficha la ha escrito un modelo de IA gratuito ({escape(f.get("_model", "Llama 4 Scout en Cloudflare"))}). '
+                                  f'<b>Prueba de comparación:</b> esta ficha la ha escrito {escape(COMPARE_SHOW.get(m, m))}. '
                                   f'<a href="{ficha_path(real)}">Ver la misma licitación hecha con Claude</a>.</div><section class="fx-ask"', 1)
-        elif any(c == i + "-gratis" for c, _ in COMPARE):
+        elif any(c.startswith(i + "-") for c, _ in COMPARE):
+            alts = " · ".join(f'<a href="{ficha_path(c)}">{escape(COMPARE_SHOW[c.split("-", 1)[1]])}</a>' for c, _ in COMPARE if c.startswith(i + "-"))
             inner = inner.replace('<section class="fx-ask"', '<div style="background:#eef4ff;border-bottom:1px solid #c9d8f5;padding:12px 16px;text-align:center;font-size:15px">'
-                                  f'<b>Prueba de comparación:</b> esta ficha la ha escrito Claude. <a href="{ficha_path(i + "-gratis")}">Ver la misma licitación hecha con un modelo gratuito</a>.</div><section class="fx-ask"', 1)
+                                  f'<b>Prueba de comparación:</b> esta ficha la ha escrito Claude. Ver la misma licitación hecha con {alts}.</div><section class="fx-ask"', 1)
         if D.has_rules(fdir, i) and D.build(write, page, ctx, fdir, i, f, ficha_path(i)):
             inner = inner.replace('href="https://www.ullswaterinvestments.com/es/contacto/" target="_blank" rel="noopener">Pedir diagnóstico gratuito',
                                   f'href="{D.diag_path(i)}">Hacer el diagnóstico gratuito', 1).replace('href="#diagnostico">', f'href="{D.diag_path(i)}">', 1)

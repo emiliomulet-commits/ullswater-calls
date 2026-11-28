@@ -264,6 +264,10 @@ lots[].budget sin IVA y que cuadre con la ficha, deadline igual que en la ficha.
 
 
 def price(usage):
+    if MODEL.startswith("kimi"):  # Moonshot list price, $ per million tokens (override with KIMI_PRICES="in,out,cache")
+        pin, pout, pc = (float(x) for x in os.environ.get("KIMI_PRICES", "0.60,2.50,0.15").split(","))
+        c = usage.get("cache_read_input_tokens", 0)
+        return round(((usage.get("input_tokens", 0) - c) * pin + c * pc + usage.get("output_tokens", 0) * pout) / 1e6, 4)
     if MODEL.startswith("@cf/"):  # Workers AI: free daily allowance, then ~0.27 $/M input and 0.85 $/M output (llama-4-scout)
         return round((usage.get("input_tokens", 0) * 0.27 + usage.get("output_tokens", 0) * 0.85) / 1e6, 4)
     pin, pout, pcache = PRICES.get(MODEL, PRICES["claude-opus-5-5"])
@@ -342,7 +346,56 @@ def call_cf(system, messages, usage):
     return out, "end"
 
 
+def call_kimi(system, messages, usage):
+    """Kimi (Moonshot AI) through its OpenAI-compatible API, same prompts. Streamed so long answers do not time out."""
+    import urllib.request
+    import urllib.error
+    key = os.environ["KIMI_API_KEY"].strip()
+    base = os.environ.get("KIMI_BASE_URL", "https://api.moonshot.ai/v1")
+    flat = [{"role": "system", "content": system}] + [
+        {"role": m["role"], "content": m["content"] if isinstance(m["content"], str) else "".join(b["text"] for b in m["content"])} for m in messages]
+    body = json.dumps({"model": MODEL, "messages": flat, "max_tokens": int(os.environ.get("KIMI_MAX_TOKENS", "32000")),
+                       "stream": True, "stream_options": {"include_usage": True}}).encode()
+    for attempt in range(4):
+        try:
+            req = urllib.request.Request(base + "/chat/completions", data=body, headers={"Authorization": "Bearer " + key, "Content-Type": "application/json"})
+            text, u, stop = [], {}, "end"
+            with urllib.request.urlopen(req, timeout=1800) as r:
+                for line in r:
+                    line = line.decode("utf-8", "replace").strip()
+                    if not line.startswith("data:") or line == "data: [DONE]":
+                        continue
+                    ev = json.loads(line[5:])
+                    for ch in ev.get("choices") or []:
+                        piece = (ch.get("delta") or {}).get("content")
+                        if piece:
+                            text.append(str(piece))
+                        if ch.get("finish_reason"):
+                            stop = ch["finish_reason"]
+                            u = ch.get("usage") or u
+                    u = ev.get("usage") or u
+            break
+        except urllib.error.HTTPError as e:
+            msg = e.read()[:300].decode("utf-8", "replace")
+            print("kimi http", e.code, msg, flush=True)
+            if e.code in (400, 401, 402, 403, 404) or attempt == 3:
+                raise RuntimeError(f"kimi {e.code}: {msg}")
+            time.sleep(30 * (attempt + 1))
+        except Exception as e:  # noqa: BLE001
+            print("kimi retry", attempt, type(e).__name__, str(e)[:200], flush=True)
+            if attempt == 3:
+                raise
+            time.sleep(30 * (attempt + 1))
+    usage["input_tokens"] = usage.get("input_tokens", 0) + (u.get("prompt_tokens") or 0)
+    usage["cache_read_input_tokens"] = usage.get("cache_read_input_tokens", 0) + (u.get("cached_tokens") or (u.get("prompt_tokens_details") or {}).get("cached_tokens") or 0)
+    usage["output_tokens"] = usage.get("output_tokens", 0) + (u.get("completion_tokens") or 0)
+    usage["calls"] = usage.get("calls", 0) + 1
+    return "".join(text), ("max_tokens" if stop == "length" else stop)
+
+
 def call(client, system, messages, usage):
+    if MODEL.startswith("kimi"):
+        return call_kimi(system, messages, usage)
     if MODEL.startswith("@cf/"):
         return call_cf(system, messages, usage)
     params = dict(model=MODEL, max_tokens=64000, output_config={"effort": EFFORT},
@@ -519,6 +572,18 @@ def main():
     client = None
     if MODEL.startswith("@cf/"):  # free comparison: Cloudflare Workers AI reads at most ~131k tokens
         MAX_CHARS = min(MAX_CHARS, int(os.environ.get("FICHA_CF_MAX_CHARS", "280000")))
+    elif MODEL.startswith("kimi"):  # 256k-token context
+        if not os.environ.get("KIMI_API_KEY", "").strip():
+            sys.exit("KIMI_API_KEY is empty: add it in GitHub › Settings › Secrets › Actions")
+        print("KIMI_API_KEY: set", flush=True)
+        import urllib.request
+        try:  # list the models this key can use, so the log shows the right name
+            req = urllib.request.Request(os.environ.get("KIMI_BASE_URL", "https://api.moonshot.ai/v1") + "/models", headers={"Authorization": "Bearer " + os.environ["KIMI_API_KEY"].strip()})
+            names = [m["id"] for m in json.load(urllib.request.urlopen(req, timeout=60)).get("data", [])]
+            print("kimi models:", ", ".join(sorted(names)), flush=True)
+        except Exception as e:  # noqa: BLE001
+            sys.exit(f"Kimi rejects KIMI_API_KEY or is unreachable: {type(e).__name__} {str(e)[:200]}")
+        MAX_CHARS = min(MAX_CHARS, int(os.environ.get("FICHA_KIMI_MAX_CHARS", "520000")))
     else:
         import anthropic
         key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
