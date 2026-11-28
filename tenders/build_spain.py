@@ -431,7 +431,10 @@ def build_fichas(write, page, ctx):
     (ctx["site_dir"] / "data" / "es" / "fichas" / "index.json").write_text(json.dumps(FICHAS), encoding="utf-8")
     sys.path.insert(0, str(FICHAS_DIR.parent.parent / "tools"))
     import ficha_render as R
+    sys.path.insert(0, str(FICHAS_DIR.parent / "diagnostico"))
+    import diag_build as D
     site = ctx["site_dir"]
+    D.publish_assets(site)
     for i in FICHAS:
         d = FICHAS_DIR / i
         f = json.loads((d / "ficha.json").read_text(encoding="utf-8"))
@@ -464,6 +467,10 @@ def build_fichas(write, page, ctx):
                  '<div class="esp-ask">' + ctx["ask"]("es", qs, "Ej.: ¿qué experiencia piden al director de obra?") + "</div>"
                  '</div></section>')
         inner = inner.replace("<!--ASK-->", strip, 1)
+        # free diagnosis: the "¿Te presentas?" button opens it instead of the contact page
+        if D.has_rules(FICHAS_DIR, i) and D.build(write, page, ctx, FICHAS_DIR, i, f, ficha_path(i)):
+            inner = inner.replace('href="https://www.ullswaterinvestments.com/es/contacto/" target="_blank" rel="noopener">Pedir diagnóstico gratuito',
+                                  f'href="{D.diag_path(i)}">Hacer el diagnóstico gratuito (5 minutos)', 1)
         css = ".fx-ask{background:#fbf8f1;border-bottom:1px solid #efe6d2}.fx-ask .in{padding-top:26px;padding-bottom:22px}.fx-ask h2{margin:0 0 4px;font-size:20px}.fx-ask p{margin:0 0 14px;color:#4b5563}.fx-ask .fx-pdf{margin:14px 0 0}"
         body = f'<main><style>{R.scoped_css()}{css}</style><div class="fx">{inner}</div></main>'
         ld = {"@context": "https://schema.org", "@type": "Article", "headline": f["title"], "inLanguage": "es", "url": ctx["base"] + ficha_path(i),

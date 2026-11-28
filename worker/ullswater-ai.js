@@ -978,6 +978,31 @@ async function benchmarkContact(req, env) {
   return json({ ok: true }, req);
 }
 
+// Free tender diagnoses (tenders.ullswaterinvestments.com/es/espana/licitacion/<id>/diagnostico/): the visitor gives name,
+// company and email (with consent) to see the full report. Stored RETENTION_MONTHS (purged by the daily cron) and, when the
+// DIAG_WEBHOOK secret is set, forwarded to the Apps Script in tools/diagnostico_setup.gs, which emails tenders@.
+async function diagnostico(req, env, ctx) {
+  const b = await req.json().catch(() => ({}));
+  const clean = (v, n) => String(v || "").replace(/[\r\n\t<>]/g, " ").trim().slice(0, n);
+  const name = clean(b.name, 80), org = clean(b.org, 120), email = clean(b.email, 120).toLowerCase();
+  const tender = clean(b.tender, 40).replace(/[^\w.-]/g, "");
+  if (!b.consent || name.length < 2 || !tender || !/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(email)) return json({ error: "Datos incompletos." }, req, 400);
+  const event = ["diagnostico", "reserva"].includes(b.event) ? b.event : "diagnostico";
+  const summary = JSON.stringify(b.result || {}).slice(0, 4000), answers = JSON.stringify(b.answers || {}).slice(0, 6000);
+  const row = { tender, ref: clean(b.ref, 60), title: clean(b.title, 200), name, org, email, cif: clean(b.cif, 12).toUpperCase(),
+    lang: clean(b.lang, 5), marketing: b.marketing ? 1 : 0, save_profile: b.save_profile ? 1 : 0, event,
+    page: clean(b.page, 300), country: (req.cf && req.cf.country) || null };
+  if (env.DB) {
+    await env.DB.prepare("CREATE TABLE IF NOT EXISTS diagnosticos (id INTEGER PRIMARY KEY AUTOINCREMENT, ts TEXT DEFAULT (datetime('now')), tender TEXT, ref TEXT, name TEXT, org TEXT, email TEXT, cif TEXT, lang TEXT, marketing INTEGER, save_profile INTEGER, event TEXT, page TEXT, country TEXT, result TEXT, answers TEXT)").run().catch(() => null);
+    await env.DB.prepare("INSERT INTO diagnosticos (tender, ref, name, org, email, cif, lang, marketing, save_profile, event, page, country, result, answers) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10,?11,?12,?13,?14)")
+      .bind(row.tender, row.ref, row.name, row.org, row.email, row.cif, row.lang, row.marketing, row.save_profile, row.event, row.page, row.country, summary, answers)
+      .run().catch(e => console.log("diag db: " + (e.message || e)));
+  }
+  if (env.DIAG_WEBHOOK) ctx.waitUntil(fetch(env.DIAG_WEBHOOK, { method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ...row, result: b.result || {}, answers: b.answers || {}, token: env.DIAG_TOKEN || "" }) }).catch(e => console.log("diag hook: " + (e.message || e))));
+  return json({ ok: true }, req);
+}
+
 // ---------- Benchmark Compliance 2027: answers only from the benchmark knowledge base ----------
 async function benchmarkAnswer(env, b) {
   const q = String(b.q || "").slice(0, 1000).trim();
@@ -1297,6 +1322,7 @@ export default {
     ctx.waitUntil(Promise.all([
       env.DB.prepare(`DELETE FROM questions WHERE ts < datetime('now', '-${RETENTION_MONTHS} months')`).run(),
       env.DB.prepare(`DELETE FROM benchmark_contacts WHERE ts < datetime('now', '-${RETENTION_MONTHS} months')`).run(),
+      env.DB.prepare(`DELETE FROM diagnosticos WHERE ts < datetime('now', '-${RETENTION_MONTHS} months')`).run().catch(() => null),
       env.DB.prepare("DELETE FROM hits WHERE ts < ?1").bind(Math.floor(Date.now() / 1000) - 2 * 86400).run(),
       env.DB.prepare("DELETE FROM topic_cache WHERE ts < ?1").bind(Math.floor(Date.now() / 1000) - 2 * 86400).run().catch(() => null)]).catch(e => console.log("purge: " + (e.message || e))));
   },
@@ -1305,9 +1331,14 @@ export default {
     const path = new URL(req.url).pathname;
     if (req.method === "GET" && path === "/widget.js")
       return new Response(WIDGET_JS, { headers: { "Content-Type": "application/javascript; charset=utf-8", "Cache-Control": "public, max-age=600", "Access-Control-Allow-Origin": "*" } });
-    if (req.method === "GET" && path === "/") return json({ service: "Ullswater AI", endpoints: ["/review", "/ask", "/search", "/contact", "/widget.js"] }, req);
+    if (req.method === "GET" && path === "/") return json({ service: "Ullswater AI", endpoints: ["/review", "/ask", "/search", "/contact", "/diagnostico", "/widget.js"] }, req);
     if (req.method !== "POST") return json({ error: "Not found" }, req, 404);
     if (!ORIGINS.includes(req.headers.get("Origin") || "")) return json({ error: "Not allowed" }, req, 403); // only our own pages
+    if (path === "/diagnostico") {
+      if (req.headers.get("Origin") !== "https://tenders.ullswaterinvestments.com") return json({ error: "Not allowed" }, req, 403);
+      if (await overLimit(req, env, ctx, "search")) return json({ error: "Too many requests." }, req, 429);
+      try { return await diagnostico(req, env, ctx); } catch (e) { return json({ error: "Service temporarily unavailable." }, req, 500); }
+    }
     if (path === "/contact") {
       if (req.headers.get("Origin") !== "https://benchmark.ullswaterinvestments.com") return json({ error: "Not allowed" }, req, 403);
       if (await overLimit(req, env, ctx, "search")) return json({ error: "Too many requests." }, req, 429);
