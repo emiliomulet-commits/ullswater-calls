@@ -478,6 +478,11 @@ def build_fichas(write, page, ctx):
                  '<div class="esp-ask">' + ctx["ask"]("es", qs, "Ej.: ¿qué experiencia piden al director de obra?") + "</div>"
                  '</div></section>')
         inner = inner.replace("<!--ASK-->", strip, 1)
+        strip2 = ('<section class="fx-ask fin"><div class="in"><h2>¿Te ha quedado alguna duda? Pregunta al asistente</h2>'
+                  '<p>Ha leído todos los documentos oficiales y te contesta citando el documento y la página.</p>'
+                  '<div class="esp-ask">' + ctx["ask"]("es", qs, "Ej.: ¿qué experiencia piden al director de obra?", sid="2") + "</div>"
+                  '</div></section>')
+        inner = inner.replace(" <!--ASK2-->\n</main>", "</main>\n" + strip2, 1)
         # free diagnosis: the "¿Te presentas?" button opens it instead of the contact page
         if d.parent != FICHAS_DIR:
             real, m = d.name, d.parent.name
@@ -490,7 +495,7 @@ def build_fichas(write, page, ctx):
                                   f'<b>Prueba de comparación:</b> esta ficha la ha escrito Claude. Ver la misma licitación hecha con {alts}.</div><section class="fx-ask"', 1)
         if D.has_rules(fdir, i) and D.build(write, page, ctx, fdir, i, f, ficha_path(i)):
             inner = inner.replace('href="https://www.ullswaterinvestments.com/es/contacto/" target="_blank" rel="noopener">Pedir diagnóstico gratuito',
-                                  f'href="{D.diag_path(i)}">Hacer el diagnóstico gratuito', 1).replace('href="#diagnostico">', f'href="{D.diag_path(i)}">', 1)
+                                  f'href="{D.diag_path(i)}">Hacer el diagnóstico gratuito').replace('href="#diagnostico">', f'href="{D.diag_path(i)}">', 1)
         css = ".fx-ask{background:#fbf8f1;border-bottom:1px solid #efe6d2}.fx-ask .in{padding-top:26px;padding-bottom:22px}.fx-ask h2{margin:0 0 4px;font-size:20px}.fx-ask p{margin:0 0 14px;color:#4b5563}.fx-ask .fx-pdf{margin:14px 0 0}"
         body = f'<main><style>{R.scoped_css()}{css}</style><div class="fx">{inner}</div></main>'
         ld = {"@context": "https://schema.org", "@type": "Article", "headline": f["title"], "inLanguage": "es", "url": ctx["base"] + ficha_path(i),

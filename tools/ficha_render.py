@@ -176,6 +176,17 @@ def body(f, idx, pdf=False, local=None, logo=True, pdf_url=None, today=None):
  <section><h2>Documentos oficiales</h2><p class="note">Copia de los documentos publicados en la Plataforma de Contratación del Sector Público. La versión válida es siempre la de la Plataforma.</p>
   <div class="tw"><table class="files"><thead><tr><th>Documento</th><th>Formato</th><th class="num">Tamaño</th>{'' if pdf else '<th></th>'}</tr></thead><tbody>{files}</tbody></table></div>
   <p class="note">Anuncio, pliegos y rectificaciones en la <a href="{e(f['official_url'])}" target="_blank" rel="noopener">ficha oficial de la licitación</a>.</p></section>
+ <!--ASK2-->
+</main>
+<section class="diag fin" id="diagnostico-fin"><div class="in dg">
+ <div class="dl1"><span class="dtag">Gratis · 5 minutos · sin compromiso</span>
+  <h2>¿Te presentas? <span>Descubre si tu empresa puede ganar esta licitación.</span></h2>
+  <ul class="dpts"><li><b>¿Cumples la solvencia?</b> Comparamos tus cifras con lo que exige el pliego.</li><li><b>¿Qué puntuación puedes sacar?</b> Criterio a criterio, sobre los {total_pts} puntos.</li><li><b>¿Qué precio te deja opciones?</b> Y dónde está el riesgo de baja anormal.</li></ul></div>
+ <div class="dr1"><a class="dbtn" href="https://www.ullswaterinvestments.com/es/contacto/" target="_blank" rel="noopener">Pedir diagnóstico gratuito</a>
+  <p>Resultado al momento y en PDF. Si quieres, después un consultor de Ullswater te ayuda a preparar la oferta.</p>
+  <p class="durl">ullswaterinvestments.com · diagnóstico gratuito de licitaciones</p></div>
+</div></section>
+<main class="in">
  <p class="disc">Resumen elaborado con IA a partir de los {len(f['docs'])} documentos principales del expediente{f" ({n_pages} páginas)" if n_pages else ""}. Revisado el {fd(f['reviewed'])}. Prevalecen siempre los pliegos y el anuncio oficial. Cada dato indica el documento y la página de donde sale: {e("; ".join(f"{k} = {v}" for k, v in ab.items()))}.</p>
 </main>"""
 
